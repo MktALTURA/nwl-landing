@@ -9,7 +9,7 @@ const levels = [
     icon: FaChild,
     name: 'Maternal',
     ageRange: '2-3 years',
-    color: 'eucalyptus',
+    color: 'sunshine',
     description: 'Early childhood development in a nurturing, play-based environment.',
     campuses: ['Juriquilla', 'Zibatá', 'Corregidora'],
   },
@@ -17,7 +17,7 @@ const levels = [
     icon: FiStar,
     name: 'Kinder',
     ageRange: '4-5 years',
-    color: 'mustard',
+    color: 'coral',
     description: 'Building foundation skills through exploration and discovery.',
     campuses: ['All 5 Campuses'],
   },
@@ -25,7 +25,7 @@ const levels = [
     icon: FiBook,
     name: 'Primaria',
     ageRange: '6-11 years',
-    color: 'skyblue',
+    color: 'ocean',
     description: 'Developing academic excellence and critical thinking skills.',
     campuses: ['All 5 Campuses'],
   },
@@ -33,7 +33,7 @@ const levels = [
     icon: FiUsers,
     name: 'Secundaria',
     ageRange: '12-14 years',
-    color: 'terracotta',
+    color: 'tangerine',
     description: 'Fostering independence, leadership, and self-discovery.',
     campuses: ['Juriquilla', 'Zibatá', 'SMA'],
   },
@@ -41,29 +41,29 @@ const levels = [
     icon: FiTrendingUp,
     name: 'Preparatoria',
     ageRange: '15-17 years',
-    color: 'wine',
+    color: 'blueberry',
     description: 'College prep with global perspective and career readiness.',
     campuses: ['Juriquilla', 'Zibatá'],
   },
 ];
 
 const colorMap: Record<string, string> = {
-  eucalyptus: 'bg-eucalyptus/20 text-eucalyptus border-eucalyptus',
-  mustard: 'bg-mustard/20 text-mustard border-mustard',
-  skyblue: 'bg-skyblue/20 text-skyblue border-skyblue',
-  terracotta: 'bg-terracotta/20 text-terracotta border-terracotta',
-  wine: 'bg-wine/20 text-wine border-wine',
+  sunshine: 'bg-sunshine/30 text-sunshine-700 border-sunshine',
+  coral: 'bg-coral/30 text-coral-700 border-coral',
+  ocean: 'bg-ocean/30 text-ocean-700 border-ocean',
+  tangerine: 'bg-tangerine/30 text-tangerine-700 border-tangerine',
+  blueberry: 'bg-blueberry/30 text-blueberry-700 border-blueberry',
 };
 
 export default function Levels() {
   return (
-    <section id="levels" className="section-padding bg-white animate-section">
+    <section id="levels" className="section-padding bg-gradient-to-b from-white via-warmgray to-sand animate-section">
       <div className="container-custom">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <div className="wine-divider mx-auto mb-6" />
+          <div className="bg-gradient-to-r from-sunshine via-coral to-ocean h-1 w-24 mx-auto mb-6 rounded-full" />
           <h2 className="font-display text-4xl md:text-5xl font-bold text-charcoal mb-4">
-            Educational <span className="text-wine">Programs</span>
+            Educational <span className="bg-gradient-to-r from-coral to-tangerine bg-clip-text text-transparent">Programs</span>
           </h2>
           <p className="text-lg text-charcoal/70 max-w-2xl mx-auto">
             From early childhood through high school, we guide your child's complete educational journey

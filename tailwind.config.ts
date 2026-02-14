@@ -14,11 +14,20 @@ const config: Config = {
         charcoal: "#3D3D3D",
         wine: "#8B2332",
         
-        // Accent Colors - Middle/Lower Sections
+        // Accent Colors - Middle/Lower Sections (Warm Transition)
         mustard: "#E6A944",
         eucalyptus: "#A8C5A5",
         skyblue: "#B8D4E8",
         terracotta: "#D4876F",
+        
+        // Vibrant Colors - Bottom Sections (Playful Energy)
+        coral: "#FF6B6B",
+        sunshine: "#FFD93D",
+        ocean: "#4ECDC4",
+        tangerine: "#FF8C42",
+        bubblegum: "#FF99C8",
+        lime: "#A8E6CF",
+        blueberry: "#6C5CE7",
         
         // Neutrals
         sand: "#F5F1E8",
