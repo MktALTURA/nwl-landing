@@ -1,11 +1,12 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { FiBaby, FiStar, FiBook, FiUsers, FiTrendingUp } from 'react-icons/fi';
+import { FiStar, FiBook, FiUsers, FiTrendingUp } from 'react-icons/fi';
+import { FaChild } from 'react-icons/fa';
 
 const levels = [
   {
-    icon: FiBaby,
+    icon: FaChild,
     name: 'Maternal',
     ageRange: '2-3 years',
     color: 'eucalyptus',
