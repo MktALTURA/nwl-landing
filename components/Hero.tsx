@@ -22,19 +22,92 @@ export default function Hero() {
     if (!isMounted) return;
 
     const ctx = gsap.context(() => {
-      // Parallax effect on hero content
-      gsap.to('.hero-content', {
-        y: 100,
-        opacity: 0.3,
+      // Split & Drift Effect - Left side of headline
+      gsap.to('.headline-left', {
+        x: -100,
+        y: -50,
+        opacity: 0,
         scrollTrigger: {
           trigger: heroRef.current,
           start: 'top top',
           end: 'bottom top',
+          scrub: 1.5,
+        },
+      });
+
+      // Split & Drift Effect - Right side of headline
+      gsap.to('.headline-right', {
+        x: 100,
+        y: 50,
+        opacity: 0,
+        scrollTrigger: {
+          trigger: heroRef.current,
+          start: 'top top',
+          end: 'bottom top',
+          scrub: 1.5,
+        },
+      });
+
+      // Tagline scales up and fades
+      gsap.to('.hero-tagline', {
+        scale: 1.3,
+        opacity: 0,
+        scrollTrigger: {
+          trigger: heroRef.current,
+          start: 'top top',
+          end: 'bottom top',
+          scrub: 1.5,
+        },
+      });
+
+      // Subheadline fades faster
+      gsap.to('.hero-subheadline', {
+        opacity: 0,
+        y: 30,
+        scrollTrigger: {
+          trigger: heroRef.current,
+          start: 'top top',
+          end: 'center top',
           scrub: 1,
         },
       });
 
-      // Animated tagline - characters reveal with stagger
+      // CTAs fade out first
+      gsap.to('.hero-ctas', {
+        opacity: 0,
+        y: 20,
+        scrollTrigger: {
+          trigger: heroRef.current,
+          start: 'top top',
+          end: '30% top',
+          scrub: 1,
+        },
+      });
+
+      // Trust indicators fade
+      gsap.to('.hero-trust', {
+        opacity: 0,
+        scrollTrigger: {
+          trigger: heroRef.current,
+          start: 'top top',
+          end: '40% top',
+          scrub: 1,
+        },
+      });
+
+      // Wine divider stays longer then fades
+      gsap.to('.hero-divider', {
+        opacity: 0,
+        width: 0,
+        scrollTrigger: {
+          trigger: heroRef.current,
+          start: '20% top',
+          end: 'center top',
+          scrub: 1,
+        },
+      });
+
+      // Animated tagline - characters reveal with stagger (initial load)
       gsap.from('.tagline-char', {
         opacity: 0,
         y: 20,
@@ -45,7 +118,7 @@ export default function Hero() {
         delay: 1.2,
       });
 
-      // Main headline word animation
+      // Main headline word animation (initial load)
       gsap.from('.word-wrap', {
         opacity: 0,
         y: 50,
@@ -120,27 +193,34 @@ export default function Hero() {
         </div>
       </div>
 
-      <div className="container-custom relative z-20 pt-32 pb-20 hero-content">
+      <div className="container-custom relative z-20 pt-32 pb-20">
         <div className="max-w-4xl">
           {/* Wine accent line with animation */}
           <motion.div
             initial={{ width: 0 }}
             animate={{ width: '4rem' }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="wine-divider mb-8"
+            className="wine-divider mb-8 hero-divider"
           />
 
-          {/* Main Headline - Animated word by word */}
+          {/* Main Headline - Split into Left and Right for drift effect */}
           <h1 className="font-display text-5xl md:text-7xl font-bold text-charcoal mb-8 leading-tight">
-            <span className="word-wrap inline-block">At</span>{' '}
-            <span className="word-wrap inline-block">Newland,</span>{' '}
-            <span className="word-wrap inline-block text-wine">we</span>{' '}
-            <span className="word-wrap inline-block text-wine">unlock</span>{' '}
-            <span className="word-wrap inline-block text-wine">greatness</span>
+            {/* Left side - drifts left and up */}
+            <span className="headline-left inline-block">
+              <span className="word-wrap inline-block">At</span>{' '}
+              <span className="word-wrap inline-block">Newland,</span>
+            </span>
+            <br />
+            {/* Right side - drifts right and down */}
+            <span className="headline-right inline-block">
+              <span className="word-wrap inline-block text-wine">we</span>{' '}
+              <span className="word-wrap inline-block text-wine">unlock</span>{' '}
+              <span className="word-wrap inline-block text-wine">greatness</span>
+            </span>
           </h1>
 
-          {/* Tagline - Character-by-character reveal */}
-          <div className="relative mb-12">
+          {/* Tagline - Scales up and fades */}
+          <div className="relative mb-12 hero-tagline">
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -162,7 +242,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1.8 }}
-            className="text-lg md:text-xl text-charcoal/80 mb-12 max-w-2xl leading-relaxed"
+            className="text-lg md:text-xl text-charcoal/80 mb-12 max-w-2xl leading-relaxed hero-subheadline"
           >
             At Newland, we drive the academic, emotional, and social development
             of our students in a close and trusting environment.
@@ -173,7 +253,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 2 }}
-            className="flex flex-col sm:flex-row gap-4"
+            className="flex flex-col sm:flex-row gap-4 hero-ctas"
           >
             {/* Primary CTA */}
             <motion.a
@@ -204,7 +284,7 @@ export default function Hero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 2.2 }}
-            className="mt-16 flex flex-wrap items-center gap-8 text-sm text-charcoal/60"
+            className="mt-16 flex flex-wrap items-center gap-8 text-sm text-charcoal/60 hero-trust"
           >
             {[
               { label: '5 Campuses', delay: 0 },
