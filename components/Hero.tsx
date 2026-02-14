@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { FiDownload, FiArrowRight } from 'react-icons/fi';
 import gsap from 'gsap';
@@ -12,10 +12,15 @@ if (typeof window !== 'undefined') {
 
 export default function Hero() {
   const heroRef = useRef<HTMLElement>(null);
-  const taglineRef = useRef<HTMLDivElement>(null);
-  const mainHeadlineRef = useRef<HTMLHeadingElement>(null);
+  const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (!isMounted) return;
+
     const ctx = gsap.context(() => {
       // Parallax effect on hero content
       gsap.to('.hero-content', {
@@ -30,46 +35,37 @@ export default function Hero() {
       });
 
       // Animated tagline - characters reveal with stagger
-      const taglineText = taglineRef.current;
-      if (taglineText) {
-        const text = taglineText.textContent || '';
-        taglineText.innerHTML = text
-          .split('')
-          .map((char) => `<span class="tagline-char">${char === ' ' ? '&nbsp;' : char}</span>`)
-          .join('');
+      gsap.from('.tagline-char', {
+        opacity: 0,
+        y: 20,
+        rotateX: -90,
+        stagger: 0.03,
+        duration: 0.8,
+        ease: 'back.out(1.7)',
+        delay: 1.2,
+      });
 
-        gsap.from('.tagline-char', {
-          opacity: 0,
-          y: 20,
-          rotateX: -90,
-          stagger: 0.03,
-          duration: 0.8,
-          ease: 'back.out(1.7)',
-          delay: 1.2,
-        });
-      }
-
-      // Main headline split and animate
-      const mainHeadline = mainHeadlineRef.current;
-      if (mainHeadline) {
-        const words = mainHeadline.innerHTML.split(' ');
-        mainHeadline.innerHTML = words
-          .map((word) => `<span class="word-wrap">${word}</span>`)
-          .join(' ');
-
-        gsap.from('.word-wrap', {
-          opacity: 0,
-          y: 50,
-          stagger: 0.1,
-          duration: 1,
-          ease: 'power3.out',
-          delay: 0.4,
-        });
-      }
+      // Main headline word animation
+      gsap.from('.word-wrap', {
+        opacity: 0,
+        y: 50,
+        stagger: 0.1,
+        duration: 1,
+        ease: 'power3.out',
+        delay: 0.4,
+      });
     }, heroRef);
 
     return () => ctx.revert();
-  }, []);
+  }, [isMounted]);
+
+  // Split tagline into characters
+  const taglineText = "Be proud, be Newland";
+  const taglineChars = taglineText.split('').map((char, i) => (
+    <span key={i} className="tagline-char inline-block">
+      {char === ' ' ? '\u00A0' : char}
+    </span>
+  ));
 
   return (
     <section
@@ -134,12 +130,13 @@ export default function Hero() {
             className="wine-divider mb-8"
           />
 
-          {/* Main Headline - Animated */}
-          <h1
-            ref={mainHeadlineRef}
-            className="font-display text-5xl md:text-7xl font-bold text-charcoal mb-8 leading-tight"
-          >
-            At Newland, <span className="text-wine">we unlock greatness</span>
+          {/* Main Headline - Animated word by word */}
+          <h1 className="font-display text-5xl md:text-7xl font-bold text-charcoal mb-8 leading-tight">
+            <span className="word-wrap inline-block">At</span>{' '}
+            <span className="word-wrap inline-block">Newland,</span>{' '}
+            <span className="word-wrap inline-block text-wine">we</span>{' '}
+            <span className="word-wrap inline-block text-wine">unlock</span>{' '}
+            <span className="word-wrap inline-block text-wine">greatness</span>
           </h1>
 
           {/* Tagline - Character-by-character reveal */}
@@ -151,13 +148,12 @@ export default function Hero() {
               className="absolute -inset-4 bg-gradient-to-r from-wine/5 via-terracotta/5 to-transparent rounded-lg blur-xl"
             />
             <div
-              ref={taglineRef}
               className="relative text-3xl md:text-5xl font-display font-black text-wine leading-tight tracking-tight"
               style={{
                 textShadow: '2px 2px 0px rgba(139, 35, 50, 0.1)',
               }}
             >
-              Be proud, be Newland
+              {taglineChars}
             </div>
           </div>
 
