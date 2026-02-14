@@ -6,28 +6,13 @@ import { FaChild } from 'react-icons/fa';
 
 const levels = [
   {
-    icon: FaChild,
-    name: 'Maternal',
-    ageRange: '2-3 years',
-    color: 'sunshine',
-    description: 'Early childhood development in a nurturing, play-based environment.',
-    campuses: ['Juriquilla', 'Zibatá', 'Corregidora'],
-  },
-  {
-    icon: FiStar,
-    name: 'Kinder',
-    ageRange: '4-5 years',
-    color: 'coral',
-    description: 'Building foundation skills through exploration and discovery.',
-    campuses: ['All 5 Campuses'],
-  },
-  {
-    icon: FiBook,
-    name: 'Primaria',
-    ageRange: '6-11 years',
-    color: 'ocean',
-    description: 'Developing academic excellence and critical thinking skills.',
-    campuses: ['All 5 Campuses'],
+    icon: FiTrendingUp,
+    name: 'Preparatoria',
+    ageRange: '15-17 years',
+    color: 'blueberry',
+    description: 'College prep with global perspective and career readiness.',
+    campuses: ['Juriquilla', 'Zibatá'],
+    image: '/levels/preparatoria.jpg',
   },
   {
     icon: FiUsers,
@@ -36,14 +21,34 @@ const levels = [
     color: 'tangerine',
     description: 'Fostering independence, leadership, and self-discovery.',
     campuses: ['Juriquilla', 'Zibatá', 'SMA'],
+    image: '/levels/secundaria.jpg',
   },
   {
-    icon: FiTrendingUp,
-    name: 'Preparatoria',
-    ageRange: '15-17 years',
-    color: 'blueberry',
-    description: 'College prep with global perspective and career readiness.',
-    campuses: ['Juriquilla', 'Zibatá'],
+    icon: FiBook,
+    name: 'Primaria',
+    ageRange: '6-11 years',
+    color: 'ocean',
+    description: 'Developing academic excellence and critical thinking skills.',
+    campuses: ['All 5 Campuses'],
+    image: '/levels/primaria.jpg',
+  },
+  {
+    icon: FiStar,
+    name: 'Kinder',
+    ageRange: '4-5 years',
+    color: 'coral',
+    description: 'Building foundation skills through exploration and discovery.',
+    campuses: ['All 5 Campuses'],
+    image: '/levels/kinder.jpg',
+  },
+  {
+    icon: FaChild,
+    name: 'Maternal',
+    ageRange: '2-3 years',
+    color: 'sunshine',
+    description: 'Early childhood development in a nurturing, play-based environment.',
+    campuses: ['Juriquilla', 'Zibatá', 'Corregidora'],
+    image: '/levels/maternal.jpg',
   },
 ];
 
@@ -79,41 +84,56 @@ export default function Levels() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="group bg-ivory p-8 rounded-sm border-2 border-transparent hover:border-wine/20 transition-all duration-300"
+              className="group bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border-2 border-transparent hover:border-current"
+              style={{ borderColor: `var(--${level.color})` }}
             >
-              {/* Icon */}
-              <div className={`inline-flex items-center justify-center w-16 h-16 rounded-full mb-6 ${colorMap[level.color]}`}>
-                <level.icon size={28} />
-              </div>
-
-              {/* Content */}
-              <h3 className="text-2xl font-bold text-charcoal mb-2">
-                {level.name}
-              </h3>
-              <p className="text-sm text-wine mb-4">{level.ageRange}</p>
-              <p className="text-charcoal/70 mb-4 leading-relaxed">
-                {level.description}
-              </p>
-
-              {/* Campuses */}
-              <div className="pt-4 border-t border-charcoal/10">
-                <p className="text-xs text-charcoal/60 mb-2">Available at:</p>
-                <div className="flex flex-wrap gap-2">
-                  {level.campuses.map((campus) => (
-                    <span
-                      key={campus}
-                      className="text-xs px-2 py-1 bg-wine/10 text-wine rounded-sm"
-                    >
-                      {campus}
-                    </span>
-                  ))}
+              {/* Image Placeholder */}
+              <div className={`aspect-[4/3] bg-gradient-to-br ${colorMap[level.color]} relative overflow-hidden`}>
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="text-center p-6">
+                    <level.icon size={64} className="mx-auto mb-3 opacity-40" />
+                    <p className="text-sm font-medium opacity-60">
+                      [ {level.name} Photo ]
+                    </p>
+                    <p className="text-xs opacity-40 mt-1">
+                      {level.image}
+                    </p>
+                  </div>
                 </div>
               </div>
 
-              {/* CTA */}
-              <button className="mt-6 text-sm text-wine font-medium group-hover:underline">
-                Learn More →
-              </button>
+              {/* Content */}
+              <div className="p-6">
+                <h3 className="text-2xl font-bold text-charcoal mb-2">
+                  {level.name}
+                </h3>
+                <p className={`text-sm font-bold mb-4 ${colorMap[level.color].split(' ')[1]}`}>
+                  {level.ageRange}
+                </p>
+                <p className="text-charcoal/70 mb-4 leading-relaxed">
+                  {level.description}
+                </p>
+
+                {/* Campuses */}
+                <div className="pt-4 border-t border-charcoal/10">
+                  <p className="text-xs text-charcoal/60 mb-2">Available at:</p>
+                  <div className="flex flex-wrap gap-2">
+                    {level.campuses.map((campus) => (
+                      <span
+                        key={campus}
+                        className={`text-xs px-2 py-1 rounded-full ${colorMap[level.color].split(' ')[0]} font-medium`}
+                      >
+                        {campus}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                {/* CTA */}
+                <button className={`mt-6 text-sm font-bold group-hover:underline ${colorMap[level.color].split(' ')[1]}`}>
+                  Learn More →
+                </button>
+              </div>
             </motion.div>
           ))}
         </div>

@@ -7,16 +7,19 @@ const pillars = [
     number: '01',
     title: 'Academic Rigor',
     description: 'Challenging curriculum that develops critical thinking and problem-solving skills.',
+    image: '/philosophy/academic.jpg',
   },
   {
     number: '02',
     title: 'Emotional Intelligence',
     description: 'Building self-awareness, empathy, and resilience in every student.',
+    image: '/philosophy/emotional.jpg',
   },
   {
     number: '03',
     title: 'Community Connection',
     description: 'Strong partnerships between students, families, and educators.',
+    image: '/philosophy/community.jpg',
   },
 ];
 
@@ -37,8 +40,8 @@ export default function Philosophy() {
               academically, emotionally, and socially.
             </p>
 
-            {/* Three Pillars */}
-            <div className="space-y-8 mb-8">
+            {/* Three Pillars with Images */}
+            <div className="space-y-6 mb-8">
               {pillars.map((pillar, index) => (
                 <motion.div
                   key={pillar.number}
@@ -46,18 +49,19 @@ export default function Philosophy() {
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.15 }}
                   viewport={{ once: true }}
-                  className="flex gap-4"
+                  className="flex gap-4 bg-white p-4 rounded-lg hover:shadow-md transition-all"
                 >
-                  <div className="flex-shrink-0">
-                    <div className="text-3xl font-display font-bold text-wine/20">
+                  {/* Small image preview */}
+                  <div className="flex-shrink-0 w-20 h-20 rounded-lg bg-gradient-to-br from-wine/20 to-terracotta/20 flex items-center justify-center">
+                    <div className="text-2xl font-display font-bold text-wine/40">
                       {pillar.number}
                     </div>
                   </div>
-                  <div>
+                  <div className="flex-1">
                     <h3 className="text-xl font-bold text-charcoal mb-2">
                       {pillar.title}
                     </h3>
-                    <p className="text-charcoal/70">
+                    <p className="text-charcoal/70 text-sm">
                       {pillar.description}
                     </p>
                   </div>
@@ -70,24 +74,61 @@ export default function Philosophy() {
             </a>
           </div>
 
-          {/* Right: Image/Visual */}
+          {/* Right: Large Image Stack */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="relative"
+            className="relative space-y-4"
           >
-            {/* Placeholder for campus photo */}
-            <div className="aspect-[4/3] bg-gradient-to-br from-wine/20 to-mustard/20 rounded-sm overflow-hidden">
-              <div className="w-full h-full flex items-center justify-center text-charcoal/30">
-                {/* Replace with actual photo */}
-                <p className="text-sm">[ Campus Photo: Natural light, outdoor space ]</p>
+            {/* Main large image */}
+            <div className="aspect-[4/3] bg-gradient-to-br from-wine/20 to-mustard/20 rounded-lg overflow-hidden relative">
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="text-center p-6">
+                  <p className="text-lg font-medium text-charcoal/60 mb-2">
+                    [ Main Philosophy Image ]
+                  </p>
+                  <p className="text-sm text-charcoal/40">
+                    /images/philosophy-main.jpg
+                  </p>
+                  <p className="text-xs text-charcoal/30 mt-2 max-w-xs mx-auto">
+                    Students collaborating on a project, natural lighting
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Two smaller images below */}
+            <div className="grid grid-cols-2 gap-4">
+              <div className="aspect-square bg-gradient-to-br from-terracotta/20 to-eucalyptus/20 rounded-lg overflow-hidden relative">
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="text-center p-3">
+                    <p className="text-xs font-medium text-charcoal/50 mb-1">
+                      [ Secondary 1 ]
+                    </p>
+                    <p className="text-xs text-charcoal/30">
+                      /images/philosophy-1.jpg
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div className="aspect-square bg-gradient-to-br from-eucalyptus/20 to-skyblue/20 rounded-lg overflow-hidden relative">
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="text-center p-3">
+                    <p className="text-xs font-medium text-charcoal/50 mb-1">
+                      [ Secondary 2 ]
+                    </p>
+                    <p className="text-xs text-charcoal/30">
+                      /images/philosophy-2.jpg
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
 
             {/* Accent decoration */}
-            <div className="absolute -bottom-4 -right-4 w-32 h-32 bg-wine/10 -z-10" />
+            <div className="absolute -bottom-4 -right-4 w-32 h-32 bg-wine/10 -z-10 rounded-lg" />
           </motion.div>
         </div>
       </div>
