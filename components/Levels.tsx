@@ -12,7 +12,7 @@ const levels = [
     color: 'blueberry',
     description: 'College prep with global perspective and career readiness.',
     campuses: ['Juriquilla', 'Zibatá'],
-    image: '/levels/preparatoria.jpg',
+    image: '/images/levels/preparatoria.jpg',
   },
   {
     icon: FiUsers,
@@ -21,7 +21,7 @@ const levels = [
     color: 'tangerine',
     description: 'Fostering independence, leadership, and self-discovery.',
     campuses: ['Juriquilla', 'Zibatá', 'SMA'],
-    image: '/levels/secundaria.jpg',
+    image: '/images/levels/secundaria.jpg',
   },
   {
     icon: FiBook,
@@ -30,7 +30,7 @@ const levels = [
     color: 'ocean',
     description: 'Developing academic excellence and critical thinking skills.',
     campuses: ['All 5 Campuses'],
-    image: '/levels/primaria.jpg',
+    image: '/images/levels/primaria.jpg',
   },
   {
     icon: FiStar,
@@ -39,7 +39,7 @@ const levels = [
     color: 'coral',
     description: 'Building foundation skills through exploration and discovery.',
     campuses: ['All 5 Campuses'],
-    image: '/levels/kinder.jpg',
+    image: '/images/levels/kinder.jpg',
   },
   {
     icon: FaChild,
@@ -48,7 +48,7 @@ const levels = [
     color: 'sunshine',
     description: 'Early childhood development in a nurturing, play-based environment.',
     campuses: ['Juriquilla', 'Zibatá', 'Corregidora'],
-    image: '/levels/maternal.jpg',
+    image: '/images/levels/maternal.jpg',
   },
 ];
 
@@ -87,19 +87,14 @@ export default function Levels() {
               className="group bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border-2 border-transparent hover:border-current"
               style={{ borderColor: `var(--${level.color})` }}
             >
-              {/* Image Placeholder */}
-              <div className={`aspect-[4/3] bg-gradient-to-br ${colorMap[level.color]} relative overflow-hidden`}>
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-center p-6">
-                    <level.icon size={64} className="mx-auto mb-3 opacity-40" />
-                    <p className="text-sm font-medium opacity-60">
-                      [ {level.name} Photo ]
-                    </p>
-                    <p className="text-xs opacity-40 mt-1">
-                      {level.image}
-                    </p>
-                  </div>
-                </div>
+              {/* Level Image */}
+              <div className="aspect-[4/3] relative overflow-hidden">
+                <img 
+                  src={level.image} 
+                  alt={`${level.name} students`}
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
               </div>
 
               {/* Content */}

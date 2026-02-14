@@ -177,20 +177,14 @@ export default function Hero() {
         />
       </div>
 
-      {/* Background Image Placeholder */}
-      <div className="absolute inset-0 opacity-10">
+      {/* Background Image */}
+      <div className="absolute inset-0 opacity-15">
         <div className="absolute inset-0 bg-gradient-to-r from-charcoal/60 via-charcoal/30 to-transparent z-10" />
-        <div className="w-full h-full bg-gradient-to-br from-warmgray to-sand relative">
-          <div className="absolute inset-0 flex items-center justify-center text-charcoal/20">
-            <div className="text-center">
-              <p className="text-sm font-medium mb-2">[ Hero Background Image ]</p>
-              <p className="text-xs">/images/hero-background.jpg</p>
-              <p className="text-xs mt-2 max-w-md">
-                Campus exterior or students in action, wide shot
-              </p>
-            </div>
-          </div>
-        </div>
+        <img 
+          src="/images/hero-background.jpg" 
+          alt="Newland campus"
+          className="w-full h-full object-cover"
+        />
       </div>
 
       <div className="container-custom relative z-20 pt-32 pb-20">

@@ -83,47 +83,32 @@ export default function Philosophy() {
             className="relative space-y-4"
           >
             {/* Main large image */}
-            <div className="aspect-[4/3] bg-gradient-to-br from-wine/20 to-mustard/20 rounded-lg overflow-hidden relative">
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="text-center p-6">
-                  <p className="text-lg font-medium text-charcoal/60 mb-2">
-                    [ Main Philosophy Image ]
-                  </p>
-                  <p className="text-sm text-charcoal/40">
-                    /images/philosophy-main.jpg
-                  </p>
-                  <p className="text-xs text-charcoal/30 mt-2 max-w-xs mx-auto">
-                    Students collaborating on a project, natural lighting
-                  </p>
-                </div>
-              </div>
+            <div className="aspect-[4/3] rounded-lg overflow-hidden relative shadow-lg">
+              <img 
+                src="/images/philosophy/philosophy-main.jpg" 
+                alt="Students collaborating on a project"
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
             </div>
 
             {/* Two smaller images below */}
             <div className="grid grid-cols-2 gap-4">
-              <div className="aspect-square bg-gradient-to-br from-terracotta/20 to-eucalyptus/20 rounded-lg overflow-hidden relative">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-center p-3">
-                    <p className="text-xs font-medium text-charcoal/50 mb-1">
-                      [ Secondary 1 ]
-                    </p>
-                    <p className="text-xs text-charcoal/30">
-                      /images/philosophy-1.jpg
-                    </p>
-                  </div>
-                </div>
+              <div className="aspect-square rounded-lg overflow-hidden relative shadow-md">
+                <img 
+                  src="/images/philosophy/philosophy-1.jpg" 
+                  alt="Outdoor learning"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
               </div>
-              <div className="aspect-square bg-gradient-to-br from-eucalyptus/20 to-skyblue/20 rounded-lg overflow-hidden relative">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-center p-3">
-                    <p className="text-xs font-medium text-charcoal/50 mb-1">
-                      [ Secondary 2 ]
-                    </p>
-                    <p className="text-xs text-charcoal/30">
-                      /images/philosophy-2.jpg
-                    </p>
-                  </div>
-                </div>
+              <div className="aspect-square rounded-lg overflow-hidden relative shadow-md">
+                <img 
+                  src="/images/philosophy/philosophy-2.jpg" 
+                  alt="Hands-on collaboration"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
               </div>
             </div>
 
