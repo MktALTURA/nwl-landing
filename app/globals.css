@@ -36,4 +36,20 @@
   .wine-divider {
     @apply w-16 h-[2px] bg-wine;
   }
+  
+  /* Animated text styles */
+  .word-wrap {
+    display: inline-block;
+    perspective: 1000px;
+  }
+  
+  .tagline-char {
+    display: inline-block;
+    transform-style: preserve-3d;
+  }
+  
+  /* Smooth transitions */
+  .hero-content {
+    will-change: transform, opacity;
+  }
 }
