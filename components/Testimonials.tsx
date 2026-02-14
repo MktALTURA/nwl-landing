@@ -9,21 +9,21 @@ const testimonials = [
     author: "María González",
     role: "Parent - Kinder, Juriquilla",
     rating: 5,
-    image: '/testimonials/maria.jpg',
+    image: '/images/testimonials/maria.jpg',
   },
   {
     quote: "The bilingual program is excellent. My son switched from another school and his English improved dramatically in just one year.",
     author: "Carlos Mendoza",
     role: "Parent - Primaria, Zibatá",
     rating: 5,
-    image: '/testimonials/carlos.jpg',
+    image: '/images/testimonials/carlos.jpg',
   },
   {
     quote: "What impressed us most was the sense of community. Parents, teachers, and students all feel like one big family.",
     author: "Ana Torres",
     role: "Parent - Secundaria, SMA",
     rating: 5,
-    image: '/testimonials/ana.jpg',
+    image: '/images/testimonials/ana.jpg',
   },
 ];
 
@@ -53,19 +53,14 @@ export default function Testimonials() {
               viewport={{ once: true }}
               className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all"
             >
-              {/* Portrait placeholder */}
-              <div className="aspect-square bg-gradient-to-br from-wine/20 to-eucalyptus/20 relative">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-center p-4">
-                    <div className="w-20 h-20 rounded-full bg-white/50 mx-auto mb-2" />
-                    <p className="text-xs text-charcoal/40">
-                      [ Parent Photo ]
-                    </p>
-                    <p className="text-xs text-charcoal/30 mt-1">
-                      {testimonial.image}
-                    </p>
-                  </div>
-                </div>
+              {/* Portrait */}
+              <div className="aspect-square relative overflow-hidden">
+                <img 
+                  src={testimonial.image} 
+                  alt={`${testimonial.author} - Parent testimonial`}
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
               </div>
 
               {/* Content */}
@@ -105,21 +100,18 @@ export default function Testimonials() {
           viewport={{ once: true }}
           className="mb-16"
         >
-          <div className="aspect-video bg-gradient-to-br from-wine/30 to-terracotta/20 rounded-lg overflow-hidden relative">
+          <div className="aspect-video rounded-lg overflow-hidden relative shadow-xl group cursor-pointer">
+            <img 
+              src="/images/testimonials/video-testimonial.jpg" 
+              alt="Parent video testimonial"
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors" />
+            
+            {/* Play button overlay */}
             <div className="absolute inset-0 flex items-center justify-center">
-              <div className="text-center p-8">
-                <div className="w-20 h-20 rounded-full bg-white/80 flex items-center justify-center mx-auto mb-4">
-                  <div className="w-0 h-0 border-t-[10px] border-t-transparent border-l-[16px] border-l-wine border-b-[10px] border-b-transparent ml-1" />
-                </div>
-                <p className="text-lg font-medium text-charcoal/60 mb-2">
-                  [ Video Testimonial ]
-                </p>
-                <p className="text-sm text-charcoal/40">
-                  /videos/parent-testimonial.mp4
-                </p>
-                <p className="text-xs text-charcoal/30 mt-2 max-w-md mx-auto">
-                  Parent interview discussing their child's journey at Newland
-                </p>
+              <div className="w-20 h-20 rounded-full bg-white/90 flex items-center justify-center group-hover:scale-110 transition-transform shadow-2xl">
+                <div className="w-0 h-0 border-t-[12px] border-t-transparent border-l-[20px] border-l-wine border-b-[12px] border-b-transparent ml-1" />
               </div>
             </div>
           </div>

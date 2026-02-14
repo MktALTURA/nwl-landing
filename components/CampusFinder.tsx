@@ -8,7 +8,7 @@ const campuses = [
     name: 'Juriquilla',
     location: 'Querétaro, Qro.',
     levels: 'Maternal - Preparatoria',
-    image: '/campus-juriquilla.jpg',
+    image: '/images/campus/juriquilla.jpg',
     description: 'Our flagship campus with complete educational offerings.',
     color: 'sunshine',
     accent: 'coral',
@@ -17,7 +17,7 @@ const campuses = [
     name: 'Zibatá',
     location: 'El Marqués, Qro.',
     levels: 'Maternal - Preparatoria',
-    image: '/campus-zibata.jpg',
+    image: '/images/campus/zibata.jpg',
     description: 'Modern facilities in a growing community.',
     color: 'ocean',
     accent: 'tangerine',
@@ -26,7 +26,7 @@ const campuses = [
     name: 'San Miguel de Allende',
     location: 'San Miguel de Allende, Gto.',
     levels: 'Kinder - Secundaria',
-    image: '/campus-sma.jpg',
+    image: '/images/campus/sma.jpg',
     description: 'Cultural richness meets academic excellence.',
     color: 'bubblegum',
     accent: 'blueberry',
@@ -35,7 +35,7 @@ const campuses = [
     name: 'Corregidora',
     location: 'Corregidora, Qro.',
     levels: 'Maternal - Primaria',
-    image: '/campus-corregidora.jpg',
+    image: '/images/campus/corregidora.jpg',
     description: 'Welcoming environment for early learners.',
     color: 'lime',
     accent: 'sunshine',
@@ -44,7 +44,7 @@ const campuses = [
     name: 'Milenio',
     location: 'Querétaro, Qro.',
     levels: 'Kinder - Primaria',
-    image: '/campus-milenio.jpg',
+    image: '/images/campus/milenio.jpg',
     description: 'Conveniently located with excellent facilities.',
     color: 'coral',
     accent: 'ocean',
@@ -150,21 +150,17 @@ export default function CampusFinder() {
               className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border-4 border-transparent hover:border-current"
               style={{ color: `var(--${campus.accent})` }}
             >
-              {/* Colorful Image Placeholder */}
-              <div className={`aspect-[4/3] bg-gradient-to-br ${colorClasses[campus.color]?.gradient} overflow-hidden relative`}>
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-center p-6">
-                    <div className={`text-6xl font-black ${colorClasses[campus.accent]?.text} opacity-30 mb-2`}>
-                      {campus.name.charAt(0)}
-                    </div>
-                    <p className="text-sm text-charcoal/40 font-medium">
-                      [ Campus Photo ]
-                    </p>
-                  </div>
-                </div>
+              {/* Campus Image */}
+              <div className="aspect-[4/3] overflow-hidden relative">
+                <img 
+                  src={campus.image} 
+                  alt={`${campus.name} campus`}
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
                 
                 {/* Playful Badge */}
-                <div className={`absolute top-4 right-4 ${colorClasses[campus.color]?.bg} ${colorClasses[campus.color]?.text} px-3 py-1 rounded-full text-xs font-bold flex items-center gap-1`}>
+                <div className={`absolute top-4 right-4 ${colorClasses[campus.color]?.bg} ${colorClasses[campus.color]?.text} px-3 py-1 rounded-full text-xs font-bold flex items-center gap-1 shadow-lg`}>
                   <FiHeart size={12} />
                   Campus #{index + 1}
                 </div>
