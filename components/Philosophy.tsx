@@ -8,19 +8,19 @@ const pillars = [
     number: '01',
     title: 'Academic Rigor',
     description: 'Challenging curriculum that develops critical thinking and problem-solving skills.',
-    image: '/philosophy/academic.jpg',
+    image: '/images/benefits/academic.jpg',
   },
   {
     number: '02',
     title: 'Emotional Intelligence',
     description: 'Building self-awareness, empathy, and resilience in every student.',
-    image: '/philosophy/emotional.jpg',
+    image: '/images/benefits/emotional.jpg',
   },
   {
     number: '03',
     title: 'Community Connection',
     description: 'Strong partnerships between students, families, and educators.',
-    image: '/philosophy/community.jpg',
+    image: '/images/benefits/community.jpg',
   },
 ];
 
