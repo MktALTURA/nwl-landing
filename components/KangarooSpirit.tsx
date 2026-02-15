@@ -238,13 +238,8 @@ export default function KangarooSpirit() {
       tl.to(flyer, { scaleY: 1.15, scaleX: 0.9, duration: 0.1, ease: 'power2.out' });
       tl.call(() => burstDust(sx, sy + navRect.height / 2));
 
-      // Recalculate circle position right before arc (scroll has settled by now)
-      let arcR: any[] = [];
-      tl.call(() => {
-        circlePosition();
-        // Arc from nav center to circle center
-        arcR = arcKeyframes(sx, sy, ex, ey, 200);
-      });
+      // Compute arc keyframes synchronously so they're available for the timeline
+      const arcR = arcKeyframes(sx, sy, ex, ey, 200);
 
       tl.to(flyer, {
         duration: 0.9,
