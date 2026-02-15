@@ -24,109 +24,129 @@ export default function Hero() {
 
     const ctx = gsap.context(() => {
       // Split & Drift Effect - Left side of headline
-      gsap.to('.headline-left', {
-        x: -100,
-        y: -50,
-        opacity: 0,
-        scrollTrigger: {
-          trigger: heroRef.current,
-          start: 'top top',
-          end: 'bottom top',
-          scrub: 1.5,
-        },
-      });
+      gsap.fromTo('.headline-left',
+        { x: 0, y: 0, opacity: 1 },
+        {
+          x: -100,
+          y: -50,
+          opacity: 0,
+          scrollTrigger: {
+            trigger: heroRef.current,
+            start: 'top top',
+            end: 'bottom top',
+            scrub: 1.5,
+          },
+        }
+      );
 
       // Split & Drift Effect - Right side of headline
-      gsap.to('.headline-right', {
-        x: 100,
-        y: 50,
-        opacity: 0,
-        scrollTrigger: {
-          trigger: heroRef.current,
-          start: 'top top',
-          end: 'bottom top',
-          scrub: 1.5,
-        },
-      });
+      gsap.fromTo('.headline-right',
+        { x: 0, y: 0, opacity: 1 },
+        {
+          x: 100,
+          y: 50,
+          opacity: 0,
+          scrollTrigger: {
+            trigger: heroRef.current,
+            start: 'top top',
+            end: 'bottom top',
+            scrub: 1.5,
+          },
+        }
+      );
 
       // Tagline scales up and fades
-      gsap.to('.hero-tagline', {
-        scale: 1.3,
-        opacity: 0,
-        scrollTrigger: {
-          trigger: heroRef.current,
-          start: 'top top',
-          end: 'bottom top',
-          scrub: 1.5,
-        },
-      });
+      gsap.fromTo('.hero-tagline',
+        { scale: 1, opacity: 1 },
+        {
+          scale: 1.3,
+          opacity: 0,
+          scrollTrigger: {
+            trigger: heroRef.current,
+            start: 'top top',
+            end: 'bottom top',
+            scrub: 1.5,
+          },
+        }
+      );
 
       // Subheadline fades faster
-      gsap.to('.hero-subheadline', {
-        opacity: 0,
-        y: 30,
-        scrollTrigger: {
-          trigger: heroRef.current,
-          start: 'top top',
-          end: 'center top',
-          scrub: 1,
-        },
-      });
+      gsap.fromTo('.hero-subheadline',
+        { opacity: 1, y: 0 },
+        {
+          opacity: 0,
+          y: 30,
+          scrollTrigger: {
+            trigger: heroRef.current,
+            start: 'top top',
+            end: 'center top',
+            scrub: 1,
+          },
+        }
+      );
 
       // CTAs fade out first
-      gsap.to('.hero-ctas', {
-        opacity: 0,
-        y: 20,
-        scrollTrigger: {
-          trigger: heroRef.current,
-          start: 'top top',
-          end: '30% top',
-          scrub: 1,
-        },
-      });
+      gsap.fromTo('.hero-ctas',
+        { opacity: 1, y: 0 },
+        {
+          opacity: 0,
+          y: 20,
+          scrollTrigger: {
+            trigger: heroRef.current,
+            start: 'top top',
+            end: '30% top',
+            scrub: 1,
+          },
+        }
+      );
 
       // Trust indicators fade
-      gsap.to('.hero-trust', {
-        opacity: 0,
-        scrollTrigger: {
-          trigger: heroRef.current,
-          start: 'top top',
-          end: '40% top',
-          scrub: 1,
-        },
-      });
+      gsap.fromTo('.hero-trust',
+        { opacity: 1 },
+        {
+          opacity: 0,
+          scrollTrigger: {
+            trigger: heroRef.current,
+            start: 'top top',
+            end: '40% top',
+            scrub: 1,
+          },
+        }
+      );
 
       // Wine divider stays longer then fades
-      gsap.to('.hero-divider', {
-        opacity: 0,
-        width: 0,
-        scrollTrigger: {
-          trigger: heroRef.current,
-          start: '20% top',
-          end: 'center top',
-          scrub: 1,
-        },
-      });
+      gsap.fromTo('.hero-divider',
+        { opacity: 1 },
+        {
+          opacity: 0,
+          scrollTrigger: {
+            trigger: heroRef.current,
+            start: '20% top',
+            end: 'center top',
+            scrub: 1,
+          },
+        }
+      );
 
       // Animated tagline - characters reveal with stagger (initial load)
       gsap.from('.tagline-char', {
         opacity: 0,
         y: 20,
         rotateX: -90,
-        stagger: 0.03,
-        duration: 0.8,
+        stagger: 0.04,
+        duration: 1,
         ease: 'back.out(1.7)',
-        delay: 1.2,
+        delay: 1.6,
       });
 
       // Main headline word animation (initial load)
       gsap.from('.word-wrap', {
         opacity: 0,
         y: 50,
-        stagger: 0.1,
-        duration: 1,
+        stagger: 0.15,
+        duration: 1.4,
         ease: 'power3.out',
-        delay: 0.4,
+        delay: 0.6,
       });
     }, heroRef);
 
@@ -223,7 +243,7 @@ export default function Hero() {
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6, delay: 1 }}
+              transition={{ duration: 0.6, delay: 1.4 }}
               className="absolute -inset-4 bg-gradient-to-r from-wine/5 via-terracotta/5 to-transparent rounded-lg blur-xl"
             />
             <div
@@ -240,7 +260,7 @@ export default function Hero() {
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1.8 }}
+            transition={{ duration: 0.8, delay: 2.2 }}
             className="text-lg md:text-xl text-charcoal/80 mb-12 max-w-2xl leading-relaxed hero-subheadline"
           >
             At Newland, we drive the academic, emotional, and social development
@@ -251,7 +271,7 @@ export default function Hero() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 2 }}
+            transition={{ duration: 0.8, delay: 2.6 }}
             className="flex flex-col sm:flex-row gap-4 hero-ctas"
           >
             {/* Primary CTA */}
@@ -282,7 +302,7 @@ export default function Hero() {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 2.2 }}
+            transition={{ duration: 0.8, delay: 2.8 }}
             className="mt-16 flex flex-wrap items-center gap-8 text-sm text-charcoal/60 hero-trust"
           >
             {[
@@ -294,7 +314,7 @@ export default function Hero() {
                 key={index}
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5, delay: 2.3 + item.delay }}
+                transition={{ duration: 0.5, delay: 2.9 + item.delay }}
                 className="flex items-center"
               >
                 <div className="w-12 h-[2px] bg-wine mr-3" />
@@ -309,7 +329,7 @@ export default function Hero() {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 2.5 }}
+        transition={{ duration: 1, delay: 3.2 }}
         className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-30"
       >
         <motion.div
