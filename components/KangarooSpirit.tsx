@@ -194,52 +194,26 @@ export default function KangarooSpirit() {
 
     } else {
       // === REVERSE ===
-      // First, scroll the spirit section into view so the circle is properly positioned
       const navRect = navTarget.getBoundingClientRect();
       const sx = navRect.left + navRect.width / 2;
       const sy = navRect.top + navRect.height / 2;
 
-      // Get circle's page-absolute position (not viewport-relative)
-      const circlePageTop = circleArea.offsetTop + (circleArea.offsetParent as HTMLElement)?.offsetTop || 0;
-
-      // We need to figure out where the circle WILL be after scroll settles.
-      // Since onLeaveBack fires during scroll, let's get the section's position
-      // and compute the circle center relative to the viewport after the section is in view.
-      const container = containerRef.current!;
-      const containerRect = container.getBoundingClientRect();
-      const circleRect = circleArea.getBoundingClientRect();
-
-      // Circle center relative to its container
-      const circleOffsetX = circleRect.left - containerRect.left + circleRect.width / 2;
-      const circleOffsetY = circleRect.top - containerRect.top + circleRect.height / 2;
-
-      // The trigger fires at 'bottom 60%', meaning the container bottom is at 60% viewport.
-      // When scrolling back, the container will be roughly centered. 
-      // Use current viewport position but clamp it to be on-screen.
-      const targetW = circleRect.width * 0.85;
-      const targetH = circleRect.height * 0.85;
-      
-      // Use the circle's current screen position, but if it's off-screen, 
-      // animate toward where it should end up
-      let ex = circleRect.left + (circleRect.width - targetW) / 2;
-      let ey = circleRect.top + (circleRect.height - targetH) / 2;
-      const vh = window.innerHeight;
-      
-      // If circle is off-screen, estimate its on-screen position
-      // The trigger fires when container bottom crosses 60% viewport
-      // So the container bottom ≈ 0.6 * vh, container top ≈ 0.6 * vh - containerRect.height
-      if (ey < -100 || ey > vh + 100) {
-        const estimatedContainerTop = 0.6 * vh - containerRect.height;
-        ex = containerRect.left + circleOffsetX - targetW / 2;
-        ey = estimatedContainerTop + circleOffsetY - targetH / 2;
-      }
-
       const flightSize = 80;
       const halfFlight = flightSize / 2;
 
-      // Single smooth parabolic arc with a rightward peak
-      const peakX = vw * 0.6;
-      const peakY = Math.min(sy, ey) - 150;
+      // Wait for scroll to settle, then read the circle's actual position
+      let ex = 0, ey = 0, targetW = 0, targetH = 0;
+      let circlePosition = () => {
+        const circleRect = circleArea.getBoundingClientRect();
+        targetW = circleRect.width * 0.85;
+        targetH = circleRect.height * 0.85;
+        // Target center for the arc
+        ex = circleRect.left + (circleRect.width - targetW) / 2 + targetW / 2;
+        ey = circleRect.top + (circleRect.height - targetH) / 2 + targetH / 2;
+      };
+
+      // Read position immediately
+      circlePosition();
 
       gsap.set(flyer, {
         left: navRect.left, top: navRect.top,
@@ -258,20 +232,24 @@ export default function KangarooSpirit() {
       tl.to(flyer, { scaleY: 1.15, scaleX: 0.9, duration: 0.1, ease: 'power2.out' });
       tl.call(() => burstDust(sx, sy + navRect.height / 2));
 
-      // Single parabolic arc back to circle
-      // Arc from nav center to circle center
-      const arcR = arcKeyframes(sx, sy, ex + targetW / 2, ey + targetH / 2, 200);
+      // Recalculate circle position right before arc (scroll has settled by now)
+      let arcR: any[] = [];
+      tl.call(() => {
+        circlePosition();
+        // Arc from nav center to circle center
+        arcR = arcKeyframes(sx, sy, ex, ey, 200);
+      });
+
       tl.to(flyer, {
         duration: 0.9,
         ease: 'none',
         keyframes: arcR.map((f, i) => {
           const t = i / arcR.length;
           // Grow from nav size → flight size → target size
-          const midT = Math.sin(t * Math.PI); // peaks at 0.5
-          const growT = t * t; // accelerates toward end
+          const midT = Math.sin(t * Math.PI);
+          const growT = t * t;
           const w = navRect.width + (flightSize - navRect.width) * midT * (1 - growT) + (targetW - navRect.width) * growT;
           const h = navRect.height + (flightSize - navRect.height) * midT * (1 - growT) + (targetH - navRect.height) * growT;
-          // f.left/f.top are center positions, convert to top-left for CSS positioning
           return {
             left: f.left - w / 2,
             top: f.top - h / 2,
@@ -284,18 +262,9 @@ export default function KangarooSpirit() {
         }),
       });
 
-      // Force exact nav position on landing
-      tl.to(flyer, {
-        left: navRect.left,
-        top: navRect.top,
-        width: navRect.width,
-        height: navRect.height,
-        duration: 0.01,
-      }, '<0.05');
-
       // Landing squash + dust
       tl.to(flyer, { scaleY: 0.88, scaleX: 1.1, duration: 0.08, ease: 'power2.in' });
-      tl.call(() => burstDust(ex + targetW / 2, ey + targetH));
+      tl.call(() => burstDust(ex, ey));
 
       // Elastic settle
       tl.to(flyer, { scaleY: 1.04, scaleX: 0.97, duration: 0.1, ease: 'power2.out' });
