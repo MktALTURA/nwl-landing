@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 
 const pillars = [
@@ -51,11 +52,15 @@ export default function Philosophy() {
                   viewport={{ once: true }}
                   className="flex gap-4 bg-white p-4 rounded-lg hover:shadow-md transition-all"
                 >
-                  {/* Small image preview */}
-                  <div className="flex-shrink-0 w-20 h-20 rounded-lg bg-gradient-to-br from-wine/20 to-terracotta/20 flex items-center justify-center">
-                    <div className="text-2xl font-display font-bold text-wine/40">
-                      {pillar.number}
-                    </div>
+                  {/* Pillar thumbnail */}
+                  <div className="flex-shrink-0 w-20 h-20 rounded-lg overflow-hidden relative bg-sand">
+                    <Image
+                      src={pillar.image}
+                      alt={pillar.title}
+                      fill
+                      sizes="80px"
+                      className="object-cover"
+                    />
                   </div>
                   <div className="flex-1">
                     <h3 className="text-xl font-bold text-charcoal mb-2">
@@ -83,32 +88,35 @@ export default function Philosophy() {
             className="relative space-y-4"
           >
             {/* Main large image */}
-            <div className="aspect-[4/3] rounded-lg overflow-hidden relative shadow-lg">
-              <img 
-                src="/images/philosophy/philosophy-main.jpg" 
-                alt="Students collaborating on a project"
-                className="w-full h-full object-cover"
+            <div className="aspect-[4/3] rounded-lg overflow-hidden relative bg-sand">
+              <Image
+                src="/images/philosophy/philosophy-main.jpg"
+                alt="Students collaborating on a project at Newland"
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
             </div>
 
             {/* Two smaller images below */}
             <div className="grid grid-cols-2 gap-4">
-              <div className="aspect-square rounded-lg overflow-hidden relative shadow-md">
-                <img 
-                  src="/images/philosophy/philosophy-1.jpg" 
-                  alt="Outdoor learning"
-                  className="w-full h-full object-cover"
+              <div className="aspect-square rounded-lg overflow-hidden relative bg-sand">
+                <Image
+                  src="/images/philosophy/philosophy-1.jpg"
+                  alt="Outdoor learning at Newland"
+                  fill
+                  sizes="(max-width: 1024px) 50vw, 25vw"
+                  className="object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
               </div>
-              <div className="aspect-square rounded-lg overflow-hidden relative shadow-md">
-                <img 
-                  src="/images/philosophy/philosophy-2.jpg" 
-                  alt="Hands-on collaboration"
-                  className="w-full h-full object-cover"
+              <div className="aspect-square rounded-lg overflow-hidden relative bg-sand">
+                <Image
+                  src="/images/philosophy/philosophy-2.jpg"
+                  alt="Hands-on collaboration at Newland"
+                  fill
+                  sizes="(max-width: 1024px) 50vw, 25vw"
+                  className="object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
               </div>
             </div>
 

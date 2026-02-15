@@ -1,7 +1,8 @@
 'use client';
 
+import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { FiMapPin, FiPhone, FiMail, FiHeart } from 'react-icons/fi';
+import { FiMapPin, FiPhone, FiMail, FiHeart, FiTarget, FiMessageCircle } from 'react-icons/fi';
 
 const campuses = [
   {
@@ -133,7 +134,7 @@ export default function CampusFinder() {
             </span>
           </h2>
           <p className="text-xl text-charcoal/80 max-w-2xl mx-auto font-medium">
-            5 amazing locations 🎨 Infinite possibilities ✨
+            5 amazing locations · Infinite possibilities
           </p>
         </div>
 
@@ -151,16 +152,17 @@ export default function CampusFinder() {
               style={{ color: `var(--${campus.accent})` }}
             >
               {/* Campus Image */}
-              <div className="aspect-[4/3] overflow-hidden relative">
-                <img 
-                  src={campus.image} 
-                  alt={`${campus.name} campus`}
-                  className="w-full h-full object-cover"
+              <div className="aspect-[4/3] overflow-hidden relative bg-sand">
+                <Image
+                  src={campus.image}
+                  alt={`Newland ${campus.name} campus - ${campus.location}`}
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  className="object-cover transition-transform duration-300 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
-                
+
                 {/* Playful Badge */}
-                <div className={`absolute top-4 right-4 ${colorClasses[campus.color]?.bg} ${colorClasses[campus.color]?.text} px-3 py-1 rounded-full text-xs font-bold flex items-center gap-1 shadow-lg`}>
+                <div className={`absolute top-4 right-4 z-10 ${colorClasses[campus.color]?.bg} ${colorClasses[campus.color]?.text} px-3 py-1 rounded-full text-xs font-bold flex items-center gap-1 backdrop-blur-sm`}>
                   <FiHeart size={12} />
                   Campus #{index + 1}
                 </div>
@@ -212,7 +214,7 @@ export default function CampusFinder() {
             </div>
 
             <div className="relative z-10">
-              <div className="text-6xl mb-4">🎯</div>
+              <FiTarget size={56} className="mx-auto mb-4 opacity-90" />
               <h3 className="text-3xl font-black mb-4">
                 Need Help?
               </h3>
@@ -243,28 +245,13 @@ export default function CampusFinder() {
                 rel="noopener noreferrer"
                 className="inline-block bg-white text-blueberry px-8 py-4 rounded-full font-black text-lg hover:scale-110 hover:shadow-2xl transition-all duration-200"
               >
-                💬 Chat on WhatsApp
+                <FiMessageCircle className="inline mr-2" />
+                Chat on WhatsApp
               </a>
             </div>
           </motion.div>
         </div>
 
-        {/* Bottom Decorative Elements */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          viewport={{ once: true }}
-          className="mt-16 text-center"
-        >
-          <div className="inline-flex items-center gap-3">
-            <span className="text-4xl">⭐</span>
-            <span className="text-4xl">🎨</span>
-            <span className="text-4xl">🚀</span>
-            <span className="text-4xl">💫</span>
-            <span className="text-4xl">🎯</span>
-          </div>
-        </motion.div>
       </div>
     </section>
   );

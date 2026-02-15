@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { FiStar, FiBook, FiUsers, FiTrendingUp } from 'react-icons/fi';
 import { FaChild } from 'react-icons/fa';
@@ -88,13 +89,14 @@ export default function Levels() {
               style={{ borderColor: `var(--${level.color})` }}
             >
               {/* Level Image */}
-              <div className="aspect-[4/3] relative overflow-hidden">
-                <img 
-                  src={level.image} 
-                  alt={`${level.name} students`}
-                  className="w-full h-full object-cover"
+              <div className="aspect-[4/3] relative overflow-hidden bg-sand">
+                <Image
+                  src={level.image}
+                  alt={`${level.name} program at Newland - ${level.ageRange}`}
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  className="object-cover transition-transform duration-300 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
               </div>
 
               {/* Content */}

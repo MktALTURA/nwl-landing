@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { FiStar } from 'react-icons/fi';
 
@@ -54,13 +55,14 @@ export default function Testimonials() {
               className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all"
             >
               {/* Portrait */}
-              <div className="aspect-square relative overflow-hidden">
-                <img 
-                  src={testimonial.image} 
-                  alt={`${testimonial.author} - Parent testimonial`}
-                  className="w-full h-full object-cover"
+              <div className="aspect-square relative bg-sand">
+                <Image
+                  src={testimonial.image}
+                  alt={`${testimonial.author} - ${testimonial.role}`}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                  className="object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
               </div>
 
               {/* Content */}
@@ -101,10 +103,12 @@ export default function Testimonials() {
           className="mb-16"
         >
           <div className="aspect-video rounded-lg overflow-hidden relative shadow-xl group cursor-pointer">
-            <img 
-              src="/images/testimonials/video-testimonial.jpg" 
+            <Image
+              src="/images/testimonials/video-testimonial.jpg"
               alt="Parent video testimonial"
-              className="w-full h-full object-cover"
+              fill
+              sizes="100vw"
+              className="object-cover"
             />
             <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors" />
             

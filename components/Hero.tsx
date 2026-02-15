@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { FiDownload, FiArrowRight } from 'react-icons/fi';
 import gsap from 'gsap';
@@ -178,13 +179,17 @@ export default function Hero() {
       </div>
 
       {/* Background Image */}
-      <div className="absolute inset-0 opacity-15">
-        <div className="absolute inset-0 bg-gradient-to-r from-charcoal/60 via-charcoal/30 to-transparent z-10" />
-        <img 
-          src="/images/hero-background.jpg" 
-          alt="Newland campus"
-          className="w-full h-full object-cover"
+      <div className="absolute inset-0">
+        <Image
+          src="/images/hero-background.jpg"
+          alt="Newland School campus with students"
+          fill
+          priority
+          quality={80}
+          sizes="100vw"
+          className="object-cover"
         />
+        <div className="absolute inset-0 bg-gradient-to-r from-ivory/90 via-ivory/70 to-ivory/50 z-10" />
       </div>
 
       <div className="container-custom relative z-20 pt-32 pb-20">
