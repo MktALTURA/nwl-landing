@@ -136,13 +136,16 @@ export default function KangarooSpirit() {
       tl.to(flyer, {
         duration: 0.65,
         ease: 'none',
-        keyframes: arc1.map((f, i) => ({
-          left: f.left, top: f.top,
-          rotation: 12 * Math.sin((i / arc1.length) * Math.PI),
-          scaleY: 1 + 0.08 * Math.sin((i / arc1.length) * Math.PI),
-          scaleX: 1 - 0.05 * Math.sin((i / arc1.length) * Math.PI),
-          duration: 0.65 / arc1.length,
-        })),
+        keyframes: arc1.map((f, i) => {
+          const t1 = i / (arc1.length - 1);
+          return {
+            left: f.left, top: f.top,
+            rotation: 12 * Math.sin(t1 * Math.PI),
+            scaleY: 1 + 0.08 * Math.sin(t1 * Math.PI),
+            scaleX: 1 - 0.05 * Math.sin(t1 * Math.PI),
+            duration: 0.65 / arc1.length,
+          };
+        }),
       });
 
       // Bounce squash + dust
@@ -163,7 +166,7 @@ export default function KangarooSpirit() {
         duration: 0.6,
         ease: 'none',
         keyframes: arc2.map((f, i) => {
-          const t = i / arc2.length;
+          const t = i / (arc2.length - 1);
           const w = flightSize + (navW - flightSize) * t;
           const h = flightSize + (navH - flightSize) * t;
           return {
@@ -176,6 +179,13 @@ export default function KangarooSpirit() {
             duration: 0.6 / arc2.length,
           };
         }),
+      });
+
+      // Snap to exact nav target position before landing effects
+      tl.set(flyer, {
+        left: navRect.left, top: navRect.top,
+        width: navW, height: navH,
+        rotation: 0,
       });
 
       // Landing squash + dust
@@ -244,7 +254,7 @@ export default function KangarooSpirit() {
         duration: 0.9,
         ease: 'none',
         keyframes: arcR.map((f, i) => {
-          const t = i / arcR.length;
+          const t = i / (arcR.length - 1);
           // Grow from nav size → flight size → target size
           const midT = Math.sin(t * Math.PI);
           const growT = t * t;
