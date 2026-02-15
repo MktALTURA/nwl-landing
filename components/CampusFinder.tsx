@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { FiMapPin, FiPhone, FiMail, FiHeart } from 'react-icons/fi';
 
@@ -151,16 +152,17 @@ export default function CampusFinder() {
               style={{ color: `var(--${campus.accent})` }}
             >
               {/* Campus Image */}
-              <div className="aspect-[4/3] overflow-hidden relative">
-                <img 
-                  src={campus.image} 
-                  alt={`${campus.name} campus`}
-                  className="w-full h-full object-cover"
+              <div className="aspect-[4/3] overflow-hidden relative bg-sand">
+                <Image
+                  src={campus.image}
+                  alt={`Newland ${campus.name} campus - ${campus.location}`}
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  className="object-cover transition-transform duration-300 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
-                
+
                 {/* Playful Badge */}
-                <div className={`absolute top-4 right-4 ${colorClasses[campus.color]?.bg} ${colorClasses[campus.color]?.text} px-3 py-1 rounded-full text-xs font-bold flex items-center gap-1 shadow-lg`}>
+                <div className={`absolute top-4 right-4 z-10 ${colorClasses[campus.color]?.bg} ${colorClasses[campus.color]?.text} px-3 py-1 rounded-full text-xs font-bold flex items-center gap-1 backdrop-blur-sm`}>
                   <FiHeart size={12} />
                   Campus #{index + 1}
                 </div>

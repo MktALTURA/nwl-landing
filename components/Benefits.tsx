@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { FiHeart, FiBook, FiUsers, FiGlobe } from 'react-icons/fi';
 
@@ -57,13 +58,14 @@ export default function Benefits() {
               className="group bg-ivory rounded-lg overflow-hidden hover:shadow-xl transition-all duration-300"
             >
               {/* Benefit Image */}
-              <div className="aspect-[4/3] relative overflow-hidden">
-                <img 
-                  src={benefit.image} 
+              <div className="aspect-[4/3] relative overflow-hidden bg-sand">
+                <Image
+                  src={benefit.image}
                   alt={benefit.title}
-                  className="w-full h-full object-cover"
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                  className="object-cover transition-transform duration-300 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
               </div>
 
               {/* Content */}
@@ -87,13 +89,14 @@ export default function Benefits() {
           viewport={{ once: true }}
           className="mt-16 rounded-lg overflow-hidden shadow-xl"
         >
-          <div className="aspect-[21/9] relative">
-            <img 
-              src="/images/campus-life-hero.jpg" 
-              alt="Campus life - students engaged in various activities"
-              className="w-full h-full object-cover"
+          <div className="aspect-[21/9] relative bg-sand">
+            <Image
+              src="/images/campus-life-hero.jpg"
+              alt="Students engaged in activities across the Newland campus"
+              fill
+              sizes="100vw"
+              className="object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
           </div>
         </motion.div>
 
