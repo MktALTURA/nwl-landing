@@ -37,8 +37,13 @@ export default function Navigation() {
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
-            className="flex items-center"
+            className="flex items-center gap-3"
           >
+            <img 
+              src="/images/brand/kangaroo-wine.png" 
+              alt="Newland mascot" 
+              className="h-10 w-auto"
+            />
             <div className="text-2xl font-display font-bold text-wine">
               NEWLAND
             </div>

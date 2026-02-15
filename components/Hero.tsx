@@ -198,6 +198,20 @@ export default function Hero() {
         />
       </div>
 
+      {/* Kangaroo Watermark */}
+      <motion.div
+        initial={{ opacity: 0, scale: 0.9 }}
+        animate={{ opacity: 0.04, scale: 1 }}
+        transition={{ duration: 2, delay: 0.5 }}
+        className="absolute right-[-5%] top-[10%] w-[60vh] h-[60vh] z-[5] pointer-events-none"
+      >
+        <img 
+          src="/images/brand/kangaroo-wine.png" 
+          alt="" 
+          className="w-full h-full object-contain"
+        />
+      </motion.div>
+
       {/* Background Image */}
       <div className="absolute inset-0">
         <Image

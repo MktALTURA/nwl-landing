@@ -12,6 +12,15 @@ export default function FinalCTA() {
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-eucalyptus rounded-full blur-3xl" />
       </div>
 
+      {/* Kangaroo Watermark */}
+      <div className="absolute right-[-5%] bottom-[-10%] w-[50vh] h-[50vh] opacity-[0.06] pointer-events-none">
+        <img 
+          src="/images/brand/kangaroo-white-transparent.png" 
+          alt="" 
+          className="w-full h-full object-contain"
+        />
+      </div>
+
       <div className="container-custom relative z-10">
         <div className="max-w-4xl mx-auto text-center">
           {/* Header */}
