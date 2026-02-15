@@ -40,15 +40,17 @@ export default function Footer() {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Brand Column */}
           <div>
-            <div className="flex items-center gap-3 mb-4">
+            <div className="flex items-center gap-2 mb-4">
               <img 
                 src="/images/brand/kangaroo-white-transparent.png" 
                 alt="Newland mascot" 
-                className="h-12 w-auto opacity-90"
+                className="h-14 w-auto opacity-90"
               />
-              <div className="text-3xl font-display font-bold text-wine">
-                NEWLAND
-              </div>
+              <img 
+                src="/images/brand/nwl-logo-white.png" 
+                alt="Colegio NWL" 
+                className="h-12 w-auto"
+              />
             </div>
             <p className="text-white/70 mb-6 leading-relaxed">
               At Newland, we unlock greatness in every student through academic excellence,
