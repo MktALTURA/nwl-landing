@@ -259,6 +259,7 @@ export default function KangarooSpirit() {
       tl.call(() => burstDust(sx, sy + navRect.height / 2));
 
       // Single parabolic arc back to circle
+      // Arc from nav center to circle center
       const arcR = arcKeyframes(sx, sy, ex + targetW / 2, ey + targetH / 2, 200);
       tl.to(flyer, {
         duration: 0.9,
@@ -266,11 +267,11 @@ export default function KangarooSpirit() {
         keyframes: arcR.map((f, i) => {
           const t = i / arcR.length;
           // Grow from nav size → flight size → target size
-          // Small in the middle, full at the end
           const midT = Math.sin(t * Math.PI); // peaks at 0.5
           const growT = t * t; // accelerates toward end
           const w = navRect.width + (flightSize - navRect.width) * midT * (1 - growT) + (targetW - navRect.width) * growT;
           const h = navRect.height + (flightSize - navRect.height) * midT * (1 - growT) + (targetH - navRect.height) * growT;
+          // f.left/f.top are center positions, convert to top-left for CSS positioning
           return {
             left: f.left - w / 2,
             top: f.top - h / 2,
@@ -282,6 +283,15 @@ export default function KangarooSpirit() {
           };
         }),
       });
+
+      // Force exact nav position on landing
+      tl.to(flyer, {
+        left: navRect.left,
+        top: navRect.top,
+        width: navRect.width,
+        height: navRect.height,
+        duration: 0.01,
+      }, '<0.05');
 
       // Landing squash + dust
       tl.to(flyer, { scaleY: 0.88, scaleX: 1.1, duration: 0.08, ease: 'power2.in' });
