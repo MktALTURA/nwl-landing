@@ -39,10 +39,13 @@ export default function Navigation() {
             animate={{ opacity: 1, x: 0 }}
             className="flex items-center gap-2"
           >
+            {/* Kangaroo landing target — hidden until jump animation places it */}
             <img 
+              id="nav-kangaroo-target"
               src="/images/brand/kangaroo-wine.png" 
               alt="NWL mascot" 
-              className="h-12 w-auto"
+              className="h-12 w-auto transition-opacity duration-200"
+              style={{ opacity: 0 }}
             />
             <img 
               src="/images/brand/nwl-logo-wine.png" 
