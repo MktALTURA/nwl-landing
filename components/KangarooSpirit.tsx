@@ -8,25 +8,23 @@ if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger);
 }
 
-// Creates and animates dust particles at a given screen position
-function burstDust(x: number, y: number, color = 'rgba(114,47,55,0.35)') {
-  const count = 10;
+function burstDust(x: number, y: number, color = 'rgba(114,47,55,0.3)') {
+  const count = 8;
   for (let i = 0; i < count; i++) {
     const dot = document.createElement('div');
+    const size = 3 + Math.random() * 5;
     dot.style.cssText = `
-      position:fixed; left:${x}px; top:${y}px; width:${4 + Math.random() * 6}px;
-      height:${4 + Math.random() * 6}px; border-radius:50%; background:${color};
-      pointer-events:none; z-index:10000;
+      position:fixed;left:${x}px;top:${y}px;width:${size}px;height:${size}px;
+      border-radius:50%;background:${color};pointer-events:none;z-index:10000;
     `;
     document.body.appendChild(dot);
-    const angle = (i / count) * Math.PI * 2 + (Math.random() - 0.5) * 0.5;
-    const dist = 25 + Math.random() * 55;
+    const angle = (i / count) * Math.PI * 2 + (Math.random() - 0.5) * 0.4;
+    const dist = 20 + Math.random() * 40;
     gsap.to(dot, {
       x: Math.cos(angle) * dist,
-      y: Math.sin(angle) * dist - 30 * Math.random(),
-      scale: 0,
-      opacity: 0,
-      duration: 0.5 + Math.random() * 0.4,
+      y: Math.sin(angle) * dist - 15 * Math.random(),
+      scale: 0, opacity: 0,
+      duration: 0.5 + Math.random() * 0.3,
       ease: 'power2.out',
       onComplete: () => dot.remove(),
     });
@@ -47,15 +45,14 @@ export default function KangarooSpirit() {
 
   useEffect(() => { setIsMounted(true); }, []);
 
-  // Create or get the flying clone (lives on document.body, outside React)
   const getFlyer = useCallback(() => {
     if (flyerRef.current) return flyerRef.current;
     const flyer = document.createElement('img');
     flyer.src = '/images/brand/kangaroo-wine.png';
     flyer.alt = '';
     flyer.style.cssText = `
-      position:fixed; pointer-events:none; z-index:10000;
-      object-fit:contain; opacity:0; filter:drop-shadow(0 4px 12px rgba(0,0,0,0.15));
+      position:fixed;pointer-events:none;z-index:10000;
+      object-fit:contain;opacity:0;filter:drop-shadow(0 4px 12px rgba(0,0,0,0.15));
     `;
     document.body.appendChild(flyer);
     flyerRef.current = flyer;
@@ -72,6 +69,7 @@ export default function KangarooSpirit() {
     const tl = gsap.timeline();
     jumpTlRef.current = tl;
     const flyer = getFlyer();
+    const vw = window.innerWidth;
 
     if (direction === 'forward') {
       const srcRect = srcImg.getBoundingClientRect();
@@ -82,77 +80,83 @@ export default function KangarooSpirit() {
       const ex = navRect.left, ey = navRect.top;
       const ew = navRect.width, eh = navRect.height;
 
-      // Bounce point: 60% toward nav horizontally, below both vertically
-      const bx = sx + (ex - sx) * 0.6;
-      const by = Math.max(sy + sh, ey + eh) + 80;
+      // Flight size: much smaller than source (40% of original)
+      const flightW = sw * 0.35;
+      const flightH = sh * 0.35;
 
-      // Position flyer at source
+      // Bounce point: far right of screen, mid-height
+      const bx = vw * 0.75;
+      const by = (sy + ey) / 2 + 60;
+
       gsap.set(flyer, {
         left: sx, top: sy, width: sw, height: sh,
         opacity: 0, scaleX: 1, scaleY: 1, rotation: 0,
       });
 
-      // 1. Hide source, show flyer
+      // 1. Show flyer, hide source
       tl.call(() => {
         srcImg.style.visibility = 'hidden';
         flyer.style.opacity = '1';
       });
 
-      // 2. Squash wind-up
-      tl.to(flyer, { scaleY: 0.7, scaleX: 1.2, duration: 0.15, ease: 'power2.in' });
-
-      // 3. Stretch takeoff + dust
-      tl.to(flyer, { scaleY: 1.3, scaleX: 0.8, duration: 0.1, ease: 'power2.out' });
-      tl.call(() => burstDust(sx + sw / 2, sy + sh));
-
-      // 4. First arc — right and down to bounce point
+      // 2. Subtle squash wind-up + shrink
       tl.to(flyer, {
-        duration: 0.4,
-        ease: 'power1.out',
-        keyframes: [
-          { left: sx, top: sy, scaleY: 1.2, scaleX: 0.85, rotation: 10, duration: 0 },
-          { left: (sx + bx) / 2, top: sy - 140, rotation: 15, duration: 0.2 },
-          { left: bx, top: by, rotation: 5, scaleY: 1.05, scaleX: 0.97, duration: 0.2 },
-        ],
+        scaleY: 0.85, scaleX: 1.1,
+        width: flightW, height: flightH,
+        left: sx + (sw - flightW) / 2,
+        top: sy + (sh - flightH) / 2,
+        duration: 0.25, ease: 'power2.in',
       });
 
-      // 5. Bounce squash + dust
-      tl.to(flyer, { scaleY: 0.7, scaleX: 1.3, rotation: 0, duration: 0.08, ease: 'power3.in' });
-      tl.call(() => burstDust(bx + sw / 2, by + sh / 2));
+      // 3. Stretch on takeoff + dust
+      tl.to(flyer, { scaleY: 1.15, scaleX: 0.9, duration: 0.12, ease: 'power2.out' });
+      tl.call(() => burstDust(sx + sw / 2, sy + sh * 0.8));
 
-      // 6. Stretch for second jump
-      tl.to(flyer, { scaleY: 1.3, scaleX: 0.8, duration: 0.08, ease: 'power2.out' });
-
-      // 7. Second arc — up to navbar (shrinking)
+      // 4. First arc — graceful sweep to the right
       tl.to(flyer, {
-        duration: 0.45,
+        left: bx,
+        top: by,
+        rotation: 12,
+        scaleY: 1.05, scaleX: 0.97,
+        duration: 0.6,
+        ease: 'power1.inOut',
+      });
+
+      // 5. Soft bounce squash + dust
+      tl.to(flyer, { scaleY: 0.8, scaleX: 1.15, rotation: 0, duration: 0.1, ease: 'power2.in' });
+      tl.call(() => burstDust(bx + flightW / 2, by + flightH * 0.8));
+
+      // 6. Gentle stretch for second arc
+      tl.to(flyer, { scaleY: 1.1, scaleX: 0.92, duration: 0.1, ease: 'power2.out' });
+
+      // 7. Second arc — sweep up-left to navbar, shrinking to final size
+      tl.to(flyer, {
+        left: ex, top: ey,
+        width: ew, height: eh,
+        rotation: 0,
+        scaleY: 1, scaleX: 1,
+        duration: 0.55,
         ease: 'power2.inOut',
-        keyframes: [
-          { left: bx, top: by, width: sw * 0.6, height: sh * 0.6, rotation: -8, duration: 0 },
-          { left: (bx + ex) / 2, top: Math.min(by, ey) - 200, width: sw * 0.35, height: sh * 0.35, rotation: -5, duration: 0.25 },
-          { left: ex, top: ey, width: ew, height: eh, rotation: 0, scaleY: 1, scaleX: 1, duration: 0.2 },
-        ],
       });
 
       // 8. Landing squash
-      tl.to(flyer, { scaleY: 0.8, scaleX: 1.2, duration: 0.08, ease: 'power3.in' });
+      tl.to(flyer, { scaleY: 0.88, scaleX: 1.12, duration: 0.08, ease: 'power2.in' });
       tl.call(() => burstDust(ex + ew / 2, ey + eh));
 
       // 9. Elastic settle
-      tl.to(flyer, { scaleY: 1.08, scaleX: 0.95, duration: 0.1, ease: 'power2.out' });
-      tl.to(flyer, { scaleY: 1, scaleX: 1, duration: 0.2, ease: 'elastic.out(1.2, 0.4)' });
+      tl.to(flyer, { scaleY: 1.04, scaleX: 0.97, duration: 0.1, ease: 'power2.out' });
+      tl.to(flyer, { scaleY: 1, scaleX: 1, duration: 0.25, ease: 'elastic.out(1, 0.5)' });
 
-      // 10. Show nav kangaroo, hide flyer
+      // 10. Snap into nav
       tl.call(() => {
         navTarget.style.opacity = '1';
         flyer.style.opacity = '0';
       });
 
     } else {
-      // === REVERSE: navbar → circle ===
+      // === REVERSE: one smooth arc from navbar back to circle ===
       const navRect = navTarget.getBoundingClientRect();
       const circleRect = circleArea.getBoundingClientRect();
-      // Target: center the img inside the circle like the original layout
       const targetW = circleRect.width * 0.85;
       const targetH = circleRect.height * 0.85;
       const ex = circleRect.left + (circleRect.width - targetW) / 2;
@@ -160,64 +164,60 @@ export default function KangarooSpirit() {
       const sx = navRect.left, sy = navRect.top;
       const sw = navRect.width, sh = navRect.height;
 
-      const bx = sx + (ex - sx) * 0.4;
-      const by = (sy + ey) / 2 + 100;
+      // Single arc: swing out right then curve back to circle
+      const peakX = vw * 0.65;
+      const peakY = Math.min(sy, ey) - 80;
 
-      // Position flyer at nav
       gsap.set(flyer, {
         left: sx, top: sy, width: sw, height: sh,
         opacity: 0, scaleX: 1, scaleY: 1, rotation: 0,
       });
 
-      // 1. Hide nav kangaroo, show flyer
+      // 1. Show flyer, hide nav
       tl.call(() => {
         navTarget.style.opacity = '0';
         flyer.style.opacity = '1';
       });
 
-      // 2. Squash takeoff
-      tl.to(flyer, { scaleY: 0.75, scaleX: 1.2, duration: 0.12, ease: 'power2.in' });
-      tl.to(flyer, { scaleY: 1.3, scaleX: 0.8, duration: 0.08, ease: 'power2.out' });
+      // 2. Subtle squash + takeoff dust
+      tl.to(flyer, { scaleY: 0.85, scaleX: 1.1, duration: 0.15, ease: 'power2.in' });
+      tl.to(flyer, { scaleY: 1.15, scaleX: 0.9, duration: 0.1, ease: 'power2.out' });
       tl.call(() => burstDust(sx + sw / 2, sy + sh));
 
-      // 3. First arc — down to bounce (growing)
+      // 3. Single graceful arc — out right, peak, then curve down-left to circle
+      // Phase A: rise to peak, growing
       tl.to(flyer, {
-        duration: 0.4,
-        ease: 'power1.out',
-        keyframes: [
-          { left: sx, top: sy, width: sw * 1.5, height: sh * 1.5, rotation: -10, duration: 0 },
-          { left: (sx + bx) / 2, top: sy - 100, width: targetW * 0.5, height: targetH * 0.5, rotation: -12, duration: 0.2 },
-          { left: bx, top: by, width: targetW * 0.7, height: targetH * 0.7, rotation: -5, duration: 0.2 },
-        ],
+        left: peakX,
+        top: peakY,
+        width: targetW * 0.4,
+        height: targetH * 0.4,
+        rotation: -8,
+        scaleY: 1.05, scaleX: 0.97,
+        duration: 0.5,
+        ease: 'power2.out',
       });
 
-      // 4. Bounce squash + dust
-      tl.to(flyer, { scaleY: 0.7, scaleX: 1.3, rotation: 0, duration: 0.08, ease: 'power3.in' });
-      tl.call(() => burstDust(bx + targetW * 0.35, by + targetH * 0.35));
-
-      // 5. Stretch for second jump
-      tl.to(flyer, { scaleY: 1.25, scaleX: 0.8, duration: 0.08, ease: 'power2.out' });
-
-      // 6. Second arc — back to circle
+      // Phase B: descend to circle, growing to full size
       tl.to(flyer, {
-        duration: 0.45,
-        ease: 'power2.inOut',
-        keyframes: [
-          { left: bx, top: by, duration: 0 },
-          { left: (bx + ex) / 2, top: Math.min(by, ey) - 180, width: targetW * 0.85, height: targetH * 0.85, duration: 0.25 },
-          { left: ex, top: ey, width: targetW, height: targetH, rotation: 0, scaleY: 1, scaleX: 1, duration: 0.2 },
-        ],
+        left: ex,
+        top: ey,
+        width: targetW,
+        height: targetH,
+        rotation: 0,
+        scaleY: 1, scaleX: 1,
+        duration: 0.55,
+        ease: 'power2.in',
       });
 
-      // 7. Landing squash + dust
-      tl.to(flyer, { scaleY: 0.85, scaleX: 1.12, duration: 0.08, ease: 'power3.in' });
+      // 4. Landing squash + dust
+      tl.to(flyer, { scaleY: 0.88, scaleX: 1.1, duration: 0.08, ease: 'power2.in' });
       tl.call(() => burstDust(ex + targetW / 2, ey + targetH));
 
-      // 8. Elastic settle
-      tl.to(flyer, { scaleY: 1.05, scaleX: 0.97, duration: 0.1, ease: 'power2.out' });
-      tl.to(flyer, { scaleY: 1, scaleX: 1, duration: 0.2, ease: 'elastic.out(1.2, 0.4)' });
+      // 5. Elastic settle
+      tl.to(flyer, { scaleY: 1.04, scaleX: 0.97, duration: 0.1, ease: 'power2.out' });
+      tl.to(flyer, { scaleY: 1, scaleX: 1, duration: 0.25, ease: 'elastic.out(1, 0.5)' });
 
-      // 9. Show original, hide flyer
+      // 6. Show original, hide flyer
       tl.call(() => {
         flyer.style.opacity = '0';
         srcImg.style.visibility = 'visible';
@@ -229,12 +229,9 @@ export default function KangarooSpirit() {
     if (!isMounted) return;
 
     const ctx = gsap.context(() => {
-      // ---- Phase 1: Reveal animations ----
       gsap.fromTo('.kangaroo-reveal',
         { clipPath: 'inset(100% 0% 0% 0%)', opacity: 0.3 },
-        {
-          clipPath: 'inset(0% 0% 0% 0%)', opacity: 1,
-          duration: 1, ease: 'power3.inOut',
+        { clipPath: 'inset(0% 0% 0% 0%)', opacity: 1, duration: 1, ease: 'power3.inOut',
           scrollTrigger: { trigger: containerRef.current, start: 'top 80%', end: 'top 30%', scrub: 1.5 },
         }
       );
@@ -253,7 +250,6 @@ export default function KangarooSpirit() {
         }
       );
 
-      // Shimmer sweep
       gsap.fromTo(shimmerRef.current,
         { x: '-100%', opacity: 0 },
         { x: '200%', opacity: 0.5, duration: 0.8, ease: 'power2.inOut',
@@ -261,7 +257,6 @@ export default function KangarooSpirit() {
         }
       );
 
-      // Text
       gsap.fromTo('.spirit-text',
         { opacity: 0, y: 30 },
         { opacity: 1, y: 0, duration: 0.8, stagger: 0.15, ease: 'power3.out',
@@ -269,7 +264,6 @@ export default function KangarooSpirit() {
         }
       );
 
-      // Trait pills
       gsap.fromTo('.spirit-trait',
         { opacity: 0, scale: 0.8, y: 15 },
         { opacity: 1, scale: 1, y: 0, duration: 0.4, stagger: 0.1, ease: 'back.out(1.7)',
@@ -277,7 +271,6 @@ export default function KangarooSpirit() {
         }
       );
 
-      // ---- Phase 2: Jump trigger ----
       ScrollTrigger.create({
         trigger: containerRef.current,
         start: 'bottom 60%',
@@ -296,7 +289,6 @@ export default function KangarooSpirit() {
 
     return () => {
       ctx.revert();
-      // Clean up flyer
       if (flyerRef.current) { flyerRef.current.remove(); flyerRef.current = null; }
     };
   }, [isMounted, performJump]);
@@ -305,36 +297,23 @@ export default function KangarooSpirit() {
 
   return (
     <div ref={containerRef} className="relative py-24 overflow-visible" id="our-spirit">
-      {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-b from-white via-sand/30 to-ivory" />
-
       <div className="container-custom relative z-10">
         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
-          {/* Kangaroo circle */}
           <div className="relative flex-shrink-0">
             <div ref={circleAreaRef} className="relative w-[280px] h-[280px] md:w-[360px] md:h-[360px]">
               <div className="kangaroo-reveal w-full h-full flex items-center justify-center">
-                <img
-                  ref={kangarooImgRef}
-                  id="spirit-kangaroo"
-                  src="/images/brand/kangaroo-wine.png"
-                  alt="NWL Kangaroo — Our Spirit"
-                  className="w-[85%] h-[85%] object-contain drop-shadow-lg"
-                />
+                <img ref={kangarooImgRef} id="spirit-kangaroo"
+                  src="/images/brand/kangaroo-wine.png" alt="NWL Kangaroo — Our Spirit"
+                  className="w-[85%] h-[85%] object-contain drop-shadow-lg" />
               </div>
-
-              {/* Shimmer */}
               <div className="absolute inset-0 overflow-hidden rounded-full pointer-events-none">
                 <div ref={shimmerRef} className="absolute inset-y-0 w-1/3 bg-gradient-to-r from-transparent via-white/40 to-transparent -translate-x-full" />
               </div>
-
-              {/* Rings */}
               <div ref={ringRef} className="absolute -inset-4 border border-wine/15 rounded-full" />
               <div ref={ringOuterRef} className="absolute -inset-10 border border-wine/8 rounded-full" />
             </div>
           </div>
-
-          {/* Text */}
           <div className="text-center lg:text-left max-w-lg">
             <div className="spirit-text wine-divider mb-6 mx-auto lg:mx-0" />
             <h2 className="spirit-text font-display text-3xl md:text-4xl font-bold text-charcoal mb-4">
