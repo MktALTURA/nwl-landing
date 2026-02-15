@@ -196,11 +196,9 @@ export default function KangarooSpirit() {
       tl.to(flyer, { scaleY: 1.04, scaleX: 0.97, duration: 0.1, ease: 'power2.out' });
       tl.to(flyer, { scaleY: 1, scaleX: 1, duration: 0.25, ease: 'elastic.out(1, 0.5)' });
 
-      // Snap into nav
-      tl.call(() => {
-        navTarget.style.opacity = '1';
-        flyer.style.opacity = '0';
-      });
+      // Crossfade into nav — show target first, then hide flyer
+      tl.set(navTarget, { opacity: 1 });
+      tl.to(flyer, { opacity: 0, duration: 0.15, ease: 'power1.out' });
 
     } else {
       // === REVERSE ===
@@ -231,11 +229,9 @@ export default function KangarooSpirit() {
         opacity: 0, scaleX: 1, scaleY: 1, rotation: 0,
       });
 
-      // Show flyer, hide nav
-      tl.call(() => {
-        navTarget.style.opacity = '0';
-        flyer.style.opacity = '1';
-      });
+      // Show flyer, hide nav — simultaneous swap via GSAP
+      tl.set(flyer, { opacity: 1 });
+      tl.set(navTarget, { opacity: 0 });
 
       // Squash takeoff
       tl.to(flyer, { scaleY: 0.85, scaleX: 1.1, duration: 0.15, ease: 'power2.in' });
@@ -280,12 +276,9 @@ export default function KangarooSpirit() {
       tl.to(flyer, { scaleY: 1.04, scaleX: 0.97, duration: 0.1, ease: 'power2.out' });
       tl.to(flyer, { scaleY: 1, scaleX: 1, duration: 0.25, ease: 'elastic.out(1, 0.5)' });
 
-      // Show original, hide flyer — but wait a tick for scroll to settle
-      tl.call(() => {
-        // Re-read circle position now that scroll has settled more
-        flyer.style.opacity = '0';
-        srcImg.style.visibility = 'visible';
-      });
+      // Show original, hide flyer
+      tl.set(flyer, { opacity: 0 });
+      tl.call(() => { srcImg.style.visibility = 'visible'; });
     }
   }, [getFlyer]);
 
