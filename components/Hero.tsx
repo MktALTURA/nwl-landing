@@ -216,7 +216,7 @@ export default function Hero() {
       <div className="absolute inset-0">
         <Image
           src="/images/hero-background.jpg"
-          alt="Newland School campus with students"
+          alt="NWL School campus with students"
           fill
           priority
           quality={80}
@@ -241,7 +241,7 @@ export default function Hero() {
             {/* Left side - drifts left and up */}
             <span className="headline-left inline-block">
               <span className="word-wrap inline-block">At</span>{' '}
-              <span className="word-wrap inline-block">Newland,</span>
+              <span className="word-wrap inline-block">NWL,</span>
             </span>
             <br />
             {/* Right side - drifts right and down */}
@@ -277,7 +277,7 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 2.2 }}
             className="text-lg md:text-xl text-charcoal/80 mb-12 max-w-2xl leading-relaxed hero-subheadline"
           >
-            At Newland, we drive the academic, emotional, and social development
+            At NWL, we drive the academic, emotional, and social development
             of our students in a close and trusting environment.
           </motion.p>
 

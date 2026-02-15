@@ -43,8 +43,8 @@ export default function Footer() {
             <div className="flex items-center gap-2 mb-4">
               <img 
                 src="/images/brand/kangaroo-white-transparent.png" 
-                alt="Newland mascot" 
-                className="h-14 w-auto opacity-90"
+                alt="NWL mascot" 
+                className="h-14 w-auto"
               />
               <img 
                 src="/images/brand/nwl-logo-white.png" 
@@ -52,8 +52,9 @@ export default function Footer() {
                 className="h-12 w-auto"
               />
             </div>
+
             <p className="text-white/70 mb-6 leading-relaxed">
-              At Newland, we unlock greatness in every student through academic excellence,
+              At NWL, we unlock greatness in every student through academic excellence,
               emotional development, and community connection.
             </p>
             
@@ -158,7 +159,7 @@ export default function Footer() {
       <div className="border-t border-white/10">
         <div className="container-custom py-6">
           <div className="flex flex-col md:flex-row justify-between items-center text-sm text-white/60">
-            <p>© 2026 Newland School. All rights reserved.</p>
+            <p>© 2026 Colegio NWL. All rights reserved.</p>
             <div className="flex gap-6 mt-4 md:mt-0">
               <a href="/privacy" className="hover:text-white">
                 Privacy Policy

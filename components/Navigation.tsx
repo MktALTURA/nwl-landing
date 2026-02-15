@@ -41,7 +41,7 @@ export default function Navigation() {
           >
             <img 
               src="/images/brand/kangaroo-wine.png" 
-              alt="Newland mascot" 
+              alt="NWL mascot" 
               className="h-12 w-auto"
             />
             <img 

@@ -33,7 +33,7 @@ export default function Philosophy() {
           <div>
             <div className="wine-divider mb-6" />
             <h2 className="font-display text-4xl md:text-5xl font-bold text-charcoal mb-6">
-              The <span className="text-wine">Newland</span> Model
+              The <span className="text-wine">NWL</span> Model
             </h2>
             <p className="text-lg text-charcoal/80 mb-8 leading-relaxed">
               Our educational philosophy is built on three fundamental pillars that

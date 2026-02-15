@@ -39,7 +39,7 @@ export default function Benefits() {
         <div className="text-center mb-16">
           <div className="wine-divider mx-auto mb-6" />
           <h2 className="font-display text-4xl md:text-5xl font-bold text-charcoal mb-4">
-            Why Choose <span className="text-wine">Newland</span>
+            Why Choose <span className="text-wine">NWL</span>
           </h2>
           <p className="text-lg text-charcoal/70 max-w-2xl mx-auto">
             Our comprehensive approach to education focuses on the whole child

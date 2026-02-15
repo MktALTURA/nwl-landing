@@ -39,7 +39,7 @@ export default function Testimonials() {
             What <span className="text-wine">Parents Say</span>
           </h2>
           <p className="text-lg text-charcoal/70 max-w-2xl mx-auto">
-            Hear from families who have chosen Newland for their children's education
+            Hear from families who have chosen NWL for their children's education
           </p>
         </div>
 

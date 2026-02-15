@@ -31,11 +31,11 @@ export default function FinalCTA() {
             viewport={{ once: true }}
           >
             <h2 className="font-display text-4xl md:text-6xl font-bold mb-6">
-              Begin Your <span className="text-mustard">Newland Journey</span>
+              Begin Your <span className="text-mustard">NWL Journey</span>
             </h2>
             <p className="text-xl text-white/90 mb-12 leading-relaxed">
               Join a community where your child can grow academically, emotionally, and socially.
-              Schedule a visit to experience Newland firsthand.
+              Schedule a visit to experience NWL firsthand.
             </p>
           </motion.div>
 
