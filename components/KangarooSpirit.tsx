@@ -9,8 +9,7 @@ if (typeof window !== 'undefined') {
 }
 
 function burstDust(x: number, y: number, color = 'rgba(114,47,55,0.3)') {
-  const count = 8;
-  for (let i = 0; i < count; i++) {
+  for (let i = 0; i < 8; i++) {
     const dot = document.createElement('div');
     const size = 3 + Math.random() * 5;
     dot.style.cssText = `
@@ -18,7 +17,7 @@ function burstDust(x: number, y: number, color = 'rgba(114,47,55,0.3)') {
       border-radius:50%;background:${color};pointer-events:none;z-index:10000;
     `;
     document.body.appendChild(dot);
-    const angle = (i / count) * Math.PI * 2 + (Math.random() - 0.5) * 0.4;
+    const angle = (i / 8) * Math.PI * 2 + (Math.random() - 0.5) * 0.4;
     const dist = 20 + Math.random() * 40;
     gsap.to(dot, {
       x: Math.cos(angle) * dist,
@@ -29,6 +28,26 @@ function burstDust(x: number, y: number, color = 'rgba(114,47,55,0.3)') {
       onComplete: () => dot.remove(),
     });
   }
+}
+
+// Parabolic arc helper: returns keyframe array with a natural jump curve
+// from (x0,y0) to (x1,y1) with peak height above the higher point
+function arcKeyframes(
+  x0: number, y0: number,
+  x1: number, y1: number,
+  peakOffset: number, // how far above the higher point
+  steps: number = 8,
+) {
+  const frames: { left: number; top: number }[] = [];
+  const peakY = Math.min(y0, y1) - peakOffset;
+  for (let i = 0; i <= steps; i++) {
+    const t = i / steps;
+    // Quadratic bezier: P0 -> Ppeak -> P1
+    const x = (1 - t) * (1 - t) * x0 + 2 * (1 - t) * t * ((x0 + x1) / 2) + t * t * x1;
+    const y = (1 - t) * (1 - t) * y0 + 2 * (1 - t) * t * peakY + t * t * y1;
+    frames.push({ left: x, top: y });
+  }
+  return frames;
 }
 
 export default function KangarooSpirit() {
@@ -75,150 +94,206 @@ export default function KangarooSpirit() {
       const srcRect = srcImg.getBoundingClientRect();
       const navRect = navTarget.getBoundingClientRect();
 
-      const sx = srcRect.left, sy = srcRect.top;
-      const sw = srcRect.width, sh = srcRect.height;
-      const ex = navRect.left, ey = navRect.top;
-      const ew = navRect.width, eh = navRect.height;
+      const sx = srcRect.left + srcRect.width / 2;
+      const sy = srcRect.top + srcRect.height / 2;
+      const ex = navRect.left + navRect.width / 2;
+      const ey = navRect.top + navRect.height / 2;
 
-      // Flight size: much smaller than source (40% of original)
-      const flightW = sw * 0.35;
-      const flightH = sh * 0.35;
+      // Flight size
+      const flightSize = 80;
+      const halfFlight = flightSize / 2;
 
-      // Bounce point: far right of screen, mid-height
-      const bx = vw * 0.75;
-      const by = (sy + ey) / 2 + 60;
+      // Bounce point: right side of screen
+      const bx = vw * 0.78;
+      const by = (sy + ey) / 2 + 40;
 
       gsap.set(flyer, {
-        left: sx, top: sy, width: sw, height: sh,
+        left: srcRect.left, top: srcRect.top,
+        width: srcRect.width, height: srcRect.height,
         opacity: 0, scaleX: 1, scaleY: 1, rotation: 0,
       });
 
-      // 1. Show flyer, hide source
+      // Show flyer, hide source
       tl.call(() => {
         srcImg.style.visibility = 'hidden';
         flyer.style.opacity = '1';
       });
 
-      // 2. Subtle squash wind-up + shrink
+      // Squash wind-up + shrink
       tl.to(flyer, {
         scaleY: 0.85, scaleX: 1.1,
-        width: flightW, height: flightH,
-        left: sx + (sw - flightW) / 2,
-        top: sy + (sh - flightH) / 2,
+        width: flightSize, height: flightSize,
+        left: sx - halfFlight, top: sy - halfFlight,
         duration: 0.25, ease: 'power2.in',
       });
 
-      // 3. Stretch on takeoff + dust
-      tl.to(flyer, { scaleY: 1.15, scaleX: 0.9, duration: 0.12, ease: 'power2.out' });
-      tl.call(() => burstDust(sx + sw / 2, sy + sh * 0.8));
+      // Stretch takeoff + dust
+      tl.to(flyer, { scaleY: 1.15, scaleX: 0.9, duration: 0.1, ease: 'power2.out' });
+      tl.call(() => burstDust(sx, sy + halfFlight));
 
-      // 4. First arc — graceful sweep to the right
+      // First arc: parabolic curve to bounce point (right side)
+      const arc1 = arcKeyframes(sx - halfFlight, sy - halfFlight, bx - halfFlight, by - halfFlight, 180);
       tl.to(flyer, {
-        left: bx,
-        top: by,
-        rotation: 12,
-        scaleY: 1.05, scaleX: 0.97,
-        duration: 0.6,
-        ease: 'power1.inOut',
+        duration: 0.65,
+        ease: 'none',
+        keyframes: arc1.map((f, i) => ({
+          left: f.left, top: f.top,
+          rotation: 12 * Math.sin((i / arc1.length) * Math.PI),
+          scaleY: 1 + 0.08 * Math.sin((i / arc1.length) * Math.PI),
+          scaleX: 1 - 0.05 * Math.sin((i / arc1.length) * Math.PI),
+          duration: 0.65 / arc1.length,
+        })),
       });
 
-      // 5. Soft bounce squash + dust
+      // Bounce squash + dust
       tl.to(flyer, { scaleY: 0.8, scaleX: 1.15, rotation: 0, duration: 0.1, ease: 'power2.in' });
-      tl.call(() => burstDust(bx + flightW / 2, by + flightH * 0.8));
+      tl.call(() => burstDust(bx, by + halfFlight));
 
-      // 6. Gentle stretch for second arc
-      tl.to(flyer, { scaleY: 1.1, scaleX: 0.92, duration: 0.1, ease: 'power2.out' });
+      // Stretch for second jump
+      tl.to(flyer, { scaleY: 1.1, scaleX: 0.92, duration: 0.08, ease: 'power2.out' });
 
-      // 7. Second arc — sweep up-left to navbar, shrinking to final size
+      // Second arc: parabolic curve to navbar
+      const arc2 = arcKeyframes(
+        bx - halfFlight, by - halfFlight,
+        ex - navRect.width / 2, ey - navRect.height / 2,
+        220,
+      );
+      const navW = navRect.width, navH = navRect.height;
       tl.to(flyer, {
-        left: ex, top: ey,
-        width: ew, height: eh,
-        rotation: 0,
-        scaleY: 1, scaleX: 1,
-        duration: 0.55,
-        ease: 'power2.inOut',
+        duration: 0.6,
+        ease: 'none',
+        keyframes: arc2.map((f, i) => {
+          const t = i / arc2.length;
+          const w = flightSize + (navW - flightSize) * t;
+          const h = flightSize + (navH - flightSize) * t;
+          return {
+            left: f.left + (halfFlight - w / 2) * (1 - t),
+            top: f.top + (halfFlight - h / 2) * (1 - t),
+            width: w, height: h,
+            rotation: -8 * Math.sin(t * Math.PI) * (1 - t),
+            scaleY: 1 + 0.06 * Math.sin(t * Math.PI),
+            scaleX: 1 - 0.04 * Math.sin(t * Math.PI),
+            duration: 0.6 / arc2.length,
+          };
+        }),
       });
 
-      // 8. Landing squash
+      // Landing squash + dust
       tl.to(flyer, { scaleY: 0.88, scaleX: 1.12, duration: 0.08, ease: 'power2.in' });
-      tl.call(() => burstDust(ex + ew / 2, ey + eh));
+      tl.call(() => burstDust(ex, ey + navH / 2));
 
-      // 9. Elastic settle
+      // Elastic settle
       tl.to(flyer, { scaleY: 1.04, scaleX: 0.97, duration: 0.1, ease: 'power2.out' });
       tl.to(flyer, { scaleY: 1, scaleX: 1, duration: 0.25, ease: 'elastic.out(1, 0.5)' });
 
-      // 10. Snap into nav
+      // Snap into nav
       tl.call(() => {
         navTarget.style.opacity = '1';
         flyer.style.opacity = '0';
       });
 
     } else {
-      // === REVERSE: one smooth arc from navbar back to circle ===
+      // === REVERSE ===
+      // First, scroll the spirit section into view so the circle is properly positioned
       const navRect = navTarget.getBoundingClientRect();
+      const sx = navRect.left + navRect.width / 2;
+      const sy = navRect.top + navRect.height / 2;
+
+      // Get circle's page-absolute position (not viewport-relative)
+      const circlePageTop = circleArea.offsetTop + (circleArea.offsetParent as HTMLElement)?.offsetTop || 0;
+
+      // We need to figure out where the circle WILL be after scroll settles.
+      // Since onLeaveBack fires during scroll, let's get the section's position
+      // and compute the circle center relative to the viewport after the section is in view.
+      const container = containerRef.current!;
+      const containerRect = container.getBoundingClientRect();
       const circleRect = circleArea.getBoundingClientRect();
+
+      // Circle center relative to its container
+      const circleOffsetX = circleRect.left - containerRect.left + circleRect.width / 2;
+      const circleOffsetY = circleRect.top - containerRect.top + circleRect.height / 2;
+
+      // The trigger fires at 'bottom 60%', meaning the container bottom is at 60% viewport.
+      // When scrolling back, the container will be roughly centered. 
+      // Use current viewport position but clamp it to be on-screen.
       const targetW = circleRect.width * 0.85;
       const targetH = circleRect.height * 0.85;
-      const ex = circleRect.left + (circleRect.width - targetW) / 2;
-      const ey = circleRect.top + (circleRect.height - targetH) / 2;
-      const sx = navRect.left, sy = navRect.top;
-      const sw = navRect.width, sh = navRect.height;
+      
+      // Use the circle's current screen position, but if it's off-screen, 
+      // animate toward where it should end up
+      let ex = circleRect.left + (circleRect.width - targetW) / 2;
+      let ey = circleRect.top + (circleRect.height - targetH) / 2;
+      const vh = window.innerHeight;
+      
+      // If circle is off-screen, estimate its on-screen position
+      // The trigger fires when container bottom crosses 60% viewport
+      // So the container bottom ≈ 0.6 * vh, container top ≈ 0.6 * vh - containerRect.height
+      if (ey < -100 || ey > vh + 100) {
+        const estimatedContainerTop = 0.6 * vh - containerRect.height;
+        ex = containerRect.left + circleOffsetX - targetW / 2;
+        ey = estimatedContainerTop + circleOffsetY - targetH / 2;
+      }
 
-      // Single arc: swing out right then curve back to circle
-      const peakX = vw * 0.65;
-      const peakY = Math.min(sy, ey) - 80;
+      const flightSize = 80;
+      const halfFlight = flightSize / 2;
+
+      // Single smooth parabolic arc with a rightward peak
+      const peakX = vw * 0.6;
+      const peakY = Math.min(sy, ey) - 150;
 
       gsap.set(flyer, {
-        left: sx, top: sy, width: sw, height: sh,
+        left: navRect.left, top: navRect.top,
+        width: navRect.width, height: navRect.height,
         opacity: 0, scaleX: 1, scaleY: 1, rotation: 0,
       });
 
-      // 1. Show flyer, hide nav
+      // Show flyer, hide nav
       tl.call(() => {
         navTarget.style.opacity = '0';
         flyer.style.opacity = '1';
       });
 
-      // 2. Subtle squash + takeoff dust
+      // Squash takeoff
       tl.to(flyer, { scaleY: 0.85, scaleX: 1.1, duration: 0.15, ease: 'power2.in' });
       tl.to(flyer, { scaleY: 1.15, scaleX: 0.9, duration: 0.1, ease: 'power2.out' });
-      tl.call(() => burstDust(sx + sw / 2, sy + sh));
+      tl.call(() => burstDust(sx, sy + navRect.height / 2));
 
-      // 3. Single graceful arc — out right, peak, then curve down-left to circle
-      // Phase A: rise to peak, growing
+      // Single parabolic arc back to circle
+      const arcR = arcKeyframes(sx, sy, ex + targetW / 2, ey + targetH / 2, 200);
       tl.to(flyer, {
-        left: peakX,
-        top: peakY,
-        width: targetW * 0.4,
-        height: targetH * 0.4,
-        rotation: -8,
-        scaleY: 1.05, scaleX: 0.97,
-        duration: 0.5,
-        ease: 'power2.out',
+        duration: 0.9,
+        ease: 'none',
+        keyframes: arcR.map((f, i) => {
+          const t = i / arcR.length;
+          // Grow from nav size → flight size → target size
+          // Small in the middle, full at the end
+          const midT = Math.sin(t * Math.PI); // peaks at 0.5
+          const growT = t * t; // accelerates toward end
+          const w = navRect.width + (flightSize - navRect.width) * midT * (1 - growT) + (targetW - navRect.width) * growT;
+          const h = navRect.height + (flightSize - navRect.height) * midT * (1 - growT) + (targetH - navRect.height) * growT;
+          return {
+            left: f.left - w / 2,
+            top: f.top - h / 2,
+            width: w, height: h,
+            rotation: -10 * Math.sin(t * Math.PI) * (1 - t),
+            scaleY: 1 + 0.08 * Math.sin(t * Math.PI),
+            scaleX: 1 - 0.05 * Math.sin(t * Math.PI),
+            duration: 0.9 / arcR.length,
+          };
+        }),
       });
 
-      // Phase B: descend to circle, growing to full size
-      tl.to(flyer, {
-        left: ex,
-        top: ey,
-        width: targetW,
-        height: targetH,
-        rotation: 0,
-        scaleY: 1, scaleX: 1,
-        duration: 0.55,
-        ease: 'power2.in',
-      });
-
-      // 4. Landing squash + dust
+      // Landing squash + dust
       tl.to(flyer, { scaleY: 0.88, scaleX: 1.1, duration: 0.08, ease: 'power2.in' });
       tl.call(() => burstDust(ex + targetW / 2, ey + targetH));
 
-      // 5. Elastic settle
+      // Elastic settle
       tl.to(flyer, { scaleY: 1.04, scaleX: 0.97, duration: 0.1, ease: 'power2.out' });
       tl.to(flyer, { scaleY: 1, scaleX: 1, duration: 0.25, ease: 'elastic.out(1, 0.5)' });
 
-      // 6. Show original, hide flyer
+      // Show original, hide flyer — but wait a tick for scroll to settle
       tl.call(() => {
+        // Re-read circle position now that scroll has settled more
         flyer.style.opacity = '0';
         srcImg.style.visibility = 'visible';
       });
