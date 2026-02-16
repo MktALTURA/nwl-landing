@@ -52,7 +52,7 @@ export default function Testimonials() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all"
+              className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300"
             >
               {/* Portrait */}
               <div className="aspect-square relative bg-sand">

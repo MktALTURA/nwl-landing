@@ -215,13 +215,51 @@ export default function KangarooSpirit() {
         const circleRect = circleArea.getBoundingClientRect();
         targetW = circleRect.width * 0.85;
         targetH = circleRect.height * 0.85;
-        // Target center for the arc
         ex = circleRect.left + (circleRect.width - targetW) / 2 + targetW / 2;
         ey = circleRect.top + (circleRect.height - targetH) / 2 + targetH / 2;
       };
 
       // Read position immediately
       circlePosition();
+
+      // Helper: pin flyer to circle's real-time viewport position
+      const pinToCircle = () => {
+        const cr = circleArea.getBoundingClientRect();
+        const tw = cr.width * 0.85;
+        const th = cr.height * 0.85;
+        gsap.set(flyer, {
+          left: cr.left + (cr.width - tw) / 2,
+          top: cr.top + (cr.height - th) / 2,
+          width: tw, height: th,
+        });
+      };
+
+      // Scroll listener keeps flyer locked to circle during landing phase
+      let scrollPinActive = false;
+      const onScrollPin = () => { if (scrollPinActive) pinToCircle(); };
+
+      // --- Cancel guard: if user scrolls past the spirit section, abort gracefully ---
+      let reverseAborted = false;
+      const cleanupAllListeners = () => {
+        window.removeEventListener('scroll', cancelReverse);
+        if (scrollPinActive) {
+          scrollPinActive = false;
+          window.removeEventListener('scroll', onScrollPin);
+        }
+      };
+      const cancelReverse = () => {
+        const cr = circleArea.getBoundingClientRect();
+        // Spirit section is fully below the viewport — user scrolled past it
+        if (cr.top > window.innerHeight) {
+          reverseAborted = true;
+          tl.kill();
+          // Quietly reset: hide flyer, restore source kangaroo in circle
+          gsap.set(flyer, { opacity: 0 });
+          srcImg.style.visibility = 'visible';
+          cleanupAllListeners();
+        }
+      };
+      window.addEventListener('scroll', cancelReverse, { passive: true });
 
       gsap.set(flyer, {
         left: navRect.left, top: navRect.top,
@@ -246,7 +284,6 @@ export default function KangarooSpirit() {
         ease: 'none',
         keyframes: arcR.map((f, i) => {
           const t = i / (arcR.length - 1);
-          // Grow from nav size → flight size → target size
           const midT = Math.sin(t * Math.PI);
           const growT = t * t;
           const w = navRect.width + (flightSize - navRect.width) * midT * (1 - growT) + (targetW - navRect.width) * growT;
@@ -263,15 +300,30 @@ export default function KangarooSpirit() {
         }),
       });
 
+      // Snap to circle's REAL position (user may have scrolled during the arc)
+      tl.call(() => {
+        pinToCircle();
+        gsap.set(flyer, { rotation: 0 });
+        scrollPinActive = true;
+        window.addEventListener('scroll', onScrollPin, { passive: true });
+      });
+
       // Landing squash + dust
       tl.to(flyer, { scaleY: 0.88, scaleX: 1.1, duration: 0.08, ease: 'power2.in' });
-      tl.call(() => burstDust(ex, ey));
+      tl.call(() => {
+        const cr = circleArea.getBoundingClientRect();
+        burstDust(cr.left + cr.width / 2, cr.top + cr.height / 2);
+      });
 
       // Elastic settle
       tl.to(flyer, { scaleY: 1.04, scaleX: 0.97, duration: 0.1, ease: 'power2.out' });
       tl.to(flyer, { scaleY: 1, scaleX: 1, duration: 0.25, ease: 'elastic.out(1, 0.5)' });
 
-      // Show original, hide flyer
+      // Show original, hide flyer — remove all scroll tracking
+      tl.call(() => {
+        cleanupAllListeners();
+        pinToCircle();
+      });
       tl.set(flyer, { opacity: 0 });
       tl.call(() => { srcImg.style.visibility = 'visible'; });
     }

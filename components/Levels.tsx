@@ -85,7 +85,7 @@ export default function Levels() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="group bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border-2 border-transparent hover:border-current"
+              className="group bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 border-2 border-transparent hover:border-current"
               style={{ borderColor: `var(--${level.color})` }}
             >
               {/* Level Image */}

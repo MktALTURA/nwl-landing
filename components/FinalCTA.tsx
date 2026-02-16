@@ -1,9 +1,21 @@
 'use client';
 
+import { useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { FiCalendar, FiDownload, FiPhone } from 'react-icons/fi';
+import { FiCalendar, FiDownload, FiMessageCircle } from 'react-icons/fi';
 
 export default function FinalCTA() {
+  // Load GoHighLevel form embed script
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = 'https://link.msgsndr.com/js/form_embed.js';
+    script.async = true;
+    document.body.appendChild(script);
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
+
   return (
     <section id="admissions" className="section-padding bg-gradient-to-br from-wine to-wine/90 text-white relative overflow-hidden animate-section">
       {/* Background Pattern */}
@@ -14,95 +26,108 @@ export default function FinalCTA() {
 
       {/* Kangaroo Watermark */}
       <div className="absolute right-[-5%] bottom-[-10%] w-[50vh] h-[50vh] opacity-[0.06] pointer-events-none">
-        <img 
-          src="/images/brand/kangaroo-white-transparent.png" 
-          alt="" 
+        <img
+          src="/images/brand/kangaroo-white-transparent.png"
+          alt=""
           className="w-full h-full object-contain"
         />
       </div>
 
       <div className="container-custom relative z-10">
-        <div className="max-w-4xl mx-auto text-center">
-          {/* Header */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="font-display text-4xl md:text-6xl font-bold mb-6">
-              Begin Your <span className="text-mustard">NWL Journey</span>
-            </h2>
-            <p className="text-xl text-white/90 mb-12 leading-relaxed">
-              Join a community where your child can grow academically, emotionally, and socially.
-              Schedule a visit to experience NWL firsthand.
-            </p>
-          </motion.div>
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="text-center mb-12"
+        >
+          <h2 className="font-display text-4xl md:text-6xl font-bold mb-6">
+            Begin Your <span className="text-mustard">NWL Journey</span>
+          </h2>
+          <p className="text-xl text-white/90 max-w-2xl mx-auto leading-relaxed">
+            Join a community where your child can grow academically, emotionally, and socially.
+          </p>
+        </motion.div>
 
-          {/* CTA Buttons */}
+        {/* Two-column: Form + Info */}
+        <div className="grid lg:grid-cols-5 gap-10 items-start max-w-6xl mx-auto">
+
+          {/* Form — takes 3 of 5 columns */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
-            className="flex flex-col sm:flex-row gap-4 justify-center mb-16"
+            className="lg:col-span-3 rounded-lg shadow-2xl overflow-hidden"
           >
-            <a
-              href="https://forms.gle/newland-visit"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-white text-wine px-8 py-4 rounded-sm font-bold text-lg hover:bg-ivory transition-colors inline-flex items-center justify-center group"
-            >
-              <FiCalendar className="mr-2 group-hover:scale-110 transition-transform" />
-              Schedule a Visit
-            </a>
-            
-            <a
-              href="tel:+524421227791"
-              className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-sm font-bold text-lg hover:bg-white hover:text-wine transition-colors inline-flex items-center justify-center"
-            >
-              <FiPhone className="mr-2" />
-              Call Us Now
-            </a>
+            <iframe
+              src="https://api.leadconnectorhq.com/widget/form/Y8BSzINaStvWVeBWBMyb"
+              style={{ width: '100%', height: '1400px', border: 'none' }}
+              id="inline-Y8BSzINaStvWVeBWBMyb"
+              data-layout="{'id':'INLINE'}"
+              data-trigger-type="alwaysShow"
+              data-trigger-value=""
+              data-activation-type="alwaysActivated"
+              data-activation-value=""
+              data-deactivation-type="neverDeactivate"
+              data-deactivation-value=""
+              data-form-name="Formulario para pag web  - EN"
+              data-height="1400"
+              data-layout-iframe-id="inline-Y8BSzINaStvWVeBWBMyb"
+              data-form-id="Y8BSzINaStvWVeBWBMyb"
+              title="Schedule a Visit - NWL"
+            />
           </motion.div>
 
-          {/* Info Cards */}
+          {/* Right column — info + WhatsApp */}
           <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
             viewport={{ once: true }}
-            className="grid md:grid-cols-3 gap-6"
+            className="lg:col-span-2 space-y-6"
           >
-            <div className="bg-white/10 backdrop-blur-sm rounded-sm p-6 text-left">
+            {/* Info Cards */}
+            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6">
               <div className="text-mustard mb-3">
-                <FiCalendar size={32} />
+                <FiCalendar size={28} />
               </div>
               <h3 className="font-bold text-lg mb-2">Campus Visit</h3>
-              <p className="text-white/80 text-sm">
-                Experience our facilities and meet our educators
+              <p className="text-white/80 text-sm leading-relaxed">
+                Experience our facilities and meet our educators in person. We&apos;ll tailor the visit to your child&apos;s age group.
               </p>
             </div>
 
-            <div className="bg-white/10 backdrop-blur-sm rounded-sm p-6 text-left">
+            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6">
               <div className="text-mustard mb-3">
-                <FiDownload size={32} />
+                <FiDownload size={28} />
               </div>
               <h3 className="font-bold text-lg mb-2">Admissions Guide</h3>
-              <p className="text-white/80 text-sm">
-                Download our complete admissions process guide
+              <p className="text-white/80 text-sm leading-relaxed">
+                Download our complete admissions process guide with tuition details and enrollment steps.
               </p>
             </div>
 
-            <div className="bg-white/10 backdrop-blur-sm rounded-sm p-6 text-left">
+            {/* WhatsApp CTA */}
+            <a
+              href="https://wa.me/5214421227791"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block bg-white/10 backdrop-blur-sm rounded-lg p-6 hover:bg-white/20 transition-colors duration-300 group"
+            >
               <div className="text-mustard mb-3">
-                <FiPhone size={32} />
+                <FiMessageCircle size={28} />
               </div>
-              <h3 className="font-bold text-lg mb-2">Personal Support</h3>
-              <p className="text-white/80 text-sm">
-                Our team is ready to answer all your questions
+              <h3 className="font-bold text-lg mb-2 group-hover:text-mustard transition-colors">Chat With Us</h3>
+              <p className="text-white/80 text-sm leading-relaxed mb-4">
+                Prefer a quick chat? Our admissions team is ready on WhatsApp.
               </p>
-            </div>
+              <span className="inline-flex items-center gap-2 text-sm font-bold text-mustard">
+                <FiMessageCircle size={16} />
+                Open WhatsApp
+              </span>
+            </a>
           </motion.div>
         </div>
       </div>
