@@ -55,7 +55,7 @@ export default function Benefits() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="group bg-ivory rounded-lg overflow-hidden hover:shadow-xl transition-all duration-300"
+              className="group bg-ivory rounded-lg overflow-hidden transition-shadow duration-300 hover:shadow-xl"
             >
               {/* Benefit Image */}
               <div className="aspect-[4/3] relative overflow-hidden bg-sand">

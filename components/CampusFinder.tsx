@@ -148,7 +148,7 @@ export default function CampusFinder() {
               transition={{ duration: 0.5, delay: index * 0.1, type: "spring" }}
               viewport={{ once: true }}
               whileHover={{ y: -8, rotate: 1, transition: { duration: 0.2 } }}
-              className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border-4 border-transparent hover:border-current"
+              className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 border-4 border-transparent hover:border-current"
               style={{ color: `var(--${campus.accent})` }}
             >
               {/* Campus Image */}
@@ -224,11 +224,11 @@ export default function CampusFinder() {
 
               <div className="space-y-3 mb-6">
                 <a
-                  href="tel:+524421227791"
+                  href="tel:+524424541010"
                   className="flex items-center justify-center text-white/90 hover:text-white hover:scale-105 transition-transform font-medium"
                 >
                   <FiPhone className="mr-2" />
-                  +52 442 122 7791
+                  +52 (442) 454 10 10
                 </a>
                 <a
                   href="mailto:admissions@newland.edu.mx"

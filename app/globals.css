@@ -3,10 +3,22 @@
 @tailwind utilities;
 
 @layer base {
-  html {
-    scroll-behavior: smooth;
+  html.lenis, html.lenis body {
+    height: auto;
   }
-  
+
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+
+  .lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+  }
+
+  .lenis.lenis-stopped {
+    overflow: hidden;
+  }
+
   body {
     @apply bg-ivory text-charcoal;
   }
@@ -30,7 +42,7 @@
   .btn-secondary {
     @apply bg-transparent text-wine px-8 py-3 rounded-sm font-medium
            border-2 border-wine hover:bg-wine hover:text-white
-           transition-all duration-300;
+           transition-colors duration-300;
   }
   
   .wine-divider {

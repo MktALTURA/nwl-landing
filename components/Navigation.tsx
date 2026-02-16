@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { FiMenu, FiX } from 'react-icons/fi';
+import { FiMenu, FiX, FiMessageCircle } from 'react-icons/fi';
 
 const navLinks = [
   { name: 'Home', href: '#home' },
@@ -39,10 +39,13 @@ export default function Navigation() {
             animate={{ opacity: 1, x: 0 }}
             className="flex items-center gap-2"
           >
+            {/* Kangaroo landing target — hidden until jump animation places it */}
             <img 
+              id="nav-kangaroo-target"
               src="/images/brand/kangaroo-wine.png" 
               alt="NWL mascot" 
               className="h-12 w-auto"
+              style={{ opacity: 0 }}
             />
             <img 
               src="/images/brand/nwl-logo-wine.png" 
@@ -71,6 +74,15 @@ export default function Navigation() {
               className="btn-primary text-sm"
             >
               Schedule a Visit
+            </a>
+            <a
+              href="https://wa.me/5214421227791"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-10 h-10 rounded-full border border-wine/20 flex items-center justify-center text-wine hover:bg-wine hover:text-white transition-colors duration-300"
+              aria-label="Chat on WhatsApp"
+            >
+              <FiMessageCircle size={18} />
             </a>
           </div>
 
@@ -107,6 +119,15 @@ export default function Navigation() {
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Schedule a Visit
+              </a>
+              <a
+                href="https://wa.me/5214421227791"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-2 mx-4 py-3 text-wine font-medium text-sm hover:text-wine/70 transition-colors"
+              >
+                <FiMessageCircle size={16} />
+                WhatsApp Us
               </a>
             </div>
           </motion.div>

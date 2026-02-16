@@ -50,7 +50,7 @@ export default function Philosophy() {
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.15 }}
                   viewport={{ once: true }}
-                  className="flex gap-4 bg-white p-4 rounded-lg hover:shadow-md transition-all"
+                  className="flex gap-4 bg-white p-4 rounded-lg hover:shadow-md transition-shadow duration-300"
                 >
                   {/* Pillar thumbnail */}
                   <div className="flex-shrink-0 w-20 h-20 rounded-lg overflow-hidden relative bg-sand">
