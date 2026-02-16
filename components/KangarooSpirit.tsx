@@ -136,13 +136,16 @@ export default function KangarooSpirit() {
       tl.to(flyer, {
         duration: 0.65,
         ease: 'none',
-        keyframes: arc1.map((f, i) => ({
-          left: f.left, top: f.top,
-          rotation: 12 * Math.sin((i / arc1.length) * Math.PI),
-          scaleY: 1 + 0.08 * Math.sin((i / arc1.length) * Math.PI),
-          scaleX: 1 - 0.05 * Math.sin((i / arc1.length) * Math.PI),
-          duration: 0.65 / arc1.length,
-        })),
+        keyframes: arc1.map((f, i) => {
+          const t1 = i / (arc1.length - 1);
+          return {
+            left: f.left, top: f.top,
+            rotation: 12 * Math.sin(t1 * Math.PI),
+            scaleY: 1 + 0.08 * Math.sin(t1 * Math.PI),
+            scaleX: 1 - 0.05 * Math.sin(t1 * Math.PI),
+            duration: 0.65 / arc1.length,
+          };
+        }),
       });
 
       // Bounce squash + dust
@@ -163,7 +166,7 @@ export default function KangarooSpirit() {
         duration: 0.6,
         ease: 'none',
         keyframes: arc2.map((f, i) => {
-          const t = i / arc2.length;
+          const t = i / (arc2.length - 1);
           const w = flightSize + (navW - flightSize) * t;
           const h = flightSize + (navH - flightSize) * t;
           return {
@@ -178,6 +181,13 @@ export default function KangarooSpirit() {
         }),
       });
 
+      // Snap to exact nav target position before landing effects
+      tl.set(flyer, {
+        left: navRect.left, top: navRect.top,
+        width: navW, height: navH,
+        rotation: 0,
+      });
+
       // Landing squash + dust
       tl.to(flyer, { scaleY: 0.88, scaleX: 1.12, duration: 0.08, ease: 'power2.in' });
       tl.call(() => burstDust(ex, ey + navH / 2));
@@ -186,11 +196,9 @@ export default function KangarooSpirit() {
       tl.to(flyer, { scaleY: 1.04, scaleX: 0.97, duration: 0.1, ease: 'power2.out' });
       tl.to(flyer, { scaleY: 1, scaleX: 1, duration: 0.25, ease: 'elastic.out(1, 0.5)' });
 
-      // Snap into nav
-      tl.call(() => {
-        navTarget.style.opacity = '1';
-        flyer.style.opacity = '0';
-      });
+      // Crossfade into nav — show target first, then hide flyer
+      tl.set(navTarget, { opacity: 1 });
+      tl.to(flyer, { opacity: 0, duration: 0.15, ease: 'power1.out' });
 
     } else {
       // === REVERSE ===
@@ -221,30 +229,23 @@ export default function KangarooSpirit() {
         opacity: 0, scaleX: 1, scaleY: 1, rotation: 0,
       });
 
-      // Show flyer, hide nav
-      tl.call(() => {
-        navTarget.style.opacity = '0';
-        flyer.style.opacity = '1';
-      });
+      // Show flyer, hide nav — simultaneous swap via GSAP
+      tl.set(flyer, { opacity: 1 });
+      tl.set(navTarget, { opacity: 0 });
 
       // Squash takeoff
       tl.to(flyer, { scaleY: 0.85, scaleX: 1.1, duration: 0.15, ease: 'power2.in' });
       tl.to(flyer, { scaleY: 1.15, scaleX: 0.9, duration: 0.1, ease: 'power2.out' });
       tl.call(() => burstDust(sx, sy + navRect.height / 2));
 
-      // Recalculate circle position right before arc (scroll has settled by now)
-      let arcR: any[] = [];
-      tl.call(() => {
-        circlePosition();
-        // Arc from nav center to circle center
-        arcR = arcKeyframes(sx, sy, ex, ey, 200);
-      });
+      // Compute arc keyframes synchronously so they're available for the timeline
+      const arcR = arcKeyframes(sx, sy, ex, ey, 200);
 
       tl.to(flyer, {
         duration: 0.9,
         ease: 'none',
         keyframes: arcR.map((f, i) => {
-          const t = i / arcR.length;
+          const t = i / (arcR.length - 1);
           // Grow from nav size → flight size → target size
           const midT = Math.sin(t * Math.PI);
           const growT = t * t;
@@ -270,12 +271,9 @@ export default function KangarooSpirit() {
       tl.to(flyer, { scaleY: 1.04, scaleX: 0.97, duration: 0.1, ease: 'power2.out' });
       tl.to(flyer, { scaleY: 1, scaleX: 1, duration: 0.25, ease: 'elastic.out(1, 0.5)' });
 
-      // Show original, hide flyer — but wait a tick for scroll to settle
-      tl.call(() => {
-        // Re-read circle position now that scroll has settled more
-        flyer.style.opacity = '0';
-        srcImg.style.visibility = 'visible';
-      });
+      // Show original, hide flyer
+      tl.set(flyer, { opacity: 0 });
+      tl.call(() => { srcImg.style.visibility = 'visible'; });
     }
   }, [getFlyer]);
 
