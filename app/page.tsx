@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Hero from '@/components/Hero';
+import BeSection from '@/components/BeSection';
 import KangarooSpirit from '@/components/KangarooSpirit';
 import Benefits from '@/components/Benefits';
 import Levels from '@/components/Levels';
@@ -62,6 +63,7 @@ export default function Home() {
       <main ref={mainRef}>
         <Hero />
         <KangarooSpirit />
+        <BeSection />
         <Benefits />
         <Philosophy />
         <Levels />

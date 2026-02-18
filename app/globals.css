@@ -55,13 +55,12 @@
     perspective: 1000px;
   }
   
-  .tagline-char {
-    display: inline-block;
-    transform-style: preserve-3d;
-  }
-  
   /* Smooth transitions */
   .hero-content {
+    will-change: transform, opacity;
+  }
+
+  .be-word {
     will-change: transform, opacity;
   }
 }

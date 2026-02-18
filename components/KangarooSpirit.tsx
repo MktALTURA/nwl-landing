@@ -408,7 +408,7 @@ export default function KangarooSpirit() {
             <div ref={circleAreaRef} className="relative w-[280px] h-[280px] md:w-[360px] md:h-[360px]">
               <div className="kangaroo-reveal w-full h-full flex items-center justify-center">
                 <img ref={kangarooImgRef} id="spirit-kangaroo"
-                  src="/images/brand/kangaroo-wine.png" alt="NWL Kangaroo — Our Spirit"
+                  src="/images/brand/kangaroo-wine.png" alt="NWL Kangaroo - Our Spirit"
                   className="w-[85%] h-[85%] object-contain drop-shadow-lg" />
               </div>
               <div className="absolute inset-0 overflow-hidden rounded-full pointer-events-none">
@@ -424,7 +424,7 @@ export default function KangarooSpirit() {
               Our <span className="text-wine">Spirit</span>
             </h2>
             <p className="spirit-text text-charcoal/70 text-lg leading-relaxed mb-6">
-              The kangaroo embodies the NWL spirit — strength, forward
+              The kangaroo embodies the NWL spirit: strength, forward
               momentum, and carrying those we nurture closest to our hearts.
               Always leaping toward new horizons.
             </p>

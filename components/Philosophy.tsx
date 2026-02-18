@@ -6,21 +6,27 @@ import { motion } from 'framer-motion';
 const pillars = [
   {
     number: '01',
-    title: 'Academic Rigor',
-    description: 'Challenging curriculum that develops critical thinking and problem-solving skills.',
-    image: '/images/benefits/academic.jpg',
+    title: 'Philosophy for Children (P4C)',
+    subtitle: 'Critical thinking at every stage',
+    description:
+      'Students learn how to think, not what to think. Guided dialogue and philosophical inquiry develop autonomous, analytical thinkers.',
+    logoInitials: 'P4C',
   },
   {
     number: '02',
-    title: 'Emotional Intelligence',
-    description: 'Building self-awareness, empathy, and resilience in every student.',
-    image: '/images/benefits/emotional.jpg',
+    title: "I'm NWL Leader by Tec de Monterrey",
+    subtitle: 'Unique program in Mexico - Exclusive to NWL',
+    description:
+      'Leadership, emotional intelligence, and social-emotional growth from early childhood onward. Endorsed by Tec de Monterrey exclusively for NWL.',
+    logoInitials: 'NWL',
   },
   {
     number: '03',
-    title: 'Community Connection',
-    description: 'Strong partnerships between students, families, and educators.',
-    image: '/images/benefits/community.jpg',
+    title: 'Knotion - International Methodology',
+    subtitle: 'Real challenges, real learning',
+    description:
+      'Project-based learning through real-world challenges with social impact. No traditional homework, just creative problem solving.',
+    logoInitials: 'K',
   },
 ];
 
@@ -36,9 +42,9 @@ export default function Philosophy() {
               The <span className="text-wine">NWL</span> Model
             </h2>
             <p className="text-lg text-charcoal/80 mb-8 leading-relaxed">
-              Our educational philosophy is built on three fundamental pillars that
-              guide everything we do. We believe in nurturing the whole child—
-              academically, emotionally, and socially.
+              Our educational model integrates three proven methodologies that
+              develop the whole child: critical thinking, emotional leadership,
+              and real-world problem solving.
             </p>
 
             {/* Three Pillars with Images */}
@@ -50,23 +56,22 @@ export default function Philosophy() {
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.15 }}
                   viewport={{ once: true }}
-                  className="flex gap-4 bg-white p-4 rounded-lg hover:shadow-md transition-shadow duration-300"
+                  className="flex gap-5 bg-white p-5 rounded-lg hover:shadow-md transition-shadow duration-300"
                 >
-                  {/* Pillar thumbnail */}
-                  <div className="flex-shrink-0 w-20 h-20 rounded-lg overflow-hidden relative bg-sand">
-                    <Image
-                      src={pillar.image}
-                      alt={pillar.title}
-                      fill
-                      sizes="80px"
-                      className="object-cover"
-                    />
+                  {/* Logo placeholder */}
+                  <div className="flex-shrink-0 w-20 h-20 rounded-lg border-2 border-dashed border-wine/30 bg-wine/5 flex items-center justify-center">
+                    <span className="text-wine font-bold text-sm text-center leading-tight">
+                      {pillar.logoInitials}
+                    </span>
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-xl font-bold text-charcoal mb-2">
+                    <h3 className="text-lg font-bold text-charcoal mb-1">
                       {pillar.title}
                     </h3>
-                    <p className="text-charcoal/70 text-sm">
+                    <p className="text-base font-semibold text-wine mb-2">
+                      {pillar.subtitle}
+                    </p>
+                    <p className="text-charcoal/70 text-sm leading-relaxed">
                       {pillar.description}
                     </p>
                   </div>
