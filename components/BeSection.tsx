@@ -129,7 +129,7 @@ export default function BeSection() {
           />
         </div>
 
-        <div className="text-center relative z-10">
+        <div className="text-center relative z-10 w-full px-4">
           {/* Wine accent divider */}
           <div className="be-divider-pin w-16 h-[2px] bg-wine mx-auto mb-8" />
 
@@ -139,7 +139,7 @@ export default function BeSection() {
           </div>
 
           {/* Cycling word — stacked below "Be", same size */}
-          <div className="relative h-[1.2em] mt-2">
+          <div className="relative h-[1.2em] mt-2 w-full overflow-hidden">
             {WORDS.map((word) => (
               <span
                 key={word}
