@@ -139,7 +139,7 @@ export default function BeSection() {
           </div>
 
           {/* Cycling word — stacked below "Be", same size */}
-          <div className="relative h-[1.2em] mt-2 w-full overflow-hidden">
+          <div className="relative h-[86px] md:h-[115px] lg:h-[154px] mt-2 w-full">
             {WORDS.map((word) => (
               <span
                 key={word}
