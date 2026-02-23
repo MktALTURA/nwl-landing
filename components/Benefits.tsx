@@ -3,46 +3,30 @@
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { FiHeart, FiBook, FiUsers, FiGlobe } from 'react-icons/fi';
+import { useLanguage } from '@/lib/i18n/LanguageContext';
 
-const benefits = [
-  {
-    icon: FiHeart,
-    title: 'Emotional Development',
-    description: 'We nurture confident, resilient students through a supportive and trusting environment.',
-    image: '/images/benefits/emotional.jpg',
-  },
-  {
-    icon: FiBook,
-    title: 'Academic Excellence',
-    description: 'Rigorous bilingual curriculum that prepares students for global opportunities.',
-    image: '/images/benefits/academic.jpg',
-  },
-  {
-    icon: FiUsers,
-    title: 'Close Community',
-    description: 'Small class sizes ensure personalized attention and meaningful relationships.',
-    image: '/images/benefits/community.jpg',
-  },
-  {
-    icon: FiGlobe,
-    title: 'Global Mindset',
-    description: 'We develop world-ready citizens with critical thinking and cultural awareness.',
-    image: '/images/benefits/global.jpg',
-  },
+const benefitsData = [
+  { icon: FiHeart, image: '/images/benefits/emotional.jpg' },
+  { icon: FiBook, image: '/images/benefits/academic.jpg' },
+  { icon: FiUsers, image: '/images/benefits/community.jpg' },
+  { icon: FiGlobe, image: '/images/benefits/global.jpg' },
 ];
 
 export default function Benefits() {
+  const { t } = useLanguage();
+  const benefits = benefitsData.map((b, i) => ({ ...b, ...t.benefits.items[i] }));
+
   return (
-    <section className="section-padding bg-white relative animate-section">
+    <section id="about" className="section-padding bg-white relative animate-section">
       <div className="container-custom">
         {/* Section Header */}
         <div className="text-center mb-16">
           <div className="wine-divider mx-auto mb-6" />
           <h2 className="font-display text-4xl md:text-5xl font-bold text-charcoal mb-4">
-            Why Choose <span className="text-wine">NWL</span>
+            {t.benefits.sectionTitle} <span className="text-wine">{t.benefits.sectionTitleAccent}</span>
           </h2>
           <p className="text-lg text-charcoal/70 max-w-2xl mx-auto">
-            Our comprehensive approach to education focuses on the whole child
+            {t.benefits.sectionSubtitle}
           </p>
         </div>
 
@@ -50,7 +34,7 @@ export default function Benefits() {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {benefits.map((benefit, index) => (
             <motion.div
-              key={benefit.title}
+              key={index}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
@@ -109,7 +93,7 @@ export default function Benefits() {
           className="text-center mt-12"
         >
           <a href="#admissions" className="btn-primary">
-            Discover Our Approach
+            {t.benefits.cta}
           </a>
         </motion.div>
       </div>

@@ -3,17 +3,17 @@
 import { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useLanguage } from '@/lib/i18n/LanguageContext';
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger);
 }
 
-const WORDS = ['Curious', 'Kind', 'Bold', 'Resilient', 'Creative', 'Brave', 'NWL'];
-
 export default function BeSection() {
   const triggerRef = useRef<HTMLDivElement>(null);
   const sectionRef = useRef<HTMLDivElement>(null);
   const [isMounted, setIsMounted] = useState(false);
+  const { t } = useLanguage();
 
   useEffect(() => {
     setIsMounted(true);
@@ -133,14 +133,14 @@ export default function BeSection() {
           {/* Wine accent divider */}
           <div className="be-divider-pin w-16 h-[2px] bg-wine mx-auto mb-8" />
 
-          {/* "Be" static label */}
+          {/* "Be" / "Sé" static label */}
           <div className="be-static font-display text-7xl md:text-8xl lg:text-9xl font-bold text-charcoal leading-none">
-            Be
+            {t.beSection.be}
           </div>
 
-          {/* Cycling word — stacked below "Be", same size */}
+          {/* Cycling word — stacked below, same size */}
           <div className="relative h-[86px] md:h-[115px] lg:h-[154px] mt-2 w-full">
-            {WORDS.map((word) => (
+            {t.beSection.words.map((word) => (
               <span
                 key={word}
                 className="be-word absolute inset-0 flex items-start justify-center font-display text-7xl md:text-8xl lg:text-9xl font-bold text-wine leading-none opacity-0"

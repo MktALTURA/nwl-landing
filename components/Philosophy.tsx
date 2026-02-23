@@ -2,35 +2,18 @@
 
 import Image from 'next/image';
 import { motion } from 'framer-motion';
+import { useLanguage } from '@/lib/i18n/LanguageContext';
 
-const pillars = [
-  {
-    number: '01',
-    title: 'Philosophy for Children (P4C)',
-    subtitle: 'Critical thinking at every stage',
-    description:
-      'Students learn how to think, not what to think. Guided dialogue and philosophical inquiry develop autonomous, analytical thinkers.',
-    logoInitials: 'P4C',
-  },
-  {
-    number: '02',
-    title: "I'm NWL Leader by Tec de Monterrey",
-    subtitle: 'Unique program in Mexico - Exclusive to NWL',
-    description:
-      'Leadership, emotional intelligence, and social-emotional growth from early childhood onward. Endorsed by Tec de Monterrey exclusively for NWL.',
-    logoInitials: 'NWL',
-  },
-  {
-    number: '03',
-    title: 'Knotion - International Methodology',
-    subtitle: 'Real challenges, real learning',
-    description:
-      'Project-based learning through real-world challenges with social impact. No traditional homework, just creative problem solving.',
-    logoInitials: 'K',
-  },
+const pillarsData = [
+  { number: '01', logoInitials: 'P4C', logoImage: null },
+  { number: '02', logoInitials: 'NWL', logoImage: null },
+  { number: '03', logoInitials: 'K', logoImage: '/images/logos/Marca_Knotion.png' },
 ];
 
 export default function Philosophy() {
+  const { t } = useLanguage();
+  const pillars = pillarsData.map((p, i) => ({ ...p, ...t.philosophy.pillars[i] }));
+
   return (
     <section className="section-padding bg-sand animate-section">
       <div className="container-custom">
@@ -39,12 +22,10 @@ export default function Philosophy() {
           <div>
             <div className="wine-divider mb-6" />
             <h2 className="font-display text-4xl md:text-5xl font-bold text-charcoal mb-6">
-              The <span className="text-wine">NWL</span> Model
+              {t.philosophy.sectionTitle} <span className="text-wine">{t.philosophy.sectionTitleAccent}</span>{t.philosophy.sectionTitleEnd ? ` ${t.philosophy.sectionTitleEnd}` : ''}
             </h2>
             <p className="text-lg text-charcoal/80 mb-8 leading-relaxed">
-              Our educational model integrates three proven methodologies that
-              develop the whole child: critical thinking, emotional leadership,
-              and real-world problem solving.
+              {t.philosophy.sectionDescription}
             </p>
 
             {/* Three Pillars with Images */}
@@ -58,11 +39,21 @@ export default function Philosophy() {
                   viewport={{ once: true }}
                   className="flex gap-5 bg-white p-5 rounded-lg hover:shadow-md transition-shadow duration-300"
                 >
-                  {/* Logo placeholder */}
-                  <div className="flex-shrink-0 w-20 h-20 rounded-lg border-2 border-dashed border-wine/30 bg-wine/5 flex items-center justify-center">
-                    <span className="text-wine font-bold text-sm text-center leading-tight">
-                      {pillar.logoInitials}
-                    </span>
+                  {/* Logo */}
+                  <div className={`flex-shrink-0 w-20 h-20 rounded-lg flex items-center justify-center overflow-hidden ${pillar.logoImage ? '' : 'border-2 border-dashed border-wine/30 bg-wine/5'}`}>
+                    {pillar.logoImage ? (
+                      <Image
+                        src={pillar.logoImage}
+                        alt={pillar.title}
+                        width={80}
+                        height={80}
+                        className="object-contain"
+                      />
+                    ) : (
+                      <span className="text-wine font-bold text-sm text-center leading-tight">
+                        {pillar.logoInitials}
+                      </span>
+                    )}
                   </div>
                   <div className="flex-1">
                     <h3 className="text-lg font-bold text-charcoal mb-1">
@@ -80,7 +71,7 @@ export default function Philosophy() {
             </div>
 
             <a href="/modelo-educativo.pdf" className="btn-secondary">
-              Download Full Model (PDF)
+              {t.philosophy.cta}
             </a>
           </div>
 

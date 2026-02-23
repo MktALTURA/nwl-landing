@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
 import SmoothScroll from "@/components/SmoothScroll";
+import { LanguageProvider } from "@/lib/i18n/LanguageContext";
+import MetadataUpdater from "@/components/MetadataUpdater";
 import "./globals.css";
 
 const inter = Inter({ 
@@ -27,9 +29,12 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${playfair.variable}`}>
       <body className="font-sans antialiased">
-        <SmoothScroll>
-          {children}
-        </SmoothScroll>
+        <LanguageProvider>
+          <MetadataUpdater />
+          <SmoothScroll>
+            {children}
+          </SmoothScroll>
+        </LanguageProvider>
       </body>
     </html>
   );

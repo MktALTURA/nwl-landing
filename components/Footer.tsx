@@ -1,28 +1,7 @@
 'use client';
 
 import { FiMail, FiPhone, FiMapPin, FiFacebook, FiInstagram, FiLinkedin } from 'react-icons/fi';
-
-const footerLinks = {
-  school: [
-    { name: 'About Us', href: '#about' },
-    { name: 'Our Model', href: '#philosophy' },
-    { name: 'Our Campus', href: '#campus' },
-    { name: 'Team', href: '#team' },
-  ],
-  programs: [
-    { name: 'Maternal', href: '#levels' },
-    { name: 'Kinder', href: '#levels' },
-    { name: 'Primaria', href: '#levels' },
-    { name: 'Secundaria', href: '#levels' },
-    { name: 'Preparatoria', href: '#levels' },
-  ],
-  quickLinks: [
-    { name: 'Admissions', href: '#admissions' },
-    { name: 'Schedule Visit', href: '#admissions' },
-    { name: 'Tuition & Fees', href: '#tuition' },
-    { name: 'Contact', href: '#contact' },
-  ],
-};
+import { useLanguage } from '@/lib/i18n/LanguageContext';
 
 const campuses = [
   'Juriquilla',
@@ -33,6 +12,8 @@ const campuses = [
 ];
 
 export default function Footer() {
+  const { t } = useLanguage();
+
   return (
     <footer id="contact" className="bg-charcoal text-white">
       {/* Main Footer */}
@@ -41,23 +22,22 @@ export default function Footer() {
           {/* Brand Column */}
           <div>
             <div className="flex items-center gap-2 mb-4">
-              <img 
-                src="/images/brand/kangaroo-white-transparent.png" 
-                alt="NWL mascot" 
+              <img
+                src="/images/brand/kangaroo-white-transparent.png"
+                alt="NWL mascot"
                 className="h-14 w-auto"
               />
-              <img 
-                src="/images/brand/nwl-logo-white.png" 
-                alt="Colegio NWL" 
+              <img
+                src="/images/brand/nwl-logo-white.png"
+                alt="Colegio NWL"
                 className="h-12 w-auto"
               />
             </div>
 
             <p className="text-white/70 mb-6 leading-relaxed">
-              At NWL, we unlock greatness in every student through academic excellence,
-              emotional development, and community connection.
+              {t.footer.brandDescription}
             </p>
-            
+
             {/* Social Links */}
             <div className="flex gap-4">
               <a
@@ -89,10 +69,10 @@ export default function Footer() {
 
           {/* Our School */}
           <div>
-            <h3 className="font-bold text-lg mb-4 text-wine">Our School</h3>
+            <h3 className="font-bold text-lg mb-4 text-wine">{t.footer.schoolHeading}</h3>
             <ul className="space-y-2">
-              {footerLinks.school.map((link) => (
-                <li key={link.name}>
+              {t.footer.schoolLinks.map((link) => (
+                <li key={link.href}>
                   <a
                     href={link.href}
                     className="text-white/70 hover:text-white transition-colors"
@@ -106,9 +86,9 @@ export default function Footer() {
 
           {/* Programs */}
           <div>
-            <h3 className="font-bold text-lg mb-4 text-wine">Programs</h3>
+            <h3 className="font-bold text-lg mb-4 text-wine">{t.footer.programsHeading}</h3>
             <ul className="space-y-2">
-              {footerLinks.programs.map((link) => (
+              {t.footer.programLinks.map((link) => (
                 <li key={link.name}>
                   <a
                     href={link.href}
@@ -123,7 +103,7 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h3 className="font-bold text-lg mb-4 text-wine">Contact</h3>
+            <h3 className="font-bold text-lg mb-4 text-wine">{t.footer.contactHeading}</h3>
             <ul className="space-y-4">
               <li>
                 <a
@@ -136,18 +116,18 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="mailto:admissions@newland.edu.mx"
+                  href="mailto:contacto@colegionwl.edu.mx"
                   className="flex items-start text-white/70 hover:text-white transition-colors"
                 >
                   <FiMail className="mr-3 mt-1 flex-shrink-0" />
-                  admissions@newland.edu.mx
+                  contacto@colegionwl.edu.mx
                 </a>
               </li>
               <li className="flex items-start text-white/70">
                 <FiMapPin className="mr-3 mt-1 flex-shrink-0" />
                 <div>
-                  <p>5 Campuses in</p>
-                  <p>Querétaro & Guanajuato</p>
+                  <p>{t.footer.campusesLine1}</p>
+                  <p>{t.footer.campusesLine2}</p>
                 </div>
               </li>
             </ul>
@@ -159,13 +139,13 @@ export default function Footer() {
       <div className="border-t border-white/10">
         <div className="container-custom py-6">
           <div className="flex flex-col md:flex-row justify-between items-center text-sm text-white/60">
-            <p>© 2026 Colegio NWL. All rights reserved.</p>
+            <p>{t.footer.copyright}</p>
             <div className="flex gap-6 mt-4 md:mt-0">
-              <a href="/privacy" className="hover:text-white">
-                Privacy Policy
+              <a href="https://www.nwl.com.mx/pdf/AVISO-PRIVACIDAD-NWL.pdf" target="_blank" rel="noopener noreferrer" className="hover:text-white">
+                {t.footer.privacyPolicy}
               </a>
               <a href="/terms" className="hover:text-white">
-                Terms of Service
+                {t.footer.termsOfService}
               </a>
             </div>
           </div>
@@ -177,7 +157,7 @@ export default function Footer() {
         href="#admissions"
         className="fixed bottom-8 right-8 bg-wine text-white px-6 py-3 rounded-full shadow-2xl hover:bg-wine/90 transition-colors font-bold z-40 hidden md:block"
       >
-        📅 Schedule Visit
+        {t.footer.scheduleVisitFixed}
       </a>
     </footer>
   );

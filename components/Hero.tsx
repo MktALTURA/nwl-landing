@@ -6,6 +6,7 @@ import { motion } from 'framer-motion';
 import { FiDownload, FiArrowRight } from 'react-icons/fi';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useLanguage } from '@/lib/i18n/LanguageContext';
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger);
@@ -14,6 +15,7 @@ if (typeof window !== 'undefined') {
 export default function Hero() {
   const heroRef = useRef<HTMLElement>(null);
   const [isMounted, setIsMounted] = useState(false);
+  const { t } = useLanguage();
 
   useEffect(() => {
     setIsMounted(true);
@@ -206,15 +208,22 @@ export default function Hero() {
           <h1 className="font-display text-6xl md:text-8xl font-bold text-charcoal mb-6 leading-tight">
             {/* Left side - drifts left and up */}
             <span className="headline-left inline-block">
-              <span className="word-wrap inline-block">At</span>{' '}
-              <span className="word-wrap inline-block">NWL,</span>
+              {t.hero.headlineLeft.map((word, i) => (
+                <span key={i}>
+                  <span className="word-wrap inline-block">{word}</span>
+                  {i < t.hero.headlineLeft.length - 1 ? ' ' : ''}
+                </span>
+              ))}
             </span>
             <br />
             {/* Right side - drifts right and down */}
             <span className="headline-right inline-block">
-              <span className="word-wrap inline-block text-wine">We</span>{' '}
-              <span className="word-wrap inline-block text-wine">Unlock</span>{' '}
-              <span className="word-wrap inline-block text-wine">Greatness</span>
+              {t.hero.headlineRight.map((word, i) => (
+                <span key={i}>
+                  <span className="word-wrap inline-block text-wine">{word}</span>
+                  {i < t.hero.headlineRight.length - 1 ? ' ' : ''}
+                </span>
+              ))}
             </span>
           </h1>
 
@@ -225,8 +234,7 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 1.4 }}
             className="text-xl md:text-2xl font-display text-charcoal/70 mb-12 max-w-3xl leading-relaxed hero-subheadline"
           >
-            We drive the academic, emotional, and social development
-            of our students in a close and trusting environment.
+            {t.hero.subheadline}
           </motion.p>
 
           {/* CTAs with stagger */}
@@ -243,7 +251,7 @@ export default function Hero() {
               whileTap={{ scale: 0.95 }}
               className="btn-primary inline-flex items-center justify-center group"
             >
-              Schedule a Visit
+              {t.hero.ctaPrimary}
               <FiArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
             </motion.a>
 
@@ -256,7 +264,7 @@ export default function Hero() {
               className="btn-secondary inline-flex items-center justify-center"
             >
               <FiDownload className="mr-2" />
-              Educational Model
+              {t.hero.ctaSecondary}
             </motion.a>
           </motion.div>
 
@@ -267,11 +275,7 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 2.0 }}
             className="mt-16 flex flex-wrap items-center gap-8 text-sm text-charcoal/60 hero-trust"
           >
-            {[
-              { label: '5 Campuses', delay: 0 },
-              { label: 'Maternal - Preparatoria', delay: 0.1 },
-              { label: 'Bilingual Education', delay: 0.2 },
-            ].map((item, index) => (
+            {t.hero.trustIndicators.map((label, index) => ({ label, delay: index * 0.1 })).map((item, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, x: -20 }}

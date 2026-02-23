@@ -2,102 +2,97 @@
 
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { FiMapPin, FiPhone, FiMail, FiHeart, FiTarget, FiMessageCircle } from 'react-icons/fi';
+import { FiMapPin, FiPhone, FiMail, FiHeart, FiTarget } from 'react-icons/fi';
+import { FaWhatsapp } from 'react-icons/fa';
+import { useLanguage } from '@/lib/i18n/LanguageContext';
 
-const campuses = [
+const campusesData = [
   {
     name: 'Juriquilla',
     location: 'Querétaro, Qro.',
-    levels: 'Maternal - High School',
     image: '/images/campus/juriquilla.jpg',
-    description: 'Our flagship campus with complete educational offerings.',
     color: 'sunshine',
     accent: 'coral',
   },
   {
     name: 'Milenio',
     location: 'Querétaro, Qro.',
-    levels: 'Kinder - Elementary',
     image: '/images/campus/milenio.jpg',
-    description: 'A safe, nurturing space with great facilities for expanded growth.',
     color: 'coral',
     accent: 'ocean',
   },
   {
     name: 'San Miguel de Allende',
     location: 'San Miguel de Allende, Gto.',
-    levels: 'Kinder - Middle School',
     image: '/images/campus/sma.jpg',
-    description: 'Cultural richness meets academic excellence.',
     color: 'bubblegum',
     accent: 'blueberry',
   },
   {
     name: 'Corregidora',
     location: 'Corregidora, Qro.',
-    levels: 'Maternal - Elementary',
     image: '/images/campus/corregidora.jpg',
-    description: 'A warm, community-centered campus in the heart of Corregidora.',
     color: 'lime',
     accent: 'sunshine',
   },
   {
     name: 'Zibatá',
     location: 'El Marqués, Qro.',
-    levels: 'Maternal - High School',
     image: '/images/campus/zibata.jpg',
-    description: 'Modern facilities in a growing community.',
     color: 'ocean',
     accent: 'tangerine',
   },
 ];
 
 const colorClasses: Record<string, { bg: string; text: string; border: string; gradient: string }> = {
-  sunshine: { 
-    bg: 'bg-sunshine/20', 
-    text: 'text-sunshine-700', 
+  sunshine: {
+    bg: 'bg-sunshine/20',
+    text: 'text-sunshine-700',
     border: 'border-sunshine',
     gradient: 'from-sunshine/30 to-coral/30'
   },
-  coral: { 
-    bg: 'bg-coral/20', 
-    text: 'text-coral-700', 
+  coral: {
+    bg: 'bg-coral/20',
+    text: 'text-coral-700',
     border: 'border-coral',
     gradient: 'from-coral/30 to-bubblegum/30'
   },
-  ocean: { 
-    bg: 'bg-ocean/20', 
-    text: 'text-ocean-700', 
+  ocean: {
+    bg: 'bg-ocean/20',
+    text: 'text-ocean-700',
     border: 'border-ocean',
     gradient: 'from-ocean/30 to-lime/30'
   },
-  tangerine: { 
-    bg: 'bg-tangerine/20', 
-    text: 'text-tangerine-700', 
+  tangerine: {
+    bg: 'bg-tangerine/20',
+    text: 'text-tangerine-700',
     border: 'border-tangerine',
     gradient: 'from-tangerine/30 to-sunshine/30'
   },
-  blueberry: { 
-    bg: 'bg-blueberry/20', 
-    text: 'text-blueberry-700', 
+  blueberry: {
+    bg: 'bg-blueberry/20',
+    text: 'text-blueberry-700',
     border: 'border-blueberry',
     gradient: 'from-blueberry/30 to-bubblegum/30'
   },
-  bubblegum: { 
-    bg: 'bg-bubblegum/20', 
-    text: 'text-bubblegum-700', 
+  bubblegum: {
+    bg: 'bg-bubblegum/20',
+    text: 'text-bubblegum-700',
     border: 'border-bubblegum',
     gradient: 'from-bubblegum/30 to-coral/30'
   },
-  lime: { 
-    bg: 'bg-lime/20', 
-    text: 'text-lime-700', 
+  lime: {
+    bg: 'bg-lime/20',
+    text: 'text-lime-700',
     border: 'border-lime',
     gradient: 'from-lime/30 to-ocean/30'
   },
 };
 
 export default function CampusFinder() {
+  const { t } = useLanguage();
+  const campuses = campusesData.map((c, i) => ({ ...c, ...t.campus.items[i] }));
+
   return (
     <section id="campus" className="section-padding bg-gradient-to-b from-sand via-bubblegum/10 to-lime/10 animate-section overflow-hidden relative">
       {/* Playful Background Shapes */}
@@ -126,15 +121,15 @@ export default function CampusFinder() {
 
           <h2 className="font-display text-5xl md:text-6xl font-bold mb-4">
             <span className="bg-gradient-to-r from-coral via-tangerine to-sunshine bg-clip-text text-transparent">
-              Find Your
+              {t.campus.sectionTitleLine1}
             </span>
             <br />
             <span className="bg-gradient-to-r from-ocean via-blueberry to-bubblegum bg-clip-text text-transparent">
-              Perfect Campus!
+              {t.campus.sectionTitleLine2}
             </span>
           </h2>
           <p className="text-xl text-charcoal/80 max-w-2xl mx-auto font-medium">
-            5 amazing locations · Infinite possibilities
+            {t.campus.sectionSubtitle}
           </p>
         </div>
 
@@ -173,7 +168,7 @@ export default function CampusFinder() {
                 <h3 className={`text-3xl font-black ${colorClasses[campus.color]?.text} mb-2 tracking-tight`}>
                   {campus.name}
                 </h3>
-                
+
                 <div className="flex items-center text-sm text-charcoal/60 mb-3 font-medium">
                   <FiMapPin className={`mr-2 ${colorClasses[campus.accent]?.text}`} size={16} />
                   {campus.location}
@@ -188,11 +183,12 @@ export default function CampusFinder() {
                 </p>
 
                 {/* Playful CTA */}
-                <button
-                  className={`w-full ${colorClasses[campus.color]?.bg} ${colorClasses[campus.color]?.text} font-bold py-3 rounded-xl hover:scale-105 transition-transform duration-200 border-2 ${colorClasses[campus.color]?.border}`}
+                <a
+                  href={campus.href}
+                  className={`block w-full text-center ${colorClasses[campus.color]?.bg} ${colorClasses[campus.color]?.text} font-bold py-3 rounded-xl hover:scale-105 transition-transform duration-200 border-2 ${colorClasses[campus.color]?.border}`}
                 >
-                  Explore Campus →
-                </button>
+                  {t.campus.exploreCta}
+                </a>
               </div>
             </motion.div>
           ))}
@@ -216,10 +212,10 @@ export default function CampusFinder() {
             <div className="relative z-10">
               <FiTarget size={56} className="mx-auto mb-4 opacity-90" />
               <h3 className="text-3xl font-black mb-4">
-                Need Help?
+                {t.campus.contactCard.title}
               </h3>
               <p className="mb-6 opacity-95 text-lg font-medium">
-                Let's find your perfect campus together!
+                {t.campus.contactCard.description}
               </p>
 
               <div className="space-y-3 mb-6">
@@ -231,11 +227,11 @@ export default function CampusFinder() {
                   +52 (442) 454 10 10
                 </a>
                 <a
-                  href="mailto:admissions@newland.edu.mx"
+                  href="mailto:contacto@colegionwl.edu.mx"
                   className="flex items-center justify-center text-white/90 hover:text-white hover:scale-105 transition-transform font-medium"
                 >
                   <FiMail className="mr-2" />
-                  admissions@newland.edu.mx
+                  contacto@colegionwl.edu.mx
                 </a>
               </div>
 
@@ -245,8 +241,8 @@ export default function CampusFinder() {
                 rel="noopener noreferrer"
                 className="inline-block bg-white text-blueberry px-8 py-4 rounded-full font-black text-lg hover:scale-110 hover:shadow-2xl transition-all duration-200"
               >
-                <FiMessageCircle className="inline mr-2" />
-                Chat on WhatsApp
+                <FaWhatsapp className="inline mr-2" />
+                {t.campus.contactCard.whatsappCta}
               </a>
             </div>
           </motion.div>
