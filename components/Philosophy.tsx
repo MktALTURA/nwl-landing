@@ -7,7 +7,7 @@ import { useLanguage } from '@/lib/i18n/LanguageContext';
 const pillarsData = [
   { number: '01', logoInitials: 'P4C', logoImage: null },
   { number: '02', logoInitials: 'NWL', logoImage: null },
-  { number: '03', logoInitials: 'K', logoImage: '/images/logos/Marca_Knotion.png' },
+  { number: '03', logoInitials: 'K', logoImage: '/images/Logos/Marca_Knotion.png' },
 ];
 
 export default function Philosophy() {
