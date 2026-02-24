@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
 import SmoothScroll from "@/components/SmoothScroll";
+import Navigation from "@/components/Navigation";
+import FixedCTAButton from "@/components/FixedCTAButton";
 import { LanguageProvider } from "@/lib/i18n/LanguageContext";
 import MetadataUpdater from "@/components/MetadataUpdater";
 import "./globals.css";
@@ -31,6 +33,11 @@ export default function RootLayout({
       <body className="font-sans antialiased">
         <LanguageProvider>
           <MetadataUpdater />
+          {/* Navigation + fixed CTA live outside #smooth-wrapper so
+              position: fixed works relative to the viewport, not the
+              ScrollSmoother transform context. */}
+          <Navigation />
+          <FixedCTAButton />
           <SmoothScroll>
             {children}
           </SmoothScroll>

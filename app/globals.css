@@ -3,24 +3,25 @@
 @tailwind utilities;
 
 @layer base {
-  html.lenis, html.lenis body {
-    height: auto;
-  }
-
-  .lenis.lenis-smooth {
-    scroll-behavior: auto !important;
-  }
-
-  .lenis.lenis-smooth [data-lenis-prevent] {
-    overscroll-behavior: contain;
-  }
-
-  .lenis.lenis-stopped {
-    overflow: hidden;
+  html {
+    scroll-behavior: auto;  /* ScrollSmoother handles all scroll smoothing;
+                               CSS smooth would fight it */
   }
 
   body {
     @apply bg-ivory text-charcoal;
+  }
+
+  /* Applied before JS hydration to prevent FOUC —
+     ScrollSmoother sets these inline too, but this avoids
+     a flash of full-height content on initial load. */
+  #smooth-wrapper {
+    overflow: hidden;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
   }
 }
 

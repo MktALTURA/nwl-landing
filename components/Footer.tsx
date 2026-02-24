@@ -152,13 +152,6 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Fixed CTA Button */}
-      <a
-        href="#admissions"
-        className="fixed bottom-8 right-8 bg-wine text-white px-6 py-3 rounded-full shadow-2xl hover:bg-wine/90 transition-colors font-bold z-40 hidden md:block"
-      >
-        {t.footer.scheduleVisitFixed}
-      </a>
     </footer>
   );
 }
