@@ -35,7 +35,7 @@ export const en: Dictionary = {
     whatsappAriaLabel: 'Chat on WhatsApp',
   },
   hero: {
-    headlineLeft: ['We', 'unlock', 'the', 'greatness'],
+    headlineLeft: ['We', 'unlock', 'greatness'],
     headlineRight: ['in', 'every', 'child.'],
     subheadline:
       'We drive the academic, emotional, and social development of our students in a close and trusting environment.',

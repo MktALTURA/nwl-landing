@@ -9,35 +9,40 @@ import { useLanguage } from '@/lib/i18n/LanguageContext';
 const campusesData = [
   {
     name: 'Juriquilla',
-    location: 'Querétaro, Qro.',
+    location: 'Anillo Vial Fray Junípero Serra, Juriquilla',
+    mapUrl: 'https://www.google.com/maps/search/Colegio+Newland+Juriquilla+Queretaro',
     image: '/images/campus/juriquilla.jpg',
     color: 'sunshine',
     accent: 'coral',
   },
   {
     name: 'Milenio',
-    location: 'Querétaro, Qro.',
+    location: 'Cerrada Panorámica, Distrito Piamonte',
+    mapUrl: 'https://www.google.com/maps/search/Colegio+Newland+Milenio+Queretaro',
     image: '/images/campus/milenio.jpg',
     color: 'coral',
     accent: 'ocean',
   },
   {
     name: 'San Miguel de Allende',
-    location: 'San Miguel de Allende, Gto.',
+    location: 'Carr. SMA – Querétaro, San José de la Posta',
+    mapUrl: 'https://www.google.com/maps/search/Colegio+Newland+San+Miguel+de+Allende',
     image: '/images/campus/sma.jpg',
     color: 'bubblegum',
     accent: 'blueberry',
   },
   {
     name: 'Corregidora',
-    location: 'Corregidora, Qro.',
+    location: 'Libramiento Sur Poniente, El Pueblito',
+    mapUrl: 'https://www.google.com/maps/search/Colegio+Newland+Corregidora+Queretaro',
     image: '/images/campus/corregidora.jpg',
     color: 'lime',
     accent: 'sunshine',
   },
   {
     name: 'Zibatá',
-    location: 'El Marqués, Qro.',
+    location: 'Paseo de las Pitahayas, Zibatá',
+    mapUrl: 'https://www.google.com/maps/search/Colegio+Newland+Zibata+El+Marques+Queretaro',
     image: '/images/campus/zibata.jpg',
     color: 'ocean',
     accent: 'tangerine',
@@ -169,10 +174,15 @@ export default function CampusFinder() {
                   {campus.name}
                 </h3>
 
-                <div className="flex items-center text-sm text-charcoal/60 mb-3 font-medium">
-                  <FiMapPin className={`mr-2 ${colorClasses[campus.accent]?.text}`} size={16} />
-                  {campus.location}
-                </div>
+                <a
+                  href={campus.mapUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center text-sm text-charcoal/60 mb-3 font-medium hover:text-charcoal/90 transition-colors group/loc"
+                >
+                  <FiMapPin className={`mr-2 ${colorClasses[campus.accent]?.text} flex-shrink-0`} size={16} />
+                  <span className="group-hover/loc:underline underline-offset-2">{campus.location}</span>
+                </a>
 
                 <div className={`inline-block ${colorClasses[campus.accent]?.bg} ${colorClasses[campus.accent]?.text} px-3 py-1 rounded-full text-xs font-bold mb-4`}>
                   {campus.levels}

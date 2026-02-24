@@ -33,7 +33,25 @@ export default function SmoothScroll({ children }: { children: React.ReactNode }
       smoothTouch: false,   // native touch scroll on mobile — better for iframes
     });
 
+    // Intercept anchor clicks so ScrollSmoother handles the scroll
+    // instead of the browser's native hash navigation (which conflicts
+    // with the CSS-transform-based smooth scroll and blanks the screen).
+    const handleAnchorClick = (e: MouseEvent) => {
+      const anchor = (e.target as HTMLElement).closest('a[href^="#"]');
+      if (!anchor) return;
+      const hash = anchor.getAttribute('href');
+      if (!hash || hash === '#') return;
+      const target = document.querySelector(hash);
+      if (!target || !smootherRef.current) return;
+
+      e.preventDefault();
+      smootherRef.current.scrollTo(target, true, 'top top');
+    };
+
+    document.addEventListener('click', handleAnchorClick);
+
     return () => {
+      document.removeEventListener('click', handleAnchorClick);
       smootherRef.current?.kill();
       smootherRef.current = null;
     };

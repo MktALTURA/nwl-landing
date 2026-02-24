@@ -6,10 +6,11 @@ import { motion } from 'framer-motion';
 import { FiDownload, FiArrowRight } from 'react-icons/fi';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { ScrollSmoother } from 'gsap/ScrollSmoother';
 import { useLanguage } from '@/lib/i18n/LanguageContext';
 
 if (typeof window !== 'undefined') {
-  gsap.registerPlugin(ScrollTrigger);
+  gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 }
 
 export default function Hero() {
@@ -303,7 +304,13 @@ export default function Hero() {
           transition={{ duration: 1.5, repeat: Infinity }}
           className="w-6 h-10 border-2 border-wine/30 rounded-full flex justify-center cursor-pointer"
           onClick={() => {
-            document.getElementById('benefits')?.scrollIntoView({ behavior: 'smooth' });
+            const target = document.getElementById('benefits');
+            const smoother = ScrollSmoother.get();
+            if (target && smoother) {
+              smoother.scrollTo(target, true, 'top top');
+            } else if (target) {
+              target.scrollIntoView({ behavior: 'smooth' });
+            }
           }}
         >
           <motion.div
