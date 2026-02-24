@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { useLanguage } from '@/lib/i18n/LanguageContext';
+import BrochureLevelDropdown from './BrochureLevelDropdown';
 
 const pillarsData = [
   { number: '01', logoInitials: 'P4C', logoImage: null },
@@ -70,9 +71,11 @@ export default function Philosophy() {
               ))}
             </div>
 
-            <a href="/modelo-educativo.pdf" className="btn-secondary">
+            <BrochureLevelDropdown
+              className="btn-secondary inline-flex items-center"
+            >
               {t.philosophy.cta}
-            </a>
+            </BrochureLevelDropdown>
           </div>
 
           {/* Right: Large Image Stack */}

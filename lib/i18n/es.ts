@@ -39,7 +39,7 @@ export const es: Dictionary = {
     headlineRight: ['que', 'hay', 'en', 'cada', 'niño.'],
     subheadline:
       'Impulsamos el desarrollo académico, emocional y social de nuestros alumnos en un ambiente cercano y de confianza.',
-    ctaPrimary: 'Agenda tu Visita',
+    ctaPrimary: 'Comienza Aquí',
     ctaSecondary: 'Modelo Educativo',
     trustIndicators: ['5 Campus', 'Maternal a Preparatoria', 'Educación Bilingüe'],
   },
@@ -216,8 +216,8 @@ export const es: Dictionary = {
       },
     ],
     stats: [
-      { value: '2,500+', label: 'Familias Felices' },
-      { value: '16+', label: 'Años de Excelencia' },
+      { value: '+2,500', label: 'Familias Felices' },
+      { value: '+16', label: 'Años de Excelencia' },
       { value: '95%', label: 'Satisfacción Familiar' },
       { value: '5', label: 'Campus' },
     ],
@@ -231,15 +231,15 @@ export const es: Dictionary = {
     formId: 'mEu0WdVekHsj57MYz8DE',
     formName: 'Formulario para pag web - ES',
     formTitle: 'Agenda tu Visita - NWL',
-    campusVisitTitle: 'Visita al Campus',
+    campusVisitTitle: 'Agenda tu Visita',
     campusVisitDesc:
       'Conoce nuestras instalaciones y a nuestro equipo docente. Personalizamos la visita según la edad de tu hijo.',
-    admissionsTitle: 'Guía de Admisiones',
-    admissionsDesc:
-      'Descarga nuestra guía completa del proceso de admisión con costos y pasos de inscripción.',
-    chatTitle: 'Escríbenos',
-    chatDesc: '¿Prefieres una respuesta rápida? Nuestro equipo de admisiones te atiende por WhatsApp.',
-    openWhatsapp: 'Abrir WhatsApp',
+    requestInfoTitle: 'Solicita Información',
+    requestInfoDesc:
+      'Recibe detalles sobre programas, costos y proceso de admisión. Sin compromiso — solo la información que necesitas.',
+    enrollTitle: 'Inicia tu Inscripción',
+    enrollDesc:
+      '¿Listo para dar el siguiente paso? Comienza el proceso de admisión de tu hijo hoy.',
   },
   footer: {
     brandDescription:
@@ -265,7 +265,19 @@ export const es: Dictionary = {
     copyright: '© 2026 Colegio NWL. Todos los derechos reservados.',
     privacyPolicy: 'Aviso de Privacidad',
     termsOfService: 'Términos y Condiciones',
-    scheduleVisitFixed: 'Agenda tu Visita',
+    scheduleVisitFixed: 'Inscríbete',
+  },
+  brochure: {
+    selectLevel: 'Selecciona un nivel',
+    modalSubtitle: 'Modelo Educativo',
+    downloadPdf: 'Descargar PDF',
+    closeAriaLabel: 'Cerrar folleto',
+    levels: {
+      maternalKinder: 'Maternal y Kínder',
+      primaria: 'Primaria',
+      secundaria: 'Secundaria',
+      preparatoria: 'Preparatoria',
+    },
   },
   metadata: {
     title: 'Colegio Newland | En Newland, despertamos tu grandeza',

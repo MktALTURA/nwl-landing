@@ -2,8 +2,7 @@
 
 import { useEffect, useRef, useCallback } from 'react';
 import { motion } from 'framer-motion';
-import { FiCalendar, FiDownload } from 'react-icons/fi';
-import { FaWhatsapp } from 'react-icons/fa';
+import { FiCalendar, FiFileText, FiCheckCircle } from 'react-icons/fi';
 import { useLanguage } from '@/lib/i18n/LanguageContext';
 
 export default function FinalCTA() {
@@ -56,6 +55,34 @@ export default function FinalCTA() {
     return cleanup;
   }, [locale, t.finalCta.formId, t.finalCta.formName, t.finalCta.formTitle, buildIframe]);
 
+  // Scroll the form into view (works with GSAP ScrollSmoother)
+  const scrollToForm = () => {
+    const container = formContainerRef.current;
+    if (!container) return;
+    container.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
+
+  const cards = [
+    {
+      icon: <FiCalendar size={28} />,
+      title: t.finalCta.campusVisitTitle,
+      desc: t.finalCta.campusVisitDesc,
+      label: 'schedule_visit',
+    },
+    {
+      icon: <FiFileText size={28} />,
+      title: t.finalCta.requestInfoTitle,
+      desc: t.finalCta.requestInfoDesc,
+      label: 'request_info',
+    },
+    {
+      icon: <FiCheckCircle size={28} />,
+      title: t.finalCta.enrollTitle,
+      desc: t.finalCta.enrollDesc,
+      label: 'start_enrollment',
+    },
+  ];
+
   return (
     <section id="admissions" className="section-padding bg-gradient-to-br from-wine to-wine/90 text-white relative overflow-hidden animate-section">
       {/* Background Pattern */}
@@ -106,7 +133,7 @@ export default function FinalCTA() {
             <div ref={formContainerRef} />
           </motion.div>
 
-          {/* Right column — info + WhatsApp */}
+          {/* Right column — 3 CTA cards, all link to the form */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -114,46 +141,24 @@ export default function FinalCTA() {
             viewport={{ once: true }}
             className="lg:col-span-2 space-y-6"
           >
-            {/* Info Cards */}
-            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6">
-              <div className="text-mustard mb-3">
-                <FiCalendar size={28} />
-              </div>
-              <h3 className="font-bold text-lg mb-2">{t.finalCta.campusVisitTitle}</h3>
-              <p className="text-white/80 text-sm leading-relaxed">
-                {t.finalCta.campusVisitDesc}
-              </p>
-            </div>
-
-            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6">
-              <div className="text-mustard mb-3">
-                <FiDownload size={28} />
-              </div>
-              <h3 className="font-bold text-lg mb-2">{t.finalCta.admissionsTitle}</h3>
-              <p className="text-white/80 text-sm leading-relaxed">
-                {t.finalCta.admissionsDesc}
-              </p>
-            </div>
-
-            {/* WhatsApp CTA */}
-            <a
-              href="https://wa.me/5214421227791"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block bg-white/10 backdrop-blur-sm rounded-lg p-6 hover:bg-white/20 transition-colors duration-300 group"
-            >
-              <div className="text-mustard mb-3">
-                <FaWhatsapp size={28} />
-              </div>
-              <h3 className="font-bold text-lg mb-2 group-hover:text-mustard transition-colors">{t.finalCta.chatTitle}</h3>
-              <p className="text-white/80 text-sm leading-relaxed mb-4">
-                {t.finalCta.chatDesc}
-              </p>
-              <span className="inline-flex items-center gap-2 text-sm font-bold text-mustard">
-                <FaWhatsapp size={16} />
-                {t.finalCta.openWhatsapp}
-              </span>
-            </a>
+            {cards.map((card) => (
+              <button
+                key={card.label}
+                onClick={scrollToForm}
+                data-cta={card.label}
+                className="w-full text-left bg-white/10 backdrop-blur-sm rounded-lg p-6 hover:bg-white/20 transition-colors duration-300 group"
+              >
+                <div className="text-mustard mb-3">
+                  {card.icon}
+                </div>
+                <h3 className="font-bold text-lg mb-2 group-hover:text-mustard transition-colors">
+                  {card.title}
+                </h3>
+                <p className="text-white/80 text-sm leading-relaxed">
+                  {card.desc}
+                </p>
+              </button>
+            ))}
           </motion.div>
         </div>
       </div>

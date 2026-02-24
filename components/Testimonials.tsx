@@ -24,7 +24,7 @@ const testimonialsData = [
 ];
 
 export default function Testimonials() {
-  const { t } = useLanguage();
+  const { locale, t } = useLanguage();
   const testimonials = testimonialsData.map((td, i) => ({ ...td, ...t.testimonials.items[i] }));
 
   return (
@@ -135,7 +135,7 @@ export default function Testimonials() {
                   const years = now.getMonth() >= 7
                     ? now.getFullYear() - 2009
                     : now.getFullYear() - 2009 - 1;
-                  return `${years}+`;
+                  return locale === 'es' ? `+${years}` : `${years}+`;
                 })()
               : stat.value;
             return (
