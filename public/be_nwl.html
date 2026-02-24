@@ -1,0 +1,1897 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B.E. Newland — Beyond Excellence | Programa de Reconocimiento Vitalicio</title>
+    <meta name="description" content="B.E. Newland es un programa de reconocimiento vitalicio para familias de excelencia. 30% de reconocimiento en colegiatura y 10% de bonificación acumulable por cada referido.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* ============================================================
+           CSS Custom Properties & Reset
+           ============================================================ */
+        :root {
+            --wine: #8B2332;
+            --wine-dark: #6B1A27;
+            --charcoal: #3D3D3D;
+            --ivory: #FFFEF7;
+            --sand: #F5F1E8;
+            --warmgray: #E8E4DF;
+            --gold: #C5A255;
+            --gold-light: #D4B976;
+            --gold-deep: #A8883D;
+            --gold-muted: #BFA86F;
+            --white: #FFFFFF;
+            --font-display: 'Playfair Display', Georgia, serif;
+            --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* =============================================================
+           GHL container overrides — NUCLEAR approach
+           GHL wraps custom code in containers with constrained max-width.
+           position:fixed elements (nav) escape it, but flow content does not.
+           Strategy 1: Override every known GHL wrapper.
+           Strategy 2: Full-bleed technique on every <section> so they
+                        break out of ANY constrained parent.
+           ============================================================= */
+
+        /* Strategy 1a — override known GHL wrappers (sizing) */
+        html, body,
+        .hl-page-creator,
+        .hl-page-creator > *,
+        #preview-container,
+        #preview-container > *,
+        #section-0, #section-1, #section-2, #section-3,
+        .section_wrapper,
+        .container-width,
+        .row-fluid-wrapper,
+        .row-fluid,
+        .inner-content,
+        .full-section,
+        [class*="hl_page"],
+        [class*="hl-page"],
+        [class*="row-container"],
+        [class*="column-container"],
+        [class*="inner-container"],
+        [class*="section-container"],
+        [id*="section-"],
+        [class*="c-editor"],
+        [data-page-element],
+        [class*="elPageContent"],
+        [class*="page-content"],
+        .elPage,
+        .elBody,
+        .elRow,
+        .elColumn {
+            max-width: 100% !important;
+            width: 100% !important;
+            padding-left: 0 !important;
+            padding-right: 0 !important;
+            margin-left: 0 !important;
+            margin-right: 0 !important;
+            box-sizing: border-box !important;
+        }
+
+        /* Strategy 1b — kill white backgrounds on GHL wrappers (NOT html/body) */
+        .hl-page-creator,
+        .hl-page-creator > *,
+        #preview-container,
+        #preview-container > *,
+        .section_wrapper,
+        .container-width,
+        .row-fluid-wrapper,
+        .row-fluid,
+        .inner-content,
+        .full-section,
+        [class*="hl_page"],
+        [class*="hl-page"],
+        [class*="row-container"],
+        [class*="column-container"],
+        [class*="inner-container"],
+        [class*="section-container"],
+        [id*="section-"],
+        [class*="c-editor"],
+        [data-page-element],
+        [class*="elPageContent"],
+        [class*="page-content"],
+        .elPage,
+        .elBody,
+        .elRow,
+        .elColumn {
+            background: transparent !important;
+        }
+
+        /* Strategy 2 — full-bleed sections escape ANY parent container */
+        .hero,
+        .overview-section,
+        .how-section,
+        .benefits-section,
+        .campus-section,
+        .faq-section,
+        .terms-section,
+        .footer-cta,
+        footer {
+            width: 100vw !important;
+            position: relative;
+            left: 50%;
+            right: 50%;
+            margin-left: -50vw !important;
+            margin-right: -50vw !important;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            -webkit-text-size-adjust: 100%;
+            overflow-x: hidden !important;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--charcoal);
+            background-color: var(--sand);
+            line-height: 1.6;
+            overflow-x: hidden !important;
+            width: 100% !important;
+            max-width: 100% !important;
+            min-width: 0 !important;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* ============================================================
+           Layout
+           ============================================================ */
+        .container {
+            max-width: 80rem;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        @media (min-width: 1024px) {
+            .container { padding: 0 2rem; }
+        }
+
+        .section-padding {
+            padding: 4rem 0;
+        }
+
+        @media (min-width: 768px) {
+            .section-padding { padding: 6rem 0; }
+        }
+
+        /* ============================================================
+           Typography
+           ============================================================ */
+        h1, h2, h3, h4 {
+            font-family: var(--font-display);
+            font-weight: 700;
+            line-height: 1.15;
+        }
+
+        .wine-divider {
+            width: 4rem;
+            height: 2px;
+            background: linear-gradient(90deg, var(--gold-deep), var(--gold-light));
+            margin: 0 auto 1.5rem;
+        }
+
+        .section-label {
+            font-family: var(--font-body);
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--gold-deep);
+            margin-bottom: 0.75rem;
+        }
+
+        .section-title {
+            font-size: 2.25rem;
+            color: var(--charcoal);
+            margin-bottom: 1rem;
+        }
+
+        @media (min-width: 768px) {
+            .section-title { font-size: 3rem; }
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: rgba(61,61,61,0.7);
+            max-width: 40rem;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        /* ============================================================
+           Buttons
+           ============================================================ */
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--wine);
+            color: var(--white);
+            padding: 0.75rem 2rem;
+            border-radius: 2px;
+            font-family: var(--font-body);
+            font-weight: 500;
+            font-size: 0.95rem;
+            border: 1px solid var(--wine);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-primary:hover {
+            background: var(--wine-dark);
+            border-color: var(--wine-dark);
+        }
+
+        .btn-gold {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-deep) 100%);
+            color: var(--white);
+            padding: 0.75rem 2rem;
+            border-radius: 2px;
+            font-family: var(--font-body);
+            font-weight: 600;
+            font-size: 0.95rem;
+            border: 1px solid var(--gold);
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+            box-shadow: 0 2px 12px rgba(197,162,85,0.3);
+        }
+
+        .btn-gold:hover {
+            background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 100%);
+            border-color: var(--gold-light);
+            box-shadow: 0 4px 20px rgba(197,162,85,0.45);
+            transform: translateY(-1px);
+        }
+
+        .btn-gold .btn-tag {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            padding: 0.15rem 0.5rem;
+            border-radius: 1px;
+            margin-left: 0.25rem;
+        }
+
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: transparent;
+            color: var(--wine);
+            padding: 0.75rem 2rem;
+            border-radius: 2px;
+            font-family: var(--font-body);
+            font-weight: 500;
+            font-size: 0.95rem;
+            border: 2px solid var(--wine);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-secondary:hover {
+            background: var(--wine);
+            color: var(--white);
+        }
+
+        .btn-white {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--white);
+            color: var(--wine);
+            padding: 0.75rem 2rem;
+            border-radius: 2px;
+            font-family: var(--font-body);
+            font-weight: 600;
+            font-size: 0.95rem;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-white:hover {
+            background: var(--sand);
+        }
+
+        .btn-outline-white {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: transparent;
+            color: var(--white);
+            padding: 0.75rem 2rem;
+            border-radius: 2px;
+            font-family: var(--font-body);
+            font-weight: 500;
+            font-size: 0.95rem;
+            border: 2px solid rgba(255,255,255,0.6);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-outline-white:hover {
+            background: rgba(255,255,255,0.15);
+            border-color: var(--white);
+        }
+
+        /* ============================================================
+           Cards
+           ============================================================ */
+        .card {
+            background: var(--ivory);
+            border-radius: 0.5rem;
+            overflow: hidden;
+            transition: box-shadow 0.3s;
+        }
+
+        .card:hover {
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        /* ============================================================
+           Tables
+           ============================================================ */
+        .styled-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            background: var(--white);
+            border-radius: 0.5rem;
+            overflow: hidden;
+        }
+
+        .styled-table th {
+            background: var(--wine);
+            color: var(--white);
+            padding: 1rem 1.25rem;
+            text-align: left;
+            font-family: var(--font-body);
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .styled-table td {
+            padding: 1rem 1.25rem;
+            border-bottom: 1px solid var(--warmgray);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .styled-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .styled-table tr:hover td {
+            background: var(--sand);
+        }
+
+        /* ============================================================
+           Navigation
+           ============================================================ */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            transition: all 0.3s;
+            background: transparent;
+        }
+
+        .nav.scrolled {
+            background: rgba(245,241,232,0.95);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            box-shadow: 0 1px 12px rgba(0,0,0,0.06);
+        }
+
+        .nav-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 5rem;
+        }
+
+        .nav-logo img {
+            height: 2rem;
+            width: auto;
+        }
+
+        .nav-links {
+            display: none;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        @media (min-width: 768px) {
+            .nav-links {
+                display: flex;
+            }
+        }
+
+        .nav-links a {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--charcoal);
+            transition: color 0.3s;
+            letter-spacing: 0.02em;
+        }
+
+        .nav-links a:hover {
+            color: var(--wine);
+        }
+
+        .nav-links .nav-cta {
+            background: var(--wine);
+            color: var(--white);
+            padding: 0.5rem 1.25rem;
+            border-radius: 2px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .nav-links .nav-cta:hover {
+            background: var(--wine-dark);
+            color: var(--white);
+        }
+
+        .menu-toggle {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 2.5rem;
+            height: 2.5rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--charcoal);
+        }
+
+        @media (min-width: 768px) {
+            .menu-toggle { display: none; }
+        }
+
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 5rem;
+            left: 0;
+            right: 0;
+            background: rgba(245,241,232,0.98);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 1.5rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            z-index: 99;
+        }
+
+        .mobile-menu.open {
+            display: block;
+        }
+
+        .mobile-menu a {
+            display: block;
+            padding: 0.75rem 0;
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--charcoal);
+            border-bottom: 1px solid var(--warmgray);
+        }
+
+        .mobile-menu a:last-child {
+            border-bottom: none;
+        }
+
+        .mobile-menu a:hover {
+            color: var(--wine);
+        }
+
+        .mobile-menu .mobile-cta {
+            display: block;
+            text-align: center;
+            margin-top: 1rem;
+            background: var(--wine);
+            color: var(--white);
+            padding: 0.75rem;
+            border-radius: 2px;
+            font-weight: 600;
+        }
+
+        /* ============================================================
+           Hero
+           ============================================================ */
+        .hero {
+            position: relative;
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: var(--sand);
+            overflow: hidden;
+            padding-top: 5rem;
+        }
+
+        .hero-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(6rem);
+            pointer-events: none;
+        }
+
+        .hero-orb-1 {
+            width: 40rem;
+            height: 40rem;
+            background: rgba(139,35,50,0.05);
+            top: -10rem;
+            right: -8rem;
+        }
+
+        .hero-orb-2 {
+            width: 35rem;
+            height: 35rem;
+            background: rgba(197,162,85,0.05);
+            bottom: -10rem;
+            left: -8rem;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            max-width: 56rem;
+            padding: 3rem 2rem;
+        }
+
+        .hero-seal {
+            width: 10rem;
+            height: auto;
+            margin: 0 auto 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .hero-seal { width: 12rem; }
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            color: var(--charcoal);
+            margin-bottom: 0.25rem;
+        }
+
+        @media (min-width: 768px) {
+            .hero h1 { font-size: 5rem; }
+        }
+
+        .hero .hero-subtitle {
+            font-family: var(--font-display);
+            font-size: 1.4rem;
+            color: var(--gold-deep);
+            font-weight: 500;
+            font-style: italic;
+            letter-spacing: 0.08em;
+            margin-bottom: 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .hero .hero-subtitle { font-size: 1.75rem; }
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            color: rgba(61,61,61,0.75);
+            max-width: 36rem;
+            margin: 0 auto 2rem;
+            line-height: 1.8;
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+            margin-bottom: 3rem;
+        }
+
+        .trust-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+            padding-top: 2rem;
+            border-top: 1px solid var(--gold-light);
+        }
+
+        .trust-item {
+            text-align: center;
+        }
+
+        .trust-item .trust-value {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--gold-deep);
+        }
+
+        .trust-item .trust-label {
+            font-size: 0.8rem;
+            color: rgba(61,61,61,0.6);
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            margin-top: 0.25rem;
+        }
+
+        /* ============================================================
+           Program Overview
+           ============================================================ */
+        .overview-section {
+            background: var(--ivory);
+        }
+
+        .endowment-note {
+            font-size: 0.78rem;
+            color: var(--gold-muted);
+            margin-top: 1.25rem;
+            letter-spacing: 0.02em;
+            line-height: 1.6;
+        }
+
+        .endowment-note strong {
+            color: var(--gold-deep);
+            font-weight: 600;
+        }
+
+        .endowment-note em {
+            font-style: italic;
+            opacity: 0.85;
+        }
+
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        @media (min-width: 768px) {
+            .two-col { grid-template-columns: 1fr 1fr; }
+        }
+
+        .program-card {
+            background: var(--white);
+            border-radius: 0.5rem;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            border-top: 3px solid var(--gold);
+            box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+            transition: box-shadow 0.3s, transform 0.3s;
+        }
+
+        .program-card:hover {
+            box-shadow: 0 16px 40px rgba(0,0,0,0.08);
+            transform: translateY(-4px);
+        }
+
+        .program-card .card-icon {
+            width: 3.5rem;
+            height: 3.5rem;
+            background: var(--wine);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.25rem;
+            color: var(--gold-light);
+        }
+
+        .program-card h3 {
+            font-size: 1.5rem;
+            color: var(--charcoal);
+            margin-bottom: 0.5rem;
+        }
+
+        .program-card .card-percent {
+            font-family: var(--font-display);
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--wine);
+            margin: 0.5rem 0;
+        }
+
+        .program-card p {
+            font-size: 0.95rem;
+            color: rgba(61,61,61,0.7);
+            line-height: 1.7;
+        }
+
+        .flow-diagram {
+            margin: 3rem auto;
+            max-width: 50rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+        }
+
+        /* ============================================================
+           How It Works
+           ============================================================ */
+        .how-section {
+            background: var(--sand);
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .steps-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .steps-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        .step-card {
+            background: var(--white);
+            border-radius: 0.5rem;
+            padding: 2rem 1.5rem;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+            transition: box-shadow 0.3s, transform 0.3s;
+        }
+
+        .step-card:hover {
+            box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+            transform: translateY(-3px);
+        }
+
+        .step-number {
+            width: 2.5rem;
+            height: 2.5rem;
+            background: var(--wine);
+            color: var(--gold-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin: 0 auto 1rem;
+        }
+
+        .step-card .step-icon {
+            color: var(--wine);
+            margin-bottom: 0.75rem;
+        }
+
+        .step-card h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.75rem;
+            color: var(--charcoal);
+        }
+
+        .step-card p {
+            font-size: 0.9rem;
+            color: rgba(61,61,61,0.7);
+            line-height: 1.7;
+        }
+
+        /* ============================================================
+           Benefits
+           ============================================================ */
+        .benefits-section {
+            background: var(--ivory);
+        }
+
+        .benefit-block {
+            margin-bottom: 3rem;
+        }
+
+        .benefit-header {
+            background: linear-gradient(135deg, var(--wine) 0%, var(--wine-dark) 100%);
+            color: var(--white);
+            padding: 2rem 2.5rem;
+            border-radius: 0.5rem 0.5rem 0 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .benefit-header::before {
+            content: '';
+            position: absolute;
+            top: -2rem;
+            right: -2rem;
+            width: 10rem;
+            height: 10rem;
+            background: rgba(197,162,85,0.18);
+            border-radius: 50%;
+            filter: blur(2rem);
+        }
+
+        .benefit-header h3 {
+            font-size: 1.75rem;
+            color: var(--white);
+            margin-bottom: 0.25rem;
+            position: relative;
+        }
+
+        .benefit-header .benefit-for {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.8);
+            position: relative;
+        }
+
+        .benefit-body {
+            border: 1px solid var(--warmgray);
+            border-top: none;
+            border-radius: 0 0 0.5rem 0.5rem;
+            overflow: hidden;
+            background: var(--white);
+        }
+
+        .benefit-block-alt .benefit-header {
+            background: var(--sand);
+            color: var(--charcoal);
+        }
+
+        .benefit-block-alt .benefit-header h3 {
+            color: var(--wine);
+        }
+
+        .benefit-block-alt .benefit-header .benefit-for {
+            color: rgba(61,61,61,0.7);
+        }
+
+        .benefit-block-alt .benefit-header::before {
+            background: rgba(139,35,50,0.08);
+        }
+
+        .benefit-example {
+            background: var(--sand);
+            padding: 1.5rem 2rem;
+            border-radius: 0.5rem;
+            margin-top: 1.5rem;
+            border-left: 3px solid var(--gold);
+        }
+
+        .benefit-example strong {
+            color: var(--wine);
+        }
+
+        /* ============================================================
+           Campus
+           ============================================================ */
+        .campus-section {
+            background: var(--sand);
+        }
+
+        .campus-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        @media (min-width: 768px) {
+            .campus-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+
+        .campus-card {
+            background: var(--white);
+            border-radius: 0.5rem;
+            padding: 2rem;
+            text-align: center;
+            border-bottom: 3px solid var(--gold);
+            box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+            transition: box-shadow 0.3s, transform 0.3s;
+        }
+
+        .campus-card:hover {
+            box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+            transform: translateY(-4px);
+        }
+
+        .campus-card .campus-icon {
+            color: var(--wine);
+            margin-bottom: 1rem;
+        }
+
+        .campus-card h3 {
+            font-size: 1.3rem;
+            color: var(--charcoal);
+            margin-bottom: 0.5rem;
+        }
+
+        .campus-card p {
+            font-size: 0.9rem;
+            color: rgba(61,61,61,0.65);
+            line-height: 1.7;
+        }
+
+        .campus-note {
+            background: var(--white);
+            border-left: 3px solid var(--gold);
+            padding: 1.5rem 2rem;
+            border-radius: 0 0.5rem 0.5rem 0;
+            margin-top: 2rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+        }
+
+        .campus-note p {
+            font-size: 0.95rem;
+            color: rgba(61,61,61,0.8);
+            line-height: 1.7;
+        }
+
+        .campus-note strong {
+            color: var(--wine);
+        }
+
+
+        /* ============================================================
+           FAQ
+           ============================================================ */
+        .faq-section {
+            background: var(--ivory);
+        }
+
+        .faq-list {
+            max-width: 50rem;
+            margin: 2rem auto 0;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid var(--warmgray);
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-item details {
+            padding: 0;
+        }
+
+        .faq-item summary {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.25rem 0;
+            cursor: pointer;
+            font-family: var(--font-body);
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--charcoal);
+            list-style: none;
+            transition: color 0.3s;
+        }
+
+        .faq-item summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .faq-item summary::marker {
+            display: none;
+            content: '';
+        }
+
+        .faq-item summary:hover {
+            color: var(--wine);
+        }
+
+        .faq-item summary .chevron {
+            flex-shrink: 0;
+            width: 1.25rem;
+            height: 1.25rem;
+            color: var(--gold);
+            transition: transform 0.3s;
+            margin-left: 1rem;
+        }
+
+        .faq-item details[open] summary .chevron {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            padding: 0 0 1.5rem;
+            font-size: 0.95rem;
+            color: rgba(61,61,61,0.75);
+            line-height: 1.8;
+        }
+
+        /* ============================================================
+           Terms
+           ============================================================ */
+        .terms-section {
+            background: var(--sand);
+        }
+
+        /* ============================================================
+           Footer CTA
+           ============================================================ */
+        .footer-cta {
+            background: linear-gradient(135deg, var(--wine) 0%, var(--wine-dark) 100%);
+            color: var(--white);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .footer-cta::before {
+            content: '';
+            position: absolute;
+            top: -3rem;
+            right: -3rem;
+            width: 20rem;
+            height: 20rem;
+            background: rgba(197,162,85,0.12);
+            border-radius: 50%;
+            filter: blur(4rem);
+        }
+
+        .footer-cta::after {
+            content: '';
+            position: absolute;
+            bottom: -3rem;
+            left: -3rem;
+            width: 18rem;
+            height: 18rem;
+            background: rgba(255,255,255,0.05);
+            border-radius: 50%;
+            filter: blur(4rem);
+        }
+
+        .footer-cta .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-cta h2 {
+            font-size: 2.25rem;
+            color: var(--white);
+            margin-bottom: 1rem;
+        }
+
+        @media (min-width: 768px) {
+            .footer-cta h2 { font-size: 3rem; }
+        }
+
+        .footer-cta p {
+            font-size: 1.1rem;
+            color: rgba(255,255,255,0.85);
+            margin-bottom: 2rem;
+            max-width: 36rem;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.7;
+        }
+
+        .cta-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        /* ============================================================
+           Footer
+           ============================================================ */
+        footer {
+            background: var(--charcoal);
+            color: var(--white);
+            padding: 3rem 0 2rem;
+            text-align: center;
+        }
+
+        .footer-logo {
+            height: 2rem;
+            width: auto;
+            margin: 0 auto 1.5rem;
+            opacity: 0.9;
+        }
+
+        footer p {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.6);
+            line-height: 1.7;
+        }
+
+        footer .footer-brand {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            color: var(--gold-light);
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.5rem;
+        }
+
+        /* ============================================================
+           Floating WhatsApp
+           ============================================================ */
+        .floating-wa {
+            position: fixed;
+            bottom: 1.5rem;
+            right: 1.5rem;
+            z-index: 90;
+            background: #25D366;
+            color: var(--white);
+            width: 3.5rem;
+            height: 3.5rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 16px rgba(37,211,102,0.4);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .floating-wa:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 24px rgba(37,211,102,0.5);
+        }
+
+        /* ============================================================
+           Scroll Reveal
+           ============================================================ */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .reveal.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+        .reveal-delay-3 { transition-delay: 0.3s; }
+        .reveal-delay-4 { transition-delay: 0.4s; }
+
+        /* ============================================================
+           Responsive table wrapper
+           ============================================================ */
+        .table-wrap {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        @media (max-width: 600px) {
+            .styled-table th,
+            .styled-table td {
+                padding: 0.75rem 0.75rem;
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ============================================================
+         NAVIGATION
+         ============================================================ -->
+    <nav class="nav" id="main-nav">
+        <div class="container">
+            <div class="nav-inner">
+                <a href="#hero" class="nav-logo">
+                    <img src="https://storage.googleapis.com/msgsndr/mBBe0eYA8ipK5V9Icpq1/media/6996362cad005312c2a22f50.png" alt="Colegio NWL" style="height:2.5rem;">
+                </a>
+                <ul class="nav-links">
+                    <li><a href="#programa">Programa</a></li>
+                    <li><a href="#como-funciona">Proceso</a></li>
+                    <li><a href="#beneficios">Beneficios</a></li>
+                    <li><a href="#campus">Campus</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="#terminos">Términos</a></li>
+                    <li><a href="https://wa.me/5214421227791?text=Hola%2C%20me%20interesa%20conocer%20m%C3%A1s%20sobre%20el%20programa%20B.E.%20Newland%20(Beyond%20Excellence)." target="_blank" rel="noopener" class="nav-cta">Agenda tu Visita</a></li>
+                </ul>
+                <button class="menu-toggle" id="menu-toggle" aria-label="Menú">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobile-menu">
+        <a href="#programa" onclick="closeMobile()">Programa</a>
+        <a href="#como-funciona" onclick="closeMobile()">Proceso</a>
+        <a href="#beneficios" onclick="closeMobile()">Beneficios</a>
+        <a href="#campus" onclick="closeMobile()">Campus</a>
+        <a href="#faq" onclick="closeMobile()">FAQ</a>
+        <a href="#terminos" onclick="closeMobile()">Términos</a>
+        <a href="https://wa.me/5214421227791?text=Hola%2C%20me%20interesa%20conocer%20m%C3%A1s%20sobre%20el%20programa%20B.E.%20Newland%20(Beyond%20Excellence)." target="_blank" rel="noopener" class="mobile-cta">Agenda tu Visita</a>
+    </div>
+
+
+    <!-- ============================================================
+         HERO
+         ============================================================ -->
+    <section class="hero" id="hero">
+        <div class="hero-orb hero-orb-1"></div>
+        <div class="hero-orb hero-orb-2"></div>
+        <!-- Kangaroo watermark -->
+        <div style="position:absolute; top:5rem; right:-3rem; width:50vh; height:50vh; opacity:0.04; pointer-events:none;">
+            <img src="https://storage.googleapis.com/msgsndr/mBBe0eYA8ipK5V9Icpq1/media/6996362cf02fa4526f65b5a8.png" alt="" style="width:100%; height:100%; object-fit:contain;">
+        </div>
+        <div class="hero-content">
+            <img src="https://storage.googleapis.com/msgsndr/mBBe0eYA8ipK5V9Icpq1/media/6994c352d614c926a700b87b.png" alt="B.E. Newland Seal" class="hero-seal">
+            <h1>B.E. Newland</h1>
+            <div class="hero-subtitle">Beyond Excellence</div>
+            <div class="wine-divider" style="margin: 1.5rem auto;"></div>
+            <p class="hero-description">Un programa de reconocimiento vitalicio diseñado para familias de excelencia que elevan el estándar de nuestra comunidad educativa.</p>
+            <div class="hero-buttons">
+                <a href="https://www.nwl.mx/golden_ticket" target="_blank" rel="noopener" class="btn-gold">
+                    Genera tu Golden Ticket
+                    <span class="btn-tag">Exclusivo familias NWL</span>
+                </a>
+                <a href="https://wa.me/5214421227791?text=Hola%2C%20me%20interesa%20conocer%20m%C3%A1s%20sobre%20el%20programa%20B.E.%20Newland%20(Beyond%20Excellence)." target="_blank" rel="noopener" class="btn-secondary">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+                    WhatsApp
+                </a>
+            </div>
+            <div class="trust-row">
+                <div class="trust-item">
+                    <div class="trust-value">3</div>
+                    <div class="trust-label">Campus Participantes</div>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-value">30%</div>
+                    <div class="trust-label">Reconocimiento Vitalicio</div>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-value">100%</div>
+                    <div class="trust-label">Bonificación Máxima</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ============================================================
+         PROGRAM OVERVIEW
+         ============================================================ -->
+    <section class="overview-section section-padding" id="programa">
+        <div class="container">
+            <div style="text-align:center;" class="reveal">
+                <div class="wine-divider"></div>
+                <p class="section-label">Programa B.E.</p>
+                <h2 class="section-title">¿Qué es B.E. Newland?</h2>
+                <p class="section-subtitle"><strong>B.E. Newland</strong> (Beyond Excellence) es un programa de reconocimiento diseñado para familias que comparten nuestro compromiso con la excelencia educativa. No es una promoción temporal — es un compromiso vitalicio con familias extraordinarias.</p>
+                <p class="endowment-note">Respaldado por <strong>The British Endowment for Educational Excellence</strong> · <em>Fostering Knowledge, Building Futures</em> — London, UK</p>
+            </div>
+
+            <div class="two-col" style="margin-top: 2.5rem;">
+                <div class="program-card reveal reveal-delay-1">
+                    <div class="card-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
+                    </div>
+                    <h3>Familia Referida</h3>
+                    <div class="card-percent">30%</div>
+                    <p><strong>Reconocimiento Vitalicio</strong> en colegiatura mensual. Aplica mientras tu hijo permanezca inscrito en Newland.</p>
+                </div>
+                <div class="program-card reveal reveal-delay-2">
+                    <div class="card-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    </div>
+                    <h3>Familia Embajadora</h3>
+                    <div class="card-percent">10%</div>
+                    <p><strong>Bonificación Acumulable</strong> por cada familia referida que se inscriba. Acumula hasta el <strong>100%</strong> de tu colegiatura.</p>
+                </div>
+            </div>
+
+            <div class="reveal" style="text-align:center; margin-top: 1rem;">
+                <img src="https://assets.cdn.filesafe.space/mBBe0eYA8ipK5V9Icpq1/media/699882f85ba49828edffbf88.png" alt="Diagrama de flujo del programa B.E. Newland" class="flow-diagram" loading="lazy">
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ============================================================
+         HOW IT WORKS
+         ============================================================ -->
+    <section class="how-section section-padding" id="como-funciona">
+        <div class="container">
+            <div style="text-align:center;" class="reveal">
+                <div class="wine-divider"></div>
+                <p class="section-label">Paso a paso</p>
+                <h2 class="section-title">¿Cómo Funciona?</h2>
+                <p class="section-subtitle">El proceso es sencillo y está diseñado para reconocer a familias que elevan nuestra comunidad educativa.</p>
+            </div>
+
+            <div class="steps-grid">
+                <div class="step-card reveal reveal-delay-1">
+                    <div class="step-number">1</div>
+                    <div class="step-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    </div>
+                    <h4>Recibe una Invitación</h4>
+                    <p>Una familia Newland te nomina para el programa, o solicitas una evaluación directa durante tu visita al campus.</p>
+                </div>
+                <div class="step-card reveal reveal-delay-2">
+                    <div class="step-number">2</div>
+                    <div class="step-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                    </div>
+                    <h4>Conoce Newland</h4>
+                    <p>Visita el campus, conoce nuestra propuesta educativa y descubre por qué somos la mejor opción para tu familia.</p>
+                </div>
+                <div class="step-card reveal reveal-delay-3">
+                    <div class="step-number">3</div>
+                    <div class="step-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
+                    </div>
+                    <h4>Recibe tu Reconocimiento</h4>
+                    <p>Al inscribirte, accedes al <strong>30% de Reconocimiento Vitalicio</strong> en tu colegiatura mensual.</p>
+                </div>
+                <div class="step-card reveal reveal-delay-4">
+                    <div class="step-number">4</div>
+                    <div class="step-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
+                    </div>
+                    <h4>Refiere y Acumula</h4>
+                    <p>Invita a familias extraordinarias. Por cada una que se inscriba, acumulas <strong>10% de Bonificación</strong> en tu colegiatura.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ============================================================
+         BENEFITS
+         ============================================================ -->
+    <section class="benefits-section section-padding" id="beneficios">
+        <div class="container">
+            <div style="text-align:center;" class="reveal">
+                <div class="wine-divider"></div>
+                <p class="section-label">Beneficios</p>
+                <h2 class="section-title">Beneficios en Detalle</h2>
+            </div>
+
+            <!-- 30% Recognition -->
+            <div class="benefit-block reveal" style="margin-top: 2.5rem;">
+                <div class="benefit-header">
+                    <h3>30% Reconocimiento Vitalicio</h3>
+                    <p class="benefit-for">Para Familias Referidas (Nuevo Ingreso)</p>
+                </div>
+                <div class="benefit-body">
+                    <div class="table-wrap">
+                        <table class="styled-table">
+                            <tr>
+                                <th style="width:35%;">Aspecto</th>
+                                <th>Detalle</th>
+                            </tr>
+                            <tr>
+                                <td><strong>¿Qué es?</strong></td>
+                                <td>Un reconocimiento del 30% en el monto de colegiatura mensual</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Vigencia</strong></td>
+                                <td>Vitalicio — aplica mientras el alumno permanezca inscrito en Newland</td>
+                            </tr>
+                            <tr>
+                                <td><strong>¿Cuándo aplica?</strong></td>
+                                <td>Desde la primera colegiatura hasta que el alumno termine su trayectoria en Newland</td>
+                            </tr>
+                            <tr>
+                                <td><strong>¿Se pierde?</strong></td>
+                                <td>Solo si el alumno se da de baja de Newland</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Si la familia embajadora se va</strong></td>
+                                <td>El referido conserva su 30%. El beneficio no se pierde.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Múltiples hijos</strong></td>
+                                <td>Aplica para todos los alumnos de la familia inscritos bajo el programa B.E.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Otras promociones</strong></td>
+                                <td>No acumulable con otras promociones vigentes</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 10% Bonus -->
+            <div class="benefit-block benefit-block-alt reveal">
+                <div class="benefit-header">
+                    <h3>10% Bonificación Acumulable</h3>
+                    <p class="benefit-for">Para Familias Embajadoras (Actuales NWL)</p>
+                </div>
+                <div class="benefit-body">
+                    <div class="table-wrap">
+                        <table class="styled-table">
+                            <tr>
+                                <th style="width:35%;">Aspecto</th>
+                                <th>Detalle</th>
+                            </tr>
+                            <tr>
+                                <td><strong>¿Qué es?</strong></td>
+                                <td>Un 10% de bonificación en tu colegiatura por cada familia que refieras e inscriba</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Acumulación</strong></td>
+                                <td>Hasta 100% de bonificación total (10 referidos = colegiatura cubierta al 100%)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Vigencia</strong></td>
+                                <td>Activo mientras cada familia referida permanezca inscrita</td>
+                            </tr>
+                            <tr>
+                                <td><strong>¿Se pierde?</strong></td>
+                                <td>Si una familia referida se da de baja, pierdes ese 10% específico, pero conservas los demás</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div style="padding: 0 1.25rem 1.5rem;">
+                        <div class="benefit-example">
+                            <strong>Ejemplo:</strong> Si refieres 3 familias que se inscriben, recibes 30% de bonificación en tu colegiatura. Si una de esas familias se da de baja, regresas a 20%. Puedes seguir refiriendo para recuperar y superar tu bonificación.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ============================================================
+         CAMPUS
+         ============================================================ -->
+    <section class="campus-section section-padding" id="campus">
+        <div class="container">
+            <div style="text-align:center;" class="reveal">
+                <div class="wine-divider"></div>
+                <p class="section-label">Ubicaciones</p>
+                <h2 class="section-title">Campus Participantes</h2>
+                <p class="section-subtitle">El programa B.E. Newland está disponible exclusivamente en los siguientes campus.</p>
+            </div>
+
+            <div class="campus-grid">
+                <div class="campus-card reveal reveal-delay-1">
+                    <div class="campus-icon">
+                        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    </div>
+                    <h3>San Miguel de Allende</h3>
+                    <p>Guanajuato</p>
+                </div>
+                <div class="campus-card reveal reveal-delay-2">
+                    <div class="campus-icon">
+                        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    </div>
+                    <h3>Corregidora</h3>
+                    <p>Querétaro</p>
+                </div>
+                <div class="campus-card reveal reveal-delay-3">
+                    <div class="campus-icon">
+                        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    </div>
+                    <h3>Milenio</h3>
+                    <p>Querétaro</p>
+                </div>
+            </div>
+
+            <div class="campus-note reveal">
+                <p><strong>Familias de cualquier campus Newland pueden ser embajadores.</strong> Si tu familia es parte de Juriquilla, Zibatá u otro campus NWL, puedes nominar familias para San Miguel de Allende, Corregidora o Milenio y recibir la bonificación del 10% acumulable en tu propia colegiatura.</p>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- ============================================================
+         FAQ
+         ============================================================ -->
+    <section class="faq-section section-padding" id="faq">
+        <div class="container">
+            <div style="text-align:center;" class="reveal">
+                <div class="wine-divider"></div>
+                <p class="section-label">Preguntas Frecuentes</p>
+                <h2 class="section-title">Resolvemos tus Dudas</h2>
+            </div>
+
+            <div class="faq-list">
+                <div class="faq-item reveal">
+                    <details>
+                        <summary>
+                            <span>¿El 30% es solo por un año o cuánto dura?</span>
+                            <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                        </summary>
+                        <div class="faq-answer">
+                            El 30% de Reconocimiento es vitalicio. Aplica durante toda la trayectoria académica de tu hijo en Newland, no solo un año. Mientras permanezca inscrito, el reconocimiento se mantiene.
+                        </div>
+                    </details>
+                </div>
+
+                <div class="faq-item reveal">
+                    <details>
+                        <summary>
+                            <span>¿Puedo combinar el 30% con otras promociones?</span>
+                            <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                        </summary>
+                        <div class="faq-answer">
+                            No, el programa B.E. no es acumulable con otras promociones vigentes. Sin embargo, el 30% de Reconocimiento Vitalicio es uno de los beneficios más significativos que ofrecemos.
+                        </div>
+                    </details>
+                </div>
+
+                <div class="faq-item reveal">
+                    <details>
+                        <summary>
+                            <span>Si la familia que nos refirió se sale de Newland, ¿perdemos el 30%?</span>
+                            <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                        </summary>
+                        <div class="faq-answer">
+                            No. Una vez que tu familia es aceptada en el programa B.E., el Reconocimiento del 30% es tuyo de manera vitalicia, independientemente de lo que suceda con la familia que te nominó.
+                        </div>
+                    </details>
+                </div>
+
+                <div class="faq-item reveal">
+                    <details>
+                        <summary>
+                            <span>Si nos salimos y luego regresamos, ¿recuperamos el 30%?</span>
+                            <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                        </summary>
+                        <div class="faq-answer">
+                            El Reconocimiento del 30% aplica mientras tu hijo permanezca inscrito. Si se dan de baja, el beneficio se pierde. En caso de reinscripción futura, se evaluaría la elegibilidad nuevamente según la disponibilidad del programa en ese momento.
+                        </div>
+                    </details>
+                </div>
+
+                <div class="faq-item reveal">
+                    <details>
+                        <summary>
+                            <span>¿Aplica para todos los campus de Newland?</span>
+                            <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                        </summary>
+                        <div class="faq-answer">
+                            El programa B.E. Newland aplica exclusivamente en los campus de San Miguel de Allende, Corregidora y Milenio. Sin embargo, familias de cualquier campus pueden participar como embajadores y recibir la bonificación del 10%.
+                        </div>
+                    </details>
+                </div>
+
+                <div class="faq-item reveal">
+                    <details>
+                        <summary>
+                            <span>¿Cuántas familias puedo referir como embajador?</span>
+                            <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                        </summary>
+                        <div class="faq-answer">
+                            No hay límite. Cada familia que refieras e inscriba te suma un 10% de Bonificación. Puedes acumular hasta el 100%, lo que significa que con 10 familias inscritas, tu colegiatura quedaría completamente cubierta.
+                        </div>
+                    </details>
+                </div>
+
+                <div class="faq-item reveal">
+                    <details>
+                        <summary>
+                            <span>Si una de las familias que referí se sale, ¿qué pasa con mi bonificación?</span>
+                            <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                        </summary>
+                        <div class="faq-answer">
+                            La Bonificación del 10% por cada familia aplica mientras esa familia permanezca inscrita. Si un referido se da de baja, pierdes ese 10% específico, pero mantienes las bonificaciones de las demás familias activas.
+                        </div>
+                    </details>
+                </div>
+
+                <div class="faq-item reveal">
+                    <details>
+                        <summary>
+                            <span>¿Hasta cuándo está disponible el programa B.E.?</span>
+                            <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                        </summary>
+                        <div class="faq-answer">
+                            El programa está activo hasta nuevo aviso y sujeto a disponibilidad de espacios. Los espacios bajo este reconocimiento son limitados, por lo que recomendamos no esperar demasiado para agendar tu visita.
+                        </div>
+                    </details>
+                </div>
+
+                <div class="faq-item reveal">
+                    <details>
+                        <summary>
+                            <span>¿El 30% aplica en inscripción y otros cargos?</span>
+                            <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                        </summary>
+                        <div class="faq-answer">
+                            El Reconocimiento del 30% aplica exclusivamente sobre el monto mensual de colegiatura. No aplica en inscripción, materiales, uniformes u otros cargos administrativos.
+                        </div>
+                    </details>
+                </div>
+
+                <div class="faq-item reveal">
+                    <details>
+                        <summary>
+                            <span>Si tengo varios hijos, ¿el 30% aplica para todos?</span>
+                            <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                        </summary>
+                        <div class="faq-answer">
+                            Sí, el Reconocimiento del 30% aplica para todos los alumnos de la familia que se inscriban bajo el programa B.E.
+                        </div>
+                    </details>
+                </div>
+
+                <div class="faq-item reveal">
+                    <details>
+                        <summary>
+                            <span>¿Qué pasa si no conozco a nadie en Newland pero me interesa el programa?</span>
+                            <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                        </summary>
+                        <div class="faq-answer">
+                            Aunque el programa está diseñado para familias referidas, tu perfil puede ser evaluado directamente durante tu visita al campus. Agenda una cita y nuestro equipo determinará tu elegibilidad.
+                        </div>
+                    </details>
+                </div>
+
+                <div class="faq-item reveal">
+                    <details>
+                        <summary>
+                            <span>¿Puedo transferir mi reconocimiento a otra familia?</span>
+                            <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                        </summary>
+                        <div class="faq-answer">
+                            No, el Reconocimiento del 30% es personal e intransferible. Está vinculado específicamente a la familia que fue aceptada en el programa B.E.
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ============================================================
+         TERMS
+         ============================================================ -->
+    <section class="terms-section section-padding" id="terminos">
+        <div class="container">
+            <div style="text-align:center;" class="reveal">
+                <div class="wine-divider"></div>
+                <p class="section-label">Legal</p>
+                <h2 class="section-title">Términos y Condiciones</h2>
+            </div>
+
+            <div class="reveal" style="margin-top: 2rem;">
+                <div class="table-wrap">
+                    <table class="styled-table">
+                        <tr>
+                            <th style="width:35%;">Concepto</th>
+                            <th>Condición</th>
+                        </tr>
+                        <tr>
+                            <td><strong>Vigencia del 30%</strong></td>
+                            <td>Vitalicio — aplica mientras el alumno referido permanezca inscrito</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Vigencia del 10% embajador</strong></td>
+                            <td>Activo mientras la familia referida permanezca inscrita. Si el referido se da de baja, el embajador pierde esa bonificación específica</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Baja del embajador</strong></td>
+                            <td>El referido conserva su 30% aun si la familia embajadora se da de baja</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Acumulabilidad embajador</strong></td>
+                            <td>Cada referencia exitosa suma 10% adicional, hasta 100% de bonificación en colegiatura propia</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Otras promociones</strong></td>
+                            <td>No acumulable con ninguna otra promoción vigente</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Duración del programa</strong></td>
+                            <td>Activo hasta nuevo aviso / hasta agotar cupo disponible</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Campus válidos</strong></td>
+                            <td>Exclusivamente San Miguel de Allende, Corregidora y Milenio</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Aplicación del 30%</strong></td>
+                            <td>Solo sobre colegiatura mensual (no aplica en inscripción, materiales, uniformes u otros cargos)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Múltiples hijos</strong></td>
+                            <td>El 30% aplica para todos los alumnos de la familia inscritos bajo B.E.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Transferibilidad</strong></td>
+                            <td>No transferible. El reconocimiento es personal e intransferible</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Condición de pago</strong></td>
+                            <td>Los beneficios del programa están sujetos a que la familia mantenga sus pagos al corriente y realice el pago de colegiatura dentro de los primeros 10 días del mes</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Reinscripción</strong></td>
+                            <td>La reinscripción debe realizarse a más tardar en febrero para continuar con los beneficios del programa</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Condición embajador</strong></td>
+                            <td>Para recibir la bonificación del 10%, la familia referida también debe estar al corriente en sus pagos y cumplir con los montos y fechas establecidos</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- ============================================================
+         FOOTER CTA
+         ============================================================ -->
+    <section class="footer-cta section-padding">
+        <!-- Kangaroo watermark -->
+        <div style="position:absolute; right:-5%; bottom:-10%; width:50vh; height:50vh; opacity:0.06; pointer-events:none;">
+            <img src="https://storage.googleapis.com/msgsndr/mBBe0eYA8ipK5V9Icpq1/media/6996362cf02fa4526f65b5a8.png" alt="" style="width:100%; height:100%; object-fit:contain; filter: brightness(0) invert(1);">
+        </div>
+        <div class="container">
+            <div class="reveal">
+                <h2>Tu familia merece ser parte de algo extraordinario</h2>
+                <p>Agenda una visita a nuestro campus y descubre cómo el programa B.E. Newland puede beneficiar a tu familia.</p>
+                <div class="cta-buttons">
+                    <a href="https://wa.me/5214421227791?text=Hola%2C%20me%20interesa%20conocer%20m%C3%A1s%20sobre%20el%20programa%20B.E.%20Newland%20(Beyond%20Excellence)." target="_blank" rel="noopener" class="btn-white">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+                        Agenda tu Visita por WhatsApp
+                    </a>
+                    <a href="tel:+524424541010" class="btn-outline-white">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                        Llama a Admisiones
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ============================================================
+         FOOTER
+         ============================================================ -->
+    <footer>
+        <div class="container">
+            <img src="https://storage.googleapis.com/msgsndr/mBBe0eYA8ipK5V9Icpq1/media/6996362cad005312c2a22f50.png" alt="Colegio NWL" class="footer-logo" style="height:3rem; filter: brightness(0) invert(1);">
+            <p class="footer-brand">B.E. NEWLAND — Beyond Excellence</p>
+            <p>Colegios Newland | 2025</p>
+        </div>
+    </footer>
+
+
+    <!-- ============================================================
+         FLOATING WHATSAPP
+         ============================================================ -->
+    <a href="https://wa.me/5214421227791?text=Hola%2C%20me%20interesa%20conocer%20m%C3%A1s%20sobre%20el%20programa%20B.E.%20Newland%20(Beyond%20Excellence)." target="_blank" rel="noopener" class="floating-wa" aria-label="WhatsApp">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </a>
+
+
+    <!-- ============================================================
+         JAVASCRIPT
+         ============================================================ -->
+    <script>
+        // Sticky Navigation
+        const nav = document.getElementById('main-nav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile Menu
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('open');
+            const isOpen = mobileMenu.classList.contains('open');
+            menuToggle.innerHTML = isOpen
+                ? '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>'
+                : '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>';
+        });
+
+        function closeMobile() {
+            mobileMenu.classList.remove('open');
+            menuToggle.innerHTML = '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>';
+        }
+
+        // Close mobile menu on outside click
+        document.addEventListener('click', (e) => {
+            if (!mobileMenu.contains(e.target) && !menuToggle.contains(e.target)) {
+                closeMobile();
+            }
+        });
+
+        // Smooth Scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offset = 80;
+                    const top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+                    window.scrollTo({ top, behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Scroll Reveal
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('revealed');
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+        document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+        // GHL container override — walk up from our hero to html,
+        // stripping max-width/padding from every ancestor wrapper GHL injects
+        (function() {
+            var hero = document.querySelector('.hero');
+            if (!hero) return;
+            var el = hero.parentElement;
+            while (el) {
+                el.style.setProperty('max-width', '100%', 'important');
+                el.style.setProperty('width', '100%', 'important');
+                el.style.setProperty('padding-left', '0', 'important');
+                el.style.setProperty('padding-right', '0', 'important');
+                el.style.setProperty('margin-left', '0', 'important');
+                el.style.setProperty('margin-right', '0', 'important');
+                el.style.setProperty('overflow-x', 'hidden', 'important');
+                el.style.setProperty('box-sizing', 'border-box', 'important');
+                // Kill white bg on GHL wrappers (keep body's sand bg)
+                if (el.tagName !== 'BODY' && el.tagName !== 'HTML') {
+                    el.style.setProperty('background', 'transparent', 'important');
+                }
+                el = el.parentElement;
+            }
+        })();
+    </script>
+
+</body>
+</html>

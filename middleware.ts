@@ -15,8 +15,13 @@ export function middleware(request: NextRequest) {
     return NextResponse.next();
   }
 
-  // Allow brochure pages and coming-soon through
-  if (pathname.startsWith('/brochures') || pathname === '/coming-soon') {
+  // Allow brochure pages, coming-soon, and BE campaign pages through
+  if (
+    pathname.startsWith('/brochures') ||
+    pathname === '/coming-soon' ||
+    pathname === '/be_nwl' ||
+    pathname === '/golden_ticket'
+  ) {
     return NextResponse.next();
   }
 

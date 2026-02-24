@@ -3,6 +3,12 @@ const nextConfig = {
   images: {
     domains: ['prod-files-secure.s3.us-west-2.amazonaws.com', 'images.unsplash.com'],
   },
+  async rewrites() {
+    return [
+      { source: '/be_nwl', destination: '/be_nwl.html' },
+      { source: '/golden_ticket', destination: '/golden_ticket.html' },
+    ];
+  },
 };
 
 export default nextConfig;
