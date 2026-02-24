@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+Allow: /brochures/
+Allow: /be_nwl
+Allow: /golden_ticket
+Allow: /golden_ticket_cap
+
+Disallow: /_next/
+Disallow: /api/
+
+Sitemap: https://www.nwl.mx/sitemap.xml
