@@ -6,14 +6,17 @@ import { motion } from 'framer-motion';
 import { FiDownload, FiArrowRight } from 'react-icons/fi';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { ScrollSmoother } from 'gsap/ScrollSmoother';
+import { useLanguage } from '@/lib/i18n/LanguageContext';
 
 if (typeof window !== 'undefined') {
-  gsap.registerPlugin(ScrollTrigger);
+  gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 }
 
 export default function Hero() {
   const heroRef = useRef<HTMLElement>(null);
   const [isMounted, setIsMounted] = useState(false);
+  const { t } = useLanguage();
 
   useEffect(() => {
     setIsMounted(true);
@@ -45,21 +48,6 @@ export default function Hero() {
         {
           x: 100,
           y: 50,
-          opacity: 0,
-          scrollTrigger: {
-            trigger: heroRef.current,
-            start: 'top top',
-            end: 'bottom top',
-            scrub: 1.5,
-          },
-        }
-      );
-
-      // Tagline scales up and fades
-      gsap.fromTo('.hero-tagline',
-        { scale: 1, opacity: 1 },
-        {
-          scale: 1.3,
           opacity: 0,
           scrollTrigger: {
             trigger: heroRef.current,
@@ -128,17 +116,6 @@ export default function Hero() {
         }
       );
 
-      // Animated tagline - characters reveal with stagger (initial load)
-      gsap.from('.tagline-char', {
-        opacity: 0,
-        y: 20,
-        rotateX: -90,
-        stagger: 0.04,
-        duration: 1,
-        ease: 'back.out(1.7)',
-        delay: 1.6,
-      });
-
       // Main headline word animation (initial load)
       gsap.from('.word-wrap', {
         opacity: 0,
@@ -152,14 +129,6 @@ export default function Hero() {
 
     return () => ctx.revert();
   }, [isMounted]);
-
-  // Split tagline into characters
-  const taglineText = "Be proud, be Newland";
-  const taglineChars = taglineText.split('').map((char, i) => (
-    <span key={i} className="tagline-char inline-block">
-      {char === ' ' ? '\u00A0' : char}
-    </span>
-  ));
 
   return (
     <section
@@ -237,55 +206,43 @@ export default function Hero() {
           />
 
           {/* Main Headline - Split into Left and Right for drift effect */}
-          <h1 className="font-display text-5xl md:text-7xl font-bold text-charcoal mb-8 leading-tight">
+          <h1 className="font-display text-6xl md:text-8xl font-bold text-charcoal mb-6 leading-tight">
             {/* Left side - drifts left and up */}
             <span className="headline-left inline-block">
-              <span className="word-wrap inline-block">At</span>{' '}
-              <span className="word-wrap inline-block">NWL,</span>
+              {t.hero.headlineLeft.map((word, i) => (
+                <span key={i}>
+                  <span className="word-wrap inline-block">{word}</span>
+                  {i < t.hero.headlineLeft.length - 1 ? ' ' : ''}
+                </span>
+              ))}
             </span>
             <br />
             {/* Right side - drifts right and down */}
             <span className="headline-right inline-block">
-              <span className="word-wrap inline-block text-wine">we</span>{' '}
-              <span className="word-wrap inline-block text-wine">unlock</span>{' '}
-              <span className="word-wrap inline-block text-wine">greatness</span>
+              {t.hero.headlineRight.map((word, i) => (
+                <span key={i}>
+                  <span className="word-wrap inline-block text-wine">{word}</span>
+                  {i < t.hero.headlineRight.length - 1 ? ' ' : ''}
+                </span>
+              ))}
             </span>
           </h1>
-
-          {/* Tagline - Scales up and fades */}
-          <div className="relative mb-12 hero-tagline">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6, delay: 1.4 }}
-              className="absolute -inset-4 bg-gradient-to-r from-wine/5 via-terracotta/5 to-transparent rounded-lg blur-xl"
-            />
-            <div
-              className="relative text-3xl md:text-5xl font-display font-black text-wine leading-tight tracking-tight"
-              style={{
-                textShadow: '2px 2px 0px rgba(139, 35, 50, 0.1)',
-              }}
-            >
-              {taglineChars}
-            </div>
-          </div>
 
           {/* Subheadline with fade in */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 2.2 }}
-            className="text-lg md:text-xl text-charcoal/80 mb-12 max-w-2xl leading-relaxed hero-subheadline"
+            transition={{ duration: 0.8, delay: 1.4 }}
+            className="text-xl md:text-2xl font-display text-charcoal/70 mb-12 max-w-3xl leading-relaxed hero-subheadline"
           >
-            At NWL, we drive the academic, emotional, and social development
-            of our students in a close and trusting environment.
+            {t.hero.subheadline}
           </motion.p>
 
           {/* CTAs with stagger */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 2.6 }}
+            transition={{ duration: 0.8, delay: 1.8 }}
             className="flex flex-col sm:flex-row gap-4 hero-ctas"
           >
             {/* Primary CTA */}
@@ -295,7 +252,7 @@ export default function Hero() {
               whileTap={{ scale: 0.95 }}
               className="btn-primary inline-flex items-center justify-center group"
             >
-              Schedule a Visit
+              {t.hero.ctaPrimary}
               <FiArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
             </motion.a>
 
@@ -308,7 +265,7 @@ export default function Hero() {
               className="btn-secondary inline-flex items-center justify-center"
             >
               <FiDownload className="mr-2" />
-              Educational Model
+              {t.hero.ctaSecondary}
             </motion.a>
           </motion.div>
 
@@ -316,19 +273,15 @@ export default function Hero() {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 2.8 }}
+            transition={{ duration: 0.8, delay: 2.0 }}
             className="mt-16 flex flex-wrap items-center gap-8 text-sm text-charcoal/60 hero-trust"
           >
-            {[
-              { label: '5 Campuses', delay: 0 },
-              { label: 'Maternal - Preparatoria', delay: 0.1 },
-              { label: 'Bilingual Education', delay: 0.2 },
-            ].map((item, index) => (
+            {t.hero.trustIndicators.map((label, index) => ({ label, delay: index * 0.1 })).map((item, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5, delay: 2.9 + item.delay }}
+                transition={{ duration: 0.5, delay: 2.1 + item.delay }}
                 className="flex items-center"
               >
                 <div className="w-12 h-[2px] bg-wine mr-3" />
@@ -343,7 +296,7 @@ export default function Hero() {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 3.2 }}
+        transition={{ duration: 1, delay: 2.4 }}
         className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-30"
       >
         <motion.div
@@ -351,7 +304,13 @@ export default function Hero() {
           transition={{ duration: 1.5, repeat: Infinity }}
           className="w-6 h-10 border-2 border-wine/30 rounded-full flex justify-center cursor-pointer"
           onClick={() => {
-            document.getElementById('benefits')?.scrollIntoView({ behavior: 'smooth' });
+            const target = document.getElementById('benefits');
+            const smoother = ScrollSmoother.get();
+            if (target && smoother) {
+              smoother.scrollTo(target, true, 'top top');
+            } else if (target) {
+              target.scrollIntoView({ behavior: 'smooth' });
+            }
           }}
         >
           <motion.div

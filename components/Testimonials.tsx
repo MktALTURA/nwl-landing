@@ -3,32 +3,30 @@
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { FiStar } from 'react-icons/fi';
+import { useLanguage } from '@/lib/i18n/LanguageContext';
 
-const testimonials = [
+const testimonialsData = [
   {
-    quote: "Newland has been transformational for our daughter. The teachers genuinely care about her growth, not just academically but emotionally too.",
-    author: "María González",
-    role: "Parent - Kinder, Juriquilla",
+    author: 'María González',
     rating: 5,
     image: '/images/testimonials/maria.jpg',
   },
   {
-    quote: "The bilingual program is excellent. My son switched from another school and his English improved dramatically in just one year.",
-    author: "Carlos Mendoza",
-    role: "Parent - Primaria, Zibatá",
+    author: 'Carlos Mendoza',
     rating: 5,
     image: '/images/testimonials/carlos.jpg',
   },
   {
-    quote: "What impressed us most was the sense of community. Parents, teachers, and students all feel like one big family.",
-    author: "Ana Torres",
-    role: "Parent - Secundaria, SMA",
+    author: 'Ana Torres',
     rating: 5,
     image: '/images/testimonials/ana.jpg',
   },
 ];
 
 export default function Testimonials() {
+  const { t } = useLanguage();
+  const testimonials = testimonialsData.map((td, i) => ({ ...td, ...t.testimonials.items[i] }));
+
   return (
     <section className="section-padding bg-gradient-to-b from-white to-sand animate-section">
       <div className="container-custom">
@@ -36,10 +34,10 @@ export default function Testimonials() {
         <div className="text-center mb-16">
           <div className="wine-divider mx-auto mb-6" />
           <h2 className="font-display text-4xl md:text-5xl font-bold text-charcoal mb-4">
-            What <span className="text-wine">Parents Say</span>
+            {t.testimonials.sectionTitle} <span className="text-wine">{t.testimonials.sectionTitleAccent}</span>
           </h2>
           <p className="text-lg text-charcoal/70 max-w-2xl mx-auto">
-            Hear from families who have chosen NWL for their children's education
+            {t.testimonials.sectionSubtitle}
           </p>
         </div>
 
@@ -76,7 +74,7 @@ export default function Testimonials() {
 
                 {/* Quote */}
                 <p className="text-charcoal/80 mb-6 leading-relaxed italic text-sm">
-                  "{testimonial.quote}"
+                  &ldquo;{testimonial.quote}&rdquo;
                 </p>
 
                 {/* Author */}
@@ -88,7 +86,7 @@ export default function Testimonials() {
 
               {/* Accent */}
               <div className="absolute top-6 right-6 text-6xl text-wine/10 font-display">
-                "
+                &ldquo;
               </div>
             </motion.div>
           ))}
@@ -111,7 +109,7 @@ export default function Testimonials() {
               className="object-cover"
             />
             <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors" />
-            
+
             {/* Play button overlay */}
             <div className="absolute inset-0 flex items-center justify-center">
               <div className="w-20 h-20 rounded-full bg-white/90 flex items-center justify-center group-hover:scale-110 transition-transform shadow-2xl">
@@ -129,22 +127,22 @@ export default function Testimonials() {
           viewport={{ once: true }}
           className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center"
         >
-          <div>
-            <div className="text-4xl font-bold text-wine mb-2">500+</div>
-            <div className="text-sm text-charcoal/60">Happy Families</div>
-          </div>
-          <div>
-            <div className="text-4xl font-bold text-wine mb-2">15+</div>
-            <div className="text-sm text-charcoal/60">Years of Excellence</div>
-          </div>
-          <div>
-            <div className="text-4xl font-bold text-wine mb-2">95%</div>
-            <div className="text-sm text-charcoal/60">Family Satisfaction</div>
-          </div>
-          <div>
-            <div className="text-4xl font-bold text-wine mb-2">5</div>
-            <div className="text-sm text-charcoal/60">Campus Locations</div>
-          </div>
+          {t.testimonials.stats.map((stat, i) => {
+            // Auto-update years of excellence every August (founded 2009)
+            const value = i === 1
+              ? `${(() => {
+                  const now = new Date();
+                  const years = now.getFullYear() - 2009;
+                  return now.getMonth() >= 7 ? years : years - 1;
+                })()}+`
+              : stat.value;
+            return (
+              <div key={i}>
+                <div className="text-4xl font-bold text-wine mb-2">{value}</div>
+                <div className="text-sm text-charcoal/60">{stat.label}</div>
+              </div>
+            );
+          })}
         </motion.div>
       </div>
     </section>

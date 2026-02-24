@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState, useCallback } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useLanguage } from '@/lib/i18n/LanguageContext';
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger);
@@ -61,6 +62,7 @@ export default function KangarooSpirit() {
   const jumpTlRef = useRef<gsap.core.Timeline | null>(null);
   const hasJumpedRef = useRef(false);
   const flyerRef = useRef<HTMLImageElement | null>(null);
+  const { t } = useLanguage();
 
   useEffect(() => { setIsMounted(true); }, []);
 
@@ -408,7 +410,7 @@ export default function KangarooSpirit() {
             <div ref={circleAreaRef} className="relative w-[280px] h-[280px] md:w-[360px] md:h-[360px]">
               <div className="kangaroo-reveal w-full h-full flex items-center justify-center">
                 <img ref={kangarooImgRef} id="spirit-kangaroo"
-                  src="/images/brand/kangaroo-wine.png" alt="NWL Kangaroo — Our Spirit"
+                  src="/images/brand/kangaroo-wine.png" alt="NWL Kangaroo - Our Spirit"
                   className="w-[85%] h-[85%] object-contain drop-shadow-lg" />
               </div>
               <div className="absolute inset-0 overflow-hidden rounded-full pointer-events-none">
@@ -421,15 +423,13 @@ export default function KangarooSpirit() {
           <div className="text-center lg:text-left max-w-lg">
             <div className="spirit-text wine-divider mb-6 mx-auto lg:mx-0" />
             <h2 className="spirit-text font-display text-3xl md:text-4xl font-bold text-charcoal mb-4">
-              Our <span className="text-wine">Spirit</span>
+              {t.kangarooSpirit.titleBefore} <span className="text-wine">{t.kangarooSpirit.titleAccent}</span>
             </h2>
             <p className="spirit-text text-charcoal/70 text-lg leading-relaxed mb-6">
-              The kangaroo embodies the NWL spirit — strength, forward
-              momentum, and carrying those we nurture closest to our hearts.
-              Always leaping toward new horizons.
+              {t.kangarooSpirit.description}
             </p>
             <div className="flex flex-wrap gap-4 justify-center lg:justify-start">
-              {['Strength', 'Nurture', 'Progress'].map((trait) => (
+              {t.kangarooSpirit.traits.map((trait) => (
                 <span key={trait} className="spirit-trait px-5 py-2 bg-wine/5 text-wine text-sm font-medium rounded-full border border-wine/15 hover:bg-wine/10 transition-colors">
                   {trait}
                 </span>

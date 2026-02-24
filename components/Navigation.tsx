@@ -1,21 +1,107 @@
 'use client';
 
-import { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
-import { FiMenu, FiX, FiMessageCircle } from 'react-icons/fi';
+import { useState, useEffect, useRef } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { FiMenu, FiX, FiChevronDown } from 'react-icons/fi';
+import { FaWhatsapp } from 'react-icons/fa';
+import { useLanguage } from '@/lib/i18n/LanguageContext';
+import LanguageToggle from './LanguageToggle';
 
-const navLinks = [
-  { name: 'Home', href: '#home' },
-  { name: 'Our School', href: '#about' },
-  { name: 'Academic Offer', href: '#levels' },
-  { name: 'School Life', href: '#campus' },
-  { name: 'Admissions', href: '#admissions', highlight: true },
-  { name: 'Contact', href: '#contact' },
+// Decoration type for dropdown hover effects
+interface DropdownDecoration {
+  hoverBg: string;
+  hoverTextColor: string;
+  accentBorder: string;
+  bgSize?: { initial: string; hover: string };
+}
+
+// Per-level hover decorations for the Academic Offer dropdown (indexed 0–4)
+const academicLevelDecorations: DropdownDecoration[] = [
+  // 0: Maternal — playful pastel bubbles
+  {
+    hoverBg:
+      'radial-gradient(circle at 15% 50%, rgba(255,153,200,0.25) 0%, transparent 50%), radial-gradient(circle at 85% 30%, rgba(168,230,207,0.25) 0%, transparent 45%), radial-gradient(circle at 50% 80%, rgba(255,217,61,0.2) 0%, transparent 40%), linear-gradient(135deg, rgba(255,153,200,0.08) 0%, rgba(168,230,207,0.08) 100%)',
+    hoverTextColor: 'rgb(139,35,50)',
+    accentBorder: 'rgba(255,153,200,0.6)',
+    bgSize: { initial: '100% 100%', hover: '120% 120%' },
+  },
+  // 1: Kinder — warm coral/sunshine dots
+  {
+    hoverBg:
+      'radial-gradient(circle at 20% 40%, rgba(255,107,107,0.2) 0%, transparent 45%), radial-gradient(circle at 75% 60%, rgba(255,217,61,0.25) 0%, transparent 50%), radial-gradient(circle at 50% 20%, rgba(78,205,196,0.15) 0%, transparent 40%), linear-gradient(135deg, rgba(255,217,61,0.06) 0%, rgba(255,107,107,0.06) 100%)',
+    hoverTextColor: 'rgb(139,35,50)',
+    accentBorder: 'rgba(255,107,107,0.6)',
+    bgSize: { initial: '100% 100%', hover: '115% 115%' },
+  },
+  // 2: Elementary — calm ocean/eucalyptus
+  {
+    hoverBg:
+      'radial-gradient(circle at 25% 50%, rgba(78,205,196,0.18) 0%, transparent 50%), radial-gradient(circle at 80% 40%, rgba(168,197,165,0.2) 0%, transparent 45%), linear-gradient(135deg, rgba(78,205,196,0.05) 0%, rgba(168,197,165,0.05) 100%)',
+    hoverTextColor: 'rgb(139,35,50)',
+    accentBorder: 'rgba(78,205,196,0.6)',
+  },
+  // 3: Middle School — mustard/tangerine accent
+  {
+    hoverBg:
+      'radial-gradient(circle at 30% 50%, rgba(230,169,68,0.22) 0%, transparent 50%), radial-gradient(circle at 80% 50%, rgba(255,140,66,0.15) 0%, transparent 45%), linear-gradient(135deg, rgba(230,169,68,0.06) 0%, rgba(255,140,66,0.04) 100%)',
+    hoverTextColor: 'rgb(139,35,50)',
+    accentBorder: 'rgba(230,169,68,0.7)',
+  },
+  // 4: High School — elegant wine/charcoal
+  {
+    hoverBg:
+      'linear-gradient(135deg, rgba(139,35,50,0.08) 0%, rgba(61,61,61,0.04) 50%, rgba(139,35,50,0.04) 100%)',
+    hoverTextColor: 'rgb(139,35,50)',
+    accentBorder: 'rgba(139,35,50,0.5)',
+  },
+];
+
+// Per-campus hover decorations (indexed 0–4: Juriquilla, Milenio, SMA, Corregidora, Zibatá)
+const campusDecorations: DropdownDecoration[] = [
+  // 0: Juriquilla — flagship, premium wine + gold
+  {
+    hoverBg:
+      'radial-gradient(circle at 20% 50%, rgba(139,35,50,0.12) 0%, transparent 50%), radial-gradient(circle at 80% 40%, rgba(230,169,68,0.15) 0%, transparent 45%), linear-gradient(135deg, rgba(139,35,50,0.05) 0%, rgba(230,169,68,0.04) 100%)',
+    hoverTextColor: 'rgb(139,35,50)',
+    accentBorder: 'rgba(139,35,50,0.6)',
+  },
+  // 1: Milenio — safe, nurturing eucalyptus + skyblue
+  {
+    hoverBg:
+      'radial-gradient(circle at 25% 45%, rgba(168,197,165,0.2) 0%, transparent 50%), radial-gradient(circle at 75% 55%, rgba(184,212,232,0.2) 0%, transparent 45%), linear-gradient(135deg, rgba(168,197,165,0.06) 0%, rgba(184,212,232,0.06) 100%)',
+    hoverTextColor: 'rgb(139,35,50)',
+    accentBorder: 'rgba(168,197,165,0.6)',
+  },
+  // 2: San Miguel de Allende — cultural, artisan terracotta + mustard
+  {
+    hoverBg:
+      'radial-gradient(circle at 20% 50%, rgba(212,135,111,0.22) 0%, transparent 50%), radial-gradient(circle at 80% 40%, rgba(230,169,68,0.18) 0%, transparent 45%), linear-gradient(135deg, rgba(212,135,111,0.06) 0%, rgba(230,169,68,0.05) 100%)',
+    hoverTextColor: 'rgb(139,35,50)',
+    accentBorder: 'rgba(212,135,111,0.6)',
+  },
+  // 3: Corregidora — warm, community coral + sunshine
+  {
+    hoverBg:
+      'radial-gradient(circle at 25% 50%, rgba(255,107,107,0.18) 0%, transparent 50%), radial-gradient(circle at 75% 45%, rgba(255,217,61,0.16) 0%, transparent 45%), linear-gradient(135deg, rgba(255,107,107,0.05) 0%, rgba(255,217,61,0.04) 100%)',
+    hoverTextColor: 'rgb(139,35,50)',
+    accentBorder: 'rgba(255,107,107,0.55)',
+  },
+  // 4: Zibatá — modern, fresh ocean + lime
+  {
+    hoverBg:
+      'radial-gradient(circle at 30% 50%, rgba(78,205,196,0.2) 0%, transparent 50%), radial-gradient(circle at 70% 45%, rgba(168,230,207,0.18) 0%, transparent 45%), linear-gradient(135deg, rgba(78,205,196,0.05) 0%, rgba(168,230,207,0.05) 100%)',
+    hoverTextColor: 'rgb(139,35,50)',
+    accentBorder: 'rgba(78,205,196,0.6)',
+  },
 ];
 
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const [openMobileDropdown, setOpenMobileDropdown] = useState<string | null>(null);
+  const dropdownTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const { t } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -24,6 +110,26 @@ export default function Navigation() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = () => setOpenDropdown(null);
+    if (openDropdown) {
+      document.addEventListener('click', handleClickOutside);
+      return () => document.removeEventListener('click', handleClickOutside);
+    }
+  }, [openDropdown]);
+
+  const handleMouseEnter = (name: string) => {
+    if (dropdownTimeoutRef.current) clearTimeout(dropdownTimeoutRef.current);
+    setOpenDropdown(name);
+  };
+
+  const handleMouseLeave = () => {
+    dropdownTimeoutRef.current = setTimeout(() => {
+      setOpenDropdown(null);
+    }, 150);
+  };
 
   return (
     <nav
@@ -39,60 +145,155 @@ export default function Navigation() {
             animate={{ opacity: 1, x: 0 }}
             className="flex items-center gap-2"
           >
-            {/* Kangaroo landing target — hidden until jump animation places it */}
-            <img 
+            <img
               id="nav-kangaroo-target"
-              src="/images/brand/kangaroo-wine.png" 
-              alt="NWL mascot" 
+              src="/images/brand/kangaroo-wine.png"
+              alt="NWL mascot"
               className="h-12 w-auto"
               style={{ opacity: 0 }}
             />
-            <img 
-              src="/images/brand/nwl-logo-wine.png" 
-              alt="Colegio NWL" 
+            <img
+              src="/images/brand/nwl-logo-wine.png"
+              alt="Colegio NWL"
               className="h-10 w-auto"
             />
           </motion.div>
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-8">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                className={`text-sm font-medium transition-colors ${
-                  link.highlight
-                    ? 'text-wine underline decoration-2 underline-offset-4'
-                    : 'text-charcoal hover:text-wine'
-                }`}
-              >
-                {link.name}
-              </a>
-            ))}
+            {t.nav.links.map((link) =>
+              link.children ? (
+                <div
+                  key={link.href}
+                  className="relative"
+                  onMouseEnter={() => handleMouseEnter(link.name)}
+                  onMouseLeave={handleMouseLeave}
+                >
+                  <a
+                    href={link.href}
+                    className={`text-sm font-medium transition-colors flex items-center gap-1 ${
+                      link.highlight
+                        ? 'text-wine underline decoration-2 underline-offset-4'
+                        : 'text-charcoal hover:text-wine'
+                    }`}
+                    onClick={(e) => {
+                      // Parent link scrolls to section
+                      e.stopPropagation();
+                    }}
+                  >
+                    {link.name}
+                    <FiChevronDown
+                      size={14}
+                      className={`transition-transform duration-200 ${
+                        openDropdown === link.name ? 'rotate-180' : ''
+                      }`}
+                    />
+                  </a>
+
+                  {/* Dropdown */}
+                  <AnimatePresence>
+                    {openDropdown === link.name && (() => {
+                      const decorations =
+                        link.href === '#levels'
+                          ? academicLevelDecorations
+                          : link.href === '#campus'
+                            ? campusDecorations
+                            : null;
+                      return (
+                        <motion.div
+                          initial={{ opacity: 0, y: -8 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={{ opacity: 0, y: -8 }}
+                          transition={{ duration: 0.2, ease: 'easeOut' }}
+                          className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-56 bg-white rounded-lg shadow-xl border border-wine/10 overflow-hidden"
+                        >
+                          <div className="py-2">
+                            {link.children.map((child, childIndex) => {
+                              const decoration = decorations?.[childIndex];
+
+                              if (decoration) {
+                                return (
+                                  <motion.a
+                                    key={child.href}
+                                    href={child.href}
+                                    className="block px-4 py-2.5 text-sm text-charcoal relative overflow-hidden"
+                                    style={{ borderLeft: '3px solid transparent' }}
+                                    initial={{
+                                      background: 'transparent',
+                                      borderLeftColor: 'transparent',
+                                      ...(decoration.bgSize && { backgroundSize: decoration.bgSize.initial }),
+                                    }}
+                                    whileHover={{
+                                      borderLeftColor: decoration.accentBorder,
+                                      color: decoration.hoverTextColor,
+                                      background: decoration.hoverBg,
+                                      ...(decoration.bgSize && { backgroundSize: decoration.bgSize.hover }),
+                                      transition: { duration: 0.3, ease: 'easeOut' },
+                                    }}
+                                  >
+                                    {child.name}
+                                  </motion.a>
+                                );
+                              }
+
+                              return (
+                                <a
+                                  key={child.href}
+                                  href={child.href}
+                                  className="block px-4 py-2.5 text-sm text-charcoal hover:bg-sand hover:text-wine transition-colors duration-150"
+                                >
+                                  {child.name}
+                                </a>
+                              );
+                            })}
+                          </div>
+                        </motion.div>
+                      );
+                    })()}
+                  </AnimatePresence>
+                </div>
+              ) : (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  className={`text-sm font-medium transition-colors ${
+                    link.highlight
+                      ? 'text-wine underline decoration-2 underline-offset-4'
+                      : 'text-charcoal hover:text-wine'
+                  }`}
+                >
+                  {link.name}
+                </a>
+              )
+            )}
             <a
               href="#admissions"
               className="btn-primary text-sm"
             >
-              Schedule a Visit
+              {t.nav.scheduleVisit}
             </a>
             <a
               href="https://wa.me/5214421227791"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-10 h-10 rounded-full border border-wine/20 flex items-center justify-center text-wine hover:bg-wine hover:text-white transition-colors duration-300"
-              aria-label="Chat on WhatsApp"
+              className="w-10 h-10 rounded-full bg-wine/10 border border-wine/30 flex items-center justify-center text-wine hover:bg-wine hover:text-white transition-colors duration-300"
+              aria-label={t.nav.whatsappAriaLabel}
             >
-              <FiMessageCircle size={18} />
+              <FaWhatsapp size={20} />
             </a>
+            <LanguageToggle />
           </div>
 
           {/* Mobile Menu Button */}
-          <button
-            className="lg:hidden text-charcoal"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          >
-            {isMobileMenuOpen ? <FiX size={24} /> : <FiMenu size={24} />}
-          </button>
+          <div className="flex items-center gap-3 lg:hidden">
+            <LanguageToggle />
+            <button
+              className="text-charcoal"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            >
+              {isMobileMenuOpen ? <FiX size={24} /> : <FiMenu size={24} />}
+            </button>
+          </div>
         </div>
 
         {/* Mobile Menu */}
@@ -102,23 +303,75 @@ export default function Navigation() {
             animate={{ opacity: 1, height: 'auto' }}
             className="lg:hidden bg-ivory border-t border-wine/10"
           >
-            <div className="py-4 space-y-4">
-              {navLinks.map((link) => (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  className="block px-4 py-2 text-charcoal hover:bg-sand"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  {link.name}
-                </a>
-              ))}
+            <div className="py-4 space-y-1">
+              {t.nav.links.map((link) =>
+                link.children ? (
+                  <div key={link.href}>
+                    <button
+                      className="flex items-center justify-between w-full px-4 py-2 text-charcoal hover:bg-sand text-left"
+                      onClick={() =>
+                        setOpenMobileDropdown(
+                          openMobileDropdown === link.name ? null : link.name
+                        )
+                      }
+                    >
+                      <span>{link.name}</span>
+                      <FiChevronDown
+                        size={16}
+                        className={`transition-transform duration-200 ${
+                          openMobileDropdown === link.name ? 'rotate-180' : ''
+                        }`}
+                      />
+                    </button>
+
+                    <AnimatePresence>
+                      {openMobileDropdown === link.name && (
+                        <motion.div
+                          initial={{ opacity: 0, height: 0 }}
+                          animate={{ opacity: 1, height: 'auto' }}
+                          exit={{ opacity: 0, height: 0 }}
+                          transition={{ duration: 0.2 }}
+                          className="overflow-hidden bg-sand/50"
+                        >
+                          {/* Parent section link */}
+                          <a
+                            href={link.href}
+                            className="block px-8 py-2 text-sm text-wine font-medium hover:bg-sand"
+                            onClick={() => setIsMobileMenuOpen(false)}
+                          >
+                            {link.name}
+                          </a>
+                          {link.children.map((child) => (
+                            <a
+                              key={child.href}
+                              href={child.href}
+                              className="block px-8 py-2 text-sm text-charcoal/80 hover:bg-sand hover:text-wine"
+                              onClick={() => setIsMobileMenuOpen(false)}
+                            >
+                              {child.name}
+                            </a>
+                          ))}
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                ) : (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    className="block px-4 py-2 text-charcoal hover:bg-sand"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    {link.name}
+                  </a>
+                )
+              )}
               <a
                 href="#admissions"
                 className="block mx-4 btn-primary text-center"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                Schedule a Visit
+                {t.nav.scheduleVisit}
               </a>
               <a
                 href="https://wa.me/5214421227791"
@@ -126,8 +379,8 @@ export default function Navigation() {
                 rel="noopener noreferrer"
                 className="flex items-center justify-center gap-2 mx-4 py-3 text-wine font-medium text-sm hover:text-wine/70 transition-colors"
               >
-                <FiMessageCircle size={16} />
-                WhatsApp Us
+                <FaWhatsapp size={16} />
+                {t.nav.whatsappUs}
               </a>
             </div>
           </motion.div>

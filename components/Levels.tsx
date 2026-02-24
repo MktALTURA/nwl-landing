@@ -4,53 +4,14 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { FiStar, FiBook, FiUsers, FiTrendingUp } from 'react-icons/fi';
 import { FaChild } from 'react-icons/fa';
+import { useLanguage } from '@/lib/i18n/LanguageContext';
 
-const levels = [
-  {
-    icon: FiTrendingUp,
-    name: 'Preparatoria',
-    ageRange: '15-17 years',
-    color: 'blueberry',
-    description: 'College prep with global perspective and career readiness.',
-    campuses: ['Juriquilla', 'Zibatá'],
-    image: '/images/levels/preparatoria.jpg',
-  },
-  {
-    icon: FiUsers,
-    name: 'Secundaria',
-    ageRange: '12-14 years',
-    color: 'tangerine',
-    description: 'Fostering independence, leadership, and self-discovery.',
-    campuses: ['Juriquilla', 'Zibatá', 'SMA'],
-    image: '/images/levels/secundaria.jpg',
-  },
-  {
-    icon: FiBook,
-    name: 'Primaria',
-    ageRange: '6-11 years',
-    color: 'ocean',
-    description: 'Developing academic excellence and critical thinking skills.',
-    campuses: ['All 5 Campuses'],
-    image: '/images/levels/primaria.jpg',
-  },
-  {
-    icon: FiStar,
-    name: 'Kinder',
-    ageRange: '4-5 years',
-    color: 'coral',
-    description: 'Building foundation skills through exploration and discovery.',
-    campuses: ['All 5 Campuses'],
-    image: '/images/levels/kinder.jpg',
-  },
-  {
-    icon: FaChild,
-    name: 'Maternal',
-    ageRange: '2-3 years',
-    color: 'sunshine',
-    description: 'Early childhood development in a nurturing, play-based environment.',
-    campuses: ['Juriquilla', 'Zibatá', 'Corregidora'],
-    image: '/images/levels/maternal.jpg',
-  },
+const levelsData = [
+  { icon: FaChild, color: 'sunshine', image: '/images/levels/maternal.jpg' },
+  { icon: FiStar, color: 'coral', image: '/images/levels/kinder.jpg' },
+  { icon: FiBook, color: 'ocean', image: '/images/levels/primaria.jpg' },
+  { icon: FiUsers, color: 'tangerine', image: '/images/levels/secundaria.jpg' },
+  { icon: FiTrendingUp, color: 'blueberry', image: '/images/levels/preparatoria.jpg' },
 ];
 
 const colorMap: Record<string, string> = {
@@ -62,6 +23,9 @@ const colorMap: Record<string, string> = {
 };
 
 export default function Levels() {
+  const { t } = useLanguage();
+  const levels = levelsData.map((l, i) => ({ ...l, ...t.levels.items[i] }));
+
   return (
     <section id="levels" className="section-padding bg-gradient-to-b from-white via-warmgray to-sand animate-section">
       <div className="container-custom">
@@ -69,10 +33,10 @@ export default function Levels() {
         <div className="text-center mb-16">
           <div className="bg-gradient-to-r from-sunshine via-coral to-ocean h-1 w-24 mx-auto mb-6 rounded-full" />
           <h2 className="font-display text-4xl md:text-5xl font-bold text-charcoal mb-4">
-            Educational <span className="bg-gradient-to-r from-coral to-tangerine bg-clip-text text-transparent">Programs</span>
+            {t.levels.sectionTitle} <span className="bg-gradient-to-r from-coral to-tangerine bg-clip-text text-transparent">{t.levels.sectionTitleAccent}</span>
           </h2>
           <p className="text-lg text-charcoal/70 max-w-2xl mx-auto">
-            From early childhood through high school, we guide your child's complete educational journey
+            {t.levels.sectionSubtitle}
           </p>
         </div>
 
@@ -80,7 +44,7 @@ export default function Levels() {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {levels.map((level, index) => (
             <motion.div
-              key={level.name}
+              key={index}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
@@ -113,7 +77,7 @@ export default function Levels() {
 
                 {/* Campuses */}
                 <div className="pt-4 border-t border-charcoal/10">
-                  <p className="text-xs text-charcoal/60 mb-2">Available at:</p>
+                  <p className="text-xs text-charcoal/60 mb-2">{t.levels.availableAt}</p>
                   <div className="flex flex-wrap gap-2">
                     {level.campuses.map((campus) => (
                       <span
@@ -127,9 +91,9 @@ export default function Levels() {
                 </div>
 
                 {/* CTA */}
-                <button className={`mt-6 text-sm font-bold group-hover:underline ${colorMap[level.color].split(' ')[1]}`}>
-                  Learn More →
-                </button>
+                <a href={level.href} className={`mt-6 inline-block text-sm font-bold group-hover:underline ${colorMap[level.color].split(' ')[1]}`}>
+                  {t.levels.learnMore}
+                </a>
               </div>
             </motion.div>
           ))}
@@ -144,7 +108,7 @@ export default function Levels() {
           className="text-center mt-16"
         >
           <a href="#admissions" className="btn-primary">
-            Request Information
+            {t.levels.cta}
           </a>
         </motion.div>
       </div>

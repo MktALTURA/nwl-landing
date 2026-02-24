@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Hero from '@/components/Hero';
+import BeSection from '@/components/BeSection';
 import KangarooSpirit from '@/components/KangarooSpirit';
 import Benefits from '@/components/Benefits';
 import Levels from '@/components/Levels';
@@ -12,7 +13,6 @@ import CampusFinder from '@/components/CampusFinder';
 import Philosophy from '@/components/Philosophy';
 import Testimonials from '@/components/Testimonials';
 import FinalCTA from '@/components/FinalCTA';
-import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 
 if (typeof window !== 'undefined') {
@@ -58,10 +58,10 @@ export default function Home() {
 
   return (
     <>
-      <Navigation />
       <main ref={mainRef}>
         <Hero />
         <KangarooSpirit />
+        <BeSection />
         <Benefits />
         <Philosophy />
         <Levels />

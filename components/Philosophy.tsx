@@ -2,29 +2,18 @@
 
 import Image from 'next/image';
 import { motion } from 'framer-motion';
+import { useLanguage } from '@/lib/i18n/LanguageContext';
 
-const pillars = [
-  {
-    number: '01',
-    title: 'Academic Rigor',
-    description: 'Challenging curriculum that develops critical thinking and problem-solving skills.',
-    image: '/images/benefits/academic.jpg',
-  },
-  {
-    number: '02',
-    title: 'Emotional Intelligence',
-    description: 'Building self-awareness, empathy, and resilience in every student.',
-    image: '/images/benefits/emotional.jpg',
-  },
-  {
-    number: '03',
-    title: 'Community Connection',
-    description: 'Strong partnerships between students, families, and educators.',
-    image: '/images/benefits/community.jpg',
-  },
+const pillarsData = [
+  { number: '01', logoInitials: 'P4C', logoImage: null },
+  { number: '02', logoInitials: 'NWL', logoImage: null },
+  { number: '03', logoInitials: 'K', logoImage: '/images/Logos/Marca_Knotion.png' },
 ];
 
 export default function Philosophy() {
+  const { t } = useLanguage();
+  const pillars = pillarsData.map((p, i) => ({ ...p, ...t.philosophy.pillars[i] }));
+
   return (
     <section className="section-padding bg-sand animate-section">
       <div className="container-custom">
@@ -33,12 +22,10 @@ export default function Philosophy() {
           <div>
             <div className="wine-divider mb-6" />
             <h2 className="font-display text-4xl md:text-5xl font-bold text-charcoal mb-6">
-              The <span className="text-wine">NWL</span> Model
+              {t.philosophy.sectionTitle} <span className="text-wine">{t.philosophy.sectionTitleAccent}</span>{t.philosophy.sectionTitleEnd ? ` ${t.philosophy.sectionTitleEnd}` : ''}
             </h2>
             <p className="text-lg text-charcoal/80 mb-8 leading-relaxed">
-              Our educational philosophy is built on three fundamental pillars that
-              guide everything we do. We believe in nurturing the whole child—
-              academically, emotionally, and socially.
+              {t.philosophy.sectionDescription}
             </p>
 
             {/* Three Pillars with Images */}
@@ -50,23 +37,32 @@ export default function Philosophy() {
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.15 }}
                   viewport={{ once: true }}
-                  className="flex gap-4 bg-white p-4 rounded-lg hover:shadow-md transition-shadow duration-300"
+                  className="flex gap-5 bg-white p-5 rounded-lg hover:shadow-md transition-shadow duration-300"
                 >
-                  {/* Pillar thumbnail */}
-                  <div className="flex-shrink-0 w-20 h-20 rounded-lg overflow-hidden relative bg-sand">
-                    <Image
-                      src={pillar.image}
-                      alt={pillar.title}
-                      fill
-                      sizes="80px"
-                      className="object-cover"
-                    />
+                  {/* Logo */}
+                  <div className={`flex-shrink-0 w-20 h-20 rounded-lg flex items-center justify-center overflow-hidden ${pillar.logoImage ? '' : 'border-2 border-dashed border-wine/30 bg-wine/5'}`}>
+                    {pillar.logoImage ? (
+                      <Image
+                        src={pillar.logoImage}
+                        alt={pillar.title}
+                        width={80}
+                        height={80}
+                        className="object-contain"
+                      />
+                    ) : (
+                      <span className="text-wine font-bold text-sm text-center leading-tight">
+                        {pillar.logoInitials}
+                      </span>
+                    )}
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-xl font-bold text-charcoal mb-2">
+                    <h3 className="text-lg font-bold text-charcoal mb-1">
                       {pillar.title}
                     </h3>
-                    <p className="text-charcoal/70 text-sm">
+                    <p className="text-base font-semibold text-wine mb-2">
+                      {pillar.subtitle}
+                    </p>
+                    <p className="text-charcoal/70 text-sm leading-relaxed">
                       {pillar.description}
                     </p>
                   </div>
@@ -75,7 +71,7 @@ export default function Philosophy() {
             </div>
 
             <a href="/modelo-educativo.pdf" className="btn-secondary">
-              Download Full Model (PDF)
+              {t.philosophy.cta}
             </a>
           </div>
 

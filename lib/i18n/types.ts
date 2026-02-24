@@ -1,0 +1,109 @@
+export type Locale = 'en' | 'es';
+
+export interface Dictionary {
+  nav: {
+    links: {
+      name: string;
+      href: string;
+      highlight?: boolean;
+      children?: { name: string; href: string }[];
+    }[];
+    scheduleVisit: string;
+    whatsappUs: string;
+    whatsappAriaLabel: string;
+  };
+  hero: {
+    headlineLeft: string[];
+    headlineRight: string[];
+    subheadline: string;
+    ctaPrimary: string;
+    ctaSecondary: string;
+    trustIndicators: string[];
+  };
+  beSection: {
+    be: string;
+    words: string[];
+  };
+  kangarooSpirit: {
+    titleBefore: string;
+    titleAccent: string;
+    description: string;
+    traits: string[];
+  };
+  benefits: {
+    sectionTitle: string;
+    sectionTitleAccent: string;
+    sectionSubtitle: string;
+    items: { title: string; description: string }[];
+    cta: string;
+  };
+  philosophy: {
+    sectionTitle: string;
+    sectionTitleAccent: string;
+    sectionTitleEnd: string;
+    sectionDescription: string;
+    pillars: { title: string; subtitle: string; description: string }[];
+    cta: string;
+  };
+  levels: {
+    sectionTitle: string;
+    sectionTitleAccent: string;
+    sectionSubtitle: string;
+    items: { name: string; ageRange: string; description: string; campuses: string[]; href: string }[];
+    availableAt: string;
+    learnMore: string;
+    cta: string;
+  };
+  campus: {
+    sectionTitleLine1: string;
+    sectionTitleLine2: string;
+    sectionSubtitle: string;
+    items: { levels: string; description: string; href: string }[];
+    exploreCta: string;
+    contactCard: {
+      title: string;
+      description: string;
+      whatsappCta: string;
+    };
+  };
+  testimonials: {
+    sectionTitle: string;
+    sectionTitleAccent: string;
+    sectionSubtitle: string;
+    items: { quote: string; role: string }[];
+    stats: { value: string; label: string }[];
+  };
+  finalCta: {
+    title: string;
+    titleAccent: string;
+    subtitle: string;
+    formId: string;
+    formName: string;
+    formTitle: string;
+    campusVisitTitle: string;
+    campusVisitDesc: string;
+    admissionsTitle: string;
+    admissionsDesc: string;
+    chatTitle: string;
+    chatDesc: string;
+    openWhatsapp: string;
+  };
+  footer: {
+    brandDescription: string;
+    schoolHeading: string;
+    schoolLinks: { name: string; href: string }[];
+    programsHeading: string;
+    programLinks: { name: string; href: string }[];
+    contactHeading: string;
+    campusesLine1: string;
+    campusesLine2: string;
+    copyright: string;
+    privacyPolicy: string;
+    termsOfService: string;
+    scheduleVisitFixed: string;
+  };
+  metadata: {
+    title: string;
+    description: string;
+  };
+}

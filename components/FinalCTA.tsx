@@ -1,20 +1,60 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useRef, useCallback } from 'react';
 import { motion } from 'framer-motion';
-import { FiCalendar, FiDownload, FiMessageCircle } from 'react-icons/fi';
+import { FiCalendar, FiDownload } from 'react-icons/fi';
+import { FaWhatsapp } from 'react-icons/fa';
+import { useLanguage } from '@/lib/i18n/LanguageContext';
 
 export default function FinalCTA() {
-  // Load GoHighLevel form embed script
-  useEffect(() => {
+  const { locale, t } = useLanguage();
+  const formContainerRef = useRef<HTMLDivElement>(null);
+
+  // Imperatively manage iframe + GHL script so React never reconciles DOM
+  // that the GHL embed library may have mutated.
+  const buildIframe = useCallback((formId: string, formName: string, formTitle: string) => {
+    const container = formContainerRef.current;
+    if (!container) return;
+
+    // Wipe whatever the GHL script may have injected previously
+    container.innerHTML = '';
+
+    const iframe = document.createElement('iframe');
+    iframe.src = `https://api.leadconnectorhq.com/widget/form/${formId}`;
+    iframe.style.cssText = 'width:100%;height:1400px;border:none;';
+    iframe.id = `inline-${formId}`;
+    iframe.setAttribute('data-layout', "{'id':'INLINE'}");
+    iframe.setAttribute('data-trigger-type', 'alwaysShow');
+    iframe.setAttribute('data-trigger-value', '');
+    iframe.setAttribute('data-activation-type', 'alwaysActivated');
+    iframe.setAttribute('data-activation-value', '');
+    iframe.setAttribute('data-deactivation-type', 'neverDeactivate');
+    iframe.setAttribute('data-deactivation-value', '');
+    iframe.setAttribute('data-form-name', formName);
+    iframe.setAttribute('data-height', '1400');
+    iframe.setAttribute('data-layout-iframe-id', `inline-${formId}`);
+    iframe.setAttribute('data-form-id', formId);
+    iframe.title = formTitle;
+
+    container.appendChild(iframe);
+
+    // Load GHL embed script
     const script = document.createElement('script');
     script.src = 'https://link.msgsndr.com/js/form_embed.js';
     script.async = true;
     document.body.appendChild(script);
+
     return () => {
-      document.body.removeChild(script);
+      try { script.parentNode?.removeChild(script); } catch { /* noop */ }
+      container.innerHTML = '';
     };
   }, []);
+
+  // Re-build iframe whenever locale changes
+  useEffect(() => {
+    const cleanup = buildIframe(t.finalCta.formId, t.finalCta.formName, t.finalCta.formTitle);
+    return cleanup;
+  }, [locale, t.finalCta.formId, t.finalCta.formName, t.finalCta.formTitle, buildIframe]);
 
   return (
     <section id="admissions" className="section-padding bg-gradient-to-br from-wine to-wine/90 text-white relative overflow-hidden animate-section">
@@ -43,10 +83,10 @@ export default function FinalCTA() {
           className="text-center mb-12"
         >
           <h2 className="font-display text-4xl md:text-6xl font-bold mb-6">
-            Begin Your <span className="text-mustard">NWL Journey</span>
+            {t.finalCta.title} <span className="text-mustard">{t.finalCta.titleAccent}</span>
           </h2>
           <p className="text-xl text-white/90 max-w-2xl mx-auto leading-relaxed">
-            Join a community where your child can grow academically, emotionally, and socially.
+            {t.finalCta.subtitle}
           </p>
         </motion.div>
 
@@ -61,23 +101,9 @@ export default function FinalCTA() {
             viewport={{ once: true }}
             className="lg:col-span-3 rounded-lg shadow-2xl overflow-hidden"
           >
-            <iframe
-              src="https://api.leadconnectorhq.com/widget/form/Y8BSzINaStvWVeBWBMyb"
-              style={{ width: '100%', height: '1400px', border: 'none' }}
-              id="inline-Y8BSzINaStvWVeBWBMyb"
-              data-layout="{'id':'INLINE'}"
-              data-trigger-type="alwaysShow"
-              data-trigger-value=""
-              data-activation-type="alwaysActivated"
-              data-activation-value=""
-              data-deactivation-type="neverDeactivate"
-              data-deactivation-value=""
-              data-form-name="Formulario para pag web  - EN"
-              data-height="1400"
-              data-layout-iframe-id="inline-Y8BSzINaStvWVeBWBMyb"
-              data-form-id="Y8BSzINaStvWVeBWBMyb"
-              title="Schedule a Visit - NWL"
-            />
+            {/* Ref container — iframe is injected imperatively so GHL script
+                mutations never conflict with React's virtual DOM. */}
+            <div ref={formContainerRef} />
           </motion.div>
 
           {/* Right column — info + WhatsApp */}
@@ -93,9 +119,9 @@ export default function FinalCTA() {
               <div className="text-mustard mb-3">
                 <FiCalendar size={28} />
               </div>
-              <h3 className="font-bold text-lg mb-2">Campus Visit</h3>
+              <h3 className="font-bold text-lg mb-2">{t.finalCta.campusVisitTitle}</h3>
               <p className="text-white/80 text-sm leading-relaxed">
-                Experience our facilities and meet our educators in person. We&apos;ll tailor the visit to your child&apos;s age group.
+                {t.finalCta.campusVisitDesc}
               </p>
             </div>
 
@@ -103,9 +129,9 @@ export default function FinalCTA() {
               <div className="text-mustard mb-3">
                 <FiDownload size={28} />
               </div>
-              <h3 className="font-bold text-lg mb-2">Admissions Guide</h3>
+              <h3 className="font-bold text-lg mb-2">{t.finalCta.admissionsTitle}</h3>
               <p className="text-white/80 text-sm leading-relaxed">
-                Download our complete admissions process guide with tuition details and enrollment steps.
+                {t.finalCta.admissionsDesc}
               </p>
             </div>
 
@@ -117,15 +143,15 @@ export default function FinalCTA() {
               className="block bg-white/10 backdrop-blur-sm rounded-lg p-6 hover:bg-white/20 transition-colors duration-300 group"
             >
               <div className="text-mustard mb-3">
-                <FiMessageCircle size={28} />
+                <FaWhatsapp size={28} />
               </div>
-              <h3 className="font-bold text-lg mb-2 group-hover:text-mustard transition-colors">Chat With Us</h3>
+              <h3 className="font-bold text-lg mb-2 group-hover:text-mustard transition-colors">{t.finalCta.chatTitle}</h3>
               <p className="text-white/80 text-sm leading-relaxed mb-4">
-                Prefer a quick chat? Our admissions team is ready on WhatsApp.
+                {t.finalCta.chatDesc}
               </p>
               <span className="inline-flex items-center gap-2 text-sm font-bold text-mustard">
-                <FiMessageCircle size={16} />
-                Open WhatsApp
+                <FaWhatsapp size={16} />
+                {t.finalCta.openWhatsapp}
               </span>
             </a>
           </motion.div>
