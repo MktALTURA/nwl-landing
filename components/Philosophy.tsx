@@ -37,7 +37,7 @@ export default function Philosophy() {
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.15 }}
                   viewport={{ once: true }}
-                  className="flex gap-5 bg-white p-5 rounded-lg hover:shadow-md transition-shadow duration-300"
+                  className="flex gap-5 bg-white p-5 rounded-lg hover:shadow-md transition-all duration-300 border-l-4 border-transparent hover:border-nwl-yellow"
                 >
                   {/* Logo */}
                   <div className={`flex-shrink-0 w-20 h-20 rounded-lg flex items-center justify-center overflow-hidden ${pillar.logoImage ? '' : 'border-2 border-dashed border-wine/30 bg-wine/5'}`}>
@@ -117,7 +117,7 @@ export default function Philosophy() {
             </div>
 
             {/* Accent decoration */}
-            <div className="absolute -bottom-4 -right-4 w-32 h-32 bg-wine/10 -z-10 rounded-lg" />
+            <div className="absolute -bottom-4 -right-4 w-32 h-32 bg-nwl-yellow/20 -z-10 rounded-lg" />
           </motion.div>
         </div>
       </div>

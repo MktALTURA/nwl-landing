@@ -69,7 +69,7 @@ export default function FinalCTA() {
         <img
           src="/images/brand/kangaroo-white-transparent.png"
           alt=""
-          className="w-full h-full object-contain"
+          className="w-full h-full object-contain rotate-[15deg]"
         />
       </div>
 

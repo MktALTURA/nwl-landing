@@ -13,6 +13,7 @@ const config: Config = {
         ivory: "#FFFEF7",
         charcoal: "#3D3D3D",
         wine: "#8B2332",
+        'nwl-yellow': "#fcb22f",
         
         // Accent Colors - Middle/Lower Sections (Warm Transition)
         mustard: "#E6A944",

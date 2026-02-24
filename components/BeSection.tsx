@@ -125,7 +125,7 @@ export default function BeSection() {
           <img
             src="/images/brand/kangaroo-wine.png"
             alt=""
-            className="w-full h-full object-contain"
+            className="w-full h-full object-contain rotate-[15deg]"
           />
         </div>
 
