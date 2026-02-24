@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { FiDownload, FiArrowRight } from 'react-icons/fi';
+import BrochureLevelDropdown from './BrochureLevelDropdown';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ScrollSmoother } from 'gsap/ScrollSmoother';
@@ -177,7 +178,7 @@ export default function Hero() {
         <img 
           src="/images/brand/kangaroo-wine.png" 
           alt="" 
-          className="w-full h-full object-contain"
+          className="w-full h-full object-contain rotate-[15deg]"
         />
       </motion.div>
 
@@ -256,17 +257,13 @@ export default function Hero() {
               <FiArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
             </motion.a>
 
-            {/* Secondary CTA */}
-            <motion.a
-              href="/brochure.pdf"
-              target="_blank"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+            {/* Secondary CTA — brochure level dropdown */}
+            <BrochureLevelDropdown
               className="btn-secondary inline-flex items-center justify-center"
             >
               <FiDownload className="mr-2" />
               {t.hero.ctaSecondary}
-            </motion.a>
+            </BrochureLevelDropdown>
           </motion.div>
 
           {/* Trust indicators with delayed reveal */}

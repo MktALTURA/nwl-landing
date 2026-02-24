@@ -82,11 +82,10 @@ export interface Dictionary {
     formTitle: string;
     campusVisitTitle: string;
     campusVisitDesc: string;
-    admissionsTitle: string;
-    admissionsDesc: string;
-    chatTitle: string;
-    chatDesc: string;
-    openWhatsapp: string;
+    requestInfoTitle: string;
+    requestInfoDesc: string;
+    enrollTitle: string;
+    enrollDesc: string;
   };
   footer: {
     brandDescription: string;
@@ -101,6 +100,18 @@ export interface Dictionary {
     privacyPolicy: string;
     termsOfService: string;
     scheduleVisitFixed: string;
+  };
+  brochure: {
+    selectLevel: string;
+    modalSubtitle: string;
+    downloadPdf: string;
+    closeAriaLabel: string;
+    levels: {
+      maternalKinder: string;
+      primaria: string;
+      secundaria: string;
+      preparatoria: string;
+    };
   };
   metadata: {
     title: string;

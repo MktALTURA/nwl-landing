@@ -24,7 +24,7 @@ const testimonialsData = [
 ];
 
 export default function Testimonials() {
-  const { t } = useLanguage();
+  const { locale, t } = useLanguage();
   const testimonials = testimonialsData.map((td, i) => ({ ...td, ...t.testimonials.items[i] }));
 
   return (
@@ -130,15 +130,17 @@ export default function Testimonials() {
           {t.testimonials.stats.map((stat, i) => {
             // Auto-update years of excellence every August (founded 2009)
             const value = i === 1
-              ? `${(() => {
+              ? (() => {
                   const now = new Date();
-                  const years = now.getFullYear() - 2009;
-                  return now.getMonth() >= 7 ? years : years - 1;
-                })()}+`
+                  const years = now.getMonth() >= 7
+                    ? now.getFullYear() - 2009
+                    : now.getFullYear() - 2009 - 1;
+                  return locale === 'es' ? `+${years}` : `${years}+`;
+                })()
               : stat.value;
             return (
               <div key={i}>
-                <div className="text-4xl font-bold text-wine mb-2">{value}</div>
+                <div className="text-4xl font-bold text-nwl-yellow mb-2">{value}</div>
                 <div className="text-sm text-charcoal/60">{stat.label}</div>
               </div>
             );

@@ -39,7 +39,7 @@ export const en: Dictionary = {
     headlineRight: ['in', 'every', 'child.'],
     subheadline:
       'We drive the academic, emotional, and social development of our students in a close and trusting environment.',
-    ctaPrimary: 'Schedule a Visit',
+    ctaPrimary: 'Get Started',
     ctaSecondary: 'Educational Model',
     trustIndicators: ['5 Campuses', 'Maternal - Preparatoria', 'Bilingual Education'],
   },
@@ -230,15 +230,15 @@ export const en: Dictionary = {
     formId: 'Y8BSzINaStvWVeBWBMyb',
     formName: 'Formulario para pag web - EN',
     formTitle: 'Schedule a Visit - NWL',
-    campusVisitTitle: 'Campus Visit',
+    campusVisitTitle: 'Schedule a Visit',
     campusVisitDesc:
       "Experience our facilities and meet our educators in person. We'll tailor the visit to your child's age group.",
-    admissionsTitle: 'Admissions Guide',
-    admissionsDesc:
-      'Download our complete admissions process guide with tuition details and enrollment steps.',
-    chatTitle: 'Chat With Us',
-    chatDesc: 'Prefer a quick chat? Our admissions team is ready on WhatsApp.',
-    openWhatsapp: 'Open WhatsApp',
+    requestInfoTitle: 'Request Information',
+    requestInfoDesc:
+      'Get details about our programs, tuition, and admissions process. No commitment — just the info you need.',
+    enrollTitle: 'Start Enrollment',
+    enrollDesc:
+      "Ready to take the next step? Begin your child's admissions process today.",
   },
   footer: {
     brandDescription:
@@ -264,7 +264,19 @@ export const en: Dictionary = {
     copyright: '© 2026 Colegio NWL. All rights reserved.',
     privacyPolicy: 'Privacy Policy',
     termsOfService: 'Terms of Service',
-    scheduleVisitFixed: 'Schedule Visit',
+    scheduleVisitFixed: 'Apply Now',
+  },
+  brochure: {
+    selectLevel: 'Select a level',
+    modalSubtitle: 'Educational Model',
+    downloadPdf: 'Download PDF',
+    closeAriaLabel: 'Close brochure',
+    levels: {
+      maternalKinder: 'Maternal & Kinder',
+      primaria: 'Elementary',
+      secundaria: 'Middle School',
+      preparatoria: 'High School',
+    },
   },
   metadata: {
     title: 'Newland School | At Newland, we unlock greatness',

@@ -25,7 +25,7 @@ export default function Footer() {
               <img
                 src="/images/brand/kangaroo-white-transparent.png"
                 alt="NWL mascot"
-                className="h-14 w-auto"
+                className="h-14 w-auto rotate-[15deg]"
               />
               <img
                 src="/images/brand/nwl-logo-white.png"
@@ -69,7 +69,7 @@ export default function Footer() {
 
           {/* Our School */}
           <div>
-            <h3 className="font-bold text-lg mb-4 text-wine">{t.footer.schoolHeading}</h3>
+            <h3 className="font-bold text-lg mb-4 text-white">{t.footer.schoolHeading}</h3>
             <ul className="space-y-2">
               {t.footer.schoolLinks.map((link) => (
                 <li key={link.href}>
@@ -86,7 +86,7 @@ export default function Footer() {
 
           {/* Programs */}
           <div>
-            <h3 className="font-bold text-lg mb-4 text-wine">{t.footer.programsHeading}</h3>
+            <h3 className="font-bold text-lg mb-4 text-white">{t.footer.programsHeading}</h3>
             <ul className="space-y-2">
               {t.footer.programLinks.map((link) => (
                 <li key={link.name}>
@@ -103,7 +103,7 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h3 className="font-bold text-lg mb-4 text-wine">{t.footer.contactHeading}</h3>
+            <h3 className="font-bold text-lg mb-4 text-white">{t.footer.contactHeading}</h3>
             <ul className="space-y-4">
               <li>
                 <a

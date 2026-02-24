@@ -41,6 +41,9 @@ export default function Benefits() {
               viewport={{ once: true }}
               className="group bg-ivory rounded-lg overflow-hidden transition-shadow duration-300 hover:shadow-xl"
             >
+              {/* Yellow brand accent bar */}
+              <div className="h-[3px] bg-nwl-yellow" />
+
               {/* Benefit Image */}
               <div className="aspect-[4/3] relative overflow-hidden bg-sand">
                 <Image

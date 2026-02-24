@@ -40,20 +40,19 @@ export default function BeSection() {
         },
       });
 
-      // Entrance: "Be" text and divider fade in
-      tl.from('.be-static', { opacity: 0, y: 20, duration: 0.04, ease: 'power2.out' }, 0);
-      tl.from('.be-divider-pin', { width: 0, duration: 0.04, ease: 'power2.out' }, 0);
+      // "Be" text and divider are already visible — no entrance animation.
+      // Words start cycling immediately at scroll position 0.
 
-      // Give regular words 65% of the timeline, NWL gets 31% (extended hold)
+      // Give regular words 68% of the timeline, NWL gets 32% (extended hold)
       const regularWords = totalWords - 1;
-      const regularSegDuration = 0.65 / regularWords;
-      const nwlStart = 0.04 + 0.65; // 0.69
-      const nwlDuration = 0.31;
+      const regularSegDuration = 0.68 / regularWords;
+      const nwlStart = regularSegDuration * regularWords; // ~0.68
+      const nwlDuration = 1 - nwlStart;
 
       wordEls.forEach((wordEl, i) => {
         const isLast = i === totalWords - 1;
         const segDuration = isLast ? nwlDuration : regularSegDuration;
-        const segStart = isLast ? nwlStart : 0.04 + i * regularSegDuration;
+        const segStart = isLast ? nwlStart : i * regularSegDuration;
 
         // Enter — slide up from below + fade in
         tl.fromTo(
@@ -125,15 +124,15 @@ export default function BeSection() {
           <img
             src="/images/brand/kangaroo-wine.png"
             alt=""
-            className="w-full h-full object-contain"
+            className="w-full h-full object-contain rotate-[15deg]"
           />
         </div>
 
         <div className="text-center relative z-10 w-full px-4">
-          {/* Wine accent divider */}
+          {/* Wine accent divider — always visible */}
           <div className="be-divider-pin w-16 h-[2px] bg-wine mx-auto mb-8" />
 
-          {/* "Be" / "Sé" static label */}
+          {/* "Be" / "Sé" static label — always visible */}
           <div className="be-static font-display text-7xl md:text-8xl lg:text-9xl font-bold text-charcoal leading-none">
             {t.beSection.be}
           </div>

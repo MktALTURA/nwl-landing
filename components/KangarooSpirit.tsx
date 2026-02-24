@@ -96,6 +96,12 @@ export default function KangarooSpirit() {
       const srcRect = srcImg.getBoundingClientRect();
       const navRect = navTarget.getBoundingClientRect();
 
+      // Pre-transform dimensions (getBoundingClientRect inflates due to rotation)
+      const srcW = srcImg.offsetWidth;
+      const srcH = srcImg.offsetHeight;
+      const navW = navTarget.offsetWidth;
+      const navH = navTarget.offsetHeight;
+
       const sx = srcRect.left + srcRect.width / 2;
       const sy = srcRect.top + srcRect.height / 2;
       const ex = navRect.left + navRect.width / 2;
@@ -110,9 +116,9 @@ export default function KangarooSpirit() {
       const by = (sy + ey) / 2 + 40;
 
       gsap.set(flyer, {
-        left: srcRect.left, top: srcRect.top,
-        width: srcRect.width, height: srcRect.height,
-        opacity: 0, scaleX: 1, scaleY: 1, rotation: 0,
+        left: sx - srcW / 2, top: sy - srcH / 2,
+        width: srcW, height: srcH,
+        opacity: 0, scaleX: 1, scaleY: 1, rotation: 15,
       });
 
       // Show flyer, hide source
@@ -142,7 +148,7 @@ export default function KangarooSpirit() {
           const t1 = i / (arc1.length - 1);
           return {
             left: f.left, top: f.top,
-            rotation: 12 * Math.sin(t1 * Math.PI),
+            rotation: 15 + 12 * Math.sin(t1 * Math.PI),
             scaleY: 1 + 0.08 * Math.sin(t1 * Math.PI),
             scaleX: 1 - 0.05 * Math.sin(t1 * Math.PI),
             duration: 0.65 / arc1.length,
@@ -151,7 +157,7 @@ export default function KangarooSpirit() {
       });
 
       // Bounce squash + dust
-      tl.to(flyer, { scaleY: 0.8, scaleX: 1.15, rotation: 0, duration: 0.1, ease: 'power2.in' });
+      tl.to(flyer, { scaleY: 0.8, scaleX: 1.15, rotation: 15, duration: 0.1, ease: 'power2.in' });
       tl.call(() => burstDust(bx, by + halfFlight));
 
       // Stretch for second jump
@@ -160,10 +166,9 @@ export default function KangarooSpirit() {
       // Second arc: parabolic curve to navbar
       const arc2 = arcKeyframes(
         bx - halfFlight, by - halfFlight,
-        ex - navRect.width / 2, ey - navRect.height / 2,
+        ex - navW / 2, ey - navH / 2,
         220,
       );
-      const navW = navRect.width, navH = navRect.height;
       tl.to(flyer, {
         duration: 0.6,
         ease: 'none',
@@ -175,7 +180,7 @@ export default function KangarooSpirit() {
             left: f.left + (halfFlight - w / 2) * (1 - t),
             top: f.top + (halfFlight - h / 2) * (1 - t),
             width: w, height: h,
-            rotation: -8 * Math.sin(t * Math.PI) * (1 - t),
+            rotation: 15 + (-8 * Math.sin(t * Math.PI) * (1 - t)),
             scaleY: 1 + 0.06 * Math.sin(t * Math.PI),
             scaleX: 1 - 0.04 * Math.sin(t * Math.PI),
             duration: 0.6 / arc2.length,
@@ -185,9 +190,9 @@ export default function KangarooSpirit() {
 
       // Snap to exact nav target position before landing effects
       tl.set(flyer, {
-        left: navRect.left, top: navRect.top,
+        left: ex - navW / 2, top: ey - navH / 2,
         width: navW, height: navH,
-        rotation: 0,
+        rotation: 15,
       });
 
       // Landing squash + dust
@@ -205,6 +210,9 @@ export default function KangarooSpirit() {
     } else {
       // === REVERSE ===
       const navRect = navTarget.getBoundingClientRect();
+      // Pre-transform dimensions (getBoundingClientRect inflates due to rotation)
+      const navW = navTarget.offsetWidth;
+      const navH = navTarget.offsetHeight;
       const sx = navRect.left + navRect.width / 2;
       const sy = navRect.top + navRect.height / 2;
 
@@ -264,9 +272,9 @@ export default function KangarooSpirit() {
       window.addEventListener('scroll', cancelReverse, { passive: true });
 
       gsap.set(flyer, {
-        left: navRect.left, top: navRect.top,
-        width: navRect.width, height: navRect.height,
-        opacity: 0, scaleX: 1, scaleY: 1, rotation: 0,
+        left: sx - navW / 2, top: sy - navH / 2,
+        width: navW, height: navH,
+        opacity: 0, scaleX: 1, scaleY: 1, rotation: 15,
       });
 
       // Show flyer, hide nav — simultaneous swap via GSAP
@@ -276,7 +284,7 @@ export default function KangarooSpirit() {
       // Squash takeoff
       tl.to(flyer, { scaleY: 0.85, scaleX: 1.1, duration: 0.15, ease: 'power2.in' });
       tl.to(flyer, { scaleY: 1.15, scaleX: 0.9, duration: 0.1, ease: 'power2.out' });
-      tl.call(() => burstDust(sx, sy + navRect.height / 2));
+      tl.call(() => burstDust(sx, sy + navH / 2));
 
       // Compute arc keyframes synchronously so they're available for the timeline
       const arcR = arcKeyframes(sx, sy, ex, ey, 200);
@@ -288,13 +296,13 @@ export default function KangarooSpirit() {
           const t = i / (arcR.length - 1);
           const midT = Math.sin(t * Math.PI);
           const growT = t * t;
-          const w = navRect.width + (flightSize - navRect.width) * midT * (1 - growT) + (targetW - navRect.width) * growT;
-          const h = navRect.height + (flightSize - navRect.height) * midT * (1 - growT) + (targetH - navRect.height) * growT;
+          const w = navW + (flightSize - navW) * midT * (1 - growT) + (targetW - navW) * growT;
+          const h = navH + (flightSize - navH) * midT * (1 - growT) + (targetH - navH) * growT;
           return {
             left: f.left - w / 2,
             top: f.top - h / 2,
             width: w, height: h,
-            rotation: -10 * Math.sin(t * Math.PI) * (1 - t),
+            rotation: 15 + (-10 * Math.sin(t * Math.PI) * (1 - t)),
             scaleY: 1 + 0.08 * Math.sin(t * Math.PI),
             scaleX: 1 - 0.05 * Math.sin(t * Math.PI),
             duration: 0.9 / arcR.length,
@@ -305,7 +313,7 @@ export default function KangarooSpirit() {
       // Snap to circle's REAL position (user may have scrolled during the arc)
       tl.call(() => {
         pinToCircle();
-        gsap.set(flyer, { rotation: 0 });
+        gsap.set(flyer, { rotation: 15 });
         scrollPinActive = true;
         window.addEventListener('scroll', onScrollPin, { passive: true });
       });
@@ -411,7 +419,7 @@ export default function KangarooSpirit() {
               <div className="kangaroo-reveal w-full h-full flex items-center justify-center">
                 <img ref={kangarooImgRef} id="spirit-kangaroo"
                   src="/images/brand/kangaroo-wine.png" alt="NWL Kangaroo - Our Spirit"
-                  className="w-[85%] h-[85%] object-contain drop-shadow-lg" />
+                  className="w-[85%] h-[85%] object-contain drop-shadow-lg rotate-[15deg]" />
               </div>
               <div className="absolute inset-0 overflow-hidden rounded-full pointer-events-none">
                 <div ref={shimmerRef} className="absolute inset-y-0 w-1/3 bg-gradient-to-r from-transparent via-white/40 to-transparent -translate-x-full" />

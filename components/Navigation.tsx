@@ -149,7 +149,7 @@ export default function Navigation() {
               id="nav-kangaroo-target"
               src="/images/brand/kangaroo-wine.png"
               alt="NWL mascot"
-              className="h-12 w-auto"
+              className="h-12 w-auto rotate-[15deg]"
               style={{ opacity: 0 }}
             />
             <img
