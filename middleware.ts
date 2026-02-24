@@ -20,7 +20,8 @@ export function middleware(request: NextRequest) {
     pathname.startsWith('/brochures') ||
     pathname === '/coming-soon' ||
     pathname === '/be_nwl' ||
-    pathname === '/golden_ticket'
+    pathname === '/golden_ticket' ||
+    pathname === '/golden_ticket_cap'
   ) {
     return NextResponse.next();
   }
