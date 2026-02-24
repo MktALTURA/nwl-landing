@@ -1,17 +1,19 @@
 import type { Locale } from './i18n/types';
 
-export type BrochureLevel = 'maternal-kinder' | 'primaria' | 'secundaria' | 'preparatoria';
+export type BrochureLevel = 'maternal-kinder' | 'elementary' | 'middle-school' | 'high-school';
 
 export interface BrochureConfig {
   level: BrochureLevel;
+  slug: string; // URL path segment (same as level key)
   heyzineUrl: Record<Locale, string>;
   pdfDownloadUrl: Record<Locale, string>;
-  labelKey: string; // i18n key for dropdown display name
+  labelKey: string; // i18n key for dropdown/modal display name
 }
 
 export const brochures: Record<BrochureLevel, BrochureConfig> = {
   'maternal-kinder': {
     level: 'maternal-kinder',
+    slug: 'maternal-kinder',
     heyzineUrl: {
       en: 'https://heyzine.com/flip-book/f8d7ebdd9e.html',
       es: 'https://heyzine.com/flip-book/f8d7ebdd9e.html',
@@ -22,39 +24,42 @@ export const brochures: Record<BrochureLevel, BrochureConfig> = {
     },
     labelKey: 'maternalKinder',
   },
-  primaria: {
-    level: 'primaria',
+  elementary: {
+    level: 'elementary',
+    slug: 'elementary',
     heyzineUrl: {
       en: 'https://heyzine.com/flip-book/f8d7ebdd9e.html',
       es: 'https://heyzine.com/flip-book/f8d7ebdd9e.html',
     },
     pdfDownloadUrl: {
-      en: '/brochures/en/primaria.pdf',
-      es: '/brochures/es/primaria.pdf',
+      en: '/brochures/en/elementary.pdf',
+      es: '/brochures/es/elementary.pdf',
     },
     labelKey: 'primaria',
   },
-  secundaria: {
-    level: 'secundaria',
+  'middle-school': {
+    level: 'middle-school',
+    slug: 'middle-school',
     heyzineUrl: {
       en: 'https://heyzine.com/flip-book/f8d7ebdd9e.html',
       es: 'https://heyzine.com/flip-book/f8d7ebdd9e.html',
     },
     pdfDownloadUrl: {
-      en: '/brochures/en/secundaria.pdf',
-      es: '/brochures/es/secundaria.pdf',
+      en: '/brochures/en/middle-school.pdf',
+      es: '/brochures/es/middle-school.pdf',
     },
     labelKey: 'secundaria',
   },
-  preparatoria: {
-    level: 'preparatoria',
+  'high-school': {
+    level: 'high-school',
+    slug: 'high-school',
     heyzineUrl: {
       en: 'https://heyzine.com/flip-book/f8d7ebdd9e.html',
       es: 'https://heyzine.com/flip-book/f8d7ebdd9e.html',
     },
     pdfDownloadUrl: {
-      en: '/brochures/en/preparatoria.pdf',
-      es: '/brochures/es/preparatoria.pdf',
+      en: '/brochures/en/high-school.pdf',
+      es: '/brochures/es/high-school.pdf',
     },
     labelKey: 'preparatoria',
   },
@@ -62,5 +67,5 @@ export const brochures: Record<BrochureLevel, BrochureConfig> = {
 
 // Ordered array for dropdown rendering
 export const brochureLevels: BrochureLevel[] = [
-  'maternal-kinder', 'primaria', 'secundaria', 'preparatoria',
+  'maternal-kinder', 'elementary', 'middle-school', 'high-school',
 ];

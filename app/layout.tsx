@@ -1,20 +1,13 @@
 import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
-import SmoothScroll from "@/components/SmoothScroll";
-import Navigation from "@/components/Navigation";
-import FixedCTAButton from "@/components/FixedCTAButton";
-import { LanguageProvider } from "@/lib/i18n/LanguageContext";
-import { BrochureProvider } from "@/lib/BrochureContext";
-import MetadataUpdater from "@/components/MetadataUpdater";
-import BrochureModal from "@/components/BrochureModal";
 import "./globals.css";
 
-const inter = Inter({ 
+const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
 });
 
-const playfair = Playfair_Display({ 
+const playfair = Playfair_Display({
   subsets: ["latin"],
   variable: "--font-playfair",
 });
@@ -33,20 +26,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${playfair.variable}`}>
       <body className="font-sans antialiased">
-        <LanguageProvider>
-          <BrochureProvider>
-            <MetadataUpdater />
-            {/* Navigation + fixed CTA live outside #smooth-wrapper so
-                position: fixed works relative to the viewport, not the
-                ScrollSmoother transform context. */}
-            <Navigation />
-            <FixedCTAButton />
-            <BrochureModal />
-            <SmoothScroll>
-              {children}
-            </SmoothScroll>
-          </BrochureProvider>
-        </LanguageProvider>
+        {children}
       </body>
     </html>
   );
