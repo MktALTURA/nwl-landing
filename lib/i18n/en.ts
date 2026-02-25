@@ -162,22 +162,22 @@ export const en: Dictionary = {
     sectionSubtitle: '5 amazing locations · Infinite possibilities',
     items: [
       {
-        levels: 'Maternal - High School',
+        levels: 'Maternal - Middle School',
         description: 'Our flagship campus with complete educational offerings.',
         href: '/campus/juriquilla',
       },
       {
-        levels: 'Kinder - Elementary',
+        levels: 'Maternal - Middle School',
         description: 'A safe, nurturing space with great facilities for expanded growth.',
         href: '/campus/milenio',
       },
       {
-        levels: 'Kinder - Middle School',
+        levels: 'Maternal - High School',
         description: 'Cultural richness meets academic excellence.',
         href: '/campus/san-miguel',
       },
       {
-        levels: 'Maternal - Elementary',
+        levels: 'Maternal - High School',
         description: 'A warm, community-centered campus in the heart of Corregidora.',
         href: '/campus/corregidora',
       },
@@ -218,7 +218,7 @@ export const en: Dictionary = {
     stats: [
       { value: '2,500+', label: 'Happy Families' },
       { value: '16+', label: 'Years of Excellence' },
-      { value: '95%', label: 'Family Satisfaction' },
+      { value: '95%', label: 'Re-enrollment Rate' },
       { value: '5', label: 'Campus Locations' },
     ],
   },
@@ -236,9 +236,9 @@ export const en: Dictionary = {
     requestInfoTitle: 'Request Information',
     requestInfoDesc:
       'Get details about our programs, tuition, and admissions process. No commitment — just the info you need.',
-    enrollTitle: 'Start Enrollment',
-    enrollDesc:
-      "Ready to take the next step? Begin your child's admissions process today.",
+    whatsappTitle: 'Chat with Us',
+    whatsappDesc:
+      'Have questions? Message us on WhatsApp for a quick, personal response.',
   },
   footer: {
     brandDescription:

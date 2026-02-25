@@ -84,8 +84,8 @@ export interface Dictionary {
     campusVisitDesc: string;
     requestInfoTitle: string;
     requestInfoDesc: string;
-    enrollTitle: string;
-    enrollDesc: string;
+    whatsappTitle: string;
+    whatsappDesc: string;
   };
   footer: {
     brandDescription: string;

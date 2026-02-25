@@ -2,7 +2,8 @@
 
 import { useEffect, useRef, useCallback } from 'react';
 import { motion } from 'framer-motion';
-import { FiCalendar, FiFileText, FiCheckCircle } from 'react-icons/fi';
+import { FiCalendar, FiFileText } from 'react-icons/fi';
+import { FaWhatsapp } from 'react-icons/fa';
 import { useLanguage } from '@/lib/i18n/LanguageContext';
 
 export default function FinalCTA() {
@@ -76,10 +77,11 @@ export default function FinalCTA() {
       label: 'request_info',
     },
     {
-      icon: <FiCheckCircle size={28} />,
-      title: t.finalCta.enrollTitle,
-      desc: t.finalCta.enrollDesc,
-      label: 'start_enrollment',
+      icon: <FaWhatsapp size={28} />,
+      title: t.finalCta.whatsappTitle,
+      desc: t.finalCta.whatsappDesc,
+      label: 'whatsapp_chat',
+      href: 'https://wa.me/5214421227791',
     },
   ];
 
@@ -141,24 +143,45 @@ export default function FinalCTA() {
             viewport={{ once: true }}
             className="lg:col-span-2 space-y-6"
           >
-            {cards.map((card) => (
-              <button
-                key={card.label}
-                onClick={scrollToForm}
-                data-cta={card.label}
-                className="w-full text-left bg-white/10 backdrop-blur-sm rounded-lg p-6 hover:bg-white/20 transition-colors duration-300 group"
-              >
-                <div className="text-mustard mb-3">
-                  {card.icon}
-                </div>
-                <h3 className="font-bold text-lg mb-2 group-hover:text-mustard transition-colors">
-                  {card.title}
-                </h3>
-                <p className="text-white/80 text-sm leading-relaxed">
-                  {card.desc}
-                </p>
-              </button>
-            ))}
+            {cards.map((card) =>
+              card.href ? (
+                <a
+                  key={card.label}
+                  href={card.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-cta={card.label}
+                  className="w-full text-left bg-white/10 backdrop-blur-sm rounded-lg p-6 hover:bg-white/20 transition-colors duration-300 group block"
+                >
+                  <div className="text-mustard group-hover:text-green-400 transition-colors mb-3">
+                    {card.icon}
+                  </div>
+                  <h3 className="font-bold text-lg mb-2 group-hover:text-green-400 transition-colors">
+                    {card.title}
+                  </h3>
+                  <p className="text-white/80 text-sm leading-relaxed">
+                    {card.desc}
+                  </p>
+                </a>
+              ) : (
+                <button
+                  key={card.label}
+                  onClick={scrollToForm}
+                  data-cta={card.label}
+                  className="w-full text-left bg-white/10 backdrop-blur-sm rounded-lg p-6 hover:bg-white/20 transition-colors duration-300 group"
+                >
+                  <div className="text-mustard mb-3">
+                    {card.icon}
+                  </div>
+                  <h3 className="font-bold text-lg mb-2 group-hover:text-mustard transition-colors">
+                    {card.title}
+                  </h3>
+                  <p className="text-white/80 text-sm leading-relaxed">
+                    {card.desc}
+                  </p>
+                </button>
+              )
+            )}
           </motion.div>
         </div>
       </div>

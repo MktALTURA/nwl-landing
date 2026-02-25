@@ -276,7 +276,7 @@ export default function Navigation() {
               href="https://wa.me/5214421227791"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-10 h-10 rounded-full bg-wine/10 border border-wine/30 flex items-center justify-center text-wine hover:bg-wine hover:text-white transition-colors duration-300"
+              className="w-10 h-10 rounded-full bg-wine/10 border border-wine/30 flex items-center justify-center text-wine hover:bg-green-500 hover:border-green-500 hover:text-white transition-colors duration-300"
               aria-label={t.nav.whatsappAriaLabel}
             >
               <FaWhatsapp size={20} />
