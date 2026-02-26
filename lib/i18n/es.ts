@@ -279,6 +279,20 @@ export const es: Dictionary = {
       preparatoria: 'Preparatoria',
     },
   },
+  campusDetail: {
+    facilitiesTitle: 'Nuestras',
+    facilitiesTitleAccent: 'Instalaciones',
+    activitiesTitle: 'Más Allá del',
+    activitiesTitleAccent: 'Aula',
+    directorTitle: 'Mensaje de',
+    directorTitleAccent: 'Nuestro Director',
+    ctaTitle: '¿Listo para Visitar',
+    ctaTitleAccent: 'Zibatá?',
+    ctaSubtitle: 'Agenda un recorrido personalizado y descubre por qué NWL es la elección ideal para tu familia.',
+    ctaScheduleVisit: 'Agenda tu Visita',
+    ctaWhatsapp: 'Escríbenos por WhatsApp',
+    backToHome: '← Volver al Inicio',
+  },
   metadata: {
     title: 'Colegio Newland | En Newland, despertamos tu grandeza',
     description:

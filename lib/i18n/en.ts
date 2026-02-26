@@ -278,6 +278,20 @@ export const en: Dictionary = {
       preparatoria: 'High School',
     },
   },
+  campusDetail: {
+    facilitiesTitle: 'Our',
+    facilitiesTitleAccent: 'Facilities',
+    activitiesTitle: 'Beyond the',
+    activitiesTitleAccent: 'Classroom',
+    directorTitle: 'A Message from',
+    directorTitleAccent: 'Our Director',
+    ctaTitle: 'Ready to Visit',
+    ctaTitleAccent: 'Zibatá?',
+    ctaSubtitle: 'Schedule a personalized tour and discover why NWL is the right choice for your family.',
+    ctaScheduleVisit: 'Schedule a Visit',
+    ctaWhatsapp: 'Chat on WhatsApp',
+    backToHome: '← Back to Home',
+  },
   metadata: {
     title: 'Newland School | At Newland, we unlock greatness',
     description:

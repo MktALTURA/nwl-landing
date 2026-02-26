@@ -113,6 +113,20 @@ export interface Dictionary {
       preparatoria: string;
     };
   };
+  campusDetail: {
+    facilitiesTitle: string;
+    facilitiesTitleAccent: string;
+    activitiesTitle: string;
+    activitiesTitleAccent: string;
+    directorTitle: string;
+    directorTitleAccent: string;
+    ctaTitle: string;
+    ctaTitleAccent: string;
+    ctaSubtitle: string;
+    ctaScheduleVisit: string;
+    ctaWhatsapp: string;
+    backToHome: string;
+  };
   metadata: {
     title: string;
     description: string;
