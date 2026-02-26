@@ -1,6 +1,7 @@
 'use client';
 
 import { FiMail, FiPhone, FiMapPin, FiFacebook, FiInstagram, FiLinkedin } from 'react-icons/fi';
+import { FaWhatsapp } from 'react-icons/fa';
 import { useLanguage } from '@/lib/i18n/LanguageContext';
 
 const campuses = [
@@ -112,6 +113,17 @@ export default function Footer() {
                 >
                   <FiPhone className="mr-3 mt-1 flex-shrink-0" />
                   +52 (442) 454 10 10
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://wa.me/5214421227791"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-start text-white/70 hover:text-green-400 transition-colors"
+                >
+                  <FaWhatsapp className="mr-3 mt-1 flex-shrink-0" />
+                  +52 (442) 122 7791
                 </a>
               </li>
               <li>

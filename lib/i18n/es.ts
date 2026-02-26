@@ -162,22 +162,22 @@ export const es: Dictionary = {
     sectionSubtitle: '5 ubicaciones increíbles · Infinitas posibilidades',
     items: [
       {
-        levels: 'Maternal a Preparatoria',
+        levels: 'Maternal a Secundaria',
         description: 'Nuestro campus insignia con oferta educativa completa.',
         href: '/campus/juriquilla',
       },
       {
-        levels: 'Kínder a Primaria',
+        levels: 'Maternal a Secundaria',
         description: 'Un espacio seguro y acogedor con excelentes instalaciones para crecer.',
         href: '/campus/milenio',
       },
       {
-        levels: 'Kínder a Secundaria',
+        levels: 'Maternal a Preparatoria',
         description: 'Donde la riqueza cultural se encuentra con la excelencia académica.',
         href: '/campus/san-miguel',
       },
       {
-        levels: 'Maternal a Primaria',
+        levels: 'Maternal a Preparatoria',
         description: 'Un campus cálido y comunitario en el corazón de Corregidora.',
         href: '/campus/corregidora',
       },
@@ -218,7 +218,7 @@ export const es: Dictionary = {
     stats: [
       { value: '+2,500', label: 'Familias Felices' },
       { value: '+16', label: 'Años de Excelencia' },
-      { value: '95%', label: 'Satisfacción Familiar' },
+      { value: '95%', label: 'Tasa de Reinscripción' },
       { value: '5', label: 'Campus' },
     ],
   },
@@ -237,9 +237,9 @@ export const es: Dictionary = {
     requestInfoTitle: 'Solicita Información',
     requestInfoDesc:
       'Recibe detalles sobre programas, costos y proceso de admisión. Sin compromiso — solo la información que necesitas.',
-    enrollTitle: 'Inicia tu Inscripción',
-    enrollDesc:
-      '¿Listo para dar el siguiente paso? Comienza el proceso de admisión de tu hijo hoy.',
+    whatsappTitle: 'Escríbenos',
+    whatsappDesc:
+      '¿Tienes preguntas? Envíanos un mensaje por WhatsApp y te respondemos de inmediato.',
   },
   footer: {
     brandDescription:
@@ -278,6 +278,20 @@ export const es: Dictionary = {
       secundaria: 'Secundaria',
       preparatoria: 'Preparatoria',
     },
+  },
+  campusDetail: {
+    facilitiesTitle: 'Nuestras',
+    facilitiesTitleAccent: 'Instalaciones',
+    activitiesTitle: 'Más Allá del',
+    activitiesTitleAccent: 'Aula',
+    directorTitle: 'Mensaje de',
+    directorTitleAccent: 'Nuestro Director',
+    ctaTitle: '¿Listo para Visitar',
+    ctaTitleAccent: 'Zibatá?',
+    ctaSubtitle: 'Agenda un recorrido personalizado y descubre por qué NWL es la elección ideal para tu familia.',
+    ctaScheduleVisit: 'Agenda tu Visita',
+    ctaWhatsapp: 'Escríbenos por WhatsApp',
+    backToHome: '← Volver al Inicio',
   },
   metadata: {
     title: 'Colegio Newland | En Newland, despertamos tu grandeza',

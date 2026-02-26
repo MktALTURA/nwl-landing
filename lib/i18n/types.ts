@@ -84,8 +84,8 @@ export interface Dictionary {
     campusVisitDesc: string;
     requestInfoTitle: string;
     requestInfoDesc: string;
-    enrollTitle: string;
-    enrollDesc: string;
+    whatsappTitle: string;
+    whatsappDesc: string;
   };
   footer: {
     brandDescription: string;
@@ -112,6 +112,20 @@ export interface Dictionary {
       secundaria: string;
       preparatoria: string;
     };
+  };
+  campusDetail: {
+    facilitiesTitle: string;
+    facilitiesTitleAccent: string;
+    activitiesTitle: string;
+    activitiesTitleAccent: string;
+    directorTitle: string;
+    directorTitleAccent: string;
+    ctaTitle: string;
+    ctaTitleAccent: string;
+    ctaSubtitle: string;
+    ctaScheduleVisit: string;
+    ctaWhatsapp: string;
+    backToHome: string;
   };
   metadata: {
     title: string;

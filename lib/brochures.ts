@@ -15,8 +15,8 @@ export const brochures: Record<BrochureLevel, BrochureConfig> = {
     level: 'maternal-kinder',
     slug: 'maternal-kinder',
     heyzineUrl: {
-      en: 'https://heyzine.com/flip-book/f8d7ebdd9e.html',
-      es: 'https://heyzine.com/flip-book/f8d7ebdd9e.html',
+      en: 'https://heyzine.com/flip-book/5585f5f64b.html',
+      es: 'https://heyzine.com/flip-book/fd295b9662.html',
     },
     pdfDownloadUrl: {
       en: '/brochures/en/maternal-kinder.pdf',
