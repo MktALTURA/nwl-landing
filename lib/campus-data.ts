@@ -57,7 +57,7 @@ export const campuses: Record<string, CampusData> = {
       en: 'Maternal — High School',
       es: 'Maternal — Preparatoria',
     },
-    heroImage: '/images/campus/zibata.JPG',
+    heroImage: '/images/campus/zibata-hero.png',
     stats: [
       { value: 'Maternal – Prepa', label: { en: 'Academic Levels', es: 'Niveles Académicos' } },
       { value: '500+', label: { en: 'Students', es: 'Alumnos' } },
@@ -65,12 +65,12 @@ export const campuses: Record<string, CampusData> = {
       { value: '100%', label: { en: 'Bilingual', es: 'Bilingüe' } },
     ],
     facilities: [
-      { name: { en: 'Sports Fields', es: 'Canchas Deportivas' }, image: '/images/campus/zibata.JPG' },
-      { name: { en: 'Science Labs', es: 'Laboratorios de Ciencias' }, image: '/images/campus/zibata.JPG' },
-      { name: { en: 'Library', es: 'Biblioteca' }, image: '/images/campus/zibata.JPG' },
-      { name: { en: 'Playground', es: 'Área de Juegos' }, image: '/images/campus/zibata.JPG' },
-      { name: { en: 'Auditorium', es: 'Auditorio' }, image: '/images/campus/zibata.JPG' },
-      { name: { en: 'Cafeteria', es: 'Cafetería' }, image: '/images/campus/zibata.JPG' },
+      { name: { en: 'Sports Fields', es: 'Canchas Deportivas' }, image: '/images/campus/zibata-sports.png' },
+      { name: { en: 'Science Labs', es: 'Laboratorios de Ciencias' }, image: '/images/campus/zibata-labs.png' },
+      { name: { en: 'Library', es: 'Biblioteca' }, image: '/images/campus/zibata-library.png' },
+      { name: { en: 'Playground', es: 'Área de Juegos' }, image: '/images/campus/zibata-playground.png' },
+      { name: { en: 'Auditorium', es: 'Auditorio' }, image: '/images/campus/zibata-auditorium.png' },
+      { name: { en: 'Cafeteria', es: 'Cafetería' }, image: '/images/campus/zibata-cafeteria.png' },
     ],
     activities: [
       {
@@ -116,7 +116,7 @@ export const campuses: Record<string, CampusData> = {
         en: 'At NWL Zibatá, we believe every child carries the potential for greatness. Our modern campus is designed to nurture curiosity, build confidence, and prepare students for a world full of possibilities. We welcome you to visit and experience the NWL difference firsthand.',
         es: 'En NWL Zibatá, creemos que cada niño lleva el potencial de la grandeza. Nuestro campus moderno está diseñado para nutrir la curiosidad, construir confianza y preparar a los alumnos para un mundo lleno de posibilidades. Te invitamos a visitarnos y vivir la diferencia NWL.',
       },
-      image: '/images/campus/zibata.JPG',
+      image: '/images/campus/zibata-hero.png',
     },
     address: 'Paseo de las Pitahayas, Zibatá, Querétaro',
     mapUrl: 'https://maps.google.com/?q=Colegio+Newland+Zibata',
