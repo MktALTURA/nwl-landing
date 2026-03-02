@@ -8,6 +8,9 @@ import QuickFacts from '@/components/campus/QuickFacts';
 import Facilities from '@/components/campus/Facilities';
 import Extracurriculars from '@/components/campus/Extracurriculars';
 import DirectorMessage from '@/components/campus/DirectorMessage';
+import CampusLife from '@/components/campus/CampusLife';
+import LocationMap from '@/components/campus/LocationMap';
+import AdmissionsProcess from '@/components/campus/AdmissionsProcess';
 import CampusCTA from '@/components/campus/CampusCTA';
 import Footer from '@/components/Footer';
 
@@ -30,6 +33,13 @@ export default function CampusPage({
       <Facilities facilities={campus.facilities} />
       <Extracurriculars activities={campus.activities} />
       <DirectorMessage director={campus.director} />
+      <CampusLife images={campus.galleryImages} />
+      <LocationMap
+        address={campus.address}
+        mapUrl={campus.mapUrl}
+        campusName={campus.name}
+      />
+      <AdmissionsProcess />
       <CampusCTA />
       <Footer />
     </main>

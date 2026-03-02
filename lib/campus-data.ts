@@ -23,6 +23,17 @@ export interface CampusStat {
   label: { en: string; es: string };
 }
 
+export interface CampusTestimonial {
+  quote: string;
+  author: string;
+  role: string;
+}
+
+export interface CampusGalleryImage {
+  src: string;
+  caption: { en: string; es: string };
+}
+
 export interface CampusData {
   slug: string;
   name: string;
@@ -35,6 +46,10 @@ export interface CampusData {
   director: CampusDirector;
   address: string;
   mapUrl: string;
+  galleryImages: CampusGalleryImage[];
+  testimonials: CampusTestimonial[];
+  googleRating: number;
+  googleReviewCount: number;
 }
 
 // Helper to get localized text
@@ -120,5 +135,54 @@ export const campuses: Record<string, CampusData> = {
     },
     address: 'Paseo de las Pitahayas, Zibatá, Querétaro',
     mapUrl: 'https://maps.google.com/?q=Colegio+Newland+Zibata',
+    galleryImages: [
+      {
+        src: '/images/campus/zibata-hero.png',
+        caption: { en: 'Welcome to Campus Zibatá', es: 'Bienvenidos a Campus Zibatá' },
+      },
+      {
+        src: '/images/campus/zibata-sports.png',
+        caption: { en: 'Sports & Active Play', es: 'Deporte y Juego Activo' },
+      },
+      {
+        src: '/images/campus/zibata-labs.png',
+        caption: { en: 'Hands-on Discovery in Our Labs', es: 'Descubrimiento en Nuestros Laboratorios' },
+      },
+      {
+        src: '/images/campus/zibata-library.png',
+        caption: { en: 'Reading & Imagination', es: 'Lectura e Imaginación' },
+      },
+      {
+        src: '/images/campus/zibata-playground.png',
+        caption: { en: 'Play, Explore & Grow', es: 'Jugar, Explorar y Crecer' },
+      },
+      {
+        src: '/images/campus/zibata-auditorium.png',
+        caption: { en: 'Events & Performances', es: 'Eventos y Presentaciones' },
+      },
+      {
+        src: '/images/campus/zibata-cafeteria.png',
+        caption: { en: 'Healthy Meals Together', es: 'Comidas Saludables Juntos' },
+      },
+    ],
+    testimonials: [
+      {
+        quote: 'Estamos muy contentos en Colegio NWL. Se tomaron el tiempo de escuchar nuestras necesidades. Nuestra hija lleva 4 años y cada día es una niña más segura de sí misma. ¡Ama acudir al colegio!',
+        author: 'Familia O.D.',
+        role: 'Primaria · 4 años en NWL',
+      },
+      {
+        quote: 'Mis hijos son los más felices. Han tenido un desarrollo increíble en lo social y lo cognitivo. En NWL somos parte de una gran familia con experiencias nuevas y enriquecedoras.',
+        author: 'S.M.D.',
+        role: 'Mamá · Juriquilla',
+      },
+      {
+        quote: 'Buscamos una escuela centrada en el desarrollo de cada alumno y la encontramos en NWL. La atención es personalizada y cuidan cada detalle. Estamos felices.',
+        author: 'A.P.',
+        role: 'Mamá · La Cañada',
+      },
+    ],
+    googleRating: 4.5,
+    googleReviewCount: 230,
   },
 };

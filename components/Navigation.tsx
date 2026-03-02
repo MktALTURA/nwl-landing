@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
+import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FiMenu, FiX, FiChevronDown } from 'react-icons/fi';
 import { FaWhatsapp } from 'react-icons/fa';
@@ -102,6 +103,15 @@ export default function Navigation() {
   const [openMobileDropdown, setOpenMobileDropdown] = useState<string | null>(null);
   const dropdownTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const { t } = useLanguage();
+  const pathname = usePathname();
+
+  // On subpages, prefix hash-only links with "/" so they navigate to homepage sections
+  const resolveHref = (href: string) => {
+    if (href.startsWith('#') && pathname !== '/') {
+      return `/${href}`;
+    }
+    return href;
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -170,7 +180,7 @@ export default function Navigation() {
                   onMouseLeave={handleMouseLeave}
                 >
                   <a
-                    href={link.href}
+                    href={resolveHref(link.href)}
                     className={`text-sm font-medium transition-colors flex items-center gap-1 ${
                       link.highlight
                         ? 'text-wine underline decoration-2 underline-offset-4'
@@ -215,7 +225,7 @@ export default function Navigation() {
                                 return (
                                   <motion.a
                                     key={child.href}
-                                    href={child.href}
+                                    href={resolveHref(child.href)}
                                     className="block px-4 py-2.5 text-sm text-charcoal relative overflow-hidden"
                                     style={{ borderLeft: '3px solid transparent' }}
                                     initial={{
@@ -239,7 +249,7 @@ export default function Navigation() {
                               return (
                                 <a
                                   key={child.href}
-                                  href={child.href}
+                                  href={resolveHref(child.href)}
                                   className="block px-4 py-2.5 text-sm text-charcoal hover:bg-sand hover:text-wine transition-colors duration-150"
                                 >
                                   {child.name}
@@ -255,7 +265,7 @@ export default function Navigation() {
               ) : (
                 <a
                   key={link.href}
-                  href={link.href}
+                  href={resolveHref(link.href)}
                   className={`text-sm font-medium transition-colors ${
                     link.highlight
                       ? 'text-wine underline decoration-2 underline-offset-4'
@@ -267,7 +277,7 @@ export default function Navigation() {
               )
             )}
             <a
-              href="#admissions"
+              href={resolveHref('#admissions')}
               className="btn-primary text-sm"
             >
               {t.nav.scheduleVisit}
@@ -335,7 +345,7 @@ export default function Navigation() {
                         >
                           {/* Parent section link */}
                           <a
-                            href={link.href}
+                            href={resolveHref(link.href)}
                             className="block px-8 py-2 text-sm text-wine font-medium hover:bg-sand"
                             onClick={() => setIsMobileMenuOpen(false)}
                           >
@@ -344,7 +354,7 @@ export default function Navigation() {
                           {link.children.map((child) => (
                             <a
                               key={child.href}
-                              href={child.href}
+                              href={resolveHref(child.href)}
                               className="block px-8 py-2 text-sm text-charcoal/80 hover:bg-sand hover:text-wine"
                               onClick={() => setIsMobileMenuOpen(false)}
                             >
@@ -358,7 +368,7 @@ export default function Navigation() {
                 ) : (
                   <a
                     key={link.href}
-                    href={link.href}
+                    href={resolveHref(link.href)}
                     className="block px-4 py-2 text-charcoal hover:bg-sand"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
@@ -367,7 +377,7 @@ export default function Navigation() {
                 )
               )}
               <a
-                href="#admissions"
+                href={resolveHref('#admissions')}
                 className="block mx-4 btn-primary text-center"
                 onClick={() => setIsMobileMenuOpen(false)}
               >

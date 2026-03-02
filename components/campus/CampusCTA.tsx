@@ -9,7 +9,7 @@ export default function CampusCTA() {
   const { t } = useLanguage();
 
   return (
-    <section id="campus-admissions" className="section-padding bg-gradient-to-br from-wine to-wine/90 text-white relative overflow-hidden">
+    <section id="campus-admissions" className="py-12 md:py-16 bg-gradient-to-br from-wine to-wine/90 text-white relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-0 right-0 w-96 h-96 bg-mustard rounded-full blur-3xl" />
@@ -37,7 +37,7 @@ export default function CampusCTA() {
             {t.campusDetail.ctaTitle}{' '}
             <span className="text-mustard">{t.campusDetail.ctaTitleAccent}</span>
           </h2>
-          <p className="text-xl text-white/90 mb-10 leading-relaxed">
+          <p className="text-xl text-white/90 mb-8 leading-relaxed">
             {t.campusDetail.ctaSubtitle}
           </p>
 

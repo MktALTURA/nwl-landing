@@ -1,5 +1,6 @@
 'use client';
 
+import { usePathname } from 'next/navigation';
 import { FiMail, FiPhone, FiMapPin, FiFacebook, FiInstagram, FiLinkedin } from 'react-icons/fi';
 import { FaWhatsapp } from 'react-icons/fa';
 import { useLanguage } from '@/lib/i18n/LanguageContext';
@@ -14,6 +15,14 @@ const campuses = [
 
 export default function Footer() {
   const { t } = useLanguage();
+  const pathname = usePathname();
+
+  const resolveHref = (href: string) => {
+    if (href.startsWith('#') && pathname !== '/') {
+      return `/${href}`;
+    }
+    return href;
+  };
 
   return (
     <footer id="contact" className="bg-charcoal text-white">
@@ -75,7 +84,7 @@ export default function Footer() {
               {t.footer.schoolLinks.map((link) => (
                 <li key={link.href}>
                   <a
-                    href={link.href}
+                    href={resolveHref(link.href)}
                     className="text-white/70 hover:text-white transition-colors"
                   >
                     {link.name}
@@ -92,7 +101,7 @@ export default function Footer() {
               {t.footer.programLinks.map((link) => (
                 <li key={link.name}>
                   <a
-                    href={link.href}
+                    href={resolveHref(link.href)}
                     className="text-white/70 hover:text-white transition-colors"
                   >
                     {link.name}

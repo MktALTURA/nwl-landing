@@ -292,6 +292,44 @@ export const es: Dictionary = {
     ctaScheduleVisit: 'Agenda tu Visita',
     ctaWhatsapp: 'Escríbenos por WhatsApp',
     backToHome: '← Volver al Inicio',
+    // Location Map
+    locationTitle: 'Cómo',
+    locationTitleAccent: 'Llegar',
+    getDirections: 'Abrir en Google Maps',
+    // Admissions Process
+    admissionsTitle: 'Proceso de',
+    admissionsTitleAccent: 'Admisión',
+    admissionsSubtitle: 'Inscribirse en NWL es fácil. Te acompañamos en cada paso del camino.',
+    admissionsStepLabel: 'Paso',
+    admissionsSteps: [
+      {
+        title: 'Contáctanos',
+        description: 'Escríbenos por WhatsApp, redes sociales o llena el formulario. Te respondemos en minutos.',
+      },
+      {
+        title: 'Visita el Campus',
+        description: 'Agenda un recorrido personalizado para conocer las instalaciones y al equipo docente.',
+      },
+      {
+        title: 'Perfil de Admisión',
+        description: 'Realizamos un perfil de admisión para conocer las fortalezas de tu hijo.',
+      },
+      {
+        title: 'Inscripción',
+        description: 'Completa tu documentación y referencia de pago para asegurar tu lugar.',
+      },
+      {
+        title: '¡Bienvenidos a NWL!',
+        description: 'Tu familia se une a la comunidad NWL. Prepárate para el primer día de una gran experiencia.',
+      },
+    ],
+    // Campus Life Gallery
+    galleryTitle: 'Vida en',
+    galleryTitleAccent: 'Campus',
+    // Testimonials
+    testimonialsTitle: 'Familias',
+    testimonialsTitleAccent: 'Reales',
+    testimonialsReviewsLabel: 'reseñas',
   },
   metadata: {
     title: 'Colegio Newland | En Newland, despertamos tu grandeza',

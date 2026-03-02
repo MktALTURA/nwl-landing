@@ -126,6 +126,23 @@ export interface Dictionary {
     ctaScheduleVisit: string;
     ctaWhatsapp: string;
     backToHome: string;
+    // Location Map
+    locationTitle: string;
+    locationTitleAccent: string;
+    getDirections: string;
+    // Admissions Process
+    admissionsTitle: string;
+    admissionsTitleAccent: string;
+    admissionsSubtitle: string;
+    admissionsStepLabel: string;
+    admissionsSteps: { title: string; description: string }[];
+    // Campus Life Gallery
+    galleryTitle: string;
+    galleryTitleAccent: string;
+    // Testimonials
+    testimonialsTitle: string;
+    testimonialsTitleAccent: string;
+    testimonialsReviewsLabel: string;
   };
   metadata: {
     title: string;

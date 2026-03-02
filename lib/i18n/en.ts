@@ -291,6 +291,44 @@ export const en: Dictionary = {
     ctaScheduleVisit: 'Schedule a Visit',
     ctaWhatsapp: 'Chat on WhatsApp',
     backToHome: '← Back to Home',
+    // Location Map
+    locationTitle: 'How to',
+    locationTitleAccent: 'Get Here',
+    getDirections: 'Open in Google Maps',
+    // Admissions Process
+    admissionsTitle: 'Admissions',
+    admissionsTitleAccent: 'Process',
+    admissionsSubtitle: 'Enrolling at NWL is simple. We guide you every step of the way.',
+    admissionsStepLabel: 'Step',
+    admissionsSteps: [
+      {
+        title: 'Get in Touch',
+        description: 'Reach out via WhatsApp, social media, or our form. We respond within minutes.',
+      },
+      {
+        title: 'Visit the Campus',
+        description: 'Schedule a personalized tour to see our facilities and meet our team.',
+      },
+      {
+        title: 'Admission Profile',
+        description: 'We create an admission profile to understand your child\'s strengths.',
+      },
+      {
+        title: 'Enrollment',
+        description: 'Complete your documentation and payment reference to secure your spot.',
+      },
+      {
+        title: 'Welcome to NWL!',
+        description: 'Your family joins the NWL community. Get ready for day one of a great experience.',
+      },
+    ],
+    // Campus Life Gallery
+    galleryTitle: 'Campus',
+    galleryTitleAccent: 'Life',
+    // Testimonials
+    testimonialsTitle: 'Real',
+    testimonialsTitleAccent: 'Families',
+    testimonialsReviewsLabel: 'reviews',
   },
   metadata: {
     title: 'Newland School | At Newland, we unlock greatness',
