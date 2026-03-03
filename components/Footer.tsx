@@ -1,7 +1,7 @@
 'use client';
 
 import { usePathname } from 'next/navigation';
-import { FiMail, FiPhone, FiMapPin, FiFacebook, FiInstagram, FiLinkedin } from 'react-icons/fi';
+import { FiMail, FiPhone, FiMapPin, FiFacebook, FiInstagram } from 'react-icons/fi';
 import { FaWhatsapp } from 'react-icons/fa';
 import { useLanguage } from '@/lib/i18n/LanguageContext';
 
@@ -65,14 +65,6 @@ export default function Footer() {
                 className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-wine transition-colors"
               >
                 <FiInstagram size={18} />
-              </a>
-              <a
-                href="https://www.linkedin.com/company/newland-school"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-wine transition-colors"
-              >
-                <FiLinkedin size={18} />
               </a>
             </div>
           </div>

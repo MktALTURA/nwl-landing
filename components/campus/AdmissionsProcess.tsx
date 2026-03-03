@@ -1,17 +1,17 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { FiMessageCircle, FiCalendar, FiClipboard, FiCheckCircle, FiHeart } from 'react-icons/fi';
+import { FiMessageCircle, FiCalendar, FiClipboard, FiCheckCircle } from 'react-icons/fi';
 import { useLanguage } from '@/lib/i18n/LanguageContext';
 
-const stepIcons = [FiMessageCircle, FiCalendar, FiClipboard, FiCheckCircle, FiHeart];
+const stepIcons = [FiMessageCircle, FiCalendar, FiClipboard, FiCheckCircle, null];
 
 const stepColors = [
-  { bg: 'bg-ocean/15', text: 'text-ocean', ring: 'ring-ocean/25' },
-  { bg: 'bg-mustard/15', text: 'text-mustard', ring: 'ring-mustard/25' },
-  { bg: 'bg-coral/15', text: 'text-coral', ring: 'ring-coral/25' },
-  { bg: 'bg-blueberry/15', text: 'text-blueberry', ring: 'ring-blueberry/25' },
-  { bg: 'bg-eucalyptus/15', text: 'text-eucalyptus', ring: 'ring-eucalyptus/25' },
+  { bg: 'bg-ocean/8', text: 'text-ocean', ring: 'ring-ocean/15' },
+  { bg: 'bg-mustard/8', text: 'text-mustard', ring: 'ring-mustard/15' },
+  { bg: 'bg-coral/8', text: 'text-coral', ring: 'ring-coral/15' },
+  { bg: 'bg-blueberry/8', text: 'text-blueberry', ring: 'ring-blueberry/15' },
+  { bg: 'bg-wine/8', text: 'text-wine', ring: 'ring-wine/15' },
 ];
 
 export default function AdmissionsProcess() {
@@ -67,7 +67,11 @@ export default function AdmissionsProcess() {
                   >
                     {/* Step number + icon */}
                     <div className={`relative w-16 h-16 rounded-full ${colors.bg} ring-4 ${colors.ring} bg-white flex items-center justify-center mb-5 z-10`}>
-                      <Icon size={26} className={colors.text} />
+                      {Icon ? (
+                        <Icon size={26} className={colors.text} />
+                      ) : (
+                        <img src="/images/brand/kangaroo-wine.png" alt="NWL" className="w-8 h-8 object-contain rotate-[15deg]" />
+                      )}
                     </div>
 
                     {/* Step number badge */}
@@ -113,7 +117,11 @@ export default function AdmissionsProcess() {
                   >
                     {/* Icon */}
                     <div className={`relative w-16 h-16 min-w-[4rem] rounded-full ${colors.bg} ring-4 ${colors.ring} bg-white flex items-center justify-center z-10`}>
-                      <Icon size={24} className={colors.text} />
+                      {Icon ? (
+                        <Icon size={24} className={colors.text} />
+                      ) : (
+                        <img src="/images/brand/kangaroo-wine.png" alt="NWL" className="w-7 h-7 object-contain rotate-[15deg]" />
+                      )}
                     </div>
 
                     {/* Content */}

@@ -50,6 +50,26 @@ export default function SmoothScroll({ children }: { children: React.ReactNode }
 
     document.addEventListener('click', handleAnchorClick);
 
+    // After hydration, scroll to hash target if present in the URL
+    // (e.g. arriving from a subpage via window.location.href = "/#contact")
+    const hash = window.location.hash;
+    if (hash) {
+      const scrollToHash = () => {
+        const target = document.querySelector(hash);
+        if (target && smootherRef.current) {
+          smootherRef.current.scrollTo(target, true, 'top top');
+        }
+      };
+      // Short delay to ensure all components are mounted and ScrollSmoother is ready
+      const timer = setTimeout(scrollToHash, 300);
+      return () => {
+        clearTimeout(timer);
+        document.removeEventListener('click', handleAnchorClick);
+        smootherRef.current?.kill();
+        smootherRef.current = null;
+      };
+    }
+
     return () => {
       document.removeEventListener('click', handleAnchorClick);
       smootherRef.current?.kill();

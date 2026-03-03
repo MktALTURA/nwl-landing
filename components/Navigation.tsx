@@ -113,6 +113,14 @@ export default function Navigation() {
     return href;
   };
 
+  // Force full navigation for hash links when on subpages (Next.js client nav doesn't scroll to hash)
+  const handleHashClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (href.startsWith('#') && pathname !== '/') {
+      e.preventDefault();
+      window.location.href = `/${href}`;
+    }
+  };
+
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
@@ -141,6 +149,8 @@ export default function Navigation() {
     }, 150);
   };
 
+  const isSubpage = pathname !== '/';
+
   return (
     <nav
       className={`fixed w-full z-50 transition-all duration-300 ${
@@ -149,25 +159,40 @@ export default function Navigation() {
     >
       <div className="container-custom">
         <div className="flex justify-between items-center h-20">
-          {/* Logo */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            className="flex items-center gap-2"
-          >
-            <img
-              id="nav-kangaroo-target"
-              src="/images/brand/kangaroo-wine.png"
-              alt="NWL mascot"
-              className="h-12 w-auto rotate-[15deg]"
-              style={{ opacity: 0 }}
-            />
-            <img
-              src="/images/brand/nwl-logo-wine.png"
-              alt="Colegio NWL"
-              className="h-10 w-auto"
-            />
-          </motion.div>
+          {/* Logo — animate entrance only on homepage */}
+          {isSubpage ? (
+            <a href="/" className="flex items-center gap-2">
+              <img
+                src="/images/brand/kangaroo-wine.png"
+                alt="NWL mascot"
+                className="h-12 w-auto rotate-[15deg]"
+              />
+              <img
+                src="/images/brand/nwl-logo-wine.png"
+                alt="Colegio NWL"
+                className="h-10 w-auto"
+              />
+            </a>
+          ) : (
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              className="flex items-center gap-2"
+            >
+              <img
+                id="nav-kangaroo-target"
+                src="/images/brand/kangaroo-wine.png"
+                alt="NWL mascot"
+                className="h-12 w-auto rotate-[15deg]"
+                style={{ opacity: 0 }}
+              />
+              <img
+                src="/images/brand/nwl-logo-wine.png"
+                alt="Colegio NWL"
+                className="h-10 w-auto"
+              />
+            </motion.div>
+          )}
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-8">
@@ -187,8 +212,8 @@ export default function Navigation() {
                         : 'text-charcoal hover:text-wine'
                     }`}
                     onClick={(e) => {
-                      // Parent link scrolls to section
                       e.stopPropagation();
+                      handleHashClick(e, link.href);
                     }}
                   >
                     {link.name}
@@ -226,6 +251,7 @@ export default function Navigation() {
                                   <motion.a
                                     key={child.href}
                                     href={resolveHref(child.href)}
+                                    onClick={(e: React.MouseEvent<HTMLAnchorElement>) => handleHashClick(e, child.href)}
                                     className="block px-4 py-2.5 text-sm text-charcoal relative overflow-hidden"
                                     style={{ borderLeft: '3px solid transparent' }}
                                     initial={{
@@ -250,6 +276,7 @@ export default function Navigation() {
                                 <a
                                   key={child.href}
                                   href={resolveHref(child.href)}
+                                  onClick={(e) => handleHashClick(e, child.href)}
                                   className="block px-4 py-2.5 text-sm text-charcoal hover:bg-sand hover:text-wine transition-colors duration-150"
                                 >
                                   {child.name}
@@ -266,6 +293,7 @@ export default function Navigation() {
                 <a
                   key={link.href}
                   href={resolveHref(link.href)}
+                  onClick={(e) => handleHashClick(e, link.href)}
                   className={`text-sm font-medium transition-colors ${
                     link.highlight
                       ? 'text-wine underline decoration-2 underline-offset-4'
@@ -278,6 +306,7 @@ export default function Navigation() {
             )}
             <a
               href={resolveHref('#admissions')}
+              onClick={(e) => handleHashClick(e, '#admissions')}
               className="btn-primary text-sm"
             >
               {t.nav.scheduleVisit}
@@ -347,7 +376,7 @@ export default function Navigation() {
                           <a
                             href={resolveHref(link.href)}
                             className="block px-8 py-2 text-sm text-wine font-medium hover:bg-sand"
-                            onClick={() => setIsMobileMenuOpen(false)}
+                            onClick={(e) => { setIsMobileMenuOpen(false); handleHashClick(e, link.href); }}
                           >
                             {link.name}
                           </a>
@@ -356,7 +385,7 @@ export default function Navigation() {
                               key={child.href}
                               href={resolveHref(child.href)}
                               className="block px-8 py-2 text-sm text-charcoal/80 hover:bg-sand hover:text-wine"
-                              onClick={() => setIsMobileMenuOpen(false)}
+                              onClick={(e) => { setIsMobileMenuOpen(false); handleHashClick(e, child.href); }}
                             >
                               {child.name}
                             </a>
@@ -370,7 +399,7 @@ export default function Navigation() {
                     key={link.href}
                     href={resolveHref(link.href)}
                     className="block px-4 py-2 text-charcoal hover:bg-sand"
-                    onClick={() => setIsMobileMenuOpen(false)}
+                    onClick={(e) => { setIsMobileMenuOpen(false); handleHashClick(e, link.href); }}
                   >
                     {link.name}
                   </a>
@@ -379,7 +408,7 @@ export default function Navigation() {
               <a
                 href={resolveHref('#admissions')}
                 className="block mx-4 btn-primary text-center"
-                onClick={() => setIsMobileMenuOpen(false)}
+                onClick={(e) => { setIsMobileMenuOpen(false); handleHashClick(e, '#admissions'); }}
               >
                 {t.nav.scheduleVisit}
               </a>
