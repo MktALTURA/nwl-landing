@@ -16,16 +16,22 @@ export default function CampusHero({ campus }: CampusHeroProps) {
     <section className="relative min-h-[85vh] flex items-center overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0">
-        <Image
-          src={campus.heroImage}
-          alt={campus.name}
-          fill
-          className="object-cover"
-          priority
-          quality={80}
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-charcoal/80 via-charcoal/50 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-charcoal/60 via-transparent to-charcoal/20" />
+        {campus.heroImage ? (
+          <Image
+            src={campus.heroImage}
+            alt={campus.name}
+            fill
+            className="object-cover"
+            priority
+            quality={80}
+          />
+        ) : (
+          <div className="absolute inset-0 bg-gradient-to-br from-wine via-charcoal to-charcoal" />
+        )}
+        <div className="absolute inset-0 bg-gradient-to-r from-charcoal/70 via-charcoal/40 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-charcoal/50 via-transparent to-transparent" />
+        {/* Subtle top strip so navbar text is readable over bright hero images */}
+        <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-black/50 to-transparent" />
       </div>
 
       {/* Content */}
@@ -65,7 +71,7 @@ export default function CampusHero({ campus }: CampusHeroProps) {
               {t.campusDetail.ctaScheduleVisit}
             </a>
             <a
-              href="https://wa.me/5214421227791"
+              href={`https://wa.me/${campus.whatsapp}`}
               target="_blank"
               rel="noopener noreferrer"
               className="btn-secondary !border-white !text-white hover:!bg-white hover:!text-wine text-center"

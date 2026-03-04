@@ -31,7 +31,7 @@ export default function QuickFacts({ stats }: QuickFactsProps) {
               >
                 <Icon size={24} className="text-wine mb-3" />
                 <span className="font-display text-xl md:text-2xl font-bold text-charcoal">
-                  {stat.value}
+                  {localized(stat.value, locale)}
                 </span>
                 <span className="text-sm text-charcoal/60 mt-1">
                   {localized(stat.label, locale)}

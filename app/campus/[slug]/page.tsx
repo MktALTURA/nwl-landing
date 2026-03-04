@@ -40,7 +40,12 @@ export default function CampusPage({
         campusName={campus.name}
       />
       <AdmissionsProcess />
-      <CampusCTA />
+      <CampusCTA
+        campusName={campus.name}
+        whatsapp={campus.whatsapp}
+        phone={campus.phone}
+        phoneLink={campus.phoneLink}
+      />
       <Footer />
     </main>
   );

@@ -163,7 +163,7 @@ export const es: Dictionary = {
     items: [
       {
         levels: 'Maternal a Secundaria',
-        description: 'Nuestro campus insignia con oferta educativa completa.',
+        description: 'Nuestro campus insignia con tradición de excelencia.',
         href: '/campus/juriquilla',
       },
       {
@@ -218,7 +218,7 @@ export const es: Dictionary = {
     stats: [
       { value: '+2,500', label: 'Familias Felices' },
       { value: '+16', label: 'Años de Excelencia' },
-      { value: '95%', label: 'Tasa de Reinscripción' },
+      { value: '90%', label: 'Tasa de Reinscripción' },
       { value: '5', label: 'Campus' },
     ],
   },
@@ -279,6 +279,146 @@ export const es: Dictionary = {
       preparatoria: 'Preparatoria',
     },
   },
+  maternal: {
+    ageBadge: '2-3 años',
+    tagline: 'Pequeños Pasos, Grandes Sueños',
+    subtitle: 'Los primeros pasos de tu hijo en un entorno de inmersión en inglés',
+    description:
+      'En el Colegio NWL tenemos la mejor opción para iniciar con la formación de tu hijo desde los dos años. Dedicamos especial cuidado y atención en su seguridad y desarrollo integral a través de la lúdica y nuestro programa bilingüe "Brain Up".',
+    statBilingual: 'Inmersión en Inglés',
+    statCampuses: 'Campus',
+    schedule: '8:20–1:30',
+    statSchedule: 'Horario',
+    uniqueBadge: 'Único en Qro y San Miguel',
+    featuresTitle: 'Lo Que Hace Único a Maternal NWL',
+    features: [
+      {
+        title: 'Brain Up — Inglés desde los 2 Años',
+        description:
+          'Inmersión temprana en inglés que desarrolla fluidez real. El inglés es parte de su aprendizaje diario desde el primer día.',
+      },
+      {
+        title: 'Estimulación Multisensorial',
+        description:
+          'Salas especializadas que potencializan el desarrollo neurológico en la etapa más crítica. El ÚNICO programa escolar de su tipo en Querétaro.',
+      },
+      {
+        title: 'Filosofía para Niños (FpN)',
+        description:
+          'Enseñamos a los niños a pensar, no qué pensar. Desarrollo del pensamiento crítico adaptado para los más pequeños a través del diálogo.',
+      },
+      {
+        title: 'Programa de Desapego Seguro',
+        description:
+          'Transición gradual con padres presentes los primeros días, facilitando la adaptación emocional de tu hijo con apoyo profesional.',
+      },
+      {
+        title: 'Yo Soy Líder NWL by Tec de Monterrey',
+        description:
+          'Desarrollo socioemocional, trabajo en equipo e inteligencia emocional desde sus primeros pasos. Exclusivo de NWL, avalado por el Tec de Monterrey.',
+      },
+    ],
+    testimonial:
+      'Me siento tranquila al dejarla. Las maestras la reciben por su nombre cada mañana y ya no llora. Eso lo es todo.',
+    testimonialAuthor: 'Mamá NWL, Maternal',
+    cta: 'Agenda tu Visita',
+    ctaSecondary: 'Descargar Folleto',
+  },
+  maternalPage: {
+    heroHeadline: 'Donde Cada Primer Paso Importa',
+    heroSubheadline:
+      'NWL Maternal es el único programa de educación temprana en Querétaro que combina inmersión 100% en inglés, aprendizaje basado en neurociencia, y la calidez que tu hijo merece — desde los 2 años.',
+    backToHome: 'Volver al Inicio',
+    dayTitle: 'Un Día en',
+    dayTitleAccent: 'Maternal NWL',
+    daySubtitle: 'Cada día está diseñado para estimular el crecimiento a través del juego, la exploración y la conexión.',
+    daySchedule: [
+      { time: '8:20', activity: 'Bienvenida cálida y juego libre', icon: 'sun' },
+      { time: '9:00', activity: 'Brain Up — Círculo de inglés', icon: 'globe' },
+      { time: '9:45', activity: 'Sala de estimulación multisensorial', icon: 'star' },
+      { time: '10:30', activity: 'Snack saludable y juego al aire libre', icon: 'heart' },
+      { time: '11:15', activity: 'P4C diálogo guiado y creatividad', icon: 'book' },
+      { time: '12:00', activity: 'Música, movimiento y expresión', icon: 'music' },
+      { time: '12:45', activity: 'Hora del cuento y cierre en calma', icon: 'moon' },
+      { time: '1:30', activity: 'Recogida y conexión con papás', icon: 'home' },
+    ],
+    philosophyTitle: 'Nuestro',
+    philosophyTitleAccent: 'Enfoque',
+    philosophyDescription:
+      'Nuestro programa Maternal está construido sobre el entendimiento de que las edades de 2-3 años representan la ventana más crítica para el desarrollo cerebral. Cada actividad, espacio e interacción está diseñada intencionalmente.',
+    philosophyPillars: [
+      {
+        title: 'Inmersión 100% en Inglés',
+        description:
+          'Desde el primer día, tu hijo está inmerso en inglés a través de nuestra metodología Brain Up. El bilingüismo natural sucede cuando más importa.',
+      },
+      {
+        title: 'Aprendizaje Basado en Neurociencia',
+        description:
+          'Nuestras salas multisensoriales son las únicas de su tipo en Querétaro, diseñadas para maximizar las conexiones neuronales durante esta etapa crítica de desarrollo.',
+      },
+      {
+        title: 'Seguridad Emocional Primero',
+        description:
+          'Nuestro programa de Desapego Seguro garantiza una transición suave con los padres presentes durante los primeros días. El bienestar emocional de tu hijo es nuestra prioridad.',
+      },
+      {
+        title: 'Liderazgo desde el Inicio',
+        description:
+          'A través de "Soy Líder NWL" avalado por el Tec de Monterrey, desarrollamos habilidades socioemocionales, trabajo en equipo e inteligencia emocional desde sus primeros pasos.',
+      },
+    ],
+    galleryTitle: 'La Vida en',
+    galleryTitleAccent: 'Maternal',
+  },
+  kinder: {
+    ageBadge: '3–5 años',
+    tagline: 'Mentes que Crecen, Futuros que se Construyen',
+    description:
+      'Creemos que cada niño tiene un potencial extraordinario. Nuestro programa de Kinder nutre la curiosidad a través de la inmersión en inglés, aprendizaje basado en proyectos y nuestro Programa Multisensorial único.',
+    statBilingual: 'Inmersión en Inglés',
+    statCampuses: 'Campus',
+    schedule: '8:20–1:50',
+    statSchedule: 'Horario',
+    testimonial:
+      'Empezó a preguntar "¿pero por qué?" sobre todo en casa. Al principio pensé que era una fase — luego me di cuenta de que realmente está razonando las cosas.',
+    testimonialAuthor: 'Papá NWL, Kinder',
+    cta: 'Agenda tu Visita',
+    ctaSecondary: 'Descargar Folleto',
+  },
+  kinderPage: {
+    heroHeadline: 'Mentes que Crecen, Futuros que se Construyen',
+    heroSubheadline:
+      'Pensadores críticos que viven el inglés cada día. Aprendizaje basado en proyectos, sin tarea tradicional, y un enfoque multisensorial único en Querétaro.',
+    backToHome: 'Volver al Inicio',
+    overviewTitle: 'Descubre',
+    overviewTitleAccent: 'Kinder NWL',
+    pillarsTitle: 'El Modelo',
+    pillarsTitleAccent: 'NWL',
+    pillarsSubtitle: 'Tres pilares que definen cómo educamos desde el inicio.',
+    pillars: [
+      {
+        title: 'Knotion',
+        subtitle: 'Metodología Internacional',
+        description:
+          'Aprendizaje basado en proyectos desde Kinder. Retos reales que desarrollan pensamiento creativo y resolución de problemas. Sin tarea tradicional.',
+      },
+      {
+        title: 'Filosofía para Niños',
+        subtitle: 'FpN',
+        description:
+          'Enseñamos cómo pensar, no qué pensar. Desde Kinder, aprenden a cuestionar, dialogar y formar su propio criterio.',
+      },
+      {
+        title: 'Yo Soy Líder NWL',
+        subtitle: 'by Tec de Monterrey',
+        description:
+          'Habilidades blandas, trabajo en equipo e inteligencia emocional desde temprana edad. Programa avalado por el Tec de Monterrey, exclusivo de NWL.',
+      },
+    ],
+    galleryTitle: 'La Vida en',
+    galleryTitleAccent: 'Kinder',
+  },
   campusDetail: {
     facilitiesTitle: 'Nuestras',
     facilitiesTitleAccent: 'Instalaciones',
@@ -288,7 +428,7 @@ export const es: Dictionary = {
     directorTitleAccent: 'Nuestro Director',
     ctaTitle: '¿Listo para Visitar',
     ctaTitleAccent: 'Zibatá?',
-    ctaSubtitle: 'Agenda un recorrido personalizado y descubre por qué NWL es la elección ideal para tu familia.',
+    ctaSubtitle: 'Conoce nuestro campus y vive la experiencia NWL de primera mano.',
     ctaScheduleVisit: 'Agenda tu Visita',
     ctaWhatsapp: 'Escríbenos por WhatsApp',
     backToHome: '← Volver al Inicio',
