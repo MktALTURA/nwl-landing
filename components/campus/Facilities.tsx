@@ -13,17 +13,21 @@ export default function Facilities({ facilities }: FacilitiesProps) {
   const { locale, t } = useLanguage();
 
   return (
-    <section className="section-padding bg-white">
-      <div className="container-custom">
+    <section className="py-12 md:py-16 bg-white relative overflow-hidden">
+      {/* Decorative blur */}
+      <div className="absolute top-0 right-0 w-72 h-72 bg-ocean/5 rounded-full blur-3xl" />
+      <div className="absolute bottom-0 left-0 w-64 h-64 bg-mustard/5 rounded-full blur-3xl" />
+
+      <div className="container-custom relative z-10">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-12"
+          className="text-center mb-8"
         >
-          <div className="wine-divider mx-auto mb-6" />
+          <div className="wine-divider mx-auto mb-4" />
           <h2 className="font-display text-4xl md:text-5xl font-bold text-charcoal">
             {t.campusDetail.facilitiesTitle}{' '}
             <span className="text-wine">{t.campusDetail.facilitiesTitleAccent}</span>

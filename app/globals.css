@@ -49,6 +49,14 @@
   .wine-divider {
     @apply w-16 h-[2px] bg-wine;
   }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
   
   /* Animated text styles */
   .word-wrap {

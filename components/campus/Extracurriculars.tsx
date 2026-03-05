@@ -22,17 +22,21 @@ export default function Extracurriculars({ activities }: ExtracurricularsProps) 
   const { locale, t } = useLanguage();
 
   return (
-    <section className="section-padding bg-gradient-to-b from-white via-sand to-ivory">
-      <div className="container-custom">
+    <section className="py-12 md:py-16 bg-gradient-to-b from-white via-sand to-sand relative overflow-hidden">
+      {/* Decorative blurs */}
+      <div className="absolute top-10 left-0 w-48 h-48 bg-coral/8 rounded-full blur-3xl" />
+      <div className="absolute bottom-10 right-0 w-56 h-56 bg-blueberry/8 rounded-full blur-3xl" />
+
+      <div className="container-custom relative z-10">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-12"
+          className="text-center mb-8"
         >
-          <div className="wine-divider mx-auto mb-6" />
+          <div className="wine-divider mx-auto mb-4" />
           <h2 className="font-display text-4xl md:text-5xl font-bold text-charcoal">
             {t.campusDetail.activitiesTitle}{' '}
             <span className="text-wine">{t.campusDetail.activitiesTitleAccent}</span>
@@ -40,7 +44,7 @@ export default function Extracurriculars({ activities }: ExtracurricularsProps) 
         </motion.div>
 
         {/* Cards */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {activities.map((activity, i) => {
             const Icon = activityIcons[i % activityIcons.length];
             const colors = colorMap[activity.color] || colorMap.ocean;

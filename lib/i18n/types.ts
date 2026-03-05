@@ -113,6 +113,67 @@ export interface Dictionary {
       preparatoria: string;
     };
   };
+  maternal: {
+    ageBadge: string;
+    tagline: string;
+    subtitle: string;
+    description: string;
+    statBilingual: string;
+    statCampuses: string;
+    schedule: string;
+    statSchedule: string;
+    uniqueBadge: string;
+    featuresTitle: string;
+    features: { title: string; description: string }[];
+    testimonial: string;
+    testimonialAuthor: string;
+    cta: string;
+    ctaSecondary: string;
+  };
+  maternalPage: {
+    heroHeadline: string;
+    heroSubheadline: string;
+    backToHome: string;
+    dayTitle: string;
+    dayTitleAccent: string;
+    daySubtitle: string;
+    daySchedule: { time: string; activity: string; icon: string }[];
+    philosophyTitle: string;
+    philosophyTitleAccent: string;
+    philosophyDescription: string;
+    philosophyPillars: { title: string; description: string }[];
+    galleryTitle: string;
+    galleryTitleAccent: string;
+  };
+  kinder: {
+    ageBadge: string;
+    tagline: string;
+    description: string;
+    statBilingual: string;
+    statCampuses: string;
+    schedule: string;
+    statSchedule: string;
+    testimonial: string;
+    testimonialAuthor: string;
+    cta: string;
+    ctaSecondary: string;
+  };
+  kinderPage: {
+    heroHeadline: string;
+    heroSubheadline: string;
+    backToHome: string;
+    overviewTitle: string;
+    overviewTitleAccent: string;
+    pillarsTitle: string;
+    pillarsTitleAccent: string;
+    pillarsSubtitle: string;
+    pillars: { title: string; subtitle: string; description: string }[];
+    galleryTitle: string;
+    galleryTitleAccent: string;
+    dayTitle: string;
+    dayTitleAccent: string;
+    daySchedule: { time: string; activity: string; icon: string }[];
+  };
   campusDetail: {
     facilitiesTitle: string;
     facilitiesTitleAccent: string;
@@ -126,6 +187,23 @@ export interface Dictionary {
     ctaScheduleVisit: string;
     ctaWhatsapp: string;
     backToHome: string;
+    // Location Map
+    locationTitle: string;
+    locationTitleAccent: string;
+    getDirections: string;
+    // Admissions Process
+    admissionsTitle: string;
+    admissionsTitleAccent: string;
+    admissionsSubtitle: string;
+    admissionsStepLabel: string;
+    admissionsSteps: { title: string; description: string }[];
+    // Campus Life Gallery
+    galleryTitle: string;
+    galleryTitleAccent: string;
+    // Testimonials
+    testimonialsTitle: string;
+    testimonialsTitleAccent: string;
+    testimonialsReviewsLabel: string;
   };
   metadata: {
     title: string;

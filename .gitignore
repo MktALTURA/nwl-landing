@@ -16,6 +16,10 @@
 # misc
 .DS_Store
 *.pem
+*.command
+Localhostrun.te
+*\ 2.*
+.claude/
 
 # debug
 npm-debug.log*

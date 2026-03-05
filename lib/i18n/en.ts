@@ -163,7 +163,7 @@ export const en: Dictionary = {
     items: [
       {
         levels: 'Maternal - Middle School',
-        description: 'Our flagship campus with complete educational offerings.',
+        description: 'Our flagship campus with a tradition of excellence.',
         href: '/campus/juriquilla',
       },
       {
@@ -218,7 +218,7 @@ export const en: Dictionary = {
     stats: [
       { value: '2,500+', label: 'Happy Families' },
       { value: '16+', label: 'Years of Excellence' },
-      { value: '95%', label: 'Re-enrollment Rate' },
+      { value: '90%', label: 'Re-enrollment Rate' },
       { value: '5', label: 'Campus Locations' },
     ],
   },
@@ -235,7 +235,7 @@ export const en: Dictionary = {
       "Experience our facilities and meet our educators in person. We'll tailor the visit to your child's age group.",
     requestInfoTitle: 'Request Information',
     requestInfoDesc:
-      'Get details about our programs, tuition, and admissions process. No commitment — just the info you need.',
+      'Get details about our programs, tuition, and admissions process. No commitment, just the info you need.',
     whatsappTitle: 'Chat with Us',
     whatsappDesc:
       'Have questions? Message us on WhatsApp for a quick, personal response.',
@@ -278,6 +278,158 @@ export const en: Dictionary = {
       preparatoria: 'High School',
     },
   },
+  maternal: {
+    ageBadge: 'Ages 2-3',
+    tagline: 'Little Steps, Big Dreams',
+    subtitle: 'Your child\'s first steps in an English-immersive environment',
+    description:
+      'At NWL we have the best option to begin your child\'s education from age two. We dedicate special care and attention to their safety and comprehensive development through play-based learning and our bilingual "Brain Up" program.',
+    statBilingual: 'English Immersion',
+    statCampuses: 'Campuses',
+    schedule: '8:20–1:30',
+    statSchedule: 'Schedule',
+    uniqueBadge: 'Unique in Qro & San Miguel',
+    featuresTitle: 'What Makes Maternal NWL Unique',
+    features: [
+      {
+        title: 'Brain Up: English from Age 2',
+        description:
+          'Early English immersion that develops real fluency. English is part of their everyday learning from the very beginning.',
+      },
+      {
+        title: 'Multisensory Stimulation',
+        description:
+          'Specialized rooms that maximize neural development during the most critical stage. The ONLY school program of its kind in Querétaro.',
+      },
+      {
+        title: 'Philosophy for Children (P4C)',
+        description:
+          'We teach children how to think, not what to think. Critical thinking development adapted for toddlers through guided dialogue.',
+      },
+      {
+        title: 'Safe Detachment Program',
+        description:
+          'Gradual transition with parents present during the first days, facilitating your child\'s emotional adaptation with professional support.',
+      },
+      {
+        title: "I'm NWL Leader by Tec de Monterrey",
+        description:
+          'Social-emotional development, teamwork, and emotional intelligence from their first steps. Exclusive to NWL, endorsed by Tec de Monterrey.',
+      },
+    ],
+    testimonial:
+      'I just feel calm dropping her off. The teachers greet her by name every morning, and she doesn\'t cry anymore. That\'s everything.',
+    testimonialAuthor: 'NWL Parent, Maternal',
+    cta: 'Schedule a Visit',
+    ctaSecondary: 'Download Brochure',
+  },
+  maternalPage: {
+    heroHeadline: 'Where Every First Step Matters',
+    heroSubheadline:
+      'NWL Maternal is the only early childhood program in Querétaro that combines 100% English immersion, neuroscience-based learning, and the warmth your child deserves, from age 2.',
+    backToHome: 'Back to Home',
+    dayTitle: 'A Day in',
+    dayTitleAccent: 'Maternal NWL',
+    daySubtitle: 'Each day is designed to stimulate growth through play, exploration, and connection.',
+    daySchedule: [
+      { time: '8:20', activity: 'Warm welcome & free play', icon: 'sun' },
+      { time: '9:00', activity: 'Brain Up: English circle time', icon: 'globe' },
+      { time: '9:45', activity: 'Multisensory stimulation room', icon: 'star' },
+      { time: '10:30', activity: 'Healthy snack & outdoor play', icon: 'heart' },
+      { time: '11:15', activity: 'P4C guided dialogue & creativity', icon: 'book' },
+      { time: '12:00', activity: 'Music, movement & expression', icon: 'music' },
+      { time: '12:45', activity: 'Story time & calm closure', icon: 'moon' },
+      { time: '1:30', activity: 'Pick-up & parent connection', icon: 'home' },
+    ],
+    philosophyTitle: 'Our',
+    philosophyTitleAccent: 'Approach',
+    philosophyDescription:
+      'Our Maternal program is built on the understanding that ages 2-3 represent the most critical window for brain development. Every activity, space, and interaction is intentionally designed.',
+    philosophyPillars: [
+      {
+        title: '100% English Immersion',
+        description:
+          'From day one, your child is immersed in English through our Brain Up methodology. Natural bilingual development happens when it matters most.',
+      },
+      {
+        title: 'Neuroscience-Based Learning',
+        description:
+          'Our multisensory rooms are the only ones of their kind in Querétaro, designed to maximize neural pathways during this critical development stage.',
+      },
+      {
+        title: 'Emotional Safety First',
+        description:
+          'Our Safe Detachment program ensures a gentle transition with parents present during the first days. Your child\'s emotional well-being is our priority.',
+      },
+      {
+        title: 'Leadership from the Start',
+        description:
+          'Through "I\'m NWL Leader" by Tec de Monterrey, we develop social-emotional skills, teamwork, and emotional intelligence from their very first steps.',
+      },
+    ],
+    galleryTitle: 'Life in',
+    galleryTitleAccent: 'Maternal',
+  },
+  kinder: {
+    ageBadge: 'Ages 3–5',
+    tagline: 'Growing Minds, Building Futures',
+    description:
+      'We believe every child holds extraordinary potential. Our Kinder program nurtures curiosity through English immersion, project-based learning, and our unique Multisensory Program.',
+    statBilingual: 'English Immersion',
+    statCampuses: 'Campuses',
+    schedule: '8:20–1:50',
+    statSchedule: 'Schedule',
+    testimonial:
+      'He started asking "but why?" about everything at home. At first I thought it was just a phase, then I realized he\'s actually thinking things through.',
+    testimonialAuthor: 'NWL Parent, Kinder',
+    cta: 'Schedule a Visit',
+    ctaSecondary: 'Download Brochure',
+  },
+  kinderPage: {
+    heroHeadline: 'Growing Minds, Building Futures',
+    heroSubheadline:
+      'Critical thinkers who live English every day. Project-based learning, no traditional homework, and a multisensory approach unique in Querétaro.',
+    backToHome: 'Back to Home',
+    overviewTitle: 'Discover',
+    overviewTitleAccent: 'Kinder NWL',
+    pillarsTitle: 'The NWL',
+    pillarsTitleAccent: 'Model',
+    pillarsSubtitle: 'Three pillars that define how we educate from the start.',
+    pillars: [
+      {
+        title: 'Knotion',
+        subtitle: 'International Methodology',
+        description:
+          'Project-based learning from Kinder. Real challenges that develop creative thinking and problem-solving. No traditional homework.',
+      },
+      {
+        title: 'Philosophy for Children',
+        subtitle: 'P4C',
+        description:
+          'We teach how to think, not what to think. From Kinder, they learn to question, dialogue, and form their own criteria.',
+      },
+      {
+        title: "I'm NWL Leader",
+        subtitle: 'by Tec de Monterrey',
+        description:
+          'Soft skills, teamwork, and emotional intelligence from an early age. A program endorsed by Tec de Monterrey, exclusive to NWL.',
+      },
+    ],
+    galleryTitle: 'Life in',
+    galleryTitleAccent: 'Kinder',
+    dayTitle: 'A Day in',
+    dayTitleAccent: 'Kinder NWL',
+    daySchedule: [
+      { time: '8:20', activity: 'Arrival & Morning Inquiry Circle', icon: 'compass' },
+      { time: '9:00', activity: 'Knotion Project Lab: hands-on investigation', icon: 'lightbulb' },
+      { time: '9:50', activity: 'English Immersion: reading, writing & conversation', icon: 'globe' },
+      { time: '10:40', activity: 'Healthy snack & outdoor exploration', icon: 'sun' },
+      { time: '11:15', activity: 'P4C: philosophical dialogue & critical thinking', icon: 'brain' },
+      { time: '12:00', activity: 'STEAM Workshop: science, art & technology', icon: 'rocket' },
+      { time: '12:45', activity: 'Leadership & collaboration activities', icon: 'users' },
+      { time: '1:30', activity: 'Reflection circle & dismissal', icon: 'star' },
+    ],
+  },
   campusDetail: {
     facilitiesTitle: 'Our',
     facilitiesTitleAccent: 'Facilities',
@@ -291,6 +443,44 @@ export const en: Dictionary = {
     ctaScheduleVisit: 'Schedule a Visit',
     ctaWhatsapp: 'Chat on WhatsApp',
     backToHome: '← Back to Home',
+    // Location Map
+    locationTitle: 'How to',
+    locationTitleAccent: 'Get Here',
+    getDirections: 'Open in Google Maps',
+    // Admissions Process
+    admissionsTitle: 'Admissions',
+    admissionsTitleAccent: 'Process',
+    admissionsSubtitle: 'Enrolling at NWL is simple. We guide you every step of the way.',
+    admissionsStepLabel: 'Step',
+    admissionsSteps: [
+      {
+        title: 'Get in Touch',
+        description: 'Reach out via WhatsApp, social media, or our form. We respond within minutes.',
+      },
+      {
+        title: 'Visit the Campus',
+        description: 'Schedule a personalized tour to see our facilities and meet our team.',
+      },
+      {
+        title: 'Admission Profile',
+        description: 'We create an admission profile to understand your child\'s strengths.',
+      },
+      {
+        title: 'Enrollment',
+        description: 'Complete your documentation and payment reference to secure your spot.',
+      },
+      {
+        title: 'Welcome to NWL!',
+        description: 'Your family joins the NWL community. Get ready for day one of a great experience.',
+      },
+    ],
+    // Campus Life Gallery
+    galleryTitle: 'Campus',
+    galleryTitleAccent: 'Life',
+    // Testimonials
+    testimonialsTitle: 'Real',
+    testimonialsTitleAccent: 'Families',
+    testimonialsReviewsLabel: 'reviews',
   },
   metadata: {
     title: 'Newland School | At Newland, we unlock greatness',
