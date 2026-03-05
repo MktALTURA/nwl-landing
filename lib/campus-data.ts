@@ -85,7 +85,7 @@ export const campuses: Record<string, CampusData> = {
       en: 'Maternal — Middle School',
       es: 'Maternal — Secundaria',
     },
-    heroImage: '/images/campus/juriquilla/juriquilla-hero.jpg',
+    heroImage: '/images/campus/juriquilla/juriquilla-building.jpg',
     phone: '442-384-6880/81',
     phoneLink: '4423846880',
     whatsapp: '5214423846880',
@@ -100,8 +100,8 @@ export const campuses: Record<string, CampusData> = {
       { name: { en: 'Science Labs', es: 'Laboratorios de Ciencias' }, image: '/images/campus/juriquilla/juriquilla-labs.jpg' },
       { name: { en: 'Classrooms', es: 'Salones de Clase' }, image: '/images/campus/juriquilla/juriquilla-classrooms.jpg' },
       { name: { en: 'Playground', es: 'Área de Juegos' }, image: '/images/campus/juriquilla/juriquilla-playground.jpg' },
-      { name: { en: 'Cafeteria', es: 'Cafetería' }, image: '/images/campus/juriquilla/juriquilla-cafeteria.jpg' },
-      { name: { en: 'Library', es: 'Biblioteca' }, image: '/images/campus/juriquilla/juriquilla-library.jpg' },
+      { name: { en: 'Cafetorium', es: 'Cafetorium' }, image: '/images/campus/juriquilla/juriquilla-cafeteria.jpg' },
+      { name: { en: 'Student Commons', es: 'Zona de Convivencia' }, image: '/images/campus/juriquilla/juriquilla-commons.jpg' },
     ],
     activities: [
       {
@@ -149,13 +149,18 @@ export const campuses: Record<string, CampusData> = {
     address: 'Anillo Vial Fray Junípero Serra, Juriquilla, Querétaro',
     mapUrl: 'https://maps.google.com/?q=Colegio+Newland+Juriquilla',
     galleryImages: [
-      { src: '/images/campus/juriquilla/juriquilla-hero.jpg', caption: { en: 'Welcome to Campus Juriquilla', es: 'Bienvenidos a Campus Juriquilla' } },
+      { src: '/images/campus/juriquilla/juriquilla-building.jpg', caption: { en: 'Welcome to Campus Juriquilla', es: 'Bienvenidos a Campus Juriquilla' } },
+      { src: '/images/campus/juriquilla/juriquilla-hero.jpg', caption: { en: 'Campus Entrance', es: 'Entrada del Campus' } },
       { src: '/images/campus/juriquilla/juriquilla-sports.jpg', caption: { en: 'Sports & Active Play', es: 'Deporte y Juego Activo' } },
       { src: '/images/campus/juriquilla/juriquilla-labs.jpg', caption: { en: 'Hands-on Discovery in Our Labs', es: 'Descubrimiento en Nuestros Laboratorios' } },
       { src: '/images/campus/juriquilla/juriquilla-classrooms.jpg', caption: { en: 'Bright Learning Spaces', es: 'Espacios de Aprendizaje Luminosos' } },
       { src: '/images/campus/juriquilla/juriquilla-playground.jpg', caption: { en: 'Play, Explore & Grow', es: 'Jugar, Explorar y Crecer' } },
-      { src: '/images/campus/juriquilla/juriquilla-cafeteria.jpg', caption: { en: 'Our Cafeteria', es: 'Nuestra Cafetería' } },
-      { src: '/images/campus/juriquilla/juriquilla-library.jpg', caption: { en: 'Reading Corner', es: 'Rincón de Lectura' } },
+      { src: '/images/campus/juriquilla/juriquilla-cafeteria.jpg', caption: { en: 'Our Cafetorium', es: 'Nuestro Cafetorium' } },
+      { src: '/images/campus/juriquilla/juriquilla-commons.jpg', caption: { en: 'Student Commons', es: 'Zona de Convivencia' } },
+      { src: '/images/campus/juriquilla/juriquilla-sports-overview.jpg', caption: { en: 'Campus Sports Overview', es: 'Vista General Deportiva' } },
+
+      { src: '/images/campus/juriquilla/juriquilla-soccer.jpg', caption: { en: 'Soccer Field', es: 'Cancha de Fútbol' } },
+      { src: '/images/campus/juriquilla/juriquilla-campus-fields.jpg', caption: { en: 'Campus & Fields', es: 'Campus y Canchas' } },
     ],
     testimonials: [
       {
@@ -202,11 +207,11 @@ export const campuses: Record<string, CampusData> = {
     ],
     facilities: [
       { name: { en: 'Sports Fields', es: 'Canchas Deportivas' }, image: '/images/campus/milenio/milenio-sports.jpg' },
-      { name: { en: 'Science Labs', es: 'Laboratorios de Ciencias' }, image: '/images/campus/milenio/milenio-labs.jpg' },
-      { name: { en: 'Classrooms', es: 'Salones de Clase' }, image: '/images/campus/milenio/milenio-classrooms.jpg' },
+      { name: { en: 'Science Labs', es: 'Laboratorios de Ciencias' }, image: '' },
+      { name: { en: 'Classrooms', es: 'Salones de Clase' }, image: '' },
       { name: { en: 'Playground', es: 'Área de Juegos' }, image: '/images/campus/milenio/milenio-playground.jpg' },
-      { name: { en: 'Cafeteria', es: 'Cafetería' }, image: '/images/campus/milenio/milenio-cafeteria.jpg' },
-      { name: { en: 'Library', es: 'Biblioteca' }, image: '/images/campus/milenio/milenio-library.jpg' },
+      { name: { en: 'Cafetorium', es: 'Cafetorium' }, image: '/images/campus/milenio/milenio-cafeteria.jpg' },
+      { name: { en: 'Student Commons', es: 'Zona de Convivencia' }, image: '' },
     ],
     activities: [
       {
@@ -256,11 +261,13 @@ export const campuses: Record<string, CampusData> = {
     galleryImages: [
       { src: '/images/campus/milenio/milenio-hero.jpg', caption: { en: 'Welcome to Campus Milenio', es: 'Bienvenidos a Campus Milenio' } },
       { src: '/images/campus/milenio/milenio-sports.jpg', caption: { en: 'Sports & Active Play', es: 'Deporte y Juego Activo' } },
-      { src: '/images/campus/milenio/milenio-labs.jpg', caption: { en: 'Hands-on Discovery in Our Labs', es: 'Descubrimiento en Nuestros Laboratorios' } },
-      { src: '/images/campus/milenio/milenio-classrooms.jpg', caption: { en: 'Bright Learning Spaces', es: 'Espacios de Aprendizaje Luminosos' } },
       { src: '/images/campus/milenio/milenio-playground.jpg', caption: { en: 'Play, Explore & Grow', es: 'Jugar, Explorar y Crecer' } },
-      { src: '/images/campus/milenio/milenio-cafeteria.jpg', caption: { en: 'Our Cafeteria', es: 'Nuestra Cafetería' } },
-      { src: '/images/campus/milenio/milenio-library.jpg', caption: { en: 'Reading Corner', es: 'Rincón de Lectura' } },
+      { src: '/images/campus/milenio/milenio-cafeteria.jpg', caption: { en: 'Our Cafetorium', es: 'Nuestro Cafetorium' } },
+      { src: '/images/campus/milenio/milenio-soccer-field.jpg', caption: { en: 'Soccer Field', es: 'Cancha de Fútbol' } },
+      { src: '/images/campus/milenio/milenio-covered-court.jpg', caption: { en: 'Covered Multi-Sport Court', es: 'Cancha Multiusos Techada' } },
+      { src: '/images/campus/milenio/milenio-nurse-office.jpg', caption: { en: 'Nurse\'s Office', es: 'Enfermería' } },
+      { src: '/images/campus/milenio/milenio-aerial-view.jpg', caption: { en: 'Aerial View', es: 'Vista Aérea' } },
+      { src: '/images/campus/milenio/milenio-exterior-wide.png', caption: { en: 'Campus Exterior', es: 'Exterior del Campus' } },
     ],
     testimonials: [
       {
@@ -310,8 +317,8 @@ export const campuses: Record<string, CampusData> = {
       { name: { en: 'Science Labs', es: 'Laboratorios de Ciencias' }, image: '/images/campus/san-miguel/san-miguel-labs.jpg' },
       { name: { en: 'Classrooms', es: 'Salones de Clase' }, image: '/images/campus/san-miguel/san-miguel-classrooms.jpg' },
       { name: { en: 'Playground', es: 'Área de Juegos' }, image: '/images/campus/san-miguel/san-miguel-playground.jpg' },
-      { name: { en: 'Cafeteria', es: 'Cafetería' }, image: '/images/campus/san-miguel/san-miguel-cafeteria.jpg' },
-      { name: { en: 'Library', es: 'Biblioteca' }, image: '/images/campus/san-miguel/san-miguel-library.jpg' },
+      { name: { en: 'Cafetorium', es: 'Cafetorium' }, image: '/images/campus/san-miguel/san-miguel-cafeteria.jpg' },
+      { name: { en: 'Student Commons', es: 'Zona de Convivencia' }, image: '/images/campus/san-miguel/san-miguel-commons.jpg' },
     ],
     activities: [
       {
@@ -364,8 +371,8 @@ export const campuses: Record<string, CampusData> = {
       { src: '/images/campus/san-miguel/san-miguel-labs.jpg', caption: { en: 'Hands-on Discovery in Our Labs', es: 'Descubrimiento en Nuestros Laboratorios' } },
       { src: '/images/campus/san-miguel/san-miguel-classrooms.jpg', caption: { en: 'Bright Learning Spaces', es: 'Espacios de Aprendizaje Luminosos' } },
       { src: '/images/campus/san-miguel/san-miguel-playground.jpg', caption: { en: 'Play, Explore & Grow', es: 'Jugar, Explorar y Crecer' } },
-      { src: '/images/campus/san-miguel/san-miguel-cafeteria.jpg', caption: { en: 'Our Cafeteria', es: 'Nuestra Cafetería' } },
-      { src: '/images/campus/san-miguel/san-miguel-library.jpg', caption: { en: 'Reading Corner', es: 'Rincón de Lectura' } },
+      { src: '/images/campus/san-miguel/san-miguel-cafeteria.jpg', caption: { en: 'Our Cafetorium', es: 'Nuestro Cafetorium' } },
+      { src: '/images/campus/san-miguel/san-miguel-commons.jpg', caption: { en: 'Student Commons', es: 'Zona de Convivencia' } },
     ],
     testimonials: [
       {
@@ -400,7 +407,7 @@ export const campuses: Record<string, CampusData> = {
       en: 'Maternal — High School',
       es: 'Maternal — Preparatoria',
     },
-    heroImage: '/images/campus/corregidora/corregidora-hero.jpg',
+    heroImage: '',
     phone: '442-671-7645/46',
     phoneLink: '4426717645',
     whatsapp: '5214426717645',
@@ -415,8 +422,8 @@ export const campuses: Record<string, CampusData> = {
       { name: { en: 'Science Labs', es: 'Laboratorios de Ciencias' }, image: '/images/campus/corregidora/corregidora-labs.jpg' },
       { name: { en: 'Classrooms', es: 'Salones de Clase' }, image: '/images/campus/corregidora/corregidora-classrooms.jpg' },
       { name: { en: 'Playground', es: 'Área de Juegos' }, image: '/images/campus/corregidora/corregidora-playground.jpg' },
-      { name: { en: 'Cafeteria', es: 'Cafetería' }, image: '/images/campus/corregidora/corregidora-cafeteria.jpg' },
-      { name: { en: 'Library', es: 'Biblioteca' }, image: '/images/campus/corregidora/corregidora-library.jpg' },
+      { name: { en: 'Cafetorium', es: 'Cafetorium' }, image: '/images/campus/corregidora/corregidora-cafeteria.jpg' },
+      { name: { en: 'Student Commons', es: 'Zona de Convivencia' }, image: '/images/campus/corregidora/corregidora-commons.jpg' },
     ],
     activities: [
       {
@@ -464,13 +471,13 @@ export const campuses: Record<string, CampusData> = {
     address: 'Libramiento Sur Poniente, El Pueblito, Corregidora, Querétaro',
     mapUrl: 'https://maps.google.com/?q=Colegio+Newland+Corregidora',
     galleryImages: [
-      { src: '/images/campus/corregidora/corregidora-hero.jpg', caption: { en: 'Welcome to Campus Corregidora', es: 'Bienvenidos a Campus Corregidora' } },
+      { src: '/images/campus/corregidora/corregidora-building.jpg', caption: { en: 'Campus Building', es: 'Edificio del Campus' } },
       { src: '/images/campus/corregidora/corregidora-sports.jpg', caption: { en: 'Sports & Active Play', es: 'Deporte y Juego Activo' } },
       { src: '/images/campus/corregidora/corregidora-labs.jpg', caption: { en: 'Hands-on Discovery in Our Labs', es: 'Descubrimiento en Nuestros Laboratorios' } },
       { src: '/images/campus/corregidora/corregidora-classrooms.jpg', caption: { en: 'Bright Learning Spaces', es: 'Espacios de Aprendizaje Luminosos' } },
       { src: '/images/campus/corregidora/corregidora-playground.jpg', caption: { en: 'Play, Explore & Grow', es: 'Jugar, Explorar y Crecer' } },
-      { src: '/images/campus/corregidora/corregidora-cafeteria.jpg', caption: { en: 'Our Cafeteria', es: 'Nuestra Cafetería' } },
-      { src: '/images/campus/corregidora/corregidora-library.jpg', caption: { en: 'Reading Corner', es: 'Rincón de Lectura' } },
+      { src: '/images/campus/corregidora/corregidora-cafeteria.jpg', caption: { en: 'Our Cafetorium', es: 'Nuestro Cafetorium' } },
+      { src: '/images/campus/corregidora/corregidora-commons.jpg', caption: { en: 'Student Commons', es: 'Zona de Convivencia' } },
     ],
     testimonials: [
       {

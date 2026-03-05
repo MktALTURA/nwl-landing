@@ -150,6 +150,9 @@ export default function Navigation() {
   };
 
   const isSubpage = pathname !== '/';
+  const isCampusJuriquilla = pathname === '/campus/juriquilla';
+  // On Juriquilla campus page, use white logos/text before scroll (dark hero)
+  const useWhiteNav = isCampusJuriquilla && !isScrolled;
 
   return (
     <nav
@@ -162,16 +165,38 @@ export default function Navigation() {
           {/* Logo — animate entrance only on homepage */}
           {isSubpage ? (
             <a href="/" className="flex items-center gap-2">
-              <img
-                src="/images/brand/kangaroo-wine.png"
-                alt="NWL mascot"
-                className="h-12 w-auto rotate-[15deg]"
-              />
-              <img
-                src="/images/brand/nwl-logo-wine.png"
-                alt="Colegio NWL"
-                className="h-10 w-auto"
-              />
+              {isCampusJuriquilla ? (
+                <>
+                  <img
+                    src="/images/brand/kangaroo-white-transparent.png"
+                    alt="NWL mascot"
+                    className={`h-12 w-auto rotate-[15deg] absolute transition-opacity duration-300 ${useWhiteNav ? 'opacity-100' : 'opacity-0'}`}
+                  />
+                  <img
+                    src="/images/brand/kangaroo-wine.png"
+                    alt="NWL mascot"
+                    className={`h-12 w-auto rotate-[15deg] transition-opacity duration-300 ${useWhiteNav ? 'opacity-0' : 'opacity-100'}`}
+                  />
+                  <img
+                    src="/images/brand/nwl-logo-wine.png"
+                    alt="Colegio NWL"
+                    className={`h-10 w-auto transition-opacity duration-300 ${useWhiteNav ? 'opacity-0' : 'opacity-100'}`}
+                  />
+                </>
+              ) : (
+                <>
+                  <img
+                    src="/images/brand/kangaroo-wine.png"
+                    alt="NWL mascot"
+                    className="h-12 w-auto rotate-[15deg]"
+                  />
+                  <img
+                    src="/images/brand/nwl-logo-wine.png"
+                    alt="Colegio NWL"
+                    className="h-10 w-auto"
+                  />
+                </>
+              )}
             </a>
           ) : (
             <motion.div
@@ -207,9 +232,11 @@ export default function Navigation() {
                   <a
                     href={resolveHref(link.href)}
                     className={`text-sm font-medium transition-colors flex items-center gap-1 ${
-                      link.highlight
-                        ? 'text-wine underline decoration-2 underline-offset-4'
-                        : 'text-charcoal hover:text-wine'
+                      useWhiteNav
+                        ? 'text-white/90 hover:text-white'
+                        : link.highlight
+                          ? 'text-wine underline decoration-2 underline-offset-4'
+                          : 'text-charcoal hover:text-wine'
                     }`}
                     onClick={(e) => {
                       e.stopPropagation();
@@ -295,9 +322,11 @@ export default function Navigation() {
                   href={resolveHref(link.href)}
                   onClick={(e) => handleHashClick(e, link.href)}
                   className={`text-sm font-medium transition-colors ${
-                    link.highlight
-                      ? 'text-wine underline decoration-2 underline-offset-4'
-                      : 'text-charcoal hover:text-wine'
+                    useWhiteNav
+                      ? 'text-white/90 hover:text-white'
+                      : link.highlight
+                        ? 'text-wine underline decoration-2 underline-offset-4'
+                        : 'text-charcoal hover:text-wine'
                   }`}
                 >
                   {link.name}
@@ -315,7 +344,11 @@ export default function Navigation() {
               href="https://wa.me/5214421227791"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-10 h-10 rounded-full bg-wine/10 border border-wine/30 flex items-center justify-center text-wine hover:bg-green-500 hover:border-green-500 hover:text-white transition-colors duration-300"
+              className={`w-10 h-10 rounded-full flex items-center justify-center transition-colors duration-300 ${
+                useWhiteNav
+                  ? 'bg-white/10 border border-white/30 text-white hover:bg-green-500 hover:border-green-500'
+                  : 'bg-wine/10 border border-wine/30 text-wine hover:bg-green-500 hover:border-green-500 hover:text-white'
+              }`}
               aria-label={t.nav.whatsappAriaLabel}
             >
               <FaWhatsapp size={20} />
@@ -327,7 +360,7 @@ export default function Navigation() {
           <div className="flex items-center gap-3 lg:hidden">
             <LanguageToggle />
             <button
-              className="text-charcoal"
+              className={useWhiteNav ? 'text-white' : 'text-charcoal'}
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             >
               {isMobileMenuOpen ? <FiX size={24} /> : <FiMenu size={24} />}
