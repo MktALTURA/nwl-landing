@@ -170,6 +170,9 @@ export interface Dictionary {
     pillars: { title: string; subtitle: string; description: string }[];
     galleryTitle: string;
     galleryTitleAccent: string;
+    dayTitle: string;
+    dayTitleAccent: string;
+    daySchedule: { time: string; activity: string; icon: string }[];
   };
   campusDetail: {
     facilitiesTitle: string;

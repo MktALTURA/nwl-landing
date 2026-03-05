@@ -17,10 +17,15 @@ import {
   FiBookOpen,
   FiAward,
   FiUsers,
+  FiCompass,
+  FiSun,
 } from 'react-icons/fi';
+import { HiOutlineLightBulb } from 'react-icons/hi';
+import { LuBrain, LuRocket } from 'react-icons/lu';
 import { useLanguage } from '@/lib/i18n/LanguageContext';
 import FinalCTA from '@/components/FinalCTA';
 import Footer from '@/components/Footer';
+import SparkleAnimation from '@/components/SparkleAnimation';
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger);
@@ -33,12 +38,35 @@ const pillarConfig = [
   { icon: FiAward, gradient: 'from-wine/15 to-wine/5', border: 'border-wine/20', accent: 'text-wine', num: 'bg-wine/10 text-wine' },
 ];
 
+/* ── Timeline icon map ── */
+const timelineIcons: Record<string, React.ComponentType<{ size?: number; className?: string }>> = {
+  compass: FiCompass,
+  lightbulb: HiOutlineLightBulb,
+  globe: FiGlobe,
+  sun: FiSun,
+  brain: LuBrain,
+  rocket: LuRocket,
+  users: FiUsers,
+  star: FiStar,
+};
+
+const timelineColors = [
+  'bg-blueberry/12 text-blueberry border-blueberry/20',
+  'bg-ocean/12 text-ocean border-ocean/20',
+  'bg-wine/10 text-wine border-wine/20',
+  'bg-sunshine/20 text-mustard border-sunshine/30',
+  'bg-blueberry/12 text-blueberry border-blueberry/20',
+  'bg-coral/12 text-coral border-coral/20',
+  'bg-ocean/12 text-ocean border-ocean/20',
+  'bg-wine/10 text-wine border-wine/20',
+];
+
 /* ── Gallery images ── */
 const kinderGalleryImages = [
-  { src: '/images/levels/kinder/kinder-classroom.jpg', alt: 'Classroom' },
+  { src: '/images/levels/kinder/kinder-friends.jpg', alt: 'Friends' },
   { src: '/images/levels/kinder/kinder-tunnel-play.jpg', alt: 'Tunnel play' },
   { src: '/images/levels/kinder/kinder-students.jpg', alt: 'Students' },
-  { src: '/images/levels/kinder/kinder-friends.jpg', alt: 'Friends' },
+  { src: '/images/levels/kinder/kinder-classroom.jpg', alt: 'Classroom' },
   { src: '/images/levels/kinder/kinder-climbing.jpg', alt: 'Climbing' },
   { src: '/images/levels/kinder/kinder-playground.jpg', alt: 'Playground' },
   { src: '/images/levels/kinder/kinder-tablets.jpg', alt: 'Tablets' },
@@ -82,6 +110,7 @@ export default function KinderPage() {
 
   return (
     <>
+      <SparkleAnimation />
       <main ref={mainRef}>
         {/* ════════════════════════════════════════════════
             SECTION 1 — HERO
@@ -123,7 +152,7 @@ export default function KinderPage() {
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.3, type: 'spring', stiffness: 200 }}
-                className="inline-block bg-white/15 backdrop-blur-sm text-blueberry-200 px-4 py-1.5 rounded-full text-sm font-bold mb-5 border border-white/10"
+                className="inline-block bg-white/15 backdrop-blur-sm text-ocean px-4 py-1.5 rounded-full text-sm font-bold mb-5 border border-white/10"
               >
                 {k.ageBadge}
               </motion.span>
@@ -277,7 +306,137 @@ export default function KinderPage() {
         </section>
 
         {/* ════════════════════════════════════════════════
-            SECTION 4 — PHOTO GALLERY
+            SECTION 4 — A DAY IN KINDER (TIMELINE)
+        ════════════════════════════════════════════════ */}
+        <section className="py-16 md:py-20 bg-gradient-to-b from-sand to-white relative overflow-hidden animate-section">
+          {/* Playful background blobs */}
+          <div className="absolute top-10 left-[10%] w-72 h-72 bg-blueberry/5 rounded-full blur-3xl" />
+          <div className="absolute bottom-20 right-[15%] w-56 h-56 bg-ocean/6 rounded-full blur-3xl" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 w-80 h-40 bg-sunshine/5 rounded-full blur-3xl" />
+
+          <div className="container-custom relative z-10">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="text-center mb-14"
+            >
+              <div className="wine-divider mx-auto mb-4" />
+              <h2 className="font-display text-3xl md:text-5xl font-bold text-charcoal">
+                {kp.dayTitle}{' '}
+                <span className="text-wine">{kp.dayTitleAccent}</span>
+              </h2>
+            </motion.div>
+
+            {/* Desktop: single row of 8 with connecting line */}
+            <div className="hidden md:block relative">
+              {/* Connecting line — sits behind icons */}
+              <div className="absolute top-[26px] left-[6%] right-[6%] h-[3px] rounded-full bg-gradient-to-r from-blueberry/20 via-ocean/20 via-coral/15 via-sunshine/20 via-wine/15 to-blueberry/15 z-0" />
+
+              <div className="grid grid-cols-8 gap-3">
+                {kp.daySchedule.map((item, i) => {
+                  const Icon = timelineIcons[item.icon] || FiStar;
+                  const iconStyles = [
+                    'bg-blueberry text-white',
+                    'bg-ocean text-white',
+                    'bg-coral text-white',
+                    'bg-sunshine text-charcoal',
+                    'bg-wine text-white',
+                    'bg-blueberry text-white',
+                    'bg-ocean text-white',
+                    'bg-eucalyptus text-white',
+                  ];
+                  const badgeStyles = [
+                    'bg-blueberry/10 text-blueberry',
+                    'bg-ocean/10 text-ocean',
+                    'bg-coral/10 text-coral',
+                    'bg-sunshine/15 text-mustard',
+                    'bg-wine/10 text-wine',
+                    'bg-blueberry/10 text-blueberry',
+                    'bg-ocean/10 text-ocean',
+                    'bg-eucalyptus/15 text-eucalyptus',
+                  ];
+                  return (
+                    <motion.div
+                      key={i}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.4, delay: i * 0.07 }}
+                      viewport={{ once: true }}
+                      className="flex flex-col items-center text-center"
+                    >
+                      {/* Solid icon circle — no transparency, line stays behind */}
+                      <div className={`relative z-10 w-[52px] h-[52px] rounded-full flex items-center justify-center shadow-md ${iconStyles[i]}`}>
+                        <Icon size={22} />
+                      </div>
+
+                      {/* Time badge */}
+                      <span className={`text-sm font-bold px-2.5 py-0.5 rounded-full mt-3 mb-1.5 ${badgeStyles[i]}`}>
+                        {item.time}
+                      </span>
+
+                      {/* Activity */}
+                      <p className="text-xs text-charcoal/75 leading-snug font-medium mt-0.5">
+                        {item.activity}
+                      </p>
+                    </motion.div>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* Mobile: 2-column grid */}
+            <div className="md:hidden grid grid-cols-2 gap-x-4 gap-y-8">
+              {kp.daySchedule.map((item, i) => {
+                const Icon = timelineIcons[item.icon] || FiStar;
+                const mobileColors = [
+                  'bg-blueberry/12 text-blueberry border-blueberry/15',
+                  'bg-ocean/12 text-ocean border-ocean/15',
+                  'bg-coral/12 text-coral border-coral/15',
+                  'bg-sunshine/20 text-mustard border-sunshine/25',
+                  'bg-wine/10 text-wine border-wine/15',
+                  'bg-blueberry/12 text-blueberry border-blueberry/15',
+                  'bg-ocean/12 text-ocean border-ocean/15',
+                  'bg-lime/20 text-eucalyptus border-eucalyptus/20',
+                ];
+                const timeBadgeColors = [
+                  'bg-blueberry/10 text-blueberry',
+                  'bg-ocean/10 text-ocean',
+                  'bg-coral/10 text-coral',
+                  'bg-sunshine/15 text-mustard',
+                  'bg-wine/10 text-wine',
+                  'bg-blueberry/10 text-blueberry',
+                  'bg-ocean/10 text-ocean',
+                  'bg-lime/15 text-eucalyptus',
+                ];
+                return (
+                  <motion.div
+                    key={i}
+                    initial={{ opacity: 0, y: 15 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.4, delay: i * 0.06 }}
+                    viewport={{ once: true }}
+                    className="flex flex-col items-center text-center"
+                  >
+                    <div className={`w-14 h-14 rounded-full flex items-center justify-center mb-3 border-2 shadow-sm ${mobileColors[i]}`}>
+                      <Icon size={22} />
+                    </div>
+                    <span className={`text-xs font-bold px-2.5 py-0.5 rounded-full mb-1.5 ${timeBadgeColors[i]}`}>
+                      {item.time}
+                    </span>
+                    <p className="text-sm text-charcoal/80 leading-snug font-semibold">
+                      {item.activity}
+                    </p>
+                  </motion.div>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+
+        {/* ════════════════════════════════════════════════
+            SECTION 5 — PHOTO GALLERY
         ════════════════════════════════════════════════ */}
         <section className="py-10 md:py-14 bg-gradient-to-b from-warmgray/20 to-sand relative overflow-hidden animate-section">
           <div className="absolute top-0 right-10 w-40 h-40 bg-blueberry/8 rounded-full blur-3xl" />

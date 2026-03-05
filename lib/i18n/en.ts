@@ -235,7 +235,7 @@ export const en: Dictionary = {
       "Experience our facilities and meet our educators in person. We'll tailor the visit to your child's age group.",
     requestInfoTitle: 'Request Information',
     requestInfoDesc:
-      'Get details about our programs, tuition, and admissions process. No commitment — just the info you need.',
+      'Get details about our programs, tuition, and admissions process. No commitment, just the info you need.',
     whatsappTitle: 'Chat with Us',
     whatsappDesc:
       'Have questions? Message us on WhatsApp for a quick, personal response.',
@@ -292,7 +292,7 @@ export const en: Dictionary = {
     featuresTitle: 'What Makes Maternal NWL Unique',
     features: [
       {
-        title: 'Brain Up — English from Age 2',
+        title: 'Brain Up: English from Age 2',
         description:
           'Early English immersion that develops real fluency. English is part of their everyday learning from the very beginning.',
       },
@@ -326,14 +326,14 @@ export const en: Dictionary = {
   maternalPage: {
     heroHeadline: 'Where Every First Step Matters',
     heroSubheadline:
-      'NWL Maternal is the only early childhood program in Querétaro that combines 100% English immersion, neuroscience-based learning, and the warmth your child deserves — from age 2.',
+      'NWL Maternal is the only early childhood program in Querétaro that combines 100% English immersion, neuroscience-based learning, and the warmth your child deserves, from age 2.',
     backToHome: 'Back to Home',
     dayTitle: 'A Day in',
     dayTitleAccent: 'Maternal NWL',
     daySubtitle: 'Each day is designed to stimulate growth through play, exploration, and connection.',
     daySchedule: [
       { time: '8:20', activity: 'Warm welcome & free play', icon: 'sun' },
-      { time: '9:00', activity: 'Brain Up — English circle time', icon: 'globe' },
+      { time: '9:00', activity: 'Brain Up: English circle time', icon: 'globe' },
       { time: '9:45', activity: 'Multisensory stimulation room', icon: 'star' },
       { time: '10:30', activity: 'Healthy snack & outdoor play', icon: 'heart' },
       { time: '11:15', activity: 'P4C guided dialogue & creativity', icon: 'book' },
@@ -380,7 +380,7 @@ export const en: Dictionary = {
     schedule: '8:20–1:50',
     statSchedule: 'Schedule',
     testimonial:
-      'He started asking "but why?" about everything at home. At first I thought it was just a phase — then I realized he\'s actually thinking things through.',
+      'He started asking "but why?" about everything at home. At first I thought it was just a phase, then I realized he\'s actually thinking things through.',
     testimonialAuthor: 'NWL Parent, Kinder',
     cta: 'Schedule a Visit',
     ctaSecondary: 'Download Brochure',
@@ -417,6 +417,18 @@ export const en: Dictionary = {
     ],
     galleryTitle: 'Life in',
     galleryTitleAccent: 'Kinder',
+    dayTitle: 'A Day in',
+    dayTitleAccent: 'Kinder NWL',
+    daySchedule: [
+      { time: '8:20', activity: 'Arrival & Morning Inquiry Circle', icon: 'compass' },
+      { time: '9:00', activity: 'Knotion Project Lab: hands-on investigation', icon: 'lightbulb' },
+      { time: '9:50', activity: 'English Immersion: reading, writing & conversation', icon: 'globe' },
+      { time: '10:40', activity: 'Healthy snack & outdoor exploration', icon: 'sun' },
+      { time: '11:15', activity: 'P4C: philosophical dialogue & critical thinking', icon: 'brain' },
+      { time: '12:00', activity: 'STEAM Workshop: science, art & technology', icon: 'rocket' },
+      { time: '12:45', activity: 'Leadership & collaboration activities', icon: 'users' },
+      { time: '1:30', activity: 'Reflection circle & dismissal', icon: 'star' },
+    ],
   },
   campusDetail: {
     facilitiesTitle: 'Our',

@@ -19,6 +19,7 @@
 *.command
 Localhostrun.te
 *\ 2.*
+.claude/
 
 # debug
 npm-debug.log*

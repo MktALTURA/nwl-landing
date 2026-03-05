@@ -26,12 +26,12 @@ const academicLevelDecorations: DropdownDecoration[] = [
     accentBorder: 'rgba(255,153,200,0.6)',
     bgSize: { initial: '100% 100%', hover: '120% 120%' },
   },
-  // 1: Kinder — warm coral/sunshine dots
+  // 1: Kinder — blueberry/ocean (matches kinder page)
   {
     hoverBg:
-      'radial-gradient(circle at 20% 40%, rgba(255,107,107,0.2) 0%, transparent 45%), radial-gradient(circle at 75% 60%, rgba(255,217,61,0.25) 0%, transparent 50%), radial-gradient(circle at 50% 20%, rgba(78,205,196,0.15) 0%, transparent 40%), linear-gradient(135deg, rgba(255,217,61,0.06) 0%, rgba(255,107,107,0.06) 100%)',
-    hoverTextColor: 'rgb(139,35,50)',
-    accentBorder: 'rgba(255,107,107,0.6)',
+      'radial-gradient(circle at 20% 40%, rgba(108,92,231,0.18) 0%, transparent 45%), radial-gradient(circle at 75% 60%, rgba(78,205,196,0.22) 0%, transparent 50%), radial-gradient(circle at 50% 20%, rgba(108,92,231,0.1) 0%, transparent 40%), linear-gradient(135deg, rgba(108,92,231,0.06) 0%, rgba(78,205,196,0.06) 100%)',
+    hoverTextColor: 'rgb(108,92,231)',
+    accentBorder: 'rgba(108,92,231,0.6)',
     bgSize: { initial: '100% 100%', hover: '115% 115%' },
   },
   // 2: Elementary — calm ocean/eucalyptus
