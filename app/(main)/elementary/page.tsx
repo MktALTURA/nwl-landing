@@ -436,7 +436,7 @@ export default function ElementaryPage() {
                 className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-lg bg-sand"
               >
                 <Image
-                  src="/images/levels/primaria/steam-lab.png"
+                  src="/images/levels/primaria/steam-lab.jpg"
                   alt="TecniKids STEAM Lab"
                   fill
                   className="object-cover"
