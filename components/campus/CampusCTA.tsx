@@ -90,7 +90,7 @@ export default function CampusCTA({ campusName, whatsapp, phone, phoneLink }: Ca
         >
           <h2 className="font-display text-4xl md:text-6xl font-bold mb-6">
             {t.campusDetail.ctaTitle}{' '}
-            <span className="text-mustard">{t.campusDetail.ctaTitleAccent}</span>
+            <span className="text-mustard">{campusName}?</span>
           </h2>
           <p className="text-xl text-white/90 leading-relaxed max-w-2xl mx-auto">
             {t.campusDetail.ctaSubtitle}

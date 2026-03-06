@@ -1,12 +1,12 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { FiArrowLeft, FiCamera } from 'react-icons/fi';
+import { FiArrowLeft, FiChevronLeft, FiChevronRight, FiGlobe, FiHeart, FiAward, FiShield } from 'react-icons/fi';
 import { GiSoccerBall, GiBasketballBall, GiMusicalNotes, GiRun } from 'react-icons/gi';
 import { MdOutlineSportsMartialArts } from 'react-icons/md';
 import { PiPaintBrush, PiMaskHappy } from 'react-icons/pi';
@@ -23,21 +23,32 @@ if (typeof window !== 'undefined') {
 
 /* ── Pillar color config (no icons) ── */
 const pillarColors = [
-  { gradient: 'from-primaria/20 to-primaria/5', border: 'border-primaria/25', accent: 'text-primaria', num: 'bg-primaria/15 text-charcoal' },
-  { gradient: 'from-mustard/15 to-mustard/5', border: 'border-mustard/20', accent: 'text-mustard', num: 'bg-mustard/15 text-charcoal' },
-  { gradient: 'from-wine/15 to-wine/5', border: 'border-wine/20', accent: 'text-wine', num: 'bg-wine/10 text-wine' },
+  { gradient: 'from-primaria/30 to-primaria/10', border: 'border-primaria/30', accent: 'text-primaria', num: 'bg-primaria/20 text-charcoal' },
+  { gradient: 'from-mustard/25 to-mustard/8', border: 'border-mustard/25', accent: 'text-mustard', num: 'bg-mustard/20 text-charcoal' },
+  { gradient: 'from-wine/20 to-wine/8', border: 'border-wine/25', accent: 'text-wine', num: 'bg-wine/15 text-wine' },
 ];
 
-/* ── Differentiator colors (no icons) ── */
-const diffColors = [
-  { accent: 'text-primaria', border: 'border-primaria/15', dot: 'bg-primaria' },
-  { accent: 'text-wine', border: 'border-wine/15', dot: 'bg-wine' },
-  { accent: 'text-mustard', border: 'border-mustard/20', dot: 'bg-mustard' },
-  { accent: 'text-charcoal/70', border: 'border-charcoal/10', dot: 'bg-charcoal/50' },
+/* ── Differentiator colors + icons ── */
+const diffItems = [
+  { accent: 'text-primaria', border: 'border-primaria/25', bg: 'bg-primaria/15', icon: FiGlobe },
+  { accent: 'text-wine', border: 'border-wine/25', bg: 'bg-wine/12', icon: FiHeart },
+  { accent: 'text-mustard', border: 'border-mustard/30', bg: 'bg-mustard/15', icon: FiAward },
+  { accent: 'text-charcoal/70', border: 'border-charcoal/15', bg: 'bg-charcoal/8', icon: FiShield },
+];
+
+/* ── Gallery images ── */
+const elementaryGalleryImages = [
+  { src: '/images/levels/primaria/NWL-Zibata-primaria-dos-amigos-salon.jpg', alt: 'Classroom friends' },
+  { src: '/images/levels/primaria/steam-lab.jpg', alt: 'STEAM Lab' },
+  { src: '/images/levels/primaria/NWL-SMA-primaria-alumnos-teamwork-manos-circulo.JPG', alt: 'Teamwork' },
+  { src: '/images/levels/primaria/NWL-SMA-primaria-alumnas-arte-recortes-papel.JPG', alt: 'Art class' },
+  { src: '/images/levels/primaria/NWL-SMA-primaria-recreo-piramide-cuerdas-aerea.JPG', alt: 'Recess playground' },
+  { src: '/images/levels/primaria/NWL-Zibata-secundaria-trabajo-colaborativo-cuaderno.png', alt: 'Collaborative work' },
 ];
 
 export default function ElementaryPage() {
   const mainRef = useRef<HTMLElement>(null);
+  const [activeGallery, setActiveGallery] = useState(0);
   const { t } = useLanguage();
   const { openBrochure } = useBrochure();
   const e = t.elementary;
@@ -147,7 +158,7 @@ export default function ElementaryPage() {
         {/* ════════════════════════════════════════════════
             SECTION 2 — OVERVIEW + STATS
         ════════════════════════════════════════════════ */}
-        <section className="section-padding bg-gradient-to-b from-sand via-white to-warmgray/20 animate-section">
+        <section className="py-12 md:py-18 bg-gradient-to-b from-sand via-warmgray/15 to-warmgray/25 animate-section">
           <div className="container-custom">
             <div className="grid lg:grid-cols-2 gap-16 items-center">
               {/* Left — Description + Stats */}
@@ -169,21 +180,21 @@ export default function ElementaryPage() {
 
                 {/* Stats — clean number-first cards, no icons */}
                 <div className="grid grid-cols-2 gap-3 mb-8">
-                  <div className="bg-gradient-to-br from-primaria/10 to-primaria/5 rounded-2xl p-5 border border-primaria/20">
+                  <div className="bg-gradient-to-br from-primaria/18 to-primaria/8 rounded-2xl p-5 border border-primaria/25">
                     <span className="block text-3xl font-bold text-charcoal tracking-tight">100%</span>
-                    <span className="text-sm text-charcoal/50 font-medium">{e.statBilingual}</span>
+                    <span className="text-sm text-charcoal/60 font-medium">{e.statBilingual}</span>
                   </div>
-                  <div className="bg-gradient-to-br from-mustard/10 to-mustard/5 rounded-2xl p-5 border border-mustard/20">
+                  <div className="bg-gradient-to-br from-mustard/18 to-mustard/8 rounded-2xl p-5 border border-mustard/25">
                     <span className="block text-3xl font-bold text-charcoal tracking-tight">5</span>
-                    <span className="text-sm text-charcoal/50 font-medium">{e.statCampuses}</span>
+                    <span className="text-sm text-charcoal/60 font-medium">{e.statCampuses}</span>
                   </div>
-                  <div className="bg-gradient-to-br from-wine/10 to-wine/5 rounded-2xl p-5 border border-wine/20">
+                  <div className="bg-gradient-to-br from-wine/15 to-wine/8 rounded-2xl p-5 border border-wine/25">
                     <span className="block text-3xl font-bold text-charcoal tracking-tight">{e.schedule}</span>
-                    <span className="text-sm text-charcoal/50 font-medium">{e.statSchedule}</span>
+                    <span className="text-sm text-charcoal/60 font-medium">{e.statSchedule}</span>
                   </div>
-                  <div className="bg-gradient-to-br from-charcoal/5 to-warmgray/10 rounded-2xl p-5 border border-charcoal/10">
+                  <div className="bg-gradient-to-br from-charcoal/8 to-warmgray/15 rounded-2xl p-5 border border-charcoal/15">
                     <span className="block text-3xl font-bold text-charcoal tracking-tight">0</span>
-                    <span className="text-sm text-charcoal/50 font-medium">{e.statNoHomework}</span>
+                    <span className="text-sm text-charcoal/60 font-medium">{e.statNoHomework}</span>
                   </div>
                 </div>
               </motion.div>
@@ -194,7 +205,7 @@ export default function ElementaryPage() {
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
                 viewport={{ once: true }}
-                className="bg-gradient-to-br from-primaria/10 via-warmgray/30 to-sand rounded-3xl p-8 md:p-10 relative overflow-hidden"
+                className="bg-gradient-to-br from-primaria/15 via-warmgray/35 to-sand rounded-3xl p-8 md:p-10 relative overflow-hidden"
               >
                 <div className="absolute top-2 left-6 text-primaria/20 text-8xl font-display leading-none select-none">
                   &ldquo;
@@ -211,21 +222,21 @@ export default function ElementaryPage() {
         {/* ════════════════════════════════════════════════
             SECTION 3 — THE NWL MODEL (3 Pillars)
         ════════════════════════════════════════════════ */}
-        <section className="section-padding bg-white animate-section">
+        <section className="py-12 md:py-18 bg-gradient-to-b from-warmgray/15 to-sand/80 animate-section">
           <div className="container-custom">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
-              className="text-center mb-14"
+              className="text-center mb-12"
             >
               <div className="wine-divider mx-auto mb-4" />
               <h2 className="font-display text-4xl md:text-5xl font-bold text-charcoal mb-4">
                 {ep.pillarsTitle}{' '}
                 <span className="text-primaria">{ep.pillarsTitleAccent}</span>
               </h2>
-              <p className="text-lg text-charcoal/60 max-w-2xl mx-auto">
+              <p className="text-lg text-charcoal/70 max-w-2xl mx-auto">
                 {ep.pillarsSubtitle}
               </p>
             </motion.div>
@@ -248,7 +259,7 @@ export default function ElementaryPage() {
                     </div>
                     <h3 className="font-display text-xl font-bold text-charcoal mb-1">{pillar.title}</h3>
                     <p className={`text-sm font-semibold ${c.accent} mb-3`}>{pillar.subtitle}</p>
-                    <p className="text-charcoal/60 leading-relaxed text-[15px]">{pillar.description}</p>
+                    <p className="text-charcoal/65 leading-relaxed text-[15px]">{pillar.description}</p>
                   </motion.div>
                 );
               })}
@@ -259,7 +270,7 @@ export default function ElementaryPage() {
         {/* ════════════════════════════════════════════════
             SECTION 4 — KNOTION / IMPACT MODEL
         ════════════════════════════════════════════════ */}
-        <section className="section-padding bg-gradient-to-b from-sand via-white to-sand animate-section overflow-hidden relative">
+        <section className="py-12 md:py-18 bg-gradient-to-b from-sand via-warmgray/10 to-sand animate-section overflow-hidden relative">
           <GridAnimation />
           <div className="container-custom relative z-10">
             {/* Header */}
@@ -277,7 +288,7 @@ export default function ElementaryPage() {
                   {ep.knotionTitleAccent}
                 </span>
               </h2>
-              <p className="text-lg text-charcoal/60 max-w-xl mx-auto">
+              <p className="text-lg text-charcoal/70 max-w-xl mx-auto">
                 {ep.knotionSubtitle}
               </p>
             </motion.div>
@@ -293,7 +304,7 @@ export default function ElementaryPage() {
                 className="lg:col-span-3 relative aspect-[4/3] rounded-2xl overflow-hidden shadow-lg bg-sand"
               >
                 <Image
-                  src="/images/levels/primaria.jpg"
+                  src="/images/levels/primaria/NWL-Zibata-preescolar-ninos-compartiendo-tablet.jpg"
                   alt="Knotion learning in action"
                   fill
                   className="object-cover"
@@ -360,11 +371,13 @@ export default function ElementaryPage() {
         {/* ════════════════════════════════════════════════
             SECTION 5 — TECNIKIDS STEAM SPOTLIGHT
         ════════════════════════════════════════════════ */}
-        <section className="section-padding bg-gradient-to-b from-warmgray/20 via-white to-sand animate-section overflow-hidden relative">
+        <section className="py-12 md:py-18 bg-gradient-to-b from-warmgray/25 via-sand/60 to-sand animate-section overflow-hidden relative">
           {/* Geometric background */}
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            <div className="absolute top-20 right-[10%] w-64 h-64 border border-primaria/10 rounded-lg rotate-12" />
-            <div className="absolute bottom-20 left-[5%] w-48 h-48 border border-charcoal/5 rounded-lg -rotate-6" />
+            <div className="absolute top-20 right-[10%] w-64 h-64 border-2 border-primaria/25 rounded-lg rotate-12" />
+            <div className="absolute bottom-20 left-[5%] w-48 h-48 border-2 border-charcoal/12 rounded-lg -rotate-6" />
+            <div className="absolute top-[60%] left-[15%] w-32 h-32 border border-mustard/20 rounded-full" />
+            <div className="absolute top-10 left-[30%] w-20 h-20 border border-wine/15 rounded-lg rotate-45" />
           </div>
 
           <div className="container-custom relative z-10">
@@ -382,7 +395,7 @@ export default function ElementaryPage() {
                   {ep.steamTitleAccent}
                 </span>
               </h2>
-              <p className="text-lg text-charcoal/60 max-w-2xl mx-auto">
+              <p className="text-lg text-charcoal/70 max-w-2xl mx-auto">
                 {ep.steamSubtitle}
               </p>
             </motion.div>
@@ -456,13 +469,13 @@ export default function ElementaryPage() {
                     transition={{ duration: 0.4, delay: i * 0.1 }}
                     viewport={{ once: true }}
                     whileHover={{ y: -4, transition: { duration: 0.2 } }}
-                    className="bg-white rounded-xl p-5 border border-charcoal/8 shadow-sm hover:shadow-md hover:border-primaria/30 transition-all duration-300"
+                    className="bg-white rounded-xl p-5 border border-charcoal/12 shadow-sm hover:shadow-md hover:border-primaria/35 transition-all duration-300"
                   >
                     <div className="w-8 h-8 rounded-lg bg-primaria/15 flex items-center justify-center mb-3">
                       <span className="text-sm font-bold text-primaria">{String(i + 1).padStart(2, '0')}</span>
                     </div>
                     <h3 className="font-bold text-charcoal text-sm mb-1.5">{feature.title}</h3>
-                    <p className="text-charcoal/55 text-xs leading-relaxed">{feature.description}</p>
+                    <p className="text-charcoal/65 text-xs leading-relaxed">{feature.description}</p>
                   </motion.div>
                 ))}
               </div>
@@ -473,14 +486,14 @@ export default function ElementaryPage() {
         {/* ════════════════════════════════════════════════
             SECTION 6 — WHAT SETS US APART
         ════════════════════════════════════════════════ */}
-        <section className="section-padding bg-white animate-section">
+        <section className="py-12 md:py-18 bg-gradient-to-b from-sand/60 to-warmgray/20 animate-section">
           <div className="container-custom">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
               viewport={{ once: true }}
-              className="text-center mb-14"
+              className="text-center mb-12"
             >
               <div className="wine-divider mx-auto mb-4" />
               <h2 className="font-display text-3xl md:text-5xl font-bold text-charcoal">
@@ -490,7 +503,8 @@ export default function ElementaryPage() {
 
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
               {ep.differentiators.map((item, i) => {
-                const c = diffColors[i];
+                const c = diffItems[i];
+                const Icon = c.icon;
                 return (
                   <motion.div
                     key={i}
@@ -501,9 +515,11 @@ export default function ElementaryPage() {
                     whileHover={{ y: -4, transition: { duration: 0.2 } }}
                     className={`bg-white rounded-xl p-6 shadow-sm hover:shadow-lg transition-shadow border ${c.border}`}
                   >
-                    <div className={`w-2.5 h-2.5 rounded-full ${c.dot} mb-4`} />
+                    <div className={`w-8 h-8 rounded-lg ${c.bg} flex items-center justify-center mb-4`}>
+                      <Icon size={16} className={c.accent} />
+                    </div>
                     <h3 className="font-bold text-charcoal mb-2">{item.title}</h3>
-                    <p className="text-charcoal/55 text-sm leading-relaxed">{item.description}</p>
+                    <p className="text-charcoal/65 text-sm leading-relaxed">{item.description}</p>
                   </motion.div>
                 );
               })}
@@ -514,11 +530,13 @@ export default function ElementaryPage() {
         {/* ════════════════════════════════════════════════
             SECTION 7 — BEYOND THE CLASSROOM (Activities)
         ════════════════════════════════════════════════ */}
-        <section className="section-padding bg-gradient-to-b from-sand via-white to-warmgray/20 animate-section overflow-hidden relative">
+        <section className="py-12 md:py-18 bg-gradient-to-b from-warmgray/20 via-sand/70 to-warmgray/25 animate-section overflow-hidden relative">
           {/* Subtle decorative circles */}
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            <div className="absolute -top-10 -right-10 w-40 h-40 rounded-full border border-primaria/8" />
-            <div className="absolute bottom-20 -left-8 w-28 h-28 rounded-full border border-mustard/10" />
+            <div className="absolute -top-10 -right-10 w-40 h-40 rounded-full border-2 border-primaria/20" />
+            <div className="absolute bottom-20 -left-8 w-28 h-28 rounded-full border-2 border-mustard/25" />
+            <div className="absolute top-[40%] right-[8%] w-24 h-24 rounded-full border border-wine/15" />
+            <div className="absolute top-16 left-[20%] w-16 h-16 rounded-lg border border-primaria/15 rotate-12" />
           </div>
 
           <div className="container-custom relative z-10">
@@ -534,7 +552,7 @@ export default function ElementaryPage() {
                 {ep.activitiesTitle}{' '}
                 <span className="text-primaria">{ep.activitiesTitleAccent}</span>
               </h2>
-              <p className="text-lg text-charcoal/60 max-w-2xl mx-auto">
+              <p className="text-lg text-charcoal/70 max-w-2xl mx-auto">
                 {ep.activitiesSubtitle}
               </p>
             </motion.div>
@@ -554,14 +572,14 @@ export default function ElementaryPage() {
                     GiRun,
                   ];
                   const cardStyles = [
-                    { bg: 'bg-gradient-to-br from-primaria/20 to-primaria/8', text: 'text-charcoal', icon: 'text-primaria' },
-                    { bg: 'bg-gradient-to-br from-mustard/18 to-mustard/6', text: 'text-charcoal', icon: 'text-mustard' },
-                    { bg: 'bg-gradient-to-br from-wine/12 to-wine/5', text: 'text-charcoal', icon: 'text-wine' },
-                    { bg: 'bg-gradient-to-br from-primaria/15 to-mustard/8', text: 'text-charcoal', icon: 'text-primaria' },
-                    { bg: 'bg-gradient-to-br from-mustard/15 to-primaria/5', text: 'text-charcoal', icon: 'text-mustard' },
-                    { bg: 'bg-gradient-to-br from-charcoal/8 to-charcoal/3', text: 'text-charcoal', icon: 'text-charcoal/40' },
-                    { bg: 'bg-gradient-to-br from-wine/10 to-mustard/5', text: 'text-charcoal', icon: 'text-wine/70' },
-                    { bg: 'bg-gradient-to-br from-primaria/25 to-primaria/10', text: 'text-charcoal', icon: 'text-primaria' },
+                    { bg: 'bg-gradient-to-br from-primaria/30 to-primaria/12', text: 'text-charcoal', icon: 'text-primaria' },
+                    { bg: 'bg-gradient-to-br from-mustard/28 to-mustard/10', text: 'text-charcoal', icon: 'text-mustard' },
+                    { bg: 'bg-gradient-to-br from-wine/18 to-wine/8', text: 'text-charcoal', icon: 'text-wine' },
+                    { bg: 'bg-gradient-to-br from-primaria/22 to-mustard/12', text: 'text-charcoal', icon: 'text-primaria' },
+                    { bg: 'bg-gradient-to-br from-mustard/22 to-primaria/10', text: 'text-charcoal', icon: 'text-mustard' },
+                    { bg: 'bg-gradient-to-br from-charcoal/12 to-charcoal/5', text: 'text-charcoal', icon: 'text-charcoal/50' },
+                    { bg: 'bg-gradient-to-br from-wine/15 to-mustard/8', text: 'text-charcoal', icon: 'text-wine/80' },
+                    { bg: 'bg-gradient-to-br from-primaria/35 to-primaria/15', text: 'text-charcoal', icon: 'text-primaria' },
                   ];
                   const rotations = [-1.5, 1, -0.5, 1.5, 0.8, -1, 0.5, -0.8];
                   const s = cardStyles[i % cardStyles.length];
@@ -575,7 +593,7 @@ export default function ElementaryPage() {
                       viewport={{ once: true }}
                       className={`${s.bg} rounded-2xl p-5 md:p-6 text-center select-none`}
                     >
-                      <Icon className={`${s.icon} mx-auto mb-3 opacity-50`} size={28} />
+                      <Icon className={`${s.icon} mx-auto mb-3 opacity-60`} size={28} />
                       <p className={`font-bold text-sm md:text-base ${s.text} tracking-wide`}>
                         {activity}
                       </p>
@@ -593,7 +611,7 @@ export default function ElementaryPage() {
         </section>
 
         {/* ════════════════════════════════════════════════
-            SECTION 8 — PHOTO GALLERY (Placeholder)
+            SECTION 8 — PHOTO GALLERY
         ════════════════════════════════════════════════ */}
         <section className="py-10 md:py-14 bg-gradient-to-b from-warmgray/20 to-sand relative overflow-hidden animate-section">
           <div className="container-custom relative z-10">
@@ -616,13 +634,65 @@ export default function ElementaryPage() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
               viewport={{ once: true }}
-              className="max-w-3xl mx-auto"
+              className="max-w-5xl mx-auto"
             >
-              <div className="aspect-[16/9] rounded-lg bg-gradient-to-br from-sand via-warmgray/30 to-primaria/10 flex items-center justify-center border-2 border-dashed border-charcoal/15">
-                <div className="text-center px-8">
-                  <FiCamera size={48} className="text-charcoal/20 mx-auto mb-4" />
-                  <p className="text-charcoal/50 text-lg font-medium">{ep.galleryComingSoon}</p>
-                </div>
+              {/* Main Image */}
+              <div className="relative aspect-[16/9] rounded-lg overflow-hidden shadow-xl mb-4 bg-sand">
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={activeGallery}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.3 }}
+                    className="absolute inset-0"
+                  >
+                    <Image
+                      src={elementaryGalleryImages[activeGallery].src}
+                      alt={elementaryGalleryImages[activeGallery].alt}
+                      fill
+                      className="object-cover"
+                    />
+                  </motion.div>
+                </AnimatePresence>
+
+                {/* Nav Arrows */}
+                <button
+                  onClick={() => setActiveGallery((i) => (i - 1 + elementaryGalleryImages.length) % elementaryGalleryImages.length)}
+                  className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/80 backdrop-blur-sm flex items-center justify-center hover:bg-white transition-colors z-10"
+                  aria-label="Previous"
+                >
+                  <FiChevronLeft size={20} className="text-charcoal" />
+                </button>
+                <button
+                  onClick={() => setActiveGallery((i) => (i + 1) % elementaryGalleryImages.length)}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/80 backdrop-blur-sm flex items-center justify-center hover:bg-white transition-colors z-10"
+                  aria-label="Next"
+                >
+                  <FiChevronRight size={20} className="text-charcoal" />
+                </button>
+              </div>
+
+              {/* Thumbnails */}
+              <div className="flex gap-2 overflow-x-auto pb-1">
+                {elementaryGalleryImages.map((img, i) => (
+                  <button
+                    key={i}
+                    onClick={() => setActiveGallery(i)}
+                    className={`relative flex-shrink-0 w-20 h-14 md:w-24 md:h-16 rounded-md overflow-hidden transition-all duration-200 ${
+                      i === activeGallery
+                        ? 'ring-2 ring-wine opacity-100 scale-105'
+                        : 'opacity-50 hover:opacity-80'
+                    }`}
+                  >
+                    <Image
+                      src={img.src}
+                      alt={img.alt}
+                      fill
+                      className="object-cover"
+                    />
+                  </button>
+                ))}
               </div>
             </motion.div>
           </div>

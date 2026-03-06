@@ -259,14 +259,14 @@ export const campuses: Record<string, CampusData> = {
     address: 'Cerrada Panorámica, Distrito Piamonte, Querétaro',
     mapUrl: 'https://maps.google.com/?q=Colegio+Newland+Milenio',
     galleryImages: [
-      { src: '/images/campus/milenio/milenio-hero.jpg', caption: { en: 'Welcome to Campus Milenio', es: 'Bienvenidos a Campus Milenio' } },
+      { src: '/images/campus/milenio/milenio-aerial-view.jpg', caption: { en: 'Aerial View', es: 'Vista Aérea' } },
       { src: '/images/campus/milenio/milenio-sports.jpg', caption: { en: 'Sports & Active Play', es: 'Deporte y Juego Activo' } },
       { src: '/images/campus/milenio/milenio-playground.jpg', caption: { en: 'Play, Explore & Grow', es: 'Jugar, Explorar y Crecer' } },
       { src: '/images/campus/milenio/milenio-cafeteria.jpg', caption: { en: 'Our Cafetorium', es: 'Nuestro Cafetorium' } },
       { src: '/images/campus/milenio/milenio-soccer-field.jpg', caption: { en: 'Soccer Field', es: 'Cancha de Fútbol' } },
+      { src: '/images/campus/milenio/milenio-welcome.jpg', caption: { en: 'Welcome to Campus Milenio', es: 'Bienvenidos a Campus Milenio' } },
       { src: '/images/campus/milenio/milenio-covered-court.jpg', caption: { en: 'Covered Multi-Sport Court', es: 'Cancha Multiusos Techada' } },
       { src: '/images/campus/milenio/milenio-nurse-office.jpg', caption: { en: 'Nurse\'s Office', es: 'Enfermería' } },
-      { src: '/images/campus/milenio/milenio-aerial-view.jpg', caption: { en: 'Aerial View', es: 'Vista Aérea' } },
       { src: '/images/campus/milenio/milenio-exterior-wide.png', caption: { en: 'Campus Exterior', es: 'Exterior del Campus' } },
     ],
     testimonials: [

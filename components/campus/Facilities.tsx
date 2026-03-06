@@ -36,7 +36,7 @@ export default function Facilities({ facilities }: FacilitiesProps) {
 
         {/* Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {facilities.map((facility, i) => (
+          {facilities.filter((f) => f.image).map((facility, i) => (
             <motion.div
               key={i}
               initial={{ opacity: 0, y: 30 }}

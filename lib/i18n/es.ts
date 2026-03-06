@@ -555,7 +555,7 @@ export const es: Dictionary = {
     directorTitle: 'Mensaje de',
     directorTitleAccent: 'Nuestro Director',
     ctaTitle: '¿Listo para Visitar',
-    ctaTitleAccent: 'Zibatá?',
+    ctaTitleAccent: 'Nuestro Campus?',
     ctaSubtitle: 'Conoce nuestro campus y vive la experiencia NWL de primera mano.',
     ctaScheduleVisit: 'Agenda tu Visita',
     ctaWhatsapp: 'Escríbenos por WhatsApp',

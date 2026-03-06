@@ -554,7 +554,7 @@ export const en: Dictionary = {
     directorTitle: 'A Message from',
     directorTitleAccent: 'Our Director',
     ctaTitle: 'Ready to Visit',
-    ctaTitleAccent: 'Zibatá?',
+    ctaTitleAccent: 'Our Campus?',
     ctaSubtitle: 'Schedule a personalized tour and discover why NWL is the right choice for your family.',
     ctaScheduleVisit: 'Schedule a Visit',
     ctaWhatsapp: 'Chat on WhatsApp',
