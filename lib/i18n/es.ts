@@ -11,7 +11,7 @@ export const es: Dictionary = {
         children: [
           { name: 'Maternal', href: '/maternal' },
           { name: 'Kinder', href: '/kinder' },
-          { name: 'Primaria', href: '/primaria' },
+          { name: 'Primaria', href: '/elementary' },
           { name: 'Secundaria', href: '/secundaria' },
           { name: 'Preparatoria', href: '/preparatoria' },
         ],
@@ -135,7 +135,7 @@ export const es: Dictionary = {
         ageRange: '6-11 años',
         description: 'Formación académica sólida y desarrollo del pensamiento crítico.',
         campuses: ['Los 5 Campus'],
-        href: '/primaria',
+        href: '/elementary',
       },
       {
         name: 'Secundaria',
@@ -430,6 +430,122 @@ export const es: Dictionary = {
       { time: '12:45', activity: 'Actividades de liderazgo y colaboración', icon: 'users' },
       { time: '1:30', activity: 'Círculo de reflexión y salida', icon: 'star' },
     ],
+  },
+  elementary: {
+    ageBadge: '6–11 años',
+    tagline: 'Construyendo el Futuro, Proyecto a Proyecto',
+    description:
+      'En Primaria, los alumnos se adueñan de su aprendizaje a través del modelo IMPACT, laboratorios STEAM maker y un programa de filosofía que les enseña cómo pensar — no qué pensar. Inmersión en inglés en todas las materias. Sin tarea tradicional.',
+    statBilingual: 'Inmersión en Inglés',
+    statCampuses: 'Campus',
+    statNoHomework: 'Sin Tarea',
+    schedule: '7:40–2:30',
+    statSchedule: 'Horario',
+    testimonial:
+      'Antes no quería ir a la escuela. Ahora me cuenta de sus proyectos en la cena. Algo cambió, y estoy agradecida.',
+    testimonialAuthor: 'Papá NWL, Primaria',
+    cta: 'Agenda tu Visita',
+    ctaSecondary: 'Descargar Folleto',
+  },
+  elementaryPage: {
+    heroHeadline: 'Construyendo el Futuro, Proyecto a Proyecto',
+    heroSubheadline:
+      'Pensadores de diseño que resuelven retos reales, lideran con propósito y viven el inglés cada día. Laboratorios maker, sin tarea y certificación internacional.',
+    backToHome: 'Volver al Inicio',
+    overviewTitle: 'Descubre',
+    overviewTitleAccent: 'Primaria NWL',
+    pillarsTitle: 'El Modelo',
+    pillarsTitleAccent: 'NWL',
+    pillarsSubtitle: 'Tres pilares que definen cómo desarrollamos pensadores críticos y líderes.',
+    pillars: [
+      {
+        title: 'Knotion / Modelo IMPACT',
+        subtitle: 'Design Thinking en Acción',
+        description:
+          'Retos del mundo real a través de la metodología IMPACT. Los alumnos investigan, crean y presentan soluciones con impacto social. Sin tarea tradicional.',
+      },
+      {
+        title: 'Filosofía para Niños',
+        subtitle: 'FpN + Diploma para Padres',
+        description:
+          'Enseñamos cómo pensar, no qué pensar. Diálogo filosófico que construye razonamiento crítico, argumentación y empatía. Incluye Diploma para Padres.',
+      },
+      {
+        title: 'Yo Soy Líder NWL',
+        subtitle: 'by Tec de Monterrey',
+        description:
+          'Habilidades blandas, trabajo en equipo, inteligencia emocional y liderazgo. Programa avalado por el Tec de Monterrey, exclusivo de NWL.',
+      },
+    ],
+    knotionTitle: 'Potenciado por',
+    knotionTitleAccent: 'Knotion',
+    knotionSubtitle: 'Un ecosistema de aprendizaje internacional que reemplaza la memorización con la resolución de problemas reales.',
+    knotionPhases: [
+      { name: 'Identifico', title: 'Conectar con el reto' },
+      { name: 'Mapeo', title: 'Investigar y comprender' },
+      { name: 'Prototipo', title: 'Diseñar una solución' },
+      { name: 'Actúo', title: 'Implementar y compartir' },
+    ],
+    steamTitle: 'TecniKids',
+    steamTitleAccent: 'Laboratorio STEAM',
+    steamSubtitle: 'Donde las ideas se hacen realidad. Nuestros espacios maker ponen herramientas profesionales en manos de jóvenes innovadores.',
+    steamFeatures: [
+      {
+        title: 'Impresión 3D',
+        description: 'Los alumnos diseñan y fabrican prototipos, llevando ideas de la pantalla a la realidad.',
+      },
+      {
+        title: 'Corte Láser',
+        description: 'Fabricación de precisión que enseña principios de ingeniería a través de la creación práctica.',
+      },
+      {
+        title: 'Robótica',
+        description: 'Programar y construir robots que resuelven desafíos reales, desarrollando pensamiento computacional.',
+      },
+      {
+        title: 'Espacios Maker',
+        description: 'Talleres abiertos donde la creatividad se encuentra con herramientas, materiales y colaboración.',
+      },
+    ],
+    differentiatorsSectionTitle: 'Lo Que Nos Distingue',
+    differentiators: [
+      {
+        title: 'Viajes Internacionales',
+        description: 'Desde 5to grado, los alumnos viven aprendizaje global a través de viajes educativos al extranjero.',
+      },
+      {
+        title: 'Corazones Mágicos',
+        description: 'Programa certificado de prevención que construye resiliencia emocional y cultura escolar segura.',
+      },
+      {
+        title: 'Certificación Cognia',
+        description: 'Certificación internacional de calidad presente en más de 88 países, validando nuestros estándares.',
+      },
+      {
+        title: 'Escuela Libre de Bullying',
+        description: 'Ambiente certificado libre de bullying con protocolos claros y cultura de respeto.',
+      },
+    ],
+    activitiesTitle: 'Más Allá del',
+    activitiesTitleAccent: 'Aula',
+    activitiesSubtitle: 'Liderazgo, disciplina y trabajo en equipo a través del deporte, el arte y la expresión creativa.',
+    activities: [
+      'Fútbol',
+      'Básquetbol',
+      'Taekwondo',
+      'Dance Team',
+      'Arte',
+      'Música',
+      'Teatro',
+      'Gladiators Race',
+    ],
+    activitiesFeatureTitle: 'Gladiators Race · Reto NWL',
+    activitiesFeatureDescription:
+      'Un reto de circuito de obstáculos que fortalece la confianza, disciplina y resiliencia física. Los alumnos superan sus límites en equipo.',
+    activitiesNote: 'Las actividades varían por campus — pregunta por la oferta en tu sede preferida.',
+    galleryTitle: 'La Vida en',
+    galleryTitleAccent: 'Primaria',
+    galleryComingSoon: 'Galería próximamente. Visita un campus para conocer nuestros espacios.',
   },
   campusDetail: {
     facilitiesTitle: 'Nuestras',

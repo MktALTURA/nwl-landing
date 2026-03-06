@@ -430,6 +430,122 @@ export const en: Dictionary = {
       { time: '1:30', activity: 'Reflection circle & dismissal', icon: 'star' },
     ],
   },
+  elementary: {
+    ageBadge: 'Ages 6–11',
+    tagline: 'Building the Future, One Project at a Time',
+    description:
+      'In Elementary, students take ownership of their learning through the IMPACT model, STEAM maker labs, and a philosophy program that teaches them how to think — not what to think. English immersion across all subjects. No traditional homework.',
+    statBilingual: 'English Immersion',
+    statCampuses: 'Campuses',
+    statNoHomework: 'No Homework',
+    schedule: '7:40–2:30',
+    statSchedule: 'Schedule',
+    testimonial:
+      'She used to hate going to school. Now she tells me about her projects at dinner. Something changed, and I\'m grateful.',
+    testimonialAuthor: 'NWL Parent, Elementary',
+    cta: 'Schedule a Visit',
+    ctaSecondary: 'Download Brochure',
+  },
+  elementaryPage: {
+    heroHeadline: 'Building the Future, One Project at a Time',
+    heroSubheadline:
+      'Design thinkers who solve real challenges, lead with purpose, and live English every day. Maker labs, no homework, and international certification.',
+    backToHome: 'Back to Home',
+    overviewTitle: 'Discover',
+    overviewTitleAccent: 'Elementary NWL',
+    pillarsTitle: 'The NWL',
+    pillarsTitleAccent: 'Model',
+    pillarsSubtitle: 'Three pillars that define how we develop critical thinkers and leaders.',
+    pillars: [
+      {
+        title: 'Knotion / IMPACT Model',
+        subtitle: 'Design Thinking in Action',
+        description:
+          'Real-world challenges through the IMPACT methodology. Students investigate, create, and present solutions with social impact. No traditional homework.',
+      },
+      {
+        title: 'Philosophy for Children',
+        subtitle: 'P4C + Parent Diploma',
+        description:
+          'We teach how to think, not what to think. Philosophical dialogue that builds critical reasoning, argumentation, and empathy. Includes a Parent Diploma.',
+      },
+      {
+        title: "I'm NWL Leader",
+        subtitle: 'by Tec de Monterrey',
+        description:
+          'Soft skills, teamwork, emotional intelligence, and leadership. A program endorsed by Tec de Monterrey, exclusive to NWL.',
+      },
+    ],
+    knotionTitle: 'Powered by',
+    knotionTitleAccent: 'Knotion',
+    knotionSubtitle: 'An international learning ecosystem that replaces memorization with real-world problem solving.',
+    knotionPhases: [
+      { name: 'Identify', title: 'Connect with the challenge' },
+      { name: 'Map', title: 'Research and understand' },
+      { name: 'Prototype', title: 'Design a solution' },
+      { name: 'Act', title: 'Implement and share' },
+    ],
+    steamTitle: 'TecniKids',
+    steamTitleAccent: 'STEAM Lab',
+    steamSubtitle: 'Where ideas become real. Our maker spaces put professional tools in the hands of young innovators.',
+    steamFeatures: [
+      {
+        title: '3D Printing',
+        description: 'Students design and fabricate prototypes, bringing ideas from screen to reality.',
+      },
+      {
+        title: 'Laser Cutting',
+        description: 'Precision fabrication that teaches engineering principles through hands-on creation.',
+      },
+      {
+        title: 'Robotics',
+        description: 'Programming and building robots that solve real challenges and develop computational thinking.',
+      },
+      {
+        title: 'Maker Spaces',
+        description: 'Open workshops where creativity meets tools, materials, and collaboration.',
+      },
+    ],
+    differentiatorsSectionTitle: 'What Sets Us Apart',
+    differentiators: [
+      {
+        title: 'International Trips',
+        description: 'From 5th grade, students experience global learning through educational travel abroad.',
+      },
+      {
+        title: 'Corazones Mágicos',
+        description: 'Certified prevention program that builds emotional resilience and a safe school culture.',
+      },
+      {
+        title: 'Cognia Certified',
+        description: 'International quality certification present in 88+ countries, validating our standards.',
+      },
+      {
+        title: 'Bullying-Free School',
+        description: 'Certified bullying-free environment with clear protocols and a culture of respect.',
+      },
+    ],
+    activitiesTitle: 'Beyond the',
+    activitiesTitleAccent: 'Classroom',
+    activitiesSubtitle: 'Leadership, discipline, and teamwork through sports, arts, and creative expression.',
+    activities: [
+      'Soccer',
+      'Basketball',
+      'Taekwondo',
+      'Dance Team',
+      'Art',
+      'Music',
+      'Theater',
+      'Gladiators Race',
+    ],
+    activitiesFeatureTitle: 'Gladiators Race · Reto NWL',
+    activitiesFeatureDescription:
+      'An obstacle course challenge that builds confidence, discipline, and physical resilience. Students push their limits as a team.',
+    activitiesNote: 'Activities vary by campus — ask about offerings at your preferred location.',
+    galleryTitle: 'Life in',
+    galleryTitleAccent: 'Elementary',
+    galleryComingSoon: 'Gallery coming soon. Visit a campus to see our spaces firsthand.',
+  },
   campusDetail: {
     facilitiesTitle: 'Our',
     facilitiesTitleAccent: 'Facilities',

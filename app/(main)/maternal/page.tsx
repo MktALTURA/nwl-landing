@@ -24,6 +24,7 @@ import {
   FiChevronRight,
 } from 'react-icons/fi';
 import { useLanguage } from '@/lib/i18n/LanguageContext';
+import { useBrochure } from '@/lib/BrochureContext';
 import FinalCTA from '@/components/FinalCTA';
 import Footer from '@/components/Footer';
 import BubbleAnimation from '@/components/BubbleAnimation';
@@ -86,6 +87,7 @@ export default function MaternalPage() {
   const mainRef = useRef<HTMLElement>(null);
   const [activeGallery, setActiveGallery] = useState(0);
   const { locale, t } = useLanguage();
+  const { openBrochure } = useBrochure();
   const m = t.maternal;
   const mp = t.maternalPage;
 
@@ -178,9 +180,9 @@ export default function MaternalPage() {
                 <a href="#admissions" className="bg-wine text-white px-8 py-3.5 rounded-sm font-medium hover:bg-wine/90 transition-colors border border-wine">
                   {m.cta}
                 </a>
-                <a href="#" className="bg-white/10 backdrop-blur-sm text-white px-8 py-3.5 rounded-sm font-medium hover:bg-white/20 transition-colors border border-white/25">
+                <button onClick={() => openBrochure('maternal-kinder')} className="bg-white/10 backdrop-blur-sm text-white px-8 py-3.5 rounded-sm font-medium hover:bg-white/20 transition-colors border border-white/25">
                   {m.ctaSecondary}
-                </a>
+                </button>
               </div>
             </motion.div>
           </div>

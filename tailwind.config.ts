@@ -30,6 +30,9 @@ const config: Config = {
         lime: "#A8E6CF",
         blueberry: "#6C5CE7",
         
+        // Level Accents
+        primaria: "#d0d689",
+
         // Neutrals
         sand: "#F5F1E8",
         warmgray: "#E8E4DF",
