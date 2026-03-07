@@ -547,6 +547,158 @@ export const es: Dictionary = {
     galleryTitleAccent: 'Primaria',
     galleryComingSoon: 'Galería próximamente. Visita un campus para conocer nuestros espacios.',
   },
+  middleSchool: {
+    ageBadge: '12–15 años',
+    tagline: 'De las Ideas al Impacto Real',
+    description:
+      'Las mentes jóvenes se convierten en líderes audaces. Las ideas se transforman en impacto a través del Emprendizaje y la doble certificación de EE. UU. y México. La preparación global comienza aquí.',
+    statBilingual: 'Inmersión en Inglés',
+    statCampuses: 'Campus',
+    statCertifications: 'Certificaciones Internacionales',
+    schedule: '7:30–2:30',
+    statSchedule: 'Horario',
+    testimonial:
+      'Mi hijo es más bien callado por naturaleza, pero últimamente se está expresando más. Su profesor se dio cuenta antes que yo. Ese tipo de atención es importante para mí.',
+    testimonialAuthor: 'Padre de NWL, secundaria',
+    cta: 'Agenda una Visita',
+    ctaSecondary: 'Descargar Brochure',
+  },
+  middleSchoolPage: {
+    heroHeadline: 'De las Ideas al Impacto Real',
+    heroSubheadline:
+      'Donde jóvenes emprendedores construyen su futuro con certificación internacional.',
+    backToHome: 'Volver al Inicio',
+    // Transformación
+    transformationTitle: 'La Transformación de',
+    transformationTitleAccent: 'Secundaria',
+    transformationBefore: 'Llegan como...',
+    transformationBeforeItems: [
+      'Estudiantes que siguen instrucciones',
+      'Aprendices que absorben información',
+      'Jóvenes encontrando su voz',
+    ],
+    transformationAfter: 'Se van como...',
+    transformationAfterItems: [
+      'Líderes que toman iniciativa',
+      'Pensadores que resuelven problemas reales',
+      'Jóvenes adultos listos para el mundo',
+    ],
+    // Pilares
+    pillarsTitle: 'El Modelo',
+    pillarsTitleAccent: 'NWL',
+    pillarsSubtitle:
+      'Tres pilares que desarrollan pensadores críticos, líderes empáticos y solucionadores de problemas reales.',
+    pillars: [
+      {
+        title: 'Knotion',
+        subtitle: 'Metodología Internacional',
+        description:
+          'Tu hijo adolescente NO memoriza, resuelve problemas reales con impacto social. Sin tarea convencional. Resolución de problemas para lograr un impacto real.',
+      },
+      {
+        title: 'Filosofía para Niños (FpN)',
+        subtitle: 'Formando Sus Propios Criterios',
+        description:
+          'Pensamiento crítico adolescente: formar un juicio personal, no seguir tendencias. Incluye el Diplomado para Padres de Filosofía P4C.',
+      },
+      {
+        title: 'Soy Líder NWL',
+        subtitle: 'Programa Único en México, Exclusivo de NWL',
+        description:
+          'Liderazgo, inteligencia emocional y habilidades sociales para el siglo XXI. Avalado por el Tec de Monterrey.',
+      },
+    ],
+    // Programas Exclusivos
+    exclusiveTitle: 'Programas',
+    exclusiveTitleAccent: 'Exclusivos',
+    exclusiveSubtitle:
+      'Dos programas que distinguen a Secundaria NWL de cualquier otra escuela en la región.',
+    exclusivePrograms: [
+      {
+        title: 'Emprendimiento',
+        partner: 'Universidad Mondragón',
+        description:
+          'Mentalidad emprendedora desde la adolescencia. Proyectos reales con un impacto progresivo cada año.',
+        highlights: [
+          'Desarrollo temprano de la mentalidad empresarial',
+          'Proyectos reales del concepto al pitch',
+          'Jóvenes emprendedores, soluciones reales',
+        ],
+      },
+      {
+        title: 'Doble Certificación Internacional',
+        partner: 'Hokku Academy',
+        description:
+          'Título estadounidense, boleta de calificaciones EE. UU. Dominio avanzado del inglés con certificación internacional.',
+        highlights: [
+          'Currículo alineado a EE. UU. junto con estándares SEP de México',
+          'Doble diploma con reconocimiento internacional',
+          'Doble certificación, el doble de oportunidades',
+        ],
+      },
+    ],
+    exclusiveQuote: 'Certificación global para ciudadanos globales',
+    // Knotion
+    knotionTitle: 'Impulsado por',
+    knotionTitleAccent: 'Knotion',
+    knotionSubtitle:
+      'Un ecosistema de aprendizaje internacional donde la memorización da paso a la resolución de problemas del mundo real.',
+    knotionPhases: [
+      { name: 'Identificar', title: 'Conectar con el reto', description: 'Los alumnos se involucran con problemas reales que importan, desde temas comunitarios hasta sustentabilidad global, despertando curiosidad y propósito.' },
+      { name: 'Mapear', title: 'Investigar y comprender', description: 'A través de investigación colaborativa y análisis crítico, mapean el panorama del problema, reuniendo datos y perspectivas de múltiples fuentes.' },
+      { name: 'Prototipar', title: 'Diseñar una solución', description: 'Los equipos generan ideas, iteran y construyen prototipos funcionales usando metodología de design thinking y herramientas maker.' },
+      { name: 'Actuar', title: 'Implementar y compartir', description: 'Las soluciones se ponen en acción y se presentan ante audiencias reales, fortaleciendo la confianza, la comunicación y el sentido de impacto.' },
+    ],
+    // Diferenciadores
+    differentiatorsSectionTitle: 'Lo Que Nos Distingue',
+    differentiators: [
+      {
+        title: 'Experiencias Internacionales',
+        description:
+          'Viajes educativos al extranjero. El inglés forma parte de su aprendizaje diario en contextos reales, desarrollando una visión global.',
+      },
+      {
+        title: 'Certificación Cognia',
+        description:
+          'Presente en 88 países.',
+      },
+      {
+        title: 'Corazones Mágicos',
+        description:
+          'Programa que ayuda a los niños a comprender la violencia, protegerse y saber cómo reportarla.',
+      },
+      {
+        title: 'Libre de Acoso Escolar',
+        description:
+          'Escuela certificada libre de acoso escolar.',
+      },
+      {
+        title: '90+ Cámaras 24/7',
+        description:
+          'Más de 90 cámaras de seguridad las 24 horas del día, los 7 días de la semana.',
+      },
+      {
+        title: 'Atención Personalizada',
+        description:
+          'Donde cada estudiante es conocido, no contado.',
+      },
+    ],
+    // Actividades
+    activitiesTitle: 'Más Allá del',
+    activitiesTitleAccent: 'Aula',
+    activitiesSubtitle:
+      'Liderazgo, disciplina y autoexpresión a través de deportes competitivos, artes escénicas y oratoria.',
+    activities: [
+      { name: 'Deportes', description: 'Fútbol, básquetbol, voleibol y más en ligas competitivas.' },
+      { name: 'Artes', description: 'Artes visuales, diseño digital y programas de expresión creativa.' },
+      { name: 'Música', description: 'Oportunidades instrumentales, vocales y de producción musical.' },
+      { name: 'Oratoria', description: 'Debate, Modelo ONU y habilidades de presentación para comunicadores seguros.' },
+    ],
+    activitiesNote: 'Las actividades varían según el campus; consulte la oferta en su ubicación preferida.',
+    // Galería
+    galleryTitle: 'La Vida en',
+    galleryTitleAccent: 'Secundaria',
+  },
   campusDetail: {
     facilitiesTitle: 'Nuestras',
     facilitiesTitleAccent: 'Instalaciones',

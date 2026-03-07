@@ -32,6 +32,7 @@ const config: Config = {
         
         // Level Accents
         primaria: "#d0d689",
+        secundaria: "#91BAEF",
 
         // Neutrals
         sand: "#F5F1E8",

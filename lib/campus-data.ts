@@ -267,7 +267,7 @@ export const campuses: Record<string, CampusData> = {
       { src: '/images/campus/milenio/milenio-welcome.jpg', caption: { en: 'Welcome to Campus Milenio', es: 'Bienvenidos a Campus Milenio' } },
       { src: '/images/campus/milenio/milenio-covered-court.jpg', caption: { en: 'Covered Multi-Sport Court', es: 'Cancha Multiusos Techada' } },
       { src: '/images/campus/milenio/milenio-nurse-office.jpg', caption: { en: 'Nurse\'s Office', es: 'Enfermería' } },
-      { src: '/images/campus/milenio/milenio-exterior-wide.png', caption: { en: 'Campus Exterior', es: 'Exterior del Campus' } },
+      { src: '/images/campus/milenio/milenio-exterior-wide.jpg', caption: { en: 'Campus Exterior', es: 'Exterior del Campus' } },
     ],
     testimonials: [
       {

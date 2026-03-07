@@ -58,6 +58,7 @@ export default function DirectorMessage({ director }: DirectorMessageProps) {
                 src={director.image}
                 alt={director.name}
                 fill
+                sizes="(max-width: 768px) 100vw, 33vw"
                 className="object-cover"
               />
             </div>

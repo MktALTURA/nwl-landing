@@ -219,6 +219,65 @@ export interface Dictionary {
     galleryTitleAccent: string;
     galleryComingSoon: string;
   };
+  middleSchool: {
+    ageBadge: string;
+    tagline: string;
+    description: string;
+    statBilingual: string;
+    statCampuses: string;
+    statCertifications: string;
+    schedule: string;
+    statSchedule: string;
+    testimonial: string;
+    testimonialAuthor: string;
+    cta: string;
+    ctaSecondary: string;
+  };
+  middleSchoolPage: {
+    heroHeadline: string;
+    heroSubheadline: string;
+    backToHome: string;
+    // Transformation section
+    transformationTitle: string;
+    transformationTitleAccent: string;
+    transformationBefore: string;
+    transformationBeforeItems: string[];
+    transformationAfter: string;
+    transformationAfterItems: string[];
+    // Pillars
+    pillarsTitle: string;
+    pillarsTitleAccent: string;
+    pillarsSubtitle: string;
+    pillars: { title: string; subtitle: string; description: string }[];
+    // Exclusive programs
+    exclusiveTitle: string;
+    exclusiveTitleAccent: string;
+    exclusiveSubtitle: string;
+    exclusivePrograms: {
+      title: string;
+      partner: string;
+      description: string;
+      highlights: string[];
+    }[];
+    exclusiveQuote: string;
+    // Knotion
+    knotionTitle: string;
+    knotionTitleAccent: string;
+    knotionSubtitle: string;
+    knotionPhases: { name: string; title: string; description: string }[];
+    // Differentiators
+    differentiatorsSectionTitle: string;
+    differentiators: { title: string; description: string }[];
+    // Activities
+    activitiesTitle: string;
+    activitiesTitleAccent: string;
+    activitiesSubtitle: string;
+    activities: { name: string; description: string }[];
+    activitiesNote: string;
+    // Gallery
+    galleryTitle: string;
+    galleryTitleAccent: string;
+  };
   campusDetail: {
     facilitiesTitle: string;
     facilitiesTitleAccent: string;

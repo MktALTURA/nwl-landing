@@ -62,6 +62,36 @@ export default function CampusCTA({ campusName, whatsapp, phone, phoneLink }: Ca
     return cleanup;
   }, [locale, t.finalCta.formId, t.finalCta.formName, t.finalCta.formTitle, buildIframe]);
 
+  // Watch for GHL iframe resize after form submission: enforce min height + track conversion
+  useEffect(() => {
+    let submitted = false;
+    const observer = new MutationObserver(() => {
+      const container = formContainerRef.current;
+      if (!container) return;
+      const iframe = container.querySelector('iframe');
+      if (!iframe) return;
+      const h = parseInt(iframe.style.height, 10);
+      if (h > 0 && h < 500) {
+        iframe.style.height = '500px';
+        // Fire virtual pageview once for Google Ads conversion tracking
+        if (!submitted) {
+          submitted = true;
+          const original = window.location.pathname + window.location.search;
+          window.history.pushState({}, '', '/form-submitted');
+          console.log('[NWL] Form submission tracked — virtual pageview /form-submitted');
+          // Restore the real URL after a short delay so analytics captures the hit
+          setTimeout(() => window.history.replaceState({}, '', original), 2000);
+        }
+      }
+    });
+
+    const container = formContainerRef.current;
+    if (container) {
+      observer.observe(container, { subtree: true, attributes: true, attributeFilter: ['style'] });
+    }
+    return () => observer.disconnect();
+  }, [locale]);
+
   return (
     <section id="campus-admissions" className="py-12 md:py-16 bg-gradient-to-br from-wine to-wine/90 text-white relative overflow-hidden">
       {/* Background Pattern */}

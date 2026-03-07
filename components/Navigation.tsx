@@ -41,12 +41,12 @@ const academicLevelDecorations: DropdownDecoration[] = [
     hoverTextColor: 'rgb(139,35,50)',
     accentBorder: 'rgba(78,205,196,0.6)',
   },
-  // 3: Middle School — mustard/tangerine accent
+  // 3: Middle School — secundaria pale blue (#91BAEF)
   {
     hoverBg:
-      'radial-gradient(circle at 30% 50%, rgba(230,169,68,0.22) 0%, transparent 50%), radial-gradient(circle at 80% 50%, rgba(255,140,66,0.15) 0%, transparent 45%), linear-gradient(135deg, rgba(230,169,68,0.06) 0%, rgba(255,140,66,0.04) 100%)',
-    hoverTextColor: 'rgb(139,35,50)',
-    accentBorder: 'rgba(230,169,68,0.7)',
+      'radial-gradient(circle at 30% 50%, rgba(145,186,239,0.22) 0%, transparent 50%), radial-gradient(circle at 80% 50%, rgba(145,186,239,0.15) 0%, transparent 45%), linear-gradient(135deg, rgba(145,186,239,0.06) 0%, rgba(145,186,239,0.04) 100%)',
+    hoverTextColor: 'rgb(91,136,199)',
+    accentBorder: 'rgba(145,186,239,0.7)',
   },
   // 4: High School — elegant wine/charcoal
   {

@@ -43,7 +43,7 @@ const elementaryGalleryImages = [
   { src: '/images/levels/primaria/NWL-SMA-primaria-alumnos-teamwork-manos-circulo.JPG', alt: 'Teamwork' },
   { src: '/images/levels/primaria/NWL-SMA-primaria-alumnas-arte-recortes-papel.JPG', alt: 'Art class' },
   { src: '/images/levels/primaria/NWL-SMA-primaria-recreo-piramide-cuerdas-aerea.JPG', alt: 'Recess playground' },
-  { src: '/images/levels/primaria/NWL-Zibata-secundaria-trabajo-colaborativo-cuaderno.png', alt: 'Collaborative work' },
+  { src: '/images/levels/primaria/NWL-Zibata-secundaria-trabajo-colaborativo-cuaderno.jpg', alt: 'Collaborative work' },
 ];
 
 export default function ElementaryPage() {

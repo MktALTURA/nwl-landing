@@ -546,6 +546,158 @@ export const en: Dictionary = {
     galleryTitleAccent: 'Elementary',
     galleryComingSoon: 'Gallery coming soon. Visit a campus to see our spaces firsthand.',
   },
+  middleSchool: {
+    ageBadge: 'Ages 12–15',
+    tagline: 'From Ideas to Impact',
+    description:
+      'In Middle School, students become entrepreneurs, earn dual international certifications, and develop the critical thinking and leadership skills that define their future. Real projects, not textbook exercises. Global credentials, not just grades.',
+    statBilingual: 'English Immersion',
+    statCampuses: 'Campuses',
+    statCertifications: 'International Certifications',
+    schedule: '7:30–2:30',
+    statSchedule: 'Schedule',
+    testimonial:
+      "My son is quieter by nature, but lately he's been speaking up more. His teacher noticed before I did. That kind of attention matters to me.",
+    testimonialAuthor: 'NWL Parent, Middle School',
+    cta: 'Schedule a Visit',
+    ctaSecondary: 'Download Brochure',
+  },
+  middleSchoolPage: {
+    heroHeadline: 'From Ideas to Impact',
+    heroSubheadline:
+      'Where young entrepreneurs earn international credentials, develop real-world skills, and become the leaders of tomorrow.',
+    backToHome: 'Back to Home',
+    // Transformation
+    transformationTitle: 'The Middle School',
+    transformationTitleAccent: 'Transformation',
+    transformationBefore: 'They arrive as...',
+    transformationBeforeItems: [
+      'Students who follow instructions',
+      'Learners absorbing information',
+      'Kids finding their voice',
+    ],
+    transformationAfter: 'They leave as...',
+    transformationAfterItems: [
+      'Leaders who take initiative',
+      'Thinkers who solve real problems',
+      'Young adults ready for the world',
+    ],
+    // Pillars
+    pillarsTitle: 'The NWL',
+    pillarsTitleAccent: 'Model',
+    pillarsSubtitle:
+      'Three pillars that develop critical thinkers, empathetic leaders, and real-world problem solvers.',
+    pillars: [
+      {
+        title: 'Knotion',
+        subtitle: 'International Methodology',
+        description:
+          'Problem-solving through real-world challenges with social impact. No traditional homework. Students learn by doing, creating, and presenting solutions.',
+      },
+      {
+        title: 'Philosophy for Children',
+        subtitle: 'P4C / Critical Thinking',
+        description:
+          'We teach how to think, not what to think. Guided dialogue develops autonomous judgment, ethical reasoning, and the confidence to defend their ideas.',
+      },
+      {
+        title: "I'm NWL Leader",
+        subtitle: 'by Tec de Monterrey',
+        description:
+          'Leadership, emotional intelligence, and teamwork. An exclusive program endorsed by Tec de Monterrey that prepares students for real-world collaboration.',
+      },
+    ],
+    // Exclusive Programs
+    exclusiveTitle: 'Exclusive',
+    exclusiveTitleAccent: 'Programs',
+    exclusiveSubtitle:
+      'Two programs that set NWL Middle School apart from any other school in the region.',
+    exclusivePrograms: [
+      {
+        title: 'Entrepreneurship Program',
+        partner: 'Universidad Mondragón',
+        description:
+          "Students develop real business projects with mentorship from one of the world's leading cooperative universities.",
+        highlights: [
+          'Real entrepreneurship projects from concept to pitch',
+          'Business fundamentals and financial literacy',
+          'Annual pitch day with community judges',
+        ],
+      },
+      {
+        title: 'Double International Certification',
+        partner: 'Hokku Academy',
+        description:
+          'Students graduate with both US and Mexican academic credentials, opening doors to universities worldwide.',
+        highlights: [
+          'US-aligned curriculum alongside Mexican SEP standards',
+          'Internationally recognized dual diploma',
+          'Seamless pathway to global higher education',
+        ],
+      },
+    ],
+    exclusiveQuote: 'Global credentials for global citizens',
+    // Knotion
+    knotionTitle: 'Powered by',
+    knotionTitleAccent: 'Knotion',
+    knotionSubtitle:
+      'An international learning ecosystem where memorization gives way to real-world problem solving.',
+    knotionPhases: [
+      { name: 'Identify', title: 'Connect with the challenge', description: 'Students engage with real-world problems that matter, from community issues to global sustainability, sparking curiosity and purpose.' },
+      { name: 'Map', title: 'Research and understand', description: 'Through collaborative investigation and critical analysis, they map the problem landscape, gathering data and perspectives from multiple sources.' },
+      { name: 'Prototype', title: 'Design a solution', description: 'Teams brainstorm, iterate, and build working prototypes using design thinking methodology and hands-on maker tools.' },
+      { name: 'Act', title: 'Implement and share', description: 'Solutions are put into action and presented to real audiences, building confidence, communication skills, and a lasting sense of impact.' },
+    ],
+    // Differentiators
+    differentiatorsSectionTitle: 'What Sets Us Apart',
+    differentiators: [
+      {
+        title: 'International Experiences',
+        description:
+          'Global learning through educational travel that broadens perspectives and builds cultural intelligence.',
+      },
+      {
+        title: 'Cognia Certified',
+        description:
+          'International quality certification recognized in 88+ countries, validating our academic standards.',
+      },
+      {
+        title: 'Corazones Mágicos',
+        description:
+          'Certified violence prevention program that builds emotional resilience and a safe school culture.',
+      },
+      {
+        title: 'Bullying-Free School',
+        description:
+          'Certified bullying-free environment with clear protocols and a culture of mutual respect.',
+      },
+      {
+        title: '90+ Security Cameras',
+        description:
+          '24/7 monitored security across all campuses, ensuring peace of mind for every family.',
+      },
+      {
+        title: 'Personalized Attention',
+        description:
+          'Small class sizes and dedicated advisors who know every student by name.',
+      },
+    ],
+    // Activities
+    activitiesTitle: 'Beyond the',
+    activitiesTitleAccent: 'Classroom',
+    activitiesSubtitle:
+      'Leadership, discipline, and self-expression through competitive sports, performing arts, and public speaking.',
+    activities: [
+      { name: 'Sports', description: 'Soccer, basketball, volleyball, and more in competitive leagues.' },
+      { name: 'Arts', description: 'Visual arts, digital design, and creative expression programs.' },
+      { name: 'Music', description: 'Instrumental, vocal, and music production opportunities.' },
+      { name: 'Public Speaking', description: 'Debate, Model UN, and presentation skills for confident communicators.' },
+    ],
+    activitiesNote: 'Activities vary by campus. Ask about offerings at your preferred location.',
+    // Gallery
+    galleryTitle: 'Life in',
+    galleryTitleAccent: 'Middle School',
+  },
   campusDetail: {
     facilitiesTitle: 'Our',
     facilitiesTitleAccent: 'Facilities',
