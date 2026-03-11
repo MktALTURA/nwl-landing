@@ -29,48 +29,14 @@ export default function Hero() {
     const isMobile = window.innerWidth < 768;
 
     const ctx = gsap.context(() => {
-      // On mobile: use toggleActions (fire-once) instead of scrub to avoid
-      // jitter caused by native touch scroll momentum fighting scrub lag.
-      const heroScrollBase = {
-        trigger: heroRef.current,
-        start: 'top top',
-      };
-
       if (isMobile) {
-        // Mobile: trigger-based fade-out (no scrub)
-        const mobileTrigger = { ...heroScrollBase, start: '10% top', toggleActions: 'play none none reverse' as const };
-
-        gsap.fromTo('.headline-left',
-          { x: 0, y: 0, opacity: 1 },
-          { x: -60, y: -30, opacity: 0, duration: 0.6, ease: 'power2.in', scrollTrigger: mobileTrigger }
-        );
-
-        gsap.fromTo('.headline-right',
-          { x: 0, y: 0, opacity: 1 },
-          { x: 60, y: 30, opacity: 0, duration: 0.6, ease: 'power2.in', scrollTrigger: mobileTrigger }
-        );
-
-        gsap.fromTo('.hero-subheadline',
-          { opacity: 1, y: 0 },
-          { opacity: 0, y: 20, duration: 0.4, ease: 'power2.in', scrollTrigger: mobileTrigger }
-        );
-
-        gsap.fromTo('.hero-ctas',
-          { opacity: 1, y: 0 },
-          { opacity: 0, y: 15, duration: 0.3, ease: 'power2.in', scrollTrigger: mobileTrigger }
-        );
-
-        gsap.fromTo('.hero-trust',
-          { opacity: 1 },
-          { opacity: 0, duration: 0.3, ease: 'power2.in', scrollTrigger: mobileTrigger }
-        );
-
-        gsap.fromTo('.hero-divider',
-          { opacity: 1 },
-          { opacity: 0, duration: 0.3, ease: 'power2.in', scrollTrigger: mobileTrigger }
-        );
+        // Mobile: no scroll-triggered animations — hero just scrolls away
+        // naturally. toggleActions + ScrollSmoother causes stuttering on
+        // real touch devices due to rapid play/reverse at trigger boundaries.
       } else {
         // Desktop: scrub-based scroll animations (unchanged)
+        const heroScrollBase = { trigger: heroRef.current, start: 'top top' };
+
         gsap.fromTo('.headline-left',
           { x: 0, y: 0, opacity: 1 },
           {
