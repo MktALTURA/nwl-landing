@@ -26,7 +26,10 @@ export default function BeSection() {
     const ctx = gsap.context(() => {
       const wordEls = gsap.utils.toArray('.be-word') as HTMLElement[];
       const totalWords = wordEls.length;
-      const scrollMultiplier = window.innerWidth < 768 ? 0.7 : 1;
+      const isMobile = window.innerWidth < 768;
+      // Mobile: shorter scroll distance + tighter scrub to reduce jitter
+      const scrollMultiplier = isMobile ? 0.5 : 1;
+      const scrubValue = isMobile ? 0.3 : 0.8;
 
       const tl = gsap.timeline({
         scrollTrigger: {
@@ -34,7 +37,7 @@ export default function BeSection() {
           pin: sectionRef.current,
           start: 'top top',
           end: `+=${window.innerHeight * totalWords * scrollMultiplier * 0.5}`,
-          scrub: 0.8,
+          scrub: scrubValue,
           pinSpacing: true,
           anticipatePin: 1,
         },

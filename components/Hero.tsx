@@ -26,96 +26,99 @@ export default function Hero() {
   useEffect(() => {
     if (!isMounted) return;
 
+    const isMobile = window.innerWidth < 768;
+
     const ctx = gsap.context(() => {
-      // Split & Drift Effect - Left side of headline
-      gsap.fromTo('.headline-left',
-        { x: 0, y: 0, opacity: 1 },
-        {
-          x: -100,
-          y: -50,
-          opacity: 0,
-          scrollTrigger: {
-            trigger: heroRef.current,
-            start: 'top top',
-            end: 'bottom top',
-            scrub: 1.5,
-          },
-        }
-      );
+      // On mobile: use toggleActions (fire-once) instead of scrub to avoid
+      // jitter caused by native touch scroll momentum fighting scrub lag.
+      const heroScrollBase = {
+        trigger: heroRef.current,
+        start: 'top top',
+      };
 
-      // Split & Drift Effect - Right side of headline
-      gsap.fromTo('.headline-right',
-        { x: 0, y: 0, opacity: 1 },
-        {
-          x: 100,
-          y: 50,
-          opacity: 0,
-          scrollTrigger: {
-            trigger: heroRef.current,
-            start: 'top top',
-            end: 'bottom top',
-            scrub: 1.5,
-          },
-        }
-      );
+      if (isMobile) {
+        // Mobile: trigger-based fade-out (no scrub)
+        const mobileTrigger = { ...heroScrollBase, start: '10% top', toggleActions: 'play none none reverse' as const };
 
-      // Subheadline fades faster
-      gsap.fromTo('.hero-subheadline',
-        { opacity: 1, y: 0 },
-        {
-          opacity: 0,
-          y: 30,
-          scrollTrigger: {
-            trigger: heroRef.current,
-            start: 'top top',
-            end: 'center top',
-            scrub: 1,
-          },
-        }
-      );
+        gsap.fromTo('.headline-left',
+          { x: 0, y: 0, opacity: 1 },
+          { x: -60, y: -30, opacity: 0, duration: 0.6, ease: 'power2.in', scrollTrigger: mobileTrigger }
+        );
 
-      // CTAs fade out first
-      gsap.fromTo('.hero-ctas',
-        { opacity: 1, y: 0 },
-        {
-          opacity: 0,
-          y: 20,
-          scrollTrigger: {
-            trigger: heroRef.current,
-            start: 'top top',
-            end: '30% top',
-            scrub: 1,
-          },
-        }
-      );
+        gsap.fromTo('.headline-right',
+          { x: 0, y: 0, opacity: 1 },
+          { x: 60, y: 30, opacity: 0, duration: 0.6, ease: 'power2.in', scrollTrigger: mobileTrigger }
+        );
 
-      // Trust indicators fade
-      gsap.fromTo('.hero-trust',
-        { opacity: 1 },
-        {
-          opacity: 0,
-          scrollTrigger: {
-            trigger: heroRef.current,
-            start: 'top top',
-            end: '40% top',
-            scrub: 1,
-          },
-        }
-      );
+        gsap.fromTo('.hero-subheadline',
+          { opacity: 1, y: 0 },
+          { opacity: 0, y: 20, duration: 0.4, ease: 'power2.in', scrollTrigger: mobileTrigger }
+        );
 
-      // Wine divider stays longer then fades
-      gsap.fromTo('.hero-divider',
-        { opacity: 1 },
-        {
-          opacity: 0,
-          scrollTrigger: {
-            trigger: heroRef.current,
-            start: '20% top',
-            end: 'center top',
-            scrub: 1,
-          },
-        }
-      );
+        gsap.fromTo('.hero-ctas',
+          { opacity: 1, y: 0 },
+          { opacity: 0, y: 15, duration: 0.3, ease: 'power2.in', scrollTrigger: mobileTrigger }
+        );
+
+        gsap.fromTo('.hero-trust',
+          { opacity: 1 },
+          { opacity: 0, duration: 0.3, ease: 'power2.in', scrollTrigger: mobileTrigger }
+        );
+
+        gsap.fromTo('.hero-divider',
+          { opacity: 1 },
+          { opacity: 0, duration: 0.3, ease: 'power2.in', scrollTrigger: mobileTrigger }
+        );
+      } else {
+        // Desktop: scrub-based scroll animations (unchanged)
+        gsap.fromTo('.headline-left',
+          { x: 0, y: 0, opacity: 1 },
+          {
+            x: -100, y: -50, opacity: 0,
+            scrollTrigger: { ...heroScrollBase, end: 'bottom top', scrub: 1.5 },
+          }
+        );
+
+        gsap.fromTo('.headline-right',
+          { x: 0, y: 0, opacity: 1 },
+          {
+            x: 100, y: 50, opacity: 0,
+            scrollTrigger: { ...heroScrollBase, end: 'bottom top', scrub: 1.5 },
+          }
+        );
+
+        gsap.fromTo('.hero-subheadline',
+          { opacity: 1, y: 0 },
+          {
+            opacity: 0, y: 30,
+            scrollTrigger: { ...heroScrollBase, end: 'center top', scrub: 1 },
+          }
+        );
+
+        gsap.fromTo('.hero-ctas',
+          { opacity: 1, y: 0 },
+          {
+            opacity: 0, y: 20,
+            scrollTrigger: { ...heroScrollBase, end: '30% top', scrub: 1 },
+          }
+        );
+
+        gsap.fromTo('.hero-trust',
+          { opacity: 1 },
+          {
+            opacity: 0,
+            scrollTrigger: { ...heroScrollBase, end: '40% top', scrub: 1 },
+          }
+        );
+
+        gsap.fromTo('.hero-divider',
+          { opacity: 1 },
+          {
+            opacity: 0,
+            scrollTrigger: { ...heroScrollBase, start: '20% top', end: 'center top', scrub: 1 },
+          }
+        );
+      }
 
       // Main headline word animation (initial load)
       gsap.from('.word-wrap', {

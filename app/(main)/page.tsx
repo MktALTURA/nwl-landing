@@ -23,6 +23,8 @@ export default function Home() {
   const mainRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
+    const isMobile = window.innerWidth < 768;
+
     // GSAP scroll-triggered animations
     const ctx = gsap.context(() => {
       // Fade-in animations for sections
@@ -34,8 +36,10 @@ export default function Home() {
           scrollTrigger: {
             trigger: section,
             start: 'top 80%',
-            end: 'top 50%',
-            scrub: 1,
+            // Mobile: fire-once trigger instead of scrub to avoid jitter
+            ...(isMobile
+              ? { toggleActions: 'play none none reverse' }
+              : { end: 'top 50%', scrub: 1 }),
           },
         });
       });

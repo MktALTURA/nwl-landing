@@ -342,48 +342,90 @@ export default function KangarooSpirit() {
   useEffect(() => {
     if (!isMounted) return;
 
+    const isMobile = window.innerWidth < 768;
+
     const ctx = gsap.context(() => {
-      gsap.fromTo('.kangaroo-reveal',
-        { clipPath: 'inset(100% 0% 0% 0%)', opacity: 0.3 },
-        { clipPath: 'inset(0% 0% 0% 0%)', opacity: 1, duration: 1, ease: 'power3.inOut',
-          scrollTrigger: { trigger: containerRef.current, start: 'top 80%', end: 'top 30%', scrub: 1.5 },
-        }
-      );
+      if (isMobile) {
+        // Mobile: trigger-based animations (no scrub) to avoid jitter
+        const mobileTrigger = { trigger: containerRef.current, start: 'top 80%', toggleActions: 'play none none reverse' as const };
 
-      gsap.fromTo(ringRef.current,
-        { scale: 0.6, opacity: 0 },
-        { scale: 1, opacity: 1, duration: 1, ease: 'power2.out',
-          scrollTrigger: { trigger: containerRef.current, start: 'top 70%', end: 'top 30%', scrub: 1.5 },
-        }
-      );
+        gsap.fromTo('.kangaroo-reveal',
+          { clipPath: 'inset(100% 0% 0% 0%)', opacity: 0.3 },
+          { clipPath: 'inset(0% 0% 0% 0%)', opacity: 1, duration: 0.8, ease: 'power3.inOut', scrollTrigger: mobileTrigger }
+        );
 
-      gsap.fromTo(ringOuterRef.current,
-        { scale: 0.5, opacity: 0 },
-        { scale: 1, opacity: 1, duration: 1, ease: 'power2.out',
-          scrollTrigger: { trigger: containerRef.current, start: 'top 65%', end: 'top 25%', scrub: 1.5 },
-        }
-      );
+        gsap.fromTo(ringRef.current,
+          { scale: 0.6, opacity: 0 },
+          { scale: 1, opacity: 1, duration: 0.6, ease: 'power2.out', scrollTrigger: mobileTrigger }
+        );
 
-      gsap.fromTo(shimmerRef.current,
-        { x: '-100%', opacity: 0 },
-        { x: '200%', opacity: 0.5, duration: 0.8, ease: 'power2.inOut',
-          scrollTrigger: { trigger: containerRef.current, start: 'top 25%', end: 'top 5%', scrub: 1 },
-        }
-      );
+        gsap.fromTo(ringOuterRef.current,
+          { scale: 0.5, opacity: 0 },
+          { scale: 1, opacity: 1, duration: 0.7, ease: 'power2.out', scrollTrigger: mobileTrigger }
+        );
 
-      gsap.fromTo('.spirit-text',
-        { opacity: 0, y: 30 },
-        { opacity: 1, y: 0, duration: 0.8, stagger: 0.15, ease: 'power3.out',
-          scrollTrigger: { trigger: containerRef.current, start: 'top 60%', end: 'top 30%', scrub: 1 },
-        }
-      );
+        gsap.fromTo(shimmerRef.current,
+          { x: '-100%', opacity: 0 },
+          { x: '200%', opacity: 0.5, duration: 0.8, ease: 'power2.inOut',
+            scrollTrigger: { trigger: containerRef.current, start: 'top 40%', toggleActions: 'play none none none' as const },
+          }
+        );
 
-      gsap.fromTo('.spirit-trait',
-        { opacity: 0, scale: 0.8, y: 15 },
-        { opacity: 1, scale: 1, y: 0, duration: 0.4, stagger: 0.1, ease: 'back.out(1.7)',
-          scrollTrigger: { trigger: containerRef.current, start: 'top 40%', end: 'top 20%', scrub: 1 },
-        }
-      );
+        gsap.fromTo('.spirit-text',
+          { opacity: 0, y: 30 },
+          { opacity: 1, y: 0, duration: 0.6, stagger: 0.15, ease: 'power3.out', scrollTrigger: mobileTrigger }
+        );
+
+        gsap.fromTo('.spirit-trait',
+          { opacity: 0, scale: 0.8, y: 15 },
+          { opacity: 1, scale: 1, y: 0, duration: 0.4, stagger: 0.1, ease: 'back.out(1.7)',
+            scrollTrigger: { trigger: containerRef.current, start: 'top 60%', toggleActions: 'play none none reverse' as const },
+          }
+        );
+      } else {
+        // Desktop: scrub-based scroll animations (unchanged)
+        gsap.fromTo('.kangaroo-reveal',
+          { clipPath: 'inset(100% 0% 0% 0%)', opacity: 0.3 },
+          { clipPath: 'inset(0% 0% 0% 0%)', opacity: 1, duration: 1, ease: 'power3.inOut',
+            scrollTrigger: { trigger: containerRef.current, start: 'top 80%', end: 'top 30%', scrub: 1.5 },
+          }
+        );
+
+        gsap.fromTo(ringRef.current,
+          { scale: 0.6, opacity: 0 },
+          { scale: 1, opacity: 1, duration: 1, ease: 'power2.out',
+            scrollTrigger: { trigger: containerRef.current, start: 'top 70%', end: 'top 30%', scrub: 1.5 },
+          }
+        );
+
+        gsap.fromTo(ringOuterRef.current,
+          { scale: 0.5, opacity: 0 },
+          { scale: 1, opacity: 1, duration: 1, ease: 'power2.out',
+            scrollTrigger: { trigger: containerRef.current, start: 'top 65%', end: 'top 25%', scrub: 1.5 },
+          }
+        );
+
+        gsap.fromTo(shimmerRef.current,
+          { x: '-100%', opacity: 0 },
+          { x: '200%', opacity: 0.5, duration: 0.8, ease: 'power2.inOut',
+            scrollTrigger: { trigger: containerRef.current, start: 'top 25%', end: 'top 5%', scrub: 1 },
+          }
+        );
+
+        gsap.fromTo('.spirit-text',
+          { opacity: 0, y: 30 },
+          { opacity: 1, y: 0, duration: 0.8, stagger: 0.15, ease: 'power3.out',
+            scrollTrigger: { trigger: containerRef.current, start: 'top 60%', end: 'top 30%', scrub: 1 },
+          }
+        );
+
+        gsap.fromTo('.spirit-trait',
+          { opacity: 0, scale: 0.8, y: 15 },
+          { opacity: 1, scale: 1, y: 0, duration: 0.4, stagger: 0.1, ease: 'back.out(1.7)',
+            scrollTrigger: { trigger: containerRef.current, start: 'top 40%', end: 'top 20%', scrub: 1 },
+          }
+        );
+      }
 
       ScrollTrigger.create({
         trigger: containerRef.current,
