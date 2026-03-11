@@ -138,8 +138,8 @@ export const campuses: Record<string, CampusData> = {
       },
     ],
     director: {
-      name: 'Nombre del Director',
-      title: { en: 'Campus Director', es: 'Director de Campus' },
+      name: 'Mtra. Dayana Rose Gómez',
+      title: { en: 'Campus Director', es: 'Directora de Campus' },
       message: {
         en: 'At NWL Juriquilla, our flagship campus sets the standard for educational excellence. With over a decade of experience, we nurture every student\'s potential in a vibrant, close-knit community. We invite you to visit and discover the NWL difference.',
         es: 'En NWL Juriquilla, nuestro campus insignia marca el estándar de excelencia educativa. Con más de una década de experiencia, cultivamos el potencial de cada alumno en una comunidad vibrante y cercana. Te invitamos a visitarnos y descubrir la diferencia NWL.',
@@ -248,8 +248,8 @@ export const campuses: Record<string, CampusData> = {
       },
     ],
     director: {
-      name: 'Nombre del Director',
-      title: { en: 'Campus Director', es: 'Director de Campus' },
+      name: 'Ximena Arellano Atristain',
+      title: { en: 'Campus Director', es: 'Directora de Campus' },
       message: {
         en: 'At NWL Milenio, we create a warm, secure environment where children feel at home. Our dedicated team focuses on both academic achievement and emotional development, helping each student grow into a confident, well-rounded individual.',
         es: 'En NWL Milenio, creamos un ambiente cálido y seguro donde los niños se sienten como en casa. Nuestro equipo dedicado se enfoca tanto en el logro académico como en el desarrollo emocional, ayudando a cada alumno a crecer como un individuo seguro e integral.',
@@ -267,7 +267,6 @@ export const campuses: Record<string, CampusData> = {
       { src: '/images/campus/milenio/milenio-welcome.jpg', caption: { en: 'Welcome to Campus Milenio', es: 'Bienvenidos a Campus Milenio' } },
       { src: '/images/campus/milenio/milenio-covered-court.jpg', caption: { en: 'Covered Multi-Sport Court', es: 'Cancha Multiusos Techada' } },
       { src: '/images/campus/milenio/milenio-nurse-office.jpg', caption: { en: 'Nurse\'s Office', es: 'Enfermería' } },
-      { src: '/images/campus/milenio/milenio-exterior-wide.jpg', caption: { en: 'Campus Exterior', es: 'Exterior del Campus' } },
     ],
     testimonials: [
       {
@@ -355,7 +354,7 @@ export const campuses: Record<string, CampusData> = {
       },
     ],
     director: {
-      name: 'Nombre del Director',
+      name: 'Lic. Ramón Godínez Ceja',
       title: { en: 'Campus Director', es: 'Director de Campus' },
       message: {
         en: 'At NWL San Miguel de Allende, we blend the cultural richness of this UNESCO World Heritage city with our commitment to academic excellence. Our students grow immersed in art, history, and a global perspective that sets them apart.',
@@ -460,7 +459,7 @@ export const campuses: Record<string, CampusData> = {
       },
     ],
     director: {
-      name: 'Nombre del Director',
+      name: 'José Gustavo Flores Espinosa',
       title: { en: 'Campus Director', es: 'Director de Campus' },
       message: {
         en: 'At NWL Corregidora, we are proud to serve a growing community with a warm, family-centered approach to education. Every child is known by name, supported with care, and challenged to reach their full potential.',
@@ -565,8 +564,8 @@ export const campuses: Record<string, CampusData> = {
       },
     ],
     director: {
-      name: 'Nombre del Director',
-      title: { en: 'Campus Director', es: 'Director de Campus' },
+      name: 'Daniela Arévalo Zapien',
+      title: { en: 'Campus Director', es: 'Directora de Campus' },
       message: {
         en: 'At NWL Zibatá, we believe every child carries the potential for greatness. Our modern campus is designed to nurture curiosity, build confidence, and prepare students for a world full of possibilities. We welcome you to visit and experience the NWL difference firsthand.',
         es: 'En NWL Zibatá, creemos que cada niño lleva el potencial de la grandeza. Nuestro campus moderno está diseñado para nutrir la curiosidad, construir confianza y preparar a los alumnos para un mundo lleno de posibilidades. Te invitamos a visitarnos y vivir la diferencia NWL.',
