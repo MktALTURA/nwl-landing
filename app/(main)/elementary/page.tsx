@@ -38,12 +38,12 @@ const diffItems = [
 
 /* ── Gallery images ── */
 const elementaryGalleryImages = [
-  { src: '/images/levels/primaria/NWL-Zibata-primaria-dos-amigos-salon.jpg', alt: 'Classroom friends' },
+  { src: '/images/levels/primaria/nwl-zibata-primaria-dos-amigos-salon.jpg', alt: 'Classroom friends' },
   { src: '/images/levels/primaria/steam-lab.jpg', alt: 'STEAM Lab' },
-  { src: '/images/levels/primaria/NWL-SMA-primaria-alumnos-teamwork-manos-circulo.JPG', alt: 'Teamwork' },
-  { src: '/images/levels/primaria/NWL-SMA-primaria-alumnas-arte-recortes-papel.JPG', alt: 'Art class' },
-  { src: '/images/levels/primaria/NWL-SMA-primaria-recreo-piramide-cuerdas-aerea.JPG', alt: 'Recess playground' },
-  { src: '/images/levels/primaria/NWL-Zibata-secundaria-trabajo-colaborativo-cuaderno.jpg', alt: 'Collaborative work' },
+  { src: '/images/levels/primaria/nwl-sma-primaria-alumnos-teamwork-manos-circulo.jpg', alt: 'Teamwork' },
+  { src: '/images/levels/primaria/nwl-sma-primaria-alumnas-arte-recortes-papel.jpg', alt: 'Art class' },
+  { src: '/images/levels/primaria/nwl-sma-primaria-recreo-piramide-cuerdas-aerea.jpg', alt: 'Recess playground' },
+  { src: '/images/levels/primaria/nwl-zibata-primaria-trabajo-colaborativo-cuaderno.jpg', alt: 'Collaborative work' },
 ];
 
 export default function ElementaryPage() {
@@ -304,7 +304,7 @@ export default function ElementaryPage() {
                 className="lg:col-span-3 relative aspect-[4/3] rounded-2xl overflow-hidden shadow-lg bg-sand"
               >
                 <Image
-                  src="/images/levels/primaria/NWL-Zibata-preescolar-ninos-compartiendo-tablet.jpg"
+                  src="/images/levels/primaria/nwl-zibata-preescolar-ninos-compartiendo-tablet.jpg"
                   alt="Knotion learning in action"
                   fill
                   className="object-cover"
@@ -313,7 +313,7 @@ export default function ElementaryPage() {
                 {/* Knotion logo badge */}
                 <div className="absolute bottom-4 left-4 bg-white/95 backdrop-blur-sm rounded-lg px-3 py-2 shadow-md">
                   <Image
-                    src="/images/Logos/Marca_Knotion.png"
+                    src="/images/logos/knotion.png"
                     alt="Knotion"
                     width={100}
                     height={32}

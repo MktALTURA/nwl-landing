@@ -698,6 +698,197 @@ export const en: Dictionary = {
     galleryTitle: 'Life in',
     galleryTitleAccent: 'Middle School',
   },
+  highSchool: {
+    ageBadge: 'Ages 15–17',
+    tagline: 'A Preparation for Life',
+    description:
+      'Prepa NWL prepares students for a future full of challenges, with a growth mindset and skills that go far beyond academics. Through the Life Project model, every semester builds real-world abilities, from financial intelligence to entrepreneurship.',
+    statBilingual: 'Bilingual Program',
+    statCampuses: 'Campuses',
+    statCertifications: 'Certifications',
+    statProjects: 'Personal Projects',
+    schedule: '7:30–2:30',
+    statSchedule: 'Schedule',
+    cta: 'Schedule a Visit',
+    ctaSecondary: 'Download Brochure',
+  },
+  highSchoolPage: {
+    heroHeadline: 'More Than High School',
+    heroSubheadline:
+      'A preparation for life. Where growth mindset, real-world skills, and personal purpose come together in every semester.',
+    backToHome: 'Back to Home',
+    // Value Props
+    valuePropsTitle: 'What Makes Us',
+    valuePropsTitleAccent: 'Different',
+    valuePropsSubtitle:
+      'Prepa NWL isn\'t a traditional high school. It\'s a life project designed to prepare students for the real world.',
+    valueProps: [
+      {
+        title: 'Life Project',
+        description: 'A personalized journey with Life Mentors guiding each student to discover their talents and build their purpose.',
+      },
+      {
+        title: 'Zero Homework',
+        description: 'No traditional homework or final exams. Continuous assessment through projects, presentations, and real-world applications.',
+      },
+      {
+        title: 'Financial Intelligence',
+        description: 'Personal finance education every semester, from budgeting basics to entrepreneurial economics and adult financial planning.',
+      },
+      {
+        title: 'Real-World Certifications',
+        description: 'Industry-recognized certifications each semester in skills like leadership, innovation, entrepreneurship, and digital tools.',
+      },
+      {
+        title: 'AI & Modern Technology',
+        description: 'Students learn to use AI and digital tools as everyday instruments, transforming how they learn, create, and solve problems.',
+      },
+      {
+        title: 'University & Career Prep',
+        description: 'Scholarship preparation, professional skills, and a clear pathway to higher education through dual diplomas and global credentials.',
+      },
+    ],
+    // Life Project Journey
+    journeyTitle: 'The Life Project',
+    journeyTitleAccent: 'Journey',
+    journeySubtitle:
+      '6 semesters. 6 transformations. Each one builds on the last, guiding students from self-discovery to being future-ready.',
+    semesters: [
+      {
+        number: '01',
+        theme: 'Growth Mindset & Personal Mastery',
+        skills: ['Self-Awareness', 'Resilience & Grit', 'Emotional Intelligence'],
+        project: 'My Life Book',
+      },
+      {
+        number: '02',
+        theme: 'Social Skills & Effective Communication',
+        skills: ['Conflict Management', 'Assertive Communication', 'Leadership'],
+        project: 'My Voice, My Influence',
+      },
+      {
+        number: '03',
+        theme: 'Innovation & Critical Thinking',
+        skills: ['Critical Thinking', 'Strategic Problem-Solving', 'Creativity'],
+        project: 'Ideas That Transform',
+      },
+      {
+        number: '04',
+        theme: 'Entrepreneurship & Business Creation',
+        skills: ['Entrepreneurial Mindset', 'Leadership', 'Interdisciplinary Collaboration'],
+        project: 'My First Venture',
+      },
+      {
+        number: '05',
+        theme: 'Social Impact & Responsibility',
+        skills: ['Ethical Decision-Making', 'Social Responsibility', 'Financial Stewardship'],
+        project: 'Choosing with Purpose',
+      },
+      {
+        number: '06',
+        theme: 'Future-Ready: University & Career Prep',
+        skills: ['Professional Teamwork', 'University Prep', 'Digital & Future Skills'],
+        project: 'My Future in Action',
+      },
+    ],
+    // Life Project Model
+    pillarsTitle: 'The Life Project',
+    pillarsTitleAccent: 'Model',
+    pillarsSubtitle:
+      'Three dimensions that develop complete individuals: not just academically prepared, but life-ready.',
+    pillars: [
+      {
+        title: 'Growth Mindset',
+        subtitle: 'Self-Growth & Resilience',
+        description:
+          'Students develop the inner strength to face challenges, learn from failure, and continuously grow. The foundation for everything else.',
+      },
+      {
+        title: 'Emotional Empowerment',
+        subtitle: 'Social & Communication Skills',
+        description:
+          'From assertive communication to ethical leadership, students learn to connect, collaborate, and lead with empathy and purpose.',
+      },
+      {
+        title: 'Fundamental Life Abilities',
+        subtitle: 'Entrepreneurship & Future Skills',
+        description:
+          'Financial literacy, digital competence, entrepreneurship, and professional preparation. The practical skills that make the difference.',
+      },
+    ],
+    // Exclusive Programs
+    exclusiveTitle: 'Exclusive',
+    exclusiveTitleAccent: 'Programs',
+    exclusiveSubtitle:
+      'Partnerships and programs that set Prepa NWL apart, giving students credentials and experiences no other school in the region offers.',
+    exclusivePrograms: [
+      {
+        title: 'US + Mexican Dual Diploma',
+        partner: 'Hokku Academy',
+        description:
+          'Students graduate with both a US-accredited high school diploma (Cognia accredited) and their Mexican SEP diploma, opening doors to universities worldwide.',
+        highlights: [
+          'US Cognia-accredited diploma alongside Mexican SEP standards',
+          'Project-based learning with AI-guided mastery',
+          'Direct pathway to US and international universities',
+        ],
+      },
+      {
+        title: 'In-School Fitness Program',
+        partner: 'HIT & Hyrox-Style Training',
+        description:
+          'An on-campus functional fitness program with coached sessions: sled pushes, tire flips, and circuit training. Building discipline, resilience, and physical wellness.',
+        highlights: [
+          'Professional coached HIT & Hyrox-style workouts',
+          'On-campus training facilities and equipment',
+          'Physical resilience integrated into the school day',
+        ],
+      },
+      {
+        title: 'Personal Projects Portfolio',
+        partner: 'Life Project',
+        description:
+          'Over 6 semesters, each student builds a portfolio of meaningful projects, from "My Life Book" to "My Future in Action", documenting their personal growth journey.',
+        highlights: [
+          '6 personal projects across 3 years',
+          '6 integrative team projects with real-world impact',
+          'A tangible portfolio for university applications',
+        ],
+      },
+      {
+        title: 'International Exchange',
+        partner: 'Global Experience',
+        description:
+          'Optional international exchange program in semesters 5-6. Cultural immersion, language mastery, and a global perspective that transforms their worldview.',
+        highlights: [
+          'Cultural immersion in international settings',
+          'Language mastery through real-world experience',
+          'Global network and perspective',
+        ],
+      },
+    ],
+    // Academic section (McGraw-Hill)
+    academicTitle: 'Academic',
+    academicTitleAccent: 'Excellence',
+    academicDescription:
+      'Our academic curriculum is powered by McGraw-Hill, a world-leading educational publisher trusted by top institutions globally. This ensures rigorous, internationally recognized academic content alongside our Life Project model.',
+    academicHighlights: [
+      'Internationally recognized academic content',
+      'Adaptive learning technology for personalized progress',
+      'Digital platforms and virtual lab experiences',
+      'Aligned with Mexican SEP standards and global benchmarks',
+    ],
+    academicPlanCta: 'View Academic Plan',
+    // University Pathways
+    universityPathwaysTitle: 'University',
+    universityPathwaysTitleAccent: 'Pathways',
+    universityPathwaysSubtitle: 'Preparing students for Mexico\'s top universities and beyond',
+    universityPathwaysDescription: 'Through our dual diploma program, strategic university partnerships, and the Life Project model, Prepa NWL students are building the credentials and skills to thrive at leading institutions.',
+    universityPathwaysFootnote: 'University partnerships and pathways are actively developed as part of our academic alliances.',
+    // Gallery
+    galleryTitle: 'Life at',
+    galleryTitleAccent: 'Prepa NWL',
+  },
   campusDetail: {
     facilitiesTitle: 'Our',
     facilitiesTitleAccent: 'Facilities',

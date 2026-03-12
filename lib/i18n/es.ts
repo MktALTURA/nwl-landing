@@ -12,8 +12,8 @@ export const es: Dictionary = {
           { name: 'Maternal', href: '/maternal' },
           { name: 'Kinder', href: '/kinder' },
           { name: 'Primaria', href: '/elementary' },
-          { name: 'Secundaria', href: '/secundaria' },
-          { name: 'Preparatoria', href: '/preparatoria' },
+          { name: 'Secundaria', href: '/middle-school' },
+          { name: 'Preparatoria', href: '/high-school' },
         ],
       },
       {
@@ -142,14 +142,14 @@ export const es: Dictionary = {
         ageRange: '12-14 años',
         description: 'Fomentamos la independencia, el liderazgo y el autoconocimiento.',
         campuses: ['Los 5 Campus'],
-        href: '/secundaria',
+        href: '/middle-school',
       },
       {
         name: 'Preparatoria',
         ageRange: '15-17 años',
         description: 'Preparación universitaria con perspectiva global y orientación vocacional.',
         campuses: ['Corregidora', 'Zibatá', 'San Miguel'],
-        href: '/preparatoria',
+        href: '/high-school',
       },
     ],
     availableAt: 'Disponible en:',
@@ -698,6 +698,197 @@ export const es: Dictionary = {
     // Galería
     galleryTitle: 'La Vida en',
     galleryTitleAccent: 'Secundaria',
+  },
+  highSchool: {
+    ageBadge: 'Edades 15–17',
+    tagline: 'Una Preparación para la Vida',
+    description:
+      'En la Prepa NWL preparamos a los estudiantes para enfrentar un futuro lleno de retos, con una mentalidad de crecimiento y habilidades que van más allá de lo académico. A través del modelo Life Project, cada semestre construye competencias reales.',
+    statBilingual: 'Programa Bilingüe',
+    statCampuses: 'Campus',
+    statCertifications: 'Certificaciones',
+    statProjects: 'Proyectos Personales',
+    schedule: '7:30–2:30',
+    statSchedule: 'Horario',
+    cta: 'Agenda una Visita',
+    ctaSecondary: 'Descargar Folleto',
+  },
+  highSchoolPage: {
+    heroHeadline: 'Más que una Prepa',
+    heroSubheadline:
+      'Una preparación para la vida. Donde la mentalidad de crecimiento, las habilidades del mundo real y el propósito personal se unen en cada semestre.',
+    backToHome: 'Volver al Inicio',
+    // Propuesta de valor
+    valuePropsTitle: 'Lo que Nos Hace',
+    valuePropsTitleAccent: 'Diferentes',
+    valuePropsSubtitle:
+      'Prepa NWL no es una preparatoria tradicional. Es un proyecto de vida diseñado para preparar a los estudiantes para el mundo real.',
+    valueProps: [
+      {
+        title: 'Life Project',
+        description: 'Un camino personalizado con Life Mentors que guían a cada estudiante a descubrir sus talentos y construir su propósito.',
+      },
+      {
+        title: 'Cero Tareas',
+        description: 'Sin tareas tradicionales ni exámenes finales. Evaluación continua a través de proyectos, presentaciones y aplicaciones del mundo real.',
+      },
+      {
+        title: 'Inteligencia Financiera',
+        description: 'Educación en finanzas personales cada semestre, desde lo básico hasta economía emprendedora y planeación financiera para la vida adulta.',
+      },
+      {
+        title: 'Certificaciones Reales',
+        description: 'Certificaciones reconocidas cada semestre en habilidades como liderazgo, innovación, emprendimiento y herramientas digitales.',
+      },
+      {
+        title: 'IA y Tecnología Moderna',
+        description: 'Los estudiantes aprenden a usar la IA y herramientas digitales como instrumentos cotidianos, transformando cómo aprenden, crean y resuelven problemas.',
+      },
+      {
+        title: 'Preparación Universitaria',
+        description: 'Preparación para becas, habilidades profesionales y un camino claro a la universidad a través de doble diploma y credenciales globales.',
+      },
+    ],
+    // Trayectoria Life Project
+    journeyTitle: 'La Trayectoria',
+    journeyTitleAccent: 'Life Project',
+    journeySubtitle:
+      '6 semestres. 6 transformaciones. Cada una construye sobre la anterior, guiando al estudiante del autoconocimiento a estar listo para el futuro.',
+    semesters: [
+      {
+        number: '01',
+        theme: 'Mentalidad de Crecimiento y Superación Personal',
+        skills: ['Autoconocimiento', 'Resiliencia', 'Inteligencia Emocional'],
+        project: 'My Life Book',
+      },
+      {
+        number: '02',
+        theme: 'Habilidades Sociales y Comunicación Efectiva',
+        skills: ['Gestión de Conflictos', 'Comunicación Asertiva', 'Liderazgo'],
+        project: 'Mi Voz, Mi Influencia',
+      },
+      {
+        number: '03',
+        theme: 'Innovación y Pensamiento Crítico',
+        skills: ['Pensamiento Crítico', 'Resolución Estratégica', 'Creatividad'],
+        project: 'Ideas que Transforman',
+      },
+      {
+        number: '04',
+        theme: 'Emprendimiento y Creación de Negocios',
+        skills: ['Mentalidad Emprendedora', 'Liderazgo', 'Colaboración Interdisciplinaria'],
+        project: 'Mi Primer Emprendimiento',
+      },
+      {
+        number: '05',
+        theme: 'Impacto Social y Responsabilidad',
+        skills: ['Decisiones Éticas', 'Responsabilidad Social', 'Gestión Financiera'],
+        project: 'Decidir con Propósito',
+      },
+      {
+        number: '06',
+        theme: 'Preparación Profesional y Universitaria',
+        skills: ['Trabajo en Equipo', 'Preparación Universitaria', 'Competencias Digitales'],
+        project: 'Mi Futuro en Acción',
+      },
+    ],
+    // Modelo Life Project
+    pillarsTitle: 'El Modelo',
+    pillarsTitleAccent: 'Life Project',
+    pillarsSubtitle:
+      'Tres dimensiones que desarrollan personas completas: no solo preparados académicamente, sino listos para la vida.',
+    pillars: [
+      {
+        title: 'Growth Mindset',
+        subtitle: 'Crecimiento Personal y Resiliencia',
+        description:
+          'Los estudiantes desarrollan la fortaleza interior para enfrentar desafíos, aprender del fracaso y crecer continuamente. La base de todo lo demás.',
+      },
+      {
+        title: 'Emotional Empowerment',
+        subtitle: 'Habilidades Sociales y de Comunicación',
+        description:
+          'Desde comunicación asertiva hasta liderazgo ético, los estudiantes aprenden a conectar, colaborar y liderar con empatía y propósito.',
+      },
+      {
+        title: 'Fundamental Life Abilities',
+        subtitle: 'Emprendimiento y Habilidades del Futuro',
+        description:
+          'Inteligencia financiera, competencia digital, emprendimiento y preparación profesional. Las habilidades prácticas que marcan la diferencia.',
+      },
+    ],
+    // Programas exclusivos
+    exclusiveTitle: 'Programas',
+    exclusiveTitleAccent: 'Exclusivos',
+    exclusiveSubtitle:
+      'Alianzas y programas que distinguen a la Prepa NWL, dando a los estudiantes credenciales y experiencias que ninguna otra escuela en la región ofrece.',
+    exclusivePrograms: [
+      {
+        title: 'Doble Diploma: EUA + México',
+        partner: 'Hokku Academy',
+        description:
+          'Los estudiantes se gradúan con un diploma de preparatoria acreditado en EUA (Cognia) y su diploma SEP mexicano, abriendo puertas a universidades en todo el mundo.',
+        highlights: [
+          'Diploma acreditado por Cognia (EUA) junto con estándares SEP mexicanos',
+          'Aprendizaje basado en proyectos con dominio guiado por IA',
+          'Camino directo a universidades en EUA e internacionales',
+        ],
+      },
+      {
+        title: 'Programa de Fitness',
+        partner: 'Entrenamiento HIT y Estilo Hyrox',
+        description:
+          'Un programa de fitness funcional dentro del campus con sesiones guiadas: empuje de trineo, volteo de llantas y circuitos. Construyendo disciplina, resiliencia y bienestar físico.',
+        highlights: [
+          'Entrenamientos profesionales estilo HIT y Hyrox',
+          'Instalaciones y equipo de entrenamiento en el campus',
+          'Resiliencia física integrada en el día escolar',
+        ],
+      },
+      {
+        title: 'Portafolio de Proyectos Personales',
+        partner: 'Life Project',
+        description:
+          'A lo largo de 6 semestres, cada estudiante construye un portafolio de proyectos significativos, desde "My Life Book" hasta "Mi Futuro en Acción", documentando su crecimiento personal.',
+        highlights: [
+          '6 proyectos personales en 3 años',
+          '6 proyectos integradores con impacto real',
+          'Un portafolio tangible para aplicaciones universitarias',
+        ],
+      },
+      {
+        title: 'Intercambio Internacional',
+        partner: 'Experiencia Global',
+        description:
+          'Programa opcional de intercambio internacional en semestres 5-6. Inmersión cultural, dominio del idioma y una perspectiva global que transforma su visión del mundo.',
+        highlights: [
+          'Inmersión cultural en entornos internacionales',
+          'Dominio del idioma a través de experiencia real',
+          'Red y perspectiva global',
+        ],
+      },
+    ],
+    // Sección académica (McGraw-Hill)
+    academicTitle: 'Excelencia',
+    academicTitleAccent: 'Académica',
+    academicDescription:
+      'Nuestro currículo académico está respaldado por McGraw-Hill — editorial educativa líder mundial, confiada por las mejores instituciones a nivel global. Esto asegura contenido académico riguroso e internacionalmente reconocido junto con nuestro modelo Life Project.',
+    academicHighlights: [
+      'Contenido académico reconocido internacionalmente',
+      'Tecnología de aprendizaje adaptativo para progreso personalizado',
+      'Plataformas digitales y experiencias de laboratorio virtual',
+      'Alineado con estándares SEP mexicanos y referentes globales',
+    ],
+    academicPlanCta: 'Ver Plan de Estudios',
+    // Destinos Universitarios
+    universityPathwaysTitle: 'Destinos',
+    universityPathwaysTitleAccent: 'Universitarios',
+    universityPathwaysSubtitle: 'Preparando estudiantes para las mejores universidades de México y el mundo',
+    universityPathwaysDescription: 'A través de nuestro programa de doble diploma, alianzas universitarias estratégicas y el modelo Life Project, los estudiantes de Prepa NWL construyen las credenciales y habilidades para destacar en las mejores instituciones.',
+    universityPathwaysFootnote: 'Las alianzas universitarias se desarrollan activamente como parte de nuestros convenios académicos.',
+    // Galería
+    galleryTitle: 'La Vida en',
+    galleryTitleAccent: 'Prepa NWL',
   },
   campusDetail: {
     facilitiesTitle: 'Nuestras',

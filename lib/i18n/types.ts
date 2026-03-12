@@ -278,6 +278,69 @@ export interface Dictionary {
     galleryTitle: string;
     galleryTitleAccent: string;
   };
+  highSchool: {
+    ageBadge: string;
+    tagline: string;
+    description: string;
+    statBilingual: string;
+    statCampuses: string;
+    statCertifications: string;
+    statProjects: string;
+    schedule: string;
+    statSchedule: string;
+    cta: string;
+    ctaSecondary: string;
+  };
+  highSchoolPage: {
+    heroHeadline: string;
+    heroSubheadline: string;
+    backToHome: string;
+    // Value props
+    valuePropsTitle: string;
+    valuePropsTitleAccent: string;
+    valuePropsSubtitle: string;
+    valueProps: { title: string; description: string }[];
+    // Life Project Journey (6-semester timeline)
+    journeyTitle: string;
+    journeyTitleAccent: string;
+    journeySubtitle: string;
+    semesters: {
+      number: string;
+      theme: string;
+      skills: string[];
+      project: string;
+    }[];
+    // Life Project Model (3 pillars)
+    pillarsTitle: string;
+    pillarsTitleAccent: string;
+    pillarsSubtitle: string;
+    pillars: { title: string; subtitle: string; description: string }[];
+    // Exclusive Programs
+    exclusiveTitle: string;
+    exclusiveTitleAccent: string;
+    exclusiveSubtitle: string;
+    exclusivePrograms: {
+      title: string;
+      partner: string;
+      description: string;
+      highlights: string[];
+    }[];
+    // McGraw-Hill Academic section
+    academicTitle: string;
+    academicTitleAccent: string;
+    academicDescription: string;
+    academicHighlights: string[];
+    academicPlanCta: string;
+    // University Pathways
+    universityPathwaysTitle: string;
+    universityPathwaysTitleAccent: string;
+    universityPathwaysSubtitle: string;
+    universityPathwaysDescription: string;
+    universityPathwaysFootnote: string;
+    // Gallery
+    galleryTitle: string;
+    galleryTitleAccent: string;
+  };
   campusDetail: {
     facilitiesTitle: string;
     facilitiesTitleAccent: string;

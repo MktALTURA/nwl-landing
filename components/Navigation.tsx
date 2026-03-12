@@ -14,6 +14,7 @@ interface DropdownDecoration {
   hoverTextColor: string;
   accentBorder: string;
   bgSize?: { initial: string; hover: string };
+  logo?: string;
 }
 
 // Per-level hover decorations for the Academic Offer dropdown (indexed 0–4)
@@ -48,12 +49,13 @@ const academicLevelDecorations: DropdownDecoration[] = [
     hoverTextColor: 'rgb(91,136,199)',
     accentBorder: 'rgba(145,186,239,0.7)',
   },
-  // 4: High School — elegant wine/charcoal
+  // 4: High School — deep ember / charcoal premium
   {
     hoverBg:
-      'linear-gradient(135deg, rgba(139,35,50,0.08) 0%, rgba(61,61,61,0.04) 50%, rgba(139,35,50,0.04) 100%)',
-    hoverTextColor: 'rgb(139,35,50)',
-    accentBorder: 'rgba(139,35,50,0.5)',
+      'linear-gradient(135deg, rgba(120,23,18,0.10) 0%, rgba(61,61,61,0.04) 50%, rgba(120,23,18,0.06) 100%)',
+    hoverTextColor: 'rgb(120,23,18)',
+    accentBorder: 'rgba(120,23,18,0.6)',
+    logo: '/images/levels/prepa/nwl-prepa-logo-small.png',
   },
 ];
 
@@ -151,6 +153,7 @@ export default function Navigation() {
 
   const isSubpage = pathname !== '/';
   const isCampusJuriquilla = pathname === '/campus/juriquilla';
+  const isHighSchool = pathname === '/high-school';
   // On Juriquilla campus page, use white logos/text before scroll (dark hero)
   const useWhiteNav = isCampusJuriquilla && !isScrolled;
 
@@ -181,6 +184,21 @@ export default function Navigation() {
                     src="/images/brand/nwl-logo-wine.png"
                     alt="Colegio NWL"
                     className={`h-10 w-auto transition-opacity duration-300 ${useWhiteNav ? 'opacity-0' : 'opacity-100'}`}
+                  />
+                </>
+              ) : isHighSchool ? (
+                <>
+                  {/* Shield only — visible before scroll */}
+                  <img
+                    src="/images/levels/prepa/nwl-prepa-logo-small.png"
+                    alt="Prepa NWL"
+                    className={`h-14 w-auto absolute transition-all duration-500 ease-out ${isScrolled ? 'opacity-0 scale-75 pointer-events-none' : 'opacity-100 scale-100'}`}
+                  />
+                  {/* Full logo with text — fades in on scroll */}
+                  <img
+                    src="/images/levels/prepa/nwl-prepa-logo.png"
+                    alt="Prepa NWL"
+                    className={`h-12 w-auto transition-all duration-500 ease-out ${isScrolled ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-4 pointer-events-none'}`}
                   />
                 </>
               ) : (
@@ -279,7 +297,7 @@ export default function Navigation() {
                                     key={child.href}
                                     href={resolveHref(child.href)}
                                     onClick={(e: React.MouseEvent<HTMLAnchorElement>) => handleHashClick(e, child.href)}
-                                    className="block px-4 py-2.5 text-sm text-charcoal relative overflow-hidden"
+                                    className="group/item block px-4 py-2.5 text-sm text-charcoal relative overflow-hidden"
                                     style={{ borderLeft: '3px solid transparent' }}
                                     initial={{
                                       background: 'transparent',
@@ -294,7 +312,14 @@ export default function Navigation() {
                                       transition: { duration: 0.3, ease: 'easeOut' },
                                     }}
                                   >
-                                    {child.name}
+                                    <span className="relative z-10">{child.name}</span>
+                                    {decoration.logo && (
+                                      <img
+                                        src={decoration.logo}
+                                        alt=""
+                                        className="absolute right-3 top-1/2 h-7 w-auto opacity-0 translate-y-[-50%] translate-x-2 scale-75 group-hover/item:opacity-80 group-hover/item:translate-x-0 group-hover/item:scale-100 transition-all duration-500 ease-out pointer-events-none"
+                                      />
+                                    )}
                                   </motion.a>
                                 );
                               }

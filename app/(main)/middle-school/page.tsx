@@ -58,12 +58,12 @@ const activityRotations = [-0.5, 0.3, -0.3, 0.5];
 
 /* ── Gallery images ── */
 const galleryImages = [
-  { src: '/images/levels/secundaria/NWL-SMA-secundaria-tres-alumnas-retrato-uniforme.JPG', alt: 'Middle school students' },
-  { src: '/images/levels/secundaria/NWL-SMA-maestra-alumno-pizarron-explicacion.JPG', alt: 'Teacher and student at whiteboard' },
-  { src: '/images/levels/secundaria/NWL-SMA-secundaria-laboratorio-quimica.JPG', alt: 'Chemistry lab' },
-  { src: '/images/levels/secundaria/NWL-SMA-secundaria-alumnos-tablets-discusion.JPG', alt: 'Students collaborating with tablets' },
-  { src: '/images/levels/secundaria/NWL-SMA-secundaria-alumnas-yoga-bienestar.JPG', alt: 'Wellness and yoga' },
-  { src: '/images/levels/secundaria/NWL-Zibata-secundaria-alumno-escuchando-clase.JPG', alt: 'Student engaged in class' },
+  { src: '/images/levels/secundaria/nwl-sma-secundaria-tres-alumnas-retrato-uniforme.jpg', alt: 'Middle school students' },
+  { src: '/images/levels/secundaria/nwl-sma-maestra-alumno-pizarron-explicacion.jpg', alt: 'Teacher and student at whiteboard' },
+  { src: '/images/levels/secundaria/nwl-sma-secundaria-laboratorio-quimica.jpg', alt: 'Chemistry lab' },
+  { src: '/images/levels/secundaria/nwl-sma-secundaria-alumnos-tablets-discusion.jpg', alt: 'Students collaborating with tablets' },
+  { src: '/images/levels/secundaria/nwl-sma-secundaria-alumnas-yoga-bienestar.jpg', alt: 'Wellness and yoga' },
+  { src: '/images/levels/secundaria/nwl-zibata-secundaria-alumno-escuchando-clase.jpg', alt: 'Student engaged in class' },
 ];
 
 /* ── Knotion phase dot colors ── */
@@ -113,7 +113,7 @@ export default function MiddleSchoolPage() {
         ════════════════════════════════════════════════ */}
         <section className="relative min-h-[90vh] flex items-end overflow-hidden">
           <Image
-            src="/images/levels/secundaria/NWL-Zibata-secundaria-tres-alumnos-pasillo-retrato.JPG"
+            src="/images/levels/secundaria/nwl-zibata-secundaria-tres-alumnos-pasillo-retrato.jpg"
             alt="NWL Middle School students in campus hallway"
             fill
             priority
@@ -432,8 +432,8 @@ export default function MiddleSchoolPage() {
                       <div className="pt-4 border-t border-charcoal/6">
                         <Image
                           src={isFirst
-                            ? '/images/Logos/universidad-mondragon-mexico.jpg'
-                            : '/images/Logos/Logo_hokku-academy-300x137.webp'}
+                            ? '/images/logos/universidad-mondragon-mexico.jpg'
+                            : '/images/logos/hokku-academy.webp'}
                           alt={program.partner}
                           width={isFirst ? 110 : 90}
                           height={36}
@@ -492,7 +492,7 @@ export default function MiddleSchoolPage() {
               className="relative aspect-[21/9] md:aspect-[3/1] rounded-2xl overflow-hidden shadow-lg bg-sand max-w-5xl mx-auto mb-12"
             >
               <Image
-                src="/images/levels/secundaria/NWL-SMA-secundaria-alumnos-tablets-discusion.JPG"
+                src="/images/levels/secundaria/nwl-sma-secundaria-alumnos-tablets-discusion.jpg"
                 alt="Students collaborating with tablets"
                 fill
                 className="object-cover"
@@ -501,7 +501,7 @@ export default function MiddleSchoolPage() {
               {/* Knotion logo badge */}
               <div className="absolute bottom-4 left-4 bg-white/95 backdrop-blur-sm rounded-lg px-3 py-2 shadow-md">
                 <Image
-                  src="/images/Logos/Marca_Knotion.png"
+                  src="/images/logos/knotion.png"
                   alt="Knotion"
                   width={100}
                   height={32}

@@ -80,7 +80,7 @@ const maternalGalleryImages = [
   { src: '/images/levels/maternal/maternal-painting.jpg', caption: { en: 'Painting', es: 'Pintura' } },
   { src: '/images/levels/maternal/maternal-playtime.jpg', caption: { en: 'Playtime', es: 'Tiempo de Juego' } },
   { src: '/images/levels/maternal/maternal-ball-pit.jpg', caption: { en: 'Sensory Play', es: 'Juego Sensorial' } },
-  { src: '/images/levels/maternal/maternal-roleplay.JPG', caption: { en: 'Role Play', es: 'Juego de Roles' } },
+  { src: '/images/levels/maternal/maternal-roleplay.jpg', caption: { en: 'Role Play', es: 'Juego de Roles' } },
 ];
 
 export default function MaternalPage() {

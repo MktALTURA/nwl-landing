@@ -8,7 +8,7 @@ import BrochureLevelDropdown from './BrochureLevelDropdown';
 const pillarsData = [
   { number: '01', logoInitials: 'P4C', logoImage: null },
   { number: '02', logoInitials: 'NWL', logoImage: null },
-  { number: '03', logoInitials: 'K', logoImage: '/images/Logos/Marca_Knotion.png' },
+  { number: '03', logoInitials: 'K', logoImage: '/images/logos/knotion.png' },
 ];
 
 export default function Philosophy() {
