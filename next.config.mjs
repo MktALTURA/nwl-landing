@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
+    qualities: [75, 80, 90],
     remotePatterns: [
       { protocol: 'https', hostname: 'prod-files-secure.s3.us-west-2.amazonaws.com' },
       { protocol: 'https', hostname: 'images.unsplash.com' },
@@ -41,7 +42,7 @@ const nextConfig = {
               "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
               "font-src 'self' https://fonts.gstatic.com",
               "img-src 'self' data: blob: https://prod-files-secure.s3.us-west-2.amazonaws.com https://images.unsplash.com https://storage.googleapis.com https://assets.cdn.filesafe.space",
-              "frame-src https://api.leadconnectorhq.com https://heyzine.com",
+              "frame-src https://api.leadconnectorhq.com https://heyzine.com https://www.google.com",
               "connect-src 'self' https://api.leadconnectorhq.com https://link.msgsndr.com https://va.vercel-scripts.com https://vitals.vercel-insights.com https://fonts.googleapis.com https://fonts.gstatic.com",
             ].join('; '),
           },
@@ -52,6 +53,7 @@ const nextConfig = {
 
   async rewrites() {
     return [
+      { source: '/secundaria', destination: '/middle-school' },
       { source: '/be_nwl', destination: '/be_nwl.html' },
       { source: '/golden_ticket', destination: '/golden_ticket.html' },
       { source: '/golden_ticket_cap', destination: '/golden_ticket_cap.html' },

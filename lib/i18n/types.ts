@@ -174,6 +174,173 @@ export interface Dictionary {
     dayTitleAccent: string;
     daySchedule: { time: string; activity: string; icon: string }[];
   };
+  elementary: {
+    ageBadge: string;
+    tagline: string;
+    description: string;
+    statBilingual: string;
+    statCampuses: string;
+    statNoHomework: string;
+    schedule: string;
+    statSchedule: string;
+    testimonial: string;
+    testimonialAuthor: string;
+    cta: string;
+    ctaSecondary: string;
+  };
+  elementaryPage: {
+    heroHeadline: string;
+    heroSubheadline: string;
+    backToHome: string;
+    overviewTitle: string;
+    overviewTitleAccent: string;
+    pillarsTitle: string;
+    pillarsTitleAccent: string;
+    pillarsSubtitle: string;
+    pillars: { title: string; subtitle: string; description: string }[];
+    knotionTitle: string;
+    knotionTitleAccent: string;
+    knotionSubtitle: string;
+    knotionPhases: { name: string; title: string }[];
+    steamTitle: string;
+    steamTitleAccent: string;
+    steamSubtitle: string;
+    steamFeatures: { title: string; description: string }[];
+    differentiatorsSectionTitle: string;
+    differentiators: { title: string; description: string }[];
+    activitiesTitle: string;
+    activitiesTitleAccent: string;
+    activitiesSubtitle: string;
+    activities: string[];
+    activitiesFeatureTitle: string;
+    activitiesFeatureDescription: string;
+    activitiesNote: string;
+    galleryTitle: string;
+    galleryTitleAccent: string;
+    galleryComingSoon: string;
+  };
+  middleSchool: {
+    ageBadge: string;
+    tagline: string;
+    description: string;
+    statBilingual: string;
+    statCampuses: string;
+    statCertifications: string;
+    schedule: string;
+    statSchedule: string;
+    testimonial: string;
+    testimonialAuthor: string;
+    cta: string;
+    ctaSecondary: string;
+  };
+  middleSchoolPage: {
+    heroHeadline: string;
+    heroSubheadline: string;
+    backToHome: string;
+    // Transformation section
+    transformationTitle: string;
+    transformationTitleAccent: string;
+    transformationBefore: string;
+    transformationBeforeItems: string[];
+    transformationAfter: string;
+    transformationAfterItems: string[];
+    // Pillars
+    pillarsTitle: string;
+    pillarsTitleAccent: string;
+    pillarsSubtitle: string;
+    pillars: { title: string; subtitle: string; description: string }[];
+    // Exclusive programs
+    exclusiveTitle: string;
+    exclusiveTitleAccent: string;
+    exclusiveSubtitle: string;
+    exclusivePrograms: {
+      title: string;
+      partner: string;
+      description: string;
+      highlights: string[];
+    }[];
+    exclusiveQuote: string;
+    // Knotion
+    knotionTitle: string;
+    knotionTitleAccent: string;
+    knotionSubtitle: string;
+    knotionPhases: { name: string; title: string; description: string }[];
+    // Differentiators
+    differentiatorsSectionTitle: string;
+    differentiators: { title: string; description: string }[];
+    // Activities
+    activitiesTitle: string;
+    activitiesTitleAccent: string;
+    activitiesSubtitle: string;
+    activities: { name: string; description: string }[];
+    activitiesNote: string;
+    // Gallery
+    galleryTitle: string;
+    galleryTitleAccent: string;
+  };
+  highSchool: {
+    ageBadge: string;
+    tagline: string;
+    description: string;
+    statBilingual: string;
+    statCampuses: string;
+    statCertifications: string;
+    statProjects: string;
+    schedule: string;
+    statSchedule: string;
+    cta: string;
+    ctaSecondary: string;
+  };
+  highSchoolPage: {
+    heroHeadline: string;
+    heroSubheadline: string;
+    backToHome: string;
+    // Value props
+    valuePropsTitle: string;
+    valuePropsTitleAccent: string;
+    valuePropsSubtitle: string;
+    valueProps: { title: string; description: string }[];
+    // Life Project Journey (6-semester timeline)
+    journeyTitle: string;
+    journeyTitleAccent: string;
+    journeySubtitle: string;
+    semesters: {
+      number: string;
+      theme: string;
+      skills: string[];
+      project: string;
+    }[];
+    // Life Project Model (3 pillars)
+    pillarsTitle: string;
+    pillarsTitleAccent: string;
+    pillarsSubtitle: string;
+    pillars: { title: string; subtitle: string; description: string }[];
+    // Exclusive Programs
+    exclusiveTitle: string;
+    exclusiveTitleAccent: string;
+    exclusiveSubtitle: string;
+    exclusivePrograms: {
+      title: string;
+      partner: string;
+      description: string;
+      highlights: string[];
+    }[];
+    // McGraw-Hill Academic section
+    academicTitle: string;
+    academicTitleAccent: string;
+    academicDescription: string;
+    academicHighlights: string[];
+    academicPlanCta: string;
+    // University Pathways
+    universityPathwaysTitle: string;
+    universityPathwaysTitleAccent: string;
+    universityPathwaysSubtitle: string;
+    universityPathwaysDescription: string;
+    universityPathwaysFootnote: string;
+    // Gallery
+    galleryTitle: string;
+    galleryTitleAccent: string;
+  };
   campusDetail: {
     facilitiesTitle: string;
     facilitiesTitleAccent: string;

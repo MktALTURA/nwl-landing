@@ -430,6 +430,465 @@ export const en: Dictionary = {
       { time: '1:30', activity: 'Reflection circle & dismissal', icon: 'star' },
     ],
   },
+  elementary: {
+    ageBadge: 'Ages 6–11',
+    tagline: 'Building the Future, One Project at a Time',
+    description:
+      'In Elementary, students take ownership of their learning through the IMPACT model, STEAM maker labs, and a philosophy program that teaches them how to think — not what to think. English immersion across all subjects. No traditional homework.',
+    statBilingual: 'English Immersion',
+    statCampuses: 'Campuses',
+    statNoHomework: 'No Homework',
+    schedule: '7:40–2:30',
+    statSchedule: 'Schedule',
+    testimonial:
+      'She used to hate going to school. Now she tells me about her projects at dinner. Something changed, and I\'m grateful.',
+    testimonialAuthor: 'NWL Parent, Elementary',
+    cta: 'Schedule a Visit',
+    ctaSecondary: 'Download Brochure',
+  },
+  elementaryPage: {
+    heroHeadline: 'Building the Future, One Project at a Time',
+    heroSubheadline:
+      'Design thinkers who solve real challenges, lead with purpose, and live English every day. Maker labs, no homework, and international certification.',
+    backToHome: 'Back to Home',
+    overviewTitle: 'Discover',
+    overviewTitleAccent: 'Elementary NWL',
+    pillarsTitle: 'The NWL',
+    pillarsTitleAccent: 'Model',
+    pillarsSubtitle: 'Three pillars that define how we develop critical thinkers and leaders.',
+    pillars: [
+      {
+        title: 'Knotion / IMPACT Model',
+        subtitle: 'Design Thinking in Action',
+        description:
+          'Real-world challenges through the IMPACT methodology. Students investigate, create, and present solutions with social impact. No traditional homework.',
+      },
+      {
+        title: 'Philosophy for Children',
+        subtitle: 'P4C + Parent Diploma',
+        description:
+          'We teach how to think, not what to think. Philosophical dialogue that builds critical reasoning, argumentation, and empathy. Includes a Parent Diploma.',
+      },
+      {
+        title: "I'm NWL Leader",
+        subtitle: 'by Tec de Monterrey',
+        description:
+          'Soft skills, teamwork, emotional intelligence, and leadership. A program endorsed by Tec de Monterrey, exclusive to NWL.',
+      },
+    ],
+    knotionTitle: 'Powered by',
+    knotionTitleAccent: 'Knotion',
+    knotionSubtitle: 'An international learning ecosystem that replaces memorization with real-world problem solving.',
+    knotionPhases: [
+      { name: 'Identify', title: 'Connect with the challenge' },
+      { name: 'Map', title: 'Research and understand' },
+      { name: 'Prototype', title: 'Design a solution' },
+      { name: 'Act', title: 'Implement and share' },
+    ],
+    steamTitle: 'TecniKids',
+    steamTitleAccent: 'STEAM Lab',
+    steamSubtitle: 'Where ideas become real. Our maker spaces put professional tools in the hands of young innovators.',
+    steamFeatures: [
+      {
+        title: '3D Printing',
+        description: 'Students design and fabricate prototypes, bringing ideas from screen to reality.',
+      },
+      {
+        title: 'Laser Cutting',
+        description: 'Precision fabrication that teaches engineering principles through hands-on creation.',
+      },
+      {
+        title: 'Robotics',
+        description: 'Programming and building robots that solve real challenges and develop computational thinking.',
+      },
+      {
+        title: 'Maker Spaces',
+        description: 'Open workshops where creativity meets tools, materials, and collaboration.',
+      },
+    ],
+    differentiatorsSectionTitle: 'What Sets Us Apart',
+    differentiators: [
+      {
+        title: 'International Trips',
+        description: 'From 5th grade, students experience global learning through educational travel abroad.',
+      },
+      {
+        title: 'Corazones Mágicos',
+        description: 'Certified prevention program that builds emotional resilience and a safe school culture.',
+      },
+      {
+        title: 'Cognia Certified',
+        description: 'International quality certification present in 88+ countries, validating our standards.',
+      },
+      {
+        title: 'Bullying-Free School',
+        description: 'Certified bullying-free environment with clear protocols and a culture of respect.',
+      },
+    ],
+    activitiesTitle: 'Beyond the',
+    activitiesTitleAccent: 'Classroom',
+    activitiesSubtitle: 'Leadership, discipline, and teamwork through sports, arts, and creative expression.',
+    activities: [
+      'Soccer',
+      'Basketball',
+      'Taekwondo',
+      'Dance Team',
+      'Art',
+      'Music',
+      'Theater',
+      'Gladiators Race',
+    ],
+    activitiesFeatureTitle: 'Gladiators Race · Reto NWL',
+    activitiesFeatureDescription:
+      'An obstacle course challenge that builds confidence, discipline, and physical resilience. Students push their limits as a team.',
+    activitiesNote: 'Activities vary by campus — ask about offerings at your preferred location.',
+    galleryTitle: 'Life in',
+    galleryTitleAccent: 'Elementary',
+    galleryComingSoon: 'Gallery coming soon. Visit a campus to see our spaces firsthand.',
+  },
+  middleSchool: {
+    ageBadge: 'Ages 12–15',
+    tagline: 'From Ideas to Impact',
+    description:
+      'In Middle School, students become entrepreneurs, earn dual international certifications, and develop the critical thinking and leadership skills that define their future. Real projects, not textbook exercises. Global credentials, not just grades.',
+    statBilingual: 'English Immersion',
+    statCampuses: 'Campuses',
+    statCertifications: 'International Certifications',
+    schedule: '7:30–2:30',
+    statSchedule: 'Schedule',
+    testimonial:
+      "My son is quieter by nature, but lately he's been speaking up more. His teacher noticed before I did. That kind of attention matters to me.",
+    testimonialAuthor: 'NWL Parent, Middle School',
+    cta: 'Schedule a Visit',
+    ctaSecondary: 'Download Brochure',
+  },
+  middleSchoolPage: {
+    heroHeadline: 'From Ideas to Impact',
+    heroSubheadline:
+      'Where young entrepreneurs earn international credentials, develop real-world skills, and become the leaders of tomorrow.',
+    backToHome: 'Back to Home',
+    // Transformation
+    transformationTitle: 'The Middle School',
+    transformationTitleAccent: 'Transformation',
+    transformationBefore: 'They arrive as...',
+    transformationBeforeItems: [
+      'Students who follow instructions',
+      'Learners absorbing information',
+      'Kids finding their voice',
+    ],
+    transformationAfter: 'They leave as...',
+    transformationAfterItems: [
+      'Leaders who take initiative',
+      'Thinkers who solve real problems',
+      'Young adults ready for the world',
+    ],
+    // Pillars
+    pillarsTitle: 'The NWL',
+    pillarsTitleAccent: 'Model',
+    pillarsSubtitle:
+      'Three pillars that develop critical thinkers, empathetic leaders, and real-world problem solvers.',
+    pillars: [
+      {
+        title: 'Knotion',
+        subtitle: 'International Methodology',
+        description:
+          'Problem-solving through real-world challenges with social impact. No traditional homework. Students learn by doing, creating, and presenting solutions.',
+      },
+      {
+        title: 'Philosophy for Children',
+        subtitle: 'P4C / Critical Thinking',
+        description:
+          'We teach how to think, not what to think. Guided dialogue develops autonomous judgment, ethical reasoning, and the confidence to defend their ideas.',
+      },
+      {
+        title: "I'm NWL Leader",
+        subtitle: 'by Tec de Monterrey',
+        description:
+          'Leadership, emotional intelligence, and teamwork. An exclusive program endorsed by Tec de Monterrey that prepares students for real-world collaboration.',
+      },
+    ],
+    // Exclusive Programs
+    exclusiveTitle: 'Exclusive',
+    exclusiveTitleAccent: 'Programs',
+    exclusiveSubtitle:
+      'Two programs that set NWL Middle School apart from any other school in the region.',
+    exclusivePrograms: [
+      {
+        title: 'Entrepreneurship Program',
+        partner: 'Universidad Mondragón',
+        description:
+          "Students develop real business projects with mentorship from one of the world's leading cooperative universities.",
+        highlights: [
+          'Real entrepreneurship projects from concept to pitch',
+          'Business fundamentals and financial literacy',
+          'Annual pitch day with community judges',
+        ],
+      },
+      {
+        title: 'Double International Certification',
+        partner: 'Hokku Academy',
+        description:
+          'Students graduate with both US and Mexican academic credentials, opening doors to universities worldwide.',
+        highlights: [
+          'US-aligned curriculum alongside Mexican SEP standards',
+          'Internationally recognized dual diploma',
+          'Seamless pathway to global higher education',
+        ],
+      },
+    ],
+    exclusiveQuote: 'Global credentials for global citizens',
+    // Knotion
+    knotionTitle: 'Powered by',
+    knotionTitleAccent: 'Knotion',
+    knotionSubtitle:
+      'An international learning ecosystem where memorization gives way to real-world problem solving.',
+    knotionPhases: [
+      { name: 'Identify', title: 'Connect with the challenge', description: 'Students engage with real-world problems that matter, from community issues to global sustainability, sparking curiosity and purpose.' },
+      { name: 'Map', title: 'Research and understand', description: 'Through collaborative investigation and critical analysis, they map the problem landscape, gathering data and perspectives from multiple sources.' },
+      { name: 'Prototype', title: 'Design a solution', description: 'Teams brainstorm, iterate, and build working prototypes using design thinking methodology and hands-on maker tools.' },
+      { name: 'Act', title: 'Implement and share', description: 'Solutions are put into action and presented to real audiences, building confidence, communication skills, and a lasting sense of impact.' },
+    ],
+    // Differentiators
+    differentiatorsSectionTitle: 'What Sets Us Apart',
+    differentiators: [
+      {
+        title: 'International Experiences',
+        description:
+          'Global learning through educational travel that broadens perspectives and builds cultural intelligence.',
+      },
+      {
+        title: 'Cognia Certified',
+        description:
+          'International quality certification recognized in 88+ countries, validating our academic standards.',
+      },
+      {
+        title: 'Corazones Mágicos',
+        description:
+          'Certified violence prevention program that builds emotional resilience and a safe school culture.',
+      },
+      {
+        title: 'Bullying-Free School',
+        description:
+          'Certified bullying-free environment with clear protocols and a culture of mutual respect.',
+      },
+      {
+        title: '90+ Security Cameras',
+        description:
+          '24/7 monitored security across all campuses, ensuring peace of mind for every family.',
+      },
+      {
+        title: 'Personalized Attention',
+        description:
+          'Small class sizes and dedicated advisors who know every student by name.',
+      },
+    ],
+    // Activities
+    activitiesTitle: 'Beyond the',
+    activitiesTitleAccent: 'Classroom',
+    activitiesSubtitle:
+      'Leadership, discipline, and self-expression through competitive sports, performing arts, and public speaking.',
+    activities: [
+      { name: 'Sports', description: 'Soccer, basketball, volleyball, and more in competitive leagues.' },
+      { name: 'Arts', description: 'Visual arts, digital design, and creative expression programs.' },
+      { name: 'Music', description: 'Instrumental, vocal, and music production opportunities.' },
+      { name: 'Public Speaking', description: 'Debate, Model UN, and presentation skills for confident communicators.' },
+    ],
+    activitiesNote: 'Activities vary by campus. Ask about offerings at your preferred location.',
+    // Gallery
+    galleryTitle: 'Life in',
+    galleryTitleAccent: 'Middle School',
+  },
+  highSchool: {
+    ageBadge: 'Ages 15–17',
+    tagline: 'A Preparation for Life',
+    description:
+      'Prepa NWL prepares students for a future full of challenges, with a growth mindset and skills that go far beyond academics. Through the Life Project model, every semester builds real-world abilities, from financial intelligence to entrepreneurship.',
+    statBilingual: 'Bilingual Program',
+    statCampuses: 'Campuses',
+    statCertifications: 'Certifications',
+    statProjects: 'Personal Projects',
+    schedule: '7:30–2:30',
+    statSchedule: 'Schedule',
+    cta: 'Schedule a Visit',
+    ctaSecondary: 'Download Brochure',
+  },
+  highSchoolPage: {
+    heroHeadline: 'More Than High School',
+    heroSubheadline:
+      'A preparation for life. Where growth mindset, real-world skills, and personal purpose come together in every semester.',
+    backToHome: 'Back to Home',
+    // Value Props
+    valuePropsTitle: 'What Makes Us',
+    valuePropsTitleAccent: 'Different',
+    valuePropsSubtitle:
+      'Prepa NWL isn\'t a traditional high school. It\'s a life project designed to prepare students for the real world.',
+    valueProps: [
+      {
+        title: 'Life Project',
+        description: 'A personalized journey with Life Mentors guiding each student to discover their talents and build their purpose.',
+      },
+      {
+        title: 'Zero Homework',
+        description: 'No traditional homework or final exams. Continuous assessment through projects, presentations, and real-world applications.',
+      },
+      {
+        title: 'Financial Intelligence',
+        description: 'Personal finance education every semester, from budgeting basics to entrepreneurial economics and adult financial planning.',
+      },
+      {
+        title: 'Real-World Certifications',
+        description: 'Industry-recognized certifications each semester in skills like leadership, innovation, entrepreneurship, and digital tools.',
+      },
+      {
+        title: 'AI & Modern Technology',
+        description: 'Students learn to use AI and digital tools as everyday instruments, transforming how they learn, create, and solve problems.',
+      },
+      {
+        title: 'University & Career Prep',
+        description: 'Scholarship preparation, professional skills, and a clear pathway to higher education through dual diplomas and global credentials.',
+      },
+    ],
+    // Life Project Journey
+    journeyTitle: 'The Life Project',
+    journeyTitleAccent: 'Journey',
+    journeySubtitle:
+      '6 semesters. 6 transformations. Each one builds on the last, guiding students from self-discovery to being future-ready.',
+    semesters: [
+      {
+        number: '01',
+        theme: 'Growth Mindset & Personal Mastery',
+        skills: ['Self-Awareness', 'Resilience & Grit', 'Emotional Intelligence'],
+        project: 'My Life Book',
+      },
+      {
+        number: '02',
+        theme: 'Social Skills & Effective Communication',
+        skills: ['Conflict Management', 'Assertive Communication', 'Leadership'],
+        project: 'My Voice, My Influence',
+      },
+      {
+        number: '03',
+        theme: 'Innovation & Critical Thinking',
+        skills: ['Critical Thinking', 'Strategic Problem-Solving', 'Creativity'],
+        project: 'Ideas That Transform',
+      },
+      {
+        number: '04',
+        theme: 'Entrepreneurship & Business Creation',
+        skills: ['Entrepreneurial Mindset', 'Leadership', 'Interdisciplinary Collaboration'],
+        project: 'My First Venture',
+      },
+      {
+        number: '05',
+        theme: 'Social Impact & Responsibility',
+        skills: ['Ethical Decision-Making', 'Social Responsibility', 'Financial Stewardship'],
+        project: 'Choosing with Purpose',
+      },
+      {
+        number: '06',
+        theme: 'Future-Ready: University & Career Prep',
+        skills: ['Professional Teamwork', 'University Prep', 'Digital & Future Skills'],
+        project: 'My Future in Action',
+      },
+    ],
+    // Life Project Model
+    pillarsTitle: 'The Life Project',
+    pillarsTitleAccent: 'Model',
+    pillarsSubtitle:
+      'Three dimensions that develop complete individuals: not just academically prepared, but life-ready.',
+    pillars: [
+      {
+        title: 'Growth Mindset',
+        subtitle: 'Self-Growth & Resilience',
+        description:
+          'Students develop the inner strength to face challenges, learn from failure, and continuously grow. The foundation for everything else.',
+      },
+      {
+        title: 'Emotional Empowerment',
+        subtitle: 'Social & Communication Skills',
+        description:
+          'From assertive communication to ethical leadership, students learn to connect, collaborate, and lead with empathy and purpose.',
+      },
+      {
+        title: 'Fundamental Life Abilities',
+        subtitle: 'Entrepreneurship & Future Skills',
+        description:
+          'Financial literacy, digital competence, entrepreneurship, and professional preparation. The practical skills that make the difference.',
+      },
+    ],
+    // Exclusive Programs
+    exclusiveTitle: 'Exclusive',
+    exclusiveTitleAccent: 'Programs',
+    exclusiveSubtitle:
+      'Partnerships and programs that set Prepa NWL apart, giving students credentials and experiences no other school in the region offers.',
+    exclusivePrograms: [
+      {
+        title: 'US + Mexican Dual Diploma',
+        partner: 'Hokku Academy',
+        description:
+          'Students graduate with both a US-accredited high school diploma (Cognia accredited) and their Mexican SEP diploma, opening doors to universities worldwide.',
+        highlights: [
+          'US Cognia-accredited diploma alongside Mexican SEP standards',
+          'Project-based learning with AI-guided mastery',
+          'Direct pathway to US and international universities',
+        ],
+      },
+      {
+        title: 'In-School Fitness Program',
+        partner: 'HIT & Hyrox-Style Training',
+        description:
+          'An on-campus functional fitness program with coached sessions: sled pushes, tire flips, and circuit training. Building discipline, resilience, and physical wellness.',
+        highlights: [
+          'Professional coached HIT & Hyrox-style workouts',
+          'On-campus training facilities and equipment',
+          'Physical resilience integrated into the school day',
+        ],
+      },
+      {
+        title: 'Personal Projects Portfolio',
+        partner: 'Life Project',
+        description:
+          'Over 6 semesters, each student builds a portfolio of meaningful projects, from "My Life Book" to "My Future in Action", documenting their personal growth journey.',
+        highlights: [
+          '6 personal projects across 3 years',
+          '6 integrative team projects with real-world impact',
+          'A tangible portfolio for university applications',
+        ],
+      },
+      {
+        title: 'International Exchange',
+        partner: 'Global Experience',
+        description:
+          'Optional international exchange program in semesters 5-6. Cultural immersion, language mastery, and a global perspective that transforms their worldview.',
+        highlights: [
+          'Cultural immersion in international settings',
+          'Language mastery through real-world experience',
+          'Global network and perspective',
+        ],
+      },
+    ],
+    // Academic section (McGraw-Hill)
+    academicTitle: 'Academic',
+    academicTitleAccent: 'Excellence',
+    academicDescription:
+      'Our academic curriculum is powered by McGraw-Hill, a world-leading educational publisher trusted by top institutions globally. This ensures rigorous, internationally recognized academic content alongside our Life Project model.',
+    academicHighlights: [
+      'Internationally recognized academic content',
+      'Adaptive learning technology for personalized progress',
+      'Digital platforms and virtual lab experiences',
+      'Aligned with Mexican SEP standards and global benchmarks',
+    ],
+    academicPlanCta: 'View Academic Plan',
+    // University Pathways
+    universityPathwaysTitle: 'University',
+    universityPathwaysTitleAccent: 'Pathways',
+    universityPathwaysSubtitle: 'Preparing students for Mexico\'s top universities and beyond',
+    universityPathwaysDescription: 'Through our dual diploma program, strategic university partnerships, and the Life Project model, Prepa NWL students are building the credentials and skills to thrive at leading institutions.',
+    universityPathwaysFootnote: 'University partnerships and pathways are actively developed as part of our academic alliances.',
+    // Gallery
+    galleryTitle: 'Life at',
+    galleryTitleAccent: 'Prepa NWL',
+  },
   campusDetail: {
     facilitiesTitle: 'Our',
     facilitiesTitleAccent: 'Facilities',
@@ -438,7 +897,7 @@ export const en: Dictionary = {
     directorTitle: 'A Message from',
     directorTitleAccent: 'Our Director',
     ctaTitle: 'Ready to Visit',
-    ctaTitleAccent: 'Zibatá?',
+    ctaTitleAccent: 'Our Campus?',
     ctaSubtitle: 'Schedule a personalized tour and discover why NWL is the right choice for your family.',
     ctaScheduleVisit: 'Schedule a Visit',
     ctaWhatsapp: 'Chat on WhatsApp',

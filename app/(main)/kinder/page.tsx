@@ -23,6 +23,7 @@ import {
 import { HiOutlineLightBulb } from 'react-icons/hi';
 import { LuBrain, LuRocket } from 'react-icons/lu';
 import { useLanguage } from '@/lib/i18n/LanguageContext';
+import { useBrochure } from '@/lib/BrochureContext';
 import FinalCTA from '@/components/FinalCTA';
 import Footer from '@/components/Footer';
 import SparkleAnimation from '@/components/SparkleAnimation';
@@ -77,6 +78,7 @@ export default function KinderPage() {
   const mainRef = useRef<HTMLElement>(null);
   const [activeGallery, setActiveGallery] = useState(0);
   const { locale, t } = useLanguage();
+  const { openBrochure } = useBrochure();
   const k = t.kinder;
   const kp = t.kinderPage;
 
@@ -172,12 +174,12 @@ export default function KinderPage() {
                 >
                   {k.cta}
                 </a>
-                <a
-                  href="#"
+                <button
+                  onClick={() => openBrochure('maternal-kinder')}
                   className="bg-white/10 backdrop-blur-sm text-white px-8 py-3.5 rounded-sm font-medium hover:bg-white/20 transition-colors border border-white/25"
                 >
                   {k.ctaSecondary}
-                </a>
+                </button>
               </div>
             </motion.div>
           </div>

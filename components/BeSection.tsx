@@ -19,93 +19,132 @@ export default function BeSection() {
     setIsMounted(true);
   }, []);
 
-  // GSAP ScrollTrigger.pin() + timeline
+  // GSAP ScrollTrigger.pin() + timeline (desktop) or auto-cycle (mobile)
   useEffect(() => {
     if (!isMounted || !triggerRef.current || !sectionRef.current) return;
+
+    const isMobile = window.innerWidth < 768;
 
     const ctx = gsap.context(() => {
       const wordEls = gsap.utils.toArray('.be-word') as HTMLElement[];
       const totalWords = wordEls.length;
-      const scrollMultiplier = window.innerWidth < 768 ? 0.7 : 1;
 
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: triggerRef.current,
-          pin: sectionRef.current,
-          start: 'top top',
-          end: `+=${window.innerHeight * totalWords * scrollMultiplier * 0.5}`,
-          scrub: 0.8,
-          pinSpacing: true,
-          anticipatePin: 1,
-        },
-      });
+      if (isMobile) {
+        // Mobile: NO pin, NO scrub. Auto-cycle words on a timer when
+        // the section enters the viewport. Pin + scrub fundamentally
+        // fights native touch scroll and causes bounce/jitter.
+        let currentIndex = -1;
+        let intervalId: ReturnType<typeof setInterval> | null = null;
 
-      // "Be" text and divider are already visible — no entrance animation.
-      // Words start cycling immediately at scroll position 0.
+        const cycleWord = () => {
+          const prevIndex = currentIndex;
+          currentIndex = (currentIndex + 1) % totalWords;
 
-      // Give regular words 68% of the timeline, NWL gets 32% (extended hold)
-      const regularWords = totalWords - 1;
-      const regularSegDuration = 0.68 / regularWords;
-      const nwlStart = regularSegDuration * regularWords; // ~0.68
-      const nwlDuration = 1 - nwlStart;
+          // Fade out previous word
+          if (prevIndex >= 0 && wordEls[prevIndex]) {
+            gsap.to(wordEls[prevIndex], {
+              yPercent: -30, opacity: 0, scale: 0.9,
+              duration: 0.35, ease: 'power2.in',
+            });
+          }
 
-      wordEls.forEach((wordEl, i) => {
-        const isLast = i === totalWords - 1;
-        const segDuration = isLast ? nwlDuration : regularSegDuration;
-        const segStart = isLast ? nwlStart : i * regularSegDuration;
+          // Fade in current word
+          if (wordEls[currentIndex]) {
+            gsap.fromTo(wordEls[currentIndex],
+              { yPercent: 30, opacity: 0, scale: 0.9 },
+              { yPercent: 0, opacity: 1, scale: 1, duration: 0.4, ease: 'power2.out' },
+            );
+          }
+        };
 
-        // Enter — slide up from below + fade in
-        tl.fromTo(
-          wordEl,
-          { yPercent: 50, opacity: 0, scale: 0.85 },
-          {
-            yPercent: 0,
-            opacity: 1,
-            scale: 1,
-            duration: segDuration * 0.2,
-            ease: 'power3.out',
+        ScrollTrigger.create({
+          trigger: sectionRef.current,
+          start: 'top 80%',
+          onEnter: () => {
+            if (!intervalId) {
+              cycleWord(); // Show first word immediately
+              // NWL (last word) gets a longer hold — 2s vs 1s
+              const smartInterval = () => {
+                const isNwl = currentIndex === totalWords - 1;
+                intervalId = setTimeout(() => {
+                  cycleWord();
+                  smartInterval();
+                }, isNwl ? 2000 : 1000);
+              };
+              smartInterval();
+            }
           },
-          segStart
-        );
+          onLeave: () => {
+            if (intervalId) { clearTimeout(intervalId); intervalId = null; }
+          },
+          onEnterBack: () => {
+            if (!intervalId) {
+              const smartInterval = () => {
+                const isNwl = currentIndex === totalWords - 1;
+                intervalId = setTimeout(() => {
+                  cycleWord();
+                  smartInterval();
+                }, isNwl ? 2000 : 1000);
+              };
+              smartInterval();
+            }
+          },
+          onLeaveBack: () => {
+            if (intervalId) { clearTimeout(intervalId); intervalId = null; }
+          },
+        });
 
-        // Exit — slide up + fade out (skip for last word)
-        if (!isLast) {
-          tl.to(
-            wordEl,
-            {
-              yPercent: -40,
-              opacity: 0,
-              scale: 0.9,
-              duration: segDuration * 0.25,
-              ease: 'power2.in',
-            },
-            segStart + segDuration * 0.7
-          );
-        }
+        // Cleanup timer on unmount
+        return () => { if (intervalId) clearTimeout(intervalId); };
+      } else {
+        // Desktop: pin + scrub scroll-driven word cycling (unchanged)
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: triggerRef.current,
+            pin: sectionRef.current,
+            start: 'top top',
+            end: `+=${window.innerHeight * totalWords * 0.5}`,
+            scrub: 0.8,
+            pinSpacing: true,
+            anticipatePin: 1,
+          },
+        });
 
-        // NWL finale — scale pulse, then long hold
-        if (isLast) {
-          tl.to(
-            wordEl,
-            {
-              scale: 1.08,
-              duration: nwlDuration * 0.1,
-              ease: 'power2.out',
-            },
-            nwlStart + nwlDuration * 0.25
+        const regularWords = totalWords - 1;
+        const regularSegDuration = 0.68 / regularWords;
+        const nwlStart = regularSegDuration * regularWords;
+        const nwlDuration = 1 - nwlStart;
+
+        wordEls.forEach((wordEl, i) => {
+          const isLast = i === totalWords - 1;
+          const segDuration = isLast ? nwlDuration : regularSegDuration;
+          const segStart = isLast ? nwlStart : i * regularSegDuration;
+
+          tl.fromTo(wordEl,
+            { yPercent: 50, opacity: 0, scale: 0.85 },
+            { yPercent: 0, opacity: 1, scale: 1, duration: segDuration * 0.2, ease: 'power3.out' },
+            segStart
           );
-          tl.to(
-            wordEl,
-            {
-              scale: 1,
-              duration: nwlDuration * 0.12,
-              ease: 'elastic.out(1, 0.6)',
-            },
-            nwlStart + nwlDuration * 0.35
-          );
-          // Remaining ~50% of NWL segment is just a hold — no animation needed
-        }
-      });
+
+          if (!isLast) {
+            tl.to(wordEl,
+              { yPercent: -40, opacity: 0, scale: 0.9, duration: segDuration * 0.25, ease: 'power2.in' },
+              segStart + segDuration * 0.7
+            );
+          }
+
+          if (isLast) {
+            tl.to(wordEl,
+              { scale: 1.08, duration: nwlDuration * 0.1, ease: 'power2.out' },
+              nwlStart + nwlDuration * 0.25
+            );
+            tl.to(wordEl,
+              { scale: 1, duration: nwlDuration * 0.12, ease: 'elastic.out(1, 0.6)' },
+              nwlStart + nwlDuration * 0.35
+            );
+          }
+        });
+      }
     }, triggerRef);
 
     return () => ctx.revert();
@@ -117,7 +156,7 @@ export default function BeSection() {
     <div ref={triggerRef}>
       <div
         ref={sectionRef}
-        className="min-h-screen flex items-center justify-center bg-gradient-to-b from-white via-ivory to-white relative overflow-hidden"
+        className="min-h-[60vh] md:min-h-screen flex items-center justify-center bg-gradient-to-b from-white via-ivory to-white relative overflow-hidden"
       >
         {/* Faint kangaroo watermark for brand continuity */}
         <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[50vh] h-[50vh] opacity-[0.03] pointer-events-none">

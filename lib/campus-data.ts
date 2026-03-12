@@ -138,8 +138,8 @@ export const campuses: Record<string, CampusData> = {
       },
     ],
     director: {
-      name: 'Nombre del Director',
-      title: { en: 'Campus Director', es: 'Director de Campus' },
+      name: 'Mtra. Dayana Rose Gómez',
+      title: { en: 'Campus Director', es: 'Directora de Campus' },
       message: {
         en: 'At NWL Juriquilla, our flagship campus sets the standard for educational excellence. With over a decade of experience, we nurture every student\'s potential in a vibrant, close-knit community. We invite you to visit and discover the NWL difference.',
         es: 'En NWL Juriquilla, nuestro campus insignia marca el estándar de excelencia educativa. Con más de una década de experiencia, cultivamos el potencial de cada alumno en una comunidad vibrante y cercana. Te invitamos a visitarnos y descubrir la diferencia NWL.',
@@ -248,8 +248,8 @@ export const campuses: Record<string, CampusData> = {
       },
     ],
     director: {
-      name: 'Nombre del Director',
-      title: { en: 'Campus Director', es: 'Director de Campus' },
+      name: 'Ximena Arellano Atristain',
+      title: { en: 'Campus Director', es: 'Directora de Campus' },
       message: {
         en: 'At NWL Milenio, we create a warm, secure environment where children feel at home. Our dedicated team focuses on both academic achievement and emotional development, helping each student grow into a confident, well-rounded individual.',
         es: 'En NWL Milenio, creamos un ambiente cálido y seguro donde los niños se sienten como en casa. Nuestro equipo dedicado se enfoca tanto en el logro académico como en el desarrollo emocional, ayudando a cada alumno a crecer como un individuo seguro e integral.',
@@ -259,15 +259,14 @@ export const campuses: Record<string, CampusData> = {
     address: 'Cerrada Panorámica, Distrito Piamonte, Querétaro',
     mapUrl: 'https://maps.google.com/?q=Colegio+Newland+Milenio',
     galleryImages: [
-      { src: '/images/campus/milenio/milenio-hero.jpg', caption: { en: 'Welcome to Campus Milenio', es: 'Bienvenidos a Campus Milenio' } },
+      { src: '/images/campus/milenio/milenio-aerial-view.jpg', caption: { en: 'Aerial View', es: 'Vista Aérea' } },
       { src: '/images/campus/milenio/milenio-sports.jpg', caption: { en: 'Sports & Active Play', es: 'Deporte y Juego Activo' } },
       { src: '/images/campus/milenio/milenio-playground.jpg', caption: { en: 'Play, Explore & Grow', es: 'Jugar, Explorar y Crecer' } },
       { src: '/images/campus/milenio/milenio-cafeteria.jpg', caption: { en: 'Our Cafetorium', es: 'Nuestro Cafetorium' } },
       { src: '/images/campus/milenio/milenio-soccer-field.jpg', caption: { en: 'Soccer Field', es: 'Cancha de Fútbol' } },
+      { src: '/images/campus/milenio/milenio-welcome.jpg', caption: { en: 'Welcome to Campus Milenio', es: 'Bienvenidos a Campus Milenio' } },
       { src: '/images/campus/milenio/milenio-covered-court.jpg', caption: { en: 'Covered Multi-Sport Court', es: 'Cancha Multiusos Techada' } },
       { src: '/images/campus/milenio/milenio-nurse-office.jpg', caption: { en: 'Nurse\'s Office', es: 'Enfermería' } },
-      { src: '/images/campus/milenio/milenio-aerial-view.jpg', caption: { en: 'Aerial View', es: 'Vista Aérea' } },
-      { src: '/images/campus/milenio/milenio-exterior-wide.png', caption: { en: 'Campus Exterior', es: 'Exterior del Campus' } },
     ],
     testimonials: [
       {
@@ -355,7 +354,7 @@ export const campuses: Record<string, CampusData> = {
       },
     ],
     director: {
-      name: 'Nombre del Director',
+      name: 'Lic. Ramón Godínez Ceja',
       title: { en: 'Campus Director', es: 'Director de Campus' },
       message: {
         en: 'At NWL San Miguel de Allende, we blend the cultural richness of this UNESCO World Heritage city with our commitment to academic excellence. Our students grow immersed in art, history, and a global perspective that sets them apart.',
@@ -373,6 +372,9 @@ export const campuses: Record<string, CampusData> = {
       { src: '/images/campus/san-miguel/san-miguel-playground.jpg', caption: { en: 'Play, Explore & Grow', es: 'Jugar, Explorar y Crecer' } },
       { src: '/images/campus/san-miguel/san-miguel-cafeteria.jpg', caption: { en: 'Our Cafetorium', es: 'Nuestro Cafetorium' } },
       { src: '/images/campus/san-miguel/san-miguel-commons.jpg', caption: { en: 'Student Commons', es: 'Zona de Convivencia' } },
+      { src: '/images/campus/san-miguel/san-miguel-campus-entrance.jpg', caption: { en: 'Campus Entrance', es: 'Entrada del Campus' } },
+      { src: '/images/campus/san-miguel/san-miguel-outdoor-area.jpg', caption: { en: 'Outdoor Area', es: 'Área al Aire Libre' } },
+      { src: '/images/campus/san-miguel/san-miguel-courtyard.jpg', caption: { en: 'Campus Courtyard', es: 'Patio del Campus' } },
     ],
     testimonials: [
       {
@@ -460,7 +462,7 @@ export const campuses: Record<string, CampusData> = {
       },
     ],
     director: {
-      name: 'Nombre del Director',
+      name: 'José Gustavo Flores Espinosa',
       title: { en: 'Campus Director', es: 'Director de Campus' },
       message: {
         en: 'At NWL Corregidora, we are proud to serve a growing community with a warm, family-centered approach to education. Every child is known by name, supported with care, and challenged to reach their full potential.',
@@ -523,12 +525,12 @@ export const campuses: Record<string, CampusData> = {
       { value: { en: '100%', es: '100%' }, label: { en: 'Bilingual', es: 'Bilingüe' } },
     ],
     facilities: [
-      { name: { en: 'Sports Fields', es: 'Canchas Deportivas' }, image: '/images/campus/zibata/zibata-sports.JPG' },
-      { name: { en: 'Science Labs', es: 'Laboratorios de Ciencias' }, image: '/images/campus/zibata/zibata-labs.JPG' },
+      { name: { en: 'Sports Fields', es: 'Canchas Deportivas' }, image: '/images/campus/zibata/zibata-sports.jpg' },
+      { name: { en: 'Science Labs', es: 'Laboratorios de Ciencias' }, image: '/images/campus/zibata/zibata-labs.jpg' },
       { name: { en: 'Classrooms', es: 'Salones de Clase' }, image: '/images/campus/zibata/zibata-classrooms.jpg' },
-      { name: { en: 'Playground', es: 'Área de Juegos' }, image: '/images/campus/zibata/zibata-playground.JPG' },
-      { name: { en: 'Cafetorium', es: 'Cafetorium' }, image: '/images/campus/zibata/zibata-cafeteria.JPG' },
-      { name: { en: 'Student Commons', es: 'Zona de Convivencia' }, image: '/images/campus/zibata/zibata-commons.JPG' },
+      { name: { en: 'Playground', es: 'Área de Juegos' }, image: '/images/campus/zibata/zibata-playground.jpg' },
+      { name: { en: 'Cafetorium', es: 'Cafetorium' }, image: '/images/campus/zibata/zibata-cafeteria.jpg' },
+      { name: { en: 'Student Commons', es: 'Zona de Convivencia' }, image: '/images/campus/zibata/zibata-commons.jpg' },
     ],
     activities: [
       {
@@ -565,8 +567,8 @@ export const campuses: Record<string, CampusData> = {
       },
     ],
     director: {
-      name: 'Nombre del Director',
-      title: { en: 'Campus Director', es: 'Director de Campus' },
+      name: 'Daniela Arévalo Zapien',
+      title: { en: 'Campus Director', es: 'Directora de Campus' },
       message: {
         en: 'At NWL Zibatá, we believe every child carries the potential for greatness. Our modern campus is designed to nurture curiosity, build confidence, and prepare students for a world full of possibilities. We welcome you to visit and experience the NWL difference firsthand.',
         es: 'En NWL Zibatá, creemos que cada niño lleva el potencial de la grandeza. Nuestro campus moderno está diseñado para nutrir la curiosidad, construir confianza y preparar a los alumnos para un mundo lleno de posibilidades. Te invitamos a visitarnos y vivir la diferencia NWL.',
@@ -576,20 +578,20 @@ export const campuses: Record<string, CampusData> = {
     address: 'Paseo de las Pitahayas, Zibatá, Querétaro',
     mapUrl: 'https://maps.google.com/?q=Colegio+Newland+Zibata',
     galleryImages: [
-      { src: '/images/campus/zibata/zibata-hero.JPG', caption: { en: 'Welcome to Campus Zibatá', es: 'Bienvenidos a Campus Zibatá' } },
+      { src: '/images/campus/zibata/zibata-hero.jpg', caption: { en: 'Welcome to Campus Zibatá', es: 'Bienvenidos a Campus Zibatá' } },
       { src: '/images/campus/zibata/zibata-building.jpg', caption: { en: 'Campus Building', es: 'Edificio del Campus' } },
-      { src: '/images/campus/zibata/zibata-sports.JPG', caption: { en: 'Sports & Active Play', es: 'Deporte y Juego Activo' } },
-      { src: '/images/campus/zibata/zibata-soccer.JPG', caption: { en: 'Soccer Field', es: 'Cancha de Fútbol' } },
-      { src: '/images/campus/zibata/zibata-labs.JPG', caption: { en: 'Hands-on Discovery in Our Labs', es: 'Descubrimiento en Nuestros Laboratorios' } },
+      { src: '/images/campus/zibata/zibata-sports.jpg', caption: { en: 'Sports & Active Play', es: 'Deporte y Juego Activo' } },
+      { src: '/images/campus/zibata/zibata-soccer.jpg', caption: { en: 'Soccer Field', es: 'Cancha de Fútbol' } },
+      { src: '/images/campus/zibata/zibata-labs.jpg', caption: { en: 'Hands-on Discovery in Our Labs', es: 'Descubrimiento en Nuestros Laboratorios' } },
       { src: '/images/campus/zibata/zibata-classrooms.jpg', caption: { en: 'Modern Learning Spaces', es: 'Espacios de Aprendizaje Modernos' } },
-      { src: '/images/campus/zibata/zibata-playground.JPG', caption: { en: 'Play, Explore & Grow', es: 'Jugar, Explorar y Crecer' } },
-      { src: '/images/campus/zibata/zibata-cafeteria.JPG', caption: { en: 'Our Cafetorium', es: 'Nuestro Cafetorium' } },
-      { src: '/images/campus/zibata/zibata-commons.JPG', caption: { en: 'Where Friendships Grow', es: 'Donde Crecen las Amistades' } },
-      { src: '/images/campus/zibata/zibata-hall-entrance.JPG', caption: { en: 'Main Entrance Hall', es: 'Vestíbulo Principal' } },
-      { src: '/images/campus/zibata/zibata-hallway.JPG', caption: { en: 'Campus Hallway', es: 'Pasillo del Campus' } },
-      { src: '/images/campus/zibata/zibata-hallway2.JPG', caption: { en: 'Campus Corridors', es: 'Corredores del Campus' } },
-      { src: '/images/campus/zibata/zibata-interior.JPG', caption: { en: 'Interior Spaces', es: 'Espacios Interiores' } },
-      { src: '/images/campus/zibata/zibata-reception.JPG', caption: { en: 'Reception Area', es: 'Área de Recepción' } },
+      { src: '/images/campus/zibata/zibata-playground.jpg', caption: { en: 'Play, Explore & Grow', es: 'Jugar, Explorar y Crecer' } },
+      { src: '/images/campus/zibata/zibata-cafeteria.jpg', caption: { en: 'Our Cafetorium', es: 'Nuestro Cafetorium' } },
+      { src: '/images/campus/zibata/zibata-commons.jpg', caption: { en: 'Where Friendships Grow', es: 'Donde Crecen las Amistades' } },
+      { src: '/images/campus/zibata/zibata-hall-entrance.jpg', caption: { en: 'Main Entrance Hall', es: 'Vestíbulo Principal' } },
+      { src: '/images/campus/zibata/zibata-hallway.jpg', caption: { en: 'Campus Hallway', es: 'Pasillo del Campus' } },
+      { src: '/images/campus/zibata/zibata-hallway2.jpg', caption: { en: 'Campus Corridors', es: 'Corredores del Campus' } },
+      { src: '/images/campus/zibata/zibata-interior.jpg', caption: { en: 'Interior Spaces', es: 'Espacios Interiores' } },
+      { src: '/images/campus/zibata/zibata-reception.jpg', caption: { en: 'Reception Area', es: 'Área de Recepción' } },
     ],
     testimonials: [
       {

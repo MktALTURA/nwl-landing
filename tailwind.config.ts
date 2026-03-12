@@ -30,6 +30,16 @@ const config: Config = {
         lime: "#A8E6CF",
         blueberry: "#6C5CE7",
         
+        // Level Accents
+        primaria: "#d0d689",
+        secundaria: "#91BAEF",
+        'deep-ember': '#781712',
+        'golden-spark': '#fcb22f',
+
+        // Prepa Neutrals
+        steel: '#737373',
+        'prepa-sand': '#cbb097',
+
         // Neutrals
         sand: "#F5F1E8",
         warmgray: "#E8E4DF",
@@ -41,6 +51,7 @@ const config: Config = {
       animation: {
         'fade-in': 'fadeIn 0.8s ease-in-out',
         'slide-up': 'slideUp 0.6s ease-out',
+        'marquee': 'marquee 30s linear infinite',
       },
       keyframes: {
         fadeIn: {
@@ -50,6 +61,10 @@ const config: Config = {
         slideUp: {
           '0%': { transform: 'translateY(20px)', opacity: '0' },
           '100%': { transform: 'translateY(0)', opacity: '1' },
+        },
+        marquee: {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(-50%)' },
         },
       },
     },

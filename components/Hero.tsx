@@ -26,96 +26,65 @@ export default function Hero() {
   useEffect(() => {
     if (!isMounted) return;
 
+    const isMobile = window.innerWidth < 768;
+
     const ctx = gsap.context(() => {
-      // Split & Drift Effect - Left side of headline
-      gsap.fromTo('.headline-left',
-        { x: 0, y: 0, opacity: 1 },
-        {
-          x: -100,
-          y: -50,
-          opacity: 0,
-          scrollTrigger: {
-            trigger: heroRef.current,
-            start: 'top top',
-            end: 'bottom top',
-            scrub: 1.5,
-          },
-        }
-      );
+      if (isMobile) {
+        // Mobile: no scroll-triggered animations — hero just scrolls away
+        // naturally. toggleActions + ScrollSmoother causes stuttering on
+        // real touch devices due to rapid play/reverse at trigger boundaries.
+      } else {
+        // Desktop: scrub-based scroll animations (unchanged)
+        const heroScrollBase = { trigger: heroRef.current, start: 'top top' };
 
-      // Split & Drift Effect - Right side of headline
-      gsap.fromTo('.headline-right',
-        { x: 0, y: 0, opacity: 1 },
-        {
-          x: 100,
-          y: 50,
-          opacity: 0,
-          scrollTrigger: {
-            trigger: heroRef.current,
-            start: 'top top',
-            end: 'bottom top',
-            scrub: 1.5,
-          },
-        }
-      );
+        gsap.fromTo('.headline-left',
+          { x: 0, y: 0, opacity: 1 },
+          {
+            x: -100, y: -50, opacity: 0,
+            scrollTrigger: { ...heroScrollBase, end: 'bottom top', scrub: 1.5 },
+          }
+        );
 
-      // Subheadline fades faster
-      gsap.fromTo('.hero-subheadline',
-        { opacity: 1, y: 0 },
-        {
-          opacity: 0,
-          y: 30,
-          scrollTrigger: {
-            trigger: heroRef.current,
-            start: 'top top',
-            end: 'center top',
-            scrub: 1,
-          },
-        }
-      );
+        gsap.fromTo('.headline-right',
+          { x: 0, y: 0, opacity: 1 },
+          {
+            x: 100, y: 50, opacity: 0,
+            scrollTrigger: { ...heroScrollBase, end: 'bottom top', scrub: 1.5 },
+          }
+        );
 
-      // CTAs fade out first
-      gsap.fromTo('.hero-ctas',
-        { opacity: 1, y: 0 },
-        {
-          opacity: 0,
-          y: 20,
-          scrollTrigger: {
-            trigger: heroRef.current,
-            start: 'top top',
-            end: '30% top',
-            scrub: 1,
-          },
-        }
-      );
+        gsap.fromTo('.hero-subheadline',
+          { opacity: 1, y: 0 },
+          {
+            opacity: 0, y: 30,
+            scrollTrigger: { ...heroScrollBase, end: 'center top', scrub: 1 },
+          }
+        );
 
-      // Trust indicators fade
-      gsap.fromTo('.hero-trust',
-        { opacity: 1 },
-        {
-          opacity: 0,
-          scrollTrigger: {
-            trigger: heroRef.current,
-            start: 'top top',
-            end: '40% top',
-            scrub: 1,
-          },
-        }
-      );
+        gsap.fromTo('.hero-ctas',
+          { opacity: 1, y: 0 },
+          {
+            opacity: 0, y: 20,
+            scrollTrigger: { ...heroScrollBase, end: '30% top', scrub: 1 },
+          }
+        );
 
-      // Wine divider stays longer then fades
-      gsap.fromTo('.hero-divider',
-        { opacity: 1 },
-        {
-          opacity: 0,
-          scrollTrigger: {
-            trigger: heroRef.current,
-            start: '20% top',
-            end: 'center top',
-            scrub: 1,
-          },
-        }
-      );
+        gsap.fromTo('.hero-trust',
+          { opacity: 1 },
+          {
+            opacity: 0,
+            scrollTrigger: { ...heroScrollBase, end: '40% top', scrub: 1 },
+          }
+        );
+
+        gsap.fromTo('.hero-divider',
+          { opacity: 1 },
+          {
+            opacity: 0,
+            scrollTrigger: { ...heroScrollBase, start: '20% top', end: 'center top', scrub: 1 },
+          }
+        );
+      }
 
       // Main headline word animation (initial load)
       gsap.from('.word-wrap', {
