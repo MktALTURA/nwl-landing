@@ -38,12 +38,12 @@ const nextConfig = {
             key: 'Content-Security-Policy-Report-Only',
             value: [
               "default-src 'self'",
-              "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://link.msgsndr.com https://va.vercel-scripts.com https://cdn.jsdelivr.net",
+              "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://link.msgsndr.com https://va.vercel-scripts.com https://cdn.jsdelivr.net https://www.googletagmanager.com",
               "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
               "font-src 'self' https://fonts.gstatic.com",
               "img-src 'self' data: blob: https://prod-files-secure.s3.us-west-2.amazonaws.com https://images.unsplash.com https://storage.googleapis.com https://assets.cdn.filesafe.space",
               "frame-src https://api.leadconnectorhq.com https://heyzine.com https://www.google.com",
-              "connect-src 'self' https://api.leadconnectorhq.com https://link.msgsndr.com https://va.vercel-scripts.com https://vitals.vercel-insights.com https://fonts.googleapis.com https://fonts.gstatic.com",
+              "connect-src 'self' https://api.leadconnectorhq.com https://link.msgsndr.com https://va.vercel-scripts.com https://vitals.vercel-insights.com https://fonts.googleapis.com https://fonts.gstatic.com https://www.googletagmanager.com https://www.google-analytics.com https://analytics.google.com",
             ].join('; '),
           },
         ],
@@ -53,6 +53,9 @@ const nextConfig = {
 
   async redirects() {
     return [
+      // Safety net: /form-submitted is a virtual URL for analytics — redirect to home if hit directly
+      { source: '/form-submitted', destination: '/', permanent: false },
+
       // ── Old nwl.com.mx level pages ──
       { source: '/nwl-nivel-maternal', destination: '/maternal', permanent: true },
       { source: '/nwl-nivel-kinder', destination: '/kinder', permanent: true },

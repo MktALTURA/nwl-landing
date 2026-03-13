@@ -80,6 +80,19 @@ export default function RootLayout({
       <body className="font-sans antialiased">
         <OrganizationJsonLd />
         {children}
+        {/* Google Ads gtag.js — replace AW-XXXXXXXXX with actual conversion ID */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=AW-XXXXXXXXX"
+          strategy="afterInteractive"
+        />
+        <Script id="gtag-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'AW-XXXXXXXXX');
+          `}
+        </Script>
         <Script
           src="https://link.msgsndr.com/js/external-tracking.js"
           data-tracking-id="tk_f326b262f9234006b24833e8cfb32b39"
