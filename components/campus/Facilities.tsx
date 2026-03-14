@@ -36,7 +36,7 @@ export default function Facilities({ facilities }: FacilitiesProps) {
 
         {/* Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {facilities.filter((f) => f.image).map((facility, i) => (
+          {facilities.map((facility, i) => (
             <motion.div
               key={i}
               initial={{ opacity: 0, y: 30 }}
@@ -45,12 +45,18 @@ export default function Facilities({ facilities }: FacilitiesProps) {
               viewport={{ once: true }}
               className="group relative aspect-[4/3] rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300"
             >
-              <Image
-                src={facility.image}
-                alt={localized(facility.name, locale)}
-                fill
-                className="object-cover transition-transform duration-300 group-hover:scale-105"
-              />
+              {facility.image ? (
+                <Image
+                  src={facility.image}
+                  alt={localized(facility.name, locale)}
+                  fill
+                  className="object-cover transition-transform duration-300 group-hover:scale-105"
+                />
+              ) : (
+                <div className="absolute inset-0 bg-gray-200 flex items-center justify-center">
+                  <span className="text-gray-400 text-sm">Photo needed</span>
+                </div>
+              )}
               {/* Overlay with label */}
               <div className="absolute inset-0 bg-gradient-to-t from-charcoal/70 via-transparent to-transparent" />
               <div className="absolute bottom-0 left-0 right-0 p-5">

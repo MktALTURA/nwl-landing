@@ -97,7 +97,7 @@ export const campuses: Record<string, CampusData> = {
     ],
     facilities: [
       { name: { en: 'Sports Fields', es: 'Canchas Deportivas' }, image: '/images/campus/juriquilla/juriquilla-sports.jpg' },
-      { name: { en: 'Science Labs', es: 'Laboratorios de Ciencias' }, image: '/images/campus/juriquilla/juriquilla-labs.jpg' },
+      { name: { en: 'Soccer Field', es: 'Cancha de Fútbol' }, image: '/images/campus/juriquilla/juriquilla-soccer.jpg' },
       { name: { en: 'Classrooms', es: 'Salones de Clase' }, image: '/images/campus/juriquilla/juriquilla-classrooms.jpg' },
       { name: { en: 'Playground', es: 'Área de Juegos' }, image: '/images/campus/juriquilla/juriquilla-playground.jpg' },
       { name: { en: 'Cafetorium', es: 'Cafetorium' }, image: '/images/campus/juriquilla/juriquilla-cafeteria.jpg' },
@@ -152,7 +152,6 @@ export const campuses: Record<string, CampusData> = {
       { src: '/images/campus/juriquilla/juriquilla-building.jpg', caption: { en: 'Welcome to Campus Juriquilla', es: 'Bienvenidos a Campus Juriquilla' } },
       { src: '/images/campus/juriquilla/juriquilla-hero.jpg', caption: { en: 'Campus Entrance', es: 'Entrada del Campus' } },
       { src: '/images/campus/juriquilla/juriquilla-sports.jpg', caption: { en: 'Sports & Active Play', es: 'Deporte y Juego Activo' } },
-      { src: '/images/campus/juriquilla/juriquilla-labs.jpg', caption: { en: 'Hands-on Discovery in Our Labs', es: 'Descubrimiento en Nuestros Laboratorios' } },
       { src: '/images/campus/juriquilla/juriquilla-classrooms.jpg', caption: { en: 'Bright Learning Spaces', es: 'Espacios de Aprendizaje Luminosos' } },
       { src: '/images/campus/juriquilla/juriquilla-playground.jpg', caption: { en: 'Play, Explore & Grow', es: 'Jugar, Explorar y Crecer' } },
       { src: '/images/campus/juriquilla/juriquilla-cafeteria.jpg', caption: { en: 'Our Cafetorium', es: 'Nuestro Cafetorium' } },
@@ -195,7 +194,7 @@ export const campuses: Record<string, CampusData> = {
       en: 'Maternal — Middle School',
       es: 'Maternal — Secundaria',
     },
-    heroImage: '/images/campus/milenio/milenio-hero.jpg',
+    heroImage: '/images/campus/milenio/milenio-building.jpg',
     phone: '442-325-1413/1414',
     phoneLink: '4423251413',
     whatsapp: '5214423251413',
@@ -210,7 +209,7 @@ export const campuses: Record<string, CampusData> = {
       { name: { en: 'Science Labs', es: 'Laboratorios de Ciencias' }, image: '' },
       { name: { en: 'Classrooms', es: 'Salones de Clase' }, image: '' },
       { name: { en: 'Playground', es: 'Área de Juegos' }, image: '/images/campus/milenio/milenio-playground.jpg' },
-      { name: { en: 'Cafetorium', es: 'Cafetorium' }, image: '/images/campus/milenio/milenio-cafeteria.jpg' },
+      { name: { en: 'Cafetorium', es: 'Cafetorium' }, image: '' },
       { name: { en: 'Student Commons', es: 'Zona de Convivencia' }, image: '' },
     ],
     activities: [
@@ -259,6 +258,7 @@ export const campuses: Record<string, CampusData> = {
     address: 'Cerrada Panorámica, Distrito Piamonte, Querétaro',
     mapUrl: 'https://maps.google.com/?q=Colegio+Newland+Milenio',
     galleryImages: [
+      { src: '/images/campus/milenio/milenio-hero.jpg', caption: { en: 'Campus Milenio', es: 'Campus Milenio' } },
       { src: '/images/campus/milenio/milenio-aerial-view.jpg', caption: { en: 'Aerial View', es: 'Vista Aérea' } },
       { src: '/images/campus/milenio/milenio-sports.jpg', caption: { en: 'Sports & Active Play', es: 'Deporte y Juego Activo' } },
       { src: '/images/campus/milenio/milenio-playground.jpg', caption: { en: 'Play, Explore & Grow', es: 'Jugar, Explorar y Crecer' } },
@@ -514,7 +514,7 @@ export const campuses: Record<string, CampusData> = {
       en: 'Maternal — High School',
       es: 'Maternal — Preparatoria',
     },
-    heroImage: '',
+    heroImage: '/images/campus/zibata/zibata-hero.jpg',
     phone: '442-161-2211/12',
     phoneLink: '4421612211',
     whatsapp: '5214421612211',
@@ -578,7 +578,6 @@ export const campuses: Record<string, CampusData> = {
     address: 'Paseo de las Pitahayas, Zibatá, Querétaro',
     mapUrl: 'https://maps.google.com/?q=Colegio+Newland+Zibata',
     galleryImages: [
-      { src: '/images/campus/zibata/zibata-hero.jpg', caption: { en: 'Welcome to Campus Zibatá', es: 'Bienvenidos a Campus Zibatá' } },
       { src: '/images/campus/zibata/zibata-building.jpg', caption: { en: 'Campus Building', es: 'Edificio del Campus' } },
       { src: '/images/campus/zibata/zibata-sports.jpg', caption: { en: 'Sports & Active Play', es: 'Deporte y Juego Activo' } },
       { src: '/images/campus/zibata/zibata-soccer.jpg', caption: { en: 'Soccer Field', es: 'Cancha de Fútbol' } },
@@ -592,6 +591,7 @@ export const campuses: Record<string, CampusData> = {
       { src: '/images/campus/zibata/zibata-hallway2.jpg', caption: { en: 'Campus Corridors', es: 'Corredores del Campus' } },
       { src: '/images/campus/zibata/zibata-interior.jpg', caption: { en: 'Interior Spaces', es: 'Espacios Interiores' } },
       { src: '/images/campus/zibata/zibata-reception.jpg', caption: { en: 'Reception Area', es: 'Área de Recepción' } },
+      { src: '/images/campus/zibata/zibata-preschool-classroom.jpg', caption: { en: 'Preschool Classroom', es: 'Aula de Preescolar' } },
     ],
     testimonials: [
       {
