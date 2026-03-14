@@ -45,4 +45,10 @@ export const PAGE_SEO = {
       'Life Project model high school: financial intelligence, real-world certifications, zero homework, AI & modern technology. Querétaro & San Miguel de Allende.',
     ogImage: '/images/og/high-school.jpg',
   },
+  careers: {
+    title: 'Work with Us — Trabaja con Nosotros | Newland School',
+    description:
+      'Join the Newland School team. Explore open teaching and administrative positions across our 5 campuses in Querétaro and San Miguel de Allende.',
+    ogImage: '/images/og/careers.jpg',
+  },
 } as const;

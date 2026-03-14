@@ -377,6 +377,83 @@ export interface Dictionary {
     testimonialsTitleAccent: string;
     testimonialsReviewsLabel: string;
   };
+  careers: {
+    heroTitle: string;
+    heroTitleAccent: string;
+    heroSubtitle: string;
+    heroCta: string;
+    // Why Work at NWL
+    whyTitle: string;
+    whyTitleAccent: string;
+    whySubtitle: string;
+    whyBenefits: { title: string; description: string }[];
+    // Job Listings
+    jobsTitle: string;
+    jobsTitleAccent: string;
+    jobsSubtitle: string;
+    jobsFilterAll: string;
+    jobsNoPositions: string;
+    jobsApplyBtn: string;
+    jobsRequirements: string;
+    jobsDepartment: string;
+    // Application Process
+    processTitle: string;
+    processTitleAccent: string;
+    processSubtitle: string;
+    processSteps: { title: string; description: string }[];
+    // GHL Form
+    applicationFormId: string;
+    applicationFormName: string;
+    applicationFormTitle: string;
+    // Become a Partner
+    partnerTitle: string;
+    partnerTitleAccent: string;
+    partnerSubtitle: string;
+    partnerDescription: string;
+    partnerFormId: string;
+    partnerFormName: string;
+    partnerFormTitle: string;
+    partnerBenefits: { title: string; description: string }[];
+  };
+  admin: {
+    loginTitle: string;
+    loginSubtitle: string;
+    loginPasswordLabel: string;
+    loginPasswordPlaceholder: string;
+    loginButton: string;
+    loginError: string;
+    loginRateLimit: string;
+    // Dashboard
+    dashboardTitle: string;
+    newJobButton: string;
+    logoutButton: string;
+    noJobs: string;
+    tableTitle: string;
+    tableCampus: string;
+    tableStatus: string;
+    tableCreated: string;
+    tableActions: string;
+    statusActive: string;
+    statusInactive: string;
+    deleteConfirm: string;
+    // Job Form
+    formCreateTitle: string;
+    formEditTitle: string;
+    formTitleEn: string;
+    formTitleEs: string;
+    formCampus: string;
+    formDescriptionEn: string;
+    formDescriptionEs: string;
+    formRequirementsEn: string;
+    formRequirementsEs: string;
+    formDepartmentEn: string;
+    formDepartmentEs: string;
+    formActive: string;
+    formSave: string;
+    formCancel: string;
+    formSaving: string;
+    campusLabels: Record<string, string>;
+  };
   metadata: {
     title: string;
     description: string;

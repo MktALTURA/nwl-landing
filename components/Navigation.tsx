@@ -155,8 +155,9 @@ export default function Navigation() {
   const isCampusJuriquilla = pathname === '/campus/juriquilla';
   const isCampusMilenio = pathname === '/campus/milenio';
   const isHighSchool = pathname === '/high-school';
-  // On campus pages with dark/bright heroes, use white logos/text before scroll
-  const useWhiteNav = (isCampusJuriquilla || isCampusMilenio) && !isScrolled;
+  const isCareers = pathname === '/trabaja-con-nosotros';
+  // On pages with dark/bright heroes, use white logos/text before scroll
+  const useWhiteNav = (isCampusJuriquilla || isCampusMilenio || isCareers) && !isScrolled;
 
   return (
     <nav

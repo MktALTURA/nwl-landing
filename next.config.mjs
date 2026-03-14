@@ -80,7 +80,7 @@ const nextConfig = {
       { source: '/experiencias-internacionales', destination: '/', permanent: true },
       { source: '/grupos-representativos', destination: '/', permanent: true },
       { source: '/inscripcion', destination: '/', permanent: true },
-      { source: '/trabaja-con-nosotros', destination: '/', permanent: true },
+      // /trabaja-con-nosotros now has its own page — redirect removed
       { source: '/noticias', destination: '/', permanent: true },
       { source: '/noticias/:path*', destination: '/', permanent: true },
       { source: '/venta-nocturna', destination: '/', permanent: true },
