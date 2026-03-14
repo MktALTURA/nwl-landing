@@ -153,9 +153,10 @@ export default function Navigation() {
 
   const isSubpage = pathname !== '/';
   const isCampusJuriquilla = pathname === '/campus/juriquilla';
+  const isCampusMilenio = pathname === '/campus/milenio';
   const isHighSchool = pathname === '/high-school';
-  // On Juriquilla campus page, use white logos/text before scroll (dark hero)
-  const useWhiteNav = isCampusJuriquilla && !isScrolled;
+  // On campus pages with dark/bright heroes, use white logos/text before scroll
+  const useWhiteNav = (isCampusJuriquilla || isCampusMilenio) && !isScrolled;
 
   return (
     <nav
@@ -168,7 +169,7 @@ export default function Navigation() {
           {/* Logo — animate entrance only on homepage */}
           {isSubpage ? (
             <a href="/" className="flex items-center gap-2">
-              {isCampusJuriquilla ? (
+              {(isCampusJuriquilla || isCampusMilenio) ? (
                 <>
                   <img
                     src="/images/brand/kangaroo-white-transparent.png"

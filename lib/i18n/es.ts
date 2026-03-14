@@ -737,8 +737,8 @@ export const es: Dictionary = {
         description: 'Educación en finanzas personales cada semestre, desde lo básico hasta economía emprendedora y planeación financiera para la vida adulta.',
       },
       {
-        title: 'Certificaciones Reales',
-        description: 'Certificaciones reconocidas cada semestre en habilidades como liderazgo, innovación, emprendimiento y herramientas digitales.',
+        title: 'Doble Diploma',
+        description: 'Los estudiantes se gradúan con un diploma de preparatoria acreditado en EUA (Cognia) y su diploma SEP mexicano, abriendo puertas a universidades en todo el mundo.',
       },
       {
         title: 'IA y Tecnología Moderna',

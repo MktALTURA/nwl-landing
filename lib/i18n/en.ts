@@ -736,8 +736,8 @@ export const en: Dictionary = {
         description: 'Personal finance education every semester, from budgeting basics to entrepreneurial economics and adult financial planning.',
       },
       {
-        title: 'Real-World Certifications',
-        description: 'Industry-recognized certifications each semester in skills like leadership, innovation, entrepreneurship, and digital tools.',
+        title: 'Dual Diploma',
+        description: 'Students graduate with both a U.S.-accredited high school diploma (Cognia) and their Mexican SEP diploma, opening doors to universities worldwide.',
       },
       {
         title: 'AI & Modern Technology',

@@ -19,6 +19,7 @@ import {
   FiTarget,
   FiX,
   FiZoomIn,
+  FiGlobe,
 } from 'react-icons/fi';
 import { useLanguage } from '@/lib/i18n/LanguageContext';
 import { useBrochure } from '@/lib/BrochureContext';
@@ -268,6 +269,15 @@ export default function HighSchoolPage() {
                           src="/images/levels/prepa/lifeproject-logo-black.png"
                           alt="Life Project"
                           className="h-24 w-auto mb-4"
+                        />
+                        <p className="text-charcoal/60 text-sm leading-relaxed">{prop.description}</p>
+                      </>
+                    ) : i === 3 ? (
+                      <>
+                        <img
+                          src="/images/logos/hokku-academy.webp"
+                          alt="Hokku Academy"
+                          className="h-16 w-auto mb-4"
                         />
                         <p className="text-charcoal/60 text-sm leading-relaxed">{prop.description}</p>
                       </>
@@ -640,11 +650,11 @@ export default function HighSchoolPage() {
               </div>
             </motion.div>
 
-            {/* Remaining programs — 3-column grid */}
-            <div className="grid md:grid-cols-3 gap-5 max-w-5xl mx-auto">
-              {hsp.exclusivePrograms.slice(1).map((program, i) => {
-                const accentColors = ['golden-spark', 'deep-ember', 'steel'];
-                const accent = accentColors[i % accentColors.length];
+            {/* Fitness + Projects — 2-column grid */}
+            <div className="grid md:grid-cols-2 gap-5 max-w-5xl mx-auto mb-8">
+              {hsp.exclusivePrograms.slice(1, 3).map((program, i) => {
+                const accentColors = ['golden-spark', 'deep-ember'];
+                const accent = accentColors[i];
                 return (
                   <motion.div
                     key={i}
@@ -678,6 +688,56 @@ export default function HighSchoolPage() {
                 );
               })}
             </div>
+
+            {/* International Exchange — Standout section */}
+            {hsp.exclusivePrograms[3] && (
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                viewport={{ once: true }}
+                className="max-w-5xl mx-auto"
+              >
+                <div className="relative rounded-2xl overflow-hidden bg-gradient-to-br from-white via-sand/60 to-golden-spark/10 shadow-sm hover:shadow-lg transition-shadow border border-golden-spark/20">
+                  <div className="h-[3px] bg-gradient-to-r from-golden-spark via-deep-ember to-golden-spark" />
+                  <div className="relative p-8 md:p-10 flex flex-col md:flex-row md:items-center gap-8">
+                    <div className="flex-1">
+                      <div className="flex items-center gap-3 mb-4">
+                        <div className="w-10 h-10 rounded-xl bg-golden-spark/15 flex items-center justify-center">
+                          <FiGlobe size={20} className="text-deep-ember" />
+                        </div>
+                        <span className="text-xs font-bold tracking-widest uppercase text-deep-ember/60">
+                          {locale === 'es' ? 'Experiencia Global' : 'Global Experience'}
+                        </span>
+                      </div>
+                      <h3 className="font-display text-2xl md:text-3xl font-bold text-charcoal mb-2">
+                        {hsp.exclusivePrograms[3].title}
+                      </h3>
+                      <p className="text-charcoal/60 leading-relaxed mb-6">
+                        {hsp.exclusivePrograms[3].description}
+                      </p>
+                      <div className="flex flex-wrap gap-3">
+                        {hsp.exclusivePrograms[3].highlights.map((h, j) => (
+                          <span
+                            key={j}
+                            className="inline-flex items-center gap-2 bg-deep-ember/8 text-charcoal/70 text-sm px-4 py-2 rounded-full border border-deep-ember/12"
+                          >
+                            <span className="w-1.5 h-1.5 rounded-full bg-deep-ember flex-shrink-0" />
+                            {h}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                    <div className="flex-shrink-0 hidden md:flex flex-col items-center gap-2">
+                      <div className="text-6xl">🌍</div>
+                      <span className="text-charcoal/35 text-xs font-medium tracking-wider uppercase">
+                        {locale === 'es' ? 'Semestres 5-6' : 'Semesters 5-6'}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            )}
           </div>
         </section>
 
