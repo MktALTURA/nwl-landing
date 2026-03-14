@@ -514,7 +514,7 @@ export const campuses: Record<string, CampusData> = {
       en: 'Maternal — High School',
       es: 'Maternal — Preparatoria',
     },
-    heroImage: '',
+    heroImage: '/images/campus/zibata/zibata-hero.jpg',
     phone: '442-161-2211/12',
     phoneLink: '4421612211',
     whatsapp: '5214421612211',
