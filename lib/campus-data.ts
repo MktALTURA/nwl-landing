@@ -578,7 +578,6 @@ export const campuses: Record<string, CampusData> = {
     address: 'Paseo de las Pitahayas, Zibatá, Querétaro',
     mapUrl: 'https://maps.google.com/?q=Colegio+Newland+Zibata',
     galleryImages: [
-      { src: '/images/campus/zibata/zibata-hero.jpg', caption: { en: 'Welcome to Campus Zibatá', es: 'Bienvenidos a Campus Zibatá' } },
       { src: '/images/campus/zibata/zibata-building.jpg', caption: { en: 'Campus Building', es: 'Edificio del Campus' } },
       { src: '/images/campus/zibata/zibata-sports.jpg', caption: { en: 'Sports & Active Play', es: 'Deporte y Juego Activo' } },
       { src: '/images/campus/zibata/zibata-soccer.jpg', caption: { en: 'Soccer Field', es: 'Cancha de Fútbol' } },
