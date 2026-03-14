@@ -110,6 +110,12 @@ export const es: Dictionary = {
     ],
     cta: 'Descargar Modelo Completo (PDF)',
   },
+  partnerships: {
+    sectionTitle: 'Alianzas que',
+    sectionTitleAccent: 'Inspiran Excelencia',
+    sectionSubtitle:
+      'Colaboramos con instituciones de clase mundial para ofrecer una educación que trasciende fronteras.',
+  },
   levels: {
     sectionTitle: 'Programas',
     sectionTitleAccent: 'Educativos',

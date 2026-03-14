@@ -45,6 +45,11 @@ export interface Dictionary {
     pillars: { title: string; subtitle: string; description: string }[];
     cta: string;
   };
+  partnerships: {
+    sectionTitle: string;
+    sectionTitleAccent: string;
+    sectionSubtitle: string;
+  };
   levels: {
     sectionTitle: string;
     sectionTitleAccent: string;

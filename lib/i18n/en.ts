@@ -110,6 +110,12 @@ export const en: Dictionary = {
     ],
     cta: 'Download Full Model (PDF)',
   },
+  partnerships: {
+    sectionTitle: 'Partnerships that',
+    sectionTitleAccent: 'Inspire Excellence',
+    sectionSubtitle:
+      'We collaborate with world-class institutions to deliver an education that transcends borders.',
+  },
   levels: {
     sectionTitle: 'Educational',
     sectionTitleAccent: 'Programs',

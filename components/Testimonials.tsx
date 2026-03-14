@@ -24,7 +24,7 @@ const testimonialsData = [
 ];
 
 export default function Testimonials() {
-  const { locale, t } = useLanguage();
+  const { t } = useLanguage();
   const testimonials = testimonialsData.map((td, i) => ({ ...td, ...t.testimonials.items[i] }));
 
   return (
@@ -92,60 +92,6 @@ export default function Testimonials() {
           ))}
         </div>
 
-        {/* Video testimonial section */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          viewport={{ once: true }}
-          className="mb-16"
-        >
-          <div className="aspect-video rounded-lg overflow-hidden relative shadow-xl group cursor-pointer">
-            <Image
-              src="/images/testimonials/video-testimonial.jpg"
-              alt="Parent video testimonial"
-              fill
-              sizes="100vw"
-              className="object-cover"
-            />
-            <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors" />
-
-            {/* Play button overlay */}
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="w-20 h-20 rounded-full bg-white/90 flex items-center justify-center group-hover:scale-110 transition-transform shadow-2xl">
-                <div className="w-0 h-0 border-t-[12px] border-t-transparent border-l-[20px] border-l-wine border-b-[12px] border-b-transparent ml-1" />
-              </div>
-            </div>
-          </div>
-        </motion.div>
-
-        {/* Additional Trust Indicators */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          viewport={{ once: true }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center"
-        >
-          {t.testimonials.stats.map((stat, i) => {
-            // Auto-update years of excellence every August (founded 2009)
-            const value = i === 1
-              ? (() => {
-                  const now = new Date();
-                  const years = now.getMonth() >= 7
-                    ? now.getFullYear() - 2009
-                    : now.getFullYear() - 2009 - 1;
-                  return locale === 'es' ? `+${years}` : `${years}+`;
-                })()
-              : stat.value;
-            return (
-              <div key={i}>
-                <div className="text-4xl font-bold text-nwl-yellow mb-2">{value}</div>
-                <div className="text-sm text-charcoal/60">{stat.label}</div>
-              </div>
-            );
-          })}
-        </motion.div>
       </div>
     </section>
   );

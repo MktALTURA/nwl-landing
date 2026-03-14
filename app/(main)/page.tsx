@@ -11,7 +11,9 @@ import Benefits from '@/components/Benefits';
 import Levels from '@/components/Levels';
 import CampusFinder from '@/components/CampusFinder';
 import Philosophy from '@/components/Philosophy';
+import Partnerships from '@/components/Partnerships';
 import Testimonials from '@/components/Testimonials';
+import TrustNumbers from '@/components/TrustNumbers';
 import FinalCTA from '@/components/FinalCTA';
 import Footer from '@/components/Footer';
 
@@ -71,6 +73,8 @@ export default function Home() {
         <Levels />
         <CampusFinder />
         <Testimonials />
+        <Partnerships />
+        <TrustNumbers />
         <FinalCTA />
       </main>
       <Footer />
