@@ -64,14 +64,14 @@ const timelineColors = [
 
 /* ── Gallery images ── */
 const kinderGalleryImages = [
-  { src: '/images/levels/kinder/kinder-friends.jpg', alt: 'Friends' },
-  { src: '/images/levels/kinder/kinder-tunnel-play.jpg', alt: 'Tunnel play' },
-  { src: '/images/levels/kinder/kinder-students.jpg', alt: 'Students' },
-  { src: '/images/levels/kinder/kinder-classroom.jpg', alt: 'Classroom' },
-  { src: '/images/levels/kinder/kinder-climbing.jpg', alt: 'Climbing' },
-  { src: '/images/levels/kinder/kinder-playground.jpg', alt: 'Playground' },
-  { src: '/images/levels/kinder/kinder-tablets.jpg', alt: 'Tablets' },
-  { src: '/images/levels/kinder/kinder-digital-learning.jpg', alt: 'Digital learning' },
+  { src: '/images/levels/kinder/kinder-friends.jpg', alt: 'Newland Kinder students socializing during group activity' },
+  { src: '/images/levels/kinder/kinder-tunnel-play.jpg', alt: 'Kinder children playing in tunnel during outdoor recess at Newland' },
+  { src: '/images/levels/kinder/kinder-students.jpg', alt: 'Newland Kinder students in bilingual classroom session' },
+  { src: '/images/levels/kinder/kinder-classroom.jpg', alt: 'Kinder classroom at Newland School with learning materials' },
+  { src: '/images/levels/kinder/kinder-climbing.jpg', alt: 'Child climbing on playground equipment at Newland Kinder' },
+  { src: '/images/levels/kinder/kinder-playground.jpg', alt: 'Newland Kinder outdoor playground and play area' },
+  { src: '/images/levels/kinder/kinder-tablets.jpg', alt: 'Kinder students using tablets for digital learning at Newland' },
+  { src: '/images/levels/kinder/kinder-digital-learning.jpg', alt: 'Newland Kinder digital literacy and technology session' },
 ];
 
 export default function KinderPage() {

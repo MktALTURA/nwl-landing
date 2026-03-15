@@ -38,12 +38,12 @@ const diffItems = [
 
 /* ── Gallery images ── */
 const elementaryGalleryImages = [
-  { src: '/images/levels/primaria/nwl-zibata-primaria-dos-amigos-salon.jpg', alt: 'Classroom friends' },
-  { src: '/images/levels/primaria/steam-lab.jpg', alt: 'STEAM Lab' },
-  { src: '/images/levels/primaria/nwl-sma-primaria-alumnos-teamwork-manos-circulo.jpg', alt: 'Teamwork' },
-  { src: '/images/levels/primaria/nwl-sma-primaria-alumnas-arte-recortes-papel.jpg', alt: 'Art class' },
-  { src: '/images/levels/primaria/nwl-sma-primaria-recreo-piramide-cuerdas-aerea.jpg', alt: 'Recess playground' },
-  { src: '/images/levels/primaria/nwl-zibata-primaria-trabajo-colaborativo-cuaderno.jpg', alt: 'Collaborative work' },
+  { src: '/images/levels/primaria/nwl-zibata-primaria-dos-amigos-salon.jpg', alt: 'Newland Elementary students working together in Zibatá classroom' },
+  { src: '/images/levels/primaria/steam-lab.jpg', alt: 'Newland Elementary STEAM maker lab with hands-on experiments' },
+  { src: '/images/levels/primaria/nwl-sma-primaria-alumnos-teamwork-manos-circulo.jpg', alt: 'Elementary students building teamwork skills in group circle activity' },
+  { src: '/images/levels/primaria/nwl-sma-primaria-alumnas-arte-recortes-papel.jpg', alt: 'Newland Elementary art class with paper cutting and creative projects' },
+  { src: '/images/levels/primaria/nwl-sma-primaria-recreo-piramide-cuerdas-aerea.jpg', alt: 'Students on rope pyramid climbing structure during recess at Newland' },
+  { src: '/images/levels/primaria/nwl-zibata-primaria-trabajo-colaborativo-cuaderno.jpg', alt: 'Newland Elementary collaborative notebook work in bilingual classroom' },
 ];
 
 export default function ElementaryPage() {

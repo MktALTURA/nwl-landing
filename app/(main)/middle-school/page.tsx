@@ -58,12 +58,12 @@ const activityRotations = [-0.5, 0.3, -0.3, 0.5];
 
 /* ── Gallery images ── */
 const galleryImages = [
-  { src: '/images/levels/secundaria/nwl-sma-secundaria-tres-alumnas-retrato-uniforme.jpg', alt: 'Middle school students' },
-  { src: '/images/levels/secundaria/nwl-sma-maestra-alumno-pizarron-explicacion.jpg', alt: 'Teacher and student at whiteboard' },
-  { src: '/images/levels/secundaria/nwl-sma-secundaria-laboratorio-quimica.jpg', alt: 'Chemistry lab' },
-  { src: '/images/levels/secundaria/nwl-sma-secundaria-alumnos-tablets-discusion.jpg', alt: 'Students collaborating with tablets' },
-  { src: '/images/levels/secundaria/nwl-sma-secundaria-alumnas-yoga-bienestar.jpg', alt: 'Wellness and yoga' },
-  { src: '/images/levels/secundaria/nwl-zibata-secundaria-alumno-escuchando-clase.jpg', alt: 'Student engaged in class' },
+  { src: '/images/levels/secundaria/nwl-sma-secundaria-tres-alumnas-retrato-uniforme.jpg', alt: 'Newland Middle School students in uniform at San Miguel de Allende campus' },
+  { src: '/images/levels/secundaria/nwl-sma-maestra-alumno-pizarron-explicacion.jpg', alt: 'Newland teacher explaining concept at whiteboard with middle school student' },
+  { src: '/images/levels/secundaria/nwl-sma-secundaria-laboratorio-quimica.jpg', alt: 'Newland Middle School chemistry lab with hands-on experiments' },
+  { src: '/images/levels/secundaria/nwl-sma-secundaria-alumnos-tablets-discusion.jpg', alt: 'Newland Middle School students collaborating with tablets in discussion' },
+  { src: '/images/levels/secundaria/nwl-sma-secundaria-alumnas-yoga-bienestar.jpg', alt: 'Newland Middle School wellness and yoga session for student wellbeing' },
+  { src: '/images/levels/secundaria/nwl-zibata-secundaria-alumno-escuchando-clase.jpg', alt: 'Newland Middle School student engaged in bilingual class at Zibatá' },
 ];
 
 /* ── Knotion phase dot colors ── */

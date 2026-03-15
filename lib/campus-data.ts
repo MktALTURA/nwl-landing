@@ -48,6 +48,9 @@ export interface CampusData {
   activities: CampusActivity[];
   director: CampusDirector;
   address: string;
+  city: string;         // For schema addressLocality
+  state: string;        // For schema addressRegion
+  geo: { lat: number; lng: number }; // For schema GeoCoordinates
   mapUrl: string;
   galleryImages: CampusGalleryImage[];
   testimonials: CampusTestimonial[];
@@ -147,6 +150,9 @@ export const campuses: Record<string, CampusData> = {
       image: '/images/campus/juriquilla/juriquilla-director.jpg',
     },
     address: 'Anillo Vial Fray Junípero Serra, Juriquilla, Querétaro',
+    city: 'Juriquilla, Querétaro',
+    state: 'Querétaro',
+    geo: { lat: 20.673776092246715, lng: -100.41597892208858 },
     mapUrl: 'https://maps.google.com/?q=Colegio+Newland+Juriquilla',
     galleryImages: [
       { src: '/images/campus/juriquilla/juriquilla-building.jpg', caption: { en: 'Welcome to Campus Juriquilla', es: 'Bienvenidos a Campus Juriquilla' } },
@@ -256,6 +262,9 @@ export const campuses: Record<string, CampusData> = {
       image: '/images/campus/milenio/milenio-director.jpg',
     },
     address: 'Cerrada Panorámica, Distrito Piamonte, Querétaro',
+    city: 'Querétaro',
+    state: 'Querétaro',
+    geo: { lat: 20.583665906727823, lng: -100.34497862432194 },
     mapUrl: 'https://maps.google.com/?q=Colegio+Newland+Milenio',
     galleryImages: [
       { src: '/images/campus/milenio/milenio-hero.jpg', caption: { en: 'Campus Milenio', es: 'Campus Milenio' } },
@@ -363,6 +372,9 @@ export const campuses: Record<string, CampusData> = {
       image: '/images/campus/san-miguel/san-miguel-director.jpg',
     },
     address: 'Carr. SMA – Querétaro, San José de la Posta, Guanajuato',
+    city: 'San Miguel de Allende',
+    state: 'Guanajuato',
+    geo: { lat: 20.9007282723409, lng: -100.70576454273844 },
     mapUrl: 'https://maps.google.com/?q=Colegio+Newland+San+Miguel+de+Allende',
     galleryImages: [
       { src: '/images/campus/san-miguel/san-miguel-hero.jpg', caption: { en: 'Welcome to Campus San Miguel', es: 'Bienvenidos a Campus San Miguel' } },
@@ -471,6 +483,9 @@ export const campuses: Record<string, CampusData> = {
       image: '/images/campus/corregidora/corregidora-director.jpg',
     },
     address: 'Libramiento Sur Poniente, El Pueblito, Corregidora, Querétaro',
+    city: 'Corregidora',
+    state: 'Querétaro',
+    geo: { lat: 20.52545872187598, lng: -100.42433560674684 },
     mapUrl: 'https://maps.google.com/?q=Colegio+Newland+Corregidora',
     galleryImages: [
       { src: '/images/campus/corregidora/corregidora-building.jpg', caption: { en: 'Campus Building', es: 'Edificio del Campus' } },
@@ -576,6 +591,9 @@ export const campuses: Record<string, CampusData> = {
       image: '/images/campus/zibata/zibata-director.jpg',
     },
     address: 'Paseo de las Pitahayas, Zibatá, Querétaro',
+    city: 'Zibatá, El Marqués',
+    state: 'Querétaro',
+    geo: { lat: 20.681857880179148, lng: -100.34012899325315 },
     mapUrl: 'https://maps.google.com/?q=Colegio+Newland+Zibata',
     galleryImages: [
       { src: '/images/campus/zibata/zibata-building.jpg', caption: { en: 'Campus Building', es: 'Edificio del Campus' } },

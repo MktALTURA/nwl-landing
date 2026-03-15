@@ -53,6 +53,9 @@ export default function CampusHero({ campus }: CampusHeroProps) {
           {/* Campus name */}
           <h1 className="font-display text-6xl md:text-8xl font-bold text-white mb-4">
             {campus.name}
+            <span className="sr-only">
+              {locale === 'es' ? ` — Campus Newland School` : ` — Newland School Campus`}
+            </span>
           </h1>
 
           {/* Tagline */}
