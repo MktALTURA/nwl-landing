@@ -5,14 +5,15 @@ import { SITE_URL } from '@/lib/seo';
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date().toISOString();
 
-  // Static level pages
-  const levelPages: MetadataRoute.Sitemap = [
-    { url: `${SITE_URL}`, lastModified: now, changeFrequency: 'weekly', priority: 1.0 },
-    { url: `${SITE_URL}/maternal`, lastModified: now, changeFrequency: 'monthly', priority: 0.8 },
-    { url: `${SITE_URL}/kinder`, lastModified: now, changeFrequency: 'monthly', priority: 0.8 },
-    { url: `${SITE_URL}/elementary`, lastModified: now, changeFrequency: 'monthly', priority: 0.8 },
-    { url: `${SITE_URL}/middle-school`, lastModified: now, changeFrequency: 'monthly', priority: 0.8 },
-    { url: `${SITE_URL}/high-school`, lastModified: now, changeFrequency: 'monthly', priority: 0.8 },
+  // Static pages
+  const staticPages: MetadataRoute.Sitemap = [
+    { url: `${SITE_URL}`, lastModified: now },
+    { url: `${SITE_URL}/maternal`, lastModified: now },
+    { url: `${SITE_URL}/kinder`, lastModified: now },
+    { url: `${SITE_URL}/elementary`, lastModified: now },
+    { url: `${SITE_URL}/middle-school`, lastModified: now },
+    { url: `${SITE_URL}/high-school`, lastModified: now },
+    { url: `${SITE_URL}/trabaja-con-nosotros`, lastModified: now },
   ];
 
   // Dynamic campus pages
@@ -20,10 +21,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     (slug) => ({
       url: `${SITE_URL}/campus/${slug}`,
       lastModified: now,
-      changeFrequency: 'monthly' as const,
-      priority: 0.7,
     }),
   );
 
-  return [...levelPages, ...campusPages];
+  return [...staticPages, ...campusPages];
 }

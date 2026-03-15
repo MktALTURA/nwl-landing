@@ -4,7 +4,7 @@ import Script from "next/script";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { SITE_URL, SITE_NAME, PAGE_SEO } from "@/lib/seo";
-import { OrganizationJsonLd } from "@/components/JsonLd";
+import { OrganizationJsonLd, WebSiteJsonLd } from "@/components/JsonLd";
 import "./globals.css";
 
 const inter = Inter({
@@ -51,11 +51,6 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: SITE_URL,
-    languages: {
-      "en": SITE_URL,
-      "es": SITE_URL,
-      "x-default": SITE_URL,
-    },
   },
   robots: {
     index: true,
@@ -79,6 +74,7 @@ export default function RootLayout({
     <html lang="en" className={`${inter.variable} ${playfair.variable}`}>
       <body className="font-sans antialiased">
         <OrganizationJsonLd />
+        <WebSiteJsonLd />
         {children}
         {/* Google Ads gtag.js — replace AW-XXXXXXXXX with actual conversion ID */}
         <Script
@@ -96,7 +92,7 @@ export default function RootLayout({
         <Script
           src="https://link.msgsndr.com/js/external-tracking.js"
           data-tracking-id="tk_f326b262f9234006b24833e8cfb32b39"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
         />
         <Analytics />
         <SpeedInsights />

@@ -26,11 +26,6 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: `${SITE_URL}/kinder`,
-    languages: {
-      en: `${SITE_URL}/kinder`,
-      es: `${SITE_URL}/kinder`,
-      'x-default': `${SITE_URL}/kinder`,
-    },
   },
 };
 

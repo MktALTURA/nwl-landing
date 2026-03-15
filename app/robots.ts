@@ -6,9 +6,17 @@ export default function robots(): MetadataRoute.Robots {
     rules: [
       {
         userAgent: '*',
-        allow: ['/', '/maternal', '/kinder', '/elementary', '/middle-school', '/high-school', '/campus/'],
+        allow: '/',
         disallow: ['/_next/', '/api/', '/brochures/', '/coming-soon'],
       },
+      // Allow AI search crawlers explicitly
+      { userAgent: 'GPTBot', allow: '/' },
+      { userAgent: 'OAI-SearchBot', allow: '/' },
+      { userAgent: 'ClaudeBot', allow: '/' },
+      { userAgent: 'PerplexityBot', allow: '/' },
+      // Block training-only crawlers
+      { userAgent: 'CCBot', disallow: '/' },
+      { userAgent: 'anthropic-ai', disallow: '/' },
     ],
     sitemap: `${SITE_URL}/sitemap.xml`,
   };

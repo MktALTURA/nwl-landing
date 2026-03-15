@@ -26,11 +26,6 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: `${SITE_URL}/maternal`,
-    languages: {
-      en: `${SITE_URL}/maternal`,
-      es: `${SITE_URL}/maternal`,
-      'x-default': `${SITE_URL}/maternal`,
-    },
   },
 };
 

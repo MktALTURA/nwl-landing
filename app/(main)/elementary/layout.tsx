@@ -26,11 +26,6 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: `${SITE_URL}/elementary`,
-    languages: {
-      en: `${SITE_URL}/elementary`,
-      es: `${SITE_URL}/elementary`,
-      'x-default': `${SITE_URL}/elementary`,
-    },
   },
 };
 

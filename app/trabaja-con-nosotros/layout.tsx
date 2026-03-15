@@ -29,7 +29,6 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: url,
-    languages: { en: url, es: url, 'x-default': url },
   },
 };
 

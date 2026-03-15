@@ -22,7 +22,7 @@ export async function generateMetadata({
     return { title: 'Campus Not Found' };
   }
 
-  const title = `Campus ${campus.name} | ${SITE_NAME}`;
+  const title = `Campus ${campus.name}`;
   const description = `${campus.tagline.en}. ${campus.levels.en}. ${campus.address}. Google rating: ${campus.googleRating}/5.`;
   const ogImage = `/images/og/campus-${slug}.jpg`;
   const url = `${SITE_URL}/campus/${slug}`;
@@ -44,7 +44,6 @@ export async function generateMetadata({
     },
     alternates: {
       canonical: url,
-      languages: { en: url, es: url, 'x-default': url },
     },
   };
 }

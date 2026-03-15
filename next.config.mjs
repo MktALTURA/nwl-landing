@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
+    formats: ['image/avif', 'image/webp'],
     qualities: [75, 80, 90],
     remotePatterns: [
       { protocol: 'https', hostname: 'prod-files-secure.s3.us-west-2.amazonaws.com' },
@@ -10,6 +11,15 @@ const nextConfig = {
 
   async headers() {
     return [
+      {
+        source: '/images/:path*',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
       {
         source: '/(.*)',
         headers: [
