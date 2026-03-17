@@ -19,8 +19,9 @@ export default function CampusHero({ campus }: CampusHeroProps) {
         {campus.heroImage ? (
           <Image
             src={campus.heroImage}
-            alt={campus.name}
+            alt={`Newland School Campus ${campus.name} – ${localized(campus.tagline, locale)}`}
             fill
+            sizes="100vw"
             className="object-cover"
             priority
             quality={80}

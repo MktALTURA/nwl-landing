@@ -6,8 +6,8 @@ import { useLanguage } from '@/lib/i18n/LanguageContext';
 import BrochureLevelDropdown from './BrochureLevelDropdown';
 
 const pillarsData = [
-  { number: '01', logoInitials: 'P4C', logoImage: null },
-  { number: '02', logoInitials: 'NWL', logoImage: null },
+  { number: '01', logoInitials: 'P4C', logoImage: '/images/logos/partners/CFPN(es).png' },
+  { number: '02', logoInitials: 'NWL', logoImage: '/images/logos/partners/Yo_soy_lider_nwl(es).png' },
   { number: '03', logoInitials: 'K', logoImage: '/images/logos/knotion.png' },
 ];
 
@@ -38,7 +38,7 @@ export default function Philosophy() {
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.15 }}
                   viewport={{ once: true }}
-                  className="flex gap-5 bg-white p-5 rounded-lg hover:shadow-md transition-all duration-300 border-l-4 border-transparent hover:border-nwl-yellow"
+                  className="flex items-center gap-5 bg-white p-5 rounded-lg hover:shadow-md transition-all duration-300 border-l-4 border-transparent hover:border-nwl-yellow"
                 >
                   {/* Logo */}
                   <div className={`flex-shrink-0 w-20 h-20 rounded-lg flex items-center justify-center overflow-hidden ${pillar.logoImage ? '' : 'border-2 border-dashed border-wine/30 bg-wine/5'}`}>

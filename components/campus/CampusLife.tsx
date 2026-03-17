@@ -62,8 +62,9 @@ export default function CampusLife({ images }: CampusLifeProps) {
               >
                 <Image
                   src={images[active].src}
-                  alt={localized(images[active].caption, locale)}
+                  alt={`${localized(images[active].caption, locale)} – Newland School`}
                   fill
+                  sizes="(max-width: 768px) 100vw, 80vw"
                   className="object-cover"
                 />
                 {/* Gradient overlay */}
@@ -111,6 +112,7 @@ export default function CampusLife({ images }: CampusLifeProps) {
                   src={img.src}
                   alt={localized(img.caption, locale)}
                   fill
+                  sizes="96px"
                   className="object-cover"
                 />
               </button>

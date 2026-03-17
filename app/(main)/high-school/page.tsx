@@ -86,6 +86,7 @@ const galleryImages = [
   { src: '/images/levels/prepa/prepa-nwl-student-studying-classroom.jpg', alt: 'Student studying in casual classroom' },
   { src: '/images/levels/prepa/prepa-nwl-instructor-drums-music.jpg', alt: 'Music instructor playing drums' },
   { src: '/images/levels/prepa/prepa-nwl-podcast-studio-alt.jpg', alt: 'Podcast studio setup' },
+  { src: '/images/levels/prepa/corregidora-prepa-classroom-2.jpg', alt: 'Prepa NWL Corregidora tech classroom' },
 ];
 
 export default function HighSchoolPage() {
