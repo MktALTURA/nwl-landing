@@ -443,32 +443,32 @@ export const campuses: Record<string, CampusData> = {
       {
         name: { en: 'Sports', es: 'Deportes' },
         description: {
-          en: 'Soccer, basketball, volleyball, and more competitive and recreational options.',
-          es: 'Fútbol, basquetbol, voleibol y más opciones competitivas y recreativas.',
+          en: 'Basketball, volleyball, and flag football.',
+          es: 'Basquetbol, voleibol y tochito (flag football).',
         },
         color: 'lime',
       },
       {
         name: { en: 'Arts & Culture', es: 'Arte y Cultura' },
         description: {
-          en: 'Visual arts, theater, and cultural expression workshops.',
-          es: 'Artes visuales, teatro y talleres de expresión cultural.',
+          en: 'Dance, theater, and podcast creation.',
+          es: 'Dance, teatro y creación de podcast.',
         },
         color: 'coral',
       },
       {
         name: { en: 'Robotics & STEAM', es: 'Robótica y STEAM' },
         description: {
-          en: 'Hands-on projects in science, technology, engineering, arts, and math.',
-          es: 'Proyectos prácticos en ciencia, tecnología, ingeniería, arte y matemáticas.',
+          en: 'Hands-on projects in science, programming, and AI.',
+          es: 'Proyectos prácticos en ciencia, programación y uso de IA.',
         },
         color: 'blueberry',
       },
       {
         name: { en: 'Music', es: 'Música' },
         description: {
-          en: 'Instrumental lessons, choir, and ensemble performances.',
-          es: 'Clases de instrumentos, coro y presentaciones en ensamble.',
+          en: 'Instrument classes and ensemble performances.',
+          es: 'Clases de instrumentos y presentaciones en conjunto.',
         },
         color: 'sunshine',
       },
@@ -477,8 +477,8 @@ export const campuses: Record<string, CampusData> = {
       name: 'José Gustavo Flores Espinosa',
       title: { en: 'Campus Director', es: 'Director de Campus' },
       message: {
-        en: 'At NWL Corregidora, we are proud to serve a growing community with a warm, family-centered approach to education. Every child is known by name, supported with care, and challenged to reach their full potential.',
-        es: 'En NWL Corregidora, estamos orgullosos de servir a una comunidad en crecimiento con un enfoque educativo cálido y centrado en la familia. Cada niño es conocido por su nombre, apoyado con cariño y retado a alcanzar todo su potencial.',
+        en: 'At Corregidora, we are passionate about serving a growing community with a close, warm, and human approach. We work hand in hand with each family to nurture the development and well-being of every student. Our mission is to develop and unlock the greatness within each one.',
+        es: 'En Corregidora, nos apasiona servir a una comunidad en crecimiento con un enfoque cercano, cálido y humano. Trabajamos de la mano con cada familia para impulsar el desarrollo y bienestar de cada estudiante. Nuestra misión es desarrollar y potenciar la grandeza que hay en cada uno.',
       },
       image: '/images/campus/corregidora/corregidora-director.jpg',
     },
