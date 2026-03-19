@@ -156,8 +156,9 @@ export default function Navigation() {
   const isCampusMilenio = pathname === '/campus/milenio';
   const isHighSchool = pathname === '/high-school';
   const isCareers = pathname === '/trabaja-con-nosotros';
+  const isElementary = pathname === '/elementary';
   // On pages with dark/bright heroes, use white logos/text before scroll
-  const useWhiteNav = (isCampusJuriquilla || isCampusMilenio || isCareers) && !isScrolled;
+  const useWhiteNav = (isCampusJuriquilla || isCampusMilenio || isCareers || isElementary) && !isScrolled;
 
   return (
     <nav

@@ -38,12 +38,16 @@ const diffItems = [
 
 /* ── Gallery images ── */
 const elementaryGalleryImages = [
-  { src: '/images/levels/primaria/nwl-zibata-primaria-dos-amigos-salon.jpg', alt: 'Newland Elementary students working together in Zibatá classroom' },
-  { src: '/images/levels/primaria/steam-lab.jpg', alt: 'Newland Elementary STEAM maker lab with hands-on experiments' },
-  { src: '/images/levels/primaria/nwl-sma-primaria-alumnos-teamwork-manos-circulo.jpg', alt: 'Elementary students building teamwork skills in group circle activity' },
   { src: '/images/levels/primaria/nwl-sma-primaria-alumnas-arte-recortes-papel.jpg', alt: 'Newland Elementary art class with paper cutting and creative projects' },
+  { src: '/images/levels/primaria/nwl-primaria-group-classroom-wide.jpg', alt: 'Newland Elementary students in group classroom activity at Juriquilla campus' },
+  { src: '/images/levels/primaria/nwl-zibata-primaria-dos-amigos-salon.jpg', alt: 'Newland Elementary students working together in Zibatá classroom' },
+  { src: '/images/levels/primaria/nwl-primaria-steam-lab.jpg', alt: 'Newland Elementary STEAM maker lab with hands-on experiments' },
+  { src: '/images/levels/primaria/nwl-primaria-teacher-ipad-guidance.jpg', alt: 'Newland Elementary teacher guiding students with iPad-based learning' },
+  { src: '/images/levels/primaria/nwl-sma-primaria-alumnos-teamwork-manos-circulo.jpg', alt: 'Elementary students building teamwork skills in group circle activity' },
+  { src: '/images/levels/primaria/nwl-primaria-students-tablets-geoboard.jpg', alt: 'Newland Elementary students collaborating with tablets and Geoboard math app' },
   { src: '/images/levels/primaria/nwl-sma-primaria-recreo-piramide-cuerdas-aerea.jpg', alt: 'Students on rope pyramid climbing structure during recess at Newland' },
   { src: '/images/levels/primaria/nwl-zibata-primaria-trabajo-colaborativo-cuaderno.jpg', alt: 'Newland Elementary collaborative notebook work in bilingual classroom' },
+  { src: '/images/levels/primaria/nwl-primaria-students-closeup.jpg', alt: 'Newland Elementary students close-up in classroom at Juriquilla' },
 ];
 
 export default function ElementaryPage() {
@@ -90,8 +94,8 @@ export default function ElementaryPage() {
         ════════════════════════════════════════════════ */}
         <section className="relative min-h-[90vh] flex items-end overflow-hidden">
           <Image
-            src="/images/levels/primaria.jpg"
-            alt="NWL Elementary — students in STEAM maker lab"
+            src="/images/levels/primaria/nwl-sma-primaria-alumnos-teamwork-manos-circulo.jpg"
+            alt="Newland Elementary students building teamwork with hands together in circle"
             fill
             priority
             sizes="100vw"
@@ -304,8 +308,8 @@ export default function ElementaryPage() {
                 className="lg:col-span-3 relative aspect-[4/3] rounded-2xl overflow-hidden shadow-lg bg-sand"
               >
                 <Image
-                  src="/images/levels/primaria/nwl-zibata-preescolar-ninos-compartiendo-tablet.jpg"
-                  alt="Knotion learning in action"
+                  src="/images/levels/primaria/nwl-primaria-knotion-geoboard.jpg"
+                  alt="NWL elementary student using Geoboard math app with Knotion methodology"
                   fill
                   className="object-cover"
                 />
@@ -449,7 +453,7 @@ export default function ElementaryPage() {
                 className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-lg bg-sand"
               >
                 <Image
-                  src="/images/levels/primaria/steam-lab.jpg"
+                  src="/images/levels/primaria/nwl-primaria-steam-lab.jpg"
                   alt="TecniKids STEAM Lab"
                   fill
                   className="object-cover"
