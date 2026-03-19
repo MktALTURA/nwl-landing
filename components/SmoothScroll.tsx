@@ -28,7 +28,7 @@ export default function SmoothScroll({ children }: { children: React.ReactNode }
     smootherRef.current = ScrollSmoother.create({
       wrapper: '#smooth-wrapper',
       content: '#smooth-content',
-      smooth: 1.5,          // seconds of deceleration (≈ Lenis duration: 1.4)
+      smooth: 2.5,          // seconds of deceleration — slower so visitors see animations
       effects: false,       // no parallax data-speed effects
       smoothTouch: false,   // native touch scroll on mobile — better for iframes
     });

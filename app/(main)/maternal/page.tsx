@@ -81,6 +81,8 @@ const maternalGalleryImages = [
   { src: '/images/levels/maternal/maternal-playtime.jpg', caption: { en: 'Playtime', es: 'Tiempo de Juego' } },
   { src: '/images/levels/maternal/maternal-ball-pit.jpg', caption: { en: 'Sensory Play', es: 'Juego Sensorial' } },
   { src: '/images/levels/maternal/maternal-roleplay.jpg', caption: { en: 'Role Play', es: 'Juego de Roles' } },
+  { src: '/images/levels/maternal/corregidora-kinder-classroom.jpg', caption: { en: 'Corregidora Classroom', es: 'Salón Corregidora' } },
+  { src: '/images/levels/maternal/zibata-classrooms.jpg', caption: { en: 'Zibatá Classroom', es: 'Salón Zibatá' } },
 ];
 
 export default function MaternalPage() {
