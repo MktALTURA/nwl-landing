@@ -72,7 +72,7 @@ export default function Home() {
         <Philosophy />
         <Levels />
         <CampusFinder />
-        <Testimonials />
+        {/* <Testimonials /> — hidden until real testimonials are ready */}
         <Partnerships />
         <TrustNumbers />
         <FinalCTA />
