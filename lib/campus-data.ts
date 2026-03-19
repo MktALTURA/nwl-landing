@@ -380,7 +380,7 @@ export const campuses: Record<string, CampusData> = {
       { src: '/images/campus/san-miguel/san-miguel-covered-court.jpg', caption: { en: 'Covered Sports Court', es: 'Cancha Deportiva Techada' } },
       { src: '/images/campus/san-miguel/san-miguel-building-playground.jpg', caption: { en: 'NWL Building & Playground', es: 'Edificio NWL y Área de Juegos' } },
       { src: '/images/campus/san-miguel/san-miguel-classrooms-gallery.jpg', caption: { en: 'Kinder Classroom', es: 'Salón de Kínder' } },
-      { src: '/images/campus/san-miguel/san-miguel-hero.jpg', caption: { en: 'Campus Main Building', es: 'Edificio Principal del Campus' } },
+      { src: '/images/campus/san-miguel/san-miguel-hero.jpg', caption: { en: 'Be Proud, Be Newland', es: 'Be Proud, Be Newland' } },
       { src: '/images/campus/san-miguel/san-miguel-art-room.jpg', caption: { en: 'Art Room', es: 'Salón de Arte' } },
       { src: '/images/campus/san-miguel/san-miguel-soccer-gallery.jpg', caption: { en: 'Soccer Field', es: 'Cancha de Fútbol' } },
       { src: '/images/campus/san-miguel/san-miguel-prepa-classroom.jpg', caption: { en: 'Prepa Classroom', es: 'Salón de Preparatoria' } },
