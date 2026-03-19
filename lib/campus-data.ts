@@ -393,6 +393,7 @@ export const campuses: Record<string, CampusData> = {
       { src: '/images/campus/san-miguel/san-miguel-prepa-lounge.jpg', caption: { en: 'Prepa Lounge', es: 'Sala de Prepa' } },
       { src: '/images/campus/san-miguel/san-miguel-nwl-crest.jpg', caption: { en: 'NWL School Crest', es: 'Escudo NWL' } },
       { src: '/images/campus/san-miguel/san-miguel-outdoor-area.jpg', caption: { en: 'Outdoor Area', es: 'Área al Aire Libre' } },
+      { src: '/images/campus/san-miguel/san-miguel-elementary-classroom.jpg', caption: { en: 'Elementary Classroom', es: 'Salón de Primaria' } },
     ],
     testimonials: [
       {
