@@ -7,10 +7,9 @@ import { motion, AnimatePresence } from 'framer-motion';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { FiArrowLeft, FiChevronLeft, FiChevronRight, FiGlobe, FiHeart, FiAward, FiShield } from 'react-icons/fi';
-import { GiSoccerBall, GiBasketballBall, GiMusicalNotes, GiRun } from 'react-icons/gi';
-import { MdOutlineSportsMartialArts } from 'react-icons/md';
-import { PiPaintBrush, PiMaskHappy } from 'react-icons/pi';
-import { TbMusic } from 'react-icons/tb';
+import { GiSoccerBall, GiMusicalNotes } from 'react-icons/gi';
+import { PiMaskHappy } from 'react-icons/pi';
+import { TbFlask } from 'react-icons/tb';
 import { useLanguage } from '@/lib/i18n/LanguageContext';
 import { useBrochure } from '@/lib/BrochureContext';
 import FinalCTA from '@/components/FinalCTA';
@@ -27,6 +26,16 @@ const pillarColors = [
   { gradient: 'from-mustard/25 to-mustard/8', border: 'border-mustard/25', accent: 'text-mustard', num: 'bg-mustard/20 text-charcoal' },
   { gradient: 'from-wine/20 to-wine/8', border: 'border-wine/25', accent: 'text-wine', num: 'bg-wine/15 text-wine' },
 ];
+
+/* ── Activity config ── */
+const activityStyles = [
+  { bg: 'bg-gradient-to-br from-primaria/25 to-primaria/10', icon: 'text-primaria' },
+  { bg: 'bg-gradient-to-br from-wine/18 to-wine/8', icon: 'text-wine' },
+  { bg: 'bg-gradient-to-br from-mustard/25 to-mustard/10', icon: 'text-mustard' },
+  { bg: 'bg-gradient-to-br from-primaria/20 to-mustard/10', icon: 'text-primaria' },
+];
+const activityIcons = [GiSoccerBall, PiMaskHappy, GiMusicalNotes, TbFlask];
+const activityRotations = [-0.5, 0.3, -0.3, 0.5];
 
 /* ── Differentiator colors + icons ── */
 const diffItems = [
@@ -561,56 +570,34 @@ export default function ElementaryPage() {
               </p>
             </motion.div>
 
-            {/* Activities — scattered playful layout with icons */}
-            <div className="max-w-5xl mx-auto">
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-5">
-                {ep.activities.map((activity, i) => {
-                  const activityIcons = [
-                    GiSoccerBall,
-                    GiBasketballBall,
-                    MdOutlineSportsMartialArts,
-                    GiMusicalNotes,
-                    PiPaintBrush,
-                    TbMusic,
-                    PiMaskHappy,
-                    GiRun,
-                  ];
-                  const cardStyles = [
-                    { bg: 'bg-gradient-to-br from-primaria/30 to-primaria/12', text: 'text-charcoal', icon: 'text-primaria' },
-                    { bg: 'bg-gradient-to-br from-mustard/28 to-mustard/10', text: 'text-charcoal', icon: 'text-mustard' },
-                    { bg: 'bg-gradient-to-br from-wine/18 to-wine/8', text: 'text-charcoal', icon: 'text-wine' },
-                    { bg: 'bg-gradient-to-br from-primaria/22 to-mustard/12', text: 'text-charcoal', icon: 'text-primaria' },
-                    { bg: 'bg-gradient-to-br from-mustard/22 to-primaria/10', text: 'text-charcoal', icon: 'text-mustard' },
-                    { bg: 'bg-gradient-to-br from-charcoal/12 to-charcoal/5', text: 'text-charcoal', icon: 'text-charcoal/50' },
-                    { bg: 'bg-gradient-to-br from-wine/15 to-mustard/8', text: 'text-charcoal', icon: 'text-wine/80' },
-                    { bg: 'bg-gradient-to-br from-primaria/35 to-primaria/15', text: 'text-charcoal', icon: 'text-primaria' },
-                  ];
-                  const rotations = [-1.5, 1, -0.5, 1.5, 0.8, -1, 0.5, -0.8];
-                  const s = cardStyles[i % cardStyles.length];
-                  const Icon = activityIcons[i % activityIcons.length];
-                  return (
-                    <motion.div
-                      key={i}
-                      initial={{ opacity: 0, y: 24, rotate: 0 }}
-                      whileInView={{ opacity: 1, y: 0, rotate: rotations[i % rotations.length] }}
-                      transition={{ duration: 0.5, delay: 0.06 * i, ease: 'easeOut' }}
-                      viewport={{ once: true }}
-                      className={`${s.bg} rounded-2xl p-5 md:p-6 text-center select-none`}
-                    >
-                      <Icon className={`${s.icon} mx-auto mb-3 opacity-60`} size={28} />
-                      <p className={`font-bold text-sm md:text-base ${s.text} tracking-wide`}>
-                        {activity}
-                      </p>
-                    </motion.div>
-                  );
-                })}
-              </div>
-
-              {/* Campus note */}
-              <p className="text-center text-charcoal/40 text-sm mt-8 italic">
-                {ep.activitiesNote}
-              </p>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 max-w-5xl mx-auto">
+              {ep.activities.map((activity, i) => {
+                const s = activityStyles[i % activityStyles.length];
+                const Icon = activityIcons[i % activityIcons.length];
+                return (
+                  <motion.div
+                    key={i}
+                    initial={{ opacity: 0, y: 24, rotate: 0 }}
+                    whileInView={{ opacity: 1, y: 0, rotate: activityRotations[i % activityRotations.length] }}
+                    transition={{ duration: 0.5, delay: 0.06 * i, ease: 'easeOut' }}
+                    viewport={{ once: true }}
+                    className={`${s.bg} rounded-2xl p-6 md:p-8 text-center select-none`}
+                  >
+                    <Icon className={`${s.icon} mx-auto mb-3 opacity-60`} size={32} />
+                    <p className="font-bold text-charcoal text-base mb-2">
+                      {activity.name}
+                    </p>
+                    <p className="text-charcoal/55 text-xs leading-relaxed">
+                      {activity.description}
+                    </p>
+                  </motion.div>
+                );
+              })}
             </div>
+
+            <p className="text-center text-charcoal/40 text-sm mt-8 italic">
+              {ep.activitiesNote}
+            </p>
           </div>
         </section>
 

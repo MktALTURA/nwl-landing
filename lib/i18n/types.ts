@@ -216,9 +216,7 @@ export interface Dictionary {
     activitiesTitle: string;
     activitiesTitleAccent: string;
     activitiesSubtitle: string;
-    activities: string[];
-    activitiesFeatureTitle: string;
-    activitiesFeatureDescription: string;
+    activities: { name: string; description: string }[];
     activitiesNote: string;
     galleryTitle: string;
     galleryTitleAccent: string;
