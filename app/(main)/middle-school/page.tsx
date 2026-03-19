@@ -64,6 +64,8 @@ const galleryImages = [
   { src: '/images/levels/secundaria/nwl-sma-secundaria-alumnos-tablets-discusion.jpg', alt: 'Newland Middle School students collaborating with tablets in discussion' },
   { src: '/images/levels/secundaria/nwl-sma-secundaria-alumnas-yoga-bienestar.jpg', alt: 'Newland Middle School wellness and yoga session for student wellbeing' },
   { src: '/images/levels/secundaria/nwl-zibata-secundaria-alumno-escuchando-clase.jpg', alt: 'Newland Middle School student engaged in bilingual class at Zibatá' },
+  { src: '/images/levels/secundaria/nwl-secundaria-lab-experiment.jpg', alt: 'Newland Middle School students conducting science lab experiment with teacher guidance' },
+  { src: '/images/levels/secundaria/nwl-zibata-secundaria-tres-alumnos-pasillo-retrato.jpg', alt: 'Newland Middle School students in campus hallway at Zibatá' },
 ];
 
 /* ── Knotion phase dot colors ── */
@@ -113,8 +115,8 @@ export default function MiddleSchoolPage() {
         ════════════════════════════════════════════════ */}
         <section className="relative min-h-[90vh] flex items-end overflow-hidden">
           <Image
-            src="/images/levels/secundaria/nwl-zibata-secundaria-tres-alumnos-pasillo-retrato.jpg"
-            alt="NWL Middle School students in campus hallway"
+            src="/images/levels/secundaria/nwl-secundaria-lab-team-fist-bump.jpg"
+            alt="Newland Middle School students fist bumping in science lab teamwork activity"
             fill
             priority
             sizes="100vw"
@@ -147,7 +149,7 @@ export default function MiddleSchoolPage() {
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.3, type: 'spring', stiffness: 200 }}
-                className="inline-block bg-white/15 backdrop-blur-sm text-secundaria px-4 py-1.5 rounded-full text-sm font-bold mb-5 border border-white/10"
+                className="inline-block bg-white/90 backdrop-blur-sm text-secundaria px-4 py-1.5 rounded-full text-sm font-bold mb-5 border border-white/30 shadow-md"
               >
                 {ms.ageBadge}
               </motion.span>
