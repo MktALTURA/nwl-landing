@@ -34,12 +34,13 @@ if (typeof window !== 'undefined') {
 }
 
 /* ── Feature card data ── */
-const featureIcons = [FiGlobe, FiStar, FiHeart, FiShield, FiUsers];
+const featureIcons = [FiGlobe, FiStar, FiHeart, FiUsers, FiHeart, FiShield];
 const featureColors = [
   { bg: 'bg-sunshine/10', text: 'text-sunshine-700', iconBg: 'bg-sunshine/20', border: 'border-sunshine/30' },
   { bg: 'bg-coral/10', text: 'text-coral-700', iconBg: 'bg-coral/20', border: 'border-coral/30' },
   { bg: 'bg-lime/10', text: 'text-lime-700', iconBg: 'bg-lime/20', border: 'border-lime/30' },
   { bg: 'bg-ocean/10', text: 'text-ocean-700', iconBg: 'bg-ocean/20', border: 'border-ocean/30' },
+  { bg: 'bg-wine/10', text: 'text-wine', iconBg: 'bg-wine/20', border: 'border-wine/30' },
   { bg: 'bg-bubblegum/10', text: 'text-bubblegum-700', iconBg: 'bg-bubblegum/20', border: 'border-bubblegum/30' },
 ];
 
@@ -359,12 +360,23 @@ export default function MaternalPage() {
                     transition={{ duration: 0.5, delay: index * 0.1 }}
                     viewport={{ once: true }}
                     whileHover={{ y: -4, transition: { duration: 0.2 } }}
-                    className={`bg-white rounded-2xl p-7 shadow-sm hover:shadow-lg transition-shadow duration-300 border ${colors.border}`}
+                    className={`bg-white rounded-2xl p-7 shadow-sm hover:shadow-lg transition-shadow duration-300 border ${colors.border} relative`}
                   >
+                    {feature.logo && (
+                      <div className="absolute top-4 right-4">
+                        <Image
+                          src={feature.logo}
+                          alt={feature.title}
+                          width={56}
+                          height={56}
+                          className="object-contain"
+                        />
+                      </div>
+                    )}
                     <div className={`w-14 h-14 rounded-xl ${colors.iconBg} flex items-center justify-center mb-5`}>
                       <Icon size={26} className={colors.text} />
                     </div>
-                    <h3 className="font-bold text-charcoal text-lg mb-3">{feature.title}</h3>
+                    <h3 className="font-bold text-charcoal text-lg mb-3 pr-12">{feature.title}</h3>
                     <p className="text-charcoal/60 leading-relaxed">{feature.description}</p>
                   </motion.div>
                 );

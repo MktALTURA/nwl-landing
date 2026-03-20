@@ -310,19 +310,26 @@ export const es: Dictionary = {
           'Salas especializadas que potencializan el desarrollo neurológico en la etapa más crítica. El ÚNICO programa escolar de su tipo en Querétaro.',
       },
       {
-        title: 'Filosofía para Niños (FpN)',
+        title: 'Filosofía para Niños NWL (FpN)',
         description:
           'Enseñamos a los niños a pensar, no qué pensar. Desarrollo del pensamiento crítico adaptado para los más pequeños a través del diálogo.',
-      },
-      {
-        title: 'Programa de Desapego Seguro',
-        description:
-          'Transición gradual con padres presentes los primeros días, facilitando la adaptación emocional de tu hijo con apoyo profesional.',
+        logo: '/images/logos/partners/CFPN(es).png',
       },
       {
         title: 'Yo Soy Líder NWL by Tec de Monterrey',
         description:
-          'Desarrollo socioemocional, trabajo en equipo e inteligencia emocional desde sus primeros pasos. Exclusivo de NWL, avalado por el Tec de Monterrey.',
+          'Programa único en México que desarrolla hábitos y pensamientos para que se desarrollen integralmente, sean responsables de sus actos, tomen decisiones conscientes, sean personas resilientes y alcancen sus metas. Exclusivo de NWL, avalado por el Tec de Monterrey.',
+        logo: '/images/logos/partners/Yo_soy_lider_nwl(es).png',
+      },
+      {
+        title: 'Corazones Mágicos',
+        description:
+          'Programa de prevención de violencia sexual infantil. Incluye diplomado para padres de familia.',
+      },
+      {
+        title: 'Desapego Seguro + BFS',
+        description:
+          'Transición gradual con padres presentes los primeros días. Escuela certificada Bullying Free School (BFS): ambiente libre de acoso escolar.',
       },
     ],
     testimonial:
@@ -344,7 +351,7 @@ export const es: Dictionary = {
       { time: '9:00', activity: 'Brain Up: Círculo de inglés', icon: 'globe' },
       { time: '9:45', activity: 'Sala de estimulación multisensorial', icon: 'star' },
       { time: '10:30', activity: 'Snack saludable y juego al aire libre', icon: 'heart' },
-      { time: '11:15', activity: 'P4C diálogo guiado y creatividad', icon: 'book' },
+      { time: '11:15', activity: 'FpN: diálogo guiado y creatividad', icon: 'book' },
       { time: '12:00', activity: 'Música, movimiento y expresión', icon: 'music' },
       { time: '12:45', activity: 'Hora del cuento y cierre en calma', icon: 'moon' },
       { time: '1:30', activity: 'Recogida y conexión con papás', icon: 'home' },
@@ -372,7 +379,7 @@ export const es: Dictionary = {
       {
         title: 'Liderazgo desde el Inicio',
         description:
-          'A través de "Soy Líder NWL" avalado por el Tec de Monterrey, desarrollamos habilidades socioemocionales, trabajo en equipo e inteligencia emocional desde sus primeros pasos.',
+          'A través de "Yo Soy Líder NWL" avalado por el Tec de Monterrey, desarrollamos hábitos y pensamientos para que se desarrollen integralmente, sean responsables, tomen decisiones conscientes y alcancen sus metas.',
       },
     ],
     galleryTitle: 'La Vida en',
@@ -409,18 +416,21 @@ export const es: Dictionary = {
         subtitle: 'Metodología Internacional',
         description:
           'Aprendizaje basado en proyectos desde Kinder. Retos reales que desarrollan pensamiento creativo y resolución de problemas. Sin tarea tradicional.',
+        logo: '/images/logos/knotion.png',
       },
       {
-        title: 'Filosofía para Niños',
+        title: 'Filosofía para Niños NWL',
         subtitle: 'FpN',
         description:
           'Enseñamos cómo pensar, no qué pensar. Desde Kinder, aprenden a cuestionar, dialogar y formar su propio criterio.',
+        logo: '/images/logos/partners/CFPN(es).png',
       },
       {
         title: 'Yo Soy Líder NWL',
         subtitle: 'by Tec de Monterrey',
         description:
-          'Habilidades blandas, trabajo en equipo e inteligencia emocional desde temprana edad. Programa avalado por el Tec de Monterrey, exclusivo de NWL.',
+          'Programa único en México que desarrolla hábitos y pensamientos para que se desarrollen integralmente, sean responsables de sus actos, tomen decisiones conscientes, sean personas resilientes y alcancen sus metas. Avalado por el Tec de Monterrey, exclusivo de NWL.',
+        logo: '/images/logos/partners/Yo_soy_lider_nwl(es).png',
       },
     ],
     galleryTitle: 'La Vida en',
@@ -428,13 +438,13 @@ export const es: Dictionary = {
     dayTitle: 'Un Día en',
     dayTitleAccent: 'Kinder NWL',
     daySchedule: [
-      { time: '8:20', activity: 'Llegada y Círculo de Indagación', icon: 'compass' },
+      { time: '8:20', activity: 'NWL Routine: bienvenida y rutina de inicio', icon: 'compass' },
       { time: '9:00', activity: 'Laboratorio Knotion: investigación con las manos', icon: 'lightbulb' },
       { time: '9:50', activity: 'Inmersión en Inglés: lectura, escritura y conversación', icon: 'globe' },
       { time: '10:40', activity: 'Colación saludable y exploración al aire libre', icon: 'sun' },
-      { time: '11:15', activity: 'P4C: diálogo filosófico y pensamiento crítico', icon: 'brain' },
-      { time: '12:00', activity: 'Taller STEAM: ciencia, arte y tecnología', icon: 'rocket' },
-      { time: '12:45', activity: 'Actividades de liderazgo y colaboración', icon: 'users' },
+      { time: '11:15', activity: 'FpN: diálogo filosófico y pensamiento crítico', icon: 'brain' },
+      { time: '12:00', activity: 'Actividades de liderazgo y colaboración', icon: 'users' },
+      { time: '12:45', activity: 'Música, movimiento y expresión creativa', icon: 'music' },
       { time: '1:30', activity: 'Círculo de reflexión y salida', icon: 'star' },
     ],
   },
@@ -442,8 +452,8 @@ export const es: Dictionary = {
     ageBadge: '6–11 años',
     tagline: 'Construyendo el Futuro, Proyecto a Proyecto',
     description:
-      'En Primaria, los alumnos se adueñan de su aprendizaje a través del modelo IMPACT, laboratorios STEAM maker y un programa de filosofía que les enseña cómo pensar — no qué pensar. Inmersión en inglés en todas las materias. Sin tarea tradicional.',
-    statBilingual: 'Inmersión en Inglés',
+      'En Primaria, los alumnos se adueñan de su aprendizaje a través del modelo IMPACT, laboratorios STEAM maker y un programa de filosofía que les enseña cómo pensar — no qué pensar. Modelo bilingüe. Sin tarea tradicional.',
+    statBilingual: 'Modelo Bilingüe',
     statCampuses: 'Campus',
     statNoHomework: 'Sin Tarea',
     schedule: '7:40–2:30',
@@ -470,18 +480,21 @@ export const es: Dictionary = {
         subtitle: 'Design Thinking en Acción',
         description:
           'Retos del mundo real a través de la metodología IMPACT. Los alumnos investigan, crean y presentan soluciones con impacto social. Sin tarea tradicional.',
+        logo: '/images/logos/knotion.png',
       },
       {
-        title: 'Filosofía para Niños',
+        title: 'Filosofía para Niños NWL (FpN)',
         subtitle: 'FpN + Diploma para Padres',
         description:
           'Enseñamos cómo pensar, no qué pensar. Diálogo filosófico que construye razonamiento crítico, argumentación y empatía. Incluye Diploma para Padres.',
+        logo: '/images/logos/partners/CFPN(es).png',
       },
       {
         title: 'Yo Soy Líder NWL',
         subtitle: 'by Tec de Monterrey',
         description:
-          'Habilidades blandas, trabajo en equipo, inteligencia emocional y liderazgo. Programa avalado por el Tec de Monterrey, exclusivo de NWL.',
+          'Programa único en México que desarrolla hábitos y pensamientos para que se desarrollen integralmente, sean responsables de sus actos, tomen decisiones conscientes, sean personas resilientes y alcancen sus metas. Avalado por el Tec de Monterrey, exclusivo de NWL.',
+        logo: '/images/logos/partners/Yo_soy_lider_nwl(es).png',
       },
     ],
     knotionTitle: 'Potenciado por',
@@ -529,8 +542,8 @@ export const es: Dictionary = {
         description: 'Certificación internacional de calidad presente en más de 88 países, validando nuestros estándares.',
       },
       {
-        title: 'Escuela Libre de Bullying',
-        description: 'Ambiente certificado libre de bullying con protocolos claros y cultura de respeto.',
+        title: 'BFS: Bullying Free School',
+        description: 'Programa certificado de prevención y erradicación del acoso escolar con protocolos claros y cultura de respeto.',
       },
     ],
     activitiesTitle: 'Más Allá del',
@@ -594,18 +607,21 @@ export const es: Dictionary = {
         subtitle: 'Metodología Internacional',
         description:
           'Tu hijo adolescente NO memoriza, resuelve problemas reales con impacto social. Sin tarea convencional. Resolución de problemas para lograr un impacto real.',
+        logo: '/images/logos/knotion.png',
       },
       {
-        title: 'Filosofía para Niños (FpN)',
+        title: 'Filosofía para Niños NWL (FpN)',
         subtitle: 'Formando Sus Propios Criterios',
         description:
-          'Pensamiento crítico adolescente: formar un juicio personal, no seguir tendencias. Incluye el Diplomado para Padres de Filosofía P4C.',
+          'Pensamiento crítico adolescente: formar un juicio personal, no seguir tendencias. Incluye el Diplomado para Padres de Filosofía FpN.',
+        logo: '/images/logos/partners/CFPN(es).png',
       },
       {
-        title: 'Soy Líder NWL',
+        title: 'Yo Soy Líder NWL',
         subtitle: 'Programa Único en México, Exclusivo de NWL',
         description:
-          'Liderazgo, inteligencia emocional y habilidades sociales para el siglo XXI. Avalado por el Tec de Monterrey.',
+          'Programa único en México que desarrolla hábitos y pensamientos para que se desarrollen integralmente, sean responsables de sus actos, tomen decisiones conscientes, sean personas resilientes y alcancen sus metas. Avalado por el Tec de Monterrey.',
+        logo: '/images/logos/partners/Yo_soy_lider_nwl(es).png',
       },
     ],
     // Programas Exclusivos
@@ -615,7 +631,7 @@ export const es: Dictionary = {
       'Dos programas que distinguen a Secundaria NWL de cualquier otra escuela en la región.',
     exclusivePrograms: [
       {
-        title: 'Emprendimiento',
+        title: 'Emprendizaje',
         partner: 'Universidad Mondragón',
         description:
           'Mentalidad emprendedora desde la adolescencia. Proyectos reales con un impacto progresivo cada año.',
@@ -668,9 +684,9 @@ export const es: Dictionary = {
           'Programa que ayuda a los niños a comprender la violencia, protegerse y saber cómo reportarla.',
       },
       {
-        title: 'Libre de Acoso Escolar',
+        title: 'BFS: Bullying Free School',
         description:
-          'Escuela certificada libre de acoso escolar.',
+          'Programa certificado de prevención y erradicación del acoso escolar.',
       },
       {
         title: '90+ Cámaras 24/7',

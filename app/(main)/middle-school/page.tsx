@@ -342,12 +342,23 @@ export default function MiddleSchoolPage() {
                     transition={{ duration: 0.5, delay: i * 0.12 }}
                     viewport={{ once: true }}
                     whileHover={{ y: -4, transition: { duration: 0.2 } }}
-                    className={`bg-gradient-to-br ${c.gradient} rounded-2xl p-7 border ${c.border} hover:shadow-lg transition-shadow`}
+                    className={`bg-gradient-to-br ${c.gradient} rounded-2xl p-7 border ${c.border} hover:shadow-lg transition-shadow relative`}
                   >
+                    {pillar.logo && (
+                      <div className="absolute top-4 right-4">
+                        <Image
+                          src={pillar.logo}
+                          alt={pillar.title}
+                          width={56}
+                          height={56}
+                          className="object-contain"
+                        />
+                      </div>
+                    )}
                     <div className={`w-10 h-10 rounded-xl ${c.num} flex items-center justify-center font-bold text-lg mb-5`}>
                       {i + 1}
                     </div>
-                    <h3 className="font-display text-xl font-bold text-charcoal mb-1">{pillar.title}</h3>
+                    <h3 className="font-display text-xl font-bold text-charcoal mb-1 pr-10">{pillar.title}</h3>
                     <p className={`text-sm font-semibold ${c.accent} mb-3`}>{pillar.subtitle}</p>
                     <p className="text-charcoal/65 leading-relaxed text-[15px]">{pillar.description}</p>
                   </motion.div>

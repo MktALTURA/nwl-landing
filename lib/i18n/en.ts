@@ -312,16 +312,23 @@ export const en: Dictionary = {
         title: 'Philosophy for Children (P4C)',
         description:
           'We teach children how to think, not what to think. Critical thinking development adapted for toddlers through guided dialogue.',
-      },
-      {
-        title: 'Safe Detachment Program',
-        description:
-          'Gradual transition with parents present during the first days, facilitating your child\'s emotional adaptation with professional support.',
+        logo: '/images/logos/partners/CFPN(es).png',
       },
       {
         title: "I'm NWL Leader by Tec de Monterrey",
         description:
-          'Social-emotional development, teamwork, and emotional intelligence from their first steps. Exclusive to NWL, endorsed by Tec de Monterrey.',
+          'A unique program in Mexico that develops habits and mindsets so children grow holistically, take responsibility for their actions, make conscious decisions, become resilient, and achieve their goals. Exclusive to NWL, endorsed by Tec de Monterrey.',
+        logo: '/images/logos/partners/Yo_soy_lider_nwl(es).png',
+      },
+      {
+        title: 'Corazones Mágicos',
+        description:
+          'Child sexual violence prevention program. Includes a parent training diploma.',
+      },
+      {
+        title: 'Safe Detachment + BFS',
+        description:
+          'Gradual transition with parents present during the first days. Certified Bullying Free School (BFS): a safe, bullying-free environment.',
       },
     ],
     testimonial:
@@ -343,7 +350,7 @@ export const en: Dictionary = {
       { time: '9:00', activity: 'Brain Up: English circle time', icon: 'globe' },
       { time: '9:45', activity: 'Multisensory stimulation room', icon: 'star' },
       { time: '10:30', activity: 'Healthy snack & outdoor play', icon: 'heart' },
-      { time: '11:15', activity: 'P4C guided dialogue & creativity', icon: 'book' },
+      { time: '11:15', activity: 'P4C: guided dialogue & creativity', icon: 'book' },
       { time: '12:00', activity: 'Music, movement & expression', icon: 'music' },
       { time: '12:45', activity: 'Story time & calm closure', icon: 'moon' },
       { time: '1:30', activity: 'Pick-up & parent connection', icon: 'home' },
@@ -371,7 +378,7 @@ export const en: Dictionary = {
       {
         title: 'Leadership from the Start',
         description:
-          'Through "I\'m NWL Leader" by Tec de Monterrey, we develop social-emotional skills, teamwork, and emotional intelligence from their very first steps.',
+          'Through "I\'m NWL Leader" by Tec de Monterrey, we develop habits and mindsets so children grow holistically, take responsibility, make conscious decisions, and achieve their goals.',
       },
     ],
     galleryTitle: 'Life in',
@@ -408,18 +415,21 @@ export const en: Dictionary = {
         subtitle: 'International Methodology',
         description:
           'Project-based learning from Kinder. Real challenges that develop creative thinking and problem-solving. No traditional homework.',
+        logo: '/images/logos/knotion.png',
       },
       {
-        title: 'Philosophy for Children',
+        title: 'Philosophy for Children (P4C)',
         subtitle: 'P4C',
         description:
           'We teach how to think, not what to think. From Kinder, they learn to question, dialogue, and form their own criteria.',
+        logo: '/images/logos/partners/CFPN(es).png',
       },
       {
         title: "I'm NWL Leader",
         subtitle: 'by Tec de Monterrey',
         description:
-          'Soft skills, teamwork, and emotional intelligence from an early age. A program endorsed by Tec de Monterrey, exclusive to NWL.',
+          'A unique program in Mexico that develops habits and mindsets so children grow holistically, take responsibility, make conscious decisions, become resilient, and achieve their goals. Endorsed by Tec de Monterrey, exclusive to NWL.',
+        logo: '/images/logos/partners/Yo_soy_lider_nwl(es).png',
       },
     ],
     galleryTitle: 'Life in',
@@ -427,13 +437,13 @@ export const en: Dictionary = {
     dayTitle: 'A Day in',
     dayTitleAccent: 'Kinder NWL',
     daySchedule: [
-      { time: '8:20', activity: 'Arrival & Morning Inquiry Circle', icon: 'compass' },
+      { time: '8:20', activity: 'NWL Routine: welcome & morning routine', icon: 'compass' },
       { time: '9:00', activity: 'Knotion Project Lab: hands-on investigation', icon: 'lightbulb' },
       { time: '9:50', activity: 'English Immersion: reading, writing & conversation', icon: 'globe' },
       { time: '10:40', activity: 'Healthy snack & outdoor exploration', icon: 'sun' },
       { time: '11:15', activity: 'P4C: philosophical dialogue & critical thinking', icon: 'brain' },
-      { time: '12:00', activity: 'STEAM Workshop: science, art & technology', icon: 'rocket' },
-      { time: '12:45', activity: 'Leadership & collaboration activities', icon: 'users' },
+      { time: '12:00', activity: 'Leadership & collaboration activities', icon: 'users' },
+      { time: '12:45', activity: 'Music, movement & creative expression', icon: 'music' },
       { time: '1:30', activity: 'Reflection circle & dismissal', icon: 'star' },
     ],
   },
@@ -441,8 +451,8 @@ export const en: Dictionary = {
     ageBadge: 'Ages 6–11',
     tagline: 'Building the Future, One Project at a Time',
     description:
-      'In Elementary, students take ownership of their learning through the IMPACT model, STEAM maker labs, and a philosophy program that teaches them how to think — not what to think. English immersion across all subjects. No traditional homework.',
-    statBilingual: 'English Immersion',
+      'In Elementary, students take ownership of their learning through the IMPACT model, STEAM maker labs, and a philosophy program that teaches them how to think — not what to think. Bilingual model. No traditional homework.',
+    statBilingual: 'Bilingual Model',
     statCampuses: 'Campuses',
     statNoHomework: 'No Homework',
     schedule: '7:40–2:30',
@@ -469,18 +479,21 @@ export const en: Dictionary = {
         subtitle: 'Design Thinking in Action',
         description:
           'Real-world challenges through the IMPACT methodology. Students investigate, create, and present solutions with social impact. No traditional homework.',
+        logo: '/images/logos/knotion.png',
       },
       {
-        title: 'Philosophy for Children',
+        title: 'Philosophy for Children (P4C)',
         subtitle: 'P4C + Parent Diploma',
         description:
           'We teach how to think, not what to think. Philosophical dialogue that builds critical reasoning, argumentation, and empathy. Includes a Parent Diploma.',
+        logo: '/images/logos/partners/CFPN(es).png',
       },
       {
         title: "I'm NWL Leader",
         subtitle: 'by Tec de Monterrey',
         description:
-          'Soft skills, teamwork, emotional intelligence, and leadership. A program endorsed by Tec de Monterrey, exclusive to NWL.',
+          'A unique program in Mexico that develops habits and mindsets so students grow holistically, take responsibility for their actions, make conscious decisions, become resilient, and achieve their goals. Endorsed by Tec de Monterrey, exclusive to NWL.',
+        logo: '/images/logos/partners/Yo_soy_lider_nwl(es).png',
       },
     ],
     knotionTitle: 'Powered by',
@@ -528,8 +541,8 @@ export const en: Dictionary = {
         description: 'International quality certification present in 88+ countries, validating our standards.',
       },
       {
-        title: 'Bullying-Free School',
-        description: 'Certified bullying-free environment with clear protocols and a culture of respect.',
+        title: 'BFS: Bullying Free School',
+        description: 'Certified bullying prevention and eradication program with clear protocols and a culture of respect.',
       },
     ],
     activitiesTitle: 'Beyond the',
@@ -593,18 +606,21 @@ export const en: Dictionary = {
         subtitle: 'International Methodology',
         description:
           'Problem-solving through real-world challenges with social impact. No traditional homework. Students learn by doing, creating, and presenting solutions.',
+        logo: '/images/logos/knotion.png',
       },
       {
-        title: 'Philosophy for Children',
+        title: 'Philosophy for Children (P4C)',
         subtitle: 'P4C / Critical Thinking',
         description:
-          'We teach how to think, not what to think. Guided dialogue develops autonomous judgment, ethical reasoning, and the confidence to defend their ideas.',
+          'We teach how to think, not what to think. Guided dialogue develops autonomous judgment, ethical reasoning, and the confidence to defend their ideas. Includes a Parent Diploma.',
+        logo: '/images/logos/partners/CFPN(es).png',
       },
       {
         title: "I'm NWL Leader",
         subtitle: 'by Tec de Monterrey',
         description:
-          'Leadership, emotional intelligence, and teamwork. An exclusive program endorsed by Tec de Monterrey that prepares students for real-world collaboration.',
+          'A unique program in Mexico that develops habits and mindsets so students grow holistically, take responsibility, make conscious decisions, become resilient, and achieve their goals. Endorsed by Tec de Monterrey.',
+        logo: '/images/logos/partners/Yo_soy_lider_nwl(es).png',
       },
     ],
     // Exclusive Programs
@@ -667,9 +683,9 @@ export const en: Dictionary = {
           'Certified violence prevention program that builds emotional resilience and a safe school culture.',
       },
       {
-        title: 'Bullying-Free School',
+        title: 'BFS: Bullying Free School',
         description:
-          'Certified bullying-free environment with clear protocols and a culture of mutual respect.',
+          'Certified bullying prevention and eradication program with clear protocols and a culture of mutual respect.',
       },
       {
         title: '90+ Security Cameras',

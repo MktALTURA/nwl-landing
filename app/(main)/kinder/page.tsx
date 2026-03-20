@@ -289,8 +289,19 @@ export default function KinderPage() {
                     transition={{ duration: 0.5, delay: i * 0.12 }}
                     viewport={{ once: true }}
                     whileHover={{ y: -6, transition: { duration: 0.25 } }}
-                    className={`bg-gradient-to-br ${cfg.gradient} rounded-2xl p-7 border ${cfg.border} hover:shadow-lg transition-shadow`}
+                    className={`bg-gradient-to-br ${cfg.gradient} rounded-2xl p-7 border ${cfg.border} hover:shadow-lg transition-shadow relative`}
                   >
+                    {pillar.logo && (
+                      <div className="absolute top-4 right-4">
+                        <Image
+                          src={pillar.logo}
+                          alt={pillar.title}
+                          width={56}
+                          height={56}
+                          className="object-contain"
+                        />
+                      </div>
+                    )}
                     {/* Number + Icon */}
                     <div className="flex items-center gap-3 mb-5">
                       <div className={`w-10 h-10 rounded-xl ${cfg.num} flex items-center justify-center font-bold text-lg`}>
@@ -298,7 +309,7 @@ export default function KinderPage() {
                       </div>
                       <Icon size={22} className={cfg.accent} />
                     </div>
-                    <h3 className="font-display text-xl font-bold text-charcoal mb-1">{pillar.title}</h3>
+                    <h3 className="font-display text-xl font-bold text-charcoal mb-1 pr-10">{pillar.title}</h3>
                     <p className={`text-sm font-semibold ${cfg.accent} mb-3`}>{pillar.subtitle}</p>
                     <p className="text-charcoal/60 leading-relaxed text-[15px]">{pillar.description}</p>
                   </motion.div>
