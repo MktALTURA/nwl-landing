@@ -17,6 +17,7 @@ import {
   FiAward,
   FiCpu,
   FiTarget,
+  FiBookOpen,
   FiX,
   FiZoomIn,
   FiGlobe,
@@ -45,7 +46,7 @@ if (typeof window !== 'undefined') {
 ── */
 
 /* ── Value prop icons ── */
-const valuePropIcons = [FiCompass, FiZap, FiDollarSign, FiAward, FiCpu, FiTarget];
+const valuePropIcons = [FiCompass, FiZap, FiBookOpen, FiDollarSign, FiAward, FiCpu, FiTarget];
 const valuePropStyles = [
   { bg: 'bg-deep-ember/12', accent: 'text-deep-ember', border: 'border-deep-ember/20' },
   { bg: 'bg-golden-spark/15', accent: 'text-golden-spark', border: 'border-golden-spark/25' },
@@ -53,6 +54,7 @@ const valuePropStyles = [
   { bg: 'bg-golden-spark/15', accent: 'text-golden-spark', border: 'border-golden-spark/25' },
   { bg: 'bg-deep-ember/12', accent: 'text-deep-ember', border: 'border-deep-ember/20' },
   { bg: 'bg-golden-spark/15', accent: 'text-golden-spark', border: 'border-golden-spark/25' },
+  { bg: 'bg-deep-ember/12', accent: 'text-deep-ember', border: 'border-deep-ember/20' },
 ];
 
 /* ── Semester colors (from the PDF palette) ── */
@@ -274,7 +276,19 @@ export default function HighSchoolPage() {
                         />
                         <p className="text-charcoal/60 text-sm leading-relaxed">{prop.description}</p>
                       </>
-                    ) : i === 3 ? (
+                    ) : i === 2 ? (
+                      <>
+                        <div className="flex items-center gap-3 mb-4">
+                          <img
+                            src="/images/logos/partners/kn-u-high-coursera.png"
+                            alt="Kn U High by Coursera"
+                            className="h-12 w-auto"
+                          />
+                        </div>
+                        <h3 className="font-display text-lg font-bold text-charcoal mb-2">{prop.title}</h3>
+                        <p className="text-charcoal/60 text-sm leading-relaxed">{prop.description}</p>
+                      </>
+                    ) : i === 4 ? (
                       <>
                         <img
                           src="/images/logos/hokku-academy.webp"

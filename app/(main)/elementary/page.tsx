@@ -269,7 +269,7 @@ export default function ElementaryPage() {
                     className={`bg-gradient-to-br ${c.gradient} rounded-2xl p-7 border ${c.border} hover:shadow-lg transition-shadow relative`}
                   >
                     {pillar.logo && (
-                      <div className="absolute top-4 right-4">
+                      <div className="absolute top-4 right-4 flex items-center gap-2">
                         <Image
                           src={pillar.logo}
                           alt={pillar.title}
@@ -277,6 +277,15 @@ export default function ElementaryPage() {
                           height={56}
                           className="object-contain"
                         />
+                        {pillar.logo2 && (
+                          <Image
+                            src={pillar.logo2}
+                            alt="Tec de Monterrey"
+                            width={56}
+                            height={56}
+                            className="object-contain"
+                          />
+                        )}
                       </div>
                     )}
                     <div className={`w-10 h-10 rounded-xl ${c.num} flex items-center justify-center font-bold text-lg mb-5`}>

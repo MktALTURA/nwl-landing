@@ -320,6 +320,7 @@ export const es: Dictionary = {
         description:
           'Programa único en México que desarrolla hábitos y pensamientos para que se desarrollen integralmente, sean responsables de sus actos, tomen decisiones conscientes, sean personas resilientes y alcancen sus metas. Exclusivo de NWL, avalado por el Tec de Monterrey.',
         logo: '/images/logos/partners/Yo_soy_lider_nwl(es).png',
+        logo2: '/images/logos/partners/tecnologico-de-monterrey.png',
       },
       {
         title: 'Corazones Mágicos',
@@ -431,6 +432,7 @@ export const es: Dictionary = {
         description:
           'Programa único en México que desarrolla hábitos y pensamientos para que se desarrollen integralmente, sean responsables de sus actos, tomen decisiones conscientes, sean personas resilientes y alcancen sus metas. Avalado por el Tec de Monterrey, exclusivo de NWL.',
         logo: '/images/logos/partners/Yo_soy_lider_nwl(es).png',
+        logo2: '/images/logos/partners/tecnologico-de-monterrey.png',
       },
     ],
     galleryTitle: 'La Vida en',
@@ -495,6 +497,7 @@ export const es: Dictionary = {
         description:
           'Programa único en México que desarrolla hábitos y pensamientos para que se desarrollen integralmente, sean responsables de sus actos, tomen decisiones conscientes, sean personas resilientes y alcancen sus metas. Avalado por el Tec de Monterrey, exclusivo de NWL.',
         logo: '/images/logos/partners/Yo_soy_lider_nwl(es).png',
+        logo2: '/images/logos/partners/tecnologico-de-monterrey.png',
       },
     ],
     knotionTitle: 'Potenciado por',
@@ -622,6 +625,7 @@ export const es: Dictionary = {
         description:
           'Programa único en México que desarrolla hábitos y pensamientos para que se desarrollen integralmente, sean responsables de sus actos, tomen decisiones conscientes, sean personas resilientes y alcancen sus metas. Avalado por el Tec de Monterrey.',
         logo: '/images/logos/partners/Yo_soy_lider_nwl(es).png',
+        logo2: '/images/logos/partners/tecnologico-de-monterrey.png',
       },
     ],
     // Programas Exclusivos
@@ -745,8 +749,12 @@ export const es: Dictionary = {
         description: 'Un camino personalizado con Life Mentors que guían a cada estudiante a descubrir sus talentos y construir su propósito.',
       },
       {
-        title: 'Cero Tareas',
-        description: 'Sin tareas tradicionales ni exámenes finales. Evaluación continua a través de proyectos, presentaciones y aplicaciones del mundo real.',
+        title: 'Aprendizaje Basado en Proyectos',
+        description: 'Sin tareas tradicionales. Evaluación continua a través de proyectos, presentaciones y aplicaciones del mundo real. Las certificaciones Kn U High incluyen evaluaciones y actividades propias.',
+      },
+      {
+        title: 'Certificaciones Kn U High (Coursera)',
+        description: 'Desde 1er semestre, los alumnos obtienen certificaciones con universidades a nivel mundial a través de Kn U High en alianza con Coursera.',
       },
       {
         title: 'Inteligencia Financiera',

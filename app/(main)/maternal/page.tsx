@@ -363,7 +363,7 @@ export default function MaternalPage() {
                     className={`bg-white rounded-2xl p-7 shadow-sm hover:shadow-lg transition-shadow duration-300 border ${colors.border} relative`}
                   >
                     {feature.logo && (
-                      <div className="absolute top-4 right-4">
+                      <div className="absolute top-4 right-4 flex items-center gap-2">
                         <Image
                           src={feature.logo}
                           alt={feature.title}
@@ -371,6 +371,15 @@ export default function MaternalPage() {
                           height={56}
                           className="object-contain"
                         />
+                        {feature.logo2 && (
+                          <Image
+                            src={feature.logo2}
+                            alt="Tec de Monterrey"
+                            width={56}
+                            height={56}
+                            className="object-contain"
+                          />
+                        )}
                       </div>
                     )}
                     <div className={`w-14 h-14 rounded-xl ${colors.iconBg} flex items-center justify-center mb-5`}>

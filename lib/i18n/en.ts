@@ -319,6 +319,7 @@ export const en: Dictionary = {
         description:
           'A unique program in Mexico that develops habits and mindsets so children grow holistically, take responsibility for their actions, make conscious decisions, become resilient, and achieve their goals. Exclusive to NWL, endorsed by Tec de Monterrey.',
         logo: '/images/logos/partners/Yo_soy_lider_nwl(es).png',
+        logo2: '/images/logos/partners/tecnologico-de-monterrey.png',
       },
       {
         title: 'Corazones Mágicos',
@@ -430,6 +431,7 @@ export const en: Dictionary = {
         description:
           'A unique program in Mexico that develops habits and mindsets so children grow holistically, take responsibility, make conscious decisions, become resilient, and achieve their goals. Endorsed by Tec de Monterrey, exclusive to NWL.',
         logo: '/images/logos/partners/Yo_soy_lider_nwl(es).png',
+        logo2: '/images/logos/partners/tecnologico-de-monterrey.png',
       },
     ],
     galleryTitle: 'Life in',
@@ -494,6 +496,7 @@ export const en: Dictionary = {
         description:
           'A unique program in Mexico that develops habits and mindsets so students grow holistically, take responsibility for their actions, make conscious decisions, become resilient, and achieve their goals. Endorsed by Tec de Monterrey, exclusive to NWL.',
         logo: '/images/logos/partners/Yo_soy_lider_nwl(es).png',
+        logo2: '/images/logos/partners/tecnologico-de-monterrey.png',
       },
     ],
     knotionTitle: 'Powered by',
@@ -621,6 +624,7 @@ export const en: Dictionary = {
         description:
           'A unique program in Mexico that develops habits and mindsets so students grow holistically, take responsibility, make conscious decisions, become resilient, and achieve their goals. Endorsed by Tec de Monterrey.',
         logo: '/images/logos/partners/Yo_soy_lider_nwl(es).png',
+        logo2: '/images/logos/partners/tecnologico-de-monterrey.png',
       },
     ],
     // Exclusive Programs
@@ -744,8 +748,12 @@ export const en: Dictionary = {
         description: 'A personalized journey with Life Mentors guiding each student to discover their talents and build their purpose.',
       },
       {
-        title: 'Zero Homework',
-        description: 'No traditional homework or final exams. Continuous assessment through projects, presentations, and real-world applications.',
+        title: 'Project-Based Learning',
+        description: 'No traditional homework. Continuous assessment through projects, presentations, and real-world applications. Kn U High certifications include their own coursework and evaluations.',
+      },
+      {
+        title: 'Kn U High Certifications (Coursera)',
+        description: 'From 1st semester, students earn certifications from world-class universities through Kn U High in partnership with Coursera.',
       },
       {
         title: 'Financial Intelligence',

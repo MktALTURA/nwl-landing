@@ -129,7 +129,7 @@ export interface Dictionary {
     statSchedule: string;
     uniqueBadge: string;
     featuresTitle: string;
-    features: { title: string; description: string; logo?: string }[];
+    features: { title: string; description: string; logo?: string; logo2?: string }[];
     testimonial: string;
     testimonialAuthor: string;
     cta: string;
@@ -172,7 +172,7 @@ export interface Dictionary {
     pillarsTitle: string;
     pillarsTitleAccent: string;
     pillarsSubtitle: string;
-    pillars: { title: string; subtitle: string; description: string; logo?: string }[];
+    pillars: { title: string; subtitle: string; description: string; logo?: string; logo2?: string }[];
     galleryTitle: string;
     galleryTitleAccent: string;
     dayTitle: string;
@@ -202,7 +202,7 @@ export interface Dictionary {
     pillarsTitle: string;
     pillarsTitleAccent: string;
     pillarsSubtitle: string;
-    pillars: { title: string; subtitle: string; description: string; logo?: string }[];
+    pillars: { title: string; subtitle: string; description: string; logo?: string; logo2?: string }[];
     knotionTitle: string;
     knotionTitleAccent: string;
     knotionSubtitle: string;
@@ -251,7 +251,7 @@ export interface Dictionary {
     pillarsTitle: string;
     pillarsTitleAccent: string;
     pillarsSubtitle: string;
-    pillars: { title: string; subtitle: string; description: string; logo?: string }[];
+    pillars: { title: string; subtitle: string; description: string; logo?: string; logo2?: string }[];
     // Exclusive programs
     exclusiveTitle: string;
     exclusiveTitleAccent: string;
