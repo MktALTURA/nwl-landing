@@ -222,16 +222,16 @@ export const campuses: Record<string, CampusData> = {
       {
         name: { en: 'Sports', es: 'Deportes' },
         description: {
-          en: 'Soccer, basketball, volleyball, and more competitive and recreational options.',
-          es: 'Fútbol, basquetbol, voleibol y más opciones competitivas y recreativas.',
+          en: 'Volleyball, flag football (tochito), basketball, soccer, and dance team.',
+          es: 'Voleibol, tochito, basquetbol, fútbol y dance team.',
         },
         color: 'coral',
       },
       {
-        name: { en: 'Arts & Culture', es: 'Arte y Cultura' },
+        name: { en: 'Arts & Wellness', es: 'Arte y Bienestar' },
         description: {
-          en: 'Visual arts, theater, and cultural expression workshops.',
-          es: 'Artes visuales, teatro y talleres de expresión cultural.',
+          en: 'Cooking workshops, yoga, and creative expression.',
+          es: 'Talleres de cocina, yoga y expresión creativa.',
         },
         color: 'ocean',
       },
@@ -253,7 +253,7 @@ export const campuses: Record<string, CampusData> = {
       },
     ],
     director: {
-      name: 'Ximena Arellano Atristain',
+      name: 'Mtra. Ximena Arellano Atristain',
       title: { en: 'Campus Director', es: 'Directora de Campus' },
       message: {
         en: 'At NWL Milenio, we create a warm, secure environment where children feel at home. Our dedicated team focuses on both academic achievement and emotional development, helping each student grow into a confident, well-rounded individual.',
