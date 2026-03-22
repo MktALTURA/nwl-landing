@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, type RefObject } from 'react';
 import { track } from '@vercel/analytics';
+import { getFirstTouchUTMs, getLastTouchUTMs } from '@/lib/utm';
 
 /* ------------------------------------------------------------------ */
 /*  GHL Form Submission Tracking Hook                                  */
@@ -24,24 +25,46 @@ const GHL_TRUSTED_ORIGINS = [
 function fireConversion(formLabel: string) {
   console.log(`[NWL] Form submission detected — ${formLabel}`);
 
-  // 1. dataLayer for GTM / gtag
+  const firstTouch = getFirstTouchUTMs();
+  const lastTouch = getLastTouchUTMs();
+
+  // 1. dataLayer for GTM / gtag — include full UTM attribution
   window.dataLayer = window.dataLayer || [];
   window.dataLayer.push({
     event: 'nwl_form_submission',
     form_label: formLabel,
+    // Last-touch attribution
+    ...(lastTouch && {
+      utm_source: lastTouch.utm_source,
+      utm_medium: lastTouch.utm_medium,
+      utm_campaign: lastTouch.utm_campaign,
+      utm_term: lastTouch.utm_term,
+      utm_content: lastTouch.utm_content,
+    }),
+    // First-touch attribution (prefixed to avoid collision)
+    ...(firstTouch && {
+      ft_utm_source: firstTouch.utm_source,
+      ft_utm_medium: firstTouch.utm_medium,
+      ft_utm_campaign: firstTouch.utm_campaign,
+    }),
   });
 
   // 2. Google Ads conversion (when gtag is installed)
   if (typeof window.gtag === 'function') {
     window.gtag('event', 'conversion', {
-      // TODO: replace with actual conversion ID + label
-      send_to: 'AW-XXXXXXXXX/YYYYYYYYYY',
+      send_to: 'AW-17936345870/H9S4CJelm40cEI7W2-hC',
     });
   }
 
-  // 3. Vercel Analytics custom event
+  // 3. Vercel Analytics custom event — include UTM source for dashboards
   try {
-    track('form_submission', { form: formLabel });
+    track('form_submission', {
+      form: formLabel,
+      ...(lastTouch?.utm_source && { utm_source: lastTouch.utm_source }),
+      ...(lastTouch?.utm_medium && { utm_medium: lastTouch.utm_medium }),
+      ...(lastTouch?.utm_campaign && { utm_campaign: lastTouch.utm_campaign }),
+      ...(firstTouch?.utm_source && { ft_source: firstTouch.utm_source }),
+    });
   } catch {
     // Vercel Analytics unavailable — no-op
   }

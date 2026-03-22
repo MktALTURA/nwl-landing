@@ -66,6 +66,7 @@ const galleryImages = [
   { src: '/images/levels/secundaria/nwl-zibata-secundaria-alumno-escuchando-clase.jpg', alt: 'Newland Middle School student engaged in bilingual class at Zibatá' },
   { src: '/images/levels/secundaria/nwl-secundaria-lab-experiment.jpg', alt: 'Newland Middle School students conducting science lab experiment with teacher guidance' },
   { src: '/images/levels/secundaria/nwl-zibata-secundaria-tres-alumnos-pasillo-retrato.jpg', alt: 'Newland Middle School students in campus hallway at Zibatá' },
+  { src: '/images/levels/secundaria/milenio-classroom-secondary.jpg', alt: 'Newland Middle School classroom with collaborative desk layout at Campus Milenio' },
 ];
 
 /* ── Knotion phase dot colors ── */

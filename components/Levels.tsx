@@ -10,7 +10,7 @@ const levelsData = [
   { icon: FaChild, color: 'sunshine', image: '/images/levels/maternal.jpg' },
   { icon: FiStar, color: 'coral', image: '/images/levels/kinder.jpg' },
   { icon: FiBook, color: 'ocean', image: '/images/levels/primaria.jpg' },
-  { icon: FiUsers, color: 'tangerine', image: '/images/levels/secundaria.jpg' },
+  { icon: FiUsers, color: 'tangerine', image: '/images/levels/secundaria/nwl-secundaria-lab-team-fist-bump.jpg' },
   { icon: FiTrendingUp, color: 'blueberry', image: '/images/levels/preparatoria.jpg' },
 ];
 

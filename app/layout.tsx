@@ -76,9 +76,9 @@ export default function RootLayout({
         <OrganizationJsonLd />
         <WebSiteJsonLd />
         {children}
-        {/* Google Ads gtag.js — replace AW-XXXXXXXXX with actual conversion ID */}
+        {/* Google Ads + GA4 (shared gtag.js) */}
         <Script
-          src="https://www.googletagmanager.com/gtag/js?id=AW-XXXXXXXXX"
+          src="https://www.googletagmanager.com/gtag/js?id=AW-17936345870"
           strategy="afterInteractive"
         />
         <Script id="gtag-init" strategy="afterInteractive">
@@ -86,7 +86,18 @@ export default function RootLayout({
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', 'AW-XXXXXXXXX');
+            gtag('config', 'AW-17936345870');
+            gtag('config', 'G-0D697PBCB2');
+          `}
+        </Script>
+        {/* Microsoft Clarity — heatmaps & session recordings */}
+        <Script id="clarity-init" strategy="afterInteractive">
+          {`
+            (function(c,l,a,r,i,t,y){
+              c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+              t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+              y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+            })(window, document, "clarity", "script", "vzk7hjr2xk");
           `}
         </Script>
         <Script

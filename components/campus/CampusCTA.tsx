@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import { FaWhatsapp, FaPhone } from 'react-icons/fa';
 import { useLanguage } from '@/lib/i18n/LanguageContext';
 import { useGHLFormTracking } from '@/lib/hooks/useGHLFormTracking';
+import { injectUTMsIntoURL } from '@/lib/utm';
 
 interface CampusCTAProps {
   campusName?: string;
@@ -47,12 +48,16 @@ export default function CampusCTA({ campusName, whatsapp, phone, phoneLink }: Ca
 
     container.appendChild(iframe);
 
+    // Inject stored UTMs into URL so form_embed.js reads them as hidden fields
+    const cleanupUTMs = injectUTMsIntoURL();
+
     const script = document.createElement('script');
     script.src = 'https://link.msgsndr.com/js/form_embed.js';
     script.async = true;
     document.body.appendChild(script);
 
     return () => {
+      cleanupUTMs?.();
       try { script.parentNode?.removeChild(script); } catch { /* noop */ }
       container.innerHTML = '';
     };

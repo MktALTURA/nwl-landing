@@ -6,6 +6,7 @@ import { FiCalendar, FiFileText } from 'react-icons/fi';
 import { FaWhatsapp } from 'react-icons/fa';
 import { useLanguage } from '@/lib/i18n/LanguageContext';
 import { useGHLFormTracking } from '@/lib/hooks/useGHLFormTracking';
+import { injectUTMsIntoURL } from '@/lib/utm';
 
 export default function FinalCTA() {
   const { locale, t } = useLanguage();
@@ -39,6 +40,9 @@ export default function FinalCTA() {
 
     container.appendChild(iframe);
 
+    // Inject stored UTMs into URL so form_embed.js reads them as hidden fields
+    const cleanupUTMs = injectUTMsIntoURL();
+
     // Load GHL embed script
     const script = document.createElement('script');
     script.src = 'https://link.msgsndr.com/js/form_embed.js';
@@ -46,6 +50,7 @@ export default function FinalCTA() {
     document.body.appendChild(script);
 
     return () => {
+      cleanupUTMs?.();
       try { script.parentNode?.removeChild(script); } catch { /* noop */ }
       container.innerHTML = '';
     };
