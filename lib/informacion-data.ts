@@ -51,31 +51,31 @@ export const informacionPages: Record<string, InformacionPage> = {
     description:
       'Descubre el kinder privado en Juriquilla de Newland School: programa bilingüe, Filosofía para Niños y un entorno seguro para el desarrollo integral de tu hijo.',
     uniqueIntro:
-      'Juriquilla se ha consolidado como una de las zonas residenciales con mayor crecimiento y calidad de vida en Querétaro. Con amplias áreas verdes y un entorno familiar, es el lugar ideal para que los más pequeños inicien su formación académica rodeados de naturaleza y seguridad.',
+      'Desde 2009, NWL Juriquilla ha sido el campus insignia de Colegio Newland en Querétaro. Nuestro kinder recibe niños de 3 a 5 años en un entorno rodeado de áreas verdes, con canchas deportivas, cafetorium y salones diseñados para la primera infancia. Aquí, cada alumno inicia su vida escolar con la metodología Knotion, inmersión bilingüe y el acompañamiento de la Mtra. Dayana Rose Gómez y su equipo.',
     sections: [
       {
-        heading: 'Filosofía para Niños',
-        body: 'En Newland School creemos que el pensamiento crítico se cultiva desde los primeros años de vida. Nuestro programa de Filosofía para Niños invita a los alumnos de kinder a explorar preguntas sobre el mundo que los rodea a través del diálogo, la escucha activa y la reflexión compartida.\n\nMediante comunidades de indagación, los niños aprenden a formular argumentos, respetar puntos de vista diferentes y construir conocimiento de manera colaborativa. Esta metodología fortalece su autoestima y los prepara para enfrentar retos académicos con curiosidad y seguridad.',
+        heading: 'Knotion: Aprendizaje sin tarea tradicional',
+        body: 'En el kinder de Juriquilla utilizamos Knotion, una metodología internacional basada en proyectos donde los niños resuelven retos reales en lugar de llevar tarea a casa. Cada proyecto integra ciencias, lenguaje y habilidades socioemocionales de forma natural.\n\nLos pequeños trabajan en equipos, presentan sus descubrimientos frente a sus compañeros y desarrollan autonomía desde los 3 años. Este enfoque elimina la tarea tradicional y la reemplaza con experiencias que despiertan curiosidad genuina.',
       },
       {
-        heading: 'Programas Internacionales',
-        body: 'Desde kinder, nuestros alumnos se sumergen en un programa bilingüe que integra el inglés de forma natural en su rutina diaria. Las actividades lúdicas, canciones y proyectos en ambos idiomas permiten que los niños desarrollen competencias lingüísticas sólidas sin perder el disfrute del aprendizaje.\n\nAdemás, Newland School incorpora estándares internacionales que preparan a los estudiantes para certificaciones y programas de intercambio en etapas posteriores, asegurando que cada niño cuente con una base global desde el inicio.',
+        heading: 'Yo Soy Líder NWL by Tec de Monterrey',
+        body: 'Juriquilla es uno de los campus donde se aplica el programa Yo Soy Líder NWL, diseñado exclusivamente para Colegio Newland por el Tecnológico de Monterrey. Desde kinder, los niños aprenden a identificar emociones, resolver conflictos y trabajar en equipo.\n\nEl programa desarrolla los 7 hábitos de liderazgo adaptados a la edad preescolar, combinando actividades lúdicas con herramientas de inteligencia emocional que los preparan para la convivencia escolar y familiar.',
       },
       {
-        heading: 'Modelo Educativo',
-        body: 'Nuestro modelo educativo en kinder combina el juego dirigido con experiencias STEAM que despiertan la curiosidad científica y artística. Los espacios de aprendizaje están diseñados para fomentar la exploración sensorial, la motricidad fina y el trabajo en equipo.\n\nCada grupo cuenta con docentes especializados en primera infancia y un acompañamiento socioemocional que permite detectar oportunamente las fortalezas y áreas de oportunidad de cada alumno, garantizando una atención verdaderamente personalizada.',
+        heading: 'Fútbol, teatro y robótica desde preescolar',
+        body: 'El kinder de Juriquilla ofrece actividades extracurriculares que van más allá del aula: fútbol y basquetbol en nuestras canchas deportivas, artes visuales, teatro y las primeras experiencias de robótica STEAM.\n\nEstas actividades complementan la formación académica y permiten que cada niño descubra sus talentos en un campus con instalaciones completas, incluyendo área de juegos, cancha de fútbol y zona de convivencia.',
       },
     ],
     faqs: [
       {
         question: '¿A partir de qué edad pueden ingresar al kinder en Juriquilla?',
         answer:
-          'El kinder de Newland School Juriquilla recibe alumnos a partir de los 3 años cumplidos. Contamos con grupos reducidos para asegurar atención personalizada en cada etapa del preescolar.',
+          'El kinder de Newland School Juriquilla recibe alumnos a partir de los 3 años. El horario es de 8:20 a 1:50 pm. El campus, fundado en 2009, cuenta con 4.6 estrellas en Google (320+ reseñas) y ofrece desde maternal hasta secundaria.',
       },
       {
         question: '¿El kinder en Juriquilla es completamente bilingüe?',
         answer:
-          'Sí. Desde el primer día, los alumnos participan en actividades en inglés y español con maestros certificados en ambos idiomas, lo que les permite adquirir fluidez de manera natural y progresiva.',
+          'Sí. Utilizamos la metodología Knotion que integra el inglés de forma natural en proyectos interdisciplinarios. No hay tarea tradicional; el aprendizaje ocurre a través de retos reales. La directora del campus es la Mtra. Dayana Rose Gómez.',
       },
     ],
     images: {
@@ -107,31 +107,31 @@ export const informacionPages: Record<string, InformacionPage> = {
     description:
       'Secundaria privada en Juriquilla con formación bilingüe, laboratorios de ciencias y programa de Filosofía para Niños. Prepara a tu hijo para la preparatoria con Newland School.',
     uniqueIntro:
-      'La zona de Juriquilla, ubicada al norte de Querétaro, ofrece un entorno tranquilo y bien conectado que facilita el traslado diario de las familias. Su cercanía a centros culturales y universidades la convierte en un polo educativo ideal para adolescentes en etapa de secundaria.',
+      'La secundaria de NWL Juriquilla prepara adolescentes de 12 a 15 años con un modelo que combina el programa de Emprendizaje con Universidad Mondragón, certificaciones Cambridge PET/FCE y la Doble Certificación Internacional (diploma EUA + México vía Hokku Academy). Con más de 90 cámaras de seguridad y un horario de 7:30 a 2:30 pm, las familias de Juriquilla cuentan con la tranquilidad de un campus fundado en 2009 y respaldado por 4.6 estrellas en Google.',
     sections: [
       {
-        heading: 'Filosofía para Niños',
-        body: 'En la secundaria de Newland School, la Filosofía para Niños evoluciona hacia debates estructurados y análisis de dilemas éticos contemporáneos. Los adolescentes desarrollan habilidades de argumentación, pensamiento lógico y empatía mientras discuten temas relevantes para su edad y su comunidad.\n\nEste programa fortalece su capacidad de tomar decisiones informadas y de expresarse con claridad, competencias fundamentales para su vida académica y personal.',
+        heading: 'Emprendizaje con Universidad Mondragón',
+        body: 'Los alumnos de secundaria en Juriquilla participan en el programa de Emprendizaje, desarrollado en colaboración con la Universidad Mondragón. A lo largo de los tres años, los estudiantes crean proyectos empresariales reales, aprenden sobre finanzas básicas y presentan sus propuestas ante jurados.\n\nEste programa transforma la manera en que los adolescentes entienden el trabajo: no se trata de memorizar, sino de resolver problemas reales con creatividad y responsabilidad social.',
       },
       {
-        heading: 'Programas Internacionales',
-        body: 'La secundaria bilingüe de Newland School prepara a los alumnos para certificaciones internacionales de inglés reconocidas mundialmente. El currículo integra contenidos de ciencias, humanidades y tecnología en ambos idiomas, brindando una formación global y competitiva.\n\nLos estudiantes también acceden a proyectos colaborativos con instituciones de otros países, lo que amplía su perspectiva cultural y los prepara para las exigencias académicas de la preparatoria y la universidad.',
+        heading: 'Doble Certificación Internacional',
+        body: 'La secundaria de Juriquilla ofrece la Doble Certificación Internacional a través de Hokku Academy: los alumnos obtienen tanto el diploma mexicano (SEP) como el estadounidense (acreditado por Cognia). Esto les permite postularse a preparatorias y universidades en ambos países.\n\nAdemás, los estudiantes se preparan para certificaciones Cambridge PET y FCE, alcanzando un nivel B1-B2 de inglés al egresar. Participan en Model ONU, debate y oratoria como parte de su formación.',
       },
       {
-        heading: 'Modelo Educativo',
-        body: 'El modelo educativo de secundaria se centra en el aprendizaje basado en proyectos, el uso de tecnología educativa y el desarrollo de competencias socioemocionales. Los alumnos cuentan con laboratorios equipados para prácticas de ciencias, talleres de robótica y espacios creativos.\n\nEl acompañamiento tutorial personalizado asegura que cada adolescente reciba orientación académica y vocacional, permitiéndole descubrir sus talentos y trazar un camino claro hacia su futuro profesional.',
+        heading: 'Deporte y actividades en campus Juriquilla',
+        body: 'La secundaria aprovecha las instalaciones del campus insignia: cancha de fútbol, canchas de basquetbol y voleibol, cafetorium y zonas de convivencia. Los alumnos practican fútbol, basquetbol, voleibol, artes visuales, teatro, robótica STEAM y música.\n\nLa Filosofía para Niños continúa en secundaria con sesiones de debate estructurado, y el Diplomado para Padres ofrece a las familias herramientas para acompañar la adolescencia de sus hijos.',
       },
     ],
     faqs: [
       {
         question: '¿La secundaria en Juriquilla prepara para certificaciones internacionales?',
         answer:
-          'Sí. Nuestros alumnos de secundaria se preparan para obtener certificaciones de inglés como Cambridge y TOEFL Junior, lo que les otorga un diferenciador importante al ingresar a preparatoria.',
+          'Sí. Los alumnos se preparan para certificaciones Cambridge PET y FCE, y obtienen la Doble Certificación Internacional (diploma EUA + México) a través de Hokku Academy. El programa de Emprendizaje con Universidad Mondragón complementa la formación.',
       },
       {
         question: '¿Qué actividades extracurriculares ofrece la secundaria en Juriquilla?',
         answer:
-          'Ofrecemos deportes como fútbol, voleibol y atletismo, así como talleres de robótica, arte, música y oratoria. Estas actividades complementan la formación académica y favorecen el desarrollo integral.',
+          'Fútbol, basquetbol, voleibol, artes visuales, teatro, robótica STEAM, música, Model ONU y debate. El campus cuenta con más de 90 cámaras de seguridad 24/7 y el horario es de 7:30 a 2:30 pm.',
       },
     ],
     images: {
@@ -163,31 +163,31 @@ export const informacionPages: Record<string, InformacionPage> = {
     description:
       'Maternal privado en Juriquilla: estimulación temprana bilingüe, espacios seguros y acompañamiento socioemocional desde los primeros meses. Conoce Newland School.',
     uniqueIntro:
-      'Las familias de Juriquilla buscan opciones educativas de calidad desde la primera infancia. Rodeado de parques y áreas residenciales seguras, este campus ofrece el entorno perfecto para que los más pequeños den sus primeros pasos en un ambiente cálido y profesional.',
+      'El maternal de NWL Juriquilla es el único programa en Querétaro que ofrece Estimulación Multisensorial especializada para niños desde los 2 años. Combinamos el programa Brain Up de inmersión en inglés con Filosofía para Niños adaptada a los más pequeños y el programa Corazones Mágicos de prevención de violencia. El horario es de 8:20 a 1:30 pm en nuestro campus insignia fundado en 2009.',
     sections: [
       {
-        heading: 'Filosofía para Niños',
-        body: 'Incluso en la etapa maternal, las bases del pensamiento filosófico se construyen a través de la curiosidad natural del niño. En Newland School propiciamos momentos de asombro y exploración guiada donde los más pequeños comienzan a hacer preguntas sobre su entorno y a compartir sus descubrimientos con los demás.\n\nEstas primeras experiencias de diálogo y escucha sientan las bases para el programa formal de Filosofía para Niños que continuarán en kinder y primaria.',
+        heading: 'Brain Up: Inglés desde los 2 años',
+        body: 'Brain Up es nuestro programa de inmersión temprana en inglés, diseñado para aprovechar la ventana de adquisición lingüística de los niños más pequeños. Desde los 2 años, los alumnos de maternal en Juriquilla escuchan, cantan y juegan en inglés de forma natural.\n\nA diferencia de una clase de idiomas tradicional, Brain Up integra el inglés en todas las rutinas del día: la hora de comer, los cuentos, las canciones y las actividades sensoriales. Los niños adquieren el segundo idioma como si fuera materno.',
       },
       {
-        heading: 'Programas Internacionales',
-        body: 'Desde la etapa maternal, los niños de Newland School están expuestos al inglés de manera lúdica y afectiva. Canciones, cuentos y rutinas cotidianas en ambos idiomas crean un entorno de inmersión natural que favorece la adquisición temprana de un segundo idioma.\n\nEsta exposición temprana al bilingüismo desarrolla conexiones neuronales que facilitarán el aprendizaje de idiomas en etapas posteriores, otorgando una ventaja cognitiva comprobada.',
+        heading: 'Estimulación Multisensorial: Único en Querétaro',
+        body: 'NWL es el único colegio en Querétaro con un programa de Estimulación Multisensorial en maternal. Los niños exploran texturas, sonidos, aromas y movimientos en espacios diseñados por especialistas en desarrollo infantil.\n\nCada sesión combina estimulación visual, auditiva, táctil y vestibular, fortaleciendo las conexiones neuronales en la etapa de mayor plasticidad cerebral. Este programa se complementa con psicomotricidad gruesa y fina adaptada a cada niño.',
       },
       {
-        heading: 'Modelo Educativo',
-        body: 'El programa de maternal se basa en la estimulación temprana integral: motricidad gruesa y fina, desarrollo del lenguaje, socialización y exploración sensorial. Cada actividad está diseñada por especialistas en desarrollo infantil para respetar el ritmo individual de cada niño.\n\nLos espacios de maternal cuentan con materiales Montessori, áreas de juego seguras y un ratio reducido de alumnos por educadora, lo que garantiza una atención cercana y un vínculo afectivo que brinda seguridad emocional al pequeño.',
+        heading: 'Corazones Mágicos y Desapego Seguro',
+        body: 'El programa Corazones Mágicos enseña a los más pequeños a identificar emociones, poner límites y pedir ayuda, previniendo situaciones de violencia desde la primera infancia. Se trabaja con cuentos, títeres y dinámicas de grupo adaptadas a niños de 2-3 años.\n\nEl protocolo de Desapego Seguro acompaña la transición del hogar a la escuela, respetando el ritmo de cada niño. NWL Juriquilla también es Bullying Free School (BFS), lo que garantiza un ambiente de respeto desde maternal.',
       },
     ],
     faqs: [
       {
         question: '¿Desde qué edad aceptan niños en el maternal de Juriquilla?',
         answer:
-          'Nuestro programa de maternal en Juriquilla recibe bebés desde los 12 meses de edad. Contamos con espacios especialmente adaptados y personal capacitado en estimulación temprana.',
+          'El maternal de NWL Juriquilla recibe niños desde los 2 años cumplidos. El horario es de 8:20 a 1:30 pm. Contamos con el programa Brain Up (inglés desde los 2 años), Estimulación Multisensorial (único en Querétaro) y Corazones Mágicos.',
       },
       {
-        question: '¿El maternal en Juriquilla incluye servicio de comedor?',
+        question: '¿Qué hace diferente al maternal de NWL Juriquilla?',
         answer:
-          'Sí, ofrecemos un servicio de comedor con menús diseñados por nutriólogos, adecuados para la edad de cada alumno. Las familias también pueden enviar alimentos desde casa si lo prefieren.',
+          'Somos el único colegio en Querétaro con Estimulación Multisensorial en maternal. Además, ofrecemos Brain Up (inmersión en inglés), Yo Soy Líder NWL by Tec de Monterrey, Filosofía para Niños adaptada y el programa Corazones Mágicos de prevención. Campus fundado en 2009 con 4.6★ en Google.',
       },
     ],
     images: {
@@ -219,31 +219,31 @@ export const informacionPages: Record<string, InformacionPage> = {
     description:
       'Escuela privada bilingüe en Juriquilla con maternal, kinder, primaria y secundaria. Modelo educativo integral con Filosofía para Niños en Newland School.',
     uniqueIntro:
-      'Juriquilla destaca como una de las comunidades más completas de Querétaro, combinando seguridad, acceso a servicios de primer nivel y una vibrante vida cultural. Las familias que eligen Juriquilla buscan una escuela que esté a la altura de su estilo de vida: internacional, innovadora y con valores sólidos.',
+      'NWL Juriquilla es nuestro campus fundador (2009) y ofrece un recorrido educativo completo desde maternal hasta secundaria. Con 4.6 estrellas en Google y más de 320 reseñas, es el campus con la trayectoria más larga de Colegio Newland. La Mtra. Dayana Rose Gómez dirige un equipo docente que aplica Knotion, Filosofía para Niños y Yo Soy Líder NWL en cada nivel.',
     sections: [
       {
-        heading: 'Filosofía para Niños',
-        body: 'Newland School Juriquilla integra la Filosofía para Niños como eje transversal en todos sus niveles educativos. Desde maternal hasta secundaria, los alumnos participan en comunidades de indagación donde aprenden a pensar de manera crítica, a cuestionar con respeto y a construir ideas en equipo.\n\nEste enfoque filosófico desarrolla habilidades de razonamiento que impactan positivamente en todas las asignaturas y en la vida cotidiana, formando ciudadanos reflexivos y comprometidos con su entorno.',
+        heading: 'De Brain Up a Emprendizaje: Un camino continuo',
+        body: 'En maternal, los niños comienzan con Brain Up (inmersión en inglés desde los 2 años) y Estimulación Multisensorial. En kinder, Knotion reemplaza la tarea tradicional por proyectos reales. En primaria, TecniKids STEAM Lab introduce impresión 3D, corte láser y robótica.\n\nAl llegar a secundaria, los alumnos participan en Emprendizaje con Universidad Mondragón y obtienen la Doble Certificación Internacional. Cada nivel construye sobre el anterior, formando egresados bilingües, emprendedores y con pensamiento crítico.',
       },
       {
-        heading: 'Programas Internacionales',
-        body: 'Como escuela bilingüe, Newland School Juriquilla ofrece un programa en el que al menos el 50% de las materias se imparten en inglés desde los primeros niveles. Los alumnos alcanzan certificaciones internacionales de Cambridge y tienen acceso a programas de intercambio académico.\n\nEl perfil global del egresado se complementa con talleres de un tercer idioma y con proyectos interdisciplinarios alineados a estándares internacionales de educación.',
+        heading: 'Certificaciones Cambridge y acreditación Cognia',
+        body: 'Los alumnos de Juriquilla se preparan para certificaciones Cambridge desde primaria (Starters, Movers, Flyers) hasta secundaria (PET, FCE). La acreditación Cognia respalda la calidad académica del sistema NWL a nivel internacional.\n\nDesde 5.° de primaria, los estudiantes acceden a viajes internacionales que complementan su formación global. En secundaria, participan en Model ONU, debate y oratoria para desarrollar habilidades de comunicación y liderazgo.',
       },
       {
-        heading: 'Modelo Educativo',
-        body: 'El modelo educativo de Newland School combina lo mejor de las pedagogías activas con herramientas tecnológicas de vanguardia. El aprendizaje basado en proyectos, las aulas colaborativas y los laboratorios STEAM son pilares de la experiencia escolar en todos los niveles.\n\nCada alumno recibe acompañamiento socioemocional y tutoría académica personalizada, lo que permite identificar sus fortalezas y acompañarlo en un plan de desarrollo que abarca desde su ingreso hasta su egreso.',
+        heading: 'Campus insignia: Instalaciones y comunidad',
+        body: 'Juriquilla cuenta con canchas de fútbol, basquetbol y voleibol, cafetorium, salones equipados, área de juegos y zona de convivencia. Las actividades incluyen fútbol, basquetbol, artes visuales, teatro, robótica STEAM y música.\n\nMás de 90 cámaras de seguridad operan 24/7. El programa BFS (Bullying Free School) y el Diplomado para Padres crean una comunidad educativa donde cada familia se siente acompañada. Los niveles cubren de maternal (8:20 am) a secundaria (7:30 am).',
       },
     ],
     faqs: [
       {
         question: '¿Newland School en Juriquilla ofrece todos los niveles educativos?',
         answer:
-          'Sí. Nuestro campus de Juriquilla cuenta con maternal, kinder, primaria y secundaria, lo que permite a las familias mantenerse en una sola institución durante toda la trayectoria escolar.',
+          'Juriquilla ofrece maternal, kinder, primaria y secundaria (no preparatoria). Es nuestro campus insignia fundado en 2009, con 4.6★ en Google y 320+ reseñas. La directora es la Mtra. Dayana Rose Gómez.',
       },
       {
         question: '¿Qué porcentaje del programa es en inglés?',
         answer:
-          'Aproximadamente el 50% de las asignaturas se imparten en inglés, con maestros nativos o certificados. Este porcentaje se ajusta según el nivel, incrementándose conforme los alumnos avanzan.',
+          'El programa es 100% bilingüe con metodología Knotion. Los alumnos obtienen certificaciones Cambridge en cada nivel y pueden acceder a la Doble Certificación Internacional (diploma EUA + México) en secundaria vía Hokku Academy.',
       },
     ],
     images: {
@@ -274,31 +274,31 @@ export const informacionPages: Record<string, InformacionPage> = {
     description:
       'Escuela privada cerca de Zibatá con programa bilingüe, Filosofía para Niños y todos los niveles desde maternal hasta prepa. Conoce Newland School campus Zibatá.',
     uniqueIntro:
-      'Zibatá es uno de los desarrollos residenciales más modernos y dinámicos de Querétaro, con amplias áreas verdes, ciclovías y un concepto de comunidad que prioriza el bienestar familiar. Su crecimiento acelerado ha generado una alta demanda de instituciones educativas de primer nivel que estén a la altura de las expectativas de sus residentes.',
+      'NWL Zibatá es nuestro campus más nuevo (2025) y el más moderno de la red, con instalaciones de última generación y todos los niveles desde maternal hasta preparatoria. Dirigido por Daniela Arévalo, el campus cuenta con 4.5 estrellas en Google y 230+ reseñas. Zibatá es la única comunidad en Querétaro donde puedes encontrar un colegio con Life Project, Doble Diploma y preparatoria NWL a pasos de tu casa.',
     sections: [
       {
-        heading: 'Filosofía para Niños',
-        body: 'En Newland School campus Zibatá, la Filosofía para Niños es parte esencial de la experiencia educativa. A través de sesiones de diálogo filosófico, los alumnos aprenden a escuchar, argumentar y reflexionar de manera autónoma, habilidades que trascienden el aula y se aplican en su vida diaria.\n\nEste programa se adapta a cada nivel educativo, desde preguntas sencillas sobre la naturaleza en maternal hasta debates éticos complejos en preparatoria, asegurando un desarrollo progresivo del pensamiento crítico.',
+        heading: 'Maternal a Prepa: Trayectoria completa en Zibatá',
+        body: 'A diferencia de otros campus de NWL, Zibatá ofrece todos los niveles, incluyendo preparatoria. Los niños inician con Brain Up y Estimulación Multisensorial en maternal (2 años), avanzan con Knotion sin tarea en kinder, y llegan al TecniKids STEAM Lab en primaria con impresión 3D y robótica.\n\nEn secundaria, participan en Emprendizaje con Universidad Mondragón y obtienen la Doble Certificación Internacional. Y en preparatoria, el programa Life Project los guía con mentores personales hacia su proyecto de vida a lo largo de 6 semestres.',
       },
       {
-        heading: 'Programas Internacionales',
-        body: 'El campus Zibatá ofrece un programa bilingüe completo donde los alumnos desarrollan competencias en inglés a través de proyectos interdisciplinarios, lectura de textos auténticos y actividades comunicativas reales. Los estudiantes se preparan para certificaciones de Cambridge desde primaria.\n\nLa visión internacional del colegio incluye participación en ferias de ciencias, competencias académicas y experiencias de intercambio cultural que amplían la perspectiva de los alumnos.',
+        heading: 'Life Project y Doble Diploma en Preparatoria',
+        body: 'La preparatoria NWL Zibatá ofrece el Doble Diploma: los alumnos egresan con validez SEP (México) y un diploma estadounidense acreditado por Cognia. Desde el primer semestre, acceden a certificaciones Kn U High y Coursera que los preparan para la universidad.\n\nEl programa incluye Inteligencia Financiera cada semestre, IA y Tecnología Moderna, el programa HIT/Hyrox de fitness en campus y un Portafolio de 6 Proyectos Personales. En 5.° y 6.° semestre, participan en intercambio internacional.',
       },
       {
-        heading: 'Modelo Educativo',
-        body: 'El modelo educativo en el campus Zibatá se distingue por sus instalaciones de última generación: laboratorios de ciencias, canchas deportivas, áreas de arte y tecnología, y espacios de convivencia diseñados para fomentar la colaboración y la creatividad.\n\nEl equipo docente, conformado por profesionales con experiencia en educación internacional, implementa metodologías activas que colocan al alumno en el centro del proceso de aprendizaje, promoviendo la autonomía y la responsabilidad académica.',
+        heading: 'Instalaciones modernas y comunidad en crecimiento',
+        body: 'El campus Zibatá fue diseñado desde cero con las necesidades de cada nivel en mente: áreas de estimulación sensorial para maternal, maker spaces para primaria, laboratorios para secundaria y espacios de innovación para preparatoria.\n\nLas familias de Zibatá y El Refugio cuentan con un campus a minutos de su hogar, con programa BFS (Bullying Free School), Filosofía para Niños en todos los niveles y el respaldo del modelo NWL con Yo Soy Líder by Tec de Monterrey.',
       },
     ],
     faqs: [
       {
         question: '¿Qué tan cerca está Newland School del fraccionamiento Zibatá?',
         answer:
-          'Nuestro campus Zibatá se encuentra a pocos minutos del acceso principal del fraccionamiento, con rutas de transporte escolar que cubren toda la zona para mayor comodidad de las familias.',
+          'El campus Zibatá se encuentra dentro de la zona de Zibatá, a pocos minutos de los accesos principales. Fundado en 2025, es nuestro campus más moderno y ofrece todos los niveles de maternal a preparatoria. Directora: Daniela Arévalo.',
       },
       {
-        question: '¿El campus Zibatá cuenta con transporte escolar?',
+        question: '¿El campus Zibatá tiene preparatoria?',
         answer:
-          'Sí. Ofrecemos servicio de transporte escolar con rutas que cubren Zibatá, El Refugio y zonas aledañas, con unidades seguras y monitoreadas en tiempo real.',
+          'Sí. Zibatá es uno de los 3 campus NWL con preparatoria (junto con San Miguel y Corregidora). La prepa incluye Life Project, Doble Diploma (EUA + México), certificaciones Kn U High/Coursera, Inteligencia Financiera y programa HIT/Hyrox.',
       },
     ],
     images: {
@@ -329,31 +329,31 @@ export const informacionPages: Record<string, InformacionPage> = {
     description:
       'Escuela privada cerca de Milenio III con todos los niveles, programa bilingüe y formación integral. Descubre Newland School campus Milenio en Querétaro.',
     uniqueIntro:
-      'Milenio III es una zona estratégica de Querétaro que combina accesibilidad, comercio y una creciente oferta de servicios para familias jóvenes. Su ubicación privilegiada permite llegar rápidamente desde múltiples puntos de la ciudad, convirtiéndola en una opción práctica y atractiva para padres que buscan calidad educativa sin largos trayectos.',
+      'NWL Milenio fue fundado en 2016 y es nuestro campus acreditado por Cognia, con terraza rooftop, el icónico letrero LÍDER y 4.5 estrellas en Google (185+ reseñas). Bajo la dirección de la Mtra. Ximena Arellano, ofrece maternal, kinder, primaria y secundaria con un modelo que integra talleres de cocina, yoga, dance team y robótica STEAM que lo distinguen de otros colegios en la zona sur de Querétaro.',
     sections: [
       {
-        heading: 'Filosofía para Niños',
-        body: 'Newland School campus Milenio aplica el programa de Filosofía para Niños como columna vertebral de su propuesta educativa. En cada nivel, los alumnos participan en sesiones donde exploran conceptos como la justicia, la amistad, la verdad y la belleza, aprendiendo a pensar con profundidad y a expresar sus ideas con claridad.\n\nEsta formación filosófica genera alumnos más empáticos, seguros y capaces de resolver conflictos de manera constructiva, habilidades que marcan la diferencia en su desarrollo personal.',
+        heading: 'Talleres de cocina, yoga y dance team',
+        body: 'Milenio se diferencia de otros campus NWL por su oferta de actividades únicas: talleres de cocina donde los alumnos aprenden nutrición y gastronomía básica, sesiones de yoga que desarrollan concentración y manejo de estrés, y un dance team competitivo.\n\nEstas actividades se suman al voleibol, tochito, basquetbol, fútbol, robótica STEAM y música. La terraza rooftop del campus ofrece un espacio al aire libre para eventos, clases especiales y convivencia familiar.',
       },
       {
-        heading: 'Programas Internacionales',
-        body: 'El campus Milenio ofrece un programa bilingüe robusto con docentes certificados que imparten asignaturas clave en inglés. Los alumnos desarrollan habilidades de comunicación oral y escrita en ambos idiomas, preparándose para un mundo cada vez más globalizado.\n\nNuestros programas internacionales incluyen la posibilidad de certificaciones Cambridge, participación en simulacros de Naciones Unidas y proyectos colaborativos con escuelas de otros países.',
+        heading: 'Acreditación Cognia: Calidad internacional comprobada',
+        body: 'NWL Milenio cuenta con acreditación Cognia, un sello de calidad internacional que evalúa estándares académicos, gobernanza y mejora continua. Menos del 5% de las escuelas privadas en México cuentan con esta certificación.\n\nEsta acreditación respalda la Doble Certificación Internacional que los alumnos de secundaria obtienen (diploma EUA + México vía Hokku Academy), así como las certificaciones Cambridge en todos los niveles.',
       },
       {
-        heading: 'Modelo Educativo',
-        body: 'El modelo educativo en Milenio integra tecnología, arte y deporte como complementos esenciales de la formación académica. Las instalaciones incluyen laboratorios, cancha de fútbol, sala de arte y espacios de convivencia que favorecen el aprendizaje activo.\n\nEl enfoque pedagógico promueve el aprendizaje basado en proyectos, la evaluación formativa continua y el acompañamiento personalizado, asegurando que cada alumno alcance su máximo potencial.',
+        heading: 'De maternal a secundaria con el modelo NWL completo',
+        body: 'Los niños de 2 años comienzan en maternal con Brain Up y Estimulación Multisensorial. En kinder (3-5 años), Knotion elimina la tarea tradicional. En primaria, el TecniKids STEAM Lab y los viajes internacionales desde 5.° grado amplían su horizonte.\n\nLa secundaria ofrece Emprendizaje con Universidad Mondragón, certificaciones Cambridge PET/FCE y más de 90 cámaras de seguridad. La Filosofía para Niños y Yo Soy Líder NWL by Tec de Monterrey acompañan cada etapa.',
       },
     ],
     faqs: [
       {
         question: '¿Qué niveles ofrece Newland School cerca de Milenio?',
         answer:
-          'Nuestro campus Milenio ofrece maternal, kinder, primaria y secundaria, permitiendo que tu hijo realice toda su trayectoria escolar en un solo colegio.',
+          'NWL Milenio ofrece maternal, kinder, primaria y secundaria (no preparatoria). Fundado en 2016, es el campus con acreditación Cognia y cuenta con 4.5★ en Google (185+ reseñas). Directora: Mtra. Ximena Arellano.',
       },
       {
-        question: '¿La escuela cerca de Milenio tiene horario extendido?',
+        question: '¿Qué diferencia a NWL Milenio de otros campus?',
         answer:
-          'Sí, ofrecemos horario extendido con actividades extraescolares como deportes, talleres de arte, robótica y apoyo en tareas, facilitando la logística familiar.',
+          'Milenio es el único campus con acreditación Cognia, terraza rooftop, letrero LÍDER, y talleres exclusivos de cocina, yoga y dance team. También ofrece tochito, voleibol, basquetbol, fútbol, robótica STEAM y música.',
       },
     ],
     images: {
@@ -384,31 +384,31 @@ export const informacionPages: Record<string, InformacionPage> = {
     description:
       'Primaria privada cerca de Milenio Querétaro con programa bilingüe, STEAM y Filosofía para Niños. Formación integral en Newland School campus Milenio.',
     uniqueIntro:
-      'La zona de Milenio III se caracteriza por su excelente conectividad y la cercanía a centros comerciales y áreas deportivas, lo que facilita la vida cotidiana de las familias. Elegir una primaria cerca de Milenio significa combinar comodidad de traslado con una educación de excelencia.',
+      'La primaria de NWL Milenio recibe alumnos de 6 a 11 años en un campus acreditado por Cognia, con instalaciones que incluyen laboratorio STEAM, cancha de fútbol, cancha techada y cafetería. El horario es de 7:40 a 2:30 pm, sin tarea tradicional gracias a la metodología Knotion IMPACT y Design Thinking.',
     sections: [
       {
-        heading: 'Filosofía para Niños',
-        body: 'En la primaria de Newland School campus Milenio, los alumnos participan semanalmente en comunidades de indagación filosófica. A través de cuentos, dilemas y preguntas detonadoras, desarrollan habilidades de razonamiento, respeto por la diversidad de opiniones y capacidad de asombro.\n\nEste programa ha demostrado mejorar el rendimiento académico general, ya que los alumnos aprenden a analizar información, formular hipótesis y comunicar sus ideas de manera estructurada.',
+        heading: 'Knotion IMPACT y TecniKids STEAM Lab',
+        body: 'La primaria en Milenio utiliza Knotion IMPACT, donde los alumnos resuelven problemas reales de su comunidad aplicando Design Thinking. No hay tarea tradicional: el aprendizaje ocurre a través de proyectos que integran ciencias, tecnología y humanidades.\n\nEl TecniKids STEAM Lab del campus ofrece impresión 3D, corte láser, robótica y maker spaces donde los niños construyen prototipos de sus soluciones. Estas habilidades los preparan para las certificaciones y competencias de secundaria.',
       },
       {
-        heading: 'Programas Internacionales',
-        body: 'La primaria bilingüe del campus Milenio asegura que los alumnos alcancen un nivel de inglés competitivo para su edad. Las asignaturas de ciencias, matemáticas y estudios sociales se imparten parcialmente en inglés, creando un entorno de inmersión auténtica.\n\nLos estudiantes de primaria también participan en proyectos internacionales y ferias académicas que los conectan con culturas y perspectivas de todo el mundo.',
+        heading: 'Cambridge, Cognia y viajes internacionales',
+        body: 'Los alumnos de primaria en Milenio se preparan para certificaciones Cambridge (Starters, Movers, Flyers). La acreditación Cognia del campus respalda los estándares académicos internacionales que se aplican en cada grado.\n\nDesde 5.° grado, los estudiantes acceden a viajes internacionales que complementan su formación global. El programa BFS (Bullying Free School) y la Filosofía para Niños con Diploma para Padres crean un ecosistema educativo integral.',
       },
       {
-        heading: 'Modelo Educativo',
-        body: 'La primaria integra el aprendizaje basado en proyectos con actividades STEAM que incluyen programación, robótica básica, ciencias experimentales y expresión artística. Los alumnos trabajan en equipos colaborativos y presentan sus hallazgos ante la comunidad escolar.\n\nEl seguimiento académico personalizado permite a los docentes adaptar las estrategias de enseñanza según las necesidades de cada estudiante, asegurando un progreso constante y significativo.',
+        heading: 'Deportes y talleres exclusivos de Milenio',
+        body: 'La primaria en Milenio destaca por actividades que no encontrarás en otros campus: talleres de cocina, yoga y dance team se suman a voleibol, tochito, basquetbol, fútbol, robótica STEAM y música.\n\nEl campus cuenta con cancha de fútbol, cancha techada, laboratorio STEAM, cafetería y la icónica terraza rooftop. El programa Yo Soy Líder NWL by Tec de Monterrey desarrolla liderazgo e inteligencia emocional en cada alumno.',
       },
     ],
     faqs: [
       {
         question: '¿La primaria en Milenio incluye actividades STEAM?',
         answer:
-          'Sí. Nuestro programa de primaria integra ciencias, tecnología, ingeniería, arte y matemáticas en proyectos prácticos que desarrollan el pensamiento creativo y la resolución de problemas.',
+          'Sí. El TecniKids STEAM Lab ofrece impresión 3D, corte láser, robótica y maker spaces. La metodología Knotion IMPACT elimina la tarea tradicional y la reemplaza con proyectos de Design Thinking. Campus acreditado por Cognia.',
       },
       {
-        question: '¿Cuál es el tamaño de los grupos en la primaria de Milenio?',
+        question: '¿Cuál es el horario de la primaria en Milenio?',
         answer:
-          'Mantenemos grupos reducidos de máximo 25 alumnos por salón, lo que permite una atención personalizada y un ambiente de aprendizaje óptimo.',
+          'El horario de primaria es de 7:40 a 2:30 pm. Los alumnos acceden a certificaciones Cambridge, viajes internacionales desde 5.° grado, y actividades como cocina, yoga, dance team, deportes, robótica y música.',
       },
     ],
     images: {
@@ -440,31 +440,31 @@ export const informacionPages: Record<string, InformacionPage> = {
     description:
       'Kinder particular cerca de Milenio con programa bilingüe, Filosofía para Niños y espacios diseñados para primera infancia. Inscripciones abiertas en Newland School.',
     uniqueIntro:
-      'Las familias jóvenes de Milenio III buscan un kinder que combine cercanía, seguridad y calidad educativa. La zona ofrece una infraestructura moderna y accesible, perfecta para quienes desean que sus hijos inicien su vida escolar en un entorno estimulante y bien conectado.',
+      'El kinder de NWL Milenio recibe niños de 3 a 5 años en un campus acreditado por Cognia, con áreas de juego diseñadas para preescolar, terraza rooftop y el acompañamiento de la Mtra. Ximena Arellano. Utilizamos Knotion (sin tarea tradicional), Filosofía para Niños y Yo Soy Líder NWL by Tec de Monterrey. El horario es de 8:20 a 1:50 pm.',
     sections: [
       {
-        heading: 'Filosofía para Niños',
-        body: 'El kinder de Newland School en Milenio introduce a los pequeños en el mundo de la filosofía a través del juego y la narrativa. Mediante cuentos y preguntas abiertas, los niños comienzan a explorar conceptos como la amistad, la justicia y la naturaleza, desarrollando su capacidad de asombro y reflexión.\n\nEstas experiencias tempranas de pensamiento filosófico construyen una base sólida para el desarrollo de habilidades cognitivas y socioemocionales que acompañarán al niño durante toda su vida escolar.',
+        heading: 'Knotion: Proyectos en vez de tarea',
+        body: 'En el kinder de Milenio no hay cuadernos de tarea. La metodología Knotion sustituye la tarea tradicional por proyectos donde los niños investigan, crean y presentan sus descubrimientos. Cada proyecto integra lenguaje, ciencias, arte y habilidades socioemocionales.\n\nLos pequeños trabajan en equipos, aprenden a hacer preguntas y desarrollan autonomía desde los 3 años. Los docentes documentan el proceso de aprendizaje con portafolios digitales que comparten con las familias.',
       },
       {
-        heading: 'Programas Internacionales',
-        body: 'Desde el kinder, los alumnos del campus Milenio se exponen a un ambiente bilingüe donde el inglés se integra de forma orgánica en canciones, juegos, rutinas y proyectos creativos. Esta inmersión natural permite que los niños desarrollen su oído y vocabulario en inglés sin presión académica.\n\nEl enfoque comunicativo del programa garantiza que los pequeños no solo aprendan palabras, sino que comiencen a expresar ideas y emociones en ambos idiomas de manera espontánea.',
+        heading: 'Filosofía para Niños y liderazgo emocional',
+        body: 'Las sesiones de Filosofía para Niños en kinder utilizan cuentos, imágenes y preguntas abiertas para que los pequeños exploren conceptos como la amistad, la justicia y las emociones. Aprenden a escuchar, argumentar y respetar opiniones diferentes.\n\nEl programa Yo Soy Líder NWL by Tec de Monterrey complementa esta formación con los 7 hábitos de liderazgo adaptados a preescolar: proactividad, cooperación, empatía y pensamiento ganar-ganar.',
       },
       {
-        heading: 'Modelo Educativo',
-        body: 'El kinder del campus Milenio cuenta con espacios especialmente diseñados para la primera infancia: áreas de psicomotricidad, rincones de lectura, huerto escolar y zonas de exploración sensorial. Cada actividad está planeada para estimular el desarrollo integral del niño.\n\nLas educadoras especializadas trabajan con grupos reducidos y utilizan observación continua para documentar el progreso de cada alumno, compartiendo avances con las familias de manera regular y transparente.',
+        heading: 'Dance team, cocina y yoga desde preescolar',
+        body: 'El kinder de Milenio ofrece actividades exclusivas de este campus: dance team, talleres de cocina adaptados a la edad preescolar y sesiones de yoga para desarrollar concentración y equilibrio.\n\nEstas actividades se suman a basquetbol, fútbol, robótica STEAM y música. El campus cuenta con áreas de juego con piso amortiguante, la terraza rooftop para actividades al aire libre y el programa BFS (Bullying Free School) desde preescolar.',
       },
     ],
     faqs: [
       {
         question: '¿El kinder en Milenio tiene áreas de juego seguras?',
         answer:
-          'Sí. Contamos con áreas de juego diseñadas específicamente para la edad preescolar, con piso amortiguante, juegos de escala apropiada y supervisión permanente por parte del equipo docente.',
+          'Sí. El campus cuenta con áreas de juego con piso amortiguante, terraza rooftop y espacios diseñados para preescolar. NWL Milenio es Bullying Free School y tiene acreditación Cognia. Directora: Mtra. Ximena Arellano.',
       },
       {
         question: '¿Cuál es el horario del kinder en Milenio?',
         answer:
-          'El horario regular es de 8:00 a 14:00 hrs. Ofrecemos horario extendido hasta las 16:00 hrs con actividades complementarias como música, movimiento y taller de arte.',
+          'El horario regular es de 8:20 a 1:50 pm. El kinder usa Knotion (sin tarea tradicional), Filosofía para Niños y Yo Soy Líder NWL by Tec de Monterrey. Actividades incluyen dance team, cocina, yoga, deportes, robótica y música.',
       },
     ],
     images: {
@@ -496,31 +496,31 @@ export const informacionPages: Record<string, InformacionPage> = {
     description:
       'Secundaria particular cerca de Milenio con formación bilingüe, laboratorios y programa de Filosofía para Niños. Forma parte de Newland School campus Milenio.',
     uniqueIntro:
-      'Los adolescentes que crecen en la zona de Milenio III cuentan con un entorno urbano dinámico, con acceso a bibliotecas, centros deportivos y espacios culturales. Una secundaria de calidad en esta zona les permite aprovechar todas estas ventajas sin sacrificar tiempo en largos traslados.',
+      'La secundaria de NWL Milenio (fundado 2016) prepara adolescentes de 12 a 15 años en un campus acreditado por Cognia. Aquí, el programa de Emprendizaje con Universidad Mondragón, la Doble Certificación Internacional (diploma EUA + México) y las certificaciones Cambridge PET/FCE se combinan con talleres de cocina, yoga y dance team que hacen de Milenio un campus único en la zona sur.',
     sections: [
       {
-        heading: 'Filosofía para Niños',
-        body: 'En la secundaria del campus Milenio, las sesiones de Filosofía para Niños se transforman en espacios de debate estructurado donde los adolescentes analizan dilemas éticos, políticos y sociales. Los estudiantes aprenden a construir argumentos sólidos, a identificar falacias y a defender sus posiciones con evidencia.\n\nEste enfoque fortalece competencias transversales como la comprensión lectora crítica, la escritura argumentativa y la capacidad de negociación, habilidades indispensables para su futuro académico y profesional.',
+        heading: 'Emprendizaje y Doble Certificación en Milenio',
+        body: 'Los alumnos de secundaria participan en Emprendizaje, el programa de emprendimiento desarrollado con Universidad Mondragón. Durante 3 años, crean proyectos empresariales reales con impacto social, aprendiendo finanzas, mercadotecnia y presentación ejecutiva.\n\nLa Doble Certificación Internacional vía Hokku Academy les otorga un diploma estadounidense (acreditado por Cognia) junto con su certificado SEP mexicano. Esto les abre puertas a preparatorias en ambos países.',
       },
       {
-        heading: 'Programas Internacionales',
-        body: 'La secundaria bilingüe en Milenio prepara a los alumnos para certificaciones Cambridge PET y FCE, posicionándolos con un nivel de inglés avanzado al ingresar a preparatoria. Las materias de ciencias y humanidades en inglés consolidan su dominio del idioma en contextos académicos reales.\n\nLos alumnos también participan en programas internacionales como Model United Nations y proyectos de colaboración con escuelas de habla inglesa, ampliando su visión del mundo.',
+        heading: 'Cambridge PET/FCE y Model ONU',
+        body: 'La secundaria bilingüe de Milenio prepara a los alumnos para certificaciones Cambridge PET y FCE, alcanzando nivel B1-B2 de inglés al egresar. El campus con acreditación Cognia respalda estos estándares internacionales.\n\nLos estudiantes participan en Model ONU, debate y oratoria, desarrollando habilidades de comunicación, negociación y liderazgo. La Filosofía para Niños evoluciona hacia análisis de dilemas éticos y debate estructurado.',
       },
       {
-        heading: 'Modelo Educativo',
-        body: 'El modelo educativo de la secundaria en Milenio se centra en el desarrollo de competencias del siglo XXI: pensamiento crítico, colaboración, comunicación y creatividad. Los laboratorios de ciencias, el aula de tecnología y los espacios deportivos son herramientas fundamentales de este enfoque.\n\nEl programa de orientación vocacional inicia desde segundo de secundaria, acompañando a cada estudiante en el descubrimiento de sus aptitudes y en la construcción de un proyecto de vida alineado a sus intereses y talentos.',
+        heading: 'Seguridad, deporte y actividades Milenio',
+        body: 'El campus cuenta con más de 90 cámaras de seguridad 24/7, cancha de fútbol, cancha techada y laboratorio STEAM. Los alumnos practican voleibol, tochito, basquetbol, fútbol, y las actividades exclusivas de Milenio: dance team, talleres de cocina y yoga.\n\nEl horario es de 7:30 a 2:30 pm. El Diplomado para Padres de Filosofía para Niños y el programa Yo Soy Líder NWL by Tec de Monterrey acompañan tanto a alumnos como a familias durante la adolescencia.',
       },
     ],
     faqs: [
       {
         question: '¿La secundaria en Milenio ofrece orientación vocacional?',
         answer:
-          'Sí. A partir de segundo año, los alumnos reciben acompañamiento vocacional a través de talleres, aplicación de tests de aptitudes y charlas con profesionales de diversas áreas.',
+          'Sí. El programa de Emprendizaje con Universidad Mondragón incluye desarrollo de proyectos empresariales que orientan vocacionalmente. Además, la Doble Certificación Internacional les da opciones de continuar estudios en México o EUA.',
       },
       {
-        question: '¿Hay servicio de transporte para la secundaria en Milenio?',
+        question: '¿La secundaria de Milenio tiene acreditación Cognia?',
         answer:
-          'Contamos con rutas de transporte escolar que cubren Milenio III, Loma Dorada, Centro Sur y colonias cercanas. Las unidades son modernas y cuentan con monitoreo GPS.',
+          'Sí. NWL Milenio es el campus con acreditación Cognia, lo que respalda la Doble Certificación Internacional. El campus tiene 4.5★ en Google (185+ reseñas), fue fundado en 2016 y es dirigido por la Mtra. Ximena Arellano.',
       },
     ],
     images: {
@@ -552,31 +552,31 @@ export const informacionPages: Record<string, InformacionPage> = {
     description:
       'Colegio privado cerca de El Mirador Querétaro con programa bilingüe y todos los niveles. Descubre Newland School campus Milenio, la opción más cercana.',
     uniqueIntro:
-      'El Mirador es un fraccionamiento familiar en el sur de Querétaro que ha crecido rápidamente gracias a su excelente ubicación y sus áreas comunes bien cuidadas. Las familias de esta zona buscan opciones educativas de calidad que estén a pocos minutos de sus hogares, y Newland School campus Milenio se posiciona como la alternativa ideal por su cercanía y oferta integral.',
+      'Las familias de El Mirador tienen en NWL campus Milenio su escuela bilingüe más cercana, a solo 10-15 minutos en auto. El campus, fundado en 2016 y acreditado por Cognia, ofrece maternal a secundaria con actividades únicas como talleres de cocina, yoga y dance team que complementan el modelo Knotion, Filosofía para Niños y Yo Soy Líder NWL.',
     sections: [
       {
-        heading: 'Filosofía para Niños',
-        body: 'Para las familias de El Mirador, Newland School ofrece un diferenciador único: el programa de Filosofía para Niños que forma pensadores autónomos desde la primera infancia. En cada nivel educativo, los alumnos desarrollan la capacidad de formular preguntas profundas y de buscar respuestas fundamentadas.\n\nEsta formación filosófica se traduce en alumnos más seguros, empáticos y capaces de enfrentar los retos académicos y sociales con madurez y creatividad.',
+        heading: 'Campus Milenio: A 10 minutos de El Mirador',
+        body: 'NWL campus Milenio se encuentra a solo 10-15 minutos del fraccionamiento El Mirador por las vialidades principales. Contamos con rutas de transporte escolar que cubren El Mirador para mayor comodidad de las familias.\n\nEl campus ofrece maternal (2 años), kinder, primaria y secundaria en un solo lugar, evitando cambios de escuela. Fue fundado en 2016, cuenta con acreditación Cognia y 4.5★ en Google con 185+ reseñas.',
       },
       {
-        heading: 'Programas Internacionales',
-        body: 'El campus Milenio, el más cercano a El Mirador, ofrece un programa bilingüe integral donde los alumnos desarrollan competencias comunicativas en inglés desde los primeros años. Las certificaciones internacionales y los proyectos de intercambio cultural enriquecen su perfil académico.\n\nEl enfoque global del colegio prepara a los estudiantes para desenvolverse con confianza en contextos multiculturales, una competencia cada vez más valorada en el mundo profesional.',
+        heading: 'Knotion, Brain Up y sin tarea tradicional',
+        body: 'Los niños de El Mirador que asisten a NWL Milenio se benefician de un modelo sin tarea tradicional. En maternal, Brain Up introduce el inglés desde los 2 años. En kinder y primaria, Knotion IMPACT utiliza proyectos y Design Thinking en lugar de cuadernos de tarea.\n\nEn primaria, el TecniKids STEAM Lab ofrece impresión 3D, corte láser y robótica. En secundaria, el Emprendizaje con Universidad Mondragón prepara emprendedores. Cada nivel incluye Filosofía para Niños y Yo Soy Líder NWL by Tec de Monterrey.',
       },
       {
-        heading: 'Modelo Educativo',
-        body: 'Newland School combina excelencia académica con formación humana integral. El modelo educativo incluye aprendizaje basado en proyectos, desarrollo socioemocional, actividades deportivas y artísticas que permiten a cada alumno descubrir y potenciar sus talentos.\n\nLas instalaciones del campus Milenio están diseñadas para ofrecer experiencias de aprendizaje completas: laboratorios, canchas deportivas, áreas verdes, salón de arte y espacios de convivencia que fomentan la comunidad escolar.',
+        heading: 'Cocina, yoga y dance team solo en Milenio',
+        body: 'NWL Milenio ofrece actividades que no encontrarás en otros colegios de la zona: talleres de cocina, sesiones de yoga y un dance team competitivo. Estas se suman a voleibol, tochito, basquetbol, fútbol, robótica STEAM y música.\n\nEl campus cuenta con terraza rooftop, cancha techada, cancha de fútbol, laboratorio STEAM y cafetería. Más de 90 cámaras de seguridad operan 24/7 y el programa BFS (Bullying Free School) garantiza un ambiente seguro.',
       },
     ],
     faqs: [
       {
         question: '¿Cuánto tiempo se tarda en llegar desde El Mirador al campus Milenio?',
         answer:
-          'El trayecto desde El Mirador a nuestro campus Milenio es de aproximadamente 10 a 15 minutos en automóvil. También contamos con rutas de transporte escolar que cubren esta zona.',
+          'Aproximadamente 10 a 15 minutos en auto. También ofrecemos transporte escolar con rutas que cubren El Mirador. El campus Milenio tiene acreditación Cognia y ofrece maternal a secundaria.',
       },
       {
-        question: '¿Hay descuentos para familias de El Mirador?',
+        question: '¿Qué actividades ofrece NWL para las familias de El Mirador?',
         answer:
-          'Ofrecemos planes de becas y descuentos por hermanos para todas las familias, independientemente de su zona. Te invitamos a agendar una visita para conocer las opciones de apoyo financiero disponibles.',
+          'Campus Milenio ofrece talleres de cocina, yoga, dance team, tochito, voleibol, basquetbol, fútbol, robótica STEAM y música. Es Bullying Free School con 90+ cámaras de seguridad. Directora: Mtra. Ximena Arellano.',
       },
     ],
     images: {
@@ -608,31 +608,31 @@ export const informacionPages: Record<string, InformacionPage> = {
     description:
       'Maternal privado en San Miguel de Allende con estimulación temprana bilingüe y espacios seguros. Descubre el programa de primera infancia de Newland School.',
     uniqueIntro:
-      'San Miguel de Allende es reconocido internacionalmente por su riqueza cultural, su comunidad cosmopolita y su entorno artístico vibrante. Las familias que eligen vivir en esta ciudad Patrimonio de la Humanidad buscan opciones educativas que reflejen su visión global, y Newland School responde con un programa de maternal que combina lo mejor de la pedagogía contemporánea con el espíritu creativo de San Miguel.',
+      'NWL San Miguel de Allende, fundado en 2018, ofrece maternal para niños desde 2 años en una ciudad Patrimonio UNESCO. Dirigido por el Lic. Ramón Godínez, el campus tiene 4.7 estrellas en Google (la calificación más alta de la red NWL) y un área de juegos con barco pirata que encanta a los más pequeños. El horario de maternal es de 8:20 a 1:30 pm.',
     sections: [
       {
-        heading: 'Filosofía para Niños',
-        body: 'En el maternal de San Miguel de Allende, la Filosofía para Niños se introduce a través del asombro y la exploración sensorial. Los más pequeños son invitados a observar, tocar y preguntar, desarrollando desde temprana edad una actitud curiosa y reflexiva ante el mundo.\n\nEstas primeras experiencias filosóficas, guiadas por educadoras especializadas, fomentan el desarrollo del lenguaje, la capacidad de escucha y los primeros pasos hacia el pensamiento lógico.',
+        heading: 'Brain Up y Estimulación Multisensorial en San Miguel',
+        body: 'El maternal de San Miguel aprovecha la riqueza sensorial de una ciudad llena de color, música y arte. El programa Brain Up introduce el inglés desde los 2 años de forma natural, mientras que la Estimulación Multisensorial (único programa de su tipo en Querétaro) desarrolla conexiones neuronales a través de texturas, sonidos y movimientos.\n\nLa comunidad multicultural de San Miguel de Allende potencia la experiencia: los niños conviven con familias mexicanas y extranjeras, escuchando diferentes idiomas y costumbres desde sus primeros años de vida escolar.',
       },
       {
-        heading: 'Programas Internacionales',
-        body: 'El contexto multicultural de San Miguel de Allende enriquece naturalmente nuestro programa bilingüe. Los pequeños del maternal escuchan y experimentan el inglés de forma cotidiana a través de canciones, cuentos y rutinas, aprovechando la ventana de adquisición lingüística propia de esta etapa.\n\nLa diversidad cultural del alumnado en San Miguel potencia la experiencia internacional, permitiendo que los niños convivan con familias de distintas nacionalidades desde sus primeros años.',
+        heading: 'Corazones Mágicos y Desapego Seguro',
+        body: 'El programa Corazones Mágicos enseña a los niños más pequeños a identificar y expresar emociones, a poner límites sanos y a pedir ayuda cuando lo necesitan. Se trabaja con cuentos, títeres y dinámicas adaptadas a niños de 2-3 años.\n\nEl protocolo de Desapego Seguro acompaña el proceso de separación entre padres e hijos con sensibilidad y respeto. NWL San Miguel es Bullying Free School (BFS) desde maternal, creando un ambiente de confianza desde el primer día.',
       },
       {
-        heading: 'Modelo Educativo',
-        body: 'El programa de maternal en San Miguel de Allende está diseñado por especialistas en desarrollo infantil e incluye estimulación motriz, sensorial, cognitiva y socioemocional. Los espacios cuentan con materiales naturales, áreas de exploración al aire libre y rincones de actividades adaptados a las necesidades de los más pequeños.\n\nEl ratio reducido de alumnos por educadora garantiza una atención cálida y personalizada, creando un vínculo de confianza que es fundamental para el bienestar emocional del niño en sus primeros años de vida escolar.',
+        heading: 'Playground con barco pirata y arte en San Miguel',
+        body: 'El campus San Miguel cuenta con un área de juegos con barco pirata que estimula la imaginación y la motricidad gruesa. Los pequeños de maternal exploran este espacio diariamente como parte de su desarrollo físico y social.\n\nLa inmersión en la escena artística de San Miguel de Allende enriquece el programa: los niños se inspiran en los colores, texturas y tradiciones de una de las ciudades más creativas de México. El programa de Filosofía para Niños adaptada a maternal fomenta la curiosidad y el asombro.',
       },
     ],
     faqs: [
       {
         question: '¿A partir de qué edad aceptan niños en el maternal de San Miguel de Allende?',
         answer:
-          'Nuestro programa de maternal en San Miguel de Allende recibe niños a partir de los 12 meses de edad, con un programa de estimulación temprana adaptado a cada etapa de desarrollo.',
+          'El maternal recibe niños desde los 2 años. El horario es de 8:20 a 1:30 pm. El campus fue fundado en 2018, tiene 4.7★ en Google (150+ reseñas) y es dirigido por el Lic. Ramón Godínez. Ofrece de maternal a preparatoria.',
       },
       {
         question: '¿El maternal en San Miguel de Allende recibe alumnos de familias extranjeras?',
         answer:
-          'Sí. Nuestra comunidad escolar en San Miguel es diversa e incluye familias mexicanas e internacionales. El programa bilingüe facilita la integración de niños de cualquier origen lingüístico.',
+          'Sí. San Miguel de Allende es ciudad UNESCO con una comunidad internacional activa. El programa Brain Up de inmersión en inglés y la diversidad del alumnado facilitan la integración de familias de cualquier nacionalidad.',
       },
     ],
     images: {
@@ -664,31 +664,31 @@ export const informacionPages: Record<string, InformacionPage> = {
     description:
       'Kinder bilingüe en San Miguel de Allende con Filosofía para Niños, programa STEAM y espacios seguros. Conoce las ventajas de Newland School para tus hijos.',
     uniqueIntro:
-      'San Miguel de Allende ofrece un entorno único para la infancia: calles llenas de color, una comunidad internacional activa y un espíritu artístico que impregna cada rincón. El kinder de Newland School aprovecha esta riqueza cultural para ofrecer una experiencia preescolar que va más allá del aula y se nutre del entorno extraordinario de la ciudad.',
+      'El kinder de NWL San Miguel recibe niños de 3 a 5 años en una ciudad Patrimonio UNESCO. Con 4.7 estrellas en Google y la dirección del Lic. Ramón Godínez, este campus ofrece Knotion (sin tarea tradicional), un playground con barco pirata y la inmersión en la escena artística más vibrante de México. El horario es de 8:20 a 1:50 pm.',
     sections: [
       {
-        heading: 'Filosofía para Niños',
-        body: 'El kinder de Newland School en San Miguel de Allende incorpora la Filosofía para Niños como una herramienta pedagógica central. A través de cuentos, imágenes y preguntas abiertas, los niños aprenden a expresar sus ideas, a escuchar las de los demás y a construir significados compartidos.\n\nEstas comunidades de diálogo fomentan el respeto, la empatía y la creatividad, preparando a los pequeños no solo para la primaria, sino para una vida de aprendizaje reflexivo y consciente.',
+        heading: 'Knotion sin tarea en la ciudad más creativa',
+        body: 'La metodología Knotion en San Miguel elimina la tarea tradicional y la sustituye por proyectos que conectan el aprendizaje con el entorno cultural de la ciudad. Los niños investigan sobre colores, tradiciones y naturaleza aprovechando la riqueza de San Miguel de Allende.\n\nCada proyecto integra lenguaje, ciencias, arte y habilidades socioemocionales. Los pequeños presentan sus descubrimientos, desarrollando desde temprano confianza para comunicar ideas en español e inglés.',
       },
       {
-        heading: 'Programas Internacionales',
-        body: 'El programa bilingüe del kinder en San Miguel aprovecha el contexto multicultural de la ciudad para ofrecer una inmersión auténtica en el inglés. Los alumnos participan en proyectos interdisciplinarios donde utilizan ambos idiomas de manera funcional y creativa.\n\nLa convivencia cotidiana con compañeros de distintas nacionalidades enriquece la experiencia lingüística y cultural, brindando a los niños una visión global desde sus primeros años de formación.',
+        heading: 'Arte e inmersión cultural en San Miguel',
+        body: 'NWL San Miguel aprovecha la escena artística de la ciudad para enriquecer la experiencia de kinder. Las actividades incluyen pintura, escultura y teatro inspirados en las tradiciones y el patrimonio cultural del entorno.\n\nLa convivencia con familias mexicanas e internacionales crea un ambiente multicultural natural donde los niños desarrollan sensibilidad cultural y empatía desde los 3 años. El programa de Filosofía para Niños fortalece esta apertura al diálogo y la reflexión.',
       },
       {
-        heading: 'Modelo Educativo',
-        body: 'El modelo educativo del kinder combina metodologías activas con experiencias artísticas y de contacto con la naturaleza. Los niños exploran el huerto escolar, participan en talleres de arte inspirados en las tradiciones locales y desarrollan habilidades motrices en espacios diseñados para su seguridad y disfrute.\n\nCada educadora documenta el proceso de aprendizaje de los alumnos a través de portafolios y observaciones sistemáticas, manteniendo una comunicación cercana con las familias sobre los logros y áreas de desarrollo de cada niño.',
+        heading: 'Barco pirata, Yo Soy Líder y BFS',
+        body: 'El playground con barco pirata es uno de los espacios más queridos del campus: estimula la imaginación, la motricidad gruesa y el juego cooperativo. Los niños de kinder lo utilizan diariamente como parte de su desarrollo integral.\n\nEl programa Yo Soy Líder NWL by Tec de Monterrey desarrolla los 7 hábitos de liderazgo desde preescolar. NWL San Miguel es Bullying Free School (BFS) con protocolo de prevención y el programa Corazones Mágicos que acompaña a los más pequeños.',
       },
     ],
     faqs: [
       {
         question: '¿El kinder en San Miguel de Allende ofrece programa bilingüe completo?',
         answer:
-          'Sí. Nuestro kinder ofrece un programa bilingüe donde las actividades se desarrollan en español e inglés de manera equilibrada, aprovechando el entorno multicultural de San Miguel de Allende.',
+          'Sí. El kinder usa Knotion, metodología internacional que integra español e inglés sin tarea tradicional. El campus tiene 4.7★ en Google, la calificación más alta de la red NWL. Director: Lic. Ramón Godínez.',
       },
       {
-        question: '¿Qué método de lectoescritura utilizan en el kinder?',
+        question: '¿Qué actividades artísticas ofrece el kinder en San Miguel?',
         answer:
-          'Utilizamos un enfoque comunicativo funcional que integra la lectoescritura en contextos reales de uso. Los niños aprenden a leer y escribir a través de proyectos significativos, respetando su ritmo individual de desarrollo.',
+          'Pintura, escultura, teatro y actividades inspiradas en la escena artística de San Miguel de Allende. También robotics/STEAM, música y deportes. El campus cuenta con playground con barco pirata y fue fundado en 2018.',
       },
     ],
     images: {
@@ -720,31 +720,31 @@ export const informacionPages: Record<string, InformacionPage> = {
     description:
       'Primaria bilingüe en San Miguel de Allende con programa STEAM, Filosofía para Niños y certificaciones internacionales. Inscripciones abiertas en Newland School.',
     uniqueIntro:
-      'San Miguel de Allende conjuga tradición y modernidad en un entorno que inspira el aprendizaje. Las familias que eligen esta ciudad valoran una educación que respete la identidad cultural mexicana mientras prepara a sus hijos para competir a nivel internacional. La primaria de Newland School ofrece exactamente eso: raíces sólidas y alas globales.',
+      'La primaria de NWL San Miguel recibe alumnos de 6 a 11 años en una ciudad Patrimonio UNESCO. El campus, fundado en 2018 con 4.7★ en Google, combina el TecniKids STEAM Lab con la inmersión en la escena artística de San Miguel: pintura, escultura y teatro se viven como parte del currículo. Horario: 7:40 a 2:30 pm, sin tarea tradicional.',
     sections: [
       {
-        heading: 'Filosofía para Niños',
-        body: 'La primaria de Newland School en San Miguel de Allende lleva la Filosofía para Niños a un nivel de mayor complejidad. Los alumnos exploran textos narrativos y filosóficos, participan en debates estructurados y aprenden a identificar supuestos, consecuencias y alternativas en situaciones reales y ficticias.\n\nEsta práctica regular del pensamiento filosófico impacta directamente en la comprensión lectora, la escritura creativa y la capacidad de resolver problemas de manera innovadora.',
+        heading: 'TecniKids STEAM Lab y arte en San Miguel',
+        body: 'La primaria de San Miguel fusiona tecnología y arte de una forma única. El TecniKids STEAM Lab ofrece impresión 3D, corte láser, robótica y maker spaces, mientras que las actividades artísticas aprovechan la riqueza cultural de la ciudad: pintura, escultura y teatro con inspiración en el patrimonio de San Miguel.\n\nLa metodología Knotion IMPACT con Design Thinking elimina la tarea tradicional. Los alumnos resuelven problemas reales de su comunidad integrando ciencias, tecnología y humanidades en cada proyecto.',
       },
       {
-        heading: 'Programas Internacionales',
-        body: 'El programa bilingüe de primaria prepara a los alumnos para presentar certificaciones Cambridge desde tercer grado. Las asignaturas en inglés cubren ciencias naturales, matemáticas y estudios globales, asegurando un dominio funcional del idioma en contextos académicos.\n\nLos proyectos colaborativos con escuelas de otros países y la participación en ferias internacionales de ciencias complementan la formación global del alumno sanmiguelense.',
+        heading: 'Cambridge, viajes internacionales y Cognia',
+        body: 'Los alumnos se preparan para certificaciones Cambridge (Starters, Movers, Flyers) desde 3.° grado. La acreditación Cognia del sistema NWL respalda los estándares académicos internacionales. Desde 5.° grado, acceden a viajes internacionales.\n\nEl contexto multicultural de San Miguel potencia la preparación global: los alumnos conviven con compañeros de distintas nacionalidades y practican inglés en contextos reales fuera del aula, acelerando su dominio del idioma.',
       },
       {
-        heading: 'Modelo Educativo',
-        body: 'El modelo educativo de la primaria se sustenta en el aprendizaje basado en proyectos, la integración de tecnología educativa y el desarrollo de competencias socioemocionales. Los alumnos cuentan con acceso a laboratorios de ciencias, salas de cómputo y espacios artísticos que enriquecen su experiencia escolar.\n\nLa evaluación formativa continua permite a los docentes ajustar sus estrategias de enseñanza y a las familias conocer con detalle el progreso académico y personal de sus hijos a lo largo del ciclo escolar.',
+        heading: 'Filosofía para Niños y Diploma para Padres',
+        body: 'Las sesiones semanales de Filosofía para Niños en primaria trabajan con textos narrativos y dilemas morales. Los alumnos aprenden a formular hipótesis, identificar supuestos y comunicar sus ideas con estructura argumentativa.\n\nEl Diploma para Padres de Filosofía para Niños ofrece a las familias herramientas para continuar el diálogo filosófico en casa. El programa Yo Soy Líder NWL by Tec de Monterrey y BFS (Bullying Free School) completan la formación integral.',
       },
     ],
     faqs: [
       {
         question: '¿La primaria en San Miguel de Allende prepara para certificaciones Cambridge?',
         answer:
-          'Sí. A partir de tercer grado, los alumnos se preparan para certificaciones Cambridge Starters, Movers y Flyers, lo que avala su nivel de inglés con un estándar reconocido a nivel mundial.',
+          'Sí. Desde 3.° grado se preparan para Cambridge Starters, Movers y Flyers. Desde 5.° grado acceden a viajes internacionales. El campus fue fundado en 2018 y tiene 4.7★ en Google. Director: Lic. Ramón Godínez.',
       },
       {
         question: '¿La primaria en San Miguel incluye educación artística?',
         answer:
-          'Absolutamente. El programa incluye artes visuales, música y teatro como parte integral del currículo, aprovechando la riqueza artística de San Miguel de Allende como fuente de inspiración.',
+          'Sí, con un enfoque único. Además de artes visuales y música, el programa aprovecha la escena artística de San Miguel de Allende para ofrecer pintura, escultura y teatro inspirados en el patrimonio cultural de la ciudad UNESCO.',
       },
     ],
     images: {
@@ -776,31 +776,31 @@ export const informacionPages: Record<string, InformacionPage> = {
     description:
       'Secundaria bilingüe en San Miguel de Allende con laboratorios, certificaciones Cambridge y Filosofía para Niños. Formación integral en Newland School.',
     uniqueIntro:
-      'Para los adolescentes de San Miguel de Allende, estudiar la secundaria en una ciudad con tanta riqueza histórica y artística es un privilegio que potencia su formación. Newland School aprovecha este entorno único para ofrecer una educación secundaria que combina rigor académico con sensibilidad cultural y visión internacional.',
+      'La secundaria de NWL San Miguel (fundado 2018, 4.7★ en Google) prepara adolescentes de 12 a 15 años en una ciudad Patrimonio UNESCO. El programa combina Emprendizaje con Universidad Mondragón, Doble Certificación Internacional (diploma EUA + México) y la inmersión en la escena artística y cultural de San Miguel. Horario: 7:30 a 2:30 pm.',
     sections: [
       {
-        heading: 'Filosofía para Niños',
-        body: 'En la secundaria de San Miguel de Allende, la Filosofía para Niños se convierte en un laboratorio de ideas donde los adolescentes analizan dilemas contemporáneos: ética tecnológica, justicia social, identidad cultural y medio ambiente. Los estudiantes aprenden a construir argumentos rigurosos y a dialogar con apertura y respeto.\n\nEsta formación filosófica es especialmente valiosa en una comunidad tan diversa como San Miguel, donde la convivencia intercultural requiere empatía, tolerancia y capacidad de comunicación efectiva.',
+        heading: 'Emprendizaje en una ciudad cosmopolita',
+        body: 'El programa de Emprendizaje con Universidad Mondragón cobra un significado especial en San Miguel de Allende, donde la comunidad internacional y el espíritu emprendedor son parte de la vida cotidiana. Los alumnos crean proyectos empresariales reales inspirados en las necesidades de una ciudad turística y cultural.\n\nDurante 3 años, los estudiantes aprenden finanzas, mercadotecnia y presentación ejecutiva, presentando sus propuestas ante jurados que incluyen empresarios locales. La diversidad cultural del entorno enriquece cada proyecto.',
       },
       {
-        heading: 'Programas Internacionales',
-        body: 'La secundaria bilingüe en San Miguel prepara a los alumnos para certificaciones Cambridge PET y FCE, consolidando un nivel de inglés avanzado. El currículo incluye asignaturas completas en inglés y proyectos de investigación con estándares internacionales.\n\nLa diversidad de la comunidad sanmiguelense permite que los alumnos practiquen inglés en contextos reales fuera del aula, acelerando su aprendizaje y desarrollando confianza comunicativa.',
+        heading: 'Doble Certificación y Cambridge PET/FCE',
+        body: 'La Doble Certificación Internacional vía Hokku Academy otorga a los alumnos un diploma estadounidense (acreditado por Cognia) junto con el certificado SEP mexicano. En una ciudad con tanta población extranjera, este doble diploma es especialmente valorado.\n\nLas certificaciones Cambridge PET y FCE consolidan un nivel B1-B2 de inglés. Los alumnos practican el idioma no solo en el aula sino en la vida cotidiana de San Miguel, donde el inglés se escucha en cada esquina.',
       },
       {
-        heading: 'Modelo Educativo',
-        body: 'La secundaria de Newland School en San Miguel ofrece un modelo educativo centrado en el estudiante, con aprendizaje por proyectos, laboratorios de ciencias experimentales y un programa deportivo que incluye disciplinas individuales y de equipo.\n\nEl programa de orientación vocacional acompaña a los estudiantes desde segundo grado, ayudándoles a identificar sus aptitudes y a explorar distintas opciones académicas y profesionales con el apoyo de tutores especializados.',
+        heading: 'Arte, debate y seguridad en campus San Miguel',
+        body: 'La secundaria aprovecha la riqueza artística de San Miguel: los alumnos participan en talleres de pintura, escultura y teatro que se nutren del patrimonio cultural de la ciudad. Model ONU, debate y oratoria complementan su formación.\n\nEl campus cuenta con más de 90 cámaras de seguridad 24/7, laboratorios de ciencias y espacios deportivos. El Diplomado para Padres de Filosofía para Niños y el programa BFS garantizan un ambiente de respeto y confianza.',
       },
     ],
     faqs: [
       {
         question: '¿La secundaria en San Miguel de Allende tiene laboratorio de ciencias?',
         answer:
-          'Sí. Contamos con un laboratorio equipado para prácticas de física, química y biología, donde los alumnos realizan experimentos que complementan y profundizan lo aprendido en el aula.',
+          'Sí. El campus cuenta con laboratorios equipados, más de 90 cámaras de seguridad 24/7 y espacios para arte, pintura, escultura y teatro. Horario: 7:30-2:30 pm. Campus fundado en 2018 con 4.7★ en Google.',
       },
       {
         question: '¿Ofrecen actividades culturales en la secundaria de San Miguel?',
         answer:
-          'Sí. El entorno cultural de San Miguel enriquece nuestro programa con visitas a galerías, talleres de arte, festivales culturales y colaboraciones con artistas locales que amplían la formación de los alumnos.',
+          'Sí. Pintura, escultura, teatro, robótica STEAM y música, aprovechando la escena artística de San Miguel de Allende. El Emprendizaje con Universidad Mondragón y Model ONU complementan la formación. Director: Lic. Ramón Godínez.',
       },
     ],
     images: {
@@ -832,31 +832,31 @@ export const informacionPages: Record<string, InformacionPage> = {
     description:
       'Escuela bilingüe en San Miguel de Allende con todos los niveles: maternal a prepa. Programa internacional, Filosofía para Niños y formación integral en Newland School.',
     uniqueIntro:
-      'San Miguel de Allende reúne una comunidad internacional vibrante que valora la educación de calidad con perspectiva global. Las familias mexicanas y extranjeras que viven en esta ciudad patrimonio necesitan una escuela bilingüe que prepare a sus hijos para un futuro sin fronteras, y Newland School es esa opción.',
+      'NWL San Miguel de Allende es el único colegio bilingüe en la ciudad con trayectoria completa de maternal a preparatoria. Fundado en 2018 en una ciudad Patrimonio UNESCO, con 4.7 estrellas en Google y bajo la dirección del Lic. Ramón Godínez, el campus integra la escena artística local con el modelo NWL: Knotion, Filosofía para Niños, Yo Soy Líder by Tec de Monterrey y Life Project en preparatoria.',
     sections: [
       {
-        heading: 'Filosofía para Niños',
-        body: 'Newland School San Miguel integra la Filosofía para Niños en todos los niveles como un sello distintivo de su propuesta educativa. Desde maternal hasta preparatoria, los alumnos participan en comunidades de diálogo que fomentan el pensamiento crítico, la creatividad y el razonamiento ético.\n\nEn una ciudad tan diversa como San Miguel, este programa cobra especial relevancia: los alumnos aprenden a apreciar diferentes perspectivas culturales y a construir puentes de entendimiento a través del diálogo respetuoso.',
+        heading: 'Maternal a Prepa en una ciudad Patrimonio UNESCO',
+        body: 'San Miguel de Allende es uno de los 3 campus NWL que ofrece preparatoria (junto con Corregidora y Zibatá). Los niños inician con Brain Up a los 2 años, avanzan con Knotion sin tarea, y en primaria acceden al TecniKids STEAM Lab y viajes internacionales desde 5.° grado.\n\nEn secundaria, Emprendizaje con Universidad Mondragón y la Doble Certificación Internacional los preparan para la preparatoria NWL, donde el programa Life Project, el Doble Diploma y certificaciones Kn U High/Coursera definen su camino universitario.',
       },
       {
-        heading: 'Programas Internacionales',
-        body: 'Como escuela bilingüe, Newland School San Miguel ofrece un programa donde el español y el inglés se integran de manera equilibrada en todas las áreas del conocimiento. Los alumnos acceden a certificaciones Cambridge, participan en proyectos internacionales y desarrollan un perfil global competitivo.\n\nLa presencia de familias de distintas nacionalidades enriquece el programa internacional, creando un microcosmos multicultural donde los niños aprenden idiomas y culturas de forma natural y auténtica.',
+        heading: 'Comunidad multicultural y arte como eje formativo',
+        body: 'La diversidad de San Miguel de Allende (familias mexicanas, estadounidenses, canadienses, europeas) enriquece naturalmente el programa bilingüe. Los niños practican inglés en contextos reales fuera del aula y desarrollan sensibilidad intercultural de forma orgánica.\n\nLas actividades artísticas aprovechan el patrimonio de la ciudad: pintura, escultura, teatro y la inmersión en galerías, festivales y tradiciones locales. Esto hace de NWL San Miguel una experiencia educativa irrepetible.',
       },
       {
-        heading: 'Modelo Educativo',
-        body: 'El modelo educativo de Newland School en San Miguel de Allende fusiona innovación pedagógica con respeto por la identidad cultural. El aprendizaje basado en proyectos, la educación socioemocional y la integración de arte y tecnología son pilares que sustentan la formación de cada alumno.\n\nLas instalaciones del campus incluyen laboratorios, espacios deportivos, talleres de arte y áreas de convivencia que promueven el desarrollo integral en un ambiente seguro y estimulante.',
+        heading: 'Life Project y Doble Diploma en prepa San Miguel',
+        body: 'La preparatoria NWL San Miguel ofrece el Doble Diploma (SEP México + diploma EUA acreditado por Cognia), Life Project con mentores personales durante 6 semestres, y certificaciones Kn U High/Coursera desde el primer semestre.\n\nEl programa incluye Inteligencia Financiera, IA y Tecnología Moderna, HIT/Hyrox fitness, un Portafolio de 6 Proyectos Personales e intercambio internacional en 5.° y 6.° semestre. Todo esto en el contexto cultural único de San Miguel de Allende.',
       },
     ],
     faqs: [
       {
-        question: '¿Newland School San Miguel es reconocida internacionalmente?',
+        question: '¿Newland School San Miguel ofrece preparatoria?',
         answer:
-          'Newland School cuenta con certificaciones y alianzas con instituciones educativas internacionales. Nuestros alumnos obtienen certificaciones Cambridge y participan en programas de colaboración global.',
+          'Sí. San Miguel es uno de los 3 campus con preparatoria. La prepa incluye Life Project, Doble Diploma, Kn U High/Coursera, Inteligencia Financiera y HIT/Hyrox. El campus tiene 4.7★ en Google, la calificación más alta de la red.',
       },
       {
         question: '¿Qué niveles educativos ofrece la escuela bilingüe en San Miguel?',
         answer:
-          'Ofrecemos todos los niveles desde maternal hasta preparatoria, lo que permite a las familias contar con una sola institución de confianza durante toda la formación de sus hijos.',
+          'De maternal (2 años) a preparatoria (17 años). Es la trayectoria educativa más completa de San Miguel de Allende. Fundado en 2018, con playground con barco pirata y actividades artísticas únicas. Director: Lic. Ramón Godínez.',
       },
     ],
     images: {
@@ -888,31 +888,31 @@ export const informacionPages: Record<string, InformacionPage> = {
     description:
       'Colegio con kinder y maternal en Corregidora Querétaro: programa bilingüe, Filosofía para Niños y espacios seguros para primera infancia. Conoce Newland School.',
     uniqueIntro:
-      'El municipio de Corregidora ha experimentado un crecimiento notable, posicionándose como una de las zonas con mayor dinamismo residencial y comercial de la zona metropolitana de Querétaro. Las familias jóvenes que se establecen en Corregidora buscan un colegio que combine cercanía, innovación educativa y formación bilingüe desde los primeros años.',
+      'NWL Corregidora fue fundado en 2019 y se distingue por su icónico edificio con forma de cubo Rubik. Bajo la dirección de José Gustavo Flores, el campus ofrece de maternal a preparatoria con 4.5 estrellas en Google (175+ reseñas). En maternal y kinder, los niños desde 2 años se benefician de Brain Up, Estimulación Multisensorial y actividades como basquetbol, dance y teatro.',
     sections: [
       {
-        heading: 'Filosofía para Niños',
-        body: 'En el colegio de Corregidora, la Filosofía para Niños se introduce desde la etapa maternal con actividades que despiertan la curiosidad y el asombro natural de los más pequeños. En kinder, el programa evoluciona hacia comunidades de diálogo donde los niños exploran conceptos como la amistad, la belleza y las emociones.\n\nEste enfoque filosófico desarrolla habilidades de pensamiento que benefician todas las áreas del aprendizaje y forman personas reflexivas, empáticas y seguras de sí mismas.',
+        heading: 'Brain Up y Estimulación Multisensorial en Corregidora',
+        body: 'El maternal de Corregidora (desde los 2 años) ofrece Brain Up, el programa de inmersión en inglés que introduce el segundo idioma de forma natural a través de canciones, cuentos y rutinas cotidianas. La Estimulación Multisensorial, única en Querétaro, desarrolla conexiones neuronales a través de experiencias táctiles, auditivas y visuales.\n\nEl horario de maternal es de 8:20 a 1:30 pm. En kinder (3-5 años, hasta 1:50 pm), la metodología Knotion elimina la tarea tradicional y la reemplaza con proyectos que integran ambos idiomas.',
       },
       {
-        heading: 'Programas Internacionales',
-        body: 'El programa bilingüe en Corregidora permite que los alumnos de maternal y kinder se familiaricen con el inglés de manera natural y afectiva. Las canciones, cuentos, juegos y rutinas en ambos idiomas crean un entorno de inmersión que aprovecha la plasticidad cerebral de la primera infancia.\n\nEsta exposición temprana al bilingüismo sienta las bases para un dominio sólido del inglés que se consolida en los niveles posteriores con certificaciones y proyectos internacionales.',
+        heading: 'Yo Soy Líder, BFS y Corazones Mágicos',
+        body: 'El programa Yo Soy Líder NWL by Tec de Monterrey adapta los 7 hábitos de liderazgo a la primera infancia: proactividad, cooperación, empatía y pensamiento ganar-ganar. Es exclusivo de Colegio Newland, diseñado y avalado por el Tec de Monterrey.\n\nCorazones Mágicos enseña prevención de violencia desde los 2 años. El protocolo de Desapego Seguro acompaña la transición hogar-escuela. NWL Corregidora es Bullying Free School (BFS) desde maternal.',
       },
       {
-        heading: 'Modelo Educativo',
-        body: 'El campus Corregidora cuenta con instalaciones modernas diseñadas específicamente para maternal y kinder: áreas de psicomotricidad, rincones sensoriales, huerto escolar, biblioteca infantil y espacios de juego con piso amortiguante y materiales seguros.\n\nEl equipo docente especializado en primera infancia trabaja con grupos reducidos, implementando un modelo de atención personalizada donde cada niño es observado, acompañado y estimulado de acuerdo con su ritmo y estilo de aprendizaje.',
+        heading: 'Edificio cubo Rubik y actividades en Corregidora',
+        body: 'El campus Corregidora es fácil de reconocer por su edificio con forma de cubo Rubik, diseñado para inspirar la creatividad desde el exterior. Las áreas de juego para maternal y kinder incluyen espacios con piso amortiguante, materiales sensoriales y zona de psicomotricidad.\n\nLos niños de kinder practican basquetbol, dance, teatro, robótica STEAM y música. La Filosofía para Niños se introduce desde kinder con cuentos y preguntas abiertas que desarrollan curiosidad y capacidad de diálogo.',
       },
     ],
     faqs: [
       {
         question: '¿El colegio en Corregidora tiene maternal y kinder?',
         answer:
-          'Sí. Nuestro campus en Corregidora ofrece maternal desde los 12 meses y kinder completo, con un programa continuo que facilita la transición entre niveles dentro de la misma institución.',
+          'Sí. NWL Corregidora ofrece maternal desde los 2 años (8:20-1:30 pm) y kinder de 3 a 5 años (8:20-1:50 pm). El campus fue fundado en 2019, tiene 4.5★ en Google y ofrece hasta preparatoria. Director: José Gustavo Flores.',
       },
       {
-        question: '¿Qué horarios maneja el kinder en Corregidora?',
+        question: '¿Qué actividades ofrece el kinder en Corregidora?',
         answer:
-          'El horario regular es de 8:00 a 14:00 hrs. Contamos con opción de horario extendido hasta las 16:00 hrs con actividades deportivas, artísticas y de apoyo en tareas.',
+          'Basquetbol, dance, teatro, robótica STEAM, música, Knotion sin tarea, Filosofía para Niños y Yo Soy Líder NWL by Tec de Monterrey. El campus cuenta con su icónico edificio cubo Rubik y es Bullying Free School.',
       },
     ],
     images: {
@@ -944,31 +944,31 @@ export const informacionPages: Record<string, InformacionPage> = {
     description:
       'Escuela con primaria y secundaria en Corregidora con programa bilingüe, laboratorios y actividades extracurriculares. Forma parte de Newland School Corregidora.',
     uniqueIntro:
-      'Corregidora se ha convertido en uno de los municipios con mayor oferta educativa de la zona metropolitana de Querétaro, pero pocas instituciones ofrecen la continuidad de maternal a preparatoria en un solo campus. Newland School Corregidora destaca por su propuesta integral que acompaña a los alumnos durante primaria y secundaria con un modelo educativo de excelencia.',
+      'NWL Corregidora (fundado 2019, 4.5★ en Google) ofrece de maternal a preparatoria en su campus con edificio cubo Rubik. Bajo la dirección de José Gustavo Flores, la primaria y secundaria se distinguen por incluir creación de podcasts, programación e inteligencia artificial como parte de las actividades extracurriculares, junto con el modelo Knotion sin tarea y certificaciones Cambridge.',
     sections: [
       {
-        heading: 'Filosofía para Niños',
-        body: 'En primaria y secundaria, el programa de Filosofía para Niños adquiere mayor profundidad. Los alumnos de primaria trabajan con textos narrativos que plantean dilemas morales, mientras que en secundaria los debates abordan problemáticas actuales como la sustentabilidad, la tecnología y los derechos humanos.\n\nEsta formación filosófica continua genera alumnos con pensamiento crítico sólido, capaces de analizar información compleja y de participar activamente en la construcción de una sociedad más justa e informada.',
+        heading: 'Knotion IMPACT, TecniKids y podcasts en Corregidora',
+        body: 'La primaria (7:40-2:30 pm) usa Knotion IMPACT con Design Thinking: los alumnos resuelven problemas reales sin tarea tradicional. El TecniKids STEAM Lab ofrece impresión 3D, corte láser, robótica y maker spaces.\n\nLo que distingue a Corregidora es la inclusión de creación de podcasts, programación e inteligencia artificial como actividades extracurriculares. Los alumnos aprenden a grabar, editar y publicar contenido digital desde primaria, preparándose para el mundo tecnológico.',
       },
       {
-        heading: 'Programas Internacionales',
-        body: 'El programa bilingüe de Newland School Corregidora asegura que los alumnos de primaria y secundaria alcancen niveles competitivos de inglés. Las materias académicas en inglés se complementan con preparación para certificaciones Cambridge y participación en eventos internacionales.\n\nLa formación global prepara a los estudiantes para que, al egresar de secundaria, cuenten con las herramientas lingüísticas y culturales necesarias para desenvolverse con éxito en cualquier preparatoria, incluyendo opciones internacionales.',
+        heading: 'Emprendizaje, Cambridge y Doble Certificación',
+        body: 'En secundaria (7:30-2:30 pm), el programa de Emprendizaje con Universidad Mondragón desafía a los alumnos a crear proyectos empresariales reales. La Doble Certificación Internacional (diploma EUA + México vía Hokku Academy) y las certificaciones Cambridge PET/FCE consolidan su perfil internacional.\n\nModel ONU, debate, oratoria y Filosofía para Niños con análisis de dilemas éticos preparan adolescentes con pensamiento crítico. El Diplomado para Padres acompaña a las familias durante la etapa más desafiante.',
       },
       {
-        heading: 'Modelo Educativo',
-        body: 'El modelo educativo en Corregidora integra el aprendizaje basado en proyectos con tecnología educativa, laboratorios equipados, actividades deportivas y talleres artísticos. Los alumnos desarrollan competencias del siglo XXI en un ambiente que promueve la creatividad, la colaboración y la autonomía.\n\nEl acompañamiento tutorial personalizado permite a cada alumno recibir orientación académica y socioemocional adaptada a sus necesidades, asegurando un desarrollo integral durante las etapas clave de primaria y secundaria.',
+        heading: 'Deportes, arte y seguridad en el cubo Rubik',
+        body: 'El campus Corregidora ofrece basquetbol, voleibol, tochito, dance, teatro, programación, AI, podcasts, robótica STEAM y música. La variedad de actividades permite que cada alumno descubra sus talentos en un ambiente seguro con 90+ cámaras 24/7.\n\nEl programa BFS (Bullying Free School), Yo Soy Líder NWL by Tec de Monterrey y la Filosofía para Niños con Diploma para Padres crean una comunidad educativa donde las familias de Corregidora se sienten parte de algo especial.',
       },
     ],
     faqs: [
       {
         question: '¿La escuela en Corregidora ofrece primaria y secundaria en el mismo campus?',
         answer:
-          'Sí. Nuestro campus Corregidora cuenta con primaria y secundaria en las mismas instalaciones, facilitando la continuidad académica y la logística familiar.',
+          'Sí. NWL Corregidora ofrece de maternal a preparatoria en un solo campus (edificio cubo Rubik). Primaria: 7:40-2:30 pm. Secundaria: 7:30-2:30 pm. Fundado 2019, 4.5★ en Google, 175+ reseñas. Director: José Gustavo Flores.',
       },
       {
         question: '¿Qué actividades extracurriculares ofrece la escuela en Corregidora?',
         answer:
-          'Ofrecemos fútbol, básquetbol, voleibol, talleres de robótica, arte, música y club de lectura. Estas actividades complementan la formación académica y ayudan a los alumnos a descubrir sus pasiones.',
+          'Basquetbol, voleibol, tochito, dance, teatro, creación de podcasts, programación, inteligencia artificial, robótica STEAM y música. Es el único campus NWL con podcasts y AI como actividades regulares.',
       },
     ],
     images: {
@@ -999,31 +999,31 @@ export const informacionPages: Record<string, InformacionPage> = {
     description:
       'Secundaria privada cerca de Loma Dorada Querétaro con programa bilingüe, laboratorios y Filosofía para Niños. Descubre Newland School campus Milenio.',
     uniqueIntro:
-      'Loma Dorada es una de las colonias más consolidadas y accesibles del sur de Querétaro, con una ubicación privilegiada que conecta fácilmente con las principales vialidades de la ciudad. Las familias de esta zona buscan una secundaria cercana que ofrezca excelencia académica sin largos traslados, y Newland School campus Milenio es la respuesta.',
+      'Las familias de Loma Dorada tienen en NWL campus Milenio la secundaria bilingüe más cercana, a solo 10 minutos en auto. Los alumnos de 12-15 años acceden al programa de Emprendizaje con Universidad Mondragón, Doble Certificación Internacional y certificaciones Cambridge PET/FCE en un campus acreditado por Cognia con 4.5★ en Google.',
     sections: [
       {
-        heading: 'Filosofía para Niños',
-        body: 'Los adolescentes de Loma Dorada que estudian secundaria en Newland School participan en un programa de Filosofía para Niños que les permite analizar críticamente los temas que definen su generación. A través de debates, lectura de textos filosóficos y proyectos de investigación ética, desarrollan herramientas intelectuales que los distinguen.\n\nEsta formación filosófica tiene un impacto directo en su rendimiento académico, ya que los alumnos aprenden a leer con profundidad, a escribir con estructura argumentativa y a resolver problemas con pensamiento lógico.',
+        heading: 'Emprendizaje con Universidad Mondragón',
+        body: 'Los adolescentes de Loma Dorada que asisten a NWL Milenio participan en Emprendizaje, el programa de emprendimiento con Universidad Mondragón. Durante 3 años de secundaria, crean proyectos empresariales reales con impacto social, aprendiendo finanzas, mercadotecnia y presentación ejecutiva.\n\nEste programa transforma la relación de los jóvenes con el trabajo y la creatividad, formando emprendedores con visión social que saben identificar problemas y proponer soluciones innovadoras.',
       },
       {
-        heading: 'Programas Internacionales',
-        body: 'La secundaria bilingüe más cercana a Loma Dorada prepara a los alumnos para certificaciones internacionales que acreditan su nivel de inglés. Las asignaturas en inglés cubren ciencias, estudios globales y literatura, asegurando un dominio funcional del idioma en contextos académicos y cotidianos.\n\nLos proyectos de vinculación internacional y las experiencias de intercambio cultural amplían la perspectiva de los alumnos y los preparan para competir en un entorno globalizado.',
+        heading: 'Doble Certificación y Cambridge en campus Cognia',
+        body: 'NWL Milenio es el campus con acreditación Cognia, lo que respalda la Doble Certificación Internacional que los alumnos obtienen (diploma EUA + México vía Hokku Academy). Las certificaciones Cambridge PET y FCE consolidan un nivel B1-B2 de inglés.\n\nEsta combinación de certificaciones abre puertas a preparatorias y universidades tanto en México como en Estados Unidos, un diferenciador importante para los egresados.',
       },
       {
-        heading: 'Modelo Educativo',
-        body: 'El modelo educativo de la secundaria en campus Milenio, la opción más cercana a Loma Dorada, se basa en el desarrollo integral del adolescente: académico, socioemocional y físico. Los laboratorios de ciencias, las canchas deportivas y los espacios de expresión artística son herramientas clave de esta formación.\n\nEl programa de tutoría personalizada y orientación vocacional acompaña a cada estudiante en la transición de la secundaria a la preparatoria, asegurando que tome decisiones informadas sobre su futuro.',
+        heading: 'Transporte, seguridad y actividades para Loma Dorada',
+        body: 'NWL Milenio ofrece rutas de transporte escolar que cubren Loma Dorada, con unidades monitoreadas por GPS. El campus cuenta con 90+ cámaras de seguridad 24/7, cancha de fútbol, cancha techada y laboratorio STEAM.\n\nLas actividades incluyen voleibol, tochito, basquetbol, fútbol, dance team, talleres de cocina, yoga, robótica STEAM y música. El horario de secundaria es de 7:30 a 2:30 pm. Directora: Mtra. Ximena Arellano.',
       },
     ],
     faqs: [
       {
         question: '¿Cómo llego a Newland School desde Loma Dorada?',
         answer:
-          'Nuestro campus Milenio se encuentra a aproximadamente 10 minutos en automóvil desde Loma Dorada. También ofrecemos rutas de transporte escolar que cubren esta zona.',
+          'NWL campus Milenio se encuentra a unos 10 minutos en auto desde Loma Dorada. Ofrecemos transporte escolar con rutas que cubren la zona. Campus fundado en 2016 con acreditación Cognia y 4.5★ en Google.',
       },
       {
-        question: '¿La secundaria cerca de Loma Dorada tiene programa de becas?',
+        question: '¿Qué certificaciones obtienen los alumnos de secundaria?',
         answer:
-          'Sí. Newland School ofrece un programa de becas académicas y descuentos por hermanos. Te invitamos a agendar una cita para conocer las opciones disponibles para tu familia.',
+          'Cambridge PET/FCE (nivel B1-B2), Doble Certificación Internacional (diploma EUA + México vía Hokku Academy) y programa de Emprendizaje con Universidad Mondragón. Todo respaldado por la acreditación Cognia del campus.',
       },
     ],
     images: {
@@ -1056,31 +1056,31 @@ export const informacionPages: Record<string, InformacionPage> = {
     description:
       'Escuela particular cerca de Loma Dorada con todos los niveles, programa bilingüe y Filosofía para Niños. Newland School campus Milenio, a minutos de tu hogar.',
     uniqueIntro:
-      'Loma Dorada es una colonia emblemática del sur de Querétaro, apreciada por su vida comunitaria activa y su acceso a servicios esenciales. Las familias de Loma Dorada merecen una escuela que esté a la altura de sus expectativas: cercana, segura y con un modelo educativo que prepare a sus hijos para el futuro.',
+      'NWL campus Milenio es la escuela bilingüe más cercana a Loma Dorada (10 min en auto) y ofrece maternal a secundaria en un campus acreditado por Cognia. Fundado en 2016 con 4.5★ en Google, el campus se distingue por talleres de cocina, yoga, dance team y la terraza rooftop, además del modelo completo NWL con Knotion sin tarea y Filosofía para Niños.',
     sections: [
       {
-        heading: 'Filosofía para Niños',
-        body: 'Newland School ofrece a las familias de Loma Dorada un programa de Filosofía para Niños que distingue a sus alumnos por su capacidad de reflexión y diálogo. En cada nivel educativo, los estudiantes aprenden a pensar de manera autónoma, a cuestionar con argumentos y a escuchar con empatía.\n\nEsta formación filosófica transversal es un sello distintivo de Newland School que prepara ciudadanos conscientes, responsables y comprometidos con su entorno social.',
+        heading: 'De Brain Up a Emprendizaje: Trayectoria en Milenio',
+        body: 'Los niños de Loma Dorada que ingresan a NWL Milenio recorren un camino educativo continuo: Brain Up y Estimulación Multisensorial en maternal (2 años), Knotion sin tarea en kinder, TecniKids STEAM Lab en primaria con impresión 3D y robótica.\n\nEn secundaria, Emprendizaje con Universidad Mondragón y la Doble Certificación Internacional preparan a los adolescentes para las mejores opciones de preparatoria. Cada nivel incluye Filosofía para Niños y Yo Soy Líder NWL by Tec de Monterrey.',
       },
       {
-        heading: 'Programas Internacionales',
-        body: 'El programa bilingüe de Newland School campus Milenio asegura que los alumnos de Loma Dorada reciban una educación con estándares internacionales. Desde los primeros niveles, el inglés se integra como herramienta de comunicación y aprendizaje en materias académicas, no solo como asignatura aislada.\n\nLas certificaciones Cambridge, los proyectos internacionales y las experiencias de intercambio cultural complementan una formación global que abre puertas en México y en el mundo.',
+        heading: 'Cocina, yoga y dance team: Solo en Milenio',
+        body: 'Lo que distingue a NWL Milenio de otros colegios de la zona es su oferta de actividades únicas: talleres de cocina donde los alumnos aprenden nutrición práctica, sesiones de yoga para concentración y manejo de estrés, y un dance team competitivo.\n\nEstas actividades se suman a voleibol, tochito, basquetbol, fútbol, robótica STEAM y música. La terraza rooftop y el letrero LÍDER son espacios icónicos del campus donde se realizan eventos y clases especiales.',
       },
       {
-        heading: 'Modelo Educativo',
-        body: 'El modelo educativo de Newland School se centra en el aprendizaje activo, la formación socioemocional y el desarrollo de competencias del siglo XXI. Los alumnos participan en proyectos interdisciplinarios, utilizan tecnología como herramienta de aprendizaje y desarrollan habilidades artísticas y deportivas que complementan su formación académica.\n\nEl campus Milenio ofrece instalaciones completas con laboratorios, canchas, áreas verdes y espacios creativos donde cada alumno puede descubrir y desarrollar su potencial.',
+        heading: 'Transporte y seguridad para familias de Loma Dorada',
+        body: 'Ofrecemos rutas de transporte escolar que cubren Loma Dorada, con unidades monitoreadas por GPS. El campus cuenta con 90+ cámaras de seguridad 24/7, programa BFS (Bullying Free School) y protocolo de Desapego Seguro para los más pequeños.\n\nLa acreditación Cognia del campus Milenio certifica que los estándares académicos cumplen con las más altas exigencias internacionales. Directora: Mtra. Ximena Arellano.',
       },
     ],
     faqs: [
       {
         question: '¿Newland School ofrece todos los niveles para familias de Loma Dorada?',
         answer:
-          'Sí. Nuestro campus Milenio, el más cercano a Loma Dorada, ofrece maternal, kinder, primaria y secundaria, permitiendo que toda la familia estudie en una sola institución.',
+          'NWL campus Milenio ofrece maternal, kinder, primaria y secundaria (no preparatoria). Está a 10 min de Loma Dorada, fundado en 2016, acreditado por Cognia, con 4.5★ en Google y 185+ reseñas.',
       },
       {
         question: '¿Hay transporte escolar desde Loma Dorada?',
         answer:
-          'Sí. Contamos con rutas de transporte escolar que cubren Loma Dorada y colonias aledañas, con unidades seguras y monitoreadas para tranquilidad de las familias.',
+          'Sí. Rutas con unidades monitoreadas por GPS cubren Loma Dorada y colonias aledañas. El campus ofrece talleres de cocina, yoga, dance team, deportes, robótica STEAM y música. Directora: Mtra. Ximena Arellano.',
       },
     ],
     images: {
@@ -1112,31 +1112,31 @@ export const informacionPages: Record<string, InformacionPage> = {
     description:
       'Kinder bilingüe cerca de Loma Dorada con Filosofía para Niños, programa STEAM y espacios seguros. Inscribe a tu hijo en Newland School campus Milenio.',
     uniqueIntro:
-      'Las familias de Loma Dorada con hijos en edad preescolar buscan un kinder que ofrezca más que guardería: un espacio de formación integral, seguro y cercano. Newland School campus Milenio se encuentra a pocos minutos de Loma Dorada y ofrece un programa de kinder diseñado para despertar el potencial de cada niño.',
+      'Para las familias de Loma Dorada, NWL campus Milenio ofrece un kinder bilingüe a solo 10 minutos de distancia. Con Knotion (sin tarea tradicional), Filosofía para Niños, Yo Soy Líder NWL by Tec de Monterrey y actividades exclusivas como dance team, cocina y yoga, el kinder de Milenio prepara niños de 3-5 años con un enfoque integral. Horario: 8:20 a 1:50 pm.',
     sections: [
       {
-        heading: 'Filosofía para Niños',
-        body: 'El kinder de Newland School invita a los pequeños de Loma Dorada a explorar el mundo de las ideas desde los 3 años. A través de cuentos, preguntas abiertas y actividades lúdicas, los niños desarrollan su capacidad de escucha, su expresión verbal y sus primeras habilidades de razonamiento.\n\nEstas experiencias filosóficas tempranas construyen una base sólida de pensamiento crítico que acompañará al niño durante toda su trayectoria educativa.',
+        heading: 'Knotion: Sin tarea, con proyectos reales',
+        body: 'En el kinder de Milenio no hay cuadernos de tarea. La metodología Knotion sustituye la tarea tradicional por proyectos donde los niños investigan, crean y presentan. Cada proyecto integra lenguaje, ciencias y habilidades socioemocionales en español e inglés.\n\nLos docentes documentan el aprendizaje con portafolios digitales que comparten con las familias de Loma Dorada, permitiendo seguir el progreso de cada niño de forma cercana y transparente.',
       },
       {
-        heading: 'Programas Internacionales',
-        body: 'El programa bilingüe del kinder permite que los niños de Loma Dorada se familiaricen con el inglés de forma natural y divertida. Las actividades en ambos idiomas incluyen canciones, teatro, juegos y proyectos creativos que hacen del aprendizaje una experiencia gozosa.\n\nEsta inmersión lingüística temprana desarrolla el oído, amplía el vocabulario y sienta las bases para una competencia comunicativa bilingüe sólida en los años por venir.',
+        heading: 'Dance team, cocina y yoga desde los 3 años',
+        body: 'El kinder de Milenio ofrece actividades que no encontrarás en otros preescolares de la zona: dance team, talleres de cocina adaptados a la edad preescolar y sesiones de yoga que desarrollan concentración y equilibrio desde los 3 años.\n\nEstas actividades se suman a basquetbol, fútbol, robótica STEAM y música. El campus Milenio tiene terraza rooftop y áreas de juego con piso amortiguante diseñadas para preescolar.',
       },
       {
-        heading: 'Modelo Educativo',
-        body: 'El kinder del campus Milenio ofrece un programa integral que abarca desarrollo cognitivo, motriz, lingüístico y socioemocional. Los espacios están diseñados para la exploración segura: áreas de psicomotricidad, rincones de lectura, huerto escolar y zona de juegos con materiales naturales.\n\nLas educadoras especializadas utilizan observación continua y portafolios individuales para documentar el progreso de cada alumno, manteniendo una comunicación cercana y transparente con las familias.',
+        heading: 'Transporte y Bullying Free School',
+        body: 'NWL ofrece transporte escolar con ruta que cubre Loma Dorada, con unidades monitoreadas por GPS y personal capacitado para el traslado de los más pequeños.\n\nEl campus es Bullying Free School (BFS) desde preescolar, con protocolo de Desapego Seguro para la transición hogar-escuela. La acreditación Cognia respalda los estándares de calidad. Directora: Mtra. Ximena Arellano.',
       },
     ],
     faqs: [
       {
         question: '¿A qué distancia está el kinder de Newland School desde Loma Dorada?',
         answer:
-          'Nuestro campus Milenio se ubica a aproximadamente 10 minutos en auto desde Loma Dorada. También ofrecemos transporte escolar con ruta que pasa por esta zona.',
+          'NWL campus Milenio se ubica a unos 10 minutos en auto desde Loma Dorada. Ofrecemos transporte escolar con ruta por la zona. Campus acreditado por Cognia con 4.5★ en Google.',
       },
       {
         question: '¿El kinder cerca de Loma Dorada acepta niños de 3 años?',
         answer:
-          'Sí. Nuestro kinder recibe alumnos a partir de los 3 años cumplidos, con grupos reducidos y un programa diseñado para cada etapa del preescolar.',
+          'Sí. El kinder recibe niños de 3 a 5 años. Horario: 8:20-1:50 pm. Usa Knotion (sin tarea), Filosofía para Niños y Yo Soy Líder NWL by Tec de Monterrey. Actividades incluyen dance team, cocina, yoga, deportes y música.',
       },
     ],
     images: {
@@ -1169,31 +1169,31 @@ export const informacionPages: Record<string, InformacionPage> = {
     description:
       'Primaria bilingüe cerca de Loma Dorada con certificaciones Cambridge, STEAM y Filosofía para Niños. Conoce Newland School campus Milenio en Querétaro.',
     uniqueIntro:
-      'Para las familias de Loma Dorada, encontrar una primaria con programas internacionales y cercanía geográfica es una prioridad. Newland School campus Milenio ofrece una primaria bilingüe a pocos minutos de esta colonia, con un modelo educativo que combina rigor académico, innovación y formación humana.',
+      'NWL campus Milenio ofrece a las familias de Loma Dorada una primaria bilingüe a 10 minutos de distancia. Los alumnos de 6-11 años estudian con Knotion IMPACT (sin tarea), TecniKids STEAM Lab con impresión 3D y robótica, y se preparan para certificaciones Cambridge desde 3.° grado. Campus acreditado por Cognia, horario: 7:40-2:30 pm.',
     sections: [
       {
-        heading: 'Filosofía para Niños',
-        body: 'La primaria de Newland School, opción cercana a Loma Dorada, integra la Filosofía para Niños como una práctica semanal donde los alumnos discuten temas que van desde la justicia hasta la creatividad. Estas comunidades de indagación fortalecen la comprensión lectora, la expresión oral y la capacidad argumentativa.\n\nLos alumnos que participan regularmente en Filosofía para Niños muestran un mejor desempeño en todas las asignaturas, ya que desarrollan habilidades metacognitivas que potencian su aprendizaje autónomo.',
+        heading: 'TecniKids STEAM Lab y Knotion IMPACT',
+        body: 'El TecniKids STEAM Lab del campus Milenio ofrece impresión 3D, corte láser, robótica y maker spaces donde los alumnos de primaria construyen prototipos y resuelven problemas reales con Design Thinking.\n\nLa metodología Knotion IMPACT elimina la tarea tradicional. Los niños de Loma Dorada que asisten a NWL Milenio no llevan cuadernos de tarea a casa: el aprendizaje significativo ocurre en el aula a través de proyectos interdisciplinarios.',
       },
       {
-        heading: 'Programas Internacionales',
-        body: 'La primaria bilingüe del campus Milenio ofrece a los alumnos de Loma Dorada una formación en inglés que va más allá de la clase de idiomas. Las asignaturas de ciencias, matemáticas y estudios globales se imparten parcialmente en inglés, preparando a los estudiantes para certificaciones Cambridge desde tercer grado.\n\nLos proyectos de colaboración internacional y las ferias académicas complementan esta formación, brindando experiencias auténticas de comunicación en un contexto global.',
+        heading: 'Cambridge, Cognia y viajes desde 5.° grado',
+        body: 'Los alumnos se preparan para certificaciones Cambridge (Starters, Movers, Flyers) desde 3.° grado. La acreditación Cognia del campus respalda estos estándares internacionales.\n\nDesde 5.° grado, los estudiantes acceden a viajes internacionales que amplían su perspectiva global. El programa BFS (Bullying Free School) y la Filosofía para Niños con Diploma para Padres crean un ecosistema educativo donde las familias participan activamente.',
       },
       {
-        heading: 'Modelo Educativo',
-        body: 'El modelo educativo de la primaria se distingue por la integración de proyectos STEAM, tecnología educativa y actividades artísticas y deportivas. Los alumnos trabajan en equipos multidisciplinarios, resuelven problemas reales y presentan sus proyectos ante la comunidad escolar.\n\nEl seguimiento personalizado a través de reportes formativos y reuniones periódicas con padres asegura que cada familia conozca el progreso de su hijo y participe activamente en su desarrollo educativo.',
+        heading: 'Cocina, yoga y talleres exclusivos de Milenio',
+        body: 'La primaria en campus Milenio ofrece talleres de cocina, yoga y dance team que no encontrarás en otras escuelas de la zona. Estas actividades se suman a voleibol, tochito, basquetbol, fútbol, robótica STEAM y música.\n\nTransporte escolar con ruta por Loma Dorada y unidades con GPS. El campus cuenta con cancha de fútbol, cancha techada, terraza rooftop, laboratorio STEAM y cafetería. Yo Soy Líder NWL by Tec de Monterrey desarrolla liderazgo en cada alumno.',
       },
     ],
     faqs: [
       {
         question: '¿La primaria cerca de Loma Dorada ofrece certificaciones de inglés?',
         answer:
-          'Sí. A partir de tercer grado, los alumnos se preparan para certificaciones Cambridge Starters, Movers y Flyers, acreditando su nivel de inglés con reconocimiento internacional.',
+          'Sí. Cambridge Starters, Movers y Flyers desde 3.° grado. Campus Milenio tiene acreditación Cognia. Viajes internacionales desde 5.° grado. Sin tarea tradicional gracias a Knotion IMPACT con Design Thinking.',
       },
       {
         question: '¿Hay actividades deportivas en la primaria cercana a Loma Dorada?',
         answer:
-          'Sí. El programa deportivo incluye fútbol, básquetbol, voleibol y atletismo, con participación en torneos interescolares. Las instalaciones del campus Milenio incluyen cancha de fútbol y cancha techada.',
+          'Sí. Voleibol, tochito, basquetbol, fútbol, dance team, talleres de cocina, yoga, robótica STEAM y música. El campus cuenta con cancha de fútbol, cancha techada y terraza rooftop. Transporte escolar cubre Loma Dorada.',
       },
     ],
     images: {
@@ -1226,31 +1226,31 @@ export const informacionPages: Record<string, InformacionPage> = {
     description:
       'Escuela privada cerca de Centro Sur Querétaro con programa bilingüe, todos los niveles y Filosofía para Niños. Descubre Newland School campus Milenio.',
     uniqueIntro:
-      'Centro Sur es uno de los polos de desarrollo más importantes de Querétaro, con centros comerciales, corporativos y residenciales de primer nivel. Las familias que viven o trabajan en esta zona necesitan una escuela de excelencia que esté a su alcance, y Newland School campus Milenio ofrece esa combinación de cercanía y calidad educativa.',
+      'Las familias de Centro Sur encuentran en NWL campus Milenio su escuela bilingüe más accesible, a 10-15 minutos por las vialidades principales. El campus, acreditado por Cognia y fundado en 2016, ofrece maternal a secundaria con Knotion sin tarea, Filosofía para Niños y actividades exclusivas como talleres de cocina, yoga y dance team.',
     sections: [
       {
-        heading: 'Filosofía para Niños',
-        body: 'Las familias de Centro Sur que eligen Newland School encuentran en la Filosofía para Niños un programa único que distingue a nuestros alumnos. Desde las primeras etapas, los estudiantes participan en comunidades de indagación donde aprenden a pensar con rigor, a dialogar con respeto y a construir significados compartidos.\n\nEste programa filosófico transversal genera egresados con pensamiento crítico sólido, una competencia cada vez más demandada en el mundo académico y profesional.',
+        heading: 'Campus Milenio: Acreditado por Cognia',
+        body: 'NWL campus Milenio es el único en la red con acreditación Cognia, un sello de calidad internacional que certifica estándares académicos de primer nivel. Menos del 5% de los colegios privados en México cuentan con esta certificación.\n\nPara las familias de Centro Sur, esto significa la tranquilidad de que sus hijos estudian en un colegio evaluado por expertos internacionales, con 4.5★ en Google y 185+ reseñas.',
       },
       {
-        heading: 'Programas Internacionales',
-        body: 'El programa bilingüe de Newland School prepara a los alumnos cercanos a Centro Sur para un futuro global. El inglés se integra como lengua de instrucción en múltiples asignaturas, y los estudiantes acceden a certificaciones Cambridge y a experiencias de intercambio cultural desde primaria.\n\nLa visión internacional del colegio se refleja también en la participación de alumnos en foros, competencias académicas y proyectos colaborativos con escuelas de otros países.',
+        heading: 'Knotion sin tarea y TecniKids STEAM',
+        body: 'Desde kinder, la metodología Knotion elimina la tarea tradicional. En primaria, Knotion IMPACT con Design Thinking resuelve problemas reales. El TecniKids STEAM Lab ofrece impresión 3D, corte láser, robótica y maker spaces.\n\nEn secundaria, el programa de Emprendizaje con Universidad Mondragón y la Doble Certificación Internacional (diploma EUA + México) preparan a los adolescentes para las mejores opciones de preparatoria en Querétaro y el mundo.',
       },
       {
-        heading: 'Modelo Educativo',
-        body: 'Newland School campus Milenio ofrece a las familias de Centro Sur un modelo educativo que integra aprendizaje basado en proyectos, tecnología, arte y deporte. Las instalaciones completas permiten que cada alumno desarrolle sus competencias en ambientes estimulantes y seguros.\n\nEl acompañamiento personalizado, con tutorías académicas y seguimiento socioemocional, asegura que cada estudiante reciba la atención que necesita para alcanzar su máximo potencial.',
+        heading: 'Transporte, cocina, yoga y terraza rooftop',
+        body: 'Ofrecemos rutas de transporte escolar que cubren Centro Sur con unidades monitoreadas por GPS. El campus se distingue por su terraza rooftop, talleres de cocina, yoga, dance team, tochito, voleibol, basquetbol, fútbol, robótica STEAM y música.\n\nMás de 90 cámaras de seguridad 24/7, programa BFS (Bullying Free School) y Yo Soy Líder NWL by Tec de Monterrey garantizan un ambiente seguro y formativo. Directora: Mtra. Ximena Arellano.',
       },
     ],
     faqs: [
       {
         question: '¿Cuánto tiempo toma llegar desde Centro Sur al campus Milenio?',
         answer:
-          'El trayecto desde Centro Sur hasta nuestro campus Milenio es de aproximadamente 10 a 15 minutos por las vialidades principales. También ofrecemos transporte escolar con rutas que cubren esta zona.',
+          'Aproximadamente 10-15 minutos por las vialidades principales. Ofrecemos transporte escolar con rutas por Centro Sur. Campus acreditado por Cognia, 4.5★ en Google, fundado en 2016.',
       },
       {
         question: '¿Newland School cerca de Centro Sur ofrece todos los niveles?',
         answer:
-          'Sí. Nuestro campus Milenio, el más cercano a Centro Sur, ofrece maternal, kinder, primaria y secundaria bajo un mismo modelo educativo de excelencia.',
+          'NWL Milenio ofrece maternal, kinder, primaria y secundaria (no preparatoria). Incluye Knotion sin tarea, Filosofía para Niños, Brain Up, TecniKids STEAM Lab, Emprendizaje y talleres de cocina, yoga y dance team.',
       },
     ],
     images: {
@@ -1282,31 +1282,31 @@ export const informacionPages: Record<string, InformacionPage> = {
     description:
       'Kinder bilingüe cerca de Centro Sur Querétaro con Filosofía para Niños, programa STEAM y espacios diseñados para primera infancia. Inscripciones abiertas en NWL.',
     uniqueIntro:
-      'Centro Sur es una de las zonas más dinámicas de Querétaro, con excelente conectividad y una creciente comunidad de familias jóvenes. Para los padres que viven o trabajan en Centro Sur, contar con un kinder bilingüe de calidad a pocos minutos de distancia es una necesidad que Newland School campus Milenio satisface con una propuesta educativa integral.',
+      'Las familias de Centro Sur que buscan un kinder bilingüe sin tarea tradicional encuentran en NWL campus Milenio la respuesta. A 10-15 minutos de la zona, el kinder utiliza Knotion, Filosofía para Niños y Yo Soy Líder NWL by Tec de Monterrey. Actividades exclusivas de Milenio incluyen dance team, cocina y yoga desde los 3 años. Horario: 8:20-1:50 pm.',
     sections: [
       {
-        heading: 'Filosofía para Niños',
-        body: 'El kinder de Newland School, opción cercana a Centro Sur, introduce a los niños en la Filosofía para Niños a través del juego, la narrativa y el diálogo. Los pequeños aprenden a hacer preguntas, a escuchar las respuestas de sus compañeros y a reflexionar sobre temas que les son significativos.\n\nEstas experiencias tempranas de pensamiento filosófico desarrollan habilidades lingüísticas, sociales y cognitivas que marcan una diferencia notable en el rendimiento académico durante primaria.',
+        heading: 'Knotion: Proyectos en lugar de tarea',
+        body: 'Los niños de Centro Sur que asisten al kinder de Milenio no llevan tarea a casa. La metodología Knotion sustituye los cuadernos de tarea por proyectos interdisciplinarios donde los pequeños investigan, crean y presentan en español e inglés.\n\nCada proyecto está diseñado por especialistas para desarrollar autonomía, curiosidad y habilidades de comunicación desde los 3 años. Los docentes comparten portafolios digitales con las familias para seguir el progreso.',
       },
       {
-        heading: 'Programas Internacionales',
-        body: 'El programa bilingüe del kinder permite que los niños de Centro Sur inicien su formación en inglés de manera natural y afectiva. Las actividades cotidianas, canciones, cuentos y juegos en ambos idiomas crean un ambiente de inmersión que aprovecha la plasticidad cerebral de la primera infancia.\n\nEste enfoque comunicativo asegura que los niños no solo aprendan vocabulario, sino que comiencen a comunicar ideas y emociones en inglés de forma espontánea y segura.',
+        heading: 'Filosofía para Niños y liderazgo Tec',
+        body: 'Las sesiones de Filosofía para Niños en kinder utilizan cuentos e imágenes para explorar conceptos como la amistad, la justicia y las emociones. Los niños aprenden a escuchar, hacer preguntas y respetar opiniones diferentes.\n\nYo Soy Líder NWL by Tec de Monterrey enseña los 7 hábitos de liderazgo adaptados a preescolar: proactividad, cooperación y pensamiento ganar-ganar. Es un programa exclusivo de NWL, diseñado por el Tec de Monterrey.',
       },
       {
-        heading: 'Modelo Educativo',
-        body: 'El kinder de campus Milenio ofrece a las familias de Centro Sur un programa que integra estimulación cognitiva, desarrollo motriz, expresión artística y formación socioemocional. Los espacios están diseñados para la primera infancia: áreas sensoriales, rincones de lectura, zona de psicomotricidad y juegos al aire libre.\n\nEl equipo docente especializado trabaja con grupos reducidos y mantiene comunicación constante con las familias a través de reportes, portafolios y reuniones periódicas que permiten acompañar el desarrollo de cada niño de manera cercana.',
+        heading: 'Dance team, cocina y transporte desde Centro Sur',
+        body: 'El kinder de Milenio ofrece actividades que lo distinguen: dance team, talleres de cocina y yoga, además de basquetbol, fútbol, robótica STEAM y música. Los espacios incluyen terraza rooftop y áreas de juego con piso amortiguante.\n\nTransporte escolar con rutas por Centro Sur y unidades con GPS. Campus acreditado por Cognia, BFS (Bullying Free School) y 90+ cámaras 24/7. Directora: Mtra. Ximena Arellano.',
       },
     ],
     faqs: [
       {
         question: '¿El kinder cercano a Centro Sur tiene horario extendido?',
         answer:
-          'Sí. El horario regular del kinder es de 8:00 a 14:00 hrs, con opción de horario extendido hasta las 16:00 hrs que incluye actividades de música, movimiento, arte y apoyo en tareas.',
+          'El horario regular del kinder es de 8:20 a 1:50 pm. El campus ofrece actividades como dance team, cocina, yoga, deportes, robótica STEAM y música. Transporte escolar cubre Centro Sur.',
       },
       {
         question: '¿Ofrecen transporte escolar desde Centro Sur al kinder?',
         answer:
-          'Sí. Contamos con rutas de transporte escolar que cubren Centro Sur y zonas aledañas, con unidades seguras y personal capacitado para el cuidado de los más pequeños.',
+          'Sí. Rutas con unidades monitoreadas por GPS cubren Centro Sur. NWL campus Milenio tiene acreditación Cognia, 4.5★ en Google y usa Knotion (sin tarea tradicional). Directora: Mtra. Ximena Arellano.',
       },
     ],
     images: {
@@ -1339,31 +1339,31 @@ export const informacionPages: Record<string, InformacionPage> = {
     description:
       'Primaria privada bilingüe cerca de Centro Sur Querétaro con Filosofía para Niños, programas internacionales y formación integral. Conoce Newland School campus Milenio.',
     uniqueIntro:
-      'Centro Sur se ha posicionado como uno de los polos de desarrollo más importantes de Querétaro, con familias que buscan opciones educativas de primer nivel sin tener que recorrer grandes distancias. Newland School campus Milenio ofrece una primaria bilingüe a pocos minutos de Centro Sur, combinando excelencia académica con atención personalizada.',
+      'Las familias de Centro Sur tienen en NWL campus Milenio una primaria bilingüe sin tarea tradicional a 10-15 minutos de distancia. El campus, acreditado por Cognia, ofrece TecniKids STEAM Lab con impresión 3D y robótica, certificaciones Cambridge desde 3.° grado y viajes internacionales desde 5.° grado. Horario: 7:40-2:30 pm.',
     sections: [
       {
-        heading: 'Filosofía para Niños',
-        body: 'La primaria de Newland School cercana a Centro Sur integra la Filosofía para Niños como eje transversal del currículo. Los alumnos participan en comunidades de indagación donde formulan preguntas, construyen argumentos y aprenden a dialogar con respeto y profundidad.\n\nEste enfoque filosófico fortalece el pensamiento crítico y la capacidad analítica de los estudiantes, habilidades que se reflejan en un desempeño académico destacado en todas las áreas del conocimiento.',
+        heading: 'Knotion IMPACT: Sin tarea, con Design Thinking',
+        body: 'Los alumnos de Centro Sur que asisten a la primaria de Milenio no llevan tarea a casa. La metodología Knotion IMPACT utiliza Design Thinking para resolver problemas reales de la comunidad, integrando ciencias, tecnología y humanidades.\n\nEl TecniKids STEAM Lab complementa este enfoque con impresión 3D, corte láser, robótica y maker spaces. Los niños construyen prototipos de sus soluciones, desarrollando habilidades del siglo XXI desde los 6 años.',
       },
       {
-        heading: 'Programas Internacionales',
-        body: 'El programa bilingüe de la primaria permite que los alumnos de Centro Sur desarrollen fluidez en inglés a través de proyectos, lecturas y actividades que integran ambos idiomas de forma natural. Los estándares internacionales garantizan que la formación sea competitiva a nivel global.\n\nAdemás, los estudiantes participan en evaluaciones y certificaciones internacionales que validan su dominio del idioma y los preparan para programas de intercambio en etapas posteriores.',
+        heading: 'Cambridge y viajes internacionales',
+        body: 'Desde 3.° grado, los alumnos se preparan para certificaciones Cambridge (Starters, Movers, Flyers). La acreditación Cognia del campus Milenio valida estos estándares internacionales.\n\nDesde 5.° grado, los estudiantes acceden a viajes internacionales que amplían su perspectiva global. La Filosofía para Niños con Diploma para Padres y Yo Soy Líder NWL by Tec de Monterrey completan una formación integral.',
       },
       {
-        heading: 'Modelo Educativo',
-        body: 'La primaria de campus Milenio combina el rigor académico con experiencias STEAM, arte, deporte y formación socioemocional. Los espacios están diseñados para fomentar el trabajo colaborativo, la experimentación y el aprendizaje significativo.\n\nCada alumno cuenta con un seguimiento personalizado que permite identificar fortalezas y áreas de oportunidad, asegurando que ningún estudiante se quede atrás y que todos alcancen su máximo potencial.',
+        heading: 'Talleres exclusivos y transporte desde Centro Sur',
+        body: 'La primaria de Milenio ofrece talleres de cocina, yoga y dance team que la distinguen. También voleibol, tochito, basquetbol, fútbol, robótica STEAM y música en instalaciones con cancha de fútbol, cancha techada y terraza rooftop.\n\nTransporte escolar con rutas por Centro Sur y GPS. Programa BFS (Bullying Free School) y 90+ cámaras de seguridad 24/7. Directora: Mtra. Ximena Arellano.',
       },
     ],
     faqs: [
       {
         question: '¿La primaria cercana a Centro Sur ofrece actividades extracurriculares?',
         answer:
-          'Sí. La primaria de Newland School campus Milenio ofrece talleres de arte, música, robótica, deportes y más, permitiendo que los alumnos desarrollen talentos más allá del aula.',
+          'Sí. Talleres de cocina, yoga, dance team, tochito, voleibol, basquetbol, fútbol, robótica STEAM y música. TecniKids STEAM Lab con impresión 3D. Cambridge desde 3.° grado. Viajes internacionales desde 5.°.',
       },
       {
         question: '¿Hay transporte escolar desde Centro Sur a la primaria?',
         answer:
-          'Contamos con rutas de transporte que cubren Centro Sur y colonias aledañas, con unidades seguras, GPS y personal capacitado para el traslado de los alumnos.',
+          'Sí. Rutas con GPS cubren Centro Sur. NWL campus Milenio tiene acreditación Cognia, 4.5★ en Google. Primaria sin tarea tradicional (Knotion IMPACT). Horario: 7:40-2:30 pm.',
       },
     ],
     images: {
@@ -1396,31 +1396,31 @@ export const informacionPages: Record<string, InformacionPage> = {
     description:
       'Secundaria privada bilingüe cerca de Centro Sur Querétaro. Filosofía para Niños, programas internacionales y formación integral en Newland School campus Milenio.',
     uniqueIntro:
-      'Las familias de Centro Sur buscan opciones de secundaria que combinen excelencia académica, formación en valores y un entorno seguro. Newland School campus Milenio ofrece una secundaria bilingüe de alto nivel a pocos minutos de esta zona, con un modelo educativo que prepara adolescentes para los retos del siglo XXI.',
+      'Los adolescentes de Centro Sur encuentran en NWL campus Milenio una secundaria bilingüe con Emprendizaje (Universidad Mondragón), Doble Certificación Internacional y Cambridge PET/FCE. A 10-15 minutos de la zona, el campus acreditado por Cognia ofrece talleres de cocina, yoga y dance team además de 90+ cámaras de seguridad. Horario: 7:30-2:30 pm.',
     sections: [
       {
-        heading: 'Filosofía para Niños',
-        body: 'En la secundaria de Newland School, los alumnos de Centro Sur profundizan en la Filosofía para Niños a través de debates, ensayos y proyectos que los invitan a cuestionar, analizar y proponer soluciones a problemáticas reales. Este enfoque desarrolla pensadores autónomos y ciudadanos responsables.\n\nLas comunidades de indagación filosófica se convierten en espacios de crecimiento personal donde los adolescentes aprenden a escuchar, argumentar y construir consensos de manera respetuosa.',
+        heading: 'Emprendizaje con Universidad Mondragón',
+        body: 'Los alumnos de Centro Sur que cursan secundaria en NWL Milenio participan en Emprendizaje, creando proyectos empresariales reales durante 3 años en colaboración con Universidad Mondragón. Aprenden finanzas, mercadotecnia y presentación ejecutiva.\n\nLa Doble Certificación Internacional (diploma EUA + México vía Hokku Academy) les abre puertas a preparatorias nacionales e internacionales. El campus Milenio es el único con acreditación Cognia, lo que respalda estas certificaciones.',
       },
       {
-        heading: 'Programas Internacionales',
-        body: 'La secundaria bilingüe cercana a Centro Sur prepara a los alumnos con estándares internacionales que incluyen certificaciones de Cambridge y participación en programas de intercambio. El dominio del inglés se consolida a través de proyectos interdisciplinarios y presentaciones orales.\n\nEsta formación global permite que los egresados de la secundaria estén listos para continuar su educación en preparatorias nacionales e internacionales con una ventaja competitiva significativa.',
+        heading: 'Cambridge PET/FCE y Model ONU',
+        body: 'Las certificaciones Cambridge PET y FCE consolidan un nivel B1-B2 de inglés al egresar de secundaria. Los alumnos participan en Model ONU, debate y oratoria, desarrollando habilidades de comunicación y negociación.\n\nLa Filosofía para Niños evoluciona hacia análisis de dilemas éticos y debate estructurado. El Diplomado para Padres ofrece a las familias de Centro Sur herramientas para acompañar la adolescencia.',
       },
       {
-        heading: 'Modelo Educativo',
-        body: 'El modelo educativo de la secundaria integra ciencias, tecnología, humanidades y arte en un programa que fomenta la curiosidad intelectual y el compromiso social. Los laboratorios de ciencias, salas de cómputo y espacios deportivos complementan la formación académica.\n\nEl acompañamiento socioemocional es fundamental en esta etapa, por lo que cada alumno cuenta con seguimiento personalizado que incluye orientación vocacional, talleres de habilidades para la vida y comunicación constante con las familias.',
+        heading: 'Actividades exclusivas y transporte',
+        body: 'La secundaria de Milenio ofrece talleres de cocina, yoga y dance team junto con voleibol, tochito, basquetbol, fútbol, robótica STEAM y música. Instalaciones con cancha de fútbol, cancha techada, laboratorio STEAM y terraza rooftop.\n\nTransporte escolar con rutas por Centro Sur y GPS. Programa BFS, Yo Soy Líder NWL by Tec de Monterrey y 90+ cámaras 24/7. Directora: Mtra. Ximena Arellano.',
       },
     ],
     faqs: [
       {
         question: '¿La secundaria cercana a Centro Sur prepara para preparatoria bilingüe?',
         answer:
-          'Sí. Nuestros egresados de secundaria cuentan con certificaciones de inglés y una formación académica que les permite ingresar a las mejores preparatorias bilingües del país.',
+          'Sí. Los alumnos obtienen Doble Certificación Internacional (EUA + México), Cambridge PET/FCE y Emprendizaje con Universidad Mondragón. Campus acreditado por Cognia. Transporte escolar cubre Centro Sur.',
       },
       {
         question: '¿Qué horario tiene la secundaria cerca de Centro Sur?',
         answer:
-          'La secundaria tiene horario de 7:00 a 14:30 hrs, con opción de talleres extracurriculares por la tarde que incluyen deportes, arte, robótica y preparación para certificaciones.',
+          'Horario: 7:30 a 2:30 pm. Actividades: cocina, yoga, dance team, tochito, voleibol, basquetbol, fútbol, robótica STEAM, música, Model ONU y debate. Campus con 90+ cámaras 24/7.',
       },
     ],
     images: {
@@ -1453,31 +1453,31 @@ export const informacionPages: Record<string, InformacionPage> = {
     description:
       'Escuela privada bilingüe cerca del Refugio Querétaro con todos los niveles educativos, Filosofía para Niños y programas internacionales. Conoce Newland School campus Zibatá.',
     uniqueIntro:
-      'El Refugio es una zona residencial en constante crecimiento ubicada al norte de Querétaro, donde las familias valoran la tranquilidad y la cercanía a servicios de calidad. Newland School campus Zibatá se encuentra a pocos minutos de El Refugio, ofreciendo una propuesta educativa bilingüe integral para todas las edades.',
+      'Las familias de El Refugio tienen en NWL campus Zibatá su escuela bilingüe más cercana, con todos los niveles de maternal a preparatoria. Fundado en 2025, es el campus más moderno de la red NWL, con instalaciones de última generación y los programas Life Project, Doble Diploma y Kn U High/Coursera en preparatoria. Dirigido por Daniela Arévalo, con 4.5★ en Google y 230+ reseñas.',
     sections: [
       {
-        heading: 'Filosofía para Niños',
-        body: 'Newland School campus Zibatá implementa la Filosofía para Niños como metodología central en todos los niveles. Los alumnos cercanos a El Refugio participan en comunidades de indagación donde aprenden a pensar con rigor, a dialogar con empatía y a construir conocimiento de forma colaborativa.\n\nEste programa filosófico transforma las aulas en espacios de reflexión donde cada estudiante desarrolla su capacidad de análisis, argumentación y toma de decisiones informadas.',
+        heading: 'Campus Zibatá: El más moderno, a minutos de El Refugio',
+        body: 'NWL campus Zibatá fue diseñado desde cero en 2025 con instalaciones de última generación para cada nivel: áreas sensoriales para maternal, maker spaces para primaria, laboratorios para secundaria y espacios de innovación para preparatoria.\n\nPara las familias de El Refugio, es la opción más cercana con trayectoria completa de maternal a preparatoria. El campus cuenta con transporte escolar que cubre El Refugio y zonas aledañas.',
       },
       {
-        heading: 'Programas Internacionales',
-        body: 'El programa bilingüe del campus Zibatá permite que los alumnos de El Refugio dominen el inglés desde temprana edad a través de un currículo integrado. Las certificaciones internacionales y los programas de intercambio complementan la formación lingüística.\n\nLos estándares globales que se aplican en cada nivel aseguran que los estudiantes estén preparados para competir y colaborar en un entorno internacional, abriendo puertas a oportunidades académicas en todo el mundo.',
+        heading: 'Life Project y Doble Diploma en Zibatá',
+        body: 'A diferencia de otros colegios cercanos a El Refugio, NWL Zibatá ofrece preparatoria con Life Project (mentores personales, 6 semestres), Doble Diploma (SEP + EUA acreditado por Cognia), certificaciones Kn U High/Coursera y programa HIT/Hyrox de fitness.\n\nInteligencia Financiera cada semestre, IA y Tecnología Moderna, Portafolio de 6 Proyectos Personales e intercambio internacional en 5.° y 6.° semestre completan una oferta de preparatoria sin igual en la zona.',
       },
       {
-        heading: 'Modelo Educativo',
-        body: 'El campus Zibatá ofrece a las familias de El Refugio un modelo educativo que abarca desde maternal hasta secundaria, con instalaciones modernas, laboratorios equipados, canchas deportivas y espacios artísticos diseñados para cada etapa del desarrollo.\n\nLa atención personalizada, los grupos reducidos y la comunicación constante con las familias son pilares de un modelo que busca formar personas íntegras, seguras de sí mismas y comprometidas con su comunidad.',
+        heading: 'El modelo NWL completo en Zibatá',
+        body: 'Brain Up y Estimulación Multisensorial en maternal, Knotion sin tarea en kinder, TecniKids STEAM Lab en primaria, Emprendizaje con Universidad Mondragón en secundaria: todo el modelo NWL está disponible en campus Zibatá.\n\nFilosofía para Niños, Yo Soy Líder NWL by Tec de Monterrey, certificaciones Cambridge, programa BFS y Corazones Mágicos acompañan cada etapa. Directora: Daniela Arévalo.',
       },
     ],
     faqs: [
       {
         question: '¿Qué niveles educativos ofrece la escuela cercana a El Refugio?',
         answer:
-          'Newland School campus Zibatá ofrece maternal, kinder, primaria y secundaria, permitiendo que los alumnos realicen toda su trayectoria escolar en un mismo entorno educativo de calidad.',
+          'NWL campus Zibatá ofrece de maternal (2 años) a preparatoria (17 años). Es el campus más nuevo (2025) y más moderno de la red. Tiene 4.5★ en Google, 230+ reseñas y transporte escolar que cubre El Refugio.',
       },
       {
         question: '¿Hay rutas de transporte desde El Refugio al campus Zibatá?',
         answer:
-          'Sí. Contamos con servicio de transporte escolar que cubre El Refugio y zonas cercanas, con unidades equipadas con GPS, cinturones de seguridad y personal capacitado.',
+          'Sí. Transporte escolar con unidades con GPS cubre El Refugio y zonas aledañas. El campus ofrece el modelo NWL completo, incluyendo preparatoria con Life Project y Doble Diploma. Directora: Daniela Arévalo.',
       },
     ],
     images: {
@@ -1509,31 +1509,31 @@ export const informacionPages: Record<string, InformacionPage> = {
     description:
       'Colegio privado bilingüe en Querétaro con Filosofía para Niños, programas internacionales y 5 campus. Newland School ofrece educación de excelencia desde maternal hasta preparatoria.',
     uniqueIntro:
-      'Querétaro es una ciudad que destaca por su calidad de vida y su creciente oferta educativa. Newland School se posiciona como uno de los colegios privados bilingües más completos de la región, con 5 campus estratégicamente ubicados y un modelo educativo que forma estudiantes globales, críticos y comprometidos.',
+      'Colegio Newland opera 5 campus en Querétaro y San Miguel de Allende, atendiendo desde maternal (2 años) hasta preparatoria (17 años). Con acreditación Cognia, alianzas con Tec de Monterrey, Universidad Mondragón, Hokku Academy, Knotion, Cambridge y Coursera, NWL forma estudiantes bilingües con pensamiento crítico. Más de 15 años de trayectoria desde la fundación de nuestro campus insignia en Juriquilla (2009).',
     sections: [
       {
-        heading: 'Filosofía para Niños',
-        body: 'Newland School es pionero en la implementación de la Filosofía para Niños en Querétaro. Desde maternal hasta preparatoria, los alumnos participan en comunidades de indagación filosófica que desarrollan el pensamiento crítico, la capacidad argumentativa y la sensibilidad ética.\n\nEste programa distintivo transforma la experiencia educativa, formando estudiantes que no solo acumulan conocimiento sino que aprenden a cuestionarlo, analizarlo y aplicarlo de manera creativa y responsable.',
+        heading: 'Tres pilares: FpN, Yo Soy Líder y Knotion',
+        body: 'El modelo NWL se sostiene en tres programas que ningún otro colegio en Querétaro combina: Filosofía para Niños (FpN) desarrolla pensamiento crítico desde los 2 años; Yo Soy Líder NWL by Tec de Monterrey forma líderes con inteligencia emocional; y Knotion elimina la tarea tradicional con proyectos reales y Design Thinking.\n\nEstos tres programas se aplican en los 5 campus, creando una experiencia educativa consistente sin importar la ubicación. Cada nivel adapta la metodología a la edad: desde estimulación sensorial en maternal hasta emprendimiento y debate en secundaria.',
       },
       {
-        heading: 'Programas Internacionales',
-        body: 'Como colegio bilingüe, Newland School garantiza el dominio del inglés a través de un programa de inmersión que inicia desde los primeros años. Las certificaciones de Cambridge, los programas de intercambio y las alianzas con instituciones internacionales complementan la formación global.\n\nLos estudiantes se preparan para competir en un mundo globalizado con herramientas lingüísticas, culturales y académicas que les abren puertas en universidades nacionales e internacionales de prestigio.',
+        heading: '5 campus estratégicos en Querétaro',
+        body: 'Juriquilla (2009, 4.6★) es el campus insignia con maternal a secundaria. Milenio (2016, 4.5★) tiene acreditación Cognia y talleres únicos de cocina y yoga. San Miguel de Allende (2018, 4.7★) aprovecha la ciudad UNESCO para arte y cultura.\n\nCorregidora (2019, 4.5★) destaca por podcasts, programación e IA. Zibatá (2025, 4.5★) es el más moderno, con instalaciones de última generación. San Miguel, Corregidora y Zibatá ofrecen también preparatoria.',
       },
       {
-        heading: 'Modelo Educativo',
-        body: 'El modelo educativo de Newland School integra rigor académico, formación socioemocional, arte, deporte y tecnología en un programa diseñado para cada etapa del desarrollo. Los 5 campus cuentan con instalaciones de primer nivel y equipos docentes especializados.\n\nLa atención personalizada, los grupos reducidos y la comunicación estrecha con las familias permiten que cada alumno reciba el acompañamiento necesario para alcanzar su máximo potencial y desarrollar un amor genuino por el aprendizaje.',
+        heading: 'Certificaciones y alianzas de clase mundial',
+        body: 'Cambridge (certificaciones de inglés en todos los niveles), Cognia (acreditación internacional), Tec de Monterrey (programa Yo Soy Líder exclusivo para NWL), Universidad Mondragón (Emprendizaje en secundaria), Hokku Academy (Doble Certificación Internacional) y Kn U High/Coursera (certificaciones en preparatoria).\n\nEn preparatoria: Doble Diploma (México + EUA), Life Project con mentores, Inteligencia Financiera, IA y Tecnología Moderna, HIT/Hyrox, Portafolio de 6 Proyectos Personales e intercambio internacional.',
       },
     ],
     faqs: [
       {
         question: '¿Cuántos campus tiene Newland School en Querétaro?',
         answer:
-          'Newland School cuenta con 5 campus en Querétaro: Juriquilla, Zibatá, Corregidora, Milenio y San Miguel de Allende, cada uno con instalaciones completas y el mismo modelo educativo de excelencia.',
+          '5 campus: Juriquilla (2009), Milenio (2016), San Miguel de Allende (2018), Corregidora (2019) y Zibatá (2025). San Miguel, Corregidora y Zibatá ofrecen hasta preparatoria. Juriquilla y Milenio ofrecen hasta secundaria.',
       },
       {
         question: '¿Qué niveles educativos ofrece el colegio bilingüe NWL?',
         answer:
-          'Newland School ofrece desde maternal y kinder hasta primaria, secundaria y preparatoria, permitiendo una trayectoria educativa continua y coherente en un mismo sistema.',
+          'De maternal (2 años) a preparatoria (17 años). El modelo incluye Brain Up, Knotion sin tarea, TecniKids STEAM Lab, Emprendizaje, Doble Certificación, Cambridge, Life Project y Doble Diploma según el nivel y campus.',
       },
     ],
     images: {
@@ -1564,31 +1564,31 @@ export const informacionPages: Record<string, InformacionPage> = {
     description:
       'Colegio particular bilingüe en Querétaro con todos los niveles educativos. Newland School ofrece Filosofía para Niños, programas internacionales y formación integral.',
     uniqueIntro:
-      'Elegir un colegio particular en Querétaro es una decisión que impacta directamente en el futuro de los hijos. Newland School se distingue por ofrecer una educación 100% bilingüe con un enfoque humanista que forma personas íntegras, preparadas para un mundo globalizado y comprometidas con su comunidad.',
+      'NWL se distingue como colegio particular en Querétaro por tres razones concretas: es el único con el programa Yo Soy Líder diseñado por el Tec de Monterrey; utiliza Knotion que elimina la tarea tradicional; y ofrece la Estimulación Multisensorial más completa de la región en maternal. Con 5 campus y más de 15 años de experiencia, formamos alumnos bilingües, emprendedores y con pensamiento crítico.',
     sections: [
       {
-        heading: 'Filosofía para Niños',
-        body: 'Lo que hace particular a Newland School es su programa de Filosofía para Niños, una metodología que desarrolla el pensamiento crítico desde los primeros años. Los alumnos aprenden a cuestionar, reflexionar y dialogar en un ambiente de respeto y curiosidad intelectual.\n\nEsta formación filosófica se traduce en estudiantes con mayor capacidad analítica, mejor comprensión lectora y habilidades de comunicación que los distinguen en evaluaciones nacionales e internacionales.',
+        heading: 'Yo Soy Líder NWL: Exclusivo del Tec de Monterrey',
+        body: 'Ningún otro colegio en Querétaro cuenta con un programa de liderazgo diseñado exclusivamente por el Tecnológico de Monterrey. Yo Soy Líder NWL adapta los 7 hábitos de liderazgo a cada edad, desde maternal hasta secundaria.\n\nLos alumnos aprenden proactividad, cooperación, empatía, pensamiento ganar-ganar y responsabilidad personal. El programa incluye certificaciones internas y se complementa con Filosofía para Niños para desarrollar pensamiento crítico junto con inteligencia emocional.',
       },
       {
-        heading: 'Programas Internacionales',
-        body: 'Como colegio particular bilingüe, Newland School ofrece un programa de inmersión en inglés que abarca todas las áreas del conocimiento. Los alumnos obtienen certificaciones internacionales y participan en programas que los conectan con estudiantes de otros países.\n\nEsta visión internacional no solo se limita al idioma, sino que incluye una formación intercultural que prepara a los estudiantes para colaborar y liderar en contextos diversos y multiculturales.',
+        heading: 'Sin tarea tradicional desde kinder',
+        body: 'NWL usa Knotion en todos sus campus, lo que significa que desde kinder no hay cuadernos de tarea. El aprendizaje ocurre a través de proyectos interdisciplinarios donde los alumnos investigan, crean y presentan soluciones a problemas reales.\n\nEn primaria, Knotion IMPACT con Design Thinking lleva esto un paso más allá. El TecniKids STEAM Lab ofrece impresión 3D, corte láser y robótica. En secundaria, Emprendizaje con Universidad Mondragón aplica el emprendimiento real.',
       },
       {
-        heading: 'Modelo Educativo',
-        body: 'El modelo educativo de este colegio particular integra lo mejor de las pedagogías contemporáneas con innovación tecnológica y formación en valores. Los laboratorios STEAM, las actividades artísticas y los programas deportivos complementan una formación académica rigurosa.\n\nNewland School busca que cada alumno descubra y desarrolle sus talentos, por lo que ofrece una amplia gama de actividades extracurriculares, acompañamiento socioemocional y orientación vocacional desde etapas tempranas.',
+        heading: 'Doble Certificación y preparatoria con Life Project',
+        body: 'En secundaria, los alumnos obtienen la Doble Certificación Internacional (diploma EUA + México vía Hokku Academy) y certificaciones Cambridge PET/FCE. En los 3 campus con preparatoria (San Miguel, Corregidora, Zibatá), el programa Life Project guía a cada alumno con mentores personales.\n\nDoble Diploma, certificaciones Kn U High/Coursera, Inteligencia Financiera, IA y Tecnología Moderna, HIT/Hyrox y Portafolio de 6 Proyectos Personales preparan a los egresados para las mejores universidades.',
       },
     ],
     faqs: [
       {
         question: '¿Por qué elegir un colegio particular bilingüe en Querétaro?',
         answer:
-          'Un colegio particular bilingüe como Newland School ofrece grupos reducidos, atención personalizada, programas internacionales y un modelo educativo que forma personas íntegras con una visión global.',
+          'NWL ofrece programas exclusivos: Yo Soy Líder by Tec de Monterrey, Knotion sin tarea, Emprendizaje con Universidad Mondragón, Doble Certificación y Cambridge. 5 campus con más de 15 años de trayectoria y acreditación Cognia.',
       },
       {
         question: '¿Newland School ofrece becas o apoyos económicos?',
         answer:
-          'Sí. Newland School cuenta con programas de apoyo económico para familias que lo requieran. Te invitamos a contactarnos para conocer las opciones disponibles según el campus y nivel de tu interés.',
+          'Sí. NWL cuenta con programas de apoyo económico y descuentos por hermanos. Agenda una visita para conocer las opciones en el campus de tu interés: Juriquilla, Milenio, San Miguel, Corregidora o Zibatá.',
       },
     ],
     images: {
@@ -1618,31 +1618,31 @@ export const informacionPages: Record<string, InformacionPage> = {
     description:
       'Kinder privado bilingüe en Querétaro con Filosofía para Niños, programa STEAM y formación socioemocional. Conoce los métodos de enseñanza de Newland School.',
     uniqueIntro:
-      'El kinder es la etapa donde se construyen los cimientos del aprendizaje. En Newland School, los niños de Querétaro encuentran un espacio bilingüe diseñado para despertar su curiosidad, desarrollar su creatividad y fortalecer sus habilidades sociales desde los primeros años.',
+      'El kinder NWL (3-5 años) se distingue en Querétaro por usar Knotion, la metodología internacional que elimina la tarea tradicional y la reemplaza con proyectos reales. Disponible en los 5 campus, el kinder incluye Filosofía para Niños, Yo Soy Líder NWL by Tec de Monterrey y programa BFS (Bullying Free School). Horario: 8:20-1:50 pm.',
     sections: [
       {
-        heading: 'Filosofía para Niños',
-        body: 'El kinder de Newland School implementa la Filosofía para Niños como herramienta pedagógica fundamental. A través del juego, los cuentos y el diálogo, los pequeños aprenden a hacer preguntas, escuchar a otros y expresar sus ideas con claridad y confianza.\n\nEsta metodología desarrolla habilidades cognitivas y sociales que marcan una diferencia significativa en el rendimiento académico durante primaria y más allá, formando pensadores independientes desde la primera infancia.',
+        heading: 'Knotion: Sin tarea, con aprendizaje real',
+        body: 'En los 5 campus NWL, el kinder utiliza Knotion: no hay cuadernos de tarea. Los niños trabajan en proyectos interdisciplinarios donde investigan, crean y presentan en español e inglés. Cada proyecto integra ciencias, lenguaje, arte y habilidades socioemocionales.\n\nEsta metodología internacional respeta el ritmo de cada niño y desarrolla autonomía, curiosidad y habilidades de comunicación desde los 3 años. Los docentes comparten portafolios digitales con las familias.',
       },
       {
-        heading: 'Programas Internacionales',
-        body: 'El programa bilingüe del kinder sumerge a los niños en el inglés de manera natural y lúdica. Las rutinas diarias, canciones, cuentos y actividades en ambos idiomas aprovechan la plasticidad cerebral de la primera infancia para desarrollar competencias lingüísticas sólidas.\n\nLos estándares internacionales del programa aseguran que los niños estén preparados para continuar su formación bilingüe en primaria con una base sólida de comprensión y expresión en ambos idiomas.',
+        heading: 'Filosofía para Niños desde los 3 años',
+        body: 'Las sesiones semanales de Filosofía para Niños usan cuentos, imágenes y preguntas abiertas para explorar la amistad, la justicia, las emociones y la naturaleza. Los niños aprenden a escuchar, formular preguntas y respetar opiniones diferentes.\n\nEsta metodología, presente en todos los campus NWL, desarrolla habilidades cognitivas y sociales que marcan la diferencia en primaria. Se complementa con Yo Soy Líder NWL by Tec de Monterrey para liderazgo e inteligencia emocional.',
       },
       {
-        heading: 'Modelo Educativo',
-        body: 'El modelo educativo del kinder de Newland School combina estimulación temprana, programa STEAM, expresión artística, psicomotricidad y formación socioemocional en un ambiente seguro y estimulante. Los espacios están diseñados específicamente para la primera infancia.\n\nLos docentes especializados trabajan con grupos reducidos y mantienen comunicación constante con las familias, asegurando que el desarrollo de cada niño sea acompañado de manera integral y personalizada.',
+        heading: 'Kinder en 5 campus: Cada uno con su sello',
+        body: 'Juriquilla: campus insignia con fútbol, basquetbol, artes visuales, teatro, robótica y música. Milenio: dance team, cocina, yoga, terraza rooftop y acreditación Cognia. San Miguel: arte, pintura, escultura, playground con barco pirata.\n\nCorregidora: basquetbol, dance, teatro, edificio cubo Rubik. Zibatá: instalaciones modernas de última generación (2025). Todos comparten el mismo modelo: Knotion sin tarea, FpN, Yo Soy Líder y BFS.',
       },
     ],
     faqs: [
       {
         question: '¿Qué métodos de enseñanza utiliza el kinder de Newland School?',
         answer:
-          'Nuestro kinder utiliza aprendizaje basado en el juego, Filosofía para Niños, programa STEAM, inmersión bilingüe y formación socioemocional, todo integrado en un modelo que respeta los ritmos de cada niño.',
+          'Knotion (sin tarea, proyectos reales), Filosofía para Niños, Yo Soy Líder NWL by Tec de Monterrey y BFS (Bullying Free School). Horario: 8:20-1:50 pm. Disponible en los 5 campus.',
       },
       {
         question: '¿En qué campus de Querétaro hay kinder de Newland School?',
         answer:
-          'Newland School ofrece kinder en sus campus de Juriquilla, Zibatá, Corregidora y Milenio, todos con el mismo programa bilingüe y modelo educativo de excelencia.',
+          'En los 5 campus: Juriquilla, Milenio, San Miguel de Allende, Corregidora y Zibatá. Cada uno tiene actividades únicas pero todos comparten el mismo modelo educativo bilingüe Knotion.',
       },
     ],
     images: {
@@ -1674,31 +1674,31 @@ export const informacionPages: Record<string, InformacionPage> = {
     description:
       'Escuela con maternal privado bilingüe en Querétaro. Estimulación temprana, Filosofía para Niños y un entorno seguro para el desarrollo integral desde los primeros meses.',
     uniqueIntro:
-      'El maternal es la primera experiencia educativa formal de un niño, y elegir el lugar correcto marca la diferencia en su desarrollo. Newland School ofrece un programa de maternal bilingüe en Querétaro diseñado para estimular el desarrollo cognitivo, motriz y socioemocional desde los primeros meses de vida.',
+      'El maternal NWL es el único programa en Querétaro que combina Brain Up (inglés desde los 2 años), Estimulación Multisensorial (único de su tipo en la región) y Filosofía para Niños adaptada a la primera infancia. Disponible en los 5 campus, con horario de 8:20-1:30 pm y protocolo de Desapego Seguro para la transición hogar-escuela.',
     sections: [
       {
-        heading: 'Filosofía para Niños',
-        body: 'Incluso en maternal, Newland School introduce los principios de la Filosofía para Niños a través de actividades sensoriales, cuentos interactivos y experiencias de exploración guiada. Los pequeños comienzan a desarrollar su capacidad de asombro, curiosidad y comunicación.\n\nEstas primeras experiencias filosóficas crean una base sólida para el pensamiento crítico, ayudando a los niños a desarrollar habilidades que los acompañarán a lo largo de toda su trayectoria educativa.',
+        heading: 'Brain Up: El inglés más temprano de Querétaro',
+        body: 'Brain Up es el programa de inmersión en inglés que introduce el segundo idioma desde los 2 años, la edad más temprana disponible en un colegio de Querétaro. No es una clase de inglés: el idioma se integra en canciones, cuentos, rutinas y juegos durante todo el día.\n\nEsta inmersión aprovecha la ventana de adquisición lingüística de la primera infancia, permitiendo que los niños adquieran el inglés de forma natural, como si fuera un idioma materno adicional.',
       },
       {
-        heading: 'Programas Internacionales',
-        body: 'El programa bilingüe del maternal expone a los niños al inglés desde sus primeros meses en la escuela. A través de canciones, juegos, rutinas y actividades sensoriales en ambos idiomas, los pequeños desarrollan una familiaridad natural con el inglés que facilita su aprendizaje posterior.\n\nEsta exposición temprana aprovecha la extraordinaria capacidad de los bebés y niños pequeños para absorber patrones lingüísticos, sentando las bases de un bilingüismo auténtico y funcional.',
+        heading: 'Estimulación Multisensorial: Única en la región',
+        body: 'NWL es el único colegio en Querétaro con un programa de Estimulación Multisensorial estructurado en maternal. Los niños exploran texturas, sonidos, aromas, sabores y movimientos en espacios diseñados por especialistas en desarrollo infantil.\n\nCada sesión combina estimulación visual, auditiva, táctil y vestibular, fortaleciendo conexiones neuronales en la etapa de mayor plasticidad cerebral. Complementa la psicomotricidad gruesa y fina adaptada al ritmo de cada niño.',
       },
       {
-        heading: 'Modelo Educativo',
-        body: 'El programa de maternal de Newland School se centra en la estimulación temprana integral: desarrollo sensorial, psicomotricidad gruesa y fina, lenguaje, socialización y autonomía. Los espacios están especialmente diseñados para bebés y niños pequeños con materiales seguros y estimulantes.\n\nEl equipo de docentes especializados en primera infancia trabaja con ratios reducidos que permiten una atención individualizada, respetando los ritmos de cada niño y comunicando diariamente los avances a las familias.',
+        heading: 'Corazones Mágicos, BFS y Desapego Seguro',
+        body: 'Corazones Mágicos enseña prevención de violencia desde los 2 años con cuentos, títeres y dinámicas de grupo. El protocolo de Desapego Seguro acompaña la transición del hogar a la escuela respetando el ritmo emocional de cada familia.\n\nTodos los campus NWL son Bullying Free School (BFS) desde maternal. Filosofía para Niños adaptada y Yo Soy Líder NWL by Tec de Monterrey completan la formación socioemocional más completa para primera infancia en Querétaro.',
       },
     ],
     faqs: [
       {
         question: '¿A partir de qué edad reciben niños en el maternal de NWL?',
         answer:
-          'El maternal de Newland School recibe niños a partir de 1 año y medio de edad. El programa está diseñado para acompañar cada etapa del desarrollo temprano con actividades adecuadas a su madurez.',
+          'Desde los 2 años cumplidos. Horario: 8:20-1:30 pm. Incluye Brain Up (inglés inmersivo), Estimulación Multisensorial (único en Querétaro), Corazones Mágicos, Desapego Seguro y BFS. Disponible en los 5 campus.',
       },
       {
         question: '¿El maternal de Newland School es bilingüe?',
         answer:
-          'Sí. Desde el maternal, los niños están expuestos al inglés y español de forma natural a través de actividades cotidianas, canciones y juegos, aprovechando la plasticidad cerebral de esta etapa.',
+          'Sí. El programa Brain Up introduce inglés desde los 2 años de forma natural e inmersiva. Es el programa de inglés más temprano disponible en colegios de Querétaro. Se complementa con Estimulación Multisensorial y Filosofía para Niños.',
       },
     ],
     images: {
@@ -1731,31 +1731,31 @@ export const informacionPages: Record<string, InformacionPage> = {
     description:
       'Escuela privada en Querétaro con kinder, primaria y secundaria bilingüe. Newland School ofrece Filosofía para Niños, programas internacionales y 5 campus.',
     uniqueIntro:
-      'Encontrar una escuela privada en Querétaro que ofrezca continuidad educativa desde los primeros años hasta la adolescencia es fundamental para el desarrollo integral. Newland School brinda kinder, primaria y secundaria bilingüe en 5 campus, con un modelo educativo que forma estudiantes con visión global y raíces sólidas.',
+      'NWL es una de las pocas escuelas privadas en Querétaro que ofrece trayectoria completa de maternal a preparatoria en 5 campus. Nuestro modelo elimina la tarea tradicional con Knotion, forma líderes con Yo Soy Líder by Tec de Monterrey, y certifica internacionalmente con Cambridge, Cognia y Hokku Academy. Más de 15 años formando estudiantes bilingües.',
     sections: [
       {
-        heading: 'Filosofía para Niños',
-        body: 'Lo que distingue a Newland School de otras escuelas privadas en Querétaro es su programa de Filosofía para Niños, presente en todos los niveles educativos. Los alumnos desarrollan pensamiento crítico, capacidad argumentativa y sensibilidad ética a través de comunidades de indagación filosófica.\n\nEsta metodología, aplicada desde kinder hasta secundaria, forma estudiantes que saben pensar, no solo repetir contenidos, preparándolos para enfrentar con éxito los retos académicos y personales que se presenten.',
+        heading: 'Un modelo sin tarea: Knotion en cada nivel',
+        body: 'Lo primero que notan las familias en NWL es que no hay tarea tradicional. La metodología Knotion sustituye cuadernos por proyectos: en kinder, los niños investigan y crean. En primaria, Knotion IMPACT con Design Thinking resuelve problemas reales. En secundaria, Emprendizaje con Universidad Mondragón crea proyectos empresariales.\n\nEl TecniKids STEAM Lab (impresión 3D, corte láser, robótica, maker spaces) complementa este enfoque en primaria. Los alumnos aprenden haciendo, no memorizando.',
       },
       {
-        heading: 'Programas Internacionales',
-        body: 'Newland School ofrece un programa 100% bilingüe que abarca kinder, primaria y secundaria. Los alumnos obtienen certificaciones internacionales de Cambridge y participan en programas de intercambio que amplían su perspectiva cultural y académica.\n\nLa formación internacional se complementa con alianzas educativas que abren puertas a oportunidades en universidades de prestigio tanto nacionales como internacionales.',
+        heading: 'Certificaciones que abren puertas',
+        body: 'Cambridge en todos los niveles (Starters, Movers, Flyers en primaria; PET, FCE en secundaria). Doble Certificación Internacional en secundaria (diploma EUA + México vía Hokku Academy). Acreditación Cognia en campus Milenio.\n\nEn preparatoria (San Miguel, Corregidora, Zibatá): Doble Diploma, Kn U High/Coursera, Inteligencia Financiera, IA y Tecnología Moderna. Viajes internacionales desde 5.° de primaria e intercambio en 5.° y 6.° semestre de prepa.',
       },
       {
-        heading: 'Modelo Educativo',
-        body: 'El modelo de Newland School integra rigor académico, formación socioemocional, tecnología STEAM, arte y deporte en cada nivel educativo. Las instalaciones de los 5 campus están diseñadas para ofrecer espacios de aprendizaje que inspiran y motivan a los estudiantes.\n\nLa continuidad educativa desde kinder hasta secundaria permite un seguimiento personalizado a largo plazo, donde cada alumno es conocido, acompañado y retado a alcanzar su máximo potencial en un entorno de calidez y exigencia.',
+        heading: '5 campus, un mismo estándar',
+        body: 'Juriquilla (2009, 4.6★): insignia, maternal-secundaria. Milenio (2016, 4.5★): Cognia, cocina, yoga, dance team. San Miguel (2018, 4.7★): arte, UNESCO, maternal-prepa. Corregidora (2019, 4.5★): podcasts, IA, cubo Rubik, maternal-prepa. Zibatá (2025, 4.5★): el más moderno, maternal-prepa.\n\nTodos comparten: Knotion sin tarea, FpN, Yo Soy Líder NWL, BFS, Cambridge, 90+ cámaras 24/7. Cada campus tiene actividades únicas que reflejan su comunidad.',
       },
     ],
     faqs: [
       {
         question: '¿Qué ventaja tiene una escuela privada con todos los niveles?',
         answer:
-          'La continuidad educativa permite un seguimiento personalizado del desarrollo de cada alumno, coherencia en la metodología y una comunidad escolar donde las familias se sienten parte integral del proceso educativo.',
+          'Continuidad educativa de maternal a prepa sin cambiar de escuela. Mismo modelo (Knotion, FpN, Yo Soy Líder), mismas certificaciones (Cambridge, Cognia), y seguimiento personalizado a largo plazo en 5 campus.',
       },
       {
         question: '¿Dónde están ubicados los campus de Newland School?',
         answer:
-          'Newland School tiene campus en Juriquilla, Zibatá, Corregidora, Milenio y San Miguel de Allende, estratégicamente ubicados para atender a las principales zonas residenciales de Querétaro.',
+          'Juriquilla, Milenio, San Miguel de Allende, Corregidora y Zibatá. Los 5 ofrecen maternal a secundaria. San Miguel, Corregidora y Zibatá también ofrecen preparatoria con Life Project y Doble Diploma.',
       },
     ],
     images: {
@@ -1785,31 +1785,31 @@ export const informacionPages: Record<string, InformacionPage> = {
     description:
       'Primaria bilingüe en Querétaro con Filosofía para Niños, certificaciones de Cambridge y formación integral. Descubre por qué Newland School es de las mejores opciones.',
     uniqueIntro:
-      'La primaria es una etapa decisiva en la formación académica y personal de los niños. Newland School ofrece una primaria bilingüe en Querétaro donde el rigor académico se combina con la formación en valores, el pensamiento crítico y la preparación para un mundo globalizado.',
+      'La primaria NWL (6-11 años) se distingue en Querétaro por tres programas clave: Knotion IMPACT con Design Thinking (sin tarea tradicional), TecniKids STEAM Lab (impresión 3D, corte láser, robótica) y certificaciones Cambridge desde 3.° grado. Horario: 7:40-2:30 pm en los 5 campus, con viajes internacionales desde 5.° grado.',
     sections: [
       {
-        heading: 'Filosofía para Niños',
-        body: 'La primaria bilingüe de Newland School se distingue por su programa de Filosofía para Niños, que desarrolla habilidades de pensamiento crítico, argumentación y diálogo desde los primeros grados. Los alumnos aprenden a analizar, cuestionar y proponer en un ambiente de respeto intelectual.\n\nLas comunidades de indagación filosófica transforman cada clase en una oportunidad para pensar con profundidad, desarrollando estudiantes que sobresalen en comprensión lectora, redacción y resolución de problemas.',
+        heading: 'Knotion IMPACT y TecniKids STEAM Lab',
+        body: 'No hay cuadernos de tarea en la primaria NWL. Knotion IMPACT utiliza Design Thinking para que los alumnos resuelvan problemas reales de su comunidad, integrando ciencias, tecnología y humanidades en cada proyecto.\n\nEl TecniKids STEAM Lab ofrece impresión 3D, corte láser, robótica y maker spaces. Los niños construyen prototipos, programan robots y experimentan con tecnología de punta desde los 6 años.',
       },
       {
-        heading: 'Programas Internacionales',
-        body: 'En la primaria bilingüe, los alumnos consolidan su dominio del inglés a través de un programa de inmersión que abarca ciencias, matemáticas, arte y literatura. Las certificaciones de Cambridge validan su nivel de competencia lingüística ante estándares internacionales.\n\nAdemás, los programas de intercambio cultural y las actividades interescolares internacionales amplían la visión de los estudiantes, preparándolos para ser ciudadanos del mundo con sensibilidad intercultural.',
+        heading: 'Cambridge, Cognia y viajes internacionales',
+        body: 'Desde 3.° grado, los alumnos se preparan para certificaciones Cambridge (Starters, Movers, Flyers). La acreditación Cognia del sistema NWL respalda los estándares académicos internacionales.\n\nDesde 5.° grado, los estudiantes acceden a viajes internacionales que complementan su formación global. La Filosofía para Niños con Diploma para Padres invita a las familias a participar activamente en la formación de pensamiento crítico.',
       },
       {
-        heading: 'Modelo Educativo',
-        body: 'La primaria de Newland School integra un programa STEAM, formación artística, deporte competitivo y acompañamiento socioemocional en un modelo que atiende todas las dimensiones del desarrollo infantil. Los laboratorios, bibliotecas y espacios deportivos complementan la formación en aula.\n\nCada alumno cuenta con un seguimiento personalizado que incluye portafolios de evidencias, evaluaciones formativas y reuniones con las familias, asegurando que el progreso académico y personal sea constante y visible.',
+        heading: 'Actividades únicas en cada campus',
+        body: 'Juriquilla: fútbol, basquetbol, voleibol, artes visuales, teatro, robótica, música. Milenio: cocina, yoga, dance team, tochito, voleibol. San Miguel: pintura, escultura, teatro, inmersión artística UNESCO. Corregidora: podcasts, programación, IA, basquetbol, dance. Zibatá: instalaciones modernas 2025.\n\nTodos comparten: Knotion sin tarea, TecniKids STEAM, FpN, Yo Soy Líder NWL by Tec de Monterrey, BFS y Cambridge. El programa se adapta al contexto de cada campus manteniendo el mismo estándar.',
       },
     ],
     faqs: [
       {
         question: '¿Qué certificaciones internacionales ofrece la primaria bilingüe?',
         answer:
-          'Los alumnos de la primaria bilingüe presentan evaluaciones de Cambridge que certifican su nivel de inglés, además de participar en evaluaciones estandarizadas que miden su desempeño académico general.',
+          'Cambridge Starters, Movers y Flyers desde 3.° grado. Acreditación Cognia del sistema. Viajes internacionales desde 5.° grado. Sin tarea tradicional gracias a Knotion IMPACT con Design Thinking.',
       },
       {
         question: '¿La primaria bilingüe incluye programa STEAM?',
         answer:
-          'Sí. El programa STEAM de la primaria integra ciencia, tecnología, ingeniería, arte y matemáticas en proyectos interdisciplinarios que desarrollan la creatividad, el pensamiento lógico y la resolución de problemas.',
+          'Sí. El TecniKids STEAM Lab ofrece impresión 3D, corte láser, robótica y maker spaces en los 5 campus. Horario: 7:40-2:30 pm. Filosofía para Niños y Yo Soy Líder NWL by Tec de Monterrey completan la formación.',
       },
     ],
     images: {
@@ -1841,31 +1841,31 @@ export const informacionPages: Record<string, InformacionPage> = {
     description:
       'Secundaria particular bilingüe en Querétaro con Filosofía para Niños, certificaciones de Cambridge y orientación vocacional. Newland School forma líderes del mañana.',
     uniqueIntro:
-      'La secundaria es una etapa de grandes cambios y decisiones. En Newland School, los adolescentes de Querétaro encuentran un espacio bilingüe donde el rigor académico se complementa con acompañamiento socioemocional, orientación vocacional y experiencias internacionales que los preparan para la preparatoria y la vida.',
+      'La secundaria NWL (12-15 años) se diferencia en Querétaro por el programa de Emprendizaje con Universidad Mondragón, la Doble Certificación Internacional (diploma EUA + México vía Hokku Academy) y certificaciones Cambridge PET/FCE. El modelo Knotion elimina la tarea tradicional. Horario: 7:30-2:30 pm, 90+ cámaras de seguridad en cada campus.',
     sections: [
       {
-        heading: 'Filosofía para Niños',
-        body: 'La secundaria particular de Newland School lleva la Filosofía para Niños a un nivel más profundo, con debates, ensayos filosóficos y proyectos de investigación que desafían a los adolescentes a pensar con rigor y originalidad. Los estudiantes se convierten en pensadores autónomos y ciudadanos críticos.\n\nEsta formación filosófica es especialmente valiosa durante la adolescencia, una etapa donde la capacidad de reflexión, el diálogo y la toma de decisiones informadas marcan la diferencia en el desarrollo personal.',
+        heading: 'Emprendizaje con Universidad Mondragón',
+        body: 'El programa de Emprendizaje desafía a los adolescentes a crear proyectos empresariales reales durante los 3 años de secundaria. En colaboración con Universidad Mondragón, los alumnos aprenden finanzas, mercadotecnia, presentación ejecutiva e impacto social.\n\nNo es un taller extracurricular: el emprendimiento es parte integral del currículo. Los proyectos se presentan ante jurados y los mejores se desarrollan para su implementación real.',
       },
       {
-        heading: 'Programas Internacionales',
-        body: 'La secundaria bilingüe prepara a los alumnos con certificaciones de Cambridge de nivel intermedio-avanzado y participación en programas de intercambio con escuelas de otros países. El dominio del inglés se aplica en todas las materias y proyectos académicos.\n\nEsta preparación internacional asegura que los egresados de la secundaria estén listos para continuar su educación en preparatorias de alto nivel, con las competencias lingüísticas y culturales que exige el mundo actual.',
+        heading: 'Doble Certificación: Diploma EUA + México',
+        body: 'A través de Hokku Academy, los alumnos de secundaria obtienen un diploma estadounidense (acreditado por Cognia) junto con su certificado SEP mexicano. Esta Doble Certificación Internacional les abre puertas a preparatorias en ambos países.\n\nLas certificaciones Cambridge PET y FCE consolidan un nivel B1-B2 de inglés. Model ONU, debate y oratoria desarrollan habilidades de comunicación y liderazgo. La Filosofía para Niños evoluciona hacia análisis ético y debate estructurado.',
       },
       {
-        heading: 'Modelo Educativo',
-        body: 'El modelo educativo de la secundaria integra ciencias, humanidades, tecnología, arte y deporte en un programa que reconoce la diversidad de talentos y estilos de aprendizaje de los adolescentes. Los laboratorios, talleres y espacios deportivos son escenarios de un aprendizaje vivencial.\n\nEl acompañamiento socioemocional incluye orientación vocacional, talleres de habilidades para la vida, prevención de riesgos y comunicación con las familias, creando una red de apoyo integral para cada estudiante.',
+        heading: 'Seguridad, deporte y actividades por campus',
+        body: 'Los 5 campus cuentan con 90+ cámaras de seguridad 24/7, programa BFS y Yo Soy Líder NWL by Tec de Monterrey. Cada campus tiene actividades únicas: Milenio (cocina, yoga, dance team), San Miguel (arte, cultura UNESCO), Corregidora (podcasts, IA, programación), Juriquilla (fútbol, artes visuales, teatro), Zibatá (instalaciones 2025).\n\nEl Diplomado para Padres de Filosofía para Niños y el seguimiento socioemocional acompañan a las familias durante la adolescencia.',
       },
     ],
     faqs: [
       {
         question: '¿La secundaria particular de NWL ofrece orientación vocacional?',
         answer:
-          'Sí. Desde segundo de secundaria, los alumnos participan en un programa de orientación vocacional que incluye evaluaciones de aptitudes, visitas a universidades y talleres de autoconocimiento.',
+          'Sí. El programa de Emprendizaje con Universidad Mondragón orienta vocacionalmente a través de proyectos reales. La Doble Certificación Internacional y Cambridge PET/FCE amplían las opciones de preparatoria en México y el extranjero.',
       },
       {
         question: '¿Qué nivel de inglés alcanzan los alumnos al terminar secundaria?',
         answer:
-          'Los egresados de la secundaria bilingüe de Newland School alcanzan un nivel B2 certificado por Cambridge, lo que les permite comunicarse con fluidez y participar en programas académicos en inglés.',
+          'Nivel B1-B2 certificado por Cambridge (PET/FCE). Además obtienen Doble Certificación Internacional (diploma EUA + México). Participan en Model ONU, debate y oratoria. Horario: 7:30-2:30 pm.',
       },
     ],
     images: {
@@ -1897,31 +1897,31 @@ export const informacionPages: Record<string, InformacionPage> = {
     description:
       'Secundaria privada bilingüe cerca de El Mirador Querétaro con Filosofía para Niños, certificaciones internacionales y formación integral en Newland School campus Milenio.',
     uniqueIntro:
-      'El Mirador es una zona residencial de Querétaro donde las familias valoran la educación de calidad y la cercanía. Newland School campus Milenio ofrece una secundaria bilingüe a pocos minutos de El Mirador, con un modelo educativo que prepara adolescentes con pensamiento crítico y visión global.',
+      'Los adolescentes de El Mirador encuentran en NWL campus Milenio la secundaria bilingüe más cercana (10-15 minutos). El campus con acreditación Cognia ofrece Emprendizaje con Universidad Mondragón, Doble Certificación Internacional, Cambridge PET/FCE y actividades exclusivas como cocina, yoga y dance team. Horario: 7:30-2:30 pm.',
     sections: [
       {
-        heading: 'Filosofía para Niños',
-        body: 'La secundaria de campus Milenio, cercana a El Mirador, implementa la Filosofía para Niños como pilar de la formación. Los adolescentes participan en debates, escritura argumentativa y proyectos filosóficos que desarrollan su capacidad de análisis y su sentido ético.\n\nEstas experiencias transforman la manera en que los estudiantes se relacionan con el conocimiento, formando jóvenes que no solo aprenden contenidos sino que construyen criterio propio y capacidad de diálogo.',
+        heading: 'Emprendizaje y Doble Certificación cerca de El Mirador',
+        body: 'Los alumnos de El Mirador participan en Emprendizaje con Universidad Mondragón: 3 años creando proyectos empresariales reales con impacto social. La Doble Certificación Internacional (diploma EUA + México vía Hokku Academy) abre puertas a preparatorias en ambos países.\n\nNWL campus Milenio es el único con acreditación Cognia en la zona sur, lo que respalda la validez internacional de las certificaciones que obtienen los alumnos.',
       },
       {
-        heading: 'Programas Internacionales',
-        body: 'Los alumnos de El Mirador que asisten a la secundaria de Newland School acceden a un programa bilingüe con certificaciones de Cambridge y oportunidades de intercambio internacional. El inglés se vive como herramienta de comunicación real, no solo como materia escolar.\n\nLa formación internacional prepara a los egresados para continuar su educación en cualquier preparatoria bilingüe del país o del extranjero, con un nivel de competencia lingüística y cultural que los distingue.',
+        heading: 'Cambridge PET/FCE y Model ONU',
+        body: 'Las certificaciones Cambridge PET y FCE consolidan un nivel B1-B2 de inglés al egresar. Los alumnos participan en Model ONU, debate y oratoria, desarrollando habilidades de comunicación y negociación.\n\nLa Filosofía para Niños con Diplomado para Padres crea un espacio de reflexión tanto para adolescentes como para familias, abordando dilemas éticos y fortaleciendo el pensamiento crítico durante una etapa de grandes cambios.',
       },
       {
-        heading: 'Modelo Educativo',
-        body: 'La secundaria de campus Milenio ofrece a las familias de El Mirador un programa integral que combina ciencias, tecnología, humanidades y arte en espacios diseñados para el aprendizaje activo. Las canchas deportivas, laboratorios y aulas tecnológicas complementan la formación académica.\n\nEl acompañamiento personalizado incluye tutoría académica, orientación socioemocional y comunicación constante con las familias, asegurando que cada adolescente reciba el apoyo que necesita en esta etapa crucial de su desarrollo.',
+        heading: 'Dance team, cocina, yoga y transporte',
+        body: 'Las actividades exclusivas de campus Milenio incluyen talleres de cocina, yoga y dance team competitivo, además de voleibol, tochito, basquetbol, fútbol, robótica STEAM y música.\n\nTransporte escolar cubre El Mirador con unidades monitoreadas por GPS. El campus cuenta con 90+ cámaras 24/7, cancha de fútbol, cancha techada, terraza rooftop y laboratorio STEAM. Directora: Mtra. Ximena Arellano.',
       },
     ],
     faqs: [
       {
         question: '¿La secundaria cercana a El Mirador tiene actividades deportivas?',
         answer:
-          'Sí. La secundaria de campus Milenio cuenta con programa deportivo que incluye fútbol, básquetbol, voleibol y atletismo, con participación en torneos interescolares y entrenamiento con profesionales.',
+          'Sí. Voleibol, tochito, basquetbol, fútbol, dance team, cocina, yoga, robótica STEAM y música. Campus Milenio tiene acreditación Cognia, cancha de fútbol, cancha techada y terraza rooftop.',
       },
       {
         question: '¿Hay transporte escolar desde El Mirador al campus Milenio?',
         answer:
-          'Contamos con rutas de transporte escolar que cubren El Mirador y colonias aledañas, con unidades seguras y servicio puerta a puerta para la comodidad de las familias.',
+          'Sí. Rutas con GPS cubren El Mirador (10-15 min). Los alumnos obtienen Emprendizaje, Doble Certificación, Cambridge PET/FCE y participan en Model ONU. Horario: 7:30-2:30 pm. 90+ cámaras 24/7.',
       },
     ],
     images: {
@@ -1954,31 +1954,31 @@ export const informacionPages: Record<string, InformacionPage> = {
     description:
       'Private bilingual Pre Kinder in Queretaro with Philosophy for Children, early stimulation and a safe environment. Discover Newland School\'s approach to early childhood education.',
     uniqueIntro:
-      'Queretaro has become a top destination for international families seeking quality bilingual education. Newland School offers a Pre Kinder program that combines early stimulation, bilingual immersion, and Philosophy for Children in a warm and safe environment designed for the youngest learners.',
+      'Newland School\'s Pre Kinder is the only program in Queretaro offering Multisensory Stimulation combined with Brain Up English immersion from age 2. Available at all 5 campuses, the program includes Philosophy for Children adapted for toddlers, the Corazones Magicos violence prevention program, and Secure Attachment protocols. Schedule: 8:20 AM to 1:30 PM.',
     sections: [
       {
-        heading: 'Philosophy for Children',
-        body: 'At Newland School\'s Pre Kinder, Philosophy for Children is introduced through sensory activities, interactive storytelling, and guided exploration. Even the youngest students begin developing their sense of wonder, curiosity, and ability to express their thoughts.\n\nThese early philosophical experiences build a strong foundation for critical thinking, helping children develop skills that will accompany them throughout their entire educational journey.',
+        heading: 'Brain Up: English Immersion from Age 2',
+        body: 'Brain Up is NWL\'s early English immersion program, introducing the second language through songs, stories, routines, and play throughout the day. This is not a separate English class — the language is woven into every activity naturally.\n\nStarting at age 2, children absorb English during the peak window of language acquisition, developing bilingual neural pathways that give them a lasting cognitive advantage. Brain Up is available at all 5 NWL campuses.',
       },
       {
-        heading: 'International Programs',
-        body: 'Our bilingual Pre Kinder program immerses children in both English and Spanish from their earliest school experience. Through songs, games, routines, and sensory activities in both languages, toddlers develop a natural familiarity with English.\n\nThis early exposure takes advantage of the extraordinary capacity of young children to absorb linguistic patterns, laying the groundwork for authentic and functional bilingualism in later years.',
+        heading: 'Multisensory Stimulation: Only at NWL',
+        body: 'NWL is the only school in Queretaro with a structured Multisensory Stimulation program for toddlers. Children explore textures, sounds, scents, and movements in spaces designed by child development specialists.\n\nEach session combines visual, auditory, tactile, and vestibular stimulation, strengthening neural connections during the brain\'s most plastic period. This complements gross and fine motor skills development adapted to each child\'s pace.',
       },
       {
-        heading: 'Educational Model',
-        body: 'The Pre Kinder program at Newland School focuses on comprehensive early stimulation: sensory development, gross and fine motor skills, language acquisition, socialization, and autonomy. The spaces are specifically designed for babies and toddlers with safe and stimulating materials.\n\nOur specialized early childhood team works with small groups, allowing individualized attention that respects each child\'s rhythm while communicating daily progress to families.',
+        heading: 'I\'m NWL Leader by Tec de Monterrey',
+        body: 'Even at the Pre Kinder level, children begin the I\'m NWL Leader program, designed exclusively for Newland School by Tecnologico de Monterrey. The 7 leadership habits are adapted for toddlers: proactivity, cooperation, empathy, and win-win thinking through play and group activities.\n\nThe Bullying Free School (BFS) protocol and Corazones Magicos program create a safe, nurturing environment from day one. The Secure Attachment protocol supports the home-to-school transition.',
       },
     ],
     faqs: [
       {
         question: 'What age does Newland School\'s Pre Kinder accept children?',
         answer:
-          'Our Pre Kinder program accepts children from 1.5 years of age. The program is designed to support each stage of early development with age-appropriate activities and personalized attention.',
+          'From age 2. Schedule: 8:20 AM to 1:30 PM. The program includes Brain Up (English immersion), Multisensory Stimulation (only at NWL in Queretaro), Philosophy for Children, and I\'m NWL Leader by Tec de Monterrey. Available at all 5 campuses.',
       },
       {
         question: 'Is the Pre Kinder program fully bilingual?',
         answer:
-          'Yes. From the very first day, children are exposed to both English and Spanish through daily activities, songs, and play, taking advantage of the brain\'s plasticity during early childhood.',
+          'Yes. Brain Up integrates English naturally throughout the day from age 2. NWL also offers Multisensory Stimulation (unique in Queretaro), Corazones Magicos violence prevention, and Bullying Free School protocols across all campuses.',
       },
     ],
     images: {
@@ -2010,31 +2010,31 @@ export const informacionPages: Record<string, InformacionPage> = {
     description:
       'Private bilingual Kindergarten in Queretaro with Philosophy for Children, STEAM program and holistic development. Discover Newland School\'s approach to early education.',
     uniqueIntro:
-      'For international families in Queretaro, finding a bilingual kindergarten that offers both academic excellence and a nurturing environment is essential. Newland School provides a kindergarten program where children learn through play, philosophy, and bilingual immersion in a safe and stimulating setting.',
+      'NWL\'s kindergarten (ages 3-5) uses Knotion, an international methodology that replaces traditional homework with real-world projects. Available at all 5 campuses, the program includes Philosophy for Children, I\'m NWL Leader by Tec de Monterrey, and Bullying Free School protocols. Each campus has unique activities: Milenio offers dance team, cooking, and yoga; San Miguel features art and sculpture. Schedule: 8:20 AM to 1:50 PM.',
     sections: [
       {
-        heading: 'Philosophy for Children',
-        body: 'Newland School\'s kindergarten integrates Philosophy for Children as a core pedagogical tool. Through play, storytelling, and dialogue, children learn to ask questions, listen to others, and express their ideas with clarity and confidence.\n\nThis methodology develops cognitive and social skills that make a significant difference in academic performance during elementary school and beyond, fostering independent thinkers from early childhood.',
+        heading: 'Knotion: No Homework, Real Projects',
+        body: 'At NWL kindergarten, there are no homework notebooks. Knotion replaces traditional homework with interdisciplinary projects where children investigate, create, and present in both Spanish and English. Each project integrates science, language, art, and social-emotional skills.\n\nThis international methodology respects each child\'s pace and develops autonomy, curiosity, and communication skills from age 3. Teachers share digital portfolios with families to track progress.',
       },
       {
-        heading: 'International Programs',
-        body: 'Our bilingual kindergarten program immerses children in English naturally and playfully. Daily routines, songs, stories, and activities in both languages take advantage of early childhood brain plasticity to build solid linguistic competencies.\n\nThe international standards of our program ensure that children are prepared to continue their bilingual education in elementary school with a strong foundation in comprehension and expression in both languages.',
+        heading: 'Philosophy for Children from Age 3',
+        body: 'Weekly Philosophy for Children sessions use stories, images, and open-ended questions to explore friendship, justice, emotions, and nature. Children learn to listen, ask questions, and respect different opinions.\n\nThis methodology, present at all NWL campuses, develops cognitive and social skills that make a measurable difference in elementary school. It complements I\'m NWL Leader by Tec de Monterrey for emotional intelligence.',
       },
       {
-        heading: 'Educational Model',
-        body: 'The kindergarten educational model at Newland School combines early stimulation, STEAM activities, artistic expression, psychomotor development, and social-emotional learning in a safe and stimulating environment designed specifically for young children.\n\nSpecialized teachers work with small groups and maintain constant communication with families, ensuring that each child\'s development is supported in a comprehensive and personalized manner.',
+        heading: '5 Campuses, Each with Unique Activities',
+        body: 'Juriquilla: soccer, basketball, visual arts, theater, robotics, music. Milenio: dance team, cooking workshops, yoga, rooftop terrace, Cognia accreditation. San Miguel: painting, sculpture, pirate ship playground, UNESCO city. Corregidora: basketball, dance, theater, Rubik\'s Cube building. Zibata: modern 2025 facilities.\n\nAll share: Knotion (no homework), Philosophy for Children, I\'m NWL Leader, and Bullying Free School. Same educational model, different campus personalities.',
       },
     ],
     faqs: [
       {
         question: 'What teaching methods does the kindergarten use?',
         answer:
-          'Our kindergarten uses play-based learning, Philosophy for Children, STEAM programming, bilingual immersion, and social-emotional development, all integrated into a model that respects each child\'s learning pace.',
+          'Knotion (no traditional homework, real projects), Philosophy for Children, I\'m NWL Leader by Tec de Monterrey, and Bullying Free School. Schedule: 8:20-1:50 PM. Available at all 5 campuses across Queretaro and San Miguel de Allende.',
       },
       {
         question: 'Which campuses offer kindergarten in Queretaro?',
         answer:
-          'Newland School offers kindergarten at our Juriquilla, Zibata, Corregidora, and Milenio campuses, all with the same bilingual program and educational model of excellence.',
+          'All 5: Juriquilla (est. 2009), Milenio (est. 2016, Cognia accredited), San Miguel de Allende (est. 2018), Corregidora (est. 2019), and Zibata (est. 2025). Each has unique activities but the same bilingual Knotion model.',
       },
     ],
     images: {
@@ -2066,31 +2066,31 @@ export const informacionPages: Record<string, InformacionPage> = {
     description:
       'Private bilingual elementary school in Queretaro with Philosophy for Children, Cambridge certifications and holistic education. Newland School shapes future global citizens.',
     uniqueIntro:
-      'Queretaro\'s growing international community needs elementary schools that deliver bilingual education at the highest level. Newland School offers a private bilingual elementary program where academic rigor meets character development, critical thinking, and global preparation.',
+      'NWL\'s elementary school (ages 6-11) stands out in Queretaro for three key programs: Knotion IMPACT with Design Thinking (no traditional homework), TecniKids STEAM Lab (3D printing, laser cutting, robotics), and Cambridge certifications from 3rd grade. International trips begin in 5th grade. Schedule: 7:40 AM to 2:30 PM across all 5 campuses.',
     sections: [
       {
-        heading: 'Philosophy for Children',
-        body: 'Newland School\'s bilingual elementary program stands out for its Philosophy for Children curriculum, which develops critical thinking, argumentation, and dialogue skills from the earliest grades. Students learn to analyze, question, and propose ideas in an atmosphere of intellectual respect.\n\nPhilosophical inquiry communities transform every class into an opportunity for deep thinking, producing students who excel in reading comprehension, writing, and problem-solving.',
+        heading: 'Knotion IMPACT and TecniKids STEAM Lab',
+        body: 'There are no homework notebooks at NWL elementary. Knotion IMPACT uses Design Thinking so students solve real community problems, integrating science, technology, and humanities in every project.\n\nThe TecniKids STEAM Lab offers 3D printing, laser cutting, robotics, and maker spaces where children build prototypes and program robots from age 6. These hands-on skills prepare students for Cambridge certifications and secondary school challenges.',
       },
       {
-        heading: 'International Programs',
-        body: 'In our bilingual elementary school, students strengthen their English proficiency through an immersion program that covers science, mathematics, art, and literature. Cambridge certifications validate their linguistic competence against international standards.\n\nCultural exchange programs and international interschool activities broaden students\' perspectives, preparing them to be global citizens with intercultural sensitivity and awareness.',
+        heading: 'Cambridge Certifications and International Trips',
+        body: 'From 3rd grade, students prepare for Cambridge certifications (Starters, Movers, Flyers). The Cognia accreditation of the NWL system backs these international academic standards.\n\nStarting in 5th grade, students access international trips that broaden their global perspective. Philosophy for Children with a Parent Diploma invites families to actively participate in developing critical thinking at home.',
       },
       {
-        heading: 'Educational Model',
-        body: 'Newland School\'s elementary program integrates STEAM education, artistic development, competitive sports, and social-emotional support in a model that addresses every dimension of child development. Laboratories, libraries, and sports facilities complement classroom instruction.\n\nEach student receives personalized monitoring through evidence portfolios, formative assessments, and family meetings, ensuring that academic and personal progress is constant and visible.',
+        heading: 'Unique Activities at Each Campus',
+        body: 'Juriquilla: soccer, basketball, volleyball, visual arts, theater, robotics, music. Milenio: cooking workshops, yoga, dance team, Cognia accredited. San Miguel: painting, sculpture, theater in a UNESCO city. Corregidora: podcasts, programming, AI, basketball, dance. Zibata: state-of-the-art 2025 facilities.\n\nAll share: Knotion IMPACT (no homework), TecniKids STEAM, Philosophy for Children, I\'m NWL Leader by Tec de Monterrey, Bullying Free School, and Cambridge. Same standard, unique campus culture.',
       },
     ],
     faqs: [
       {
         question: 'What international certifications does the elementary school offer?',
         answer:
-          'Students at our bilingual elementary school take Cambridge assessments that certify their English level, along with standardized evaluations that measure overall academic performance.',
+          'Cambridge Starters, Movers, and Flyers from 3rd grade. Cognia system accreditation. International trips from 5th grade. No traditional homework — Knotion IMPACT with Design Thinking replaces it with real-world projects.',
       },
       {
         question: 'Does the elementary school include a STEAM program?',
         answer:
-          'Yes. Our STEAM program integrates science, technology, engineering, art, and mathematics in interdisciplinary projects that develop creativity, logical thinking, and problem-solving skills.',
+          'Yes. The TecniKids STEAM Lab offers 3D printing, laser cutting, robotics, and maker spaces at all 5 campuses. Schedule: 7:40-2:30 PM. Philosophy for Children and I\'m NWL Leader by Tec de Monterrey complete the program.',
       },
     ],
     images: {
@@ -2122,31 +2122,31 @@ export const informacionPages: Record<string, InformacionPage> = {
     description:
       'Private bilingual junior high school in Queretaro with Philosophy for Children, Cambridge certifications and career guidance. Newland School prepares future leaders.',
     uniqueIntro:
-      'The junior high years are a critical time of growth, identity formation, and academic challenge. Newland School offers a bilingual junior high school in Queretaro where teenagers develop critical thinking, leadership skills, and global awareness in a supportive and challenging environment.',
+      'NWL\'s junior high (ages 12-15) stands apart in Queretaro with the Emprendizaje entrepreneurship program (with Mondragon University), Dual International Certification (US + Mexico diplomas via Hokku Academy), and Cambridge PET/FCE certifications. The Knotion model eliminates traditional homework. Schedule: 7:30 AM to 2:30 PM, with 90+ security cameras at every campus.',
     sections: [
       {
-        heading: 'Philosophy for Children',
-        body: 'At Newland School\'s junior high, Philosophy for Children reaches a deeper level through debates, philosophical essays, and research projects that challenge teenagers to think with rigor and originality. Students become autonomous thinkers and critical citizens.\n\nThis philosophical formation is especially valuable during adolescence, a stage where the capacity for reflection, dialogue, and informed decision-making makes all the difference in personal development.',
+        heading: 'Emprendizaje: Real Entrepreneurship with Mondragon University',
+        body: 'Over three years of junior high, students create real business projects in partnership with Mondragon University. They learn finance, marketing, and executive presentation while addressing social challenges in their communities.\n\nThis is not an extracurricular workshop — entrepreneurship is integrated into the core curriculum. Projects are presented to judges, and the best are developed for real-world implementation.',
       },
       {
-        heading: 'International Programs',
-        body: 'Our bilingual junior high prepares students with intermediate-advanced Cambridge certifications and participation in exchange programs with schools in other countries. English proficiency is applied across all subjects and academic projects.\n\nThis international preparation ensures that junior high graduates are ready to continue their education at top-tier high schools, with the linguistic and cultural competencies that today\'s world demands.',
+        heading: 'Dual International Certification: US + Mexico Diplomas',
+        body: 'Through Hokku Academy, NWL junior high students earn a US diploma (Cognia-accredited) alongside their Mexican SEP certificate. This Dual International Certification opens doors to high schools in both countries.\n\nCambridge PET and FCE certifications consolidate a B1-B2 English level. Model UN, debate, and public speaking develop communication and leadership skills. Philosophy for Children evolves into structured ethical analysis and debate.',
       },
       {
-        heading: 'Educational Model',
-        body: 'The junior high educational model integrates sciences, humanities, technology, art, and sports in a program that recognizes the diversity of talents and learning styles among teenagers. Laboratories, workshops, and sports facilities provide experiential learning environments.\n\nSocial-emotional support includes career guidance, life skills workshops, risk prevention, and family communication, creating a comprehensive support network for each student during these formative years.',
+        heading: 'Security, Sports, and Unique Campus Activities',
+        body: 'All 5 campuses feature 90+ security cameras (24/7), Bullying Free School protocols, and I\'m NWL Leader by Tec de Monterrey. Each campus has unique offerings: Milenio (cooking, yoga, dance team), San Miguel (art in a UNESCO city), Corregidora (podcasts, AI, programming), Juriquilla (soccer, visual arts), Zibata (modern 2025 facilities).\n\nThe Parent Diploma in Philosophy for Children and social-emotional support help families navigate the teenage years together.',
       },
     ],
     faqs: [
       {
         question: 'Does the junior high school offer career guidance?',
         answer:
-          'Yes. From the second year of junior high, students participate in a career guidance program that includes aptitude assessments, university visits, and self-awareness workshops.',
+          'Yes. The Emprendizaje program with Mondragon University provides hands-on entrepreneurship and career exploration over 3 years. The Dual International Certification (US + Mexico) and Cambridge PET/FCE expand high school options domestically and abroad.',
       },
       {
         question: 'What English level do students achieve by the end of junior high?',
         answer:
-          'Graduates of Newland School\'s bilingual junior high achieve a B2 level certified by Cambridge, enabling them to communicate fluently and participate in English-language academic programs.',
+          'Cambridge-certified B1-B2 level (PET/FCE). Students also earn Dual International Certification (US + Mexico diplomas). They participate in Model UN, debate, and public speaking. Schedule: 7:30-2:30 PM. 90+ security cameras at each campus.',
       },
     ],
     images: {
@@ -2178,31 +2178,31 @@ export const informacionPages: Record<string, InformacionPage> = {
     description:
       'Private bilingual high school in Queretaro with Philosophy for Children, international programs and 5 campuses. Newland School delivers academic excellence from preschool to high school.',
     uniqueIntro:
-      'Queretaro continues to attract international families seeking world-class bilingual education. Newland School stands as one of the most comprehensive private bilingual schools in the region, with 5 campuses and an educational model that shapes globally-minded, critical-thinking, and socially committed students.',
+      'Newland School operates 5 campuses across Queretaro and San Miguel de Allende, serving students from pre-kinder (age 2) through high school (age 17). With Cognia accreditation, partnerships with Tec de Monterrey, Mondragon University, Hokku Academy, Knotion, Cambridge, and Coursera, NWL shapes bilingual, entrepreneurial, critical-thinking graduates. High school is available at San Miguel, Corregidora, and Zibata campuses.',
     sections: [
       {
-        heading: 'Philosophy for Children',
-        body: 'Newland School is a pioneer in implementing Philosophy for Children in Queretaro. From preschool through high school, students participate in philosophical inquiry communities that develop critical thinking, argumentative capacity, and ethical sensitivity.\n\nThis distinctive program transforms the educational experience, shaping students who not only accumulate knowledge but learn to question, analyze, and apply it in creative and responsible ways.',
+        heading: 'Life Project: Your Personalized Path',
+        body: 'NWL\'s high school (available at San Miguel, Corregidora, and Zibata) features the Life Project program: each student works with a personal Life Mentor over 6 semesters to define their academic and professional path.\n\nThe Dual Diploma (SEP Mexico + Cognia-accredited US diploma) and Kn U High/Coursera certifications from 1st semester give students a head start on college preparation. International exchange opportunities open in semesters 5 and 6.',
       },
       {
-        heading: 'International Programs',
-        body: 'As a bilingual school, Newland School guarantees English proficiency through an immersion program that begins in the earliest years. Cambridge certifications, exchange programs, and partnerships with international institutions complement the global education.\n\nStudents are prepared to compete in a globalized world with linguistic, cultural, and academic tools that open doors to prestigious national and international universities.',
+        heading: 'Financial Literacy, AI, and Modern Skills',
+        body: 'Every semester includes Financial Literacy classes that teach practical money management, investing fundamentals, and entrepreneurial finance. The AI and Modern Technology module ensures students are proficient with cutting-edge tools.\n\nThe HIT/Hyrox fitness program maintains physical wellness on campus. Over 3 years, students build a Personal Project Portfolio of 6 real-world projects. McGraw-Hill provides the academic content backbone.',
       },
       {
-        heading: 'Educational Model',
-        body: 'Newland School\'s educational model integrates academic rigor, social-emotional development, art, sports, and technology in a program designed for each stage of development. All 5 campuses feature first-class facilities and specialized teaching teams.\n\nPersonalized attention, small group sizes, and close communication with families ensure that each student receives the support needed to reach their full potential and develop a genuine love for learning.',
+        heading: '5 Campuses, Complete Educational Journey',
+        body: 'Juriquilla (est. 2009, 4.6 stars): flagship, pre-k through junior high. Milenio (est. 2016, 4.5 stars): Cognia accredited, cooking/yoga/dance team. San Miguel (est. 2018, 4.7 stars): art, UNESCO city, pre-k through high school. Corregidora (est. 2019, 4.5 stars): podcasts, AI, Rubik\'s Cube building, pre-k through high school. Zibata (est. 2025, 4.5 stars): newest, most modern, pre-k through high school.\n\nAll campuses share: Knotion (no homework), Philosophy for Children, I\'m NWL Leader by Tec de Monterrey, Cambridge, and Bullying Free School.',
       },
     ],
     faqs: [
       {
         question: 'How many campuses does Newland School have?',
         answer:
-          'Newland School has 5 campuses: Juriquilla, Zibata, Corregidora, Milenio, and San Miguel de Allende, each with complete facilities and the same educational model of excellence.',
+          '5 campuses: Juriquilla (2009), Milenio (2016), San Miguel de Allende (2018), Corregidora (2019), and Zibata (2025). San Miguel, Corregidora, and Zibata offer high school with Life Project and Dual Diploma.',
       },
       {
         question: 'What grade levels does Newland School offer?',
         answer:
-          'Newland School offers preschool, kindergarten, elementary, junior high, and high school, providing a continuous and coherent educational path within the same bilingual system.',
+          'Pre-kinder (age 2) through high school (age 17). Programs include Brain Up, Knotion (no homework), TecniKids STEAM, Emprendizaje, Dual International Certification, Cambridge, Life Project, and Dual Diploma depending on level and campus.',
       },
     ],
     images: {
@@ -2234,31 +2234,31 @@ export const informacionPages: Record<string, InformacionPage> = {
     description:
       'Preparatoria bilingüe privada en Querétaro con Filosofía para Niños, programas internacionales y formación integral. Newland School prepara líderes con visión global.',
     uniqueIntro:
-      'La preparatoria es la etapa donde los jóvenes definen su futuro académico y profesional. Newland School ofrece una preparatoria bilingüe en Querétaro que combina rigor académico, pensamiento crítico y experiencias internacionales para formar egresados preparados para las mejores universidades del país y del mundo.',
+      'La preparatoria NWL está disponible en 3 campus (San Miguel de Allende, Corregidora y Zibatá) y ofrece el programa Life Project con mentores personales durante 6 semestres. Los alumnos obtienen el Doble Diploma (SEP México + EUA acreditado por Cognia), certificaciones Kn U High/Coursera desde el primer semestre, Inteligencia Financiera, IA y Tecnología Moderna, y acceso a intercambio internacional. Horario: 7:30-2:30 pm.',
     sections: [
       {
-        heading: 'Filosofía para Niños',
-        body: 'En la preparatoria de Newland School, la Filosofía para Niños evoluciona hacia seminarios de pensamiento filosófico y ética aplicada. Los estudiantes analizan dilemas contemporáneos, construyen ensayos argumentativos y participan en debates que fortalecen su capacidad de reflexión crítica.\n\nEsta formación filosófica prepara jóvenes que saben pensar con profundidad, comunicar sus ideas con claridad y tomar decisiones informadas, habilidades fundamentales para el éxito universitario y profesional.',
+        heading: 'Life Project: Tu camino personalizado',
+        body: 'Cada alumno de preparatoria NWL trabaja con un Life Mentor personal durante los 6 semestres. Juntos definen metas académicas, personales y profesionales, construyendo un plan de vida que se materializa en un Portafolio de 6 Proyectos Personales.\n\nEl Life Project no es una materia: es una experiencia transformadora donde el alumno se conoce, identifica sus fortalezas y diseña su futuro con el apoyo de mentores, herramientas y experiencias reales.',
       },
       {
-        heading: 'Programas Internacionales',
-        body: 'La preparatoria bilingüe de Newland School ofrece certificaciones de Cambridge avanzadas, programas de intercambio internacional y alianzas con universidades de prestigio. Los alumnos alcanzan un nivel de inglés que les permite cursar materias universitarias en ambos idiomas.\n\nAdemás, los estudiantes participan en ferias universitarias internacionales, programas de liderazgo y proyectos comunitarios que amplían su visión del mundo y fortalecen su perfil de ingreso universitario.',
+        heading: 'Doble Diploma y certificaciones Kn U High/Coursera',
+        body: 'Los alumnos egresan con doble validez: diploma SEP (México) y diploma estadounidense acreditado por Cognia. Desde el primer semestre, acceden a certificaciones Kn U High y Coursera que les dan una ventaja en admisiones universitarias.\n\nEl contenido académico de McGraw-Hill se complementa con Inteligencia Financiera cada semestre (inversiones, presupuestos, emprendimiento financiero) y módulos de IA y Tecnología Moderna que preparan para las carreras del futuro.',
       },
       {
-        heading: 'Modelo Educativo',
-        body: 'El modelo educativo de la preparatoria integra ciencias, humanidades, tecnología y emprendimiento en un programa que prepara a los jóvenes para los retos del siglo XXI. Los laboratorios, estudios de producción y espacios de innovación complementan la formación académica.\n\nLa orientación vocacional personalizada, las prácticas profesionales y las alianzas con universidades aseguran que cada egresado cuente con las herramientas necesarias para ingresar a la carrera y universidad de su elección.',
+        heading: 'HIT/Hyrox, intercambio y 3 campus disponibles',
+        body: 'El programa HIT/Hyrox mantiene la condición física en campus con entrenamientos de alta intensidad. En 5.° y 6.° semestre, los alumnos acceden a programas de intercambio internacional.\n\nSan Miguel de Allende (4.7★, ciudad UNESCO, arte y cultura), Corregidora (4.5★, podcasts, IA, edificio cubo Rubik) y Zibatá (4.5★, 2025, instalaciones más modernas). Cada campus ofrece la misma preparatoria con el carácter único de su comunidad.',
       },
     ],
     faqs: [
       {
-        question: '¿Qué universidades aceptan egresados de la preparatoria NWL?',
+        question: '¿En qué campus de NWL hay preparatoria?',
         answer:
-          'Los egresados de la preparatoria de Newland School son aceptados en universidades de prestigio como el Tec de Monterrey, UNAM, Ibero, UP, UDLAP y universidades en el extranjero gracias a su formación bilingüe y perfil académico destacado.',
+          'San Miguel de Allende, Corregidora y Zibatá. Juriquilla y Milenio NO tienen preparatoria. Los 3 campus con prepa ofrecen Life Project, Doble Diploma, Kn U High/Coursera, Inteligencia Financiera, HIT/Hyrox e intercambio internacional.',
       },
       {
         question: '¿La preparatoria bilingüe tiene programa de emprendimiento?',
         answer:
-          'Sí. La preparatoria incluye un programa de emprendimiento e innovación donde los estudiantes desarrollan proyectos reales con mentoría de profesionales, preparándolos para el mundo laboral y empresarial.',
+          'Sí. El Portafolio de 6 Proyectos Personales, las certificaciones Coursera, la Inteligencia Financiera y el Life Project con mentores crean un perfil emprendedor. En secundaria previa, el Emprendizaje con Universidad Mondragón sienta las bases.',
       },
     ],
     images: {
@@ -2289,31 +2289,31 @@ export const informacionPages: Record<string, InformacionPage> = {
     description:
       'Preparatoria bilingüe privada en San Miguel de Allende con Filosofía para Niños, programas internacionales y formación integral. Newland School campus San Miguel.',
     uniqueIntro:
-      'San Miguel de Allende es una ciudad cosmopolita con una comunidad internacional que demanda opciones educativas de alto nivel. Newland School campus San Miguel ofrece una preparatoria bilingüe donde los jóvenes reciben una formación de excelencia en un entorno culturalmente rico y estimulante.',
+      'La preparatoria NWL San Miguel de Allende combina el programa Life Project con mentores personales y el contexto cultural de una ciudad Patrimonio UNESCO. Los alumnos obtienen el Doble Diploma (México + EUA), certificaciones Kn U High/Coursera y participan en intercambio internacional en 5.° y 6.° semestre. Campus fundado en 2018, 4.7★ en Google, dirigido por el Lic. Ramón Godínez.',
     sections: [
       {
-        heading: 'Filosofía para Niños',
-        body: 'La preparatoria de Newland School en San Miguel de Allende incorpora la Filosofía para Niños como eje del desarrollo intelectual. Los estudiantes participan en seminarios filosóficos, debates éticos y proyectos de investigación que los desafían a pensar con rigor y creatividad.\n\nEn una ciudad con tanta riqueza cultural como San Miguel de Allende, la formación filosófica adquiere una dimensión especial, conectando el pensamiento crítico con el patrimonio artístico e histórico del entorno.',
+        heading: 'Life Project en una ciudad Patrimonio UNESCO',
+        body: 'El Life Project en San Miguel de Allende cobra una dimensión única: los alumnos trabajan con Life Mentors rodeados de galerías, festivales, artistas y una comunidad internacional activa. Los 6 Proyectos Personales del portafolio pueden conectar con la escena cultural y emprendedora de la ciudad.\n\nEsta inmersión cultural enriquece el proceso de autoconocimiento y definición vocacional. Los alumnos no solo planean su futuro académico, sino que lo viven en un entorno que inspira creatividad y visión global.',
       },
       {
-        heading: 'Programas Internacionales',
-        body: 'La preparatoria bilingüe en San Miguel de Allende prepara a los alumnos con certificaciones internacionales de Cambridge y programas de intercambio que aprovechan la naturaleza cosmopolita de la ciudad. Los estudiantes interactúan con una comunidad multicultural que enriquece su formación.\n\nEsta exposición internacional natural, combinada con el programa académico bilingüe, produce egresados con un perfil global excepcional, listos para universidades nacionales e internacionales de prestigio.',
+        heading: 'Doble Diploma y comunidad multicultural',
+        body: 'El Doble Diploma (SEP México + diploma EUA acreditado por Cognia) es especialmente valorado en San Miguel, donde la comunidad internacional demanda credenciales reconocidas en ambos países. Las certificaciones Kn U High/Coursera desde el primer semestre refuerzan el perfil de admisión universitaria.\n\nLa diversidad de San Miguel de Allende (familias mexicanas, estadounidenses, canadienses, europeas) crea un ambiente donde los alumnos practican inglés en contextos reales, acelerando su dominio del idioma.',
       },
       {
-        heading: 'Modelo Educativo',
-        body: 'El modelo educativo de la preparatoria en San Miguel integra ciencias, humanidades, arte y tecnología en un programa que capitaliza la riqueza cultural de la ciudad. Los espacios de aprendizaje, los laboratorios y las áreas creativas están diseñados para inspirar innovación y compromiso social.\n\nLa orientación vocacional, las alianzas con universidades y los proyectos comunitarios complementan una formación que busca formar líderes con sensibilidad social y preparación académica de primer nivel.',
+        heading: 'Arte, HIT/Hyrox e intercambio internacional',
+        body: 'Las actividades aprovechan la riqueza de San Miguel: pintura, escultura, teatro y la inmersión en la escena artística local complementan robótica STEAM y música. El programa HIT/Hyrox mantiene la condición física con entrenamientos en campus.\n\nEn 5.° y 6.° semestre, los alumnos acceden a programas de intercambio internacional. Inteligencia Financiera cada semestre y módulos de IA y Tecnología Moderna preparan para las carreras del futuro.',
       },
     ],
     faqs: [
       {
         question: '¿La preparatoria en San Miguel de Allende acepta alumnos internacionales?',
         answer:
-          'Sí. Newland School campus San Miguel recibe alumnos de diversas nacionalidades y ofrece un programa bilingüe que facilita la integración de estudiantes internacionales con alto nivel académico.',
+          'Sí. La comunidad multicultural de San Miguel enriquece la experiencia. El Doble Diploma (México + EUA) facilita la transición para familias internacionales. Campus con 4.7★ en Google, la calificación más alta de la red NWL.',
       },
       {
-        question: '¿Qué actividades extracurriculares ofrece la prepa en San Miguel?',
+        question: '¿Qué actividades ofrece la prepa en San Miguel?',
         answer:
-          'La preparatoria ofrece talleres de arte, música, fotografía, deportes, emprendimiento y servicio comunitario, aprovechando la riqueza cultural y artística de San Miguel de Allende.',
+          'Pintura, escultura, teatro (inmersión artística), robótica STEAM, música, HIT/Hyrox fitness, Life Project con mentores, Inteligencia Financiera, IA, Kn U High/Coursera e intercambio internacional. Director: Lic. Ramón Godínez.',
       },
     ],
     images: {
@@ -2346,31 +2346,31 @@ export const informacionPages: Record<string, InformacionPage> = {
     description:
       'Bilingual high school in San Miguel de Allende with Philosophy for Children, Cambridge certifications and a global perspective. Newland School shapes tomorrow\'s leaders.',
     uniqueIntro:
-      'San Miguel de Allende\'s vibrant international community demands educational excellence that matches its cosmopolitan character. Newland School offers a bilingual high school where students receive a world-class education surrounded by the cultural richness that makes this UNESCO World Heritage city truly unique.',
+      'NWL San Miguel de Allende offers the only bilingual high school in the city with a Dual Diploma (Mexico SEP + US Cognia-accredited), Life Project with personal mentors, and Kn U High/Coursera certifications. In a UNESCO World Heritage city with a thriving international community, students build their future surrounded by art, culture, and global perspectives. Campus rated 4.7 stars on Google, directed by Lic. Ramon Godinez.',
     sections: [
       {
-        heading: 'Philosophy for Children',
-        body: 'Newland School\'s high school in San Miguel de Allende integrates Philosophy for Children as the cornerstone of intellectual development. Students engage in philosophical seminars, ethical debates, and research projects that challenge them to think with rigor and creativity.\n\nIn a city with such cultural richness as San Miguel de Allende, philosophical education takes on a special dimension, connecting critical thinking with the artistic and historical heritage of the surrounding environment.',
+        heading: 'Life Project in a UNESCO World Heritage City',
+        body: 'The Life Project at NWL San Miguel takes on a unique dimension: students work with personal Life Mentors surrounded by galleries, festivals, artists, and an active international community. The 6-project Personal Portfolio can connect with the city\'s cultural and entrepreneurial scene.\n\nThis cultural immersion enriches the self-discovery process. Students don\'t just plan their academic future — they live it in an environment that inspires creativity, empathy, and global vision.',
       },
       {
-        heading: 'International Programs',
-        body: 'The bilingual high school in San Miguel de Allende prepares students with Cambridge international certifications and exchange programs that leverage the city\'s cosmopolitan nature. Students interact with a multicultural community that enriches their educational experience.\n\nThis natural international exposure, combined with the bilingual academic program, produces graduates with an exceptional global profile, ready for prestigious national and international universities.',
+        heading: 'Dual Diploma and Multicultural Community',
+        body: 'The Dual Diploma (Mexico SEP + Cognia-accredited US diploma) is especially valued in San Miguel, where the international community demands credentials recognized in both countries. Kn U High/Coursera certifications from 1st semester strengthen university admissions profiles.\n\nSan Miguel\'s diversity (Mexican, American, Canadian, European families) creates an environment where students practice English in real contexts daily, accelerating fluency and cultural competence.',
       },
       {
-        heading: 'Educational Model',
-        body: 'The educational model integrates sciences, humanities, art, and technology in a program that capitalizes on San Miguel de Allende\'s cultural wealth. Learning spaces, laboratories, and creative areas are designed to inspire innovation and social commitment.\n\nCareer guidance, university partnerships, and community projects complement a program that aims to develop leaders with social awareness and first-rate academic preparation.',
+        heading: 'Art, HIT/Hyrox, and International Exchange',
+        body: 'Activities leverage San Miguel\'s cultural wealth: painting, sculpture, theater, and immersion in the local art scene complement robotics/STEAM and music. The HIT/Hyrox fitness program maintains physical wellness with on-campus training.\n\nIn semesters 5 and 6, students access international exchange programs. Financial Literacy every semester and AI/Modern Technology modules prepare graduates for tomorrow\'s careers. McGraw-Hill provides the academic content framework.',
       },
     ],
     faqs: [
       {
         question: 'Does the high school in San Miguel de Allende accept international students?',
         answer:
-          'Yes. Newland School San Miguel campus welcomes students of diverse nationalities and offers a bilingual program that facilitates the integration of international students with high academic standards.',
+          'Yes. San Miguel\'s multicultural community enriches the experience. The Dual Diploma (Mexico + US) facilitates transitions for international families. Campus rated 4.7 stars on Google — the highest in the NWL network. Director: Lic. Ramon Godinez.',
       },
       {
         question: 'What extracurricular activities are available at the San Miguel high school?',
         answer:
-          'The high school offers workshops in art, music, photography, sports, entrepreneurship, and community service, taking advantage of San Miguel de Allende\'s rich cultural and artistic heritage.',
+          'Painting, sculpture, theater (cultural immersion), robotics/STEAM, music, HIT/Hyrox fitness, Life Project with mentors, Financial Literacy, AI, Kn U High/Coursera certifications, and international exchange in semesters 5-6.',
       },
     ],
     images: {
@@ -2403,31 +2403,31 @@ export const informacionPages: Record<string, InformacionPage> = {
     description:
       'Preparatoria bilingüe privada en Corregidora Querétaro con Filosofía para Niños, programas internacionales y formación integral. Conoce Newland School campus Corregidora.',
     uniqueIntro:
-      'El municipio de Corregidora se ha consolidado como una de las zonas de mayor crecimiento en el área metropolitana de Querétaro, con familias que buscan opciones educativas de calidad para la etapa preparatoria. Newland School campus Corregidora ofrece una preparatoria bilingüe de excelencia con un modelo que forma jóvenes líderes.',
+      'La preparatoria NWL Corregidora se encuentra en el campus con el icónico edificio cubo Rubik, fundado en 2019 con 4.5★ en Google (175+ reseñas). Bajo la dirección de José Gustavo Flores, los alumnos acceden a Life Project con mentores, Doble Diploma (México + EUA), certificaciones Kn U High/Coursera y actividades únicas como creación de podcasts, programación e inteligencia artificial.',
     sections: [
       {
-        heading: 'Filosofía para Niños',
-        body: 'La preparatoria de Newland School en Corregidora aplica la Filosofía para Niños a través de seminarios de pensamiento crítico, debates éticos y análisis de dilemas contemporáneos. Los estudiantes desarrollan una capacidad argumentativa y reflexiva que los distingue en el ámbito académico.\n\nEsta formación filosófica transforma la manera en que los jóvenes se relacionan con el conocimiento y la sociedad, formando ciudadanos comprometidos con valores de justicia, respeto y responsabilidad.',
+        heading: 'Life Project y Doble Diploma en el cubo Rubik',
+        body: 'En el campus con forma de cubo Rubik, cada alumno de preparatoria trabaja con un Life Mentor personal durante 6 semestres. Juntos definen su proyecto de vida y construyen un Portafolio de 6 Proyectos Personales que documenta su crecimiento.\n\nEl Doble Diploma (SEP México + diploma EUA acreditado por Cognia) y las certificaciones Kn U High/Coursera desde el primer semestre les dan ventaja en admisiones universitarias nacionales e internacionales.',
       },
       {
-        heading: 'Programas Internacionales',
-        body: 'La preparatoria bilingüe en Corregidora prepara a los alumnos con certificaciones de Cambridge de nivel avanzado y programas de intercambio que amplían su perspectiva cultural y académica. El dominio del inglés se convierte en una herramienta real para su futuro profesional.\n\nLas alianzas con universidades nacionales e internacionales facilitan el proceso de admisión de los egresados, quienes cuentan con un perfil competitivo y una visión global que los diferencia.',
+        heading: 'Podcasts, IA y programación en preparatoria',
+        body: 'Lo que distingue la prepa de Corregidora es la integración de tecnología de vanguardia: los alumnos crean podcasts profesionales, aprenden programación y trabajan con herramientas de inteligencia artificial como parte del currículo.\n\nEstas actividades se suman a los módulos de IA y Tecnología Moderna y a la Inteligencia Financiera que se imparte cada semestre. Los egresados manejan herramientas digitales que la mayoría de universitarios aún no conoce.',
       },
       {
-        heading: 'Modelo Educativo',
-        body: 'El modelo educativo de la preparatoria en Corregidora integra ciencias, tecnología, emprendimiento y humanidades en un programa diseñado para los retos del mundo actual. Los laboratorios, espacios de innovación y áreas deportivas complementan la formación en aula.\n\nLa orientación vocacional personalizada, las visitas a universidades y los proyectos de impacto social preparan a cada estudiante para tomar decisiones informadas sobre su futuro académico y profesional.',
+        heading: 'HIT/Hyrox, deporte e intercambio',
+        body: 'El programa HIT/Hyrox ofrece entrenamientos de alta intensidad en campus. Las actividades deportivas incluyen basquetbol, voleibol, tochito y dance. Teatro y música complementan la formación artística.\n\nEn 5.° y 6.° semestre, los alumnos acceden a intercambio internacional. El contenido académico McGraw-Hill, la Filosofía para Niños y Yo Soy Líder NWL by Tec de Monterrey acompañan la formación integral. Director: José Gustavo Flores.',
       },
     ],
     faqs: [
       {
-        question: '¿La preparatoria en Corregidora tiene convenios con universidades?',
+        question: '¿La preparatoria en Corregidora tiene programas de tecnología?',
         answer:
-          'Sí. Newland School campus Corregidora tiene alianzas con universidades de prestigio que facilitan el proceso de admisión y ofrecen beneficios especiales a nuestros egresados.',
+          'Sí. Es el único campus NWL con creación de podcasts, programación e IA como actividades regulares. Además incluye IA y Tecnología Moderna curricular, Kn U High/Coursera y Life Project con mentores. 4.5★ en Google.',
       },
       {
         question: '¿Qué perfil tienen los egresados de la prepa en Corregidora?',
         answer:
-          'Nuestros egresados son jóvenes bilingües con pensamiento crítico, habilidades de liderazgo, certificaciones internacionales y un perfil académico que les abre las puertas de las mejores universidades.',
+          'Bilingües con Doble Diploma (México + EUA), Portafolio de 6 Proyectos, certificaciones Coursera, dominio de IA, podcasting y programación, Inteligencia Financiera y experiencia de intercambio internacional. Director: José Gustavo Flores.',
       },
     ],
     images: {
@@ -2459,31 +2459,31 @@ export const informacionPages: Record<string, InformacionPage> = {
     description:
       'Preparatoria bilingüe privada en Zibatá Querétaro con Filosofía para Niños, programas internacionales y formación integral. Newland School campus Zibatá.',
     uniqueIntro:
-      'Zibatá es una comunidad residencial moderna que ofrece un estilo de vida familiar con acceso a servicios de primer nivel. Newland School campus Zibatá complementa esta experiencia con una preparatoria bilingüe que forma jóvenes con visión global, pensamiento crítico y compromiso social.',
+      'La preparatoria NWL Zibatá se encuentra en el campus más nuevo y moderno de la red (fundado 2025), con instalaciones diseñadas desde cero para una experiencia de preparatoria de primer nivel. Los alumnos acceden a Life Project con mentores, Doble Diploma (México + EUA), Kn U High/Coursera, Inteligencia Financiera, HIT/Hyrox e intercambio internacional. Dirigido por Daniela Arévalo, con 4.5★ en Google y 230+ reseñas.',
     sections: [
       {
-        heading: 'Filosofía para Niños',
-        body: 'La preparatoria de Newland School en Zibatá hace de la Filosofía para Niños el eje de su propuesta formativa. Los estudiantes participan en seminarios de pensamiento crítico, debates sobre dilemas éticos y proyectos de reflexión filosófica que los preparan para la vida universitaria y profesional.\n\nEsta formación desarrolla jóvenes que no solo dominan contenidos académicos, sino que saben pensar, cuestionar y proponer soluciones innovadoras a los problemas de su entorno.',
+        heading: 'Life Project en el campus más moderno de NWL',
+        body: 'El campus Zibatá fue diseñado en 2025 con espacios de innovación, laboratorios de última generación y áreas de trabajo colaborativo pensados específicamente para la experiencia de preparatoria. Cada alumno trabaja con un Life Mentor personal durante 6 semestres.\n\nEl Portafolio de 6 Proyectos Personales documenta el crecimiento de cada estudiante. Las instalaciones modernas del campus potencian esta experiencia: maker spaces, estudios de grabación y zonas de estudio flexibles.',
       },
       {
-        heading: 'Programas Internacionales',
-        body: 'La preparatoria bilingüe en Zibatá prepara a los alumnos con certificaciones internacionales de Cambridge y oportunidades de intercambio que enriquecen su perfil académico y cultural. El inglés se vive como herramienta de comunicación real en todos los ámbitos.\n\nLos egresados cuentan con un nivel de competencia lingüística que les permite acceder a programas universitarios en inglés, tanto en México como en el extranjero, ampliando significativamente sus opciones de futuro.',
+        heading: 'Doble Diploma y certificaciones desde el día 1',
+        body: 'Los alumnos egresan con Doble Diploma: SEP México y diploma estadounidense acreditado por Cognia. Desde el primer semestre, las certificaciones Kn U High y Coursera les dan un diferenciador en admisiones universitarias.\n\nLa Inteligencia Financiera cada semestre enseña inversiones, presupuestos y emprendimiento. Los módulos de IA y Tecnología Moderna aseguran que los egresados dominen las herramientas del futuro. McGraw-Hill provee el contenido académico base.',
       },
       {
-        heading: 'Modelo Educativo',
-        body: 'El modelo educativo de la preparatoria en Zibatá combina rigor académico, innovación tecnológica, emprendimiento y formación socioemocional en un programa diseñado para las demandas del siglo XXI. Las instalaciones modernas del campus ofrecen espacios ideales para el aprendizaje integral.\n\nLa orientación vocacional personalizada, los proyectos de impacto social y las alianzas con universidades aseguran que cada egresado esté preparado para tomar decisiones informadas sobre su futuro y liderar con responsabilidad.',
+        heading: 'HIT/Hyrox, intercambio y comunidad Zibatá',
+        body: 'El programa HIT/Hyrox mantiene la condición física con entrenamientos de alta intensidad en las instalaciones más modernas de la red NWL. En 5.° y 6.° semestre, los alumnos acceden a programas de intercambio internacional.\n\nLas familias de Zibatá y El Refugio tienen una preparatoria de primer nivel a minutos de casa. Filosofía para Niños, Yo Soy Líder NWL by Tec de Monterrey y BFS acompañan la formación integral. Directora: Daniela Arévalo.',
       },
     ],
     faqs: [
       {
-        question: '¿La preparatoria en Zibatá ofrece actividades deportivas?',
+        question: '¿La preparatoria en Zibatá tiene instalaciones nuevas?',
         answer:
-          'Sí. La preparatoria cuenta con programa deportivo completo que incluye fútbol, básquetbol, voleibol y atletismo, con instalaciones modernas y participación en torneos interescolares.',
+          'Sí. Campus Zibatá fue fundado en 2025 con instalaciones de última generación diseñadas desde cero. Es el campus más moderno de la red NWL. 4.5★ en Google, 230+ reseñas. Directora: Daniela Arévalo.',
       },
       {
         question: '¿Qué ventajas tiene estudiar la prepa en Zibatá?',
         answer:
-          'Los alumnos de la prepa en Zibatá disfrutan de un campus moderno, programa bilingüe, Filosofía para Niños, grupos reducidos, orientación vocacional y una comunidad escolar comprometida con su desarrollo integral.',
+          'Instalaciones 2025, Life Project con mentores, Doble Diploma (México + EUA), Kn U High/Coursera desde 1.° semestre, Inteligencia Financiera, IA, HIT/Hyrox, Portafolio de 6 Proyectos e intercambio internacional en 5.°-6.° semestre.',
       },
     ],
     images: {
