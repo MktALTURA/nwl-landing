@@ -127,7 +127,6 @@ const nextConfig = {
       { source: '/docs/preparatoria-bilingue-privada-en-queretaro', destination: '/informacion/preparatoria-bilingue-privada-en-queretaro', permanent: true },
       { source: '/docs/preparatoria-bilingue-privada-en-san-miguel-de-allende', destination: '/informacion/preparatoria-bilingue-privada-en-san-miguel-de-allende', permanent: true },
       { source: '/docs/preparatoria-bilingue-privada-en-corregidora-queretaro', destination: '/informacion/preparatoria-bilingue-privada-en-corregidora-queretaro', permanent: true },
-      { source: '/docs/preparatoria-bilingue-privada-en-juriquilla-queretaro', destination: '/informacion/preparatoria-bilingue-privada-en-juriquilla-queretaro', permanent: true },
       { source: '/docs/preparatoria-bilingue-privada-en-zibata-queretaro', destination: '/informacion/preparatoria-bilingue-privada-en-zibata-queretaro', permanent: true },
       { source: '/docs/excellence-bilingual-high-school-in-san-miguel-de-allende', destination: '/informacion/excellence-bilingual-high-school-in-san-miguel-de-allende', permanent: true },
       { source: '/docs/escuela-particular-y-bilingue-en-juriquilla', destination: '/informacion/escuela-particular-y-bilingue-en-juriquilla', permanent: true },

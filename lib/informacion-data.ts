@@ -217,13 +217,13 @@ export const informacionPages: Record<string, InformacionPage> = {
     title: 'Colegio o escuela privada bilingüe en Juriquilla | Newland School',
     h1: 'Opción de escuela en Juriquilla con programa bilingüe',
     description:
-      'Escuela privada bilingüe en Juriquilla con maternal, kinder, primaria, secundaria y prepa. Modelo educativo integral con Filosofía para Niños en Newland School.',
+      'Escuela privada bilingüe en Juriquilla con maternal, kinder, primaria y secundaria. Modelo educativo integral con Filosofía para Niños en Newland School.',
     uniqueIntro:
       'Juriquilla destaca como una de las comunidades más completas de Querétaro, combinando seguridad, acceso a servicios de primer nivel y una vibrante vida cultural. Las familias que eligen Juriquilla buscan una escuela que esté a la altura de su estilo de vida: internacional, innovadora y con valores sólidos.',
     sections: [
       {
         heading: 'Filosofía para Niños',
-        body: 'Newland School Juriquilla integra la Filosofía para Niños como eje transversal en todos sus niveles educativos. Desde maternal hasta preparatoria, los alumnos participan en comunidades de indagación donde aprenden a pensar de manera crítica, a cuestionar con respeto y a construir ideas en equipo.\n\nEste enfoque filosófico desarrolla habilidades de razonamiento que impactan positivamente en todas las asignaturas y en la vida cotidiana, formando ciudadanos reflexivos y comprometidos con su entorno.',
+        body: 'Newland School Juriquilla integra la Filosofía para Niños como eje transversal en todos sus niveles educativos. Desde maternal hasta secundaria, los alumnos participan en comunidades de indagación donde aprenden a pensar de manera crítica, a cuestionar con respeto y a construir ideas en equipo.\n\nEste enfoque filosófico desarrolla habilidades de razonamiento que impactan positivamente en todas las asignaturas y en la vida cotidiana, formando ciudadanos reflexivos y comprometidos con su entorno.',
       },
       {
         heading: 'Programas Internacionales',
@@ -238,7 +238,7 @@ export const informacionPages: Record<string, InformacionPage> = {
       {
         question: '¿Newland School en Juriquilla ofrece todos los niveles educativos?',
         answer:
-          'Sí. Nuestro campus de Juriquilla cuenta con maternal, kinder, primaria, secundaria y preparatoria, lo que permite a las familias mantenerse en una sola institución durante toda la trayectoria escolar.',
+          'Sí. Nuestro campus de Juriquilla cuenta con maternal, kinder, primaria y secundaria, lo que permite a las familias mantenerse en una sola institución durante toda la trayectoria escolar.',
       },
       {
         question: '¿Qué porcentaje del programa es en inglés?',
@@ -348,7 +348,7 @@ export const informacionPages: Record<string, InformacionPage> = {
       {
         question: '¿Qué niveles ofrece Newland School cerca de Milenio?',
         answer:
-          'Nuestro campus Milenio ofrece maternal, kinder, primaria, secundaria y preparatoria, permitiendo que tu hijo realice toda su trayectoria escolar en un solo colegio.',
+          'Nuestro campus Milenio ofrece maternal, kinder, primaria y secundaria, permitiendo que tu hijo realice toda su trayectoria escolar en un solo colegio.',
       },
       {
         question: '¿La escuela cerca de Milenio tiene horario extendido?',
@@ -1075,7 +1075,7 @@ export const informacionPages: Record<string, InformacionPage> = {
       {
         question: '¿Newland School ofrece todos los niveles para familias de Loma Dorada?',
         answer:
-          'Sí. Nuestro campus Milenio, el más cercano a Loma Dorada, ofrece maternal, kinder, primaria, secundaria y preparatoria, permitiendo que toda la familia estudie en una sola institución.',
+          'Sí. Nuestro campus Milenio, el más cercano a Loma Dorada, ofrece maternal, kinder, primaria y secundaria, permitiendo que toda la familia estudie en una sola institución.',
       },
       {
         question: '¿Hay transporte escolar desde Loma Dorada?',
@@ -1250,7 +1250,7 @@ export const informacionPages: Record<string, InformacionPage> = {
       {
         question: '¿Newland School cerca de Centro Sur ofrece todos los niveles?',
         answer:
-          'Sí. Nuestro campus Milenio, el más cercano a Centro Sur, ofrece maternal, kinder, primaria, secundaria y preparatoria bajo un mismo modelo educativo de excelencia.',
+          'Sí. Nuestro campus Milenio, el más cercano a Centro Sur, ofrece maternal, kinder, primaria y secundaria bajo un mismo modelo educativo de excelencia.',
       },
     ],
     images: {
@@ -2449,63 +2449,7 @@ export const informacionPages: Record<string, InformacionPage> = {
   },
 
   // =========================================================================
-  // PAGE 44 — Preparatoria en Juriquilla
-  // =========================================================================
-  'preparatoria-bilingue-privada-en-juriquilla-queretaro': {
-    slug: 'preparatoria-bilingue-privada-en-juriquilla-queretaro',
-    lang: 'es',
-    title: 'Preparatoria bilingüe privada en Juriquilla Queretaro | Newland School',
-    h1: 'NWL ahora ofrece preparatoria en Juriquilla',
-    description:
-      'Preparatoria bilingüe privada en Juriquilla Querétaro con Filosofía para Niños, certificaciones internacionales y formación integral. Newland School campus Juriquilla.',
-    uniqueIntro:
-      'Juriquilla es sinónimo de calidad de vida, innovación y desarrollo en Querétaro. Newland School campus Juriquilla ahora ofrece preparatoria bilingüe, completando su oferta educativa para que los jóvenes de la zona norte continúen su formación de excelencia sin salir de su comunidad.',
-    sections: [
-      {
-        heading: 'Filosofía para Niños',
-        body: 'La preparatoria de Newland School en Juriquilla continúa el programa de Filosofía para Niños que los alumnos han vivido desde sus primeros años. Los seminarios filosóficos, los debates y los proyectos de investigación desafían a los jóvenes a pensar con profundidad y creatividad.\n\nEsta continuidad filosófica produce egresados con una madurez intelectual notable, capaces de analizar problemas complejos, comunicar ideas con claridad y actuar con responsabilidad ética.',
-      },
-      {
-        heading: 'Programas Internacionales',
-        body: 'La preparatoria bilingüe en Juriquilla ofrece certificaciones de Cambridge avanzadas, programas de intercambio y alianzas con universidades internacionales. Los alumnos dominan el inglés como herramienta de comunicación académica y profesional.\n\nLa cercanía de Juriquilla a centros de investigación y universidades de prestigio enriquece la experiencia educativa con visitas, conferencias y vinculación directa con el mundo académico y profesional.',
-      },
-      {
-        heading: 'Modelo Educativo',
-        body: 'El modelo educativo de la preparatoria en Juriquilla integra ciencias, tecnología, emprendimiento, arte y deporte en un programa que aprovecha las instalaciones de primer nivel del campus. Los laboratorios de ciencias, las salas de cómputo y los espacios creativos fomentan la innovación.\n\nLa orientación vocacional, las prácticas profesionales y los proyectos de servicio social preparan a los estudiantes para una transición exitosa a la universidad, con claridad sobre sus metas y las herramientas para alcanzarlas.',
-      },
-    ],
-    faqs: [
-      {
-        question: '¿La preparatoria en Juriquilla es nueva?',
-        answer:
-          'Newland School campus Juriquilla ha ampliado su oferta educativa para incluir preparatoria bilingüe, manteniendo el mismo modelo de excelencia que lo ha distinguido en los demás niveles.',
-      },
-      {
-        question: '¿Qué diferencia a la preparatoria de Juriquilla de otras opciones?',
-        answer:
-          'La preparatoria de NWL Juriquilla ofrece Filosofía para Niños, programa 100% bilingüe, certificaciones Cambridge, grupos reducidos y un enfoque en emprendimiento e innovación que prepara líderes del futuro.',
-      },
-    ],
-    images: {
-      hero: '/images/campus/juriquilla/juriquilla-hero.jpg',
-      content: [
-        '/images/levels/prepa/prepa-nwl-modern-classroom.jpg',
-        '/images/levels/prepa/prepa-nwl-students-podcast-studio.jpg',
-      ],
-    },
-    targetCampus: 'juriquilla',
-    targetLevel: '/high-school',
-    category: 'campus',
-    keywords: [
-      'preparatoria juriquilla queretaro',
-      'prepa bilingüe juriquilla',
-      'preparatoria privada juriquilla',
-      'high school juriquilla queretaro',
-    ],
-  },
-
-  // =========================================================================
-  // PAGE 45 — Preparatoria en Zibatá
+  // PAGE 44 — Preparatoria en Zibatá
   // =========================================================================
   'preparatoria-bilingue-privada-en-zibata-queretaro': {
     slug: 'preparatoria-bilingue-privada-en-zibata-queretaro',
