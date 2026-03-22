@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
@@ -19,8 +19,35 @@ export default function CampusLife({ images }: CampusLifeProps) {
   const next = () => setActive((i) => (i + 1) % images.length);
   const prev = () => setActive((i) => (i - 1 + images.length) % images.length);
 
+  // Listen for facility card clicks to jump to matching gallery image
+  useEffect(() => {
+    const handler = (e: Event) => {
+      const detail = (e as CustomEvent).detail;
+      if (!detail?.src) return;
+
+      // Find matching image by exact src path first
+      let matchIndex = images.findIndex((img) => img.src === detail.src);
+
+      // Fallback: fuzzy match by filename keyword (e.g., "sports", "cafeteria")
+      if (matchIndex < 0) {
+        const srcParts = detail.src.split('/').pop()?.replace(/\.[^.]+$/, '').split('-') || [];
+        const keywords = srcParts.filter((w: string) => !['jpg', 'jpeg', 'png', 'campus', 'milenio', 'corregidora', 'san', 'miguel', 'juriquilla', 'zibata'].includes(w));
+        matchIndex = images.findIndex((img) =>
+          keywords.some((kw: string) => img.src.toLowerCase().includes(kw.toLowerCase()))
+        );
+      }
+
+      if (matchIndex >= 0) {
+        setActive(matchIndex);
+      }
+    };
+
+    window.addEventListener('gallery-scroll', handler);
+    return () => window.removeEventListener('gallery-scroll', handler);
+  }, [images]);
+
   return (
-    <section className="py-10 md:py-14 bg-gradient-to-b from-white to-sand relative overflow-hidden">
+    <section id="campus-gallery" className="py-10 md:py-14 bg-gradient-to-b from-white to-sand relative overflow-hidden">
       {/* Decorative blurs */}
       <div className="absolute top-0 left-10 w-40 h-40 bg-mustard/8 rounded-full blur-3xl" />
       <div className="absolute bottom-0 right-10 w-48 h-48 bg-sunshine/10 rounded-full blur-3xl" />

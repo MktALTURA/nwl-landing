@@ -12,6 +12,20 @@ interface FacilitiesProps {
 export default function Facilities({ facilities }: FacilitiesProps) {
   const { locale, t } = useLanguage();
 
+  const handleCardClick = (facility: CampusFacility) => {
+    if (!facility.image) return;
+
+    // Dispatch event so gallery can pick it up
+    window.dispatchEvent(new CustomEvent('gallery-scroll', { detail: { src: facility.image } }));
+
+    // Smooth scroll to gallery using window.scrollTo to avoid layout lock
+    const gallery = document.getElementById('campus-gallery');
+    if (gallery) {
+      const top = gallery.getBoundingClientRect().top + window.scrollY - 20;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  };
+
   return (
     <section className="py-12 md:py-16 bg-white relative overflow-hidden">
       {/* Decorative blur */}
@@ -43,7 +57,8 @@ export default function Facilities({ facilities }: FacilitiesProps) {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
               viewport={{ once: true }}
-              className="group relative aspect-[4/3] rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300"
+              onClick={() => handleCardClick(facility)}
+              className="group relative aspect-[4/3] rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 cursor-pointer"
             >
               {facility.image ? (
                 <Image
