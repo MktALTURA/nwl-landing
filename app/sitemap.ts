@@ -1,5 +1,6 @@
 import type { MetadataRoute } from 'next';
 import { campuses } from '@/lib/campus-data';
+import { getAllInformacionSlugs } from '@/lib/informacion-data';
 import { SITE_URL } from '@/lib/seo';
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -14,6 +15,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE_URL}/middle-school`, lastModified: now },
     { url: `${SITE_URL}/high-school`, lastModified: now },
     { url: `${SITE_URL}/trabaja-con-nosotros`, lastModified: now },
+    { url: `${SITE_URL}/informacion`, lastModified: now },
   ];
 
   // Dynamic campus pages
@@ -24,5 +26,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }),
   );
 
-  return [...staticPages, ...campusPages];
+  // SEO informacion pages
+  const informacionPages: MetadataRoute.Sitemap = getAllInformacionSlugs().map(
+    (slug) => ({
+      url: `${SITE_URL}/informacion/${slug}`,
+      lastModified: now,
+      changeFrequency: 'monthly' as const,
+      priority: 0.7,
+    }),
+  );
+
+  return [...staticPages, ...campusPages, ...informacionPages];
 }

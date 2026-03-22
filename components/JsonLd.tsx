@@ -1,5 +1,6 @@
 import { SITE_URL, SITE_NAME } from '@/lib/seo';
 import type { CampusData } from '@/lib/campus-data';
+import type { InformacionPage, InformacionFAQ } from '@/lib/informacion-data';
 
 /* ── Helper to render a JSON-LD script tag ── */
 function JsonLdScript({ data }: { data: Record<string, unknown> }) {
@@ -180,6 +181,41 @@ export function CampusJsonLd({ campus }: { campus: CampusData }) {
       longitude: campus.geo.lng,
     };
   }
+
+  return <JsonLdScript data={data} />;
+}
+
+/* ── WebPage — used on /informacion/ pages ── */
+export function InformacionJsonLd({ page }: { page: InformacionPage }) {
+  const data = {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: page.h1,
+    description: page.description,
+    url: `${SITE_URL}/informacion/${page.slug}`,
+    inLanguage: page.lang === 'es' ? 'es-MX' : 'en',
+    isPartOf: { '@id': `${SITE_URL}/#website` },
+    about: { '@id': `${SITE_URL}/#organization` },
+    image: `${SITE_URL}${page.images.hero}`,
+  };
+
+  return <JsonLdScript data={data} />;
+}
+
+/* ── FAQPage — used on /informacion/ pages with FAQs ── */
+export function FAQPageJsonLd({ faqs }: { faqs: InformacionFAQ[] }) {
+  const data = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((faq) => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.answer,
+      },
+    })),
+  };
 
   return <JsonLdScript data={data} />;
 }

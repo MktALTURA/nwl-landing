@@ -39,9 +39,10 @@ export async function middleware(request: NextRequest) {
     return NextResponse.next();
   }
 
-  // Allow brochure pages, coming-soon, and BE campaign pages through
+  // Allow brochure pages, informacion pages, coming-soon, and BE campaign pages through
   if (
     pathname.startsWith('/brochures') ||
+    pathname.startsWith('/informacion') ||
     pathname === '/coming-soon' ||
     pathname === '/be_nwl' ||
     pathname === '/golden_ticket' ||
