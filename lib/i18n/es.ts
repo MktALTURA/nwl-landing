@@ -257,6 +257,7 @@ export const es: Dictionary = {
       { name: 'Nuestros Campus', href: '#campus' },
       { name: 'Equipo', href: '#team' },
       { name: 'Trabaja con Nosotros', href: '/trabaja-con-nosotros' },
+      { name: 'Información', href: '/informacion' },
     ],
     programsHeading: 'Programas',
     programLinks: [
