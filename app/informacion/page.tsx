@@ -52,8 +52,13 @@ function InformacionIndexContent() {
   return (
     <main>
       {/* Hero */}
-      <section className="bg-gradient-to-br from-charcoal via-charcoal to-wine pt-32 pb-16">
-        <div className="container-custom">
+      <section className="relative pt-32 pb-16 overflow-hidden">
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: "url('/images/hero-background.jpg')" }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-br from-charcoal/85 via-charcoal/75 to-wine/80" />
+        <div className="container-custom relative z-10">
           <nav aria-label="Breadcrumb" className="mb-6">
             <ol className="flex items-center text-sm text-white/60 gap-2">
               <li>

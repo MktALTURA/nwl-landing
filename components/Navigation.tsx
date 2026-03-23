@@ -158,8 +158,9 @@ export default function Navigation() {
   const isCareers = pathname === '/trabaja-con-nosotros';
   const isElementary = pathname === '/elementary';
   const isCampusSanMiguel = pathname === '/campus/san-miguel';
+  const isInformacion = pathname.startsWith('/informacion');
   // On pages with dark/bright heroes, use white logos/text before scroll
-  const useWhiteNav = (isCampusJuriquilla || isCampusMilenio || isCampusSanMiguel || isCareers || isElementary) && !isScrolled;
+  const useWhiteNav = (isCampusJuriquilla || isCampusMilenio || isCampusSanMiguel || isCareers || isElementary || isInformacion) && !isScrolled;
 
   return (
     <nav
@@ -172,7 +173,7 @@ export default function Navigation() {
           {/* Logo — animate entrance only on homepage */}
           {isSubpage ? (
             <a href="/" className="flex items-center gap-2">
-              {(isCampusJuriquilla || isCampusMilenio || isCampusSanMiguel) ? (
+              {(isCampusJuriquilla || isCampusMilenio || isCampusSanMiguel || isInformacion) ? (
                 <>
                   <img
                     src="/images/brand/kangaroo-white-transparent.png"
