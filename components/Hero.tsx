@@ -162,7 +162,7 @@ export default function Hero() {
           sizes="100vw"
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-ivory/90 via-ivory/70 to-ivory/50 z-10" />
+        <div className="absolute inset-0 bg-gradient-to-r from-ivory/70 via-ivory/50 to-ivory/30 z-10" />
       </div>
 
       <div className="container-custom relative z-20 pt-32 pb-20">
