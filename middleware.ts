@@ -18,6 +18,20 @@ export async function middleware(request: NextRequest) {
   const host = request.headers.get('host')?.replace(/:\d+$/, '') ?? '';
   const { pathname } = request.nextUrl;
 
+  // ── Brochure QR default UTM tagging ──
+  // Printed QR codes point to /brochures/{level} without UTM params.
+  // If no utm_source is present, redirect with brochure-specific UTMs.
+  // If UTMs already exist (e.g., CAP-shared link), leave them untouched.
+  const brochureLevelMatch = pathname.match(/^\/brochures\/(maternal-kinder|elementary|middle-school|high-school)$/);
+  if (brochureLevelMatch && !request.nextUrl.searchParams.has('utm_source')) {
+    const level = brochureLevelMatch[1];
+    const url = request.nextUrl.clone();
+    url.searchParams.set('utm_source', 'brochure_qr');
+    url.searchParams.set('utm_medium', 'offline');
+    url.searchParams.set('utm_campaign', `brochure_${level.replace(/-/g, '_')}`);
+    return NextResponse.redirect(url);
+  }
+
   // ── Admin route protection ──
   if (pathname.startsWith('/admin') && pathname !== '/admin/login') {
     const token = request.cookies.get(ADMIN_COOKIE)?.value;

@@ -28,8 +28,8 @@ export const brochures: Record<BrochureLevel, BrochureConfig> = {
     level: 'elementary',
     slug: 'elementary',
     heyzineUrl: {
-      en: 'https://heyzine.com/flip-book/f8d7ebdd9e.html',
-      es: 'https://heyzine.com/flip-book/f8d7ebdd9e.html',
+      en: 'https://heyzine.com/flip-book/b8436ea597.html',
+      es: 'https://heyzine.com/flip-book/3b141701f4.html',
     },
     pdfDownloadUrl: {
       en: '/brochures/en/elementary.pdf',
@@ -41,8 +41,8 @@ export const brochures: Record<BrochureLevel, BrochureConfig> = {
     level: 'middle-school',
     slug: 'middle-school',
     heyzineUrl: {
-      en: 'https://heyzine.com/flip-book/f8d7ebdd9e.html',
-      es: 'https://heyzine.com/flip-book/f8d7ebdd9e.html',
+      en: 'https://heyzine.com/flip-book/664459e8fe.html',
+      es: 'https://heyzine.com/flip-book/664459e8fe.html', // placeholder — EN version until ES is ready
     },
     pdfDownloadUrl: {
       en: '/brochures/en/middle-school.pdf',
