@@ -313,13 +313,13 @@ export const en: Dictionary = {
         title: 'Philosophy for Children (P4C)',
         description:
           'We teach children how to think, not what to think. Critical thinking development adapted for toddlers through guided dialogue.',
-        logo: '/images/logos/partners/CFPN(es).png',
+        logo: '/images/logos/partners/CFPN(en).png',
       },
       {
         title: "I'm NWL Leader by Tec de Monterrey",
         description:
           'A unique program in Mexico that develops habits and mindsets so children grow holistically, take responsibility for their actions, make conscious decisions, become resilient, and achieve their goals. Exclusive to NWL, endorsed by Tec de Monterrey.',
-        logo: '/images/logos/partners/Yo_soy_lider_nwl(es).png',
+        logo: '/images/logos/partners/Yo_soy_lider_nwl(en).png',
         logo2: '/images/logos/partners/tecnologico-de-monterrey.png',
       },
       {
@@ -424,14 +424,14 @@ export const en: Dictionary = {
         subtitle: 'P4C',
         description:
           'We teach how to think, not what to think. From Kinder, they learn to question, dialogue, and form their own criteria.',
-        logo: '/images/logos/partners/CFPN(es).png',
+        logo: '/images/logos/partners/CFPN(en).png',
       },
       {
         title: "I'm NWL Leader",
         subtitle: 'by Tec de Monterrey',
         description:
           'A unique program in Mexico that develops habits and mindsets so children grow holistically, take responsibility, make conscious decisions, become resilient, and achieve their goals. Endorsed by Tec de Monterrey, exclusive to NWL.',
-        logo: '/images/logos/partners/Yo_soy_lider_nwl(es).png',
+        logo: '/images/logos/partners/Yo_soy_lider_nwl(en).png',
         logo2: '/images/logos/partners/tecnologico-de-monterrey.png',
       },
     ],
@@ -489,14 +489,14 @@ export const en: Dictionary = {
         subtitle: 'P4C + Parent Diploma',
         description:
           'We teach how to think, not what to think. Philosophical dialogue that builds critical reasoning, argumentation, and empathy. Includes a Parent Diploma.',
-        logo: '/images/logos/partners/CFPN(es).png',
+        logo: '/images/logos/partners/CFPN(en).png',
       },
       {
         title: "I'm NWL Leader",
         subtitle: 'by Tec de Monterrey',
         description:
           'A unique program in Mexico that develops habits and mindsets so students grow holistically, take responsibility for their actions, make conscious decisions, become resilient, and achieve their goals. Endorsed by Tec de Monterrey, exclusive to NWL.',
-        logo: '/images/logos/partners/Yo_soy_lider_nwl(es).png',
+        logo: '/images/logos/partners/Yo_soy_lider_nwl(en).png',
         logo2: '/images/logos/partners/tecnologico-de-monterrey.png',
       },
     ],
@@ -617,14 +617,14 @@ export const en: Dictionary = {
         subtitle: 'P4C / Critical Thinking',
         description:
           'We teach how to think, not what to think. Guided dialogue develops autonomous judgment, ethical reasoning, and the confidence to defend their ideas. Includes a Parent Diploma.',
-        logo: '/images/logos/partners/CFPN(es).png',
+        logo: '/images/logos/partners/CFPN(en).png',
       },
       {
         title: "I'm NWL Leader",
         subtitle: 'by Tec de Monterrey',
         description:
           'A unique program in Mexico that develops habits and mindsets so students grow holistically, take responsibility, make conscious decisions, become resilient, and achieve their goals. Endorsed by Tec de Monterrey.',
-        logo: '/images/logos/partners/Yo_soy_lider_nwl(es).png',
+        logo: '/images/logos/partners/Yo_soy_lider_nwl(en).png',
         logo2: '/images/logos/partners/tecnologico-de-monterrey.png',
       },
     ],

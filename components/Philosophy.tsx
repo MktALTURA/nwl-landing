@@ -6,14 +6,18 @@ import { useLanguage } from '@/lib/i18n/LanguageContext';
 import BrochureLevelDropdown from './BrochureLevelDropdown';
 
 const pillarsData = [
-  { number: '01', logoInitials: 'P4C', logoImage: '/images/logos/partners/CFPN(es).png' },
-  { number: '02', logoInitials: 'NWL', logoImage: '/images/logos/partners/Yo_soy_lider_nwl(es).png' },
+  { number: '01', logoInitials: 'P4C', logoImage: { es: '/images/logos/partners/CFPN(es).png', en: '/images/logos/partners/CFPN(en).png' } },
+  { number: '02', logoInitials: 'NWL', logoImage: { es: '/images/logos/partners/Yo_soy_lider_nwl(es).png', en: '/images/logos/partners/Yo_soy_lider_nwl(en).png' } },
   { number: '03', logoInitials: 'K', logoImage: '/images/logos/knotion.png' },
 ];
 
 export default function Philosophy() {
-  const { t } = useLanguage();
-  const pillars = pillarsData.map((p, i) => ({ ...p, ...t.philosophy.pillars[i] }));
+  const { t, locale } = useLanguage();
+  const pillars = pillarsData.map((p, i) => ({
+    ...p,
+    ...t.philosophy.pillars[i],
+    logoImage: typeof p.logoImage === 'string' ? p.logoImage : p.logoImage[locale],
+  }));
 
   return (
     <section className="section-padding bg-sand animate-section">
