@@ -58,7 +58,7 @@ export async function middleware(request: NextRequest) {
     pathname.startsWith('/brochures') ||
     pathname.startsWith('/informacion') ||
     pathname === '/coming-soon' ||
-    pathname === '/be_nwl' ||
+    pathname.startsWith('/be_nwl') ||
     pathname === '/golden_ticket' ||
     pathname === '/golden_ticket_cap'
   ) {
