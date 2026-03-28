@@ -2,11 +2,6 @@ import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 import { jwtVerify } from 'jose';
 
-// Domains that should ONLY serve /brochures/* pages.
-// Everything else gets rewritten to /coming-soon.
-// Remove this middleware entirely when the full site is ready to launch.
-const BROCHURE_ONLY_HOSTS = ['nwl.mx', 'www.nwl.mx'];
-
 function getJwtSecret() {
   const secret = process.env.JWT_SECRET;
   if (!secret) throw new Error('JWT_SECRET environment variable is required');
@@ -15,7 +10,6 @@ function getJwtSecret() {
 const ADMIN_COOKIE = 'nwl-admin-token';
 
 export async function middleware(request: NextRequest) {
-  const host = request.headers.get('host')?.replace(/:\d+$/, '') ?? '';
   const { pathname } = request.nextUrl;
 
   // ── Brochure QR default UTM tagging ──
@@ -48,26 +42,7 @@ export async function middleware(request: NextRequest) {
     }
   }
 
-  // ── Brochure-only domain lockdown ──
-  if (!BROCHURE_ONLY_HOSTS.includes(host)) {
-    return NextResponse.next();
-  }
-
-  // Allow brochure pages, informacion pages, coming-soon, and BE campaign pages through
-  if (
-    pathname.startsWith('/brochures') ||
-    pathname.startsWith('/informacion') ||
-    pathname.startsWith('/padres') ||
-    pathname === '/coming-soon' ||
-    pathname.startsWith('/be_nwl') ||
-    pathname === '/golden_ticket' ||
-    pathname === '/golden_ticket_cap'
-  ) {
-    return NextResponse.next();
-  }
-
-  // Block everything else → rewrite to coming-soon (URL stays as nwl.mx/)
-  return NextResponse.rewrite(new URL('/coming-soon', request.url));
+  return NextResponse.next();
 }
 
 export const config = {
