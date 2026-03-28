@@ -159,8 +159,9 @@ export default function Navigation() {
   const isElementary = pathname === '/elementary';
   const isCampusSanMiguel = pathname === '/campus/san-miguel';
   const isInformacion = pathname.startsWith('/informacion');
+  const isPadres = pathname.startsWith('/padres');
   // On pages with dark/bright heroes, use white logos/text before scroll
-  const useWhiteNav = (isCampusJuriquilla || isCampusMilenio || isCampusSanMiguel || isCareers || isElementary || isInformacion) && !isScrolled;
+  const useWhiteNav = (isCampusJuriquilla || isCampusMilenio || isCampusSanMiguel || isCareers || isElementary || isInformacion || isPadres) && !isScrolled;
 
   return (
     <nav
@@ -383,12 +384,12 @@ export default function Navigation() {
             >
               <FaWhatsapp size={20} />
             </a>
-            <LanguageToggle />
+            <LanguageToggle light={useWhiteNav} />
           </div>
 
           {/* Mobile Menu Button */}
           <div className="flex items-center gap-3 lg:hidden">
-            <LanguageToggle />
+            <LanguageToggle light={useWhiteNav} />
             <button
               className={useWhiteNav ? 'text-white' : 'text-charcoal'}
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}

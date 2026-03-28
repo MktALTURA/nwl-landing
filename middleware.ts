@@ -57,6 +57,7 @@ export async function middleware(request: NextRequest) {
   if (
     pathname.startsWith('/brochures') ||
     pathname.startsWith('/informacion') ||
+    pathname.startsWith('/padres') ||
     pathname === '/coming-soon' ||
     pathname.startsWith('/be_nwl') ||
     pathname === '/golden_ticket' ||

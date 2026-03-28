@@ -51,4 +51,10 @@ export const PAGE_SEO = {
       'Join the Newland School team. Explore open teaching and administrative positions across our 5 campuses in Querétaro and San Miguel de Allende.',
     ogImage: '/images/og/careers.jpg',
   },
+  padres: {
+    title: 'Parents Portal — Portal de Padres',
+    description:
+      'Access school calendars, cafeteria menus, announcements, and supply lists for Newland School. Portal de padres de Colegio Newland.',
+    ogImage: '/images/og/home.jpg',
+  },
 } as const;

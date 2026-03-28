@@ -36,5 +36,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }),
   );
 
-  return [...staticPages, ...campusPages, ...informacionPages];
+  // Parents portal — only the landing page (campus pages are password-gated)
+  const padresPages: MetadataRoute.Sitemap = [
+    { url: `${SITE_URL}/padres`, lastModified: now },
+  ];
+
+  return [...staticPages, ...campusPages, ...informacionPages, ...padresPages];
 }

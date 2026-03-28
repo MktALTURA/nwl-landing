@@ -452,6 +452,37 @@ export interface Dictionary {
     formSaving: string;
     campusLabels: Record<string, string>;
   };
+  padres: {
+    heroTitle: string;
+    heroTitleAccent: string;
+    heroSubtitle: string;
+    selectCampus: string;
+    selectCampusSubtitle: string;
+    // Password gate
+    passwordTitle: string;
+    passwordSubtitle: string;
+    passwordPlaceholder: string;
+    passwordButton: string;
+    passwordError: string;
+    // Portal dashboard
+    welcomeMessage: string;
+    changeCampus: string;
+    logoutButton: string;
+    // Tabs
+    tabCalendario: string;
+    tabCafeteria: string;
+    tabComunicados: string;
+    tabUtiles: string;
+    // Documents
+    viewDocument: string;
+    downloadDocument: string;
+    noDocuments: string;
+    noDocumentsDescription: string;
+    // Campus portal link on campus pages
+    campusPortalTitle: string;
+    campusPortalDescription: string;
+    campusPortalCta: string;
+  };
   metadata: {
     title: string;
     description: string;

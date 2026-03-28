@@ -12,6 +12,7 @@ import CampusLife from '@/components/campus/CampusLife';
 import LocationMap from '@/components/campus/LocationMap';
 import AdmissionsProcess from '@/components/campus/AdmissionsProcess';
 import CampusCTA from '@/components/campus/CampusCTA';
+import ParentsPortalBanner from '@/components/campus/ParentsPortalBanner';
 import Footer from '@/components/Footer';
 
 export default function CampusPage({
@@ -40,6 +41,7 @@ export default function CampusPage({
         campusName={campus.name}
       />
       <AdmissionsProcess />
+      <ParentsPortalBanner campusSlug={slug} />
       <CampusCTA
         campusName={campus.name}
         whatsapp={campus.whatsapp}
