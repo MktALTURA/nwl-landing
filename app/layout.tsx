@@ -28,8 +28,8 @@ export const metadata: Metadata = {
     "newland, colegio, school, querétaro, educación, education, maternal, kinder, primaria, secundaria, preparatoria, bilingual, bilingüe, san miguel de allende",
   openGraph: {
     type: "website",
-    locale: "en_US",
-    alternateLocale: "es_MX",
+    locale: "es_MX",
+    alternateLocale: "en_US",
     siteName: SITE_NAME,
     title: PAGE_SEO.home.title,
     description: PAGE_SEO.home.description,
@@ -71,7 +71,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${playfair.variable}`}>
+    <html lang="es" className={`${inter.variable} ${playfair.variable}`}>
       <body className="font-sans antialiased">
         <OrganizationJsonLd />
         <WebSiteJsonLd />

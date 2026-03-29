@@ -1,6 +1,6 @@
 /** Centralized SEO constants used across metadata, sitemap, JSON-LD, etc. */
 
-export const SITE_URL = 'https://www.nwl.mx';
+export const SITE_URL = 'https://www.nwl.com.mx';
 export const SITE_NAME = 'Newland School';
 export const SITE_NAME_ES = 'Colegio Newland';
 
