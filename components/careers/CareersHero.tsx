@@ -8,9 +8,14 @@ export default function CareersHero() {
 
   return (
     <section className="relative min-h-[70vh] flex items-center overflow-hidden">
-      {/* Gradient Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-charcoal via-charcoal to-wine/80" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(139,35,50,0.3),transparent_60%)]" />
+      {/* Hero Background Image */}
+      <div
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: "url('/images/og/careers.jpg')" }}
+      />
+      {/* Dark overlay for text readability */}
+      <div className="absolute inset-0 bg-charcoal/70" />
+      <div className="absolute inset-0 bg-gradient-to-r from-charcoal/80 via-charcoal/50 to-transparent" />
 
       {/* Subtle top strip for nav readability */}
       <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-black/30 to-transparent" />
