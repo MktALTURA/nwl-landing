@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Script from 'next/script';
 import SmoothScroll from '@/components/SmoothScroll';
 import Navigation from '@/components/Navigation';
 import FixedCTAButton from '@/components/FixedCTAButton';
@@ -95,6 +96,18 @@ export default async function InformacionLayout({
             />
           </>
         )}
+        {/* External team GA4 — tracks /informacion pages only (Ricardo/BPS property) */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-NGW2FC7GG6"
+          strategy="afterInteractive"
+        />
+        <Script id="ext-gtag-info" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('config', 'G-NGW2FC7GG6');
+          `}
+        </Script>
         <MetadataUpdater />
         <Navigation />
         <FixedCTAButton />
