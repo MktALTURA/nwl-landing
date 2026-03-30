@@ -428,8 +428,7 @@ export default function KangarooSpirit() {
         // Mobile: simple in-place hop — squash, jump up, land with bounce
         ScrollTrigger.create({
           trigger: containerRef.current,
-          start: 'bottom 70%',
-          toggleActions: 'play none none none',
+          start: 'top 60%',
           onEnter: () => {
             if (hasJumpedRef.current) return;
             hasJumpedRef.current = true;
