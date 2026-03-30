@@ -424,8 +424,30 @@ export default function KangarooSpirit() {
         );
       }
 
-      // Kangaroo jump animation — desktop only (too heavy for mobile GPU)
-      if (!isMobile) {
+      if (isMobile) {
+        // Mobile: simple in-place hop — squash, jump up, land with bounce
+        ScrollTrigger.create({
+          trigger: containerRef.current,
+          start: 'bottom 70%',
+          toggleActions: 'play none none none',
+          onEnter: () => {
+            if (hasJumpedRef.current) return;
+            hasJumpedRef.current = true;
+            const img = kangarooImgRef.current;
+            if (!img) return;
+            const hop = gsap.timeline();
+            // Squash before jump
+            hop.to(img, { scaleY: 0.85, scaleX: 1.12, duration: 0.15, ease: 'power2.in' });
+            // Stretch + jump up
+            hop.to(img, { scaleY: 1.15, scaleX: 0.9, y: -60, rotation: 5, duration: 0.3, ease: 'power2.out' });
+            // Fall + squash on land
+            hop.to(img, { y: 0, scaleY: 0.88, scaleX: 1.1, rotation: 15, duration: 0.25, ease: 'power2.in' });
+            // Elastic settle
+            hop.to(img, { scaleY: 1, scaleX: 1, duration: 0.4, ease: 'elastic.out(1, 0.4)' });
+          },
+        });
+      } else {
+        // Desktop: full kangaroo jump to navbar
         ScrollTrigger.create({
           trigger: containerRef.current,
           start: 'bottom 60%',
