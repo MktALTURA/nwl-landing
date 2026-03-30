@@ -66,6 +66,14 @@ const config: Config = {
           '0%': { transform: 'translateX(0)' },
           '100%': { transform: 'translateX(-50%)' },
         },
+        orb1: {
+          '0%, 100%': { transform: 'translate3d(0, 0, 0) scale(1)' },
+          '50%': { transform: 'translate3d(50px, 30px, 0) scale(1.2)' },
+        },
+        orb2: {
+          '0%, 100%': { transform: 'translate3d(0, 0, 0) scale(1)' },
+          '50%': { transform: 'translate3d(-30px, 50px, 0) scale(1.3)' },
+        },
       },
     },
   },

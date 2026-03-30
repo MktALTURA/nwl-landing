@@ -106,8 +106,10 @@ export default function Hero() {
       id="home"
       className="relative min-h-screen flex items-center bg-gradient-to-br from-ivory via-sand to-warmgray overflow-hidden"
     >
-      {/* Animated Background Gradient Orbs */}
+      {/* Animated Background Gradient Orbs — CSS animation on mobile, Framer on desktop */}
       <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-wine/10 rounded-full blur-3xl md:hidden animate-[orb1_20s_ease-in-out_infinite]" />
+        <div className="absolute bottom-1/3 right-1/4 w-[30rem] h-[30rem] bg-terracotta/10 rounded-full blur-3xl md:hidden animate-[orb2_25s_ease-in-out_2s_infinite]" />
         <motion.div
           animate={{
             scale: [1, 1.2, 1],
@@ -119,7 +121,7 @@ export default function Hero() {
             repeat: Infinity,
             ease: 'easeInOut',
           }}
-          className="absolute top-1/4 left-1/4 w-96 h-96 bg-wine/10 rounded-full blur-3xl"
+          className="absolute top-1/4 left-1/4 w-96 h-96 bg-wine/10 rounded-full blur-3xl hidden md:block"
         />
         <motion.div
           animate={{
@@ -133,7 +135,7 @@ export default function Hero() {
             ease: 'easeInOut',
             delay: 2,
           }}
-          className="absolute bottom-1/3 right-1/4 w-[30rem] h-[30rem] bg-terracotta/10 rounded-full blur-3xl"
+          className="absolute bottom-1/3 right-1/4 w-[30rem] h-[30rem] bg-terracotta/10 rounded-full blur-3xl hidden md:block"
         />
       </div>
 

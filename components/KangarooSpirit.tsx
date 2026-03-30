@@ -424,20 +424,23 @@ export default function KangarooSpirit() {
         );
       }
 
-      ScrollTrigger.create({
-        trigger: containerRef.current,
-        start: 'bottom 60%',
-        onEnter: () => {
-          if (hasJumpedRef.current) return;
-          hasJumpedRef.current = true;
-          performJump('forward');
-        },
-        onLeaveBack: () => {
-          if (!hasJumpedRef.current) return;
-          hasJumpedRef.current = false;
-          performJump('reverse');
-        },
-      });
+      // Kangaroo jump animation — desktop only (too heavy for mobile GPU)
+      if (!isMobile) {
+        ScrollTrigger.create({
+          trigger: containerRef.current,
+          start: 'bottom 60%',
+          onEnter: () => {
+            if (hasJumpedRef.current) return;
+            hasJumpedRef.current = true;
+            performJump('forward');
+          },
+          onLeaveBack: () => {
+            if (!hasJumpedRef.current) return;
+            hasJumpedRef.current = false;
+            performJump('reverse');
+          },
+        });
+      }
     }, containerRef);
 
     return () => {
