@@ -58,6 +58,8 @@ const elementaryGalleryImages = [
   { src: '/images/levels/primaria/nwl-zibata-primaria-trabajo-colaborativo-cuaderno.jpg', alt: 'Newland Elementary collaborative notebook work in bilingual classroom' },
   { src: '/images/levels/primaria/nwl-primaria-students-closeup.jpg', alt: 'Newland Elementary students close-up in classroom at Juriquilla' },
   { src: '/images/levels/primaria/nwl-sma-primaria-classroom.jpg', alt: 'Newland Elementary classroom at San Miguel de Allende campus' },
+  { src: '/images/levels/primaria/nwl-elementary-classroom-ipads-lockers.jpg', alt: 'Newland Elementary digital classroom with iPads and student lockers' },
+  { src: '/images/levels/primaria/nwl-zibata-elementary-classroom-notebooks.jpg', alt: 'Newland Elementary classroom with notebooks and natural light at Zibata campus' },
 ];
 
 export default function ElementaryPage() {

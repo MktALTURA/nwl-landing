@@ -73,6 +73,7 @@ const kinderGalleryImages = [
   { src: '/images/levels/kinder/kinder-tablets.jpg', alt: 'Kinder students using tablets for digital learning at Newland' },
   { src: '/images/levels/kinder/kinder-digital-learning.jpg', alt: 'Newland Kinder digital literacy and technology session' },
   { src: '/images/levels/kinder/san-miguel-classrooms.jpg', alt: 'Newland Kinder classroom at San Miguel de Allende campus' },
+  { src: '/images/levels/kinder/nwl-milenio-kinder-courtyard.jpg', alt: 'Colorful kinder courtyard at Newland Campus Milenio' },
 ];
 
 export default function KinderPage() {

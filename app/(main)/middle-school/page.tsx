@@ -67,6 +67,8 @@ const galleryImages = [
   { src: '/images/levels/secundaria/nwl-secundaria-lab-experiment.jpg', alt: 'Newland Middle School students conducting science lab experiment with teacher guidance' },
   { src: '/images/levels/secundaria/nwl-zibata-secundaria-tres-alumnos-pasillo-retrato.jpg', alt: 'Newland Middle School students in campus hallway at Zibatá' },
   { src: '/images/levels/secundaria/milenio-classroom-secondary.jpg', alt: 'Newland Middle School classroom with collaborative desk layout at Campus Milenio' },
+  { src: '/images/levels/secundaria/nwl-secundaria-classroom-philosophy.jpg', alt: 'Newland Middle School Philosophy for Children classroom with chalkboard discussion' },
+  { src: '/images/levels/secundaria/nwl-secundaria-classroom-orange-wall.jpg', alt: 'Newland Middle School modern classroom with round tables and iPads' },
 ];
 
 /* ── Knotion phase dot colors ── */

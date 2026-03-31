@@ -90,6 +90,7 @@ const galleryImages = [
   { src: '/images/levels/prepa/prepa-nwl-podcast-studio-alt.jpg', alt: 'Podcast studio setup' },
   { src: '/images/levels/prepa/corregidora-prepa-classroom-2.jpg', alt: 'Prepa NWL Corregidora tech classroom' },
   { src: '/images/levels/prepa/san-miguel-reception.jpg', alt: 'Prepa NWL San Miguel de Allende high school area' },
+  { src: '/images/levels/prepa/nwl-zibata-prepa-classroom-jackets.jpg', alt: 'Prepa NWL classroom at Zibata with NWL varsity jackets and iPads' },
 ];
 
 export default function HighSchoolPage() {
