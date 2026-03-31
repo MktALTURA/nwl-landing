@@ -99,6 +99,7 @@ export interface Dictionary {
     programsHeading: string;
     programLinks: { name: string; href: string }[];
     contactHeading: string;
+    contactLabel: string;
     campusesLine1: string;
     campusesLine2: string;
     copyright: string;

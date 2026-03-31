@@ -106,27 +106,26 @@ export default function Footer() {
           {/* Contact */}
           <div>
             <h3 className="font-bold text-lg mb-4 text-white">{t.footer.contactHeading}</h3>
+            <div className="bg-white/5 border border-white/10 rounded-lg px-4 py-3 mb-4">
+              <p className="text-[11px] uppercase tracking-wider text-white/40 mb-2">{t.footer.contactLabel}</p>
+              <a
+                href="tel:+524424541010"
+                className="flex items-center text-white/70 hover:text-white transition-colors mb-2"
+              >
+                <FiPhone className="mr-3 flex-shrink-0" size={14} />
+                +52 (442) 454 10 10
+              </a>
+              <a
+                href="https://wa.me/5214421227791"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center text-white/70 hover:text-green-400 transition-colors"
+              >
+                <FaWhatsapp className="mr-3 flex-shrink-0" size={14} />
+                +52 (442) 122 7791
+              </a>
+            </div>
             <ul className="space-y-4">
-              <li>
-                <a
-                  href="tel:+524424541010"
-                  className="flex items-start text-white/70 hover:text-white transition-colors"
-                >
-                  <FiPhone className="mr-3 mt-1 flex-shrink-0" />
-                  +52 (442) 454 10 10
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://wa.me/5214421227791"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-start text-white/70 hover:text-green-400 transition-colors"
-                >
-                  <FaWhatsapp className="mr-3 mt-1 flex-shrink-0" />
-                  +52 (442) 122 7791
-                </a>
-              </li>
               <li>
                 <a
                   href="mailto:contacto@colegionwl.edu.mx"

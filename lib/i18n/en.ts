@@ -268,6 +268,7 @@ export const en: Dictionary = {
       { name: 'Preparatoria', href: '#levels' },
     ],
     contactHeading: 'Contact',
+    contactLabel: 'Admissions',
     campusesLine1: '5 Campuses in',
     campusesLine2: 'Querétaro & Guanajuato',
     copyright: '© 2026 Colegio NWL. All rights reserved.',
