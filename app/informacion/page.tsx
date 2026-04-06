@@ -34,6 +34,7 @@ const campusNames: Record<string, string> = {
   'El Refugio': 'El Refugio',
   'Cumbres del Lago': 'Cumbres del Lago',
   'Gran Reserva': 'Gran Reserva',
+  Candiles: 'Candiles / Tejeda',
   general: 'Querétaro',
 };
 
@@ -44,7 +45,7 @@ function InformacionIndexContent() {
 
   // Sort groups: campuses first, then neighborhoods, then general
   const campusOrder = ['juriquilla', 'milenio', 'zibata', 'san-miguel', 'corregidora'];
-  const neighborhoodOrder = ['Loma Dorada', 'Centro Sur', 'El Mirador', 'El Refugio', 'Cumbres del Lago', 'Gran Reserva'];
+  const neighborhoodOrder = ['Loma Dorada', 'Centro Sur', 'El Mirador', 'El Refugio', 'Cumbres del Lago', 'Gran Reserva', 'Candiles'];
   const sortedKeys = [
     ...campusOrder.filter((k) => groups[k]),
     ...neighborhoodOrder.filter((k) => groups[k]),

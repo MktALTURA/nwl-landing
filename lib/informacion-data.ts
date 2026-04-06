@@ -2625,40 +2625,40 @@ export const informacionPages: Record<string, InformacionPage> = {
     title: 'Escuela privada cerca de Gran Reserva Querétaro | Newland School',
     h1: 'Colegio privado bilingüe cerca de Gran Reserva',
     description:
-      'Escuela privada bilingüe cerca de Gran Reserva Querétaro. Campus Corregidora a 8 min y Zibatá a 10 min. Maternal a preparatoria con Knotion, FpN y Doble Diploma.',
+      'Escuela privada bilingüe cerca de Gran Reserva Querétaro. Campus Juriquilla a 15 min. Maternal a secundaria con programa Knotion, Filosofía para Niños y certificaciones Cambridge.',
     uniqueIntro:
-      'Gran Reserva queda entre dos de los campus más completos de Newland School: Corregidora (2019, 4.5★, 175+ reseñas) a unos 8 minutos en auto y Zibatá (2025, 4.5★, 230+ reseñas) a unos 10 minutos. Ambos ofrecen desde maternal hasta preparatoria — algo que muy pocos colegios en la zona sur-poniente de Querétaro pueden decir.',
+      'Las familias de Gran Reserva tienen en NWL Juriquilla su campus más cercano, a unos 15 minutos en auto. Fundado en 2009, es el campus insignia de Newland School con 4.6★ en Google y más de 320 reseñas. Ofrece maternal a secundaria con transporte escolar que cubre la zona de Gran Reserva y Juriquilla.',
     sections: [
       {
-        heading: 'Corregidora: el cubo Rubik a 8 minutos',
-        body: 'El campus Corregidora es difícil de confundir — el edificio con forma de cubo Rubik se ha convertido en referencia de la zona. Bajo la dirección de José Gustavo Flores, ofrece maternal a preparatoria con actividades que lo distinguen: creación de podcasts, programación e inteligencia artificial como parte del currículo regular.\n\nLas familias de Gran Reserva llegan en 8 minutos por las vialidades principales. El campus cuenta con rutas de transporte escolar, cancha techada, laboratorio STEAM, cafetería y más de 90 cámaras de seguridad.',
+        heading: 'Juriquilla: el campus insignia a 15 minutos',
+        body: 'NWL Juriquilla lleva más de 15 años formando alumnos bilingües en la zona norte de Querétaro. Bajo la dirección de Guadalupe Barrientos, ofrece maternal (2 años), kinder, primaria y secundaria en un campus con canchas deportivas, laboratorio STEAM, cafetería y playground.\n\nDesde Gran Reserva el trayecto es de unos 15 minutos por las vialidades principales. El campus tiene rutas de transporte escolar que cubren la zona, facilitando la logística diaria para las familias.',
       },
       {
-        heading: 'Zibatá: instalaciones 2025 a 10 minutos',
-        body: 'Campus Zibatá es el más nuevo de la red NWL. Diseñado en 2025 con maker spaces, estudios de grabación y laboratorios de última generación, ofrece maternal a preparatoria. Directora: Daniela Arévalo.\n\nDesde Gran Reserva el trayecto es de unos 10 minutos. Los alumnos pueden iniciar en cualquiera de los dos campus y transitar a preparatoria sin perder continuidad — mismo modelo Knotion, mismos programas, mismos valores.',
+        heading: 'Knotion sin tarea y Filosofía para Niños desde los 2 años',
+        body: 'Lo que distingue a NWL de otros colegios cercanos a Gran Reserva es la combinación de programas que ningún otro ofrece. Knotion elimina la tarea tradicional y la reemplaza con proyectos; Filosofía para Niños desarrolla pensamiento crítico desde maternal; y Yo Soy Líder NWL by Tec de Monterrey forma liderazgo con inteligencia emocional.\n\nEn primaria, el TecniKids STEAM Lab ofrece impresión 3D, corte láser y robótica. En secundaria, Emprendizaje con Universidad Mondragón y la Doble Certificación Internacional vía Hokku Academy preparan a los alumnos para el siguiente paso.',
       },
       {
-        heading: 'Dos campus con preparatoria, ambos cerca de casa',
-        body: 'Tener dos campus NWL con preparatoria a menos de 10 minutos es una ventaja real para las familias de Gran Reserva. La prepa NWL incluye Life Project con mentores personales, Doble Diploma (México + EUA), certificaciones Kn U High/Coursera desde primer semestre, Inteligencia Financiera e intercambio internacional.\n\nEn los niveles previos: Brain Up en maternal, Knotion sin tarea en kinder y primaria, TecniKids STEAM Lab, Emprendizaje con Universidad Mondragón en secundaria y Doble Certificación Internacional vía Hokku Academy.',
+        heading: 'Preparatoria NWL: continuidad en Zibatá o Corregidora',
+        body: 'Juriquilla ofrece hasta secundaria. Para preparatoria, las familias de Gran Reserva pueden continuar en campus Zibatá o Corregidora — ambos con preparatoria NWL que incluye Life Project con mentores, Doble Diploma (México + EUA), Kn U High/Coursera e intercambio internacional.\n\nLa transición es natural: mismo modelo Knotion, misma filosofía educativa, mismos valores. Los alumnos no pierden continuidad al cambiar de campus para la prepa.',
       },
     ],
     faqs: [
       {
-        question: '¿Qué tan lejos está Newland School de Gran Reserva?',
+        question: '¿Cuánto se tarda de Gran Reserva al campus Juriquilla?',
         answer:
-          'Campus Corregidora queda a unos 8 minutos y Zibatá a unos 10 minutos desde Gran Reserva. Ambos ofrecen maternal a preparatoria, transporte escolar y programa bilingüe completo. Director Corregidora: José Gustavo Flores. Directora Zibatá: Daniela Arévalo.',
+          'Aproximadamente 15 minutos en auto. NWL Juriquilla ofrece maternal a secundaria con transporte escolar que cubre Gran Reserva. Para preparatoria, campus Zibatá y Corregidora son opciones adicionales. Directora Juriquilla: Guadalupe Barrientos.',
       },
       {
-        question: '¿Puedo estudiar preparatoria cerca de Gran Reserva?',
+        question: '¿Qué niveles educativos hay cerca de Gran Reserva?',
         answer:
-          'Sí. Tanto Corregidora como Zibatá ofrecen preparatoria con Life Project, Doble Diploma, Kn U High/Coursera, Inteligencia Financiera, HIT/Hyrox e intercambio internacional. Corregidora además incluye podcasts, programación e IA.',
+          'Maternal a secundaria en Juriquilla (15 min). Para preparatoria, campus Zibatá y Corregidora ofrecen Life Project, Doble Diploma y certificaciones internacionales. Los tres campus usan Knotion, FpN y Yo Soy Líder by Tec de Monterrey.',
       },
     ],
     images: {
-      hero: '/images/campus/corregidora/corregidora-hero.jpg',
+      hero: '/images/campus/juriquilla/juriquilla-hero.jpg',
       content: [
         '/images/levels/kinder/kinder-classroom.jpg',
-        '/images/campus/zibata/zibata-hallway.jpg',
+        '/images/campus/juriquilla/juriquilla-classrooms.jpg',
       ],
     },
     targetNeighborhood: 'Gran Reserva',
@@ -2668,6 +2668,62 @@ export const informacionPages: Record<string, InformacionPage> = {
       'colegio privado gran reserva',
       'escuela cerca de gran reserva',
       'newland school gran reserva',
+    ],
+  },
+
+  // =========================================================================
+  // PAGE 51 — Escuela privada cerca de Candiles / Tejeda (Corregidora)
+  // =========================================================================
+  'escuela-privada-cerca-de-candiles-queretaro': {
+    slug: 'escuela-privada-cerca-de-candiles-queretaro',
+    lang: 'es',
+    title: 'Escuela privada cerca de Candiles y Tejeda Querétaro | Newland School',
+    h1: 'Colegio privado bilingüe cerca de Candiles y Tejeda',
+    description:
+      'Escuela privada bilingüe cerca de Candiles y Tejeda en Corregidora, Querétaro. Campus Corregidora con maternal a preparatoria, Knotion, podcasts, programación e IA.',
+    uniqueIntro:
+      'NWL Campus Corregidora queda a minutos de Candiles y Tejeda — dos de las colonias más grandes del municipio de Corregidora. El campus, fundado en 2019 con su icónico edificio cubo Rubik, ofrece maternal a preparatoria con 4.5★ en Google y 175+ reseñas. Director: José Gustavo Flores.',
+    sections: [
+      {
+        heading: 'Campus Corregidora: a minutos de Candiles y Tejeda',
+        body: 'El campus Corregidora se ubica sobre la vialidad principal que conecta Candiles, Tejeda y Los Olvera con el resto de Corregidora. Las familias de estas colonias llegan en pocos minutos y cuentan con rutas de transporte escolar que cubren la zona.\n\nEl edificio cubo Rubik ya es referencia en el área. Dentro, los alumnos acceden a cancha techada, laboratorio STEAM, cafetería, estudio de podcasts y más de 90 cámaras de seguridad con programa BFS (Bullying Free School).',
+      },
+      {
+        heading: 'Podcasts, programación e IA desde secundaria',
+        body: 'Lo que hace único al campus Corregidora frente a otras escuelas de Candiles y Tejeda es la integración de tecnología real en el currículo. Los alumnos de secundaria y preparatoria crean podcasts profesionales, aprenden programación y trabajan con herramientas de inteligencia artificial.\n\nEsto se suma al modelo que comparten todos los campus NWL: Knotion sin tarea tradicional, Filosofía para Niños desde maternal, Yo Soy Líder NWL by Tec de Monterrey, TecniKids STEAM Lab en primaria y Emprendizaje con Universidad Mondragón en secundaria.',
+      },
+      {
+        heading: 'Maternal a preparatoria en un solo campus',
+        body: 'Corregidora es uno de los 3 campus NWL que ofrece la trayectoria completa de maternal a preparatoria. Los niños inician con Brain Up a los 2 años, avanzan con Knotion en kinder y primaria, y en secundaria obtienen la Doble Certificación Internacional vía Hokku Academy.\n\nEn preparatoria: Life Project con mentores personales, Doble Diploma (México + EUA acreditado por Cognia), certificaciones Kn U High/Coursera, Inteligencia Financiera, HIT/Hyrox e intercambio internacional. Todo sin cambiar de campus.',
+      },
+    ],
+    faqs: [
+      {
+        question: '¿Qué tan cerca está Newland School de Candiles?',
+        answer:
+          'Campus Corregidora queda a pocos minutos de Candiles y Tejeda por las vialidades principales. Ofrece maternal a preparatoria con transporte escolar que cubre la zona. 4.5★ en Google, 175+ reseñas. Director: José Gustavo Flores.',
+      },
+      {
+        question: '¿El campus Corregidora ofrece preparatoria?',
+        answer:
+          'Sí. Es uno de los 3 campus NWL con preparatoria. Incluye Life Project con mentores, Doble Diploma (México + EUA), Kn U High/Coursera, programación, podcasts, IA, HIT/Hyrox e intercambio internacional.',
+      },
+    ],
+    images: {
+      hero: '/images/campus/corregidora/corregidora-hero.jpg',
+      content: [
+        '/images/campus/corregidora/corregidora-building.jpg',
+        '/images/campus/corregidora/corregidora-classrooms.jpg',
+      ],
+    },
+    targetNeighborhood: 'Candiles',
+    category: 'neighborhood',
+    keywords: [
+      'escuela candiles queretaro',
+      'colegio privado candiles corregidora',
+      'escuela cerca de tejeda queretaro',
+      'escuela privada candiles',
+      'colegio cerca de candiles',
     ],
   },
 
