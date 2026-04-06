@@ -2517,7 +2517,7 @@ export const informacionPages: Record<string, InformacionPage> = {
     description:
       'Conoce las preparatorias de Newland School en 3 campus: Corregidora, Zibatá y San Miguel de Allende. Doble Diploma, Life Project, Kn U High y certificaciones internacionales.',
     uniqueIntro:
-      'Newland School ofrece preparatoria en tres campus: Corregidora (2019, edificio cubo Rubik), Zibatá (2025, instalaciones de última generación) y San Miguel de Allende (2018, en una ciudad Patrimonio UNESCO). Los tres comparten un modelo que no se parece a ninguna otra prepa en Querétaro: cada alumno trabaja con un Life Mentor personal durante los 6 semestres, construye un Portafolio de 6 Proyectos Personales y egresa con Doble Diploma reconocido en México y Estados Unidos.',
+      'Tres campus de Newland School ofrecen preparatoria en Querétaro y San Miguel de Allende: Corregidora, Zibatá y San Miguel. Los tres comparten un modelo que no se parece a ninguna otra prepa en la región — cada alumno trabaja con un Life Mentor personal durante los 6 semestres, construye un Portafolio de 6 Proyectos Personales y egresa con Doble Diploma reconocido en México y Estados Unidos.',
     sections: [
       {
         heading: 'Tres campus, un mismo modelo de preparatoria',
@@ -2548,7 +2548,7 @@ export const informacionPages: Record<string, InformacionPage> = {
       hero: '/images/levels/prepa/prepa-nwl-modern-classroom.jpg',
       content: [
         '/images/campus/corregidora/corregidora-prepa-classroom.jpg',
-        '/images/campus/zibata/zibata-classrooms.jpg',
+        '/images/levels/prepa/prepa-nwl-student-lounge-gradas.jpg',
       ],
     },
     category: 'general',
