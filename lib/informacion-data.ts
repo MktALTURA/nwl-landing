@@ -2570,33 +2570,33 @@ export const informacionPages: Record<string, InformacionPage> = {
     title: 'Escuela privada cerca de Cumbres del Lago Querétaro | Newland School',
     h1: 'Tu escuela privada a minutos de Cumbres del Lago',
     description:
-      'Escuela privada bilingüe cerca de Cumbres del Lago Querétaro. Campus Juriquilla a 5 min y Zibatá a 10 min. Maternal a preparatoria con programa Knotion y Filosofía para Niños.',
+      'Escuela privada bilingüe cerca de Cumbres del Lago Querétaro. Campus Juriquilla a 10 min y Zibatá a 20 min. Maternal a preparatoria con programa Knotion y Filosofía para Niños.',
     uniqueIntro:
-      'Las familias de Cumbres del Lago tienen dos campus NWL a la vuelta: Juriquilla (fundado en 2009, el campus insignia con 4.6★ y 320+ reseñas) queda a unos 5 minutos en auto, y Zibatá (2025, el más moderno de la red con 4.5★) a unos 10 minutos. Entre ambos cubren desde maternal hasta preparatoria, con transporte escolar que pasa por la zona.',
+      'Las familias de Cumbres del Lago tienen dos campus NWL cerca: Juriquilla (fundado en 2009, el campus insignia con 4.6★ y 320+ reseñas) queda a unos 10 minutos en auto, y Zibatá (2025, el más moderno de la red con 4.5★) a unos 20 minutos. Entre ambos cubren desde maternal hasta preparatoria, con transporte escolar que pasa por la zona.',
     sections: [
       {
-        heading: 'Juriquilla: 5 minutos desde Cumbres del Lago',
+        heading: 'Juriquilla: 10 minutos desde Cumbres del Lago',
         body: 'NWL Juriquilla es el campus más cercano para las familias de Cumbres del Lago. Con más de 15 años de operación, ofrece maternal (2 años), kinder, primaria y secundaria. La directora Guadalupe Barrientos lidera un equipo que ha mantenido la calificación más alta en reseñas de la zona norte.\n\nEl campus cuenta con canchas deportivas, cafetería, laboratorio STEAM, playground y áreas verdes. Rutas de transporte escolar cubren Cumbres del Lago, Juriquilla, El Refugio y fraccionamientos cercanos.',
       },
       {
-        heading: 'Zibatá: preparatoria a 10 minutos',
-        body: 'Si buscas preparatoria, campus Zibatá es la opción más cercana a Cumbres del Lago. Fundado en 2025 con instalaciones diseñadas desde cero, ofrece desde maternal hasta preparatoria bajo la dirección de Daniela Arévalo.\n\nZibatá complementa a Juriquilla: los alumnos pueden cursar maternal a secundaria en Juriquilla y pasar a la prepa en Zibatá sin cambiar de sistema educativo. Mismos programas, misma filosofía, continuidad total. El campus incluye maker spaces, estudios de grabación y zonas colaborativas de última generación.',
+        heading: 'Zibatá: preparatoria a 20 minutos',
+        body: 'Si buscas preparatoria, campus Zibatá ofrece desde maternal hasta prepa. Fundado en 2025 con instalaciones diseñadas desde cero, opera bajo la dirección de Daniela Arévalo.\n\nZibatá complementa a Juriquilla: los alumnos pueden cursar maternal a secundaria en Juriquilla y pasar a la prepa en Zibatá sin cambiar de sistema educativo. Mismos programas, misma filosofía, continuidad total. El campus incluye maker spaces, estudios de grabación y zonas colaborativas de última generación.',
       },
       {
         heading: 'Knotion, FpN y programas que no encontrarás cerca',
-        body: 'Los dos campus comparten lo que distingue a NWL: Knotion elimina la tarea tradicional y la reemplaza con proyectos; Filosofía para Niños desarrolla pensamiento crítico desde los 2 años; y Yo Soy Líder NWL by Tec de Monterrey forma liderazgo con inteligencia emocional.\n\nEn primaria, el TecniKids STEAM Lab ofrece impresión 3D, corte láser y robótica. En secundaria, Emprendizaje con Universidad Mondragón y la Doble Certificación Internacional preparan el siguiente paso. Todo esto a menos de 10 minutos de Cumbres del Lago.',
+        body: 'Los dos campus comparten lo que distingue a NWL: Knotion elimina la tarea tradicional y la reemplaza con proyectos; Filosofía para Niños desarrolla pensamiento crítico desde los 2 años; y Yo Soy Líder NWL by Tec de Monterrey forma liderazgo con inteligencia emocional.\n\nEn primaria, el TecniKids STEAM Lab ofrece impresión 3D, corte láser y robótica. En secundaria, Emprendizaje con Universidad Mondragón y la Doble Certificación Internacional preparan el siguiente paso. Todo esto cerca de Cumbres del Lago.',
       },
     ],
     faqs: [
       {
         question: '¿Cuánto se tarda de Cumbres del Lago al campus Juriquilla?',
         answer:
-          'Aproximadamente 5 minutos en auto. NWL Juriquilla ofrece maternal a secundaria. Para preparatoria, campus Zibatá queda a unos 10 minutos. Ambos campus tienen rutas de transporte que cubren Cumbres del Lago.',
+          'Aproximadamente 10 minutos en auto. NWL Juriquilla ofrece maternal a secundaria. Para preparatoria, campus Zibatá queda a unos 20 minutos. Ambos campus tienen rutas de transporte que cubren Cumbres del Lago.',
       },
       {
         question: '¿Qué niveles educativos hay cerca de Cumbres del Lago?',
         answer:
-          'Maternal a secundaria en Juriquilla (5 min) y maternal a preparatoria en Zibatá (10 min). Ambos campus usan Knotion, Filosofía para Niños y Yo Soy Líder by Tec de Monterrey. Directora Juriquilla: Guadalupe Barrientos. Directora Zibatá: Daniela Arévalo.',
+          'Maternal a secundaria en Juriquilla (10 min) y maternal a preparatoria en Zibatá (20 min). Ambos campus usan Knotion, Filosofía para Niños y Yo Soy Líder by Tec de Monterrey. Directora Juriquilla: Guadalupe Barrientos. Directora Zibatá: Daniela Arévalo.',
       },
     ],
     images: {
