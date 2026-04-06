@@ -868,6 +868,7 @@ export const informacionPages: Record<string, InformacionPage> = {
     },
     targetCampus: 'san-miguel',
     category: 'campus',
+    hreflangPair: 'international-school-in-san-miguel-de-allende',
     keywords: [
       'escuela bilingüe san miguel de allende',
       'colegio bilingüe san miguel',
@@ -1599,6 +1600,7 @@ export const informacionPages: Record<string, InformacionPage> = {
       ],
     },
     category: 'general',
+    hreflangPair: 'international-school-in-queretaro',
     keywords: [
       'colegio particular queretaro',
       'escuela particular queretaro',
@@ -2501,6 +2503,339 @@ export const informacionPages: Record<string, InformacionPage> = {
       'prepa bilingüe zibata',
       'preparatoria privada zibata',
       'high school zibata queretaro',
+    ],
+  },
+
+  // =========================================================================
+  // PAGE 45 — Mejores preparatorias privadas en Querétaro
+  // =========================================================================
+  'mejores-preparatorias-privadas-en-queretaro': {
+    slug: 'mejores-preparatorias-privadas-en-queretaro',
+    lang: 'es',
+    title: 'Preparatorias privadas en Querétaro y SMA | Newland School',
+    h1: 'Preparatorias privadas en Querétaro con Doble Diploma y Life Project',
+    description:
+      'Conoce las preparatorias de Newland School en 3 campus: Corregidora, Zibatá y San Miguel de Allende. Doble Diploma, Life Project, Kn U High y certificaciones internacionales.',
+    uniqueIntro:
+      'Newland School ofrece preparatoria en tres campus: Corregidora (2019, edificio cubo Rubik), Zibatá (2025, instalaciones de última generación) y San Miguel de Allende (2018, en una ciudad Patrimonio UNESCO). Los tres comparten un modelo que no se parece a ninguna otra prepa en Querétaro: cada alumno trabaja con un Life Mentor personal durante los 6 semestres, construye un Portafolio de 6 Proyectos Personales y egresa con Doble Diploma reconocido en México y Estados Unidos.',
+    sections: [
+      {
+        heading: 'Tres campus, un mismo modelo de preparatoria',
+        body: 'Lo que hace distinta a la prepa NWL no es un solo programa sino cómo se conectan todos. Life Project asigna un mentor desde el primer día. Doble Diploma (SEP México + diploma EUA acreditado por Cognia) abre puertas a universidades en ambos países. Y las certificaciones Kn U High/Coursera arrancan desde el primer semestre, no al final de la carrera.\n\nCorregidora destaca por podcasts, programación e IA aplicada. Zibatá tiene las instalaciones más nuevas de la red, diseñadas en 2025. San Miguel aprovecha su entorno multicultural y artístico para enriquecer la experiencia. Los tres campus incluyen Inteligencia Financiera, IA y Tecnología Moderna, HIT/Hyrox y la posibilidad de intercambio internacional en 5.° y 6.° semestre.',
+      },
+      {
+        heading: 'Life Project: mentores reales, proyectos reales',
+        body: 'El programa Life Project funciona así: un mentor acompaña al alumno durante toda la prepa. Juntos definen metas académicas, personales y profesionales. Cada semestre el alumno entrega un proyecto que forma parte de su portafolio final — no un trabajo escolar genérico, sino algo que demuestra crecimiento real.\n\nAl terminar, los egresados tienen un Portafolio de 6 Proyectos con evidencia concreta de lo que saben hacer. Eso, combinado con el Doble Diploma y las certificaciones Coursera, les da un perfil que las oficinas de admisiones de universidades nacionales e internacionales reconocen de inmediato.',
+      },
+      {
+        heading: 'HIT/Hyrox, deporte y formación integral',
+        body: 'La condición física no es opcional: el programa HIT/Hyrox ofrece entrenamientos de alta intensidad en los tres campus. Basquetbol, voleibol, tochito, dance y música completan la oferta extracurricular.\n\nFilosofía para Niños sigue presente en preparatoria — los alumnos debaten ética, política y ciencia con herramientas de pensamiento crítico que desarrollaron desde maternal. Yo Soy Líder NWL by Tec de Monterrey y el programa BFS (Bullying Free School) acompañan la formación socioemocional. Contenido académico base: McGraw-Hill.',
+      },
+    ],
+    faqs: [
+      {
+        question: '¿En qué campus de Newland School puedo estudiar preparatoria?',
+        answer:
+          'En tres: Corregidora (2019, director José Gustavo Flores), Zibatá (2025, directora Daniela Arévalo) y San Miguel de Allende (2018, director Ramón Godínez). Juriquilla y Milenio ofrecen hasta secundaria.',
+      },
+      {
+        question: '¿Qué certificaciones obtienen los alumnos de la prepa NWL?',
+        answer:
+          'Doble Diploma (SEP México + EUA acreditado por Cognia), certificaciones Kn U High y Coursera desde primer semestre, Cambridge English, Inteligencia Financiera y un Portafolio de 6 Proyectos Personales supervisado por un Life Mentor.',
+      },
+    ],
+    images: {
+      hero: '/images/levels/prepa/prepa-nwl-modern-classroom.jpg',
+      content: [
+        '/images/campus/corregidora/corregidora-prepa-classroom.jpg',
+        '/images/campus/zibata/zibata-classrooms.jpg',
+      ],
+    },
+    category: 'general',
+    keywords: [
+      'preparatorias en queretaro',
+      'prepas en queretaro',
+      'mejores preparatorias queretaro',
+      'preparatorias privadas queretaro',
+      'prepa bilingüe queretaro',
+    ],
+  },
+
+  // =========================================================================
+  // PAGE 46 — Escuela privada cerca de Cumbres del Lago
+  // =========================================================================
+  'escuela-privada-cerca-de-cumbres-del-lago-queretaro': {
+    slug: 'escuela-privada-cerca-de-cumbres-del-lago-queretaro',
+    lang: 'es',
+    title: 'Escuela privada cerca de Cumbres del Lago Querétaro | Newland School',
+    h1: 'Tu escuela privada a minutos de Cumbres del Lago',
+    description:
+      'Escuela privada bilingüe cerca de Cumbres del Lago Querétaro. Campus Juriquilla a 5 min y Zibatá a 10 min. Maternal a preparatoria con programa Knotion y Filosofía para Niños.',
+    uniqueIntro:
+      'Las familias de Cumbres del Lago tienen dos campus NWL a la vuelta: Juriquilla (fundado en 2009, el campus insignia con 4.6★ y 320+ reseñas) queda a unos 5 minutos en auto, y Zibatá (2025, el más moderno de la red con 4.5★) a unos 10 minutos. Entre ambos cubren desde maternal hasta preparatoria, con transporte escolar que pasa por la zona.',
+    sections: [
+      {
+        heading: 'Juriquilla: 5 minutos desde Cumbres del Lago',
+        body: 'NWL Juriquilla es el campus más cercano para las familias de Cumbres del Lago. Con más de 15 años de operación, ofrece maternal (2 años), kinder, primaria y secundaria. La directora Guadalupe Barrientos lidera un equipo que ha mantenido la calificación más alta en reseñas de la zona norte.\n\nEl campus cuenta con canchas deportivas, cafetería, laboratorio STEAM, playground y áreas verdes. Rutas de transporte escolar cubren Cumbres del Lago, Juriquilla, El Refugio y fraccionamientos cercanos.',
+      },
+      {
+        heading: 'Zibatá: preparatoria a 10 minutos',
+        body: 'Si buscas preparatoria, campus Zibatá es la opción más cercana a Cumbres del Lago. Fundado en 2025 con instalaciones diseñadas desde cero, ofrece desde maternal hasta preparatoria bajo la dirección de Daniela Arévalo.\n\nZibatá complementa a Juriquilla: los alumnos pueden cursar maternal a secundaria en Juriquilla y pasar a la prepa en Zibatá sin cambiar de sistema educativo. Mismos programas, misma filosofía, continuidad total. El campus incluye maker spaces, estudios de grabación y zonas colaborativas de última generación.',
+      },
+      {
+        heading: 'Knotion, FpN y programas que no encontrarás cerca',
+        body: 'Los dos campus comparten lo que distingue a NWL: Knotion elimina la tarea tradicional y la reemplaza con proyectos; Filosofía para Niños desarrolla pensamiento crítico desde los 2 años; y Yo Soy Líder NWL by Tec de Monterrey forma liderazgo con inteligencia emocional.\n\nEn primaria, el TecniKids STEAM Lab ofrece impresión 3D, corte láser y robótica. En secundaria, Emprendizaje con Universidad Mondragón y la Doble Certificación Internacional preparan el siguiente paso. Todo esto a menos de 10 minutos de Cumbres del Lago.',
+      },
+    ],
+    faqs: [
+      {
+        question: '¿Cuánto se tarda de Cumbres del Lago al campus Juriquilla?',
+        answer:
+          'Aproximadamente 5 minutos en auto. NWL Juriquilla ofrece maternal a secundaria. Para preparatoria, campus Zibatá queda a unos 10 minutos. Ambos campus tienen rutas de transporte que cubren Cumbres del Lago.',
+      },
+      {
+        question: '¿Qué niveles educativos hay cerca de Cumbres del Lago?',
+        answer:
+          'Maternal a secundaria en Juriquilla (5 min) y maternal a preparatoria en Zibatá (10 min). Ambos campus usan Knotion, Filosofía para Niños y Yo Soy Líder by Tec de Monterrey. Directora Juriquilla: Guadalupe Barrientos. Directora Zibatá: Daniela Arévalo.',
+      },
+    ],
+    images: {
+      hero: '/images/campus/juriquilla/juriquilla-hero.jpg',
+      content: [
+        '/images/levels/primaria/nwl-primaria-group-classroom-wide.jpg',
+        '/images/campus/zibata/zibata-building.jpg',
+      ],
+    },
+    targetNeighborhood: 'Cumbres del Lago',
+    category: 'neighborhood',
+    keywords: [
+      'escuela cumbres del lago queretaro',
+      'colegio privado cumbres del lago',
+      'escuela cerca de cumbres del lago',
+      'newland school cumbres del lago',
+    ],
+  },
+
+  // =========================================================================
+  // PAGE 47 — Escuela privada cerca de Gran Reserva
+  // =========================================================================
+  'escuela-privada-cerca-de-gran-reserva-queretaro': {
+    slug: 'escuela-privada-cerca-de-gran-reserva-queretaro',
+    lang: 'es',
+    title: 'Escuela privada cerca de Gran Reserva Querétaro | Newland School',
+    h1: 'Colegio privado bilingüe cerca de Gran Reserva',
+    description:
+      'Escuela privada bilingüe cerca de Gran Reserva Querétaro. Campus Corregidora a 8 min y Zibatá a 10 min. Maternal a preparatoria con Knotion, FpN y Doble Diploma.',
+    uniqueIntro:
+      'Gran Reserva queda entre dos de los campus más completos de Newland School: Corregidora (2019, 4.5★, 175+ reseñas) a unos 8 minutos en auto y Zibatá (2025, 4.5★, 230+ reseñas) a unos 10 minutos. Ambos ofrecen desde maternal hasta preparatoria — algo que muy pocos colegios en la zona sur-poniente de Querétaro pueden decir.',
+    sections: [
+      {
+        heading: 'Corregidora: el cubo Rubik a 8 minutos',
+        body: 'El campus Corregidora es difícil de confundir — el edificio con forma de cubo Rubik se ha convertido en referencia de la zona. Bajo la dirección de José Gustavo Flores, ofrece maternal a preparatoria con actividades que lo distinguen: creación de podcasts, programación e inteligencia artificial como parte del currículo regular.\n\nLas familias de Gran Reserva llegan en 8 minutos por las vialidades principales. El campus cuenta con rutas de transporte escolar, cancha techada, laboratorio STEAM, cafetería y más de 90 cámaras de seguridad.',
+      },
+      {
+        heading: 'Zibatá: instalaciones 2025 a 10 minutos',
+        body: 'Campus Zibatá es el más nuevo de la red NWL. Diseñado en 2025 con maker spaces, estudios de grabación y laboratorios de última generación, ofrece maternal a preparatoria. Directora: Daniela Arévalo.\n\nDesde Gran Reserva el trayecto es de unos 10 minutos. Los alumnos pueden iniciar en cualquiera de los dos campus y transitar a preparatoria sin perder continuidad — mismo modelo Knotion, mismos programas, mismos valores.',
+      },
+      {
+        heading: 'Dos campus con preparatoria, ambos cerca de casa',
+        body: 'Tener dos campus NWL con preparatoria a menos de 10 minutos es una ventaja real para las familias de Gran Reserva. La prepa NWL incluye Life Project con mentores personales, Doble Diploma (México + EUA), certificaciones Kn U High/Coursera desde primer semestre, Inteligencia Financiera e intercambio internacional.\n\nEn los niveles previos: Brain Up en maternal, Knotion sin tarea en kinder y primaria, TecniKids STEAM Lab, Emprendizaje con Universidad Mondragón en secundaria y Doble Certificación Internacional vía Hokku Academy.',
+      },
+    ],
+    faqs: [
+      {
+        question: '¿Qué tan lejos está Newland School de Gran Reserva?',
+        answer:
+          'Campus Corregidora queda a unos 8 minutos y Zibatá a unos 10 minutos desde Gran Reserva. Ambos ofrecen maternal a preparatoria, transporte escolar y programa bilingüe completo. Director Corregidora: José Gustavo Flores. Directora Zibatá: Daniela Arévalo.',
+      },
+      {
+        question: '¿Puedo estudiar preparatoria cerca de Gran Reserva?',
+        answer:
+          'Sí. Tanto Corregidora como Zibatá ofrecen preparatoria con Life Project, Doble Diploma, Kn U High/Coursera, Inteligencia Financiera, HIT/Hyrox e intercambio internacional. Corregidora además incluye podcasts, programación e IA.',
+      },
+    ],
+    images: {
+      hero: '/images/campus/corregidora/corregidora-hero.jpg',
+      content: [
+        '/images/levels/kinder/kinder-classroom.jpg',
+        '/images/campus/zibata/zibata-hallway.jpg',
+      ],
+    },
+    targetNeighborhood: 'Gran Reserva',
+    category: 'neighborhood',
+    keywords: [
+      'escuela gran reserva queretaro',
+      'colegio privado gran reserva',
+      'escuela cerca de gran reserva',
+      'newland school gran reserva',
+    ],
+  },
+
+  // =========================================================================
+  // PAGE 48 — International School in San Miguel de Allende (EN)
+  // =========================================================================
+  'international-school-in-san-miguel-de-allende': {
+    slug: 'international-school-in-san-miguel-de-allende',
+    lang: 'en',
+    title: 'International School in San Miguel de Allende | Newland School',
+    h1: 'A bilingual international school in San Miguel de Allende',
+    description:
+      'Newland School in San Miguel de Allende offers nursery through high school with Cambridge English, Dual Diploma, Cognia accreditation, and a multicultural learning environment.',
+    uniqueIntro:
+      'Newland School San Miguel de Allende sits in the heart of a UNESCO World Heritage city and serves families from Mexico, the United States, Canada, and Europe. Founded in 2018, the campus holds a 4.7-star Google rating — the highest in the NWL network — and runs from nursery (age 2) through high school (age 17) under the direction of Ramón Godínez.',
+    sections: [
+      {
+        heading: 'Nursery through high school in one campus',
+        body: 'San Miguel de Allende is one of three NWL campuses that offers the full educational journey from nursery to high school. Children start with Brain Up English immersion at age 2, move through Knotion project-based learning in elementary, and reach the Emprendizaje entrepreneurship program with Universidad Mondragón in middle school.\n\nThe high school program includes Life Project with personal mentors, a Dual Diploma recognized in both Mexico and the United States (Cognia-accredited), Kn U High/Coursera certifications from the first semester, and an international exchange program in the final year.',
+      },
+      {
+        heading: 'Cambridge English and a naturally bilingual environment',
+        body: 'Most international schools in San Miguel teach in English with Spanish as a second language. NWL does the opposite — full bilingual immersion where students operate in both languages daily, backed by Cambridge English certifications at every level.\n\nThe multicultural makeup of San Miguel means students practice English outside the classroom too — with neighbors, at restaurants, in galleries. That kind of organic language exposure is hard to replicate anywhere else in central Mexico.',
+      },
+      {
+        heading: 'Art, culture, and critical thinking in a UNESCO city',
+        body: 'Philosophy for Children (P4C) starts at age 2 and continues through high school. Students learn to question, argue, and build ideas — skills that show up in every subject and every conversation. The Yo Soy Líder NWL program, designed by Tec de Monterrey, develops emotional intelligence and leadership alongside academics.\n\nSan Miguel\'s artistic heritage feeds directly into the curriculum: painting, sculpture, theater, and visits to local galleries and festivals. The campus includes a covered court, science labs, art rooms, a podcast studio, and a cafeteria. More than 90 security cameras operate around the clock.',
+      },
+    ],
+    faqs: [
+      {
+        question: 'Is instruction at Newland School San Miguel conducted in English?',
+        answer:
+          'NWL uses a bilingual model — roughly half the day is in English, half in Spanish. Cambridge English certifications are included at every level. The multicultural community in San Miguel provides additional English-language exposure outside school.',
+      },
+      {
+        question: 'Does Newland School accept international students?',
+        answer:
+          'Yes. NWL San Miguel serves families from Mexico, the US, Canada, and Europe. The Dual Diploma is recognized in both Mexico and the United States. The campus runs nursery (age 2) through high school. Director: Lic. Ramón Godínez. 4.7★ on Google.',
+      },
+    ],
+    images: {
+      hero: '/images/campus/san-miguel/san-miguel-hero.jpg',
+      content: [
+        '/images/campus/san-miguel/san-miguel-classrooms.jpg',
+        '/images/campus/san-miguel/san-miguel-art-room.jpg',
+      ],
+    },
+    targetCampus: 'san-miguel',
+    category: 'campus',
+    hreflangPair: 'escuela-bilingue-en-san-miguel-de-allende',
+    keywords: [
+      'international school san miguel de allende',
+      'bilingual school san miguel de allende',
+      'private school san miguel de allende',
+      'english school san miguel de allende',
+      'best school san miguel de allende',
+    ],
+  },
+
+  // =========================================================================
+  // PAGE 49 — Secundarias en Querétaro
+  // =========================================================================
+  'secundarias-en-queretaro': {
+    slug: 'secundarias-en-queretaro',
+    lang: 'es',
+    title: 'Secundarias privadas en Querétaro | Newland School',
+    h1: 'Secundarias en Querétaro con Emprendizaje y Doble Certificación',
+    description:
+      'Secundaria privada bilingüe en Querétaro con Emprendizaje, Doble Certificación Internacional, Filosofía para Niños y programa sin tarea. 5 campus NWL disponibles.',
+    uniqueIntro:
+      'La secundaria NWL opera en los 5 campus de la red: Juriquilla (2009, 4.6★), Milenio (2016, 4.5★), San Miguel de Allende (2018, 4.7★), Corregidora (2019, 4.5★) y Zibatá (2025, 4.5★). Lo que comparten no es solo un nombre — es un modelo de secundaria donde los alumnos trabajan como emprendedores con Universidad Mondragón, obtienen Doble Certificación Internacional vía Hokku Academy y no llevan tarea a casa.',
+    sections: [
+      {
+        heading: 'Emprendizaje: secundaria con Universidad Mondragón',
+        body: 'El programa Emprendizaje convierte a los alumnos de secundaria en emprendedores reales. En alianza con Universidad Mondragón (referente mundial en educación cooperativa), los estudiantes identifican problemas de su comunidad, diseñan soluciones y las presentan ante jurados.\n\nNo es una materia más. Es la columna vertebral del tercer año de secundaria, donde el aprendizaje de matemáticas, ciencias, español e inglés se aplica a un proyecto con impacto real. Los alumnos egresan sabiendo qué significa crear algo desde cero.',
+      },
+      {
+        heading: 'Doble Certificación y Cambridge en 5 campus',
+        body: 'Todos los alumnos de secundaria NWL obtienen Doble Certificación Internacional: diploma mexicano (SEP) más diploma estadounidense a través de Hokku Academy. Esto les da validez internacional antes de llegar a preparatoria.\n\nLas certificaciones Cambridge (PET y FCE) se integran al currículo — no son un extra que hay que pagar aparte. Filosofía para Niños sigue activa en secundaria, ahora con debates más complejos sobre ética, tecnología y sociedad. Yo Soy Líder NWL by Tec de Monterrey mantiene la formación socioemocional.',
+      },
+      {
+        heading: 'Sin tarea, con laboratorio y deporte',
+        body: 'La secundaria NWL mantiene el modelo Knotion sin tarea tradicional. El aprendizaje ocurre en el aula, en el laboratorio y en proyectos — no en cuadernos a las 10 de la noche.\n\nCada campus cuenta con laboratorios de ciencias, áreas deportivas (basquetbol, voleibol, tochito, fútbol), programa BFS (Bullying Free School) y más de 90 cámaras de seguridad. En San Miguel, Corregidora y Zibatá, los alumnos que terminan secundaria pueden continuar a preparatoria NWL sin cambiar de sistema.',
+      },
+    ],
+    faqs: [
+      {
+        question: '¿Qué diferencia a la secundaria NWL de otras en Querétaro?',
+        answer:
+          'Tres cosas: Emprendizaje con Universidad Mondragón (emprendimiento real, no simulado), Doble Certificación Internacional desde secundaria (no hay que esperar a prepa) y cero tarea tradicional con Knotion. Todo esto en 5 campus con acreditación Cognia.',
+      },
+      {
+        question: '¿En qué campus de Newland School hay secundaria?',
+        answer:
+          'En los 5: Juriquilla (directora Guadalupe Barrientos), Milenio (directora Ximena Arellano), San Miguel de Allende (director Ramón Godínez), Corregidora (director José Gustavo Flores) y Zibatá (directora Daniela Arévalo).',
+      },
+    ],
+    images: {
+      hero: '/images/levels/secundaria/nwl-secundaria-lab-experiment.jpg',
+      content: [
+        '/images/levels/secundaria/nwl-secundaria-lab-team-fist-bump.jpg',
+        '/images/campus/milenio/milenio-classroom-secondary.jpg',
+      ],
+    },
+    category: 'general',
+    keywords: [
+      'secundarias en queretaro',
+      'mejores secundarias queretaro',
+      'secundarias privadas queretaro',
+      'secundaria bilingüe queretaro',
+      'secundaria particular queretaro',
+    ],
+  },
+
+  // =========================================================================
+  // PAGE 50 — International School in Querétaro (EN)
+  // =========================================================================
+  'international-school-in-queretaro': {
+    slug: 'international-school-in-queretaro',
+    lang: 'en',
+    title: 'International School in Querétaro Mexico | Newland School',
+    h1: 'International bilingual school in Querétaro with 5 campuses',
+    description:
+      'Newland School operates 5 bilingual campuses in Querétaro with Cognia accreditation, Cambridge English, Dual Diploma, and nursery through high school programs.',
+    uniqueIntro:
+      'Newland School runs five campuses across Querétaro and San Miguel de Allende, serving international and Mexican families since 2009. With Cognia accreditation (the same body that accredits schools across the US), Cambridge English certifications at every level, and a Dual Diploma recognized in both Mexico and the United States, NWL offers the academic rigor that relocating families look for — without sacrificing the warmth of a Mexican school community.',
+    sections: [
+      {
+        heading: 'Five campuses, one educational model',
+        body: 'Juriquilla (2009) is the flagship campus with the longest track record and a 4.6-star Google rating. Milenio (2016) holds Cognia accreditation and offers cooking workshops, yoga, and a competitive dance team. San Miguel de Allende (2018) sits in a UNESCO World Heritage city with a 4.7-star rating.\n\nCorregidora (2019) stands out for its Rubik\'s-cube-shaped building and programs in podcasting, programming, and AI. Zibatá (2025) is the newest campus with purpose-built maker spaces and recording studios. Three campuses (San Miguel, Corregidora, Zibatá) run through high school.',
+      },
+      {
+        heading: 'Cognia accreditation and Cambridge English',
+        body: 'Cognia is the accreditation standard used by over 36,000 schools in 85 countries, including most American private schools. NWL campuses hold this accreditation, which means credits transfer smoothly if your family relocates again.\n\nCambridge English certifications (Starters through FCE) are built into the curriculum at no extra cost. The bilingual model splits the school day between English and Spanish instruction, so students develop real fluency in both languages rather than studying one as a foreign language.',
+      },
+      {
+        heading: 'From nursery to high school with no gaps',
+        body: 'NWL enrolls children from age 2 (nursery) through age 17 (high school). Brain Up introduces English immersion in nursery. Knotion replaces traditional homework with project-based learning from kindergarten onward. The TecniKids STEAM Lab in elementary offers 3D printing, laser cutting, and robotics.\n\nIn middle school, the Emprendizaje program with Universidad Mondragón teaches real entrepreneurship. High school students work with personal Life Mentors, earn a Dual Diploma, and can do international exchanges in their final year. Philosophy for Children runs across all levels — it is the thread that connects the entire NWL experience.',
+      },
+    ],
+    faqs: [
+      {
+        question: 'What accreditations does Newland School hold?',
+        answer:
+          'Cognia accreditation (international, recognized by US schools for credit transfer), Cambridge English certifications at every level, alliance with Tec de Monterrey for the Yo Soy Líder leadership program, and Universidad Mondragón for the Emprendizaje entrepreneurship curriculum.',
+      },
+      {
+        question: 'How many Newland School campuses are in Querétaro?',
+        answer:
+          'Five: Juriquilla, Milenio, Zibatá, Corregidora, and San Miguel de Allende. All five offer nursery through middle school. San Miguel, Corregidora, and Zibatá also offer high school with a Dual Diploma program.',
+      },
+    ],
+    images: {
+      hero: '/images/campus/zibata/zibata-hero.jpg',
+      content: [
+        '/images/levels/primaria/nwl-primaria-steam-lab.jpg',
+        '/images/campus/juriquilla/juriquilla-classrooms.jpg',
+      ],
+    },
+    category: 'general',
+    hreflangPair: 'el-mejor-colegio-particular-en-queretaro',
+    keywords: [
+      'international school queretaro',
+      'bilingual school queretaro',
+      'private school queretaro mexico',
+      'english school queretaro',
+      'best international school queretaro',
     ],
   },
 };
