@@ -46,7 +46,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  'colegio-privado-con-kinder-en-juriquilla': {
  slug: 'colegio-privado-con-kinder-en-juriquilla',
  lang: 'es',
- title: 'Colegio con kinder privado en Juriquilla Queretaro | Newland School',
+ title: 'Colegio con kinder privado en Juriquilla Queretaro',
  h1: 'El mejor kinder privado en Juriquilla para tu hijos',
  description:
  'Descubre el kinder privado en Juriquilla de Newland School: programa bilingüe, Filosofía para Niños y un entorno seguro para el desarrollo integral de tu hijo.',
@@ -102,7 +102,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  'colegio-privado-con-secundaria-en-juriquilla': {
  slug: 'colegio-privado-con-secundaria-en-juriquilla',
  lang: 'es',
- title: 'Secundaria privada en Juriquilla Queretaro | Newland School',
+ title: 'Secundaria privada en Juriquilla Queretaro',
  h1: 'Conoce la opción ideal de secundaria en Juriquilla',
  description:
  'Secundaria privada en Juriquilla con formación bilingüe, laboratorios de ciencias y programa de Filosofía para Niños. Prepara a tu hijo para la preparatoria con Newland School.',
@@ -158,7 +158,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  'colegio-privado-en-juriquilla-con-maternal': {
  slug: 'colegio-privado-en-juriquilla-con-maternal',
  lang: 'es',
- title: 'Colegio con maternal privado en Juriquilla | Newland School',
+ title: 'Colegio con maternal privado en Juriquilla',
  h1: 'NWL es el maternal privado en Juriquilla ideal',
  description:
  'Maternal privado en Juriquilla: estimulación temprana bilingüe, espacios seguros y acompañamiento socioemocional desde los primeros meses. Conoce Newland School.',
@@ -214,7 +214,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  'escuela-particular-y-bilingue-en-juriquilla': {
  slug: 'escuela-particular-y-bilingue-en-juriquilla',
  lang: 'es',
- title: 'Colegio o escuela privada bilingüe en Juriquilla | Newland School',
+ title: 'Colegio o escuela privada bilingüe en Juriquilla',
  h1: 'Opción de escuela en Juriquilla con programa bilingüe',
  description:
  'Escuela privada bilingüe en Juriquilla con maternal, kinder, primaria y secundaria. Modelo educativo integral con Filosofía para Niños en Newland School.',
@@ -238,7 +238,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  {
  question: '¿Newland School en Juriquilla ofrece todos los niveles educativos?',
  answer:
- 'Juriquilla ofrece maternal, kinder, primaria y secundaria (no preparatoria). Es nuestro campus insignia fundado en 2009,. La directora es la Mtra. Dayana Rose Gómez.',
+ 'Juriquilla ofrece maternal, kinder, primaria y secundaria (no preparatoria). Es nuestro campus insignia fundado en 2009. La directora es la Mtra. Dayana Rose Gómez.',
  },
  {
  question: '¿Qué porcentaje del programa es en inglés?',
@@ -269,7 +269,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  'escuela-privada-cerca-de-zibata-queretaro': {
  slug: 'escuela-privada-cerca-de-zibata-queretaro',
  lang: 'es',
- title: 'Escuela privada cerca de Zibatá Querétaro | Newland School',
+ title: 'Escuela privada cerca de Zibatá Querétaro',
  h1: 'NWL es la escuela en Zibatá Querétaro que buscas',
  description:
  'Escuela privada cerca de Zibatá con programa bilingüe, Filosofía para Niños y todos los niveles desde maternal hasta prepa. Conoce Newland School campus Zibatá.',
@@ -324,7 +324,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  'escuela-privada-cerca-de-milenio': {
  slug: 'escuela-privada-cerca-de-milenio',
  lang: 'es',
- title: 'Escuela privada cerca de Milenio Querétaro | Newland School',
+ title: 'Escuela privada cerca de Milenio Querétaro',
  h1: 'Conoce nuestra escuela en Milenio Querétaro',
  description:
  'Escuela privada cerca de Milenio III con todos los niveles, programa bilingüe y formación integral. Descubre Newland School campus Milenio en Querétaro.',
@@ -379,7 +379,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  'primarias-cerca-de-milenio-queretaro': {
  slug: 'primarias-cerca-de-milenio-queretaro',
  lang: 'es',
- title: 'Primaria privada cerca de Milenio Querétaro | Newland School',
+ title: 'Primaria privada cerca de Milenio Querétaro',
  h1: 'Conoce nuestra primaria en Milenio Querétaro',
  description:
  'Primaria privada cerca de Milenio Querétaro con programa bilingüe, STEAM y Filosofía para Niños. Formación integral en Newland School campus Milenio.',
@@ -435,7 +435,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  'kinder-en-milenio-queretaro': {
  slug: 'kinder-en-milenio-queretaro',
  lang: 'es',
- title: 'Kinder particular cerca de Milenio Querétaro | Newland School',
+ title: 'Kinder particular cerca de Milenio Querétaro',
  h1: 'Kinder en Milenio Querétaro con excelente oferta académica',
  description:
  'Kinder particular cerca de Milenio con programa bilingüe, Filosofía para Niños y espacios diseñados para primera infancia. Inscripciones abiertas en Newland School.',
@@ -491,7 +491,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  'secundaria-en-milenio-queretaro': {
  slug: 'secundaria-en-milenio-queretaro',
  lang: 'es',
- title: 'Secundaria particular cerca de Milenio Querétaro | Newland School',
+ title: 'Secundaria particular cerca de Milenio Querétaro',
  h1: 'Secundaria en Milenio Querétaro con educación integral',
  description:
  'Secundaria particular cerca de Milenio con formación bilingüe, laboratorios y programa de Filosofía para Niños. Forma parte de Newland School campus Milenio.',
@@ -547,7 +547,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  'escuelas-en-el-mirador-queretaro': {
  slug: 'escuelas-en-el-mirador-queretaro',
  lang: 'es',
- title: 'Escuela o Colegio cerca del Mirador Querétaro | Newland School',
+ title: 'Escuela o Colegio cerca del Mirador Querétaro',
  h1: 'Un innovador colegio en El Mirador Querétaro',
  description:
  'Colegio privado cerca de El Mirador Querétaro con programa bilingüe y todos los niveles. Descubre Newland School campus Milenio, la opción más cercana.',
@@ -603,7 +603,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  'escuela-maternal-en-san-miguel-de-allende': {
  slug: 'escuela-maternal-en-san-miguel-de-allende',
  lang: 'es',
- title: 'Escuela Maternal en San Miguel de Allende | Newland School',
+ title: 'Escuela Maternal en San Miguel de Allende',
  h1: 'Contamos con escuelas con maternal en San Miguel de Allende',
  description:
  'Maternal privado en San Miguel de Allende con estimulación temprana bilingüe y espacios seguros. Descubre el programa de primera infancia de Newland School.',
@@ -659,7 +659,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  'kinder-en-san-miguel-de-allende': {
  slug: 'kinder-en-san-miguel-de-allende',
  lang: 'es',
- title: 'Kinder en San Miguel de Allende | Newland School',
+ title: 'Kinder en San Miguel de Allende',
  h1: 'Las ventajas de nuestro kinder en San Miguel de Allende',
  description:
  'Kinder bilingüe en San Miguel de Allende con Filosofía para Niños, programa STEAM y espacios seguros. Conoce las ventajas de Newland School para tus hijos.',
@@ -715,7 +715,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  'escuela-primaria-en-san-miguel-de-allende': {
  slug: 'escuela-primaria-en-san-miguel-de-allende',
  lang: 'es',
- title: 'Escuela Primaria en San Miguel de Allende | Newland School',
+ title: 'Escuela Primaria en San Miguel de Allende',
  h1: 'Conoce nuestra escuela con primaria en San Miguel de Allende',
  description:
  'Primaria bilingüe en San Miguel de Allende con programa STEAM, Filosofía para Niños y certificaciones internacionales. Inscripciones abiertas en Newland School.',
@@ -771,7 +771,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  'secundaria-en-san-miguel-de-allende': {
  slug: 'secundaria-en-san-miguel-de-allende',
  lang: 'es',
- title: 'Secundaria en San Miguel de Allende | Newland School',
+ title: 'Secundaria en San Miguel de Allende',
  h1: 'Conoce nuestra secundaria en San Miguel de Allende',
  description:
  'Secundaria bilingüe en San Miguel de Allende con laboratorios, certificaciones Cambridge y Filosofía para Niños. Formación integral en Newland School.',
@@ -827,7 +827,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  'escuela-bilingue-en-san-miguel-de-allende': {
  slug: 'escuela-bilingue-en-san-miguel-de-allende',
  lang: 'es',
- title: 'Escuela Bilingüe en San Miguel de Allende | Newland School',
+ title: 'Escuela Bilingüe en San Miguel de Allende',
  h1: 'Una vanguardista escuela bilingüe en San Miguel de Allende',
  description:
  'Escuela bilingüe en San Miguel de Allende con todos los niveles: maternal a prepa. Programa internacional, Filosofía para Niños y formación integral en Newland School.',
@@ -884,7 +884,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  'colegio-con-kinder-y-maternal-en-corregidora-queretaro': {
  slug: 'colegio-con-kinder-y-maternal-en-corregidora-queretaro',
  lang: 'es',
- title: 'Colegio con kinder y maternal en Corregidora Querétaro | Newland School',
+ title: 'Colegio con kinder y maternal en Corregidora Querétaro',
  h1: 'Conoce nuestro colegio en Corregidora Querétaro',
  description:
  'Colegio con kinder y maternal en Corregidora Querétaro: programa bilingüe, Filosofía para Niños y espacios seguros para primera infancia. Conoce Newland School.',
@@ -940,7 +940,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  'escuela-con-primaria-y-secundaria-en-corregidora-queretaro': {
  slug: 'escuela-con-primaria-y-secundaria-en-corregidora-queretaro',
  lang: 'es',
- title: 'Escuela con primaria y secundaria en Corregidora Querétaro | Newland School',
+ title: 'Escuela con primaria y secundaria en Corregidora Querétaro',
  h1: 'Una de las mejores escuelas en Corregidora Querétaro',
  description:
  'Escuela con primaria y secundaria en Corregidora con programa bilingüe, laboratorios y actividades extracurriculares. Forma parte de Newland School Corregidora.',
@@ -995,7 +995,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  'secundaria-cerca-de-loma-dorada-queretaro': {
  slug: 'secundaria-cerca-de-loma-dorada-queretaro',
  lang: 'es',
- title: 'Secundaria cerca de Loma Dorada Querétaro | Newland School',
+ title: 'Secundaria cerca de Loma Dorada Querétaro',
  h1: 'Conoce la secundaria en Loma Dorada NWL',
  description:
  'Secundaria privada cerca de Loma Dorada Querétaro con programa bilingüe, laboratorios y Filosofía para Niños. Descubre Newland School campus Milenio.',
@@ -1052,7 +1052,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  'escuela-particular-cerca-de-loma-dorada-queretaro': {
  slug: 'escuela-particular-cerca-de-loma-dorada-queretaro',
  lang: 'es',
- title: 'Escuela Particular cerca de Loma Dorada Querétaro | Newland School',
+ title: 'Escuela Particular cerca de Loma Dorada Querétaro',
  h1: 'La mejor escuela en Loma Dorada Querétaro para tus hijos',
  description:
  'Escuela particular cerca de Loma Dorada con todos los niveles, programa bilingüe y Filosofía para Niños. Newland School campus Milenio, a minutos de tu hogar.',
@@ -1076,7 +1076,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  {
  question: '¿Newland School ofrece todos los niveles para familias de Loma Dorada?',
  answer:
- 'NWL campus Milenio ofrece maternal, kinder, primaria y secundaria (no preparatoria). Está a 10 min de Loma Dorada, fundado en 2016, acreditado por Cognia,.',
+ 'NWL campus Milenio ofrece maternal, kinder, primaria y secundaria (no preparatoria). Está a 10 min de Loma Dorada, fundado en 2016, acreditado por Cognia.',
  },
  {
  question: '¿Hay transporte escolar desde Loma Dorada?',
@@ -1108,7 +1108,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  'kinder-cerca-de-loma-dorada': {
  slug: 'kinder-cerca-de-loma-dorada',
  lang: 'es',
- title: 'Kinder cerca de Loma Dorada | Newland School',
+ title: 'Kinder cerca de Loma Dorada',
  h1: 'Kinder en Loma Dorada con las mejores metodologías',
  description:
  'Kinder bilingüe cerca de Loma Dorada con Filosofía para Niños, programa STEAM y espacios seguros. Inscribe a tu hijo en Newland School campus Milenio.',
@@ -1165,7 +1165,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  'primaria-cerca-de-loma-dorada': {
  slug: 'primaria-cerca-de-loma-dorada',
  lang: 'es',
- title: 'Primaria cerca de Loma Dorada Querétaro | Newland School',
+ title: 'Primaria cerca de Loma Dorada Querétaro',
  h1: 'Una primaria en Loma Dorada con programas internacionales',
  description:
  'Primaria bilingüe cerca de Loma Dorada con certificaciones Cambridge, STEAM y Filosofía para Niños. Conoce Newland School campus Milenio en Querétaro.',
@@ -1222,7 +1222,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  'escuela-primaria-en-centro-sur-queretaro': {
  slug: 'escuela-primaria-en-centro-sur-queretaro',
  lang: 'es',
- title: 'Escuela o Colegio cerca de Centro Sur Querétaro | Newland School',
+ title: 'Escuela o Colegio cerca de Centro Sur Querétaro',
  h1: 'Conoce nuestra escuela en Centro Sur Querétaro',
  description:
  'Escuela privada cerca de Centro Sur Querétaro con programa bilingüe, todos los niveles y Filosofía para Niños. Descubre Newland School campus Milenio.',
@@ -1231,7 +1231,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  sections: [
  {
  heading: 'Campus Milenio: Acreditado por Cognia',
- body: 'NWL campus Milenio es el único en la red con acreditación Cognia, un sello de calidad internacional que certifica estándares académicos de primer nivel. Menos del 5% de los colegios privados en México cuentan con esta certificación.\n\nPara las familias de Centro Sur, esto significa la tranquilidad de que sus hijos estudian en un colegio evaluado por expertos internacionales,.',
+ body: 'NWL campus Milenio es el único en la red con acreditación Cognia, un sello de calidad internacional que certifica estándares académicos de primer nivel. Menos del 5% de los colegios privados en México cuentan con esta certificación.\n\nPara las familias de Centro Sur, esto significa la tranquilidad de que sus hijos estudian en un colegio evaluado por expertos internacionales.',
  },
  {
  heading: 'Knotion sin tarea y TecniKids STEAM',
@@ -1278,7 +1278,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  'kinder-en-centro-sur-queretaro': {
  slug: 'kinder-en-centro-sur-queretaro',
  lang: 'es',
- title: 'Kinder cerca de Centro Sur Querétaro | Newland School',
+ title: 'Kinder cerca de Centro Sur Querétaro',
  h1: 'Conoce la metodología de nuestro kinder en Centro Sur',
  description:
  'Kinder bilingüe cerca de Centro Sur Querétaro con Filosofía para Niños, programa STEAM y espacios diseñados para primera infancia. Inscripciones abiertas en NWL.',
@@ -1335,7 +1335,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  'primaria-privada-en-centro-sur-queretaro': {
  slug: 'primaria-privada-en-centro-sur-queretaro',
  lang: 'es',
- title: 'Primaria privada cerca de Centro Sur Queretaro | Newland School',
+ title: 'Primaria privada cerca de Centro Sur Queretaro',
  h1: 'La mejor educación primaria en Centro Sur',
  description:
  'Primaria privada bilingüe cerca de Centro Sur Querétaro con Filosofía para Niños, programas internacionales y formación integral. Conoce Newland School campus Milenio.',
@@ -1392,7 +1392,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  'secundaria-en-centro-sur': {
  slug: 'secundaria-en-centro-sur',
  lang: 'es',
- title: 'Secundaria privada cerca de Centro Sur Queretaro | Newland School',
+ title: 'Secundaria privada cerca de Centro Sur Queretaro',
  h1: 'Newland, la mejor secundaria en Centro Sur',
  description:
  'Secundaria privada bilingüe cerca de Centro Sur Querétaro. Filosofía para Niños, programas internacionales y formación integral en Newland School campus Milenio.',
@@ -1449,12 +1449,12 @@ export const informacionPages: Record<string, InformacionPage> = {
  'escuela-privada-cerca-del-refugio-queretaro': {
  slug: 'escuela-privada-cerca-del-refugio-queretaro',
  lang: 'es',
- title: 'Escuela privada cerca del Refugio Queretaro | Newland School',
+ title: 'Escuela privada cerca del Refugio Queretaro',
  h1: 'Conoce la escuela en el Refugio Queretaro de NWL',
  description:
  'Escuela privada bilingüe cerca del Refugio Querétaro con todos los niveles educativos, Filosofía para Niños y programas internacionales. Conoce Newland School campus Zibatá.',
  uniqueIntro:
- 'Las familias de El Refugio tienen en NWL campus Zibatá su escuela bilingüe más cercana, con todos los niveles de maternal a preparatoria. Fundado en 2025, es el campus más moderno de la red NWL, con instalaciones de última generación y los programas Life Project, Doble Diploma y Kn U High/Coursera en preparatoria. Dirigido por Daniela Arévalo,.',
+ 'Las familias de El Refugio tienen en NWL campus Zibatá su escuela bilingüe más cercana, con todos los niveles de maternal a preparatoria. Fundado en 2025, es el campus más moderno de la red NWL, con instalaciones de última generación y los programas Life Project, Doble Diploma y Kn U High/Coursera en preparatoria. Dirigido por Daniela Arévalo.',
  sections: [
  {
  heading: 'Campus Zibatá: El más moderno, a minutos de El Refugio',
@@ -1505,7 +1505,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  'colegio-privado-bilingue-en-queretaro': {
  slug: 'colegio-privado-bilingue-en-queretaro',
  lang: 'es',
- title: 'Colegio privado bilingüe en Queretaro | Newland School',
+ title: 'Colegio privado bilingüe en Queretaro',
  h1: 'NWL, colegio en Queretaro con excelencia académica',
  description:
  'Colegio privado bilingüe en Querétaro con Filosofía para Niños, programas internacionales y 5 campus. Newland School ofrece educación de excelencia desde maternal hasta preparatoria.',
@@ -1560,7 +1560,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  'el-mejor-colegio-particular-en-queretaro': {
  slug: 'el-mejor-colegio-particular-en-queretaro',
  lang: 'es',
- title: 'Colegio o escuela particular en Queretaro | Newland School',
+ title: 'Colegio o escuela particular en Queretaro',
  h1: 'Totalmente bilingüe, colegio particular en Queretaro',
  description:
  'Colegio particular bilingüe en Querétaro con todos los niveles educativos. Newland School ofrece Filosofía para Niños, programas internacionales y formación integral.',
@@ -1615,7 +1615,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  'el-mejor-kinder-privado-en-queretaro': {
  slug: 'el-mejor-kinder-privado-en-queretaro',
  lang: 'es',
- title: 'Kinder bilingüe privado en Queretaro | Newland School',
+ title: 'Kinder bilingüe privado en Queretaro',
  h1: 'Métodos de enseñanza en nuestro kinder privado en Queretaro',
  description:
  'Kinder privado bilingüe en Querétaro con Filosofía para Niños, programa STEAM y formación socioemocional. Conoce los métodos de enseñanza de Newland School.',
@@ -1671,7 +1671,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  'escuela-con-maternal-y-kinder-en-queretaro': {
  slug: 'escuela-con-maternal-y-kinder-en-queretaro',
  lang: 'es',
- title: 'Escuela con maternal privado en Queretaro | Newland School',
+ title: 'Escuela con maternal privado en Queretaro',
  h1: 'Conoce una de las mejores escuelas con maternal en Queretaro',
  description:
  'Escuela con maternal privado bilingüe en Querétaro. Estimulación temprana, Filosofía para Niños y un entorno seguro para el desarrollo integral desde los primeros meses.',
@@ -1728,7 +1728,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  'escuela-privada-en-queretaro-con-kinder-primaria-y-secundaria': {
  slug: 'escuela-privada-en-queretaro-con-kinder-primaria-y-secundaria',
  lang: 'es',
- title: 'Una de las mejores escuelas privadas en Queretaro | Newland School',
+ title: 'Una de las mejores escuelas privadas en Queretaro',
  h1: 'Escuelas privadas en Queretaro de alto nivel educativo',
  description:
  'Escuela privada en Querétaro con kinder, primaria y secundaria bilingüe. Newland School ofrece Filosofía para Niños, programas internacionales y 5 campus.',
@@ -1782,7 +1782,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  'la-mejor-primaria-bilingue-en-queretaro': {
  slug: 'la-mejor-primaria-bilingue-en-queretaro',
  lang: 'es',
- title: 'Uno de los mejores colegios privado bilingüe en Queretaro | Newland School',
+ title: 'Uno de los mejores colegios privado bilingüe en Queretaro',
  h1: 'De las mejores primarias bilingüe en Queretaro',
  description:
  'Primaria bilingüe en Querétaro con Filosofía para Niños, certificaciones de Cambridge y formación integral. Descubre por qué Newland School es de las mejores opciones.',
@@ -1838,7 +1838,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  'la-mejor-secundaria-particular-en-queretaro': {
  slug: 'la-mejor-secundaria-particular-en-queretaro',
  lang: 'es',
- title: 'Secundaria privada o particular bilingüe en Queretaro | Newland School',
+ title: 'Secundaria privada o particular bilingüe en Queretaro',
  h1: 'Buscando la mejor secundaria en Queretaro',
  description:
  'Secundaria particular bilingüe en Querétaro con Filosofía para Niños, certificaciones de Cambridge y orientación vocacional. Newland School forma líderes del mañana.',
@@ -1894,7 +1894,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  'secundarias-cerca-de-el-mirador-queretaro': {
  slug: 'secundarias-cerca-de-el-mirador-queretaro',
  lang: 'es',
- title: 'NWL escuela con secundaria en Queretaro | Newland School',
+ title: 'NWL escuela con secundaria en Queretaro',
  h1: 'Recibe la mejor educación secundaria en Queretaro',
  description:
  'Secundaria privada bilingüe cerca de El Mirador Querétaro con Filosofía para Niños, certificaciones internacionales y formación integral en Newland School campus Milenio.',
@@ -1951,7 +1951,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  'private-bilingual-pre-kinder-in-queretaro': {
  slug: 'private-bilingual-pre-kinder-in-queretaro',
  lang: 'en',
- title: 'Private bilingual pre Kinder in Queretaro | Newland School',
+ title: 'Private bilingual pre Kinder in Queretaro',
  h1: 'The best education in our bilingual Pre Kinder in Queretaro',
  description:
  'Private bilingual Pre Kinder in Queretaro with Philosophy for Children, early stimulation and a safe environment. Discover Newland School\'s approach to early childhood education.',
@@ -2007,7 +2007,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  'private-bilingual-kindergarten-in-queretaro': {
  slug: 'private-bilingual-kindergarten-in-queretaro',
  lang: 'en',
- title: 'Private bilingual Kindergarten in Queretaro | Newland School',
+ title: 'Private bilingual Kindergarten in Queretaro',
  h1: 'The best option is our kindergarten in Queretaro',
  description:
  'Private bilingual Kindergarten in Queretaro with Philosophy for Children, STEAM program and holistic development. Discover Newland School\'s approach to early education.',
@@ -2063,7 +2063,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  'private-bilingual-elementary-school-in-queretaro': {
  slug: 'private-bilingual-elementary-school-in-queretaro',
  lang: 'en',
- title: 'Private bilingual Elementary School in Queretaro | Newland School',
+ title: 'Private bilingual Elementary School in Queretaro',
  h1: 'We are the best primary school in Queretaro',
  description:
  'Private bilingual elementary school in Queretaro with Philosophy for Children, Cambridge certifications and holistic education. Newland School shapes future global citizens.',
@@ -2119,7 +2119,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  'private-bilingual-junior-high-school-in-queretaro': {
  slug: 'private-bilingual-junior-high-school-in-queretaro',
  lang: 'en',
- title: 'Private bilingual Junior High School in Queretaro | Newland School',
+ title: 'Private bilingual Junior High School in Queretaro',
  h1: 'NWL, our bilingual Junior High School in Queretaro',
  description:
  'Private bilingual junior high school in Queretaro with Philosophy for Children, Cambridge certifications and career guidance. Newland School prepares future leaders.',
@@ -2175,7 +2175,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  'private-bilingual-school-in-queretaro': {
  slug: 'private-bilingual-school-in-queretaro',
  lang: 'en',
- title: 'Private bilingual school in Queretaro | Newland School',
+ title: 'Private bilingual school in Queretaro',
  h1: 'High School in Queretaro with academic excellence',
  description:
  'Private bilingual high school in Queretaro with Philosophy for Children, international programs and 5 campuses. Newland School delivers academic excellence from preschool to high school.',
@@ -2231,7 +2231,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  'preparatoria-bilingue-privada-en-queretaro': {
  slug: 'preparatoria-bilingue-privada-en-queretaro',
  lang: 'es',
- title: 'Preparatoria bilingüe privada en Queretaro | Newland School',
+ title: 'Preparatoria bilingüe privada en Queretaro',
  h1: 'Preparatoria en Queretaro particular y de excelencia',
  description:
  'Preparatoria bilingüe privada en Querétaro con Filosofía para Niños, programas internacionales y formación integral. Newland School prepara líderes con visión global.',
@@ -2286,7 +2286,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  'preparatoria-bilingue-privada-en-san-miguel-de-allende': {
  slug: 'preparatoria-bilingue-privada-en-san-miguel-de-allende',
  lang: 'es',
- title: 'Preparatoria bilingüe privada en San Miguel de Allende | Newland School',
+ title: 'Preparatoria bilingüe privada en San Miguel de Allende',
  h1: 'Tu mejor opción de prepa en San Miguel de Allende',
  description:
  'Preparatoria bilingüe privada en San Miguel de Allende con Filosofía para Niños, programas internacionales y formación integral. Newland School campus San Miguel.',
@@ -2343,7 +2343,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  'excellence-bilingual-high-school-in-san-miguel-de-allende': {
  slug: 'excellence-bilingual-high-school-in-san-miguel-de-allende',
  lang: 'en',
- title: 'Excellence bilingual high school in San Miguel de Allende | Newland School',
+ title: 'Excellence bilingual high school in San Miguel de Allende',
  h1: 'NWL, Leading Bilingual High School in San Miguel de Allende',
  description:
  'Bilingual high school in San Miguel de Allende with Philosophy for Children, Cambridge certifications and a global perspective. Newland School shapes tomorrow\'s leaders.',
@@ -2400,7 +2400,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  'preparatoria-bilingue-privada-en-corregidora-queretaro': {
  slug: 'preparatoria-bilingue-privada-en-corregidora-queretaro',
  lang: 'es',
- title: 'Preparatoria bilingüe privada en Corregidora Queretaro | Newland School',
+ title: 'Preparatoria bilingüe privada en Corregidora Queretaro',
  h1: 'En NWL seremos tu mejor preparatoria en Corregidora',
  description:
  'Preparatoria bilingüe privada en Corregidora Querétaro con Filosofía para Niños, programas internacionales y formación integral. Conoce Newland School campus Corregidora.',
@@ -2456,12 +2456,12 @@ export const informacionPages: Record<string, InformacionPage> = {
  'preparatoria-bilingue-privada-en-zibata-queretaro': {
  slug: 'preparatoria-bilingue-privada-en-zibata-queretaro',
  lang: 'es',
- title: 'Preparatoria bilingüe privada en Zibatá Queretaro | Newland School',
+ title: 'Preparatoria bilingüe privada en Zibatá Queretaro',
  h1: 'NWL, Preparatoria en Zibatá para una educación integral',
  description:
  'Preparatoria bilingüe privada en Zibatá Querétaro con Filosofía para Niños, programas internacionales y formación integral. Newland School campus Zibatá.',
  uniqueIntro:
- 'La preparatoria NWL Zibatá se encuentra en el campus más nuevo y moderno de la red (fundado 2025), con instalaciones diseñadas desde cero para una experiencia de preparatoria de primer nivel. Los alumnos acceden a Life Project con mentores, Doble Diploma (México + EUA), Kn U High/Coursera, Inteligencia Financiera, HIT/Hyrox e intercambio internacional. Dirigido por Daniela Arévalo,.',
+ 'La preparatoria NWL Zibatá se encuentra en el campus más nuevo y moderno de la red (fundado 2025), con instalaciones diseñadas desde cero para una experiencia de preparatoria de primer nivel. Los alumnos acceden a Life Project con mentores, Doble Diploma (México + EUA), Kn U High/Coursera, Inteligencia Financiera, HIT/Hyrox e intercambio internacional. Dirigido por Daniela Arévalo.',
  sections: [
  {
  heading: 'Life Project en el campus más moderno de NWL',
@@ -2512,7 +2512,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  'mejores-preparatorias-privadas-en-queretaro': {
  slug: 'mejores-preparatorias-privadas-en-queretaro',
  lang: 'es',
- title: 'Preparatorias privadas en Querétaro y SMA | Newland School',
+ title: 'Preparatorias privadas en Querétaro y SMA',
  h1: 'Preparatorias privadas en Querétaro con Doble Diploma y Life Project',
  description:
  'Conoce las preparatorias de Newland School en 3 campus: Corregidora, Zibatá y San Miguel de Allende. Doble Diploma, Life Project, Kn U High y certificaciones internacionales.',
@@ -2567,7 +2567,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  'escuela-privada-cerca-de-cumbres-del-lago-queretaro': {
  slug: 'escuela-privada-cerca-de-cumbres-del-lago-queretaro',
  lang: 'es',
- title: 'Escuela privada cerca de Cumbres del Lago Querétaro | Newland School',
+ title: 'Escuela privada cerca de Cumbres del Lago Querétaro',
  h1: 'Tu escuela privada a minutos de Cumbres del Lago',
  description:
  'Escuela privada bilingüe cerca de Cumbres del Lago Querétaro. Campus Juriquilla a 10 min y Zibatá a 20 min. Maternal a preparatoria con programa Knotion y Filosofía para Niños.',
@@ -2622,7 +2622,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  'escuela-privada-cerca-de-gran-reserva-queretaro': {
  slug: 'escuela-privada-cerca-de-gran-reserva-queretaro',
  lang: 'es',
- title: 'Escuela privada cerca de Gran Reserva Querétaro | Newland School',
+ title: 'Escuela privada cerca de Gran Reserva Querétaro',
  h1: 'Colegio privado bilingüe cerca de Gran Reserva',
  description:
  'Escuela privada bilingüe cerca de Gran Reserva Querétaro. Campus Juriquilla a 15 min. Maternal a secundaria con programa Knotion, Filosofía para Niños y certificaciones Cambridge.',
@@ -2677,7 +2677,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  'escuela-privada-cerca-de-candiles-queretaro': {
  slug: 'escuela-privada-cerca-de-candiles-queretaro',
  lang: 'es',
- title: 'Escuela privada cerca de Candiles y Tejeda Querétaro | Newland School',
+ title: 'Escuela privada cerca de Candiles y Tejeda Querétaro',
  h1: 'Colegio privado bilingüe cerca de Candiles y Tejeda',
  description:
  'Escuela privada bilingüe cerca de Candiles y Tejeda en Corregidora, Querétaro. Campus Corregidora con maternal a preparatoria, Knotion, podcasts, programación e IA.',
@@ -2701,7 +2701,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  {
  question: '¿Qué tan cerca está Newland School de Candiles?',
  answer:
- 'Campus Corregidora queda a pocos minutos de Candiles y Tejeda por las vialidades principales. Ofrece maternal a preparatoria con transporte escolar que cubre la zona.. Director: José Gustavo Flores.',
+ 'Campus Corregidora queda a pocos minutos de Candiles y Tejeda por las vialidades principales. Ofrece maternal a preparatoria con transporte escolar que cubre la zona. Director: José Gustavo Flores.',
  },
  {
  question: '¿El campus Corregidora ofrece preparatoria?',
@@ -2733,7 +2733,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  'international-school-in-san-miguel-de-allende': {
  slug: 'international-school-in-san-miguel-de-allende',
  lang: 'en',
- title: 'International School in San Miguel de Allende | Newland School',
+ title: 'International School in San Miguel de Allende',
  h1: 'A bilingual international school in San Miguel de Allende',
  description:
  'Newland School in San Miguel de Allende offers nursery through high school with Cambridge English, Dual Diploma, Cognia accreditation, and a multicultural learning environment.',
@@ -2790,7 +2790,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  'secundarias-en-queretaro': {
  slug: 'secundarias-en-queretaro',
  lang: 'es',
- title: 'Secundarias privadas en Querétaro | Newland School',
+ title: 'Secundarias privadas en Querétaro',
  h1: 'Secundarias en Querétaro con Emprendizaje y Doble Certificación',
  description:
  'Secundaria privada bilingüe en Querétaro con Emprendizaje, Doble Certificación Internacional, Filosofía para Niños y programa sin tarea. 5 campus NWL disponibles.',
@@ -2845,7 +2845,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  'international-school-in-queretaro': {
  slug: 'international-school-in-queretaro',
  lang: 'en',
- title: 'International School in Querétaro Mexico | Newland School',
+ title: 'International School in Querétaro Mexico',
  h1: 'International bilingual school in Querétaro with 5 campuses',
  description:
  'Newland School operates 5 bilingual campuses in Querétaro with Cognia accreditation, Cambridge English, Dual Diploma, and nursery through high school programs.',
@@ -2854,7 +2854,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  sections: [
  {
  heading: 'Five campuses, one educational model',
- body: 'Juriquilla (2009) is the flagship campus with the longest track record and a . Milenio (2016) holds Cognia accreditation and offers cooking workshops, yoga, and a competitive dance team. San Miguel de Allende (2018) sits in a UNESCO World Heritage city with a 4.7-star rating.\n\nCorregidora (2019) stands out for its Rubik\'s-cube-shaped building and programs in podcasting, programming, and AI. Zibatá (2025) is the newest campus with purpose-built maker spaces and recording studios. Three campuses (San Miguel, Corregidora, Zibatá) run through high school.',
+ body: 'Juriquilla (2009) is the flagship campus with the longest track record in the network. Milenio (2016) holds Cognia accreditation and offers cooking workshops, yoga, and a competitive dance team. San Miguel de Allende (2018) sits in a UNESCO World Heritage city with a thriving international community.\n\nCorregidora (2019) stands out for its Rubik\'s-cube-shaped building and programs in podcasting, programming, and AI. Zibatá (2025) is the newest campus with purpose-built maker spaces and recording studios. Three campuses (San Miguel, Corregidora, Zibatá) run through high school.',
  },
  {
  heading: 'Cognia accreditation and Cambridge English',
