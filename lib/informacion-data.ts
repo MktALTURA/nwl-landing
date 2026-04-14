@@ -1370,7 +1370,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  images: {
  hero: '/images/campus/milenio/milenio-soccer-field-hero.jpg',
  content: [
- '/images/levels/primaria/primaria-classroom.jpg',
+ '/images/levels/primaria/nwl-primaria-steam-lab.jpg',
  '/images/campus/milenio/milenio-kinder-playground-wide.jpg',
  ],
  },
@@ -1427,7 +1427,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  images: {
  hero: '/images/campus/milenio/milenio-soccer-field-hero.jpg',
  content: [
- '/images/levels/secundaria/secundaria-science-lab.jpg',
+ '/images/levels/secundaria/nwl-secundaria-lab-experiment.jpg',
  '/images/campus/milenio/milenio-kinder-playground-wide.jpg',
  ],
  },
@@ -1484,7 +1484,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  images: {
  hero: '/images/campus/zibata/zibata-hero.jpg',
  content: [
- '/images/campus/zibata/zibata-classroom.jpg',
+ '/images/campus/zibata/zibata-classrooms.jpg',
  '/images/campus/zibata/zibata-playground.jpg',
  ],
  },
@@ -1540,7 +1540,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  images: {
  hero: '/images/campus/juriquilla/juriquilla-hero.jpg',
  content: [
- '/images/campus/zibata/zibata-classroom.jpg',
+ '/images/campus/zibata/zibata-classrooms.jpg',
  '/images/campus/corregidora/corregidora-hero.jpg',
  ],
  },
@@ -1929,7 +1929,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  images: {
  hero: '/images/campus/milenio/milenio-soccer-field-hero.jpg',
  content: [
- '/images/levels/secundaria/secundaria-science-lab.jpg',
+ '/images/levels/secundaria/nwl-secundaria-lab-team-fist-bump.jpg',
  '/images/campus/milenio/milenio-kinder-playground-wide.jpg',
  ],
  },
@@ -2264,40 +2264,50 @@ export const informacionPages: Record<string, InformacionPage> = {
  'preparatoria-bilingue-privada-en-queretaro': {
  slug: 'preparatoria-bilingue-privada-en-queretaro',
  lang: 'es',
- title: 'Preparatoria bilingüe privada en Queretaro',
- h1: 'Preparatoria en Queretaro particular y de excelencia',
+ title: 'Preparatoria Bilingüe Privada en Querétaro | Prepa NWL',
+ h1: 'Preparatoria bilingüe privada en Querétaro: forma a tu hijo para el mundo real',
  description:
- 'Preparatoria bilingüe privada en Querétaro con Filosofía para Niños, programas internacionales y formación integral. Newland School prepara líderes con visión global.',
+ 'Prepa NWL Querétaro: plan SEP, Life Project, doble titulación HÖKKU Academy, inglés B2 TOEFL y Life Mentors. Una preparatoria bilingüe hecha para preparar a tu hijo para el mundo.',
  uniqueIntro:
- 'La preparatoria NWL está disponible en 3 campus (San Miguel de Allende, Corregidora y Zibatá) y ofrece el programa Life Project con mentores personales durante 6 semestres. Los alumnos obtienen el Doble Diploma (SEP México + EUA acreditado por Cognia), certificaciones Kn U High/Coursera desde el primer semestre, Inteligencia Financiera, IA y Tecnología Moderna, y acceso a intercambio internacional. Horario: 7:30-2:30 pm.',
+ 'Prepa NWL es la preparatoria bilingüe privada en Querétaro disponible en 3 campus (San Miguel de Allende, Corregidora y Zibatá), donde tu hijo egresa con doble titulación HÖKKU Academy, inglés nivel B2 TOEFL y un proyecto de vida claro. Plan oficial SEP, programa Life Project y un mentor personal que lo acompaña los seis semestres.',
  sections: [
  {
- heading: 'Life Project: Tu camino personalizado',
- body: 'Cada alumno de preparatoria NWL trabaja con un Life Mentor personal durante los 6 semestres. Juntos definen metas académicas, personales y profesionales, construyendo un plan de vida que se materializa en un Portafolio de 6 Proyectos Personales.\n\nEl Life Project no es una materia: es una experiencia transformadora donde el alumno se conoce, identifica sus fortalezas y diseña su futuro con el apoyo de mentores, herramientas y experiencias reales.',
+ heading: 'Una prepa que enseña a tu hijo a construir su propio camino',
+ body: 'Cuando un papá o una mamá busca preparatoria bilingüe privada en Querétaro, la pregunta de fondo casi siempre es la misma: "¿qué va a ser de mi hijo cuando salga?". El programa Life Project de Prepa NWL responde esa pregunta con una estructura clara: seis semestres, seis competencias para la vida, un Proyecto Personal y un Proyecto Integrador en cada uno.\n\nLos ejes semestrales son: 1) mentalidad de crecimiento y superación personal, 2) habilidades sociales y comunicación efectiva, 3) innovación y pensamiento crítico, 4) emprendimiento y creación de negocios, 5) impacto social y responsabilidad, y 6) preparación profesional y universitaria. A todo esto se suman Filosofía para Jóvenes, Finanzas Personales y certificaciones reales cada semestre.\n\nCada alumno tiene un Life Mentor —un mentor personal asignado— que lo acompaña semestre a semestre, lo ayuda a poner metas, a manejar el estrés y a definir su rumbo. Al egresar, tu hijo no se lleva sólo un certificado: se lleva un portafolio de proyectos personales e integradores que puede mostrar en una entrevista universitaria o en su primer empleo.',
  },
  {
- heading: 'Doble Diploma y certificaciones Kn U High/Coursera',
- body: 'Los alumnos egresan con doble validez: diploma SEP (México) y diploma estadounidense acreditado por Cognia. Desde el primer semestre, acceden a certificaciones Kn U High y Coursera que les dan una ventaja en admisiones universitarias.\n\nEl contenido académico de McGraw-Hill se complementa con Inteligencia Financiera cada semestre (inversiones, presupuestos, emprendimiento financiero) y módulos de IA y Tecnología Moderna que preparan para las carreras del futuro.',
+ heading: 'Doble titulación HÖKKU: una graduación, dos países, más universidades posibles',
+ body: 'En Prepa NWL tu hijo cursa el plan oficial SEP y, gracias a nuestra alianza con HÖKKU Academy, obtiene en paralelo el American High School Diploma, reconocido en Estados Unidos y más de 40 países. Una sola prepa, dos certificaciones, y muchas más universidades posibles al graduarse.\n\nLa doble titulación viene acompañada del College Guidance Program: asesoría real para aplicar a universidades en EE. UU., armar el ensayo de admisión, buscar becas y entender los procesos internacionales. Es el tipo de acompañamiento que normalmente las familias contratan por fuera; aquí está incluido.\n\nEn paralelo, el inglés deja de ser una materia y se vuelve una habilidad de salida medible: el nivel obligatorio al egresar es B2 TOEFL. Cada semestre también incluye Finanzas Personales, Filosofía para Jóvenes y certificaciones reales.',
  },
  {
- heading: 'HIT/Hyrox, intercambio y 3 campus disponibles',
- body: 'El programa HIT/Hyrox mantiene la condición física en campus con entrenamientos de alta intensidad. En 5.° y 6.° semestre, los alumnos acceden a programas de intercambio internacional.\n\nSan Miguel de Allende (ciudad UNESCO, arte y cultura), Corregidora (podcasts, IA, edificio cubo Rubik) y Zibatá (2025, instalaciones más modernas). Cada campus ofrece la misma preparatoria con el carácter único de su comunidad.',
+ heading: 'Tres campus, una prepa, una misma experiencia',
+ body: 'Prepa NWL está disponible en tres campus con la misma estructura Life Project: San Miguel de Allende (ciudad Patrimonio UNESCO, arte, gastronomía y comunidad multicultural), Corregidora (edificio cubo Rubik, podcasts, programación e IA) y Zibatá (el campus más reciente, con instalaciones modernas y espacios de trabajo colaborativo). Juriquilla y Milenio no tienen preparatoria.\n\nUna semana típica combina el plan SEP en plataforma McGraw Hill —sobre dispositivos Apple en el aula—, clases de Life Project en inglés, una sesión personal con el Life Mentor, Filosofía para Jóvenes, Finanzas Personales y su club estudiantil. El bienestar físico se cubre con FitCard (acceso a gimnasios y clases deportivas) y, en los semestres 4, 5 y 6, se abren los intercambios internacionales optativos y las actividades intercampus entre las tres prepas.',
  },
  ],
  faqs: [
  {
  question: '¿En qué campus de NWL hay preparatoria?',
  answer:
- 'San Miguel de Allende, Corregidora y Zibatá. Juriquilla y Milenio NO tienen preparatoria. Los 3 campus con prepa ofrecen Life Project, Doble Diploma, Kn U High/Coursera, Inteligencia Financiera, HIT/Hyrox e intercambio internacional.',
+ 'San Miguel de Allende, Corregidora y Zibatá. Juriquilla y Milenio no tienen preparatoria. Los 3 campus con prepa operan con el mismo programa Life Project (6 semestres y 6 competencias para la vida), doble titulación HÖKKU Academy, Life Mentor personal para cada alumno y nivel de salida B2 TOEFL.',
  },
  {
  question: '¿La preparatoria bilingüe tiene programa de emprendimiento?',
  answer:
- 'Sí. El Portafolio de 6 Proyectos Personales, las certificaciones Coursera, la Inteligencia Financiera y el Life Project con mentores crean un perfil emprendedor. En secundaria previa, el Emprendizaje con Universidad Mondragón sienta las bases.',
+ 'Sí. El 4.° semestre completo está dedicado a emprendimiento y creación de negocios, con un Proyecto Personal y un Proyecto Integrador enfocados a lanzar una idea real. Además, Finanzas Personales cada semestre y el acompañamiento del Life Mentor fortalecen el perfil emprendedor. En secundaria previa, el Emprendizaje con Universidad Mondragón ya sienta las bases.',
+ },
+ {
+ question: '¿La doble titulación con HÖKKU Academy sirve para entrar a universidades en Estados Unidos?',
+ answer:
+ 'Sí. Al egresar, tu hijo obtiene el certificado oficial SEP y, en paralelo, el American High School Diploma de HÖKKU Academy, reconocido en Estados Unidos y más de 40 países. La prepa incluye el College Guidance Program, donde se asesora a los alumnos en sus aplicaciones universitarias, ensayos de admisión, búsqueda de becas y procesos internacionales.',
+ },
+ {
+ question: '¿Cómo se ve una semana típica de un alumno de Prepa NWL?',
+ answer:
+ 'Materias del plan SEP en plataforma McGraw Hill sobre dispositivos Apple, clases de Life Project en inglés, una sesión con su Life Mentor, Filosofía para Jóvenes, Finanzas Personales, su club estudiantil y entrenamiento físico con la FitCard. Cada semestre se cierra con un Proyecto Personal y un Proyecto Integrador con impacto real, además de actividades intercampus entre las tres prepas NWL.',
  },
  ],
  images: {
- hero: '/images/levels/high-school.jpg',
+ hero: '/images/levels/preparatoria.jpg',
  content: [
  '/images/levels/prepa/prepa-nwl-modern-classroom.jpg',
  '/images/levels/prepa/prepa-nwl-students-podcast-studio.jpg',
@@ -2306,10 +2316,13 @@ export const informacionPages: Record<string, InformacionPage> = {
  targetLevel: '/high-school',
  category: 'level',
  keywords: [
+ 'preparatoria bilingüe privada en queretaro',
  'preparatoria bilingüe queretaro',
  'prepa privada queretaro',
  'preparatoria particular queretaro',
  'mejor preparatoria queretaro',
+ 'doble titulación preparatoria queretaro',
+ 'bachillerato bilingüe queretaro',
  ],
  },
 
