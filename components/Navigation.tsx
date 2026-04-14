@@ -244,7 +244,7 @@ export default function Navigation() {
           )}
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center space-x-8">
+          <div className="hidden xl:flex items-center space-x-8">
             {t.nav.links.map((link) =>
               link.children ? (
                 <div
@@ -388,7 +388,7 @@ export default function Navigation() {
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="flex items-center gap-3 lg:hidden">
+          <div className="flex items-center gap-3 xl:hidden">
             <LanguageToggle light={useWhiteNav} />
             <button
               className={useWhiteNav ? 'text-white' : 'text-charcoal'}
@@ -404,7 +404,7 @@ export default function Navigation() {
           <motion.div
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
-            className="lg:hidden bg-ivory border-t border-wine/10"
+            className="xl:hidden bg-ivory border-t border-wine/10"
           >
             <div className="py-4 space-y-1">
               {t.nav.links.map((link) =>
