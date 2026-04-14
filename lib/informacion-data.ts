@@ -1871,10 +1871,10 @@ export const informacionPages: Record<string, InformacionPage> = {
  },
  ],
  images: {
- hero: '/images/levels/middle-school.jpg',
+ hero: '/images/levels/secundaria.jpg',
  content: [
- '/images/levels/secundaria/secundaria-science-lab.jpg',
- '/images/levels/secundaria/secundaria-students.jpg',
+ '/images/levels/secundaria/nwl-secundaria-lab-team-fist-bump.jpg',
+ '/images/levels/secundaria/nwl-sma-secundaria-alumnos-tablets-discusion.jpg',
  ],
  },
  targetLevel: '/middle-school',
@@ -2119,53 +2119,66 @@ export const informacionPages: Record<string, InformacionPage> = {
  'private-bilingual-junior-high-school-in-queretaro': {
  slug: 'private-bilingual-junior-high-school-in-queretaro',
  lang: 'en',
- title: 'Private bilingual Junior High School in Queretaro',
- h1: 'NWL, our bilingual Junior High School in Queretaro',
+ title: 'Private Bilingual Junior High School in Queretaro | NWL',
+ h1: 'Private bilingual junior high school in Queretaro: where teenagers learn to lead, build and decide',
  description:
- 'Private bilingual junior high school in Queretaro with Philosophy for Children, Cambridge certifications and career guidance. Newland School prepares future leaders.',
+ 'NWL Queretaro: real entrepreneurship with Mondragon University, Dual International Diploma via Hokku Academy, Cambridge B1–B2 English and a campus built for the teenage years.',
  uniqueIntro:
- 'NWL\'s junior high (ages 12-15) stands apart in Queretaro with the Emprendizaje entrepreneurship program (with Mondragon University), Dual International Certification (US + Mexico diplomas via Hokku Academy), and Cambridge PET/FCE certifications. The Knotion model eliminates traditional homework. Schedule: 7:30 AM to 2:30 PM, with 90+ security cameras at every campus.',
+ 'NWL is the private bilingual junior high school in Queretaro where teenagers spend three years building real entrepreneurship projects with Mondragon University, certifying B1–B2 English with Cambridge, and earning a Dual International Diploma alongside their Mexican SEP certificate. A safe, structured campus designed for ages 12 to 15.',
  sections: [
  {
- heading: 'Emprendizaje: Real Entrepreneurship with Mondragon University',
- body: 'Over three years of junior high, students create real business projects in partnership with Mondragon University. They learn finance, marketing, and executive presentation while addressing social challenges in their communities.\n\nThis is not an extracurricular workshop — entrepreneurship is integrated into the core curriculum. Projects are presented to judges, and the best are developed for real-world implementation.',
+ heading: 'A junior high built around the question every parent is really asking',
+ body: 'When families compare a private bilingual junior high school in Queretaro, the real question underneath is rarely about subjects — it is "will my child come out of these years confident, focused and ready for the next step?" NWL\'s middle school (ages 12 to 15) is designed around exactly that.\n\nThree years, three layers of work: a strong academic core (the Knotion model replaces traditional homework with project-based learning students actually take home in their heads), the Emprendizaje program with Mondragon University, and a wellbeing track that includes Philosophy for Children, the "Yo Soy Líder NWL" leadership program by Tec de Monterrey, and one-on-one socio-emotional support from teachers trained to spot what a teenager won\'t always say out loud.\n\nThe schedule (7:30 AM to 2:30 PM) and the safety standard (90+ security cameras 24/7 on every campus, plus the Bullying Free School protocol) are the quiet things parents stop worrying about within the first month.',
  },
  {
- heading: 'Dual International Certification: US + Mexico Diplomas',
- body: 'Through Hokku Academy, NWL junior high students earn a US diploma (Cognia-accredited) alongside their Mexican SEP certificate. This Dual International Certification opens doors to high schools in both countries.\n\nCambridge PET and FCE certifications consolidate a B1-B2 English level. Model UN, debate, and public speaking develop communication and leadership skills. Philosophy for Children evolves into structured ethical analysis and debate.',
+ heading: 'Emprendizaje with Mondragon University: real projects, real judges, real skills',
+ body: 'Over the three years of junior high, students build their own business projects in partnership with Mondragon University, one of Europe\'s leading entrepreneurship faculties. They learn finance, marketing, executive presentation and how to address a real social challenge in their own community.\n\nThis is not an after-school club. Entrepreneurship is woven into the core curriculum: every cycle ends with students pitching their project to a panel of judges, and the strongest ideas move into real-world implementation. Teenagers do not just imagine a future career — they practice the muscles it takes to build one.',
  },
  {
- heading: 'Security, Sports, and Unique Campus Activities',
- body: 'All 5 campuses feature 90+ security cameras (24/7), Bullying Free School protocols, and I\'m NWL Leader by Tec de Monterrey. Each campus has unique offerings: Milenio (cooking, yoga, dance team), San Miguel (art in a UNESCO city), Corregidora (podcasts, AI, programming), Juriquilla (soccer, visual arts), Zibata (modern 2025 facilities).\n\nThe Parent Diploma in Philosophy for Children and social-emotional support help families navigate the teenage years together.',
+ heading: 'Dual International Diploma and Cambridge English: more high schools, more countries',
+ body: 'Through our alliance with Hokku Academy, NWL junior high students graduate with a US diploma alongside their Mexican SEP certificate. The Dual International Diploma opens doors to high schools and exchange programs in both countries — and removes the friction for families that may move, study abroad or apply to a US-track high school later.\n\nIn parallel, English stops being "a subject" and becomes a measurable outcome: students prepare for Cambridge PET and FCE certifications, reaching a B1–B2 level by graduation. They also participate in Model UN, debate and public speaking — the same activities that turn shy 12-year-olds into 15-year-olds who can stand in front of a room.',
  },
  ],
  faqs: [
  {
- question: 'Does the junior high school offer career guidance?',
+ question: 'What makes NWL different from other private bilingual junior high schools in Queretaro?',
  answer:
- 'Yes. The Emprendizaje program with Mondragon University provides hands-on entrepreneurship and career exploration over 3 years. The Dual International Certification (US + Mexico) and Cambridge PET/FCE expand high school options domestically and abroad.',
+ 'Three things together: the Emprendizaje program with Mondragon University (real entrepreneurship built into the curriculum, not an after-school club), the Dual International Diploma via Hokku Academy alongside the official SEP certificate, and Cambridge PET/FCE preparation that takes English to a measurable B1–B2 by graduation. All inside a safe, structured campus with a 7:30 AM to 2:30 PM schedule.',
  },
  {
- question: 'What English level do students achieve by the end of junior high?',
+ question: 'What English level will my child reach by the end of junior high?',
  answer:
- 'Cambridge-certified B1-B2 level (PET/FCE). Students also earn Dual International Certification (US + Mexico diplomas). They participate in Model UN, debate, and public speaking. Schedule: 7:30-2:30 PM. 90+ security cameras at each campus.',
+ 'A Cambridge-certified B1–B2 level (PET/FCE). English is taught from day one and is reinforced through Model UN, debate and public speaking. Students also graduate with the Dual International Diploma (US + Mexico) via Hokku Academy, which is recognized by US high schools and exchange programs.',
+ },
+ {
+ question: 'How does NWL handle safety, bullying and the social side of the teenage years?',
+ answer:
+ 'Every campus runs 24/7 surveillance with 90+ security cameras and follows the Bullying Free School protocol. On the social and emotional side, students have Philosophy for Children, the "Yo Soy Líder NWL" leadership program by Tec de Monterrey and one-on-one support from teachers trained in adolescent wellbeing. There is also a Parent Diploma in Philosophy for Children so families can walk these years together.',
+ },
+ {
+ question: 'What does a typical week at NWL junior high in Queretaro look like?',
+ answer:
+ 'A core academic schedule with the Knotion platform (no traditional homework), English classes that build toward Cambridge certification, weekly work on the Emprendizaje project with Mondragon University, Philosophy for Children sessions, leadership workshops, and a chosen activity by campus — cooking, yoga and dance team in Milenio; podcasts, AI and programming in Corregidora; soccer and visual arts in Juriquilla; modern facilities and intercampus events in Zibatá; art and culture in San Miguel.',
  },
  ],
  images: {
- hero: '/images/levels/middle-school.jpg',
+ hero: '/images/levels/secundaria.jpg',
  content: [
- '/images/levels/secundaria/secundaria-science-lab.jpg',
- '/images/levels/secundaria/secundaria-students.jpg',
+ '/images/levels/secundaria/nwl-secundaria-lab-team-fist-bump.jpg',
+ '/images/levels/secundaria/nwl-sma-secundaria-alumnos-tablets-discusion.jpg',
  ],
  },
  targetLevel: '/middle-school',
  category: 'level',
  hreflangPair: 'la-mejor-secundaria-particular-en-queretaro',
  keywords: [
+ 'private bilingual junior high school in queretaro',
  'junior high school queretaro',
  'bilingual junior high queretaro',
  'private middle school queretaro',
  'english secondary school queretaro',
+ 'dual diploma junior high queretaro',
+ 'mondragon entrepreneurship queretaro',
  ],
  },
 
