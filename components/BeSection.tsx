@@ -23,14 +23,17 @@ export default function BeSection() {
   useEffect(() => {
     if (!isMounted || !triggerRef.current || !sectionRef.current) return;
 
-    const isMobile = window.innerWidth < 768;
+    // Treat any touch-primary device (phones + iPads) as "mobile" for this
+    // section. Width-based checks miss iPad, which then gets pin+scrub and
+    // fights iPadOS native scroll.
+    const isTouch = window.matchMedia('(hover: none) and (pointer: coarse)').matches;
 
     const ctx = gsap.context(() => {
       const wordEls = gsap.utils.toArray('.be-word') as HTMLElement[];
       const totalWords = wordEls.length;
 
-      if (isMobile) {
-        // Mobile: NO pin, NO scrub. Auto-cycle words on a timer when
+      if (isTouch) {
+        // Touch devices: NO pin, NO scrub. Auto-cycle words on a timer when
         // the section enters the viewport. Pin + scrub fundamentally
         // fights native touch scroll and causes bounce/jitter.
         let currentIndex = -1;
