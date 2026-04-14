@@ -1,6 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
+    // Vercel image optimizer quota exhausted on current plan — bypass the optimizer
+    // and serve the raw files. The /images/:path* Cache-Control header below still
+    // gives us 1y immutable caching at the CDN edge.
+    unoptimized: true,
     formats: ['image/avif', 'image/webp'],
     qualities: [75, 80, 90],
     remotePatterns: [

@@ -1815,10 +1815,10 @@ export const informacionPages: Record<string, InformacionPage> = {
  },
  ],
  images: {
- hero: '/images/levels/elementary.jpg',
+ hero: '/images/levels/primaria.jpg',
  content: [
- '/images/levels/primaria/primaria-classroom.jpg',
- '/images/levels/primaria/primaria-science-fair.jpg',
+ '/images/levels/primaria/nwl-primaria-steam-lab.jpg',
+ '/images/levels/primaria/nwl-primaria-knotion-geoboard.jpg',
  ],
  },
  targetLevel: '/elementary',
@@ -2063,53 +2063,66 @@ export const informacionPages: Record<string, InformacionPage> = {
  'private-bilingual-elementary-school-in-queretaro': {
  slug: 'private-bilingual-elementary-school-in-queretaro',
  lang: 'en',
- title: 'Private bilingual Elementary School in Queretaro',
- h1: 'We are the best primary school in Queretaro',
+ title: 'Private Bilingual Elementary School in Queretaro | NWL',
+ h1: 'Private bilingual elementary school in Queretaro: where children learn to think, build and love coming to class',
  description:
- 'Private bilingual elementary school in Queretaro with Philosophy for Children, Cambridge certifications and holistic education. Newland School shapes future global citizens.',
+ 'NWL Queretaro: no traditional homework, real project-based learning with Knotion, TecniKids STEAM lab, Cambridge English from 3rd grade and Philosophy for Children across 5 campuses.',
  uniqueIntro:
- 'NWL\'s elementary school (ages 6-11) stands out in Queretaro for three key programs: Knotion IMPACT with Design Thinking (no traditional homework), TecniKids STEAM Lab (3D printing, laser cutting, robotics), and Cambridge certifications from 3rd grade. International trips begin in 5th grade. Schedule: 7:40 AM to 2:30 PM across all 5 campuses.',
+ 'NWL is the private bilingual elementary school in Queretaro where children ages 6 to 11 grow up without homework notebooks and without losing academic rigor. Real project-based learning with Knotion, a STEAM lab with 3D printing and robotics, Cambridge English certifications from 3rd grade and Philosophy for Children — taught across all five NWL campuses.',
  sections: [
  {
- heading: 'Knotion IMPACT and TecniKids STEAM Lab',
- body: 'There are no homework notebooks at NWL elementary. Knotion IMPACT uses Design Thinking so students solve real community problems, integrating science, technology, and humanities in every project.\n\nThe TecniKids STEAM Lab offers 3D printing, laser cutting, robotics, and maker spaces where children build prototypes and program robots from age 6. These hands-on skills prepare students for Cambridge certifications and secondary school challenges.',
+ heading: 'An elementary school designed around how 6 to 11-year-olds actually learn',
+ body: 'Parents who tour a private bilingual elementary school in Queretaro usually ask two quiet questions — "will my child still be challenged academically?" and "will they still love school?". NWL elementary is built so the answer to both is yes.\n\nInstead of traditional homework notebooks, students work with Knotion, an international project-based methodology where every lesson connects to a real problem the class can investigate, build, and present in both Spanish and English. Math, science, language arts and social studies are not taught in silos — they meet inside each project, the way they meet in real life.\n\nThe school day runs from 7:40 AM to 2:30 PM, and the Yo Soy Líder NWL program — designed exclusively for Newland School by Tec de Monterrey — weaves leadership and emotional intelligence into the curriculum. Philosophy for Children runs weekly so children learn, from age 6, to listen, question and build arguments out loud.',
  },
  {
- heading: 'Cambridge Certifications and International Trips',
- body: 'From 3rd grade, students prepare for Cambridge certifications (Starters, Movers, Flyers). The Cognia accreditation of the NWL system backs these international academic standards.\n\nStarting in 5th grade, students access international trips that broaden their global perspective. Philosophy for Children with a Parent Diploma invites families to actively participate in developing critical thinking at home.',
+ heading: 'TecniKids STEAM Lab: real tools, real prototypes, starting in 1st grade',
+ body: 'The TecniKids STEAM Lab is NWL\'s hands-on innovation space. Children work with 3D printing, laser cutting, robotics, electronics and maker-space materials to build real prototypes — not craft-time activities that end in the recycling bin. Design Thinking is the method: identify a problem, sketch a solution, build, test, iterate.\n\nBy the time students reach middle school, they\'ve already spent years prototyping, presenting and defending their ideas to classmates and parents. That muscle is what makes the jump to the Emprendizaje program with Mondragon University in junior high feel natural instead of intimidating.',
  },
  {
- heading: 'Unique Activities at Each Campus',
- body: 'Juriquilla: soccer, basketball, volleyball, visual arts, theater, robotics, music. Milenio: cooking workshops, yoga, dance team, Cognia accredited. San Miguel: painting, sculpture, theater in a UNESCO city. Corregidora: podcasts, programming, AI, basketball, dance. Zibata: state-of-the-art 2025 facilities.\n\nAll share: Knotion IMPACT (no homework), TecniKids STEAM, Philosophy for Children, I\'m NWL Leader by Tec de Monterrey, Bullying Free School, and Cambridge. Same standard, unique campus culture.',
+ heading: 'Cambridge English, international trips and a safe campus experience',
+ body: 'Starting in 3rd grade, NWL elementary students prepare for Cambridge English certifications (Starters, Movers and Flyers) at no extra cost — the tests are built into the curriculum, not a paid add-on. The goal is not to memorize vocabulary lists, but to make English a second working language.\n\nFrom 5th grade, students have access to international trips that turn their English into lived experience. Inside each campus, families get the Parent Diploma in Philosophy for Children, so the same thinking skills their child is learning at school can continue at the dinner table.\n\nEvery campus operates under the Bullying Free School protocol with 24/7 surveillance (90+ security cameras at each campus), and each one has a distinct personality: Juriquilla offers soccer, visual arts and music; Milenio adds cooking workshops, yoga and a dance team; San Miguel leans into art and sculpture in a UNESCO city; Corregidora runs podcasts, programming and AI; Zibatá brings purpose-built 2025 facilities and modern maker spaces.',
  },
  ],
  faqs: [
  {
- question: 'What international certifications does the elementary school offer?',
+ question: 'What makes NWL different from other private bilingual elementary schools in Queretaro?',
  answer:
- 'Cambridge Starters, Movers, and Flyers from 3rd grade. Cognia system accreditation. International trips from 5th grade. No traditional homework — Knotion IMPACT with Design Thinking replaces it with real-world projects.',
+ 'Three things together: Knotion project-based learning (no traditional homework, but real academic rigor), the TecniKids STEAM Lab with 3D printing and robotics from 1st grade, and Cambridge English certifications built into the curriculum from 3rd grade — all reinforced by Philosophy for Children and the Yo Soy Líder NWL leadership program by Tec de Monterrey.',
  },
  {
- question: 'Does the elementary school include a STEAM program?',
+ question: 'Is NWL elementary really a no-homework school?',
  answer:
- 'Yes. The TecniKids STEAM Lab offers 3D printing, laser cutting, robotics, and maker spaces at all 5 campuses. Schedule: 7:40-2:30 PM. Philosophy for Children and I\'m NWL Leader by Tec de Monterrey complete the program.',
+ 'There are no nightly homework notebooks to copy from the board. Instead, students carry home the projects they are building at school — reading, researching, and rehearsing their presentations. The Knotion methodology is what replaces homework with deeper learning, and families get a digital portfolio to track progress in real time.',
+ },
+ {
+ question: 'What English level can my child reach by the end of elementary school?',
+ answer:
+ 'NWL students prepare for Cambridge Young Learners English certifications: Starters, Movers and Flyers. By the end of elementary, children should be reading, writing and holding real conversations in English — and they continue toward PET and FCE in middle school. The bilingual model means English is not an isolated subject; it shows up in art, science and daily routines.',
+ },
+ {
+ question: 'How does NWL handle safety, socialization and homework-free learning at home?',
+ answer:
+ 'Every NWL campus runs 24/7 surveillance with 90+ security cameras and follows the Bullying Free School protocol. Children participate in Philosophy for Children and the Yo Soy Líder NWL leadership program from 1st grade, so social and emotional skills are built alongside academics. For families, the Parent Diploma in Philosophy for Children teaches the same questioning techniques at home, turning dinner-table conversations into thinking practice.',
  },
  ],
  images: {
- hero: '/images/levels/elementary.jpg',
+ hero: '/images/levels/primaria.jpg',
  content: [
- '/images/levels/primaria/primaria-classroom.jpg',
- '/images/levels/primaria/primaria-science-fair.jpg',
+ '/images/levels/primaria/nwl-primaria-steam-lab.jpg',
+ '/images/levels/primaria/nwl-primaria-knotion-geoboard.jpg',
  ],
  },
  targetLevel: '/elementary',
  category: 'level',
  hreflangPair: 'la-mejor-primaria-bilingue-en-queretaro',
  keywords: [
+ 'private bilingual elementary school in queretaro',
  'elementary school queretaro',
  'bilingual elementary queretaro',
  'private primary school queretaro',
  'english elementary school queretaro',
+ 'no homework school queretaro',
+ 'cambridge english elementary queretaro',
  ],
  },
 
@@ -2188,40 +2201,45 @@ export const informacionPages: Record<string, InformacionPage> = {
  'private-bilingual-school-in-queretaro': {
  slug: 'private-bilingual-school-in-queretaro',
  lang: 'en',
- title: 'Private bilingual school in Queretaro',
- h1: 'High School in Queretaro with academic excellence',
+ title: 'Private Bilingual High School in Queretaro | NWL Prepa',
+ h1: 'Private bilingual high school in Queretaro: one system, five campuses, a complete educational journey',
  description:
- 'Private bilingual high school in Queretaro with Philosophy for Children, international programs and 5 campuses. Newland School delivers academic excellence from preschool to high school.',
+ 'NWL Prepa in Queretaro: SEP curriculum, Life Project, HÖKKU Dual Diploma, Life Mentors and B2 TOEFL English. A bilingual high school built to prepare students for the real world.',
  uniqueIntro:
- 'Newland School operates 5 campuses across Queretaro and San Miguel de Allende, serving students from pre-kinder (age 2) through high school (age 17). With Cognia accreditation, partnerships with Tec de Monterrey, Mondragon University, Hokku Academy, Knotion, Cambridge, and Coursera, NWL shapes bilingual, entrepreneurial, critical-thinking graduates. High school is available at San Miguel, Corregidora, and Zibata campuses.',
+ 'Newland School runs five bilingual campuses across Queretaro and San Miguel de Allende, with programs from pre-kinder to high school. NWL Prepa — the high school level — is available at San Miguel, Corregidora and Zibatá, and it is built around the Life Project program, a personal Life Mentor for each student, and a Dual Diploma via HÖKKU Academy.',
  sections: [
  {
- heading: 'Life Project: Your Personalized Path',
- body: 'NWL\'s high school (available at San Miguel, Corregidora, and Zibata) features the Life Project program: each student works with a personal Life Mentor over 6 semesters to define their academic and professional path.\n\nThe Dual Diploma (SEP Mexico + Cognia-accredited US diploma) and Kn U High/Coursera certifications from 1st semester give students a head start on college preparation. International exchange opportunities open in semesters 5 and 6.',
+ heading: 'Life Project: a high school designed around where your child is going',
+ body: 'NWL\'s high school (available at San Miguel, Corregidora and Zibatá) is built around the Life Project program: six semesters, six life competencies, a Personal Project and an Integrative Project in each one. The semester themes move from growth mindset and communication in the early semesters, to innovation, entrepreneurship, social impact and, finally, professional and university preparation.\n\nEvery student is assigned a personal Life Mentor who walks with them through all six semesters — helping set goals, manage stress and define direction. By graduation, students leave with a portfolio of real projects they can actually show in a university interview.',
  },
  {
- heading: 'Financial Literacy, AI, and Modern Skills',
- body: 'Every semester includes Financial Literacy classes that teach practical money management, investing fundamentals, and entrepreneurial finance. The AI and Modern Technology module ensures students are proficient with cutting-edge tools.\n\nThe HIT/Hyrox fitness program maintains physical wellness on campus. Over 3 years, students build a Personal Project Portfolio of 6 real-world projects. McGraw-Hill provides the academic content backbone.',
+ heading: 'HÖKKU Dual Diploma, Financial Literacy and English that is measured',
+ body: 'NWL Prepa students follow the official SEP curriculum and, through our alliance with HÖKKU Academy, earn the American High School Diploma in parallel — recognized in the United States and more than 40 countries. The program includes College Guidance support for applying to US universities, writing the admissions essay and finding scholarships.\n\nEnglish is a measurable graduation outcome: the required exit level is B2 TOEFL. Every semester also includes Personal Finance, Philosophy for Young People and real-world certifications. McGraw Hill is the digital academic platform, running on Apple devices in the classroom, and AI modules prepare students for a fast-changing job market.',
  },
  {
- heading: '5 Campuses, Complete Educational Journey',
- body: 'Juriquilla (est. 2009, 4.6 stars): flagship, pre-k through junior high. Milenio (est. 2016, 4.5 stars): Cognia accredited, cooking/yoga/dance team. San Miguel (est. 2018, 4.7 stars): art, UNESCO city, pre-k through high school. Corregidora (est. 2019, 4.5 stars): podcasts, AI, Rubik\'s Cube building, pre-k through high school. Zibata (est. 2025, 4.5 stars): newest, most modern, pre-k through high school.\n\nAll campuses share: Knotion (no homework), Philosophy for Children, I\'m NWL Leader by Tec de Monterrey, Cambridge, and Bullying Free School.',
+ heading: 'Five campuses, one model, many ways to grow',
+ body: 'Juriquilla is the flagship campus, serving pre-kinder through junior high. Milenio offers cooking workshops, yoga and a competitive dance team. San Miguel de Allende runs the full journey from pre-kinder through high school inside a UNESCO World Heritage city. Corregidora stands out for its podcasting, programming and AI work, and also offers the full journey from pre-kinder to high school. Zibatá is the newest campus, with modern purpose-built facilities and the full pre-kinder to high school program.\n\nAll five campuses share the same model: Knotion project-based learning (no traditional homework), Philosophy for Children, the "Yo Soy Líder NWL" leadership program by Tec de Monterrey, Cambridge English certifications at every level, the Bullying Free School protocol and 24/7 surveillance with 90+ security cameras at each campus. Same standard, different campus personalities.',
  },
  ],
  faqs: [
  {
- question: 'How many campuses does Newland School have?',
+ question: 'How many campuses does Newland School have and which ones offer high school?',
  answer:
- '5 campuses: Juriquilla (2009), Milenio (2016), San Miguel de Allende (2018), Corregidora (2019), and Zibata (2025). San Miguel, Corregidora, and Zibata offer high school with Life Project and Dual Diploma.',
+ 'Five campuses: Juriquilla, Milenio, San Miguel de Allende, Corregidora and Zibatá. NWL Prepa (the high school level) is available at San Miguel, Corregidora and Zibatá, all built on the Life Project program and the HÖKKU Dual Diploma.',
  },
  {
  question: 'What grade levels does Newland School offer?',
  answer:
- 'Pre-kinder (age 2) through high school (age 17). Programs include Brain Up, Knotion (no homework), TecniKids STEAM, Emprendizaje, Dual International Certification, Cambridge, Life Project, and Dual Diploma depending on level and campus.',
+ 'Pre-kinder (from age 2) through high school. Programs include Brain Up English immersion, Knotion project-based learning (no traditional homework), TecniKids STEAM, Emprendizaje with Mondragon University in middle school, Cambridge English certifications at every level, the Life Project program and the HÖKKU Dual Diploma in high school.',
+ },
+ {
+ question: 'What makes NWL Prepa different from other private bilingual high schools in Queretaro?',
+ answer:
+ 'The Life Project program (six semesters, six life competencies) with a personal Life Mentor for every student, the Dual Diploma via HÖKKU Academy in parallel with the SEP certificate, a required B2 TOEFL English exit level, Personal Finance and Philosophy for Young People every semester, and the McGraw Hill platform running on Apple devices in the classroom.',
  },
  ],
  images: {
- hero: '/images/levels/high-school.jpg',
+ hero: '/images/levels/preparatoria.jpg',
  content: [
  '/images/levels/prepa/prepa-nwl-modern-classroom.jpg',
  '/images/levels/prepa/prepa-nwl-students-podcast-studio.jpg',
@@ -2231,10 +2249,12 @@ export const informacionPages: Record<string, InformacionPage> = {
  category: 'level',
  hreflangPair: 'colegio-privado-bilingue-en-queretaro',
  keywords: [
+ 'private bilingual high school in queretaro',
  'private school queretaro',
  'bilingual school queretaro',
  'private bilingual school queretaro',
  'english school queretaro',
+ 'dual diploma high school queretaro',
  ],
  },
 
@@ -2370,36 +2390,46 @@ export const informacionPages: Record<string, InformacionPage> = {
  'excellence-bilingual-high-school-in-san-miguel-de-allende': {
  slug: 'excellence-bilingual-high-school-in-san-miguel-de-allende',
  lang: 'en',
- title: 'Excellence bilingual high school in San Miguel de Allende',
- h1: 'NWL, Leading Bilingual High School in San Miguel de Allende',
+ title: 'Bilingual High School in San Miguel de Allende | NWL Prepa',
+ h1: 'Bilingual high school in San Miguel de Allende: preparing your child for the real world',
  description:
- 'Bilingual high school in San Miguel de Allende with Philosophy for Children, Cambridge certifications and a global perspective. Newland School shapes tomorrow\'s leaders.',
+ 'NWL Prepa San Miguel: SEP curriculum, Life Project, Dual Diploma via HÖKKU Academy, Life Mentors and B2 TOEFL English. A bilingual high school built to prepare your child for what comes next.',
  uniqueIntro:
- 'NWL San Miguel de Allende offers the only bilingual high school in the city with a Dual Diploma (Mexico SEP + US Cognia-accredited), Life Project with personal mentors, and Kn U High/Coursera certifications. In a UNESCO World Heritage city with a thriving international community, students build their future surrounded by art, culture, and global perspectives. Directed by Lic. Ramon Godinez.',
+ 'NWL Prepa is the bilingual high school in San Miguel de Allende where your child graduates with a Dual Diploma from HÖKKU Academy, a B2 TOEFL English level and a clear life plan. We combine the official SEP curriculum with the Life Project program, and every student has a personal Life Mentor for all six semesters.',
  sections: [
  {
- heading: 'Life Project in a UNESCO World Heritage City',
- body: 'The Life Project at NWL San Miguel takes on a unique dimension: students work with personal Life Mentors surrounded by galleries, festivals, artists, and an active international community. The 6-project Personal Portfolio can connect with the city\'s cultural and entrepreneurial scene.\n\nThis cultural immersion enriches the self-discovery process. Students don\'t just plan their academic future — they live it in an environment that inspires creativity, empathy, and global vision.',
+ heading: 'A high school that teaches your child to build their own path',
+ body: 'When a parent searches for a bilingual high school in San Miguel de Allende, the real question underneath is always the same — "what will my child actually be when they graduate?". The Life Project program at NWL Prepa is built to answer that with structure: six semesters, six life competencies, a Personal Project and an Integrative Project in each one.\n\nThe six semester themes are: 1) growth mindset and personal resilience, 2) social skills and effective communication, 3) innovation and critical thinking, 4) entrepreneurship and business creation, 5) social impact and responsibility, and 6) professional and university preparation. Alongside those themes run Philosophy for Young People, Personal Finance and real-world certifications every semester.\n\nNone of it happens alone. Every student is assigned a personal Life Mentor who works with them semester by semester — setting goals, managing stress, defining direction. By graduation, your child is not walking away with just a certificate: they leave with a portfolio of Personal and Integrative Projects they can show in a university interview or a first job conversation.',
  },
  {
- heading: 'Dual Diploma and Multicultural Community',
- body: 'The Dual Diploma (Mexico SEP + Cognia-accredited US diploma) is especially valued in San Miguel, where the international community demands credentials recognized in both countries. Kn U High/Coursera certifications from 1st semester strengthen university admissions profiles.\n\nSan Miguel\'s diversity (Mexican, American, Canadian, European families) creates an environment where students practice English in real contexts daily, accelerating fluency and cultural competence.',
+ heading: 'HÖKKU Dual Diploma: one graduation, two countries, more universities to choose from',
+ body: 'At NWL Prepa San Miguel, your child follows the official SEP curriculum and, through our alliance with HÖKKU Academy, earns the American High School Diploma in parallel — recognized in the United States and more than 40 countries. One high school, two credentials, and far more universities on the table at graduation.\n\nThe Dual Diploma comes with the College Guidance Program: real support for applying to US universities, writing the admissions essay, finding scholarships and navigating international processes. It is the kind of guidance families usually hire separately. Here it is included.\n\nAt the same time, English stops being "a subject" and becomes a measurable graduation outcome: the required exit level is B2 TOEFL. Living in San Miguel de Allende — where Mexican, American, Canadian and European families share the same streets — means that English is practiced outside the classroom every day, in cafés, at cultural events, and in community projects.',
  },
  {
- heading: 'Art, HIT/Hyrox, and International Exchange',
- body: 'Activities leverage San Miguel\'s cultural wealth: painting, sculpture, theater, and immersion in the local art scene complement robotics/STEAM and music. The HIT/Hyrox fitness program maintains physical wellness with on-campus training.\n\nIn semesters 5 and 6, students access international exchange programs. Financial Literacy every semester and AI/Modern Technology modules prepare graduates for tomorrow\'s careers. McGraw-Hill provides the academic content framework.',
+ heading: 'Living, creating and preparing in San Miguel de Allende',
+ body: 'A typical week at NWL Prepa San Miguel combines the SEP curriculum on the McGraw Hill digital platform — running on Apple devices in the classroom — with Life Project classes in English, a one-on-one session with a Life Mentor, Philosophy for Young People, Personal Finance and a student club. Each semester closes with a Personal Project (the student\'s own voice) and an Integrative Project with real community impact.\n\nPhysical wellbeing is not an add-on: through FitCard, every student gets access to gyms and sports classes in San Miguel, on top of the campus student clubs. Academics and a healthy life walk side by side, because that is how you build a complete adult.\n\nIn semesters 4, 5 and 6, optional international exchanges open up, and throughout the year the campus runs intercampus activities with NWL Corregidora and NWL Zibatá. All of it inside a UNESCO World Heritage city full of art, gastronomy and entrepreneurship, where learning becomes part of stepping outside.',
  },
  ],
  faqs: [
  {
- question: 'Does the high school in San Miguel de Allende accept international students?',
+ question: 'What makes NWL Prepa in San Miguel de Allende different from other high schools?',
  answer:
- 'Yes. San Miguel\'s multicultural community enriches the experience. The Dual Diploma (Mexico + US) facilitates transitions for international families. Director: Lic. Ramon Godinez.',
+ 'We combine the official SEP curriculum with the Life Project program (six semesters, six life competencies), a personal Life Mentor for each student, a Dual Diploma via HÖKKU Academy, a required B2 TOEFL English level at graduation, the McGraw Hill platform and Apple devices in the classroom — inside a campus in San Miguel de Allende, with a multicultural community and intercampus activities with Querétaro.',
  },
  {
- question: 'What extracurricular activities are available at the San Miguel high school?',
+ question: 'Will my child really leave fully bilingual?',
  answer:
- 'Painting, sculpture, theater (cultural immersion), robotics/STEAM, music, HIT/Hyrox fitness, Life Project with mentors, Financial Literacy, AI, Kn U High/Coursera certifications, and international exchange in semesters 5-6.',
+ 'Yes. The required exit level is B2 TOEFL. English is worked on from the first semester, Life Project classes are taught in English, and daily life in San Miguel — with Mexican, American, Canadian and European families — gives real practice outside the classroom. For students who arrive with a lower level, the Life Mentor designs a personal path to get them there.',
+ },
+ {
+ question: 'Does the HÖKKU Dual Diploma help with applications to US universities?',
+ answer:
+ 'Yes. At graduation, your child earns the official SEP certificate and, in parallel, the American High School Diploma from HÖKKU Academy, recognized in the US and more than 40 countries. The high school also includes the College Guidance Program, which supports students with their university applications, admissions essays, scholarship search and international processes.',
+ },
+ {
+ question: 'What does a typical week look like for an NWL Prepa San Miguel student?',
+ answer:
+ 'SEP subjects on the McGraw Hill platform over Apple devices, Life Project classes in English, a session with the Life Mentor, Philosophy for Young People, Personal Finance, a student club and physical training through the FitCard. Every semester closes with a Personal Project and an Integrative Project with real community impact, plus intercampus activities with NWL Corregidora and NWL Zibatá.',
  },
  ],
  images: {
@@ -2414,9 +2444,11 @@ export const informacionPages: Record<string, InformacionPage> = {
  category: 'campus',
  hreflangPair: 'preparatoria-bilingue-privada-en-san-miguel-de-allende',
  keywords: [
+ 'bilingual high school in san miguel de allende',
  'high school san miguel de allende',
  'bilingual high school san miguel',
  'private high school san miguel de allende',
+ 'dual diploma san miguel de allende',
  'english school san miguel de allende',
  ],
  },
@@ -2760,16 +2792,16 @@ export const informacionPages: Record<string, InformacionPage> = {
  'international-school-in-san-miguel-de-allende': {
  slug: 'international-school-in-san-miguel-de-allende',
  lang: 'en',
- title: 'International School in San Miguel de Allende',
+ title: 'International School in San Miguel de Allende | Newland School',
  h1: 'A bilingual international school in San Miguel de Allende',
  description:
- 'Newland School in San Miguel de Allende offers nursery through high school with Cambridge English, Dual Diploma, Cognia accreditation, and a multicultural learning environment.',
+ 'Newland School in San Miguel de Allende offers nursery through high school with Cambridge English, a HÖKKU Dual Diploma, Life Project and a multicultural learning environment.',
  uniqueIntro:
- 'Newland School San Miguel de Allende sits in the heart of a UNESCO World Heritage city and serves families from Mexico, the United States, Canada, and Europe. Founded in 2018, the campus runs from nursery (age 2) through high school (age 17) under the direction of Ramón Godínez.',
+ 'Newland School San Miguel de Allende sits in the heart of a UNESCO World Heritage city and serves families from Mexico, the United States, Canada and Europe. The campus runs from nursery (age 2) through high school (age 17), under the direction of Lic. Ramón Godínez.',
  sections: [
  {
  heading: 'Nursery through high school in one campus',
- body: 'San Miguel de Allende is one of three NWL campuses that offers the full educational journey from nursery to high school. Children start with Brain Up English immersion at age 2, move through Knotion project-based learning in elementary, and reach the Emprendizaje entrepreneurship program with Universidad Mondragón in middle school.\n\nThe high school program includes Life Project with personal mentors, a Dual Diploma recognized in both Mexico and the United States (Cognia-accredited), Kn U High/Coursera certifications from the first semester, and an international exchange program in the final year.',
+ body: 'San Miguel de Allende is one of three NWL campuses that offers the full educational journey from nursery to high school. Children start with Brain Up English immersion at age 2, move through Knotion project-based learning in elementary, and reach the Emprendizaje entrepreneurship program with Universidad Mondragón in middle school.\n\nThe high school program — NWL Prepa — is built around Life Project, a six-semester structure with a personal Life Mentor for each student, and the HÖKKU Dual Diploma: the American High School Diploma earned in parallel with the Mexican SEP certificate, recognized in the United States and more than 40 countries. The required English exit level is B2 TOEFL, and optional international exchanges open up in the final year.',
  },
  {
  heading: 'Cambridge English and a naturally bilingual environment',
@@ -2789,7 +2821,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  {
  question: 'Does Newland School accept international students?',
  answer:
- 'Yes. NWL San Miguel serves families from Mexico, the US, Canada, and Europe. The Dual Diploma is recognized in both Mexico and the United States. The campus runs nursery (age 2) through high school. Director: Lic. Ramón Godínez. ',
+ 'Yes. NWL San Miguel serves families from Mexico, the US, Canada and Europe. The high school\'s HÖKKU Dual Diploma is recognized in the United States and more than 40 countries, which makes transitions easier for international families. The campus runs from nursery (age 2) through high school, under the direction of Lic. Ramón Godínez.',
  },
  ],
  images: {
