@@ -2286,36 +2286,46 @@ export const informacionPages: Record<string, InformacionPage> = {
  'preparatoria-bilingue-privada-en-san-miguel-de-allende': {
  slug: 'preparatoria-bilingue-privada-en-san-miguel-de-allende',
  lang: 'es',
- title: 'Preparatoria bilingüe privada en San Miguel de Allende',
- h1: 'Tu mejor opción de prepa en San Miguel de Allende',
+ title: 'Preparatoria Bilingüe Privada en San Miguel de Allende | Prepa NWL',
+ h1: 'Preparatoria bilingüe privada en San Miguel de Allende: forma a tu hijo para el mundo real',
  description:
- 'Preparatoria bilingüe privada en San Miguel de Allende con Filosofía para Niños, programas internacionales y formación integral. Newland School campus San Miguel.',
+ 'Prepa NWL San Miguel: plan SEP, Life Project, doble titulación HÖKKU Academy y Life Mentors. Una preparatoria bilingüe privada hecha para preparar a tu hijo para el mundo.',
  uniqueIntro:
- 'La preparatoria NWL San Miguel de Allende combina el programa Life Project con mentores personales y el contexto cultural de una ciudad Patrimonio UNESCO. Los alumnos obtienen el Doble Diploma (México + EUA), certificaciones Kn U High/Coursera y participan en intercambio internacional en 5.° y 6.° semestre. Campus fundado en 2018,, dirigido por el Lic. Ramón Godínez.',
+ 'Prepa NWL es la preparatoria bilingüe privada en San Miguel de Allende donde tu hijo egresa con doble titulación, inglés nivel B2 TOEFL y un proyecto de vida claro para la universidad y la vida adulta. Lo logramos combinando el plan oficial SEP con el programa Life Project: seis semestres, seis competencias para la vida y un Life Mentor personal que acompaña a cada alumno en su crecimiento académico, emocional y profesional. Nuestro campus en San Miguel de Allende, ciudad Patrimonio de la Humanidad UNESCO, ofrece una comunidad multicultural donde el inglés se vuelve parte de la vida diaria. Gracias a la alianza con HÖKKU Academy, los alumnos suman a su certificado SEP el American High School Diploma, reconocido en Estados Unidos y más de 40 países, con College Guidance Program, plataforma McGraw Hill, dispositivos Apple en el aula e intercambios internacionales optativos.',
  sections: [
  {
- heading: 'Life Project en una ciudad Patrimonio UNESCO',
- body: 'El Life Project en San Miguel de Allende cobra una dimensión única: los alumnos trabajan con Life Mentors rodeados de galerías, festivales, artistas y una comunidad internacional activa. Los 6 Proyectos Personales del portafolio pueden conectar con la escena cultural y emprendedora de la ciudad.\n\nEsta inmersión cultural enriquece el proceso de autoconocimiento y definición vocacional. Los alumnos no solo planean su futuro académico, sino que lo viven en un entorno que inspira creatividad y visión global.',
+ heading: 'Una prepa que enseña a tu hijo a construir su propio camino',
+ body: 'Cuando un papá o una mamá busca preparatoria bilingüe privada en San Miguel de Allende, la pregunta de fondo casi siempre es la misma: "¿qué va a ser de mi hijo cuando salga?". El programa Life Project de Prepa NWL responde esa pregunta con una estructura clara: seis semestres, seis competencias para la vida, un Proyecto Personal y un Proyecto Integrador en cada uno.\n\nLos ejes semestrales son: 1) mentalidad de crecimiento y superación personal, 2) habilidades sociales y comunicación efectiva, 3) innovación y pensamiento crítico, 4) emprendimiento y creación de negocios, 5) impacto social y responsabilidad, y 6) preparación profesional y universitaria. A todo esto se suman Filosofía para Jóvenes, Finanzas Personales y certificaciones reales cada semestre.\n\nNinguna de estas materias se vive en solitario. Cada alumno tiene un Life Mentor —un mentor personal asignado— que lo acompaña semestre a semestre, lo ayuda a poner metas, a manejar el estrés y a definir su rumbo. Al egresar, tu hijo no se lleva sólo un certificado: se lleva un portafolio de proyectos personales e integradores que puede mostrar en una entrevista universitaria o en su primer empleo.',
  },
  {
- heading: 'Doble Diploma y comunidad multicultural',
- body: 'El Doble Diploma (SEP México + diploma EUA acreditado por Cognia) es especialmente valorado en San Miguel, donde la comunidad internacional demanda credenciales reconocidas en ambos países. Las certificaciones Kn U High/Coursera desde el primer semestre refuerzan el perfil de admisión universitaria.\n\nLa diversidad de San Miguel de Allende (familias mexicanas, estadounidenses, canadienses, europeas) crea un ambiente donde los alumnos practican inglés en contextos reales, acelerando su dominio del idioma.',
+ heading: 'Doble titulación HÖKKU: una graduación, dos países, más universidades posibles',
+ body: 'En Prepa NWL San Miguel tu hijo cursa el plan oficial SEP **y**, gracias a nuestra alianza con HÖKKU Academy, obtiene en paralelo el American High School Diploma, reconocido en Estados Unidos y más de 40 países. Es una sola prepa, dos certificaciones, y muchas más universidades posibles al graduarse.\n\nLa doble titulación viene acompañada del College Guidance Program: asesoría real para aplicar a universidades en EE. UU., armar el ensayo de admisión, buscar becas y entender los procesos internacionales. Es el tipo de acompañamiento que normalmente las familias contratan por fuera; aquí está incluido.\n\nEn paralelo, el inglés deja de ser una materia y se vuelve una habilidad de salida medible: el nivel obligatorio al egresar es **B2 TOEFL**. Vivir en San Miguel de Allende, donde conviven familias mexicanas, estadounidenses, canadienses y europeas, hace que ese inglés se practique fuera del aula todos los días, en cafés, eventos culturales y proyectos comunitarios.',
  },
  {
- heading: 'Arte, HIT/Hyrox e intercambio internacional',
- body: 'Las actividades aprovechan la riqueza de San Miguel: pintura, escultura, teatro y la inmersión en la escena artística local complementan robótica STEAM y música. El programa HIT/Hyrox mantiene la condición física con entrenamientos en campus.\n\nEn 5.° y 6.° semestre, los alumnos acceden a programas de intercambio internacional. Inteligencia Financiera cada semestre y módulos de IA y Tecnología Moderna preparan para las carreras del futuro.',
+ heading: 'Vivir, crear y prepararse en San Miguel de Allende',
+ body: 'Una semana típica en Prepa NWL San Miguel combina el plan SEP en plataforma digital McGraw Hill —sobre dispositivos Apple en el aula—, clases de Life Project en inglés, una sesión personal con su Life Mentor, Filosofía para Jóvenes, Finanzas Personales y su club estudiantil. Cada semestre cierra con un Proyecto Personal (la voz del alumno) y un Proyecto Integrador con impacto real en la comunidad.\n\nEl bienestar físico no es opcional ni un agregado: con la **FitCard**, cada alumno tiene acceso a gimnasios y clases deportivas en San Miguel, además de los clubes estudiantiles del campus. La vida académica y la vida sana van juntas porque así se forma a un adulto completo.\n\nEn los semestres 4, 5 y 6 se abren los **intercambios internacionales** optativos, y a lo largo del año hay actividades intercampus con NWL Corregidora y NWL Zibatá. Todo esto en una ciudad Patrimonio de la Humanidad UNESCO, llena de arte, gastronomía y emprendimiento, donde aprender se vuelve parte de salir a la calle.',
  },
  ],
  faqs: [
  {
- question: '¿La preparatoria en San Miguel de Allende acepta alumnos internacionales?',
+ question: '¿Qué hace diferente a la Prepa NWL en San Miguel de Allende de otras preparatorias?',
  answer:
- 'Sí. La comunidad multicultural de San Miguel enriquece la experiencia. El Doble Diploma (México + EUA) facilita la transición para familias internacionales. Campus con.',
+ 'Combinamos el plan oficial SEP con el programa Life Project (seis semestres y seis competencias para la vida), un Life Mentor personal para cada alumno, doble titulación con HÖKKU Academy, inglés con nivel de salida B2 TOEFL, plataforma McGraw Hill y dispositivos Apple en el aula. Todo en un campus en San Miguel de Allende, con comunidad multicultural y actividades intercampus con Querétaro.',
  },
  {
- question: '¿Qué actividades ofrece la prepa en San Miguel?',
+ question: '¿Mi hijo va a salir realmente bilingüe de la prepa?',
  answer:
- 'Pintura, escultura, teatro (inmersión artística), robótica STEAM, música, HIT/Hyrox fitness, Life Project con mentores, Inteligencia Financiera, IA, Kn U High/Coursera e intercambio internacional. Director: Lic. Ramón Godínez.',
+ 'Sí. El nivel de salida obligatorio es B2 TOEFL. El inglés se trabaja desde primer semestre, las materias Life Project se imparten en inglés y la vida cotidiana en San Miguel —con familias mexicanas, estadounidenses, canadienses y europeas— da práctica real fuera del aula. Para los alumnos que entran con un nivel más bajo, el Life Mentor diseña un plan de nivelación personal.',
+ },
+ {
+ question: '¿La doble titulación con HÖKKU Academy sirve para entrar a universidades en Estados Unidos?',
+ answer:
+ 'Sí. Al egresar, tu hijo obtiene el certificado oficial SEP y, en paralelo, el American High School Diploma de HÖKKU Academy, reconocido en Estados Unidos y más de 40 países. La prepa incluye el College Guidance Program, donde se asesora a los alumnos en sus aplicaciones universitarias, ensayos de admisión, búsqueda de becas y procesos internacionales.',
+ },
+ {
+ question: '¿Cómo se ve una semana típica de un alumno de Prepa NWL San Miguel?',
+ answer:
+ 'Materias del plan SEP en plataforma McGraw Hill sobre dispositivos Apple, clases de Life Project en inglés, una sesión con su Life Mentor, Filosofía para Jóvenes, Finanzas Personales, su club estudiantil y entrenamiento físico con la FitCard. Cada semestre se cierra con un Proyecto Personal y un Proyecto Integrador con impacto real, además de actividades intercampus con NWL Corregidora y NWL Zibatá.',
  },
  ],
  images: {
@@ -2330,9 +2340,13 @@ export const informacionPages: Record<string, InformacionPage> = {
  category: 'campus',
  hreflangPair: 'excellence-bilingual-high-school-in-san-miguel-de-allende',
  keywords: [
+ 'preparatoria bilingüe privada en san miguel de allende',
  'preparatoria san miguel de allende',
  'prepa bilingüe san miguel',
  'preparatoria privada san miguel de allende',
+ 'bachillerato bilingüe san miguel de allende',
+ 'doble titulación preparatoria san miguel',
+ 'prepa con plan sep san miguel',
  'high school san miguel de allende',
  ],
  },
