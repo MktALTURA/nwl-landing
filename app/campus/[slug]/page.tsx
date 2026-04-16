@@ -44,7 +44,6 @@ export default function CampusPage({
       <ParentsPortalBanner campusSlug={slug} />
       <CampusCTA
         campusName={campus.name}
-        whatsapp={campus.whatsapp}
         phone={campus.phone}
         phoneLink={campus.phoneLink}
       />

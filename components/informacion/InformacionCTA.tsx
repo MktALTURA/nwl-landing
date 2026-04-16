@@ -6,7 +6,7 @@ import { useLanguage } from '@/lib/i18n/LanguageContext';
 import { useGHLFormTracking } from '@/lib/hooks/useGHLFormTracking';
 import { injectUTMsIntoURL } from '@/lib/utm';
 import type { InformacionPage } from '@/lib/informacion-data';
-import { campuses } from '@/lib/campus-data';
+
 
 interface InformacionCTAProps {
   page: InformacionPage;
@@ -16,8 +16,7 @@ export default function InformacionCTA({ page }: InformacionCTAProps) {
   const { locale, t } = useLanguage();
   const formContainerRef = useRef<HTMLDivElement>(null);
 
-  const campus = page.targetCampus ? campuses[page.targetCampus] : null;
-  const whatsappNumber = campus?.whatsapp ?? '5214424541010'; // Default admissions
+  const whatsappNumber = '524424540522';
 
   const buildIframe = useCallback((formId: string, formName: string, formTitle: string) => {
     const container = formContainerRef.current;
