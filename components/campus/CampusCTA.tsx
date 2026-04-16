@@ -128,7 +128,7 @@ export default function CampusCTA({ campusName, whatsapp, phone, phoneLink }: Ca
             className="lg:col-span-2 space-y-6"
           >
             <a
-              href={`https://wa.me/${whatsapp || '5214428533883'}`}
+              href={`https://wa.me/${whatsapp || '524424540522'}`}
               target="_blank"
               rel="noopener noreferrer"
               className="w-full text-left bg-white/10 backdrop-blur-sm rounded-lg p-6 hover:bg-white/20 transition-colors duration-300 group block"

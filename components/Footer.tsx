@@ -116,13 +116,13 @@ export default function Footer() {
                 +52 (442) 454 10 10
               </a>
               <a
-                href="https://wa.me/5214428533883"
+                href="https://wa.me/524424540522"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center text-white/70 hover:text-green-400 transition-colors"
               >
                 <FaWhatsapp className="mr-3 flex-shrink-0" size={14} />
-                +52 (442) 853 3883
+                +52 (442) 454 0522
               </a>
             </div>
             <ul className="space-y-4">

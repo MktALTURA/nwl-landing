@@ -90,7 +90,7 @@ export default function FinalCTA() {
       title: t.finalCta.whatsappTitle,
       desc: t.finalCta.whatsappDesc,
       label: 'whatsapp_chat',
-      href: 'https://wa.me/5214428533883',
+      href: 'https://wa.me/524424540522',
     },
   ];
 

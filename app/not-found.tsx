@@ -75,7 +75,7 @@ export default function NotFound() {
             Go Home
           </Link>
           <a
-            href="https://wa.me/5214428533883"
+            href="https://wa.me/524424540522"
             target="_blank"
             rel="noopener noreferrer"
             className="btn-secondary inline-flex items-center gap-2"
