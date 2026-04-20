@@ -50,7 +50,7 @@ export default function ComingSoon() {
 
         {/* WhatsApp contact */}
         <a
-          href="https://wa.me/5214421227791"
+          href="https://wa.me/5214428533883"
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center gap-2 bg-wine text-white font-semibold px-6 py-3 rounded-lg hover:bg-wine/90 transition-colors"

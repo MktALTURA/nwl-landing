@@ -372,7 +372,7 @@ export default function Navigation() {
               {t.nav.scheduleVisit}
             </a>
             <a
-              href="https://wa.me/5214421227791"
+              href="https://wa.me/5214428533883"
               target="_blank"
               rel="noopener noreferrer"
               className={`w-10 h-10 rounded-full flex items-center justify-center transition-colors duration-300 ${
@@ -477,7 +477,7 @@ export default function Navigation() {
                 {t.nav.scheduleVisit}
               </a>
               <a
-                href="https://wa.me/5214421227791"
+                href="https://wa.me/5214428533883"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-center gap-2 mx-4 py-3 text-wine font-medium text-sm hover:text-wine/70 transition-colors"
