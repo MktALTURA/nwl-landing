@@ -75,7 +75,7 @@ export default function CampusHero({ campus }: CampusHeroProps) {
               {t.campusDetail.ctaScheduleVisit}
             </a>
             <a
-              href="https://wa.me/5214428533883"
+              href="https://wa.me/5214421227791"
               target="_blank"
               rel="noopener noreferrer"
               className="btn-secondary !border-white !text-white hover:!bg-white hover:!text-wine text-center"

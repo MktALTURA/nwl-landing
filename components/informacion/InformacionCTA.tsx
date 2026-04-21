@@ -16,7 +16,7 @@ export default function InformacionCTA({ page }: InformacionCTAProps) {
   const { locale, t } = useLanguage();
   const formContainerRef = useRef<HTMLDivElement>(null);
 
-  const whatsappNumber = '5214428533883';
+  const whatsappNumber = '5214421227791';
 
   const buildIframe = useCallback((formId: string, formName: string, formTitle: string) => {
     const container = formContainerRef.current;

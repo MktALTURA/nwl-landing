@@ -116,7 +116,7 @@ export default function Footer() {
                 +52 (442) 454 10 10
               </a>
               <a
-                href="https://wa.me/5214428533883"
+                href="https://wa.me/5214421227791"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center text-white/70 hover:text-green-400 transition-colors"

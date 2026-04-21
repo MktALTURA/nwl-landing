@@ -246,7 +246,7 @@ export default function CampusFinder() {
               </div>
 
               <a
-                href="https://wa.me/5214428533883"
+                href="https://wa.me/5214421227791"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block bg-white text-blueberry px-8 py-4 rounded-full font-black text-lg hover:scale-110 hover:shadow-2xl transition-all duration-200"
