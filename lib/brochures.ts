@@ -41,8 +41,8 @@ export const brochures: Record<BrochureLevel, BrochureConfig> = {
     level: 'middle-school',
     slug: 'middle-school',
     heyzineUrl: {
-      en: 'https://heyzine.com/flip-book/664459e8fe.html',
-      es: 'https://heyzine.com/flip-book/203e5ef839.html',
+      en: 'https://heyzine.com/flip-book/9490aebaa1.html',
+      es: 'https://heyzine.com/flip-book/557c82d5d7.html',
     },
     pdfDownloadUrl: {
       en: '/brochures/en/middle-school.pdf',
