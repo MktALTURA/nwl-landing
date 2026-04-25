@@ -1011,7 +1011,7 @@ export const es: Dictionary = {
     partnerTitleAccent: 'Aliado',
     partnerSubtitle: 'Únete a nuestra red de aliados estratégicos.',
     partnerDescription: 'Colaboramos con instituciones, empresas y organizaciones líderes para enriquecer nuestra oferta educativa y crear oportunidades significativas para nuestra comunidad.',
-    partnerFormId: 'PLACEHOLDER_PARTNER_FORM_ES',
+    partnerFormId: 'XDVtGU9rtg9amiqI7lrB',
     partnerFormName: 'Formulario de Alianzas - ES',
     partnerFormTitle: 'Ser Aliado',
     partnerBenefits: [

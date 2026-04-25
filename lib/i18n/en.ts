@@ -1010,7 +1010,7 @@ export const en: Dictionary = {
     partnerTitleAccent: 'Partner',
     partnerSubtitle: 'Join our network of strategic allies.',
     partnerDescription: 'We collaborate with leading institutions, companies, and organizations to enrich our educational offering and create meaningful opportunities for our community.',
-    partnerFormId: 'PLACEHOLDER_PARTNER_FORM_EN',
+    partnerFormId: 'XDVtGU9rtg9amiqI7lrB',
     partnerFormName: 'Partnership Inquiry Form - EN',
     partnerFormTitle: 'Partner with Us',
     partnerBenefits: [
