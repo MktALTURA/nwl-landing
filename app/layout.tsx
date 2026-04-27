@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
 import Script from "next/script";
-import { Analytics } from "@vercel/analytics/next";
-import { SpeedInsights } from "@vercel/speed-insights/next";
 import { SITE_URL, SITE_NAME, PAGE_SEO } from "@/lib/seo";
 import { OrganizationJsonLd, WebSiteJsonLd } from "@/components/JsonLd";
 import "./globals.css";
@@ -105,8 +103,6 @@ export default function RootLayout({
           data-tracking-id="tk_f326b262f9234006b24833e8cfb32b39"
           strategy="lazyOnload"
         />
-        <Analytics />
-        <SpeedInsights />
       </body>
     </html>
   );

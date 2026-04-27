@@ -1,7 +1,6 @@
 'use client';
 
 import { useEffect, useRef, type RefObject } from 'react';
-import { track } from '@vercel/analytics';
 import { getFirstTouchUTMs, getLastTouchUTMs } from '@/lib/utm';
 
 /* ------------------------------------------------------------------ */
@@ -12,7 +11,7 @@ import { getFirstTouchUTMs, getLastTouchUTMs } from '@/lib/utm';
 /*      set-sticky-contacts which fires after form submit)             */
 /*   2. MutationObserver on iframe height shrink (fallback)            */
 /*                                                                     */
-/*  Fires conversion events via dataLayer + gtag + Vercel Analytics.   */
+/*  Fires conversion events via dataLayer + gtag.                      */
 /*  NEVER changes the browser URL.                                     */
 /* ------------------------------------------------------------------ */
 
@@ -54,19 +53,6 @@ function fireConversion(formLabel: string) {
     window.gtag('event', 'conversion', {
       send_to: 'AW-17936345870/H9S4CJelm40cEI7W2-hC',
     });
-  }
-
-  // 3. Vercel Analytics custom event — include UTM source for dashboards
-  try {
-    track('form_submission', {
-      form: formLabel,
-      ...(lastTouch?.utm_source && { utm_source: lastTouch.utm_source }),
-      ...(lastTouch?.utm_medium && { utm_medium: lastTouch.utm_medium }),
-      ...(lastTouch?.utm_campaign && { utm_campaign: lastTouch.utm_campaign }),
-      ...(firstTouch?.utm_source && { ft_source: firstTouch.utm_source }),
-    });
-  } catch {
-    // Vercel Analytics unavailable — no-op
   }
 }
 

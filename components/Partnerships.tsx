@@ -8,10 +8,10 @@ const getPartners = (locale: string) => [
   { name: 'Knotion', src: '/images/logos/partners/knotion.png', scale: '' },
   { name: 'Universidad Mondragón México', src: '/images/logos/partners/universidad-mondragon-mexico.png', scale: '' },
   { name: 'Hokku Academy', src: '/images/logos/partners/hokku-academy.webp', scale: '' },
-  { name: locale === 'en' ? 'Philosophy for Children' : 'CFPN - Filosofía para Niños', src: `/images/logos/partners/CFPN(${locale}).png`, scale: 'large' },
+  { name: locale === 'en' ? 'Philosophy for Children' : 'CFPN - Filosofía para Niños', src: `/images/logos/partners/CFPN-${locale}.png`, scale: 'large' },
   { name: 'Tecnológico de Monterrey', src: '/images/logos/partners/tecnologico-de-monterrey.png', scale: '' },
   { name: 'Cognia Accreditation', src: '/images/logos/partners/Cognia_ACCRED-Badge-GREY-684x684-1.png', scale: '' },
-  { name: locale === 'en' ? "I'm NWL Leader" : 'Yo Soy Líder NWL', src: `/images/logos/partners/Yo_soy_lider_nwl(${locale}).png`, scale: '' },
+  { name: locale === 'en' ? "I'm NWL Leader" : 'Yo Soy Líder NWL', src: `/images/logos/partners/Yo_soy_lider_nwl-${locale}.png`, scale: '' },
 ];
 
 export default function Partnerships() {

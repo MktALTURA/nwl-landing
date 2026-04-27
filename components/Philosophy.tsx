@@ -6,8 +6,8 @@ import { useLanguage } from '@/lib/i18n/LanguageContext';
 import BrochureLevelDropdown from './BrochureLevelDropdown';
 
 const pillarsData = [
-  { number: '01', logoInitials: 'P4C', logoImage: { es: '/images/logos/partners/CFPN(es).png', en: '/images/logos/partners/CFPN(en).png' } },
-  { number: '02', logoInitials: 'NWL', logoImage: { es: '/images/logos/partners/Yo_soy_lider_nwl(es).png', en: '/images/logos/partners/Yo_soy_lider_nwl(en).png' } },
+  { number: '01', logoInitials: 'P4C', logoImage: { es: '/images/logos/partners/CFPN-es.png', en: '/images/logos/partners/CFPN-en.png' } },
+  { number: '02', logoInitials: 'NWL', logoImage: { es: '/images/logos/partners/Yo_soy_lider_nwl-es.png', en: '/images/logos/partners/Yo_soy_lider_nwl-en.png' } },
   { number: '03', logoInitials: 'K', logoImage: '/images/logos/knotion.png' },
 ];
 
