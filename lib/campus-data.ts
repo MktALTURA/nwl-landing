@@ -47,6 +47,10 @@ export interface CampusData {
   facilities: CampusFacility[];
   activities: CampusActivity[];
   director: CampusDirector;
+  // Hide the director section on the campus page. Set true while a campus is
+  // between directors so the old photo/message doesn't show. Remove (or set
+  // false) once the new director's photo and message are in place.
+  hideDirector?: boolean;
   address: string;
   city: string;         // For schema addressLocality
   state: string;        // For schema addressRegion
@@ -623,6 +627,9 @@ export const campuses: Record<string, CampusData> = {
       },
       image: '/images/campus/zibata/zibata-director.jpg',
     },
+    // Director transition in progress — hide section until the new director's
+    // photo and message are uploaded, then remove this flag.
+    hideDirector: true,
     address: 'Paseo de las Pitahayas, Zibatá, Querétaro',
     city: 'Zibatá, El Marqués',
     state: 'Querétaro',

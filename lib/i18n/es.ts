@@ -316,13 +316,13 @@ export const es: Dictionary = {
         title: 'Filosofía para Niños NWL (FpN)',
         description:
           'Enseñamos a los niños a pensar, no qué pensar. Desarrollo del pensamiento crítico adaptado para los más pequeños a través del diálogo.',
-        logo: '/images/logos/partners/CFPN(es).png',
+        logo: '/images/logos/partners/CFPN-es.png',
       },
       {
         title: 'Yo Soy Líder NWL by Tec de Monterrey',
         description:
           'Programa único en México que desarrolla hábitos y pensamientos para que se desarrollen integralmente, sean responsables de sus actos, tomen decisiones conscientes, sean personas resilientes y alcancen sus metas. Exclusivo de NWL, avalado por el Tec de Monterrey.',
-        logo: '/images/logos/partners/Yo_soy_lider_nwl(es).png',
+        logo: '/images/logos/partners/Yo_soy_lider_nwl-es.png',
         logo2: '/images/logos/partners/tecnologico-de-monterrey.png',
       },
       {
@@ -427,14 +427,14 @@ export const es: Dictionary = {
         subtitle: 'FpN',
         description:
           'Enseñamos cómo pensar, no qué pensar. Desde Kinder, aprenden a cuestionar, dialogar y formar su propio criterio.',
-        logo: '/images/logos/partners/CFPN(es).png',
+        logo: '/images/logos/partners/CFPN-es.png',
       },
       {
         title: 'Yo Soy Líder NWL',
         subtitle: 'by Tec de Monterrey',
         description:
           'Programa único en México que desarrolla hábitos y pensamientos para que se desarrollen integralmente, sean responsables de sus actos, tomen decisiones conscientes, sean personas resilientes y alcancen sus metas. Avalado por el Tec de Monterrey, exclusivo de NWL.',
-        logo: '/images/logos/partners/Yo_soy_lider_nwl(es).png',
+        logo: '/images/logos/partners/Yo_soy_lider_nwl-es.png',
         logo2: '/images/logos/partners/tecnologico-de-monterrey.png',
       },
     ],
@@ -492,14 +492,14 @@ export const es: Dictionary = {
         subtitle: 'FpN + Diploma para Padres',
         description:
           'Enseñamos cómo pensar, no qué pensar. Diálogo filosófico que construye razonamiento crítico, argumentación y empatía. Incluye Diploma para Padres.',
-        logo: '/images/logos/partners/CFPN(es).png',
+        logo: '/images/logos/partners/CFPN-es.png',
       },
       {
         title: 'Yo Soy Líder NWL',
         subtitle: 'by Tec de Monterrey',
         description:
           'Programa único en México que desarrolla hábitos y pensamientos para que se desarrollen integralmente, sean responsables de sus actos, tomen decisiones conscientes, sean personas resilientes y alcancen sus metas. Avalado por el Tec de Monterrey, exclusivo de NWL.',
-        logo: '/images/logos/partners/Yo_soy_lider_nwl(es).png',
+        logo: '/images/logos/partners/Yo_soy_lider_nwl-es.png',
         logo2: '/images/logos/partners/tecnologico-de-monterrey.png',
       },
     ],
@@ -620,14 +620,14 @@ export const es: Dictionary = {
         subtitle: 'Formando Sus Propios Criterios',
         description:
           'Pensamiento crítico adolescente: formar un juicio personal, no seguir tendencias. Incluye el Diplomado para Padres de Filosofía FpN.',
-        logo: '/images/logos/partners/CFPN(es).png',
+        logo: '/images/logos/partners/CFPN-es.png',
       },
       {
         title: 'Yo Soy Líder NWL',
         subtitle: 'Programa Único en México, Exclusivo de NWL',
         description:
           'Programa único en México que desarrolla hábitos y pensamientos para que se desarrollen integralmente, sean responsables de sus actos, tomen decisiones conscientes, sean personas resilientes y alcancen sus metas. Avalado por el Tec de Monterrey.',
-        logo: '/images/logos/partners/Yo_soy_lider_nwl(es).png',
+        logo: '/images/logos/partners/Yo_soy_lider_nwl-es.png',
         logo2: '/images/logos/partners/tecnologico-de-monterrey.png',
       },
     ],
