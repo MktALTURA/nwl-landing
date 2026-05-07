@@ -147,6 +147,7 @@ const nextConfig = {
       // Catch-all for remaining /docs/* and /pdf/*
       { source: '/docs/:path*', destination: '/', permanent: true },
       { source: '/pdf/:path*', destination: '/', permanent: true },
+      { source: '/cap_golden_ticket', destination: '/golden_ticket_cap', permanent: true },
     ];
   },
 
