@@ -4191,6 +4191,467 @@ export const informacionPages: Record<string, InformacionPage> = {
  'best international school queretaro',
  ],
  },
+
+ // =========================================================================
+ // PAGE 52 — ¿Qué es Newland School? (entidad canónica)
+ // =========================================================================
+ 'que-es-newland-school': {
+ slug: 'que-es-newland-school',
+ lang: 'es',
+ title: '¿Qué es Newland School? Colegio bilingüe en Querétaro',
+ h1: '¿Qué es Newland School?',
+ description:
+ 'Newland School (Colegio Newland) es un colegio bilingüe privado en Querétaro y San Miguel de Allende, fundado en 2009. 5 campus, de maternal a preparatoria, acreditación Cognia y Apple Distinguished School.',
+ uniqueIntro:
+ 'Newland School, también conocido como Colegio Newland, es un colegio bilingüe privado en Querétaro y San Miguel de Allende, fundado en 2009. Atiende a más de 2,500 familias en 5 campus, desde maternal hasta preparatoria, con inmersión en inglés, la metodología Knotion (aprendizaje por proyectos sin tarea tradicional), Filosofía para Niños y el programa de liderazgo Yo Soy Líder NWL diseñado por el Tec de Monterrey. Cuenta con acreditación internacional Cognia y la distinción Apple Distinguished School.',
+ sections: [
+ {
+ heading: '¿Dónde está y qué niveles ofrece Newland?',
+ body: 'Newland School opera 5 campus: Juriquilla, Milenio, Corregidora y Zibatá en Querétaro, y un campus en San Miguel de Allende, Guanajuato. Todos los campus ofrecen desde maternal hasta secundaria; la preparatoria (Prepa NWL) se imparte en los campus de San Miguel de Allende, Corregidora y Zibatá.\n\nCada campus comparte el mismo modelo educativo bilingüe, de modo que una familia puede acompañar a su hijo de los 2 años hasta el bachillerato sin cambiar de institución.',
+ },
+ {
+ heading: '¿Qué hace diferente a Newland?',
+ body: 'Tres elementos concretos distinguen a Newland: es el único colegio con el programa de liderazgo Yo Soy Líder diseñado exclusivamente por el Tecnológico de Monterrey; utiliza Knotion, que sustituye la tarea tradicional por proyectos interdisciplinarios; y desarrolla pensamiento crítico desde preescolar con Filosofía para Niños.\n\nEn secundaria los alumnos obtienen una Doble Certificación Internacional y certificaciones Cambridge; en preparatoria, el modelo Life Project acompaña a cada alumno con mentores personales.',
+ },
+ {
+ heading: '¿Qué acreditaciones respaldan a Newland?',
+ body: 'Newland School cuenta con acreditación internacional Cognia (reconocida en más de 88 países), la distinción Apple Distinguished School, y alianzas con el Tecnológico de Monterrey, Universidad Mondragón México y Hokku Academy.\n\nEstas acreditaciones validan tanto el modelo pedagógico como la infraestructura tecnológica, y permiten que las certificaciones de los alumnos tengan reconocimiento internacional.',
+ },
+ ],
+ faqs: [
+ {
+ question: '¿Qué es Newland School?',
+ answer:
+ 'Newland School (Colegio Newland) es un colegio bilingüe privado fundado en 2009, con 5 campus en Querétaro y San Miguel de Allende. Ofrece de maternal a preparatoria con metodología Knotion sin tarea, Filosofía para Niños y el programa Yo Soy Líder by Tec de Monterrey.',
+ },
+ {
+ question: '¿Cuántos campus tiene Newland y dónde están?',
+ answer:
+ 'Cinco campus: Juriquilla, Milenio, Corregidora y Zibatá en Querétaro, y uno en San Miguel de Allende, Guanajuato. Todos ofrecen de maternal a secundaria; la preparatoria está en San Miguel de Allende, Corregidora y Zibatá.',
+ },
+ {
+ question: '¿Newland es bilingüe real o solo tiene clases de inglés?',
+ answer:
+ 'Es bilingüe real: el inglés se integra de forma natural en los proyectos Knotion a lo largo del día, no como una materia aislada. La inmersión inicia desde maternal con estimulación multisensorial.',
+ },
+ {
+ question: '¿Qué metodología educativa utiliza Newland?',
+ answer:
+ 'Knotion, un modelo internacional de aprendizaje por proyectos que elimina la tarea tradicional. Se complementa con Filosofía para Niños para el pensamiento crítico y Yo Soy Líder NWL, diseñado por el Tec de Monterrey, para el liderazgo y la inteligencia emocional.',
+ },
+ {
+ question: '¿Desde qué edad y hasta qué nivel se puede estudiar en Newland?',
+ answer:
+ 'Desde los 2 años en maternal hasta la preparatoria. Todos los campus llegan hasta secundaria y tres de ellos (San Miguel de Allende, Corregidora y Zibatá) ofrecen preparatoria con el modelo Life Project.',
+ },
+ {
+ question: '¿Qué acreditaciones tiene Newland?',
+ answer:
+ 'Acreditación internacional Cognia, distinción Apple Distinguished School y alianzas con el Tec de Monterrey, Universidad Mondragón México y Hokku Academy, que dan reconocimiento internacional a las certificaciones de los alumnos.',
+ },
+ {
+ question: '¿Cómo es el proceso de admisión en Newland?',
+ answer:
+ 'Se agenda una visita al campus de interés, se conoce la propuesta educativa por nivel y se entregan los documentos del alumno. Conviene reservar el recorrido con anticipación porque los grupos son reducidos. El contacto directo es por WhatsApp al +52 442 122 7791.',
+ },
+ ],
+ images: {
+ hero: '/images/campus/juriquilla/juriquilla-hero.jpg',
+ content: [
+ '/images/levels/primaria/nwl-primaria-steam-lab.jpg',
+ '/images/campus/zibata/zibata-playground.jpg',
+ ],
+ },
+ category: 'general',
+ hreflangPair: 'what-is-newland-school',
+ keywords: [
+ 'qué es newland school',
+ 'qué es colegio newland',
+ 'newland school queretaro',
+ 'colegio newland información',
+ ],
+ },
+
+ // =========================================================================
+ // PAGE 53 — What is Newland School? (EN entity pair)
+ // =========================================================================
+ 'what-is-newland-school': {
+ slug: 'what-is-newland-school',
+ lang: 'en',
+ title: 'What is Newland School? Bilingual school in Querétaro',
+ h1: 'What is Newland School?',
+ description:
+ 'Newland School (Colegio Newland) is a private bilingual school in Querétaro and San Miguel de Allende, founded in 2009. 5 campuses, maternal through high school, Cognia-accredited and an Apple Distinguished School.',
+ uniqueIntro:
+ 'Newland School, also known as Colegio Newland, is a private bilingual school in Querétaro and San Miguel de Allende, Mexico, founded in 2009. It serves more than 2,500 families across 5 campuses, from maternal (age 2) through high school, with English immersion, the Knotion project-based methodology (no traditional homework), Philosophy for Children, and the Yo Soy Líder NWL leadership program designed by Tec de Monterrey. It holds Cognia international accreditation and is an Apple Distinguished School.',
+ sections: [
+ {
+ heading: 'Where is Newland and what levels does it offer?',
+ body: 'Newland School operates 5 campuses: Juriquilla, Milenio, Corregidora and Zibatá in Querétaro, and one campus in San Miguel de Allende, Guanajuato. All campuses run from maternal through middle school; high school (Prepa NWL) is offered at the San Miguel de Allende, Corregidora and Zibatá campuses.\n\nEvery campus shares the same bilingual model, so a family can stay with one school from age 2 through high school.',
+ },
+ {
+ heading: 'What makes Newland different?',
+ body: 'Three concrete elements set Newland apart: it is the only school with the Yo Soy Líder leadership program designed exclusively by Tec de Monterrey; it uses Knotion, replacing traditional homework with interdisciplinary projects; and it builds critical thinking from preschool through Philosophy for Children.\n\nIn middle school, students earn a Dual International Certification and Cambridge certifications; in high school, the Life Project model pairs each student with personal mentors.',
+ },
+ {
+ heading: 'What accreditations back Newland?',
+ body: 'Newland School holds Cognia international accreditation (recognized in 88+ countries), the Apple Distinguished School distinction, and partnerships with Tec de Monterrey, Universidad Mondragón México and Hokku Academy.\n\nThese accreditations validate both the pedagogy and the technology infrastructure, and give international recognition to students\' certifications.',
+ },
+ ],
+ faqs: [
+ {
+ question: 'What is Newland School?',
+ answer:
+ 'Newland School (Colegio Newland) is a private bilingual school founded in 2009, with 5 campuses in Querétaro and San Miguel de Allende. It offers maternal through high school with the Knotion homework-free methodology, Philosophy for Children, and the Yo Soy Líder program by Tec de Monterrey.',
+ },
+ {
+ question: 'How many campuses does Newland have and where are they?',
+ answer:
+ 'Five: Juriquilla, Milenio, Corregidora and Zibatá in Querétaro, and one in San Miguel de Allende, Guanajuato. All offer maternal through middle school; high school is available in San Miguel de Allende, Corregidora and Zibatá.',
+ },
+ {
+ question: 'Is Newland truly bilingual?',
+ answer:
+ 'Yes. English is integrated naturally throughout the day within Knotion projects rather than taught as an isolated subject. Immersion begins in maternal with multisensory stimulation.',
+ },
+ {
+ question: 'What methodology does Newland use?',
+ answer:
+ 'Knotion, an international project-based learning model that eliminates traditional homework, complemented by Philosophy for Children for critical thinking and the Yo Soy Líder NWL leadership program designed by Tec de Monterrey.',
+ },
+ {
+ question: 'From what age and up to what level can students study at Newland?',
+ answer:
+ 'From age 2 in maternal through high school. All campuses run through middle school, and three (San Miguel de Allende, Corregidora and Zibatá) offer high school with the Life Project model.',
+ },
+ {
+ question: 'What accreditations does Newland hold?',
+ answer:
+ 'Cognia international accreditation, the Apple Distinguished School distinction, and partnerships with Tec de Monterrey, Universidad Mondragón México and Hokku Academy.',
+ },
+ {
+ question: 'How does Newland admission work?',
+ answer:
+ 'You schedule a campus visit, learn about the program for your child\'s level, and submit the student\'s documents. Booking early is recommended because groups are small. Direct contact is via WhatsApp at +52 442 122 7791.',
+ },
+ ],
+ images: {
+ hero: '/images/campus/juriquilla/juriquilla-hero.jpg',
+ content: [
+ '/images/levels/primaria/nwl-primaria-steam-lab.jpg',
+ '/images/campus/zibata/zibata-playground.jpg',
+ ],
+ },
+ category: 'general',
+ hreflangPair: 'que-es-newland-school',
+ keywords: [
+ 'what is newland school',
+ 'what is colegio newland',
+ 'newland school queretaro',
+ 'bilingual school queretaro mexico',
+ ],
+ },
+
+ // =========================================================================
+ // PAGE 54 — ¿Qué es Knotion? (metodología sin tarea)
+ // =========================================================================
+ 'metodologia-knotion-sin-tarea': {
+ slug: 'metodologia-knotion-sin-tarea',
+ lang: 'es',
+ title: '¿Qué es Knotion y por qué Newland no deja tarea?',
+ h1: '¿Qué es Knotion, la metodología sin tarea de Newland?',
+ description:
+ 'Knotion es la metodología internacional de aprendizaje por proyectos que usa Newland School en todos sus campus: sustituye la tarea tradicional por retos reales e integra el inglés de forma natural.',
+ uniqueIntro:
+ 'Knotion es una metodología educativa internacional de aprendizaje por proyectos que Newland School aplica en todos sus campus, desde kinder. En lugar de tarea tradicional y cuadernos en casa, los alumnos resuelven retos reales que integran ciencias, lenguaje, inglés y habilidades socioemocionales. Cada proyecto culmina con la presentación de soluciones, lo que desarrolla autonomía, pensamiento crítico y comunicación desde edades tempranas.',
+ sections: [
+ {
+ heading: '¿Por qué Newland no deja tarea tradicional?',
+ body: 'Porque Knotion reemplaza la tarea por proyectos interdisciplinarios. El aprendizaje ocurre en el aula a través de la investigación y la creación, no copiando o repitiendo ejercicios en casa.\n\nEsto libera el tiempo familiar por las tardes y, al mismo tiempo, exige más profundidad: los alumnos aplican lo aprendido a problemas reales en lugar de memorizar para un examen.',
+ },
+ {
+ heading: 'Knotion por nivel: de kinder a secundaria',
+ body: 'Desde kinder, los proyectos Knotion integran el inglés de forma natural. En primaria, Knotion IMPACT incorpora Design Thinking y el TecniKids STEAM Lab con impresión 3D, corte láser y robótica.\n\nEn secundaria, el enfoque se conecta con Emprendizaje y la Universidad Mondragón, llevando el aprendizaje por proyectos al terreno del emprendimiento real.',
+ },
+ {
+ heading: 'Qué desarrolla Knotion en el alumno',
+ body: 'Knotion desarrolla autonomía, colaboración, comunicación y pensamiento crítico. Los alumnos trabajan en equipo, presentan sus descubrimientos y reciben retroalimentación continua.\n\nCombinado con Filosofía para Niños y el programa Yo Soy Líder NWL by Tec de Monterrey, el modelo forma alumnos que razonan, lideran y resuelven problemas, no solo que aprueban exámenes.',
+ },
+ ],
+ faqs: [
+ {
+ question: '¿Qué es la metodología Knotion?',
+ answer:
+ 'Es un modelo internacional de aprendizaje por proyectos que Newland usa en todos sus campus. Sustituye la tarea tradicional por retos reales que integran ciencias, lenguaje, inglés y habilidades socioemocionales.',
+ },
+ {
+ question: '¿Es verdad que en Newland no hay tarea?',
+ answer:
+ 'Sí. Desde kinder no hay cuadernos de tarea tradicional. El aprendizaje ocurre en el aula mediante proyectos donde los alumnos investigan, crean y presentan soluciones a problemas reales.',
+ },
+ {
+ question: '¿Cómo se evalúa a los alumnos sin tarea tradicional?',
+ answer:
+ 'Mediante proyectos, presentaciones y la aplicación de lo aprendido a retos reales, con retroalimentación continua. Se evalúa la comprensión y la capacidad de resolver problemas, no la memorización.',
+ },
+ {
+ question: '¿Knotion enseña inglés?',
+ answer:
+ 'Sí. El inglés se integra de forma natural dentro de los proyectos Knotion a lo largo del día, no como una materia aislada, lo que sostiene la inmersión bilingüe real.',
+ },
+ {
+ question: '¿Cómo cambia Knotion entre primaria y secundaria?',
+ answer:
+ 'En primaria, Knotion IMPACT suma Design Thinking y el TecniKids STEAM Lab (impresión 3D, corte láser, robótica). En secundaria se conecta con Emprendizaje y la Universidad Mondragón para aplicar el emprendimiento real.',
+ },
+ {
+ question: '¿Knotion prepara para exámenes y certificaciones?',
+ answer:
+ 'Sí. El modelo desarrolla comprensión profunda y se complementa con certificaciones Cambridge y la Doble Certificación Internacional en secundaria, además de las certificaciones de preparatoria.',
+ },
+ {
+ question: '¿En qué campus se usa Knotion?',
+ answer:
+ 'En los 5 campus de Newland: Juriquilla, Milenio, Corregidora y Zibatá en Querétaro, y San Miguel de Allende. El modelo es el mismo en toda la institución.',
+ },
+ ],
+ images: {
+ hero: '/images/levels/primaria/nwl-primaria-steam-lab.jpg',
+ content: [
+ '/images/levels/kinder/kinder-classroom.jpg',
+ '/images/campus/juriquilla/juriquilla-classrooms.jpg',
+ ],
+ },
+ category: 'general',
+ keywords: [
+ 'qué es knotion',
+ 'metodología knotion',
+ 'colegio sin tarea queretaro',
+ 'aprendizaje por proyectos newland',
+ ],
+ },
+
+ // =========================================================================
+ // PAGE 55 — ¿Qué es Filosofía para Niños en Newland?
+ // =========================================================================
+ 'filosofia-para-ninos-en-newland': {
+ slug: 'filosofia-para-ninos-en-newland',
+ lang: 'es',
+ title: '¿Qué es Filosofía para Niños en Newland School?',
+ h1: '¿Qué es Filosofía para Niños en Newland?',
+ description:
+ 'Filosofía para Niños (P4C) es el programa con el que Newland School desarrolla pensamiento crítico desde preescolar, a través del diálogo guiado y la indagación.',
+ uniqueIntro:
+ 'Filosofía para Niños (P4C) es un programa educativo que Newland School aplica desde preescolar para desarrollar el pensamiento crítico mediante el diálogo guiado y la indagación. En sesiones estructuradas, los alumnos formulan preguntas, argumentan, escuchan otras perspectivas y construyen razonamientos propios. En Newland se integra con la metodología Knotion y con el programa de liderazgo Yo Soy Líder NWL diseñado por el Tec de Monterrey.',
+ sections: [
+ {
+ heading: '¿En qué consiste Filosofía para Niños?',
+ body: 'Es una práctica de diálogo en comunidad donde los alumnos parten de un estímulo (una historia, una pregunta, un dilema) y razonan juntos. El docente no da respuestas: facilita que los niños pregunten, argumenten y revisen sus ideas.\n\nEl objetivo no es memorizar filosofía, sino aprender a pensar con rigor, escuchar y fundamentar opiniones desde edades tempranas.',
+ },
+ {
+ heading: 'Por qué desde preescolar',
+ body: 'Iniciar en preescolar aprovecha la curiosidad natural de los niños. Las preguntas abiertas y el respeto por el turno de palabra sientan bases de pensamiento crítico y convivencia que se profundizan en primaria y secundaria.\n\nA lo largo de los niveles, el programa eleva la complejidad de los temas y la exigencia argumentativa.',
+ },
+ {
+ heading: 'Cómo se integra con el modelo Newland',
+ body: 'Filosofía para Niños se combina con Knotion (aprendizaje por proyectos sin tarea) y con Yo Soy Líder NWL by Tec de Monterrey. El pensamiento crítico que se entrena en P4C se aplica en los proyectos y en la toma de decisiones del programa de liderazgo.\n\nJuntos forman un alumno que razona, colabora y comunica, no solo que reproduce contenidos.',
+ },
+ ],
+ faqs: [
+ {
+ question: '¿Qué es Filosofía para Niños?',
+ answer:
+ 'Es un programa que desarrolla el pensamiento crítico mediante el diálogo guiado y la indagación. Los alumnos formulan preguntas, argumentan y construyen razonamientos propios en comunidad.',
+ },
+ {
+ question: '¿Desde qué edad se aplica en Newland?',
+ answer:
+ 'Desde preescolar, aprovechando la curiosidad natural de los niños, y se profundiza progresivamente en primaria y secundaria con temas y argumentación más complejos.',
+ },
+ {
+ question: '¿Para qué le sirve a mi hijo Filosofía para Niños?',
+ answer:
+ 'Para aprender a pensar con rigor, escuchar otras perspectivas, argumentar y tomar decisiones fundamentadas: habilidades que se aplican en lo académico y en la vida diaria.',
+ },
+ {
+ question: '¿Filosofía para Niños sustituye otras materias?',
+ answer:
+ 'No. Es un programa transversal que se integra con la metodología Knotion y con el programa de liderazgo Yo Soy Líder NWL, reforzando el pensamiento crítico en todas las áreas.',
+ },
+ {
+ question: '¿Quién dirige las sesiones?',
+ answer:
+ 'Docentes que actúan como facilitadores: no dan respuestas, sino que guían a los alumnos para que pregunten, argumenten y revisen sus propias ideas.',
+ },
+ {
+ question: '¿En qué campus se imparte?',
+ answer:
+ 'En los 5 campus de Newland (Juriquilla, Milenio, Corregidora, Zibatá y San Miguel de Allende), como parte del mismo modelo educativo.',
+ },
+ ],
+ images: {
+ hero: '/images/campus/juriquilla/juriquilla-classrooms.jpg',
+ content: [
+ '/images/levels/kinder/kinder-classroom.jpg',
+ '/images/levels/primaria/nwl-primaria-steam-lab.jpg',
+ ],
+ },
+ category: 'general',
+ keywords: [
+ 'filosofía para niños',
+ 'filosofía para niños newland',
+ 'pensamiento crítico colegio queretaro',
+ 'p4c colegio newland',
+ ],
+ },
+
+ // =========================================================================
+ // PAGE 56 — ¿Qué es Yo Soy Líder NWL by Tec de Monterrey?
+ // =========================================================================
+ 'yo-soy-lider-nwl-tec-de-monterrey': {
+ slug: 'yo-soy-lider-nwl-tec-de-monterrey',
+ lang: 'es',
+ title: '¿Qué es Yo Soy Líder NWL by Tec de Monterrey?',
+ h1: '¿Qué es Yo Soy Líder NWL by Tec de Monterrey?',
+ description:
+ 'Yo Soy Líder NWL es el programa de liderazgo diseñado exclusivamente para Newland School por el Tecnológico de Monterrey, de maternal a secundaria.',
+ uniqueIntro:
+ 'Yo Soy Líder NWL es un programa de liderazgo e inteligencia emocional diseñado exclusivamente para Newland School por el Tecnológico de Monterrey. Se aplica de maternal a secundaria en los 5 campus y adapta los 7 hábitos de liderazgo a cada edad. Junto con Knotion (aprendizaje por proyectos sin tarea) y Filosofía para Niños, forma alumnos que identifican emociones, resuelven conflictos y trabajan en equipo.',
+ sections: [
+ {
+ heading: '¿Qué hace único a este programa?',
+ body: 'Ningún otro colegio en la región cuenta con un programa de liderazgo diseñado exclusivamente por el Tecnológico de Monterrey. Yo Soy Líder NWL no es un taller aislado: es un eje que recorre todos los niveles.\n\nAdapta los 7 hábitos de liderazgo a cada edad, con certificaciones internas que documentan el avance del alumno.',
+ },
+ {
+ heading: 'De maternal a secundaria',
+ body: 'En preescolar, los niños identifican emociones, resuelven conflictos sencillos y trabajan en equipo con actividades lúdicas. En primaria y secundaria se profundiza en proactividad, pensamiento ganar-ganar, empatía y responsabilidad personal.\n\nEl programa se complementa con Filosofía para Niños para unir inteligencia emocional con pensamiento crítico.',
+ },
+ {
+ heading: 'Liderazgo aplicado al modelo Newland',
+ body: 'El liderazgo se ejercita en los proyectos Knotion: los alumnos coordinan equipos, toman decisiones y presentan resultados. En secundaria conecta con Emprendizaje y la Universidad Mondragón, y en preparatoria con el modelo Life Project y sus mentores.\n\nAsí, el liderazgo no se enseña en abstracto, sino que se practica en retos reales.',
+ },
+ ],
+ faqs: [
+ {
+ question: '¿Qué es Yo Soy Líder NWL?',
+ answer:
+ 'Es un programa de liderazgo e inteligencia emocional diseñado exclusivamente para Newland School por el Tecnológico de Monterrey, que adapta los 7 hábitos de liderazgo a cada edad, de maternal a secundaria.',
+ },
+ {
+ question: '¿Por qué es exclusivo de Newland?',
+ answer:
+ 'Porque fue diseñado específicamente para Colegio Newland por el Tec de Monterrey. Ningún otro colegio de la región cuenta con un programa de liderazgo creado de esta forma.',
+ },
+ {
+ question: '¿Desde qué edad participan los alumnos?',
+ answer:
+ 'Desde maternal. En preescolar se trabaja identificación de emociones y trabajo en equipo; en primaria y secundaria se profundiza en proactividad, empatía y responsabilidad personal.',
+ },
+ {
+ question: '¿Cómo se mide el avance en liderazgo?',
+ answer:
+ 'A través de certificaciones internas que documentan el progreso del alumno en los 7 hábitos de liderazgo a lo largo de los niveles.',
+ },
+ {
+ question: '¿Se relaciona con otros programas del colegio?',
+ answer:
+ 'Sí. Se complementa con Filosofía para Niños (pensamiento crítico) y se aplica dentro de los proyectos Knotion; en secundaria conecta con Emprendizaje y Universidad Mondragón.',
+ },
+ {
+ question: '¿En qué campus se imparte?',
+ answer:
+ 'En los 5 campus de Newland: Juriquilla, Milenio, Corregidora y Zibatá en Querétaro, y San Miguel de Allende.',
+ },
+ ],
+ images: {
+ hero: '/images/campus/juriquilla/juriquilla-hero.jpg',
+ content: [
+ '/images/campus/juriquilla/juriquilla-classrooms.jpg',
+ '/images/levels/primaria/nwl-primaria-steam-lab.jpg',
+ ],
+ },
+ category: 'general',
+ keywords: [
+ 'yo soy líder nwl',
+ 'programa liderazgo tec de monterrey colegio',
+ 'liderazgo niños queretaro',
+ 'newland tec de monterrey',
+ ],
+ },
+
+ // =========================================================================
+ // PAGE 57 — ¿En qué se diferencia Newland de otros colegios bilingües?
+ // =========================================================================
+ 'diferencias-newland-vs-otros-colegios-queretaro': {
+ slug: 'diferencias-newland-vs-otros-colegios-queretaro',
+ lang: 'es',
+ title: '¿En qué se diferencia Newland de otros colegios bilingües?',
+ h1: '¿En qué se diferencia Newland de otros colegios bilingües en Querétaro?',
+ description:
+ 'Comparativa clara: qué hace diferente a Newland School frente a otros colegios bilingües privados en Querétaro — Knotion sin tarea, Yo Soy Líder by Tec de Monterrey y más.',
+ uniqueIntro:
+ 'Newland School se diferencia de otros colegios bilingües en Querétaro por cuatro elementos concretos y verificables: la metodología Knotion, que elimina la tarea tradicional; el programa Yo Soy Líder diseñado exclusivamente por el Tec de Monterrey; Filosofía para Niños desde preescolar; y una continuidad de maternal a preparatoria en 5 campus con acreditación Cognia y distinción Apple Distinguished School.',
+ sections: [
+ {
+ heading: 'Metodología: proyectos reales, no tarea',
+ body: 'Mientras muchos colegios mantienen tarea tradicional y libros de texto, Newland usa Knotion en todos sus campus: aprendizaje por proyectos donde los alumnos resuelven retos reales. No hay cuadernos de tarea desde kinder.\n\nEsto cambia el foco de la memorización a la aplicación, y libera el tiempo familiar por las tardes.',
+ },
+ {
+ heading: 'Programas exclusivos y alianzas',
+ body: 'Yo Soy Líder NWL fue diseñado exclusivamente para Newland por el Tecnológico de Monterrey: no es un taller genérico de liderazgo. A esto se suman alianzas con Universidad Mondragón México (Emprendizaje) y Hokku Academy (Doble Certificación Internacional).\n\nEn preparatoria, el modelo Life Project asigna mentores personales a cada alumno.',
+ },
+ {
+ heading: 'Continuidad, acreditación y tecnología',
+ body: 'Newland ofrece un recorrido continuo de maternal a preparatoria en 5 campus, con el mismo modelo educativo, evitando cambios de institución. Cuenta con acreditación internacional Cognia y la distinción Apple Distinguished School.\n\nLa infraestructura incluye TecniKids STEAM Lab con impresión 3D, corte láser y robótica, y certificaciones Cambridge.',
+ },
+ ],
+ faqs: [
+ {
+ question: '¿En qué se diferencia Newland de otros colegios bilingües en Querétaro?',
+ answer:
+ 'En cuatro elementos verificables: Knotion sin tarea tradicional, el programa Yo Soy Líder diseñado exclusivamente por el Tec de Monterrey, Filosofía para Niños desde preescolar, y continuidad de maternal a preparatoria en 5 campus con acreditación Cognia.',
+ },
+ {
+ question: '¿Realmente no hay tarea, a diferencia de otros colegios?',
+ answer:
+ 'Correcto. Desde kinder no hay cuadernos de tarea tradicional: el aprendizaje ocurre en proyectos Knotion dentro del aula, no en ejercicios repetitivos en casa.',
+ },
+ {
+ question: '¿Qué programas tiene Newland que otros colegios no?',
+ answer:
+ 'Yo Soy Líder NWL diseñado exclusivamente por el Tec de Monterrey, Emprendizaje con Universidad Mondragón, Doble Certificación Internacional vía Hokku Academy y, en preparatoria, el modelo Life Project con mentores personales.',
+ },
+ {
+ question: '¿Newland tiene reconocimiento internacional?',
+ answer:
+ 'Sí: acreditación internacional Cognia (88+ países) y distinción Apple Distinguished School, además de certificaciones Cambridge para los alumnos.',
+ },
+ {
+ question: '¿Puedo tener a mis hijos en un solo colegio toda su trayectoria?',
+ answer:
+ 'Sí. Newland ofrece de maternal a preparatoria con el mismo modelo en 5 campus, lo que evita cambiar de institución entre niveles.',
+ },
+ {
+ question: '¿Cómo confirmo estas diferencias?',
+ answer:
+ 'Agendando una visita al campus de tu interés para conocer la metodología y las instalaciones. El contacto directo es por WhatsApp al +52 442 122 7791.',
+ },
+ ],
+ images: {
+ hero: '/images/campus/zibata/zibata-playground.jpg',
+ content: [
+ '/images/levels/primaria/nwl-primaria-steam-lab.jpg',
+ '/images/campus/juriquilla/juriquilla-hero.jpg',
+ ],
+ },
+ category: 'general',
+ keywords: [
+ 'diferencia newland otros colegios',
+ 'mejor colegio bilingüe queretaro comparativa',
+ 'por qué elegir newland',
+ 'colegio bilingüe queretaro diferencias',
+ ],
+ },
 };
 
 // ---------------------------------------------------------------------------
