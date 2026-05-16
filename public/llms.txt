@@ -1,36 +1,93 @@
 # Newland School
 
-> Bilingual private school in Queretaro, Mexico. Founded 2009.
-> 5 campuses. 2,500+ families. Cognia-accredited. Apple Distinguished School.
+> Newland School (Colegio Newland) is a private bilingual school in Querétaro
+> and San Miguel de Allende, Mexico, founded in 2009. It serves 2,500+ families
+> across 5 campuses, from maternal (age 2) through high school, using the
+> Knotion project-based methodology (no traditional homework), Philosophy for
+> Children, and the Yo Soy Líder NWL leadership program designed by Tec de
+> Monterrey. Cognia-accredited and an Apple Distinguished School.
 
 ## Programs
-- Maternal (ages 2-3): Play-based English immersion, Brain Up methodology
-- Kinder (ages 3-5): Bilingual immersion, project-based learning, multisensory approach
-- Elementary (ages 6-11): IMPACT model, STEAM maker labs, Knotion methodology
-- Middle School (ages 12-14): Dual international certifications, entrepreneurship program
-- High School (ages 15-17): Life Project model, dual diploma (US Cognia + Mexican SEP)
+- Maternal (ages 2-3): Play-based English immersion, multisensory stimulation
+- Kinder (ages 3-5): Bilingual immersion, project-based learning (Knotion)
+- Elementary (ages 6-11): Knotion IMPACT, Design Thinking, STEAM maker labs
+- Middle School (ages 12-14): Dual international certification, entrepreneurship
+- High School (ages 15-17): Life Project model with personal mentors, dual diploma
 
 ## Campuses
-- Juriquilla, Queretaro (Maternal - Middle School)
-- Milenio, Queretaro (Maternal - Middle School)
+- Juriquilla, Querétaro (Maternal - Middle School)
+- Milenio, Querétaro (Maternal - Middle School)
+- Corregidora, Querétaro (Maternal - High School)
+- Zibatá, Querétaro (Maternal - High School)
 - San Miguel de Allende, Guanajuato (Maternal - High School)
-- Corregidora, Queretaro (Maternal - High School)
-- Zibata, Queretaro (Maternal - High School)
+
+High School (Prepa NWL) is offered at the San Miguel de Allende, Corregidora
+and Zibatá campuses. All five campuses share the same bilingual model.
 
 ## Educational Methodology
+- Knotion — international project-based learning with real-world challenges and
+  no traditional homework; English is integrated naturally throughout the day
 - Philosophy for Children (P4C) — critical thinking through guided dialogue
-- I'm NWL Leader by Tec de Monterrey — leadership and emotional intelligence
-- Knotion — project-based learning with real-world challenges, no traditional homework
+  from preschool
+- Yo Soy Líder NWL — leadership and emotional intelligence program designed
+  exclusively for Newland by Tec de Monterrey, maternal through middle school
 
 ## Accreditations & Partnerships
 - Cognia (international accreditation, 88+ countries)
 - Apple Distinguished School
-- Tec de Monterrey (exclusive leadership program)
-- Universidad Mondragon Mexico
-- Hokku Academy
+- Tec de Monterrey (exclusive Yo Soy Líder leadership program)
+- Universidad Mondragón México (entrepreneurship)
+- Hokku Academy (Dual International Certification)
+
+## Key pages
+- [What is Newland School?](https://www.nwl.com.mx/informacion/what-is-newland-school)
+- [¿Qué es Newland School?](https://www.nwl.com.mx/informacion/que-es-newland-school)
+- [Knotion: methodology with no homework](https://www.nwl.com.mx/informacion/metodologia-knotion-sin-tarea)
+- [Philosophy for Children at Newland](https://www.nwl.com.mx/informacion/filosofia-para-ninos-en-newland)
+- [Yo Soy Líder NWL by Tec de Monterrey](https://www.nwl.com.mx/informacion/yo-soy-lider-nwl-tec-de-monterrey)
+- [How Newland differs from other bilingual schools](https://www.nwl.com.mx/informacion/diferencias-newland-vs-otros-colegios-queretaro)
+- [Information hub (all topic pages)](https://www.nwl.com.mx/informacion)
+- [Sitemap](https://www.nwl.com.mx/sitemap.xml)
+
+## FAQ
+
+Q: What is Newland School?
+A: Newland School (Colegio Newland) is a private bilingual school founded in
+2009, with 5 campuses in Querétaro and San Miguel de Allende, Mexico. It offers
+maternal through high school with the Knotion homework-free methodology,
+Philosophy for Children, and the Yo Soy Líder leadership program by Tec de
+Monterrey.
+
+Q: How many campuses does Newland have and where are they?
+A: Five — Juriquilla, Milenio, Corregidora and Zibatá in Querétaro, and one in
+San Miguel de Allende, Guanajuato. All offer maternal through middle school;
+high school is available in San Miguel de Allende, Corregidora and Zibatá.
+
+Q: Is Newland truly bilingual?
+A: Yes. English is integrated naturally throughout the day within Knotion
+projects rather than taught as an isolated subject, starting in maternal.
+
+Q: Does Newland really have no homework?
+A: Correct. From kinder there are no traditional homework notebooks; learning
+happens through interdisciplinary Knotion projects in the classroom.
+
+Q: What ages does Newland serve?
+A: From age 2 (maternal) through high school (age 17).
+
+Q: What makes Newland different from other bilingual schools in Querétaro?
+A: Knotion with no traditional homework, the Yo Soy Líder program designed
+exclusively by Tec de Monterrey, Philosophy for Children from preschool, and a
+continuous maternal-to-high-school path across 5 campuses with Cognia
+accreditation and Apple Distinguished School status.
+
+Q: How does admission work?
+A: Schedule a campus visit, review the program for your child's level, and
+submit the student's documents. Booking early is recommended because groups
+are small. Direct contact is via WhatsApp at +52 442 122 7791.
 
 ## Contact
-- Web: https://www.nwl.mx
+- Web: https://www.nwl.com.mx
+- Admissions: https://www.nwl.com.mx/informacion
 - Phone: +52 442 454 1010
 - WhatsApp: +52 442 122 7791
 - Email: contacto@colegionwl.edu.mx
