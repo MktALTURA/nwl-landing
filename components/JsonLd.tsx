@@ -128,7 +128,7 @@ export function WebSiteJsonLd() {
     '@type': 'WebSite',
     '@id': `${SITE_URL}/#website`,
     name: SITE_NAME,
-    alternateName: 'Colegio Newland',
+    alternateName: ['Colegio Newland', 'Colegio NWL'],
     url: SITE_URL,
     publisher: { '@id': `${SITE_URL}/#organization` },
     inLanguage: ['es-MX', 'en'],
