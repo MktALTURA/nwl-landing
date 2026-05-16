@@ -14,6 +14,8 @@ export default function robots(): MetadataRoute.Robots {
       { userAgent: 'OAI-SearchBot', allow: '/' },
       { userAgent: 'ClaudeBot', allow: '/' },
       { userAgent: 'PerplexityBot', allow: '/' },
+      { userAgent: 'Google-Extended', allow: '/' },
+      { userAgent: 'Applebot-Extended', allow: '/' },
       // Block training-only crawlers
       { userAgent: 'CCBot', disallow: '/' },
       { userAgent: 'anthropic-ai', disallow: '/' },
