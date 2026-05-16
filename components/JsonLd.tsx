@@ -1,4 +1,4 @@
-import { SITE_URL, SITE_NAME, SITE_LAST_UPDATED } from '@/lib/seo';
+import { SITE_URL, SITE_NAME, SITE_LAST_UPDATED, SITE_LEGAL_NAME } from '@/lib/seo';
 import type { CampusData } from '@/lib/campus-data';
 import type { InformacionPage, InformacionFAQ } from '@/lib/informacion-data';
 
@@ -19,7 +19,8 @@ export function OrganizationJsonLd() {
     '@type': ['EducationalOrganization', 'School'],
     '@id': `${SITE_URL}/#organization`,
     name: SITE_NAME,
-    alternateName: 'Colegio Newland',
+    legalName: SITE_LEGAL_NAME,
+    alternateName: ['Colegio Newland', 'Colegio NWL'],
     url: SITE_URL,
     dateModified: SITE_LAST_UPDATED,
     logo: {

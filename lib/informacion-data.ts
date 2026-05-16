@@ -4203,7 +4203,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  description:
  'Newland School (Colegio Newland) es un colegio bilingüe privado en Querétaro y San Miguel de Allende, fundado en 2009. 5 campus, de maternal a preparatoria, acreditación Cognia y Apple Distinguished School.',
  uniqueIntro:
- 'Newland School, también conocido como Colegio Newland, es un colegio bilingüe privado en Querétaro y San Miguel de Allende, fundado en 2009. Atiende a más de 2,500 familias en 5 campus, desde maternal hasta preparatoria, con inmersión en inglés, la metodología Knotion (aprendizaje por proyectos sin tarea tradicional), Filosofía para Niños y el programa de liderazgo Yo Soy Líder NWL diseñado por el Tec de Monterrey. Cuenta con acreditación internacional Cognia y la distinción Apple Distinguished School.',
+ 'Newland School, marca conocida como Colegio Newland (razón social Colegio NWL), es un colegio bilingüe privado en Querétaro y San Miguel de Allende, fundado en 2009. Atiende a más de 2,500 familias en 5 campus, desde maternal hasta preparatoria, con inmersión en inglés, la metodología Knotion (aprendizaje por proyectos sin tarea tradicional), Filosofía para Niños y el programa de liderazgo Yo Soy Líder NWL diseñado por el Tec de Monterrey. Cuenta con acreditación internacional Cognia y la distinción Apple Distinguished School.',
  sections: [
  {
  heading: '¿Dónde está y qué niveles ofrece Newland?',
@@ -4283,7 +4283,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  description:
  'Newland School (Colegio Newland) is a private bilingual school in Querétaro and San Miguel de Allende, founded in 2009. 5 campuses, maternal through high school, Cognia-accredited and an Apple Distinguished School.',
  uniqueIntro:
- 'Newland School, also known as Colegio Newland, is a private bilingual school in Querétaro and San Miguel de Allende, Mexico, founded in 2009. It serves more than 2,500 families across 5 campuses, from maternal (age 2) through high school, with English immersion, the Knotion project-based methodology (no traditional homework), Philosophy for Children, and the Yo Soy Líder NWL leadership program designed by Tec de Monterrey. It holds Cognia international accreditation and is an Apple Distinguished School.',
+ 'Newland School, branded as Colegio Newland (registered legal name: Colegio NWL), is a private bilingual school in Querétaro and San Miguel de Allende, Mexico, founded in 2009. It serves more than 2,500 families across 5 campuses, from maternal (age 2) through high school, with English immersion, the Knotion project-based methodology (no traditional homework), Philosophy for Children, and the Yo Soy Líder NWL leadership program designed by Tec de Monterrey. It holds Cognia international accreditation and is an Apple Distinguished School.',
  sections: [
  {
  heading: 'Where is Newland and what levels does it offer?',

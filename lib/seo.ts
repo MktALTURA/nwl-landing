@@ -3,6 +3,8 @@
 export const SITE_URL = 'https://www.nwl.com.mx';
 export const SITE_NAME = 'Newland School';
 export const SITE_NAME_ES = 'Colegio Newland';
+/** Registered legal entity name (distinct from the public brand names above). */
+export const SITE_LEGAL_NAME = 'Colegio NWL';
 
 /**
  * Freshness signal for JSON-LD `dateModified`. Bump deliberately when content

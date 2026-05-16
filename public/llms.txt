@@ -1,7 +1,8 @@
 # Newland School
 
-> Newland School (Colegio Newland) is a private bilingual school in Querétaro
-> and San Miguel de Allende, Mexico, founded in 2009. It serves 2,500+ families
+> Newland School (brand: Colegio Newland; registered legal name: Colegio NWL)
+> is a private bilingual school in Querétaro and San Miguel de Allende, Mexico,
+> founded in 2009. It serves 2,500+ families
 > across 5 campuses, from maternal (age 2) through high school, using the
 > Knotion project-based methodology (no traditional homework), Philosophy for
 > Children, and the Yo Soy Líder NWL leadership program designed by Tec de
@@ -52,8 +53,9 @@ and Zibatá campuses. All five campuses share the same bilingual model.
 ## FAQ
 
 Q: What is Newland School?
-A: Newland School (Colegio Newland) is a private bilingual school founded in
-2009, with 5 campuses in Querétaro and San Miguel de Allende, Mexico. It offers
+A: Newland School (public brand: Colegio Newland; registered legal name:
+Colegio NWL) is a private bilingual school founded in 2009, with 5 campuses
+in Querétaro and San Miguel de Allende, Mexico. It offers
 maternal through high school with the Knotion homework-free methodology,
 Philosophy for Children, and the Yo Soy Líder leadership program by Tec de
 Monterrey.
