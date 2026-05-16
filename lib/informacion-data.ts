@@ -3723,7 +3723,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  sections: [
  {
  heading: 'Juriquilla: 10 minutos desde Cumbres del Lago',
- body: 'NWL Juriquilla es el campus más cercano para las familias de Cumbres del Lago. Con más de 15 años de operación, ofrece maternal (2 años), kinder, primaria y secundaria. La directora Guadalupe Barrientos lidera un equipo con la trayectoria más larga de la zona norte.\n\nEl campus cuenta con canchas deportivas, cafetería, laboratorio STEAM, playground y áreas verdes. Rutas de transporte escolar cubren Cumbres del Lago, Juriquilla, El Refugio y fraccionamientos cercanos.',
+ body: 'NWL Juriquilla es el campus más cercano para las familias de Cumbres del Lago. Con más de 15 años de operación, ofrece maternal (2 años), kinder, primaria y secundaria. La directora Dayana Rose Gómez lidera un equipo con la trayectoria más larga de la zona norte.\n\nEl campus cuenta con canchas deportivas, cafetería, laboratorio STEAM, playground y áreas verdes. Rutas de transporte escolar cubren Cumbres del Lago, Juriquilla, El Refugio y fraccionamientos cercanos.',
  },
  {
  heading: 'Zibatá: preparatoria a 20 minutos',
@@ -3743,7 +3743,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  {
  question: '¿Qué niveles educativos hay cerca de Cumbres del Lago?',
  answer:
- 'Maternal a secundaria en Juriquilla (10 min) y maternal a preparatoria en Zibatá (20 min). Ambos campus usan Knotion, Filosofía para Niños y Yo Soy Líder by Tec de Monterrey. Directora Juriquilla: Guadalupe Barrientos. Directora Zibatá: Daniela Arévalo.',
+ 'Maternal a secundaria en Juriquilla (10 min) y maternal a preparatoria en Zibatá (20 min). Ambos campus usan Knotion, Filosofía para Niños y Yo Soy Líder by Tec de Monterrey. Directora Juriquilla: Dayana Rose Gómez. Directora Zibatá: Daniela Arévalo.',
  },
  {
  question: '¿Cómo se complementan los campus Juriquilla y Zibatá?',
@@ -3799,11 +3799,11 @@ export const informacionPages: Record<string, InformacionPage> = {
  description:
  'Escuela privada bilingüe cerca de Gran Reserva Querétaro. Campus Juriquilla a 15 min. Maternal a secundaria con programa Knotion, Filosofía para Niños y certificaciones Cambridge.',
  uniqueIntro:
- 'Para las familias de Gran Reserva, Querétaro, Newland School Juriquilla es el campus más cercano, a unos 15 minutos en auto. Fundado en 2009, es el campus insignia de Colegio Newland y ofrece maternal a secundaria con el modelo Knotion (sin tarea tradicional), Filosofía para Niños y Yo Soy Líder by Tec de Monterrey, con transporte escolar que cubre la zona. Lo dirige Guadalupe Barrientos.',
+ 'Para las familias de Gran Reserva, Querétaro, Newland School Juriquilla es el campus más cercano, a unos 15 minutos en auto. Fundado en 2009, es el campus insignia de Colegio Newland y ofrece maternal a secundaria con el modelo Knotion (sin tarea tradicional), Filosofía para Niños y Yo Soy Líder by Tec de Monterrey, con transporte escolar que cubre la zona. Lo dirige Dayana Rose Gómez.',
  sections: [
  {
  heading: 'Juriquilla: el campus insignia a 15 minutos',
- body: 'NWL Juriquilla lleva más de 15 años formando alumnos bilingües en la zona norte de Querétaro. Bajo la dirección de Guadalupe Barrientos, ofrece maternal (2 años), kinder, primaria y secundaria en un campus con canchas deportivas, laboratorio STEAM, cafetería y playground.\n\nDesde Gran Reserva el trayecto es de unos 15 minutos por las vialidades principales. El campus tiene rutas de transporte escolar que cubren la zona, facilitando la logística diaria para las familias.',
+ body: 'NWL Juriquilla lleva más de 15 años formando alumnos bilingües en la zona norte de Querétaro. Bajo la dirección de Dayana Rose Gómez, ofrece maternal (2 años), kinder, primaria y secundaria en un campus con canchas deportivas, laboratorio STEAM, cafetería y playground.\n\nDesde Gran Reserva el trayecto es de unos 15 minutos por las vialidades principales. El campus tiene rutas de transporte escolar que cubren la zona, facilitando la logística diaria para las familias.',
  },
  {
  heading: 'Knotion sin tarea y Filosofía para Niños desde los 2 años',
@@ -3818,7 +3818,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  {
  question: '¿Cuánto se tarda de Gran Reserva al campus Juriquilla?',
  answer:
- 'Aproximadamente 15 minutos en auto. NWL Juriquilla ofrece maternal a secundaria con transporte escolar que cubre Gran Reserva. Para preparatoria, campus Zibatá y Corregidora son opciones adicionales. Directora Juriquilla: Guadalupe Barrientos.',
+ 'Aproximadamente 15 minutos en auto. NWL Juriquilla ofrece maternal a secundaria con transporte escolar que cubre Gran Reserva. Para preparatoria, campus Zibatá y Corregidora son opciones adicionales. Directora Juriquilla: Dayana Rose Gómez.',
  },
  {
  question: '¿Qué niveles educativos hay cerca de Gran Reserva?',
@@ -3848,7 +3848,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  {
  question: '¿Cómo es el proceso de admisión en el campus Juriquilla?',
  answer:
- 'Se agenda una visita al campus insignia para conocer la propuesta educativa por nivel y se entregan los documentos del alumno. Conviene reservar el recorrido con anticipación. Directora: Guadalupe Barrientos.',
+ 'Se agenda una visita al campus insignia para conocer la propuesta educativa por nivel y se entregan los documentos del alumno. Conviene reservar el recorrido con anticipación. Directora: Dayana Rose Gómez.',
  },
  ],
  images: {
@@ -4066,7 +4066,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  {
  question: '¿En qué campus de Newland School hay secundaria?',
  answer:
- 'En los 5: Juriquilla (directora Guadalupe Barrientos), Milenio (directora Ximena Arellano), San Miguel de Allende (director Ramón Godínez), Corregidora (director José Gustavo Flores) y Zibatá (directora Daniela Arévalo).',
+ 'En los 5: Juriquilla (directora Dayana Rose Gómez), Milenio (directora Ximena Arellano), San Miguel de Allende (director Ramón Godínez), Corregidora (director José Gustavo Flores) y Zibatá (directora Daniela Arévalo).',
  },
  {
  question: '¿En qué consiste el programa de Emprendizaje?',
