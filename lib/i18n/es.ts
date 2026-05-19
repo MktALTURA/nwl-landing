@@ -99,7 +99,7 @@ export const es: Dictionary = {
         title: 'Yo Soy Líder NWL by Tec de Monterrey (YsL)',
         subtitle: 'Único en México, exclusivo de Colegio Newland',
         description:
-          'Desarrollamos capacidades para trabajar en equipo. A través de una sana convivencia buscamos acuerdos para solucionar problemas. Programa diseñado y avalado exclusivamente para Colegio Newland S.C. por el Tec de Monterrey.',
+          'Desarrollamos capacidades para trabajar en equipo. A través de una sana convivencia buscamos acuerdos para solucionar problemas. Programa diseñado y avalado exclusivamente para Colegio NWL S.C. por el Tec de Monterrey.',
       },
       {
         title: 'Knotion - Metodología Internacional',

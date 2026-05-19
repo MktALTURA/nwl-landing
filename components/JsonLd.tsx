@@ -1,4 +1,4 @@
-import { SITE_URL, SITE_NAME } from '@/lib/seo';
+import { SITE_URL, SITE_NAME, SITE_LAST_UPDATED, SITE_LEGAL_NAME } from '@/lib/seo';
 import type { CampusData } from '@/lib/campus-data';
 import type { InformacionPage, InformacionFAQ } from '@/lib/informacion-data';
 
@@ -19,8 +19,10 @@ export function OrganizationJsonLd() {
     '@type': ['EducationalOrganization', 'School'],
     '@id': `${SITE_URL}/#organization`,
     name: SITE_NAME,
-    alternateName: 'Colegio Newland',
+    legalName: SITE_LEGAL_NAME,
+    alternateName: ['Colegio Newland', 'Colegio NWL'],
     url: SITE_URL,
+    dateModified: SITE_LAST_UPDATED,
     logo: {
       '@type': 'ImageObject',
       url: `${SITE_URL}/images/brand/nwl-combo.png`,
@@ -126,7 +128,7 @@ export function WebSiteJsonLd() {
     '@type': 'WebSite',
     '@id': `${SITE_URL}/#website`,
     name: SITE_NAME,
-    alternateName: 'Colegio Newland',
+    alternateName: ['Colegio Newland', 'Colegio NWL'],
     url: SITE_URL,
     publisher: { '@id': `${SITE_URL}/#organization` },
     inLanguage: ['es-MX', 'en'],
@@ -194,6 +196,7 @@ export function InformacionJsonLd({ page }: { page: InformacionPage }) {
     description: page.description,
     url: `${SITE_URL}/informacion/${page.slug}`,
     inLanguage: page.lang === 'es' ? 'es-MX' : 'en',
+    dateModified: SITE_LAST_UPDATED,
     isPartOf: { '@id': `${SITE_URL}/#website` },
     about: { '@id': `${SITE_URL}/#organization` },
     image: `${SITE_URL}${page.images.hero}`,

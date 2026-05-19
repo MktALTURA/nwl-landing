@@ -3,6 +3,15 @@
 export const SITE_URL = 'https://www.nwl.com.mx';
 export const SITE_NAME = 'Newland School';
 export const SITE_NAME_ES = 'Colegio Newland';
+/** Registered legal entity name (distinct from the public brand names above). */
+export const SITE_LEGAL_NAME = 'Colegio NWL';
+
+/**
+ * Freshness signal for JSON-LD `dateModified`. Bump deliberately when content
+ * is meaningfully revised — do not derive from filesystem mtimes (Vercel
+ * resets them on every build, which would falsely reset the signal).
+ */
+export const SITE_LAST_UPDATED = '2026-05-15';
 
 /** Default OG image used as fallback when a page-specific image isn't set */
 export const DEFAULT_OG_IMAGE = `${SITE_URL}/images/og/home.jpg`;

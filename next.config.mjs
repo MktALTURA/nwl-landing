@@ -77,6 +77,12 @@ const nextConfig = {
       { source: '/nwl-nivel-secundaria', destination: '/middle-school', permanent: true },
       { source: '/nwl-nivel-preparatoria', destination: '/high-school', permanent: true },
 
+      // ── Spanish level slugs → English routes (Google Ads / direct traffic) ──
+      { source: '/primaria', destination: '/elementary', permanent: true },
+      { source: '/secundaria', destination: '/middle-school', permanent: true },
+      { source: '/preparatoria', destination: '/high-school', permanent: true },
+      { source: '/prepa', destination: '/high-school', permanent: true },
+
       // ── Old campus pages (+ subpages like /instalaciones, /directorio, /epad, etc.) ──
       { source: '/Juriquilla', destination: '/campus/juriquilla', permanent: true },
       { source: '/Juriquilla/:path*', destination: '/campus/juriquilla', permanent: true },
