@@ -70,6 +70,9 @@ const nextConfig = {
       // Safety net: /form-submitted is a virtual URL for analytics — redirect to home if hit directly
       { source: '/form-submitted', destination: '/', permanent: false },
 
+      // Privacy notice short URL → bundled PDF
+      { source: '/privacy', destination: '/images/Aviso%20de%20privacidad/AVISO-PRIVACIDAD-NWL.pdf', permanent: false },
+
       // ── Old nwl.com.mx level pages ──
       { source: '/nwl-nivel-maternal', destination: '/maternal', permanent: true },
       { source: '/nwl-nivel-kinder', destination: '/kinder', permanent: true },
