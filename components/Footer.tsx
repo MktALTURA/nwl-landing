@@ -153,11 +153,8 @@ export default function Footer() {
           <div className="flex flex-col md:flex-row justify-between items-center text-sm text-white/60">
             <p>{t.footer.copyright}</p>
             <div className="flex gap-6 mt-4 md:mt-0">
-              <a href="https://www.nwl.com.mx/pdf/AVISO-PRIVACIDAD-NWL.pdf" target="_blank" rel="noopener noreferrer" className="hover:text-white">
+              <a href="/images/Aviso de privacidad/AVISO-PRIVACIDAD-NWL.pdf" target="_blank" rel="noopener noreferrer" className="hover:text-white">
                 {t.footer.privacyPolicy}
-              </a>
-              <a href="/terms" className="hover:text-white">
-                {t.footer.termsOfService}
               </a>
             </div>
           </div>
