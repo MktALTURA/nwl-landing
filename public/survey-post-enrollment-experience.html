@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light">
+  <title>How was your experience? — Colegio Newland</title>
+  <meta name="description" content="Su opinión nos ayuda a mejorar el camino para la siguiente familia. 3 minutos.">
+
+  <link rel="icon" href="https://pub-d61711b0d8e14e8aa8fc7ca826e271c4.r2.dev/nwl/design-system/brand/favicon.svg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap">
+
+  <style>
+    :root {
+      --nwl-wine: #8B2332;
+      --nwl-wine-90: rgba(139, 35, 50, 0.9);
+      --nwl-wine-10: rgba(139, 35, 50, 0.10);
+      --nwl-wine-05: rgba(139, 35, 50, 0.05);
+      --nwl-yellow: #FCB22F;
+      --nwl-ivory: #FFFEF7;
+      --nwl-sand: #F5F1E8;
+      --nwl-charcoal: #3D3D3D;
+      --nwl-steel: #737373;
+      --nwl-muted: #9C9C9C;
+      --nwl-success: #4A7C59;
+      --nwl-error: #B5413B;
+    }
+
+    * { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: var(--nwl-ivory);
+      color: var(--nwl-charcoal);
+      font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* ---------- Brand bar ---------- */
+    .brand-bar {
+      background-color: var(--nwl-wine);
+      padding: 32px 24px;
+      text-align: center;
+    }
+    .brand-lockup {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .brand-lockup img.wordmark { height: 44px; width: auto; display: block; }
+    .brand-lockup img.kangaroo {
+      height: 52px;
+      width: auto;
+      display: block;
+      transform: rotate(15deg);
+    }
+    .yellow-rule { height: 4px; background-color: var(--nwl-yellow); }
+
+    /* ---------- Page container ---------- */
+    .page {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 48px 24px 0 24px;
+    }
+    .card {
+      background-color: #FFFFFF;
+      border-radius: 8px;
+      padding: 48px clamp(24px, 5vw, 56px);
+      box-shadow: 0 2px 16px rgba(139, 35, 50, 0.06);
+    }
+    .wine-divider {
+      width: 64px;
+      height: 2px;
+      background-color: var(--nwl-wine);
+      border: 0;
+      margin: 0 0 28px 0;
+    }
+    .wine-divider.center { margin-left: auto; margin-right: auto; }
+
+    /* ---------- Intro section ---------- */
+    h1.display {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-weight: 700;
+      font-size: clamp(34px, 5vw, 44px);
+      line-height: 1.1;
+      color: var(--nwl-charcoal);
+      letter-spacing: -0.5px;
+      margin: 0 0 16px 0;
+    }
+    h1 .accent { color: var(--nwl-wine); }
+    .lede {
+      font-size: 18px;
+      line-height: 1.55;
+      color: var(--nwl-charcoal);
+      margin: 0 0 12px 0;
+      font-weight: 500;
+    }
+    .body-copy {
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--nwl-charcoal);
+      margin: 0 0 20px 0;
+    }
+    .body-copy strong { color: var(--nwl-wine); }
+    .time-badge {
+      display: inline-block;
+      background-color: var(--nwl-sand);
+      color: var(--nwl-wine);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 8px 14px;
+      border-radius: 999px;
+      margin-top: 12px;
+    }
+
+    /* ---------- Progress bar ---------- */
+    .progress-track {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      height: 4px;
+      background-color: var(--nwl-wine-10);
+      margin: 40px -56px 0 -56px;
+    }
+    .progress-fill {
+      height: 100%;
+      width: 0%;
+      background-color: var(--nwl-yellow);
+      transition: width 0.3s ease;
+    }
+
+    /* ---------- Form ---------- */
+    form { margin-top: 32px; }
+    .section { margin-bottom: 40px; }
+    .section-header {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-weight: 700;
+      font-size: 22px;
+      color: var(--nwl-wine);
+      margin: 0 0 6px 0;
+      letter-spacing: -0.2px;
+    }
+    .section-sub {
+      font-size: 14px;
+      color: var(--nwl-steel);
+      margin: 0 0 20px 0;
+    }
+    .section-divider {
+      width: 32px;
+      height: 2px;
+      background-color: var(--nwl-wine);
+      border: 0;
+      margin: 0 0 18px 0;
+    }
+
+    fieldset.question {
+      border: 0;
+      padding: 0;
+      margin: 0 0 28px 0;
+    }
+    fieldset.question legend, .q-label {
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      font-size: 15px;
+      color: var(--nwl-charcoal);
+      padding: 0;
+      margin: 0 0 12px 0;
+      line-height: 1.45;
+      display: block;
+    }
+    .q-required { color: var(--nwl-wine); margin-left: 2px; }
+    .q-helper {
+      font-size: 13px;
+      color: var(--nwl-steel);
+      margin: -8px 0 12px 0;
+      line-height: 1.5;
+    }
+
+    /* Text inputs + textareas + selects */
+    input[type="text"], input[type="email"], input[type="tel"], select, textarea {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1px solid var(--nwl-wine-10);
+      border-radius: 4px;
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      color: var(--nwl-charcoal);
+      background-color: #FFFFFF;
+      transition: border-color 0.15s, box-shadow 0.15s;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+    select {
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'><path fill='%238B2332' d='M6 8L0 0h12z'/></svg>");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      padding-right: 36px;
+    }
+    textarea {
+      resize: vertical;
+      min-height: 96px;
+      font-family: 'Inter', sans-serif;
+    }
+    input:focus, select:focus, textarea:focus {
+      outline: none;
+      border-color: var(--nwl-wine);
+      box-shadow: 0 0 0 3px var(--nwl-wine-10);
+    }
+    input.invalid, select.invalid, textarea.invalid {
+      border-color: var(--nwl-error);
+    }
+
+    /* Radio + Checkbox stacks */
+    .choice-stack { display: flex; flex-direction: column; gap: 8px; }
+    .choice-stack label {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 12px 14px;
+      background-color: #FFFFFF;
+      border: 1px solid var(--nwl-wine-10);
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.15s;
+      font-size: 15px;
+      line-height: 1.5;
+      color: var(--nwl-charcoal);
+    }
+    .choice-stack label:hover { background-color: var(--nwl-wine-05); border-color: var(--nwl-wine); }
+    .choice-stack input[type="radio"], .choice-stack input[type="checkbox"] {
+      margin: 3px 0 0 0;
+      accent-color: var(--nwl-wine);
+      flex-shrink: 0;
+      width: 16px;
+      height: 16px;
+    }
+    .choice-stack label:has(input:checked) {
+      background-color: var(--nwl-wine-05);
+      border-color: var(--nwl-wine);
+    }
+
+    /* Rating scales (1-10 or 0-10) — horizontal pill buttons */
+    .scale-group {
+      display: grid;
+      grid-template-columns: repeat(10, 1fr);
+      gap: 6px;
+      margin-top: 4px;
+    }
+    .scale-group.zero-ten { grid-template-columns: repeat(11, 1fr); }
+    .scale-group input[type="radio"] {
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+    }
+    .scale-group label {
+      text-align: center;
+      padding: 12px 4px;
+      background-color: #FFFFFF;
+      border: 1px solid var(--nwl-wine-10);
+      border-radius: 4px;
+      font-weight: 600;
+      font-size: 15px;
+      color: var(--nwl-charcoal);
+      cursor: pointer;
+      transition: all 0.15s;
+      user-select: none;
+    }
+    .scale-group label:hover { border-color: var(--nwl-wine); background-color: var(--nwl-sand); }
+    .scale-group input[type="radio"]:checked + label {
+      background-color: var(--nwl-wine);
+      color: #FFFFFF;
+      border-color: var(--nwl-wine);
+    }
+    .scale-endpoints {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 8px;
+      font-size: 12px;
+      color: var(--nwl-steel);
+    }
+    @media (max-width: 520px) {
+      .scale-group {
+        grid-template-columns: repeat(5, 1fr);
+      }
+      .scale-group.zero-ten {
+        grid-template-columns: repeat(6, 1fr);
+      }
+    }
+
+    /* Submit */
+    .submit-row {
+      margin-top: 40px;
+      padding-top: 32px;
+      border-top: 1px solid var(--nwl-wine-10);
+      text-align: center;
+    }
+    button.submit {
+      background-color: var(--nwl-wine);
+      color: #FFFFFF;
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      padding: 16px 36px;
+      border: 0;
+      border-radius: 2px;
+      cursor: pointer;
+      transition: background-color 0.15s, transform 0.05s;
+    }
+    button.submit:hover { background-color: var(--nwl-wine-90); }
+    button.submit:active { transform: scale(0.98); }
+    button.submit:disabled { background-color: var(--nwl-steel); cursor: not-allowed; }
+    .submit-helper {
+      font-size: 13px;
+      color: var(--nwl-steel);
+      margin: 12px 0 0 0;
+    }
+
+    /* Form-level error */
+    .form-error {
+      display: none;
+      margin-top: 16px;
+      padding: 14px 16px;
+      background-color: rgba(181, 65, 59, 0.08);
+      border-left: 3px solid var(--nwl-error);
+      color: var(--nwl-error);
+      font-size: 14px;
+      border-radius: 4px;
+    }
+    .form-error.show { display: block; }
+
+    /* Honeypot (hidden from real users) */
+    .honeypot {
+      position: absolute;
+      left: -10000px;
+      top: auto;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+    }
+
+    /* ---------- Success state ---------- */
+    #thank-you {
+      display: none;
+      text-align: center;
+      padding: 32px 0;
+    }
+    #thank-you.show { display: block; }
+    #thank-you h2 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-weight: 700;
+      font-size: 44px;
+      line-height: 1.1;
+      color: var(--nwl-charcoal);
+      margin: 24px 0 16px 0;
+      letter-spacing: -0.5px;
+    }
+    #thank-you h2 .accent { color: var(--nwl-wine); }
+    #thank-you .reassurance {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-style: italic;
+      font-weight: 700;
+      font-size: 18px;
+      color: var(--nwl-wine);
+      margin: 0 auto 32px auto;
+      max-width: 420px;
+    }
+
+    /* ---------- Closing section ---------- */
+    .close-section {
+      margin-top: 48px;
+      padding-top: 40px;
+      border-top: 1px solid var(--nwl-wine-10);
+      text-align: center;
+    }
+    .slogan {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-weight: 700;
+      font-size: 22px;
+      color: var(--nwl-wine);
+      margin: 0;
+      letter-spacing: 0.2px;
+    }
+    .signature {
+      font-size: 14px;
+      color: var(--nwl-wine);
+      font-weight: 700;
+      margin: 18px 0 0 0;
+    }
+    .signature .url a {
+      color: var(--nwl-steel);
+      text-decoration: none;
+      font-weight: 400;
+    }
+
+    /* ---------- Footer ---------- */
+    footer {
+      background-color: var(--nwl-wine);
+      padding: 36px 24px;
+      text-align: center;
+      margin-top: 48px;
+    }
+    footer .lockup {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+    footer .lockup img.wordmark { height: 36px; }
+    footer .lockup img.kangaroo { height: 40px; transform: rotate(15deg); }
+    footer .links { font-size: 13px; line-height: 1.7; margin: 0 0 14px 0; }
+    footer .links a {
+      color: var(--nwl-yellow);
+      text-decoration: none;
+      font-weight: 600;
+      margin: 0 6px;
+    }
+    footer .location {
+      color: rgba(255, 255, 255, 0.75);
+      font-size: 12px;
+      line-height: 1.6;
+      margin: 0;
+    }
+    .microcopy {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 20px 24px 32px 24px;
+      text-align: center;
+      font-size: 11px;
+      color: var(--nwl-muted);
+      line-height: 1.6;
+    }
+    .microcopy a { color: var(--nwl-muted); }
+  </style>
+</head>
+<body>
+
+  <!-- ============ TOP BRANDING ============ -->
+  <header class="brand-bar">
+    <div class="brand-lockup">
+      <img class="wordmark"
+           src="https://pub-d61711b0d8e14e8aa8fc7ca826e271c4.r2.dev/nwl/design-system/brand/nwl-logo-white.png"
+           alt="Colegio Newland">
+      <img class="kangaroo"
+           src="https://pub-d61711b0d8e14e8aa8fc7ca826e271c4.r2.dev/nwl/design-system/brand/kangaroo-white-transparent.png"
+           alt="">
+    </div>
+  </header>
+  <div class="yellow-rule"></div>
+
+  <!-- ============ MAIN CARD ============ -->
+  <div class="page">
+    <main class="card">
+
+      <!-- INTRO (visible until submit succeeds) -->
+      <section id="intro">
+        <hr class="wine-divider">
+        <h1 class="display">How was your <span class="accent">experience</span>?</h1>
+        <p class="lede">Su opinión nos ayuda a mejorar el camino para la siguiente familia.</p>
+        <p class="body-copy">
+          Gracias por tomarse este momento. El proceso de admisión tuvo varios pasos — visitas, conversaciones, decisiones — y nos gustaría entender cómo lo vivieron ustedes. <strong>No hay respuestas correctas ni incorrectas.</strong>
+        </p>
+        <span class="time-badge">≈ 3 minutos</span>
+
+        <!-- ============ GHL SURVEY EMBED ============
+             The survey itself (all 14 questions, validation, submission,
+             thank-you state, CRM mapping) is built and hosted in
+             GoHighLevel. form_embed.js auto-resizes the iframe to fit
+             the survey content as the parent answers questions.
+
+             To swap the survey: change the URL + id below to a new
+             GHL survey share link — the brand wrapper stays the same.
+        ============================================================ -->
+        <div class="ghl-embed">
+          <iframe
+            src="https://api.nwl.com.mx/widget/survey/ivsEc2XDruDagr4LNVBb"
+            id="ivsEc2XDruDagr4LNVBb"
+            title="Encuesta post-inscripción Newland"
+            style="border:none;width:100%;min-height:720px;display:block;"
+            scrolling="no"></iframe>
+        </div>
+        <script src="https://api.nwl.com.mx/js/form_embed.js"></script>
+
+        <!-- Legacy inline form removed — survey is now native GHL -->
+        <div hidden style="display:none;" aria-hidden="true">
+          <!-- (Reference only — the live survey is the GHL iframe above) -->
+          <section class="section">
+            <h2 class="section-header">Sobre su familia</h2>
+            <p class="section-sub">Empecemos con lo más sencillo.</p>
+            <hr class="section-divider">
+
+            <fieldset class="question">
+              <legend>1. ¿En qué campus se inscribió su hijo/a? <span class="q-required">*</span></legend>
+              <select name="campus_enrolled" required>
+                <option value="" disabled selected>Selecciona un campus…</option>
+                <option value="Juriquilla">Juriquilla</option>
+                <option value="Milenio">Milenio</option>
+                <option value="Corregidora">Corregidora</option>
+                <option value="Zibatá">Zibatá</option>
+                <option value="San Miguel de Allende">San Miguel de Allende</option>
+              </select>
+            </fieldset>
+
+            <fieldset class="question">
+              <legend>2. ¿A qué sección entrará su hijo/a? <span class="q-required">*</span></legend>
+              <select name="student_section" required>
+                <option value="" disabled selected>Selecciona una sección…</option>
+                <option value="Maternal">Maternal</option>
+                <option value="Kínder">Kínder</option>
+                <option value="Primaria">Primaria</option>
+                <option value="Secundaria">Secundaria</option>
+                <option value="Preparatoria">Preparatoria</option>
+              </select>
+            </fieldset>
+
+            <fieldset class="question">
+              <legend>3. ¿Es su primer hijo/a en Newland? <span class="q-required">*</span></legend>
+              <div class="choice-stack">
+                <label><input type="radio" name="first_child_at_nwl" value="Sí, es el primero" required> Sí, es el primero</label>
+                <label><input type="radio" name="first_child_at_nwl" value="No, ya tenemos otro hijo/a en Newland"> No, ya tenemos otro hijo/a en Newland</label>
+              </div>
+            </fieldset>
+          </section>
+
+          <!-- SECTION 2: Cómo nos encontraron -->
+          <section class="section">
+            <h2 class="section-header">Cómo nos encontraron</h2>
+            <p class="section-sub">Esto nos ayuda a llegar mejor a familias como la suya.</p>
+            <hr class="section-divider">
+
+            <fieldset class="question">
+              <legend>4. ¿Cómo se enteraron por primera vez de Newland? <span class="q-required">*</span></legend>
+              <select name="how_heard" required>
+                <option value="" disabled selected>Selecciona una opción…</option>
+                <option value="Recomendación de una familia o amigo">Recomendación de una familia o amigo</option>
+                <option value="Instagram">Instagram</option>
+                <option value="Facebook">Facebook</option>
+                <option value="Búsqueda en Google">Búsqueda en Google</option>
+                <option value="Anuncio en redes sociales">Anuncio en redes sociales</option>
+                <option value="Pasando por el campus">Pasando por el campus</option>
+                <option value="Evento o feria">Evento o feria</option>
+                <option value="Otra escuela los recomendó">Otra escuela los recomendó</option>
+                <option value="Otro">Otro</option>
+              </select>
+            </fieldset>
+
+            <fieldset class="question">
+              <label class="q-label" for="other_schools">5. Antes de elegir Newland, ¿qué otras escuelas consideraron seriamente?</label>
+              <p class="q-helper">Si no consideraron otras, déjenlo en blanco.</p>
+              <textarea id="other_schools" name="other_schools_considered" placeholder="Por ejemplo: Canadian, Nuevo Continente, Sun Hills…"></textarea>
+            </fieldset>
+          </section>
+
+          <!-- SECTION 3: Lo que pesó en la decisión -->
+          <section class="section">
+            <h2 class="section-header">Lo que pesó en la decisión</h2>
+            <p class="section-sub">Aquí está la parte que más nos interesa.</p>
+            <hr class="section-divider">
+
+            <fieldset class="question">
+              <legend>6. ¿Qué fue lo que más pesó en su decisión final? <span class="q-required">*</span></legend>
+              <p class="q-helper">Seleccione todas las que apliquen.</p>
+              <div class="choice-stack">
+                <label><input type="checkbox" name="decision_drivers" value="Modelo educativo"> Modelo educativo</label>
+                <label><input type="checkbox" name="decision_drivers" value="Nivel de inglés"> Nivel de inglés</label>
+                <label><input type="checkbox" name="decision_drivers" value="Programa de liderazgo con Tec de Monterrey"> Programa de liderazgo con Tec de Monterrey</label>
+                <label><input type="checkbox" name="decision_drivers" value="Filosofía para Niños (P4C)"> Filosofía para Niños (P4C)</label>
+                <label><input type="checkbox" name="decision_drivers" value="Sin tareas tradicionales (Knotion)"> Sin tareas tradicionales (Knotion)</label>
+                <label><input type="checkbox" name="decision_drivers" value="Instalaciones del campus"> Instalaciones del campus</label>
+                <label><input type="checkbox" name="decision_drivers" value="Cercanía a casa"> Cercanía a casa</label>
+                <label><input type="checkbox" name="decision_drivers" value="Comunidad y ambiente"> Comunidad y ambiente</label>
+                <label><input type="checkbox" name="decision_drivers" value="Recomendación de otra familia"> Recomendación de otra familia</label>
+                <label><input type="checkbox" name="decision_drivers" value="Resultados académicos"> Resultados académicos</label>
+                <label><input type="checkbox" name="decision_drivers" value="Trato del equipo de admisiones"> Trato del equipo de admisiones</label>
+                <label><input type="checkbox" name="decision_drivers" value="Otro"> Otro</label>
+              </div>
+            </fieldset>
+
+            <fieldset class="question">
+              <label class="q-label" for="almost_not">7. ¿Hubo algo que casi los hizo NO inscribirse?</label>
+              <p class="q-helper">Costo, distancia, dudas sobre el modelo, comparación con otra escuela… cualquier cosa que dudaron antes de decidir.</p>
+              <textarea id="almost_not" name="almost_not_enrolled" placeholder="Cuéntennos con confianza."></textarea>
+            </fieldset>
+          </section>
+
+          <!-- SECTION 4: La experiencia del proceso -->
+          <section class="section">
+            <h2 class="section-header">El proceso, paso a paso</h2>
+            <hr class="section-divider">
+
+            <fieldset class="question">
+              <legend>8. En general, ¿cómo calificarían su experiencia con el proceso de admisión? <span class="q-required">*</span></legend>
+              <div class="scale-group" role="radiogroup">
+                <input type="radio" id="pr-1" name="process_rating" value="1" required><label for="pr-1">1</label>
+                <input type="radio" id="pr-2" name="process_rating" value="2"><label for="pr-2">2</label>
+                <input type="radio" id="pr-3" name="process_rating" value="3"><label for="pr-3">3</label>
+                <input type="radio" id="pr-4" name="process_rating" value="4"><label for="pr-4">4</label>
+                <input type="radio" id="pr-5" name="process_rating" value="5"><label for="pr-5">5</label>
+                <input type="radio" id="pr-6" name="process_rating" value="6"><label for="pr-6">6</label>
+                <input type="radio" id="pr-7" name="process_rating" value="7"><label for="pr-7">7</label>
+                <input type="radio" id="pr-8" name="process_rating" value="8"><label for="pr-8">8</label>
+                <input type="radio" id="pr-9" name="process_rating" value="9"><label for="pr-9">9</label>
+                <input type="radio" id="pr-10" name="process_rating" value="10"><label for="pr-10">10</label>
+              </div>
+              <div class="scale-endpoints"><span>Muy mala</span><span>Excelente</span></div>
+            </fieldset>
+
+            <fieldset class="question">
+              <label class="q-label" for="friction">9. ¿Algún momento del proceso se sintió largo, confuso o frustrante?</label>
+              <p class="q-helper">Si todo fluyó, déjenlo en blanco.</p>
+              <textarea id="friction" name="process_friction"></textarea>
+            </fieldset>
+
+            <fieldset class="question">
+              <label class="q-label" for="surprise">10. ¿Algún momento los sorprendió gratamente?</label>
+              <p class="q-helper">Algo que esperaban que fuera más complicado, o un detalle que les gustó.</p>
+              <textarea id="surprise" name="process_surprise"></textarea>
+            </fieldset>
+          </section>
+
+          <!-- SECTION 5: Recomendación -->
+          <section class="section">
+            <h2 class="section-header">Una última cosa</h2>
+            <hr class="section-divider">
+
+            <fieldset class="question">
+              <legend>11. ¿Qué tan probable es que recomienden Newland a otra familia? <span class="q-required">*</span></legend>
+              <div class="scale-group zero-ten" role="radiogroup">
+                <input type="radio" id="nps-0" name="nps_score" value="0" required><label for="nps-0">0</label>
+                <input type="radio" id="nps-1" name="nps_score" value="1"><label for="nps-1">1</label>
+                <input type="radio" id="nps-2" name="nps_score" value="2"><label for="nps-2">2</label>
+                <input type="radio" id="nps-3" name="nps_score" value="3"><label for="nps-3">3</label>
+                <input type="radio" id="nps-4" name="nps_score" value="4"><label for="nps-4">4</label>
+                <input type="radio" id="nps-5" name="nps_score" value="5"><label for="nps-5">5</label>
+                <input type="radio" id="nps-6" name="nps_score" value="6"><label for="nps-6">6</label>
+                <input type="radio" id="nps-7" name="nps_score" value="7"><label for="nps-7">7</label>
+                <input type="radio" id="nps-8" name="nps_score" value="8"><label for="nps-8">8</label>
+                <input type="radio" id="nps-9" name="nps_score" value="9"><label for="nps-9">9</label>
+                <input type="radio" id="nps-10" name="nps_score" value="10"><label for="nps-10">10</label>
+              </div>
+              <div class="scale-endpoints"><span>Nada probable</span><span>Muy probable</span></div>
+            </fieldset>
+
+            <fieldset class="question">
+              <label class="q-label" for="nps-why">12. Cuéntennos por qué eligieron ese número.</label>
+              <textarea id="nps-why" name="nps_why"></textarea>
+            </fieldset>
+
+            <fieldset class="question">
+              <legend>13. ¿Estarían abiertos a una conversación con familias que están considerando Newland? <span class="q-required">*</span></legend>
+              <div class="choice-stack">
+                <label><input type="radio" name="open_to_referral" value="Sí, con gusto" required> Sí, con gusto</label>
+                <label><input type="radio" name="open_to_referral" value="Tal vez, dependiendo del caso"> Tal vez, dependiendo del caso</label>
+                <label><input type="radio" name="open_to_referral" value="Prefiero no por ahora"> Prefiero no por ahora</label>
+              </div>
+            </fieldset>
+
+            <fieldset class="question">
+              <label class="q-label" for="anything-else">14. ¿Algo más que les gustaría compartir con nosotros?</label>
+              <textarea id="anything-else" name="anything_else"></textarea>
+            </fieldset>
+          </section>
+
+          <!-- Honeypot — real users won't see or fill this; bots will -->
+          <div class="honeypot" aria-hidden="true">
+            <label for="website">Sitio web (no llenar)</label>
+            <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+          </div>
+
+          <!-- Hidden context fields (populated from URL on page load) -->
+          <input type="hidden" name="contact_id" id="contact_id" value="">
+          <input type="hidden" name="utm_source" id="utm_source" value="">
+          <input type="hidden" name="utm_medium" id="utm_medium" value="">
+          <input type="hidden" name="utm_campaign" id="utm_campaign" value="">
+          <input type="hidden" name="submitted_at" id="submitted_at" value="">
+
+          <!-- Submit -->
+          <div class="submit-row">
+            <button type="submit" class="submit" id="submit-btn">Enviar mis respuestas&nbsp;→</button>
+            <p class="submit-helper">Sus respuestas llegan directamente al equipo de admisiones.</p>
+            <div class="form-error" id="form-error" role="alert">
+              Hubo un problema al enviar sus respuestas. Por favor inténtelo de nuevo, o escríbannos por WhatsApp al +52 1 442 122 7791.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- (GHL survey handles its own thank-you / success state inside the iframe.) -->
+
+      <!-- Closing -->
+      <section class="close-section">
+        <hr class="wine-divider center">
+        <p class="slogan">Be Proud. Be Newland.</p>
+        <p class="signature">
+          Colegio Newland<br>
+          <span class="url"><a href="https://nwl.com.mx">nwl.com.mx</a></span>
+        </p>
+      </section>
+    </main>
+  </div>
+
+  <!-- ============ FOOTER ============ -->
+  <footer>
+    <div class="lockup">
+      <img class="wordmark"
+           src="https://pub-d61711b0d8e14e8aa8fc7ca826e271c4.r2.dev/nwl/design-system/brand/nwl-logo-white.png"
+           alt="Colegio Newland">
+      <img class="kangaroo"
+           src="https://pub-d61711b0d8e14e8aa8fc7ca826e271c4.r2.dev/nwl/design-system/brand/kangaroo-white-transparent.png"
+           alt="">
+    </div>
+    <p class="links">
+      <a href="https://nwl.com.mx">nwl.com.mx</a> ·
+      <a href="https://wa.me/5214421227791">WhatsApp</a> ·
+      <a href="https://instagram.com/colegionwl">Instagram</a> ·
+      <a href="https://facebook.com/ColegioNewland">Facebook</a>
+    </p>
+    <p class="location">
+      Colegio Newland · Querétaro, México<br>
+      Juriquilla · Milenio · Corregidora · Zibatá · San Miguel de Allende
+    </p>
+  </footer>
+
+  <p class="microcopy">
+    <a href="https://nwl.com.mx/privacy">Aviso de privacidad</a>
+  </p>
+
+  <!-- ============ SCRIPT — GHL iframe context passthrough ============
+       The GHL survey iframe is the source of truth for submission,
+       validation, custom-field mapping, and thank-you state. This
+       script just forwards URL params (cid, cohort, utm_*) from the
+       email link into the iframe src as query params so GHL can
+       pre-fill / attribute the response.
+
+       Email link format:
+         ?cid={{contact.id}}&cohort=q1_2026   (hardcode cohort per send batch)
+         &utm_source=email&utm_medium=lifecycle&utm_campaign=post-enrollment-survey
+
+       For these to actually pre-fill, add matching query-param mappings
+       to the GHL survey ("Settings → URL Parameters") and bind them to
+       custom fields.
+  ============================================================ -->
+  <script>
+    (function passthroughToGHL() {
+      const incoming = new URLSearchParams(window.location.search);
+      if (!incoming.toString()) return;
+
+      const iframe = document.getElementById('ivsEc2XDruDagr4LNVBb');
+      if (!iframe) return;
+
+      const base = new URL(iframe.src);
+      // Forward known fields only — keeps the iframe URL clean
+      ['cid', 'cohort', 'utm_source', 'utm_medium', 'utm_campaign'].forEach((key) => {
+        const v = incoming.get(key);
+        if (v) base.searchParams.set(key, v);
+      });
+      iframe.src = base.toString();
+    })();
+  </script>
+
+</body>
+</html>
