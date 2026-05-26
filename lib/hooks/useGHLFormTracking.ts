@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, type RefObject } from 'react';
 import { getFirstTouchUTMs, getLastTouchUTMs } from '@/lib/utm';
+import { fireMetaEvent } from '@/lib/meta-pixel';
 
 /* ------------------------------------------------------------------ */
 /*  GHL Form Submission Tracking Hook                                  */
@@ -54,6 +55,16 @@ function fireConversion(formLabel: string) {
       send_to: 'AW-17936345870/H9S4CJelm40cEI7W2-hC',
     });
   }
+
+  // 3. Meta Lead — browser pixel + server CAPI, deduplicated via shared event_id
+  fireMetaEvent('Lead', {
+    form_label: formLabel,
+    ...(lastTouch && {
+      utm_source: lastTouch.utm_source,
+      utm_medium: lastTouch.utm_medium,
+      utm_campaign: lastTouch.utm_campaign,
+    }),
+  });
 }
 
 export function useGHLFormTracking(
