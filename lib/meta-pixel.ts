@@ -25,6 +25,9 @@ export function fireMetaEvent(
 
   const eventId = newEventId();
   const eventSourceUrl = window.location.href;
+  // fbclid from the ad-click URL — lets the server build `fbc` even if the
+  // pixel (and its _fbc cookie) is blocked. Improves match quality/coverage.
+  const fbclid = new URLSearchParams(window.location.search).get('fbclid') ?? undefined;
 
   // 1. Browser pixel (deduplicated via eventID)
   if (typeof window.fbq === 'function') {
@@ -37,7 +40,7 @@ export function fireMetaEvent(
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       keepalive: true, // survive page navigation
-      body: JSON.stringify({ eventName, eventId, eventSourceUrl, customData }),
+      body: JSON.stringify({ eventName, eventId, eventSourceUrl, fbclid, customData }),
     }).catch(() => {});
   } catch {
     /* never block the UI on tracking */

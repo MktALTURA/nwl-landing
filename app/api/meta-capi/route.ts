@@ -41,6 +41,7 @@ export async function POST(request: NextRequest) {
     eventName?: string;
     eventId?: string;
     eventSourceUrl?: string;
+    fbclid?: string;
     email?: string;
     phone?: string;
     customData?: Record<string, unknown>;
@@ -58,7 +59,11 @@ export async function POST(request: NextRequest) {
 
   // Cookies set by the browser pixel — primary matching signal.
   const fbp = request.cookies.get('_fbp')?.value;
-  const fbc = request.cookies.get('_fbc')?.value;
+  // Prefer the _fbc cookie; if the pixel was blocked, build fbc from the raw
+  // fbclid (format: fb.1.<unixMs>.<fbclid>) so ad clicks still match.
+  const fbc =
+    request.cookies.get('_fbc')?.value ??
+    (body.fbclid ? `fb.1.${Date.now()}.${body.fbclid}` : undefined);
 
   const userData: Record<string, unknown> = {
     client_ip_address: getClientIp(request),
