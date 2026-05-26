@@ -2,7 +2,6 @@
 
 import { useEffect, useRef, type RefObject } from 'react';
 import { getFirstTouchUTMs, getLastTouchUTMs } from '@/lib/utm';
-import { fireMetaEvent } from '@/lib/meta-pixel';
 
 /* ------------------------------------------------------------------ */
 /*  GHL Form Submission Tracking Hook                                  */
@@ -56,15 +55,12 @@ function fireConversion(formLabel: string) {
     });
   }
 
-  // 3. Meta Lead — browser pixel + server CAPI, deduplicated via shared event_id
-  fireMetaEvent('Lead', {
-    form_label: formLabel,
-    ...(lastTouch && {
-      utm_source: lastTouch.utm_source,
-      utm_medium: lastTouch.utm_medium,
-      utm_campaign: lastTouch.utm_campaign,
-    }),
-  });
+  // NOTE: The Meta `Lead` event is intentionally NOT fired here. GHL owns the
+  // Meta Lead conversion — it sends it server-side via its Conversions API
+  // workflow with hashed email/phone (high match quality). Firing it here too
+  // would double-count, since the site and GHL can't share an event_id across
+  // the form iframe. Site-side Meta events (Contact/ViewContent/PageView) live
+  // in components/MetaTracking.tsx and app/layout.tsx.
 }
 
 export function useGHLFormTracking(
