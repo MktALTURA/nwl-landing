@@ -3,6 +3,7 @@ import { Inter, Playfair_Display } from "next/font/google";
 import Script from "next/script";
 import { SITE_URL, SITE_NAME, PAGE_SEO } from "@/lib/seo";
 import { OrganizationJsonLd, WebSiteJsonLd } from "@/components/JsonLd";
+import MetaTracking from "@/components/MetaTracking";
 import "./globals.css";
 
 const inter = Inter({
@@ -50,6 +51,11 @@ export const metadata: Metadata = {
   alternates: {
     canonical: SITE_URL,
   },
+  verification: {
+    other: {
+      "facebook-domain-verification": "aa9h78aazssfthr69ntgl9uemnfqw2",
+    },
+  },
   robots: {
     index: true,
     follow: true,
@@ -73,6 +79,7 @@ export default function RootLayout({
       <body className="font-sans antialiased">
         <OrganizationJsonLd />
         <WebSiteJsonLd />
+        <MetaTracking />
         {children}
         {/* Google Ads + GA4 (shared gtag.js) */}
         <Script
@@ -88,6 +95,30 @@ export default function RootLayout({
             gtag('config', 'G-0D697PBCB2');
           `}
         </Script>
+        {/* Meta (Facebook) Pixel — browser side. CAPI server side fires from /api/meta-capi */}
+        <Script id="meta-pixel-init" strategy="afterInteractive">
+          {`
+            !function(f,b,e,v,n,t,s)
+            {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+            n.queue=[];t=b.createElement(e);t.async=!0;
+            t.src=v;s=b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t,s)}(window, document,'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+            fbq('init', '${process.env.NEXT_PUBLIC_META_PIXEL_ID}');
+            fbq('track', 'PageView');
+          `}
+        </Script>
+        <noscript>
+          <img
+            height="1"
+            width="1"
+            style={{ display: "none" }}
+            src={`https://www.facebook.com/tr?id=${process.env.NEXT_PUBLIC_META_PIXEL_ID}&ev=PageView&noscript=1`}
+            alt=""
+          />
+        </noscript>
         {/* Microsoft Clarity — heatmaps & session recordings */}
         <Script id="clarity-init" strategy="afterInteractive">
           {`
