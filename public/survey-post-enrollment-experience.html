@@ -737,7 +737,7 @@
   <!-- ============ SCRIPT — GHL iframe context passthrough ============
        The GHL survey iframe is the source of truth for submission,
        validation, custom-field mapping, and thank-you state. This
-       script just forwards URL params (cid, cohort, utm_*) from the
+       script just forwards URL params (cid, email, cohort, utm_*) from the
        email link into the iframe src as query params so GHL can
        pre-fill / attribute the response.
 
@@ -759,7 +759,7 @@
 
       const base = new URL(iframe.src);
       // Forward known fields only — keeps the iframe URL clean
-      ['cid', 'cohort', 'utm_source', 'utm_medium', 'utm_campaign'].forEach((key) => {
+      ['cid', 'email', 'cohort', 'utm_source', 'utm_medium', 'utm_campaign'].forEach((key) => {
         const v = incoming.get(key);
         if (v) base.searchParams.set(key, v);
       });
