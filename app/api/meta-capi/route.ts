@@ -44,13 +44,6 @@ export async function POST(request: NextRequest) {
     fbclid?: string;
     email?: string;
     phone?: string;
-    firstName?: string;
-    lastName?: string;
-    // Server-to-server callers (e.g. GHL webhook) should pass the real lead's
-    // IP here — otherwise the request IP would be the caller's server, not the
-    // visitor. Presence of clientIp flags the call as server-to-server.
-    clientIp?: string;
-    clientUserAgent?: string;
     customData?: Record<string, unknown>;
   };
   try {
@@ -72,24 +65,14 @@ export async function POST(request: NextRequest) {
     request.cookies.get('_fbc')?.value ??
     (body.fbclid ? `fb.1.${Date.now()}.${body.fbclid}` : undefined);
 
-  // Server-to-server callers send the visitor's IP in the body; browser
-  // callers don't, so we read it from the request. Never use the request
-  // IP/UA for a server-to-server call (it would be the caller's server).
-  const serverToServer = Boolean(body.clientIp);
-  const clientIp = body.clientIp ?? (serverToServer ? undefined : getClientIp(request));
-  const clientUserAgent =
-    body.clientUserAgent ?? (serverToServer ? undefined : request.headers.get('user-agent') ?? undefined);
-
   const userData: Record<string, unknown> = {
-    ...(clientIp && { client_ip_address: clientIp }),
-    ...(clientUserAgent && { client_user_agent: clientUserAgent }),
+    client_ip_address: getClientIp(request),
+    client_user_agent: request.headers.get('user-agent') ?? undefined,
     ...(fbp && { fbp }),
     ...(fbc && { fbc }),
-    // All PII is SHA-256 hashed before leaving the server.
+    // Hash any PII if/when forms expose it.
     ...(body.email && { em: [sha256(body.email)] }),
     ...(body.phone && { ph: [sha256(body.phone.replace(/\D/g, ''))] }),
-    ...(body.firstName && { fn: [sha256(body.firstName)] }),
-    ...(body.lastName && { ln: [sha256(body.lastName)] }),
   };
 
   const payload = {
