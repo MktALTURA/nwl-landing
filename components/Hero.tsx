@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { FiDownload, FiArrowRight } from 'react-icons/fi';
+import { FaWhatsapp } from 'react-icons/fa';
 import BrochureLevelDropdown from './BrochureLevelDropdown';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -86,14 +87,16 @@ export default function Hero() {
         );
       }
 
-      // Main headline word animation (initial load)
+      // Main headline word animation (initial load).
+      // Paid-traffic visitors bounce in seconds — everything load-bearing
+      // (headline, CTAs) must be readable well under 1s.
       gsap.from('.word-wrap', {
         opacity: 0,
         y: 50,
-        stagger: 0.15,
-        duration: 1.4,
+        stagger: 0.07,
+        duration: 0.9,
         ease: 'power3.out',
-        delay: 0.6,
+        delay: 0.15,
       });
     }, heroRef);
 
@@ -164,21 +167,24 @@ export default function Hero() {
           sizes="100vw"
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-ivory/70 via-ivory/50 to-ivory/30 z-10" />
+        <div className="absolute inset-0 bg-gradient-to-r from-ivory/85 via-ivory/65 to-ivory/40 md:from-ivory/70 md:via-ivory/50 md:to-ivory/30 z-10" />
       </div>
 
-      <div className="container-custom relative z-20 pt-32 pb-20">
+      <div className="container-custom relative z-20 pt-28 md:pt-32 pb-20">
         <div className="max-w-4xl">
-          {/* Wine accent line with animation */}
-          <motion.div
-            initial={{ width: 0 }}
-            animate={{ width: '4rem' }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="wine-divider mb-8 hero-divider"
-          />
+          {/* Eyebrow — instant message match for paid traffic */}
+          <motion.p
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.05 }}
+            className="hero-divider mb-5 md:mb-6 inline-flex items-center gap-3 text-xs md:text-sm font-medium uppercase tracking-[0.18em] text-wine"
+          >
+            <span className="w-10 h-[2px] bg-wine shrink-0" />
+            {t.hero.eyebrow}
+          </motion.p>
 
           {/* Main Headline - Split into Left and Right for drift effect */}
-          <h1 className="font-display text-6xl md:text-8xl font-bold text-charcoal mb-6 leading-tight">
+          <h1 className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-charcoal mb-5 md:mb-6 leading-tight">
             {/* Left side - drifts left and up */}
             <span className="headline-left inline-block">
               {t.hero.headlineLeft.map((word, i) => (
@@ -204,36 +210,51 @@ export default function Hero() {
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1.4 }}
-            className="text-xl md:text-2xl font-display text-charcoal/70 mb-12 max-w-3xl leading-relaxed hero-subheadline"
+            transition={{ duration: 0.6, delay: 0.35 }}
+            className="text-xl md:text-2xl font-display text-charcoal/70 mb-8 md:mb-10 max-w-3xl leading-relaxed hero-subheadline"
           >
             {t.hero.subheadline}
           </motion.p>
 
-          {/* CTAs with stagger */}
+          {/* CTAs — visible fast; primary = visit, secondary = WhatsApp */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1.8 }}
-            className="flex flex-col sm:flex-row gap-4 hero-ctas"
+            transition={{ duration: 0.6, delay: 0.5 }}
+            className="hero-ctas"
           >
-            {/* Primary CTA */}
-            <motion.a
-              href="#admissions"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="btn-primary inline-flex items-center justify-center group"
-            >
-              {t.hero.ctaPrimary}
-              <FiArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
-            </motion.a>
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+              {/* Primary CTA */}
+              <motion.a
+                href="#admissions"
+                data-cta="hero_schedule_visit"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="btn-primary inline-flex items-center justify-center group shadow-lg shadow-wine/20"
+              >
+                {t.hero.ctaPrimary}
+                <FiArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
+              </motion.a>
 
-            {/* Secondary CTA — brochure level dropdown */}
-            <BrochureLevelDropdown
-              className="btn-secondary inline-flex items-center justify-center"
-            >
+              {/* Secondary CTA — WhatsApp */}
+              <motion.a
+                href="https://wa.me/5214421227791"
+                target="_blank"
+                rel="noopener noreferrer"
+                data-cta="hero_whatsapp"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="inline-flex items-center justify-center px-8 py-3 rounded-sm font-medium bg-white/90 text-charcoal border border-charcoal/15 shadow-sm hover:border-[#25D366]/60 transition-colors duration-300"
+              >
+                <FaWhatsapp className="mr-2 text-[#25D366]" size={20} />
+                {t.hero.ctaWhatsapp}
+              </motion.a>
+            </div>
+
+            {/* Tertiary — brochure download as quiet text link */}
+            <BrochureLevelDropdown className="mt-5 inline-flex items-center text-sm text-charcoal/70 underline underline-offset-4 decoration-wine/40 hover:text-wine transition-colors">
               <FiDownload className="mr-2" />
-              {t.hero.ctaSecondary}
+              {t.hero.ctaBrochure}
             </BrochureLevelDropdown>
           </motion.div>
 
@@ -241,15 +262,15 @@ export default function Hero() {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 2.0 }}
-            className="mt-16 flex flex-wrap items-center gap-8 text-sm text-charcoal/60 hero-trust"
+            transition={{ duration: 0.6, delay: 0.7 }}
+            className="mt-10 md:mt-14 flex flex-wrap items-center gap-x-8 gap-y-3 text-sm text-charcoal/70 hero-trust"
           >
-            {t.hero.trustIndicators.map((label, index) => ({ label, delay: index * 0.1 })).map((item, index) => (
+            {t.hero.trustIndicators.map((label, index) => ({ label, delay: index * 0.08 })).map((item, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5, delay: 2.1 + item.delay }}
+                transition={{ duration: 0.4, delay: 0.75 + item.delay }}
                 className="flex items-center"
               >
                 <div className="w-12 h-[2px] bg-wine mr-3" />
@@ -264,7 +285,7 @@ export default function Hero() {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 2.4 }}
+        transition={{ duration: 1, delay: 1.2 }}
         className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-30"
       >
         <motion.div
@@ -272,7 +293,8 @@ export default function Hero() {
           transition={{ duration: 1.5, repeat: Infinity }}
           className="w-6 h-10 border-2 border-wine/30 rounded-full flex justify-center cursor-pointer"
           onClick={() => {
-            const target = document.getElementById('benefits');
+            // Benefits section's id is "about" — 'benefits' doesn't exist
+            const target = document.getElementById('about');
             const smoother = ScrollSmoother.get();
             if (target && smoother) {
               smoother.scrollTo(target, true, 'top top');

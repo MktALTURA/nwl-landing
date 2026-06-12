@@ -35,12 +35,14 @@ export const en: Dictionary = {
     whatsappAriaLabel: 'Chat on WhatsApp',
   },
   hero: {
+    eyebrow: 'Bilingual school in Querétaro · Maternal to High School',
     headlineLeft: ['We', 'unlock', 'greatness'],
     headlineRight: ['in', 'every', 'child.'],
     subheadline:
-      'We drive the academic, emotional, and social development of our students in a close and trusting environment.',
-    ctaPrimary: 'Get Started',
-    ctaSecondary: 'Educational Model',
+      'We support your child\'s academic, emotional, and social growth in a close and trusting environment.',
+    ctaPrimary: 'Schedule your visit',
+    ctaWhatsapp: 'Chat on WhatsApp',
+    ctaBrochure: 'Download your level\'s brochure',
     trustIndicators: ['5 Campuses', 'Maternal - Preparatoria', 'Bilingual Education'],
   },
   beSection: {

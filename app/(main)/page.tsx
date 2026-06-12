@@ -66,12 +66,17 @@ export default function Home() {
     <>
       <main ref={mainRef}>
         <Hero />
-        <KangarooSpirit />
-        <BeSection />
+        {/* Conversion-first order: with ~37% median scroll depth, the top of
+            the page must carry the value prop (Benefits) and the routes to
+            the pages that actually convert — Levels and CampusFinder link to
+            program/campus pages (12-21% bounce, 2-6 min dwell). Brand
+            storytelling moves below the routing content. */}
         <Benefits />
-        <Philosophy />
         <Levels />
         <CampusFinder />
+        <KangarooSpirit />
+        <BeSection />
+        <Philosophy />
         {/* <Testimonials /> — hidden until real testimonials are ready */}
         <Partnerships />
         <TrustNumbers />

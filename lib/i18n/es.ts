@@ -35,12 +35,14 @@ export const es: Dictionary = {
     whatsappAriaLabel: 'Chatea por WhatsApp',
   },
   hero: {
+    eyebrow: 'Colegio bilingüe en Querétaro · Maternal a Preparatoria',
     headlineLeft: ['Desarrollamos', 'la', 'grandeza'],
     headlineRight: ['que', 'hay', 'en', 'cada', 'niño.'],
     subheadline:
-      'Impulsamos el desarrollo académico, emocional y social de nuestros alumnos en un ambiente cercano y de confianza.',
-    ctaPrimary: 'Comienza Aquí',
-    ctaSecondary: 'Modelo Educativo',
+      'Acompañamos el desarrollo académico, emocional y social de tu hijo en un ambiente cercano y de confianza.',
+    ctaPrimary: 'Agenda tu visita',
+    ctaWhatsapp: 'Escríbenos por WhatsApp',
+    ctaBrochure: 'Descarga el brochure de tu nivel',
     trustIndicators: ['5 Campus', 'Maternal a Preparatoria', 'Educación Bilingüe'],
   },
   beSection: {

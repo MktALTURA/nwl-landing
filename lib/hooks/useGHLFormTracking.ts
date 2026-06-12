@@ -53,6 +53,21 @@ function fireConversion(formLabel: string) {
     window.gtag('event', 'conversion', {
       send_to: 'AW-17936345870/H9S4CJelm40cEI7W2-hC',
     });
+
+    // 3. GA4 conversion events (G-0D697PBCB2 shares the same gtag).
+    // GA4's enhanced-measurement form_submit can't see inside the GHL
+    // iframe, so we fire it manually. generate_lead is GA4's recommended
+    // lead event — mark it as a Key Event in GA4 admin.
+    const ga4Params = {
+      form_label: formLabel,
+      ...(lastTouch && {
+        utm_source: lastTouch.utm_source,
+        utm_medium: lastTouch.utm_medium,
+        utm_campaign: lastTouch.utm_campaign,
+      }),
+    };
+    window.gtag('event', 'form_submit', ga4Params);
+    window.gtag('event', 'generate_lead', ga4Params);
   }
 
   // NOTE: The Meta `Lead` event is intentionally NOT fired here. GHL owns the

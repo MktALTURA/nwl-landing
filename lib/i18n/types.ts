@@ -13,11 +13,13 @@ export interface Dictionary {
     whatsappAriaLabel: string;
   };
   hero: {
+    eyebrow: string;
     headlineLeft: string[];
     headlineRight: string[];
     subheadline: string;
     ctaPrimary: string;
-    ctaSecondary: string;
+    ctaWhatsapp: string;
+    ctaBrochure: string;
     trustIndicators: string[];
   };
   beSection: {
