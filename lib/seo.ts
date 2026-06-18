@@ -73,9 +73,9 @@ export const PAGE_SEO = {
     ogImage: '/images/levels/kinder/kinder-digital-learning.jpg',
   },
   newlandKnotion: {
-    title: 'Knotion en Newland: sin pantallas en Maternal, descuentos en 3 campus',
+    title: 'Knotion en Newland: introducción gradual en Kinder y descuentos en 3 campus',
     description:
-      'Colegio Newland actualiza su implementación Knotion: sin iPad en Maternal, introducción gradual en Kinder y descuentos exclusivos en campus Milenio, San Miguel y Corregidora.',
+      'Colegio Newland actualiza su metodología Knotion: introducción gradual en Kinder con Knotion Sense y descuentos exclusivos en los campus Milenio, San Miguel y Corregidora. En Maternal el aprendizaje continúa sin pantallas.',
     ogImage: '/images/levels/kinder/kinder-digital-learning.jpg',
   },
 } as const;

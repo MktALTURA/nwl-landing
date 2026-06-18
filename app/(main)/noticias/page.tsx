@@ -24,7 +24,7 @@ const posts: NewsPost[] = [
     readingTime: '6 min',
     title: 'Newland × Knotion: A Smarter, Braver Way to Learn',
     excerpt:
-      'Sin iPad en Maternal, introducción gradual en Kinder y descuentos exclusivos en los campus Milenio, San Miguel y Corregidora. Una actualización importante sobre nuestra metodología — y lo que significa para tu familia.',
+      'Introducción gradual de Knotion en Kinder con Knotion Sense y descuentos exclusivos en los campus Milenio, San Miguel y Corregidora. Una actualización importante sobre nuestra metodología y lo que significa para tu familia.',
     image: '/images/levels/kinder/kinder-digital-learning.jpg',
     featured: true,
   },
@@ -67,7 +67,7 @@ export default function NoticiasIndex() {
           </h1>
           <p className="mt-5 text-xl text-white/75 max-w-2xl leading-relaxed">
             Actualizaciones oficiales sobre metodología, alianzas, campus y
-            comunidad — para familias, docentes y nuestro equipo de admisiones.
+            comunidad, para familias, docentes y nuestro equipo de admisiones.
           </p>
         </div>
       </section>

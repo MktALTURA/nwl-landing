@@ -67,12 +67,12 @@ const kinderSteps = [
 const familyCards = [
   {
     tag: 'Para Maternal',
-    body: 'Tu hijo aprenderá con la metodología Knotion en su expresión más pura y apropiada para la edad. Sin pantallas. Con todo el rigor académico. Con docentes especializados en primera infancia que conocen cada reto transdisciplinar.',
+    body: 'Tu hijo vivirá una etapa de Maternal sensorial, afectiva y sin pantallas, acompañado de cerca por docentes especializados en primera infancia. Una base sólida para todo lo que viene después.',
     badge: 'bg-bubblegum/20',
   },
   {
     tag: 'Para Kinder',
-    body: 'El camino hacia la tecnología es gradual, intencional y respaldado por ciencia del desarrollo. Tu hijo llegará a Primaria no solo sabiendo usar un iPad, sino sabiendo por qué y para qué lo usa.',
+    body: 'El camino hacia la tecnología es gradual e intencional, guiado por el modelo de Knotion. Tu hijo llegará a Primaria no solo sabiendo usar un iPad, sino sabiendo por qué y para qué lo usa.',
     badge: 'bg-ocean/20',
   },
   {
@@ -96,18 +96,6 @@ const sources = [
   {
     label: 'Knotion · ResearchGate: An Analysis of a Learning Ecosystem',
     href: 'https://www.researchgate.net/publication/397393336_An_An_Analysis_of_a_Learning_Ecosystem_The_Knotion_CMS',
-  },
-  {
-    label: 'Screen time in children under 3 · NCBI Systematic Review',
-    href: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC3844496/',
-  },
-  {
-    label: 'Screen time and developmental outcomes for preschool children · PubMed',
-    href: 'https://pubmed.ncbi.nlm.nih.gov/34012028/',
-  },
-  {
-    label: 'Screen time and preschool children · Canadian Paediatric Society',
-    href: 'https://cps.ca/en/documents/position/screen-time-and-preschool-children',
   },
   {
     label: 'Knotion App Developer · Apple App Store',
@@ -345,10 +333,10 @@ export default function NewlandKnotionNews() {
           </SectionHeading>
           <div className="space-y-6">
             <Body>
-              A partir de este ciclo, los alumnos de Maternal en Colegio Newland{' '}
-              <strong className="text-charcoal">no utilizarán iPad.</strong> Esto no
-              es una restricción. Es una decisión pedagógica respaldada por la
-              evidencia científica más actual en desarrollo infantil.
+              En Maternal, el aprendizaje continúa{' '}
+              <strong className="text-charcoal">sin el uso de iPad</strong>. En esta
+              etapa, la experiencia es sensorial, afectiva y humana: los niños
+              aprenden a través del cuerpo, del juego y del vínculo con sus maestras.
             </Body>
           </div>
 
@@ -363,41 +351,30 @@ export default function NewlandKnotionNews() {
 
           <div className="space-y-6">
             <Body>
-              El cerebro de un niño menor de 3 años se encuentra en uno de sus
-              períodos de mayor plasticidad neurológica. Durante esta etapa, el
-              aprendizaje más poderoso no ocurre frente a una pantalla. Ocurre a
-              través del cuerpo: tocar, explorar, escuchar, hablar, moverse,
-              relacionarse.
+              En los primeros años, el aprendizaje más poderoso ocurre a través de la
+              experiencia directa y de los vínculos: tocar, explorar, escuchar,
+              hablar, moverse y relacionarse. Por eso Maternal es una etapa
+              profundamente sensorial, acompañada de cerca por docentes especializados
+              en primera infancia.
             </Body>
 
-            {/* Evidence callout */}
+            {/* Sensory learning callout */}
             <div className="rounded-2xl border-l-4 border-eucalyptus bg-eucalyptus/10 p-6">
               <p className="text-xs font-bold uppercase tracking-wider text-charcoal/50 mb-2">
-                La evidencia coincide
+                Aprender con todos los sentidos
               </p>
               <p className="text-charcoal/80 leading-relaxed">
-                La <strong>Academia Americana de Pediatría (AAP)</strong>, la{' '}
-                <strong>Organización Mundial de la Salud (OMS)</strong> y más de una
-                década de investigación en psicopedagogía del desarrollo temprano
-                coinciden: la exposición a pantallas en menores de 2 a 3 años está
-                asociada con menor desarrollo del lenguaje, menor calidad de la
-                interacción adulto-niño y mayor riesgo en el desarrollo
-                neuropsicológico.
+                Los niños de Maternal trabajan con retos sensoriales, materiales
+                reales, exploración guiada, narración oral y juego simbólico.
+                Competencias como la{' '}
+                <strong>curiosidad, la comunicación y la colaboración</strong> se
+                desarrollan de forma plena en esta etapa, a su propio ritmo.
               </p>
             </div>
 
             <Body>
-              En Maternal, la metodología Knotion se vive de forma completamente
-              desconectada: retos sensoriales, manipulación de materiales reales,
-              exploración guiada por la maestra, narración oral, juego simbólico.
-              Todas las competencias globales que Knotion desarrolla, como la{' '}
-              <strong className="text-charcoal">curiosidad, el pensamiento crítico y
-              la colaboración</strong>, se trabajan de manera plena, sin necesidad de
-              tecnología.
-            </Body>
-            <Body>
-              El resultado: los niños de Maternal aprenden más, mejor, y con una
-              base sensorial y social más sólida para lo que viene después.
+              El resultado: una base sensorial, emocional y social sólida sobre la
+              cual el niño construirá todo lo que viene después.
             </Body>
           </div>
         </motion.section>
@@ -405,11 +382,11 @@ export default function NewlandKnotionNews() {
         {/* Kinder */}
         <motion.section {...fadeUp} className="mt-16">
           <SectionHeading eyebrow="Kinder · Ages 3-5">
-            The Gradual Path Back to Digital
+            A Gradual Path Into Digital
           </SectionHeading>
           <Body>
-            En Kinder, la tecnología regresa, pero de manera intencional,
-            progresiva y siempre al servicio del aprendizaje.
+            En Kinder, la tecnología se introduce de manera intencional, progresiva y
+            siempre al servicio del aprendizaje, guiada por el modelo de Knotion.
           </Body>
 
           {/* Stepped progression */}
@@ -454,12 +431,12 @@ export default function NewlandKnotionNews() {
               ¿Por qué gradual?
             </p>
             <p className="text-charcoal/80 leading-relaxed">
-              Porque la psicopedagogía del desarrollo es clara: la atención
-              sostenida, la autorregulación frente a estímulos digitales y la
-              transferencia del aprendizaje digital al mundo real se desarrollan{' '}
-              <strong>entre los 4 y los 6 años, no antes.</strong> Introducir la
-              tecnología cuando el niño está listo produce mejores resultados
-              académicos y emocionales.
+              Porque Knotion está diseñado para acompañar el desarrollo del niño.
+              Conforme maduran la atención, la autorregulación y las habilidades de{' '}
+              <strong>ciudadanía digital</strong>, la plataforma incorpora nuevas
+              herramientas. Así, cuando el iPad llega, lo hace de la mano de la
+              maestra y con un propósito claro, sumando a un aprendizaje que ya tiene
+              bases sólidas.
             </p>
           </div>
         </motion.section>
