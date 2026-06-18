@@ -16,6 +16,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE_URL}/high-school`, lastModified: now },
     { url: `${SITE_URL}/trabaja-con-nosotros`, lastModified: now },
     { url: `${SITE_URL}/informacion`, lastModified: now },
+    { url: `${SITE_URL}/noticias`, lastModified: now },
+    {
+      url: `${SITE_URL}/noticias/newland-knotion`,
+      lastModified: now,
+      changeFrequency: 'monthly' as const,
+      priority: 0.7,
+    },
   ];
 
   // Dynamic campus pages

@@ -259,6 +259,7 @@ export const en: Dictionary = {
       { name: 'Team', href: '#team' },
       { name: 'Work with Us', href: '/trabaja-con-nosotros' },
       { name: 'Information', href: '/informacion' },
+      { name: 'News', href: '/noticias' },
       { name: 'Parents Portal', href: '/padres' },
     ],
     programsHeading: 'Programs',

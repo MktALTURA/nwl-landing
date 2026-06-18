@@ -260,6 +260,7 @@ export const es: Dictionary = {
       { name: 'Equipo', href: '#team' },
       { name: 'Trabaja con Nosotros', href: '/trabaja-con-nosotros' },
       { name: 'Información', href: '/informacion' },
+      { name: 'Noticias', href: '/noticias' },
       { name: 'Portal de Padres', href: '/padres' },
     ],
     programsHeading: 'Programas',

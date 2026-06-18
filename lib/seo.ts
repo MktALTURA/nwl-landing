@@ -66,4 +66,16 @@ export const PAGE_SEO = {
       'Access school calendars, cafeteria menus, announcements, and supply lists for Newland School. Portal de padres de Colegio Newland.',
     ogImage: '/images/og/home.jpg',
   },
+  noticias: {
+    title: 'Noticias — Newland School',
+    description:
+      'Actualizaciones oficiales de Colegio Newland: metodología, alianzas, campus y comunidad. News and updates from Newland School.',
+    ogImage: '/images/levels/kinder/kinder-digital-learning.jpg',
+  },
+  newlandKnotion: {
+    title: 'Knotion en Newland: sin pantallas en Maternal, descuentos en 3 campus',
+    description:
+      'Colegio Newland actualiza su implementación Knotion: sin iPad en Maternal, introducción gradual en Kinder y descuentos exclusivos en campus Milenio, San Miguel y Corregidora.',
+    ogImage: '/images/levels/kinder/kinder-digital-learning.jpg',
+  },
 } as const;

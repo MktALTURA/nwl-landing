@@ -104,8 +104,7 @@ const nextConfig = {
       { source: '/grupos-representativos', destination: '/', permanent: true },
       { source: '/inscripcion', destination: '/', permanent: true },
       // /trabaja-con-nosotros now has its own page — redirect removed
-      { source: '/noticias', destination: '/', permanent: true },
-      { source: '/noticias/:path*', destination: '/', permanent: true },
+      // /noticias now has its own news section — redirect removed
       { source: '/venta-nocturna', destination: '/', permanent: true },
 
       // ── Old SEO landing pages (/docs/*) → /informacion/ pages ──

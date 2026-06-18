@@ -223,6 +223,52 @@ export function FAQPageJsonLd({ faqs }: { faqs: InformacionFAQ[] }) {
   return <JsonLdScript data={data} />;
 }
 
+/* ── NewsArticle — used on /noticias post pages ── */
+export function ArticleJsonLd({
+  headline,
+  description,
+  url,
+  image,
+  datePublished,
+  dateModified,
+  section,
+}: {
+  headline: string;
+  description: string;
+  url: string;
+  image: string;
+  datePublished: string;
+  dateModified?: string;
+  section?: string;
+}) {
+  const data = {
+    '@context': 'https://schema.org',
+    '@type': 'NewsArticle',
+    headline,
+    description,
+    image: [image.startsWith('http') ? image : `${SITE_URL}${image}`],
+    mainEntityOfPage: { '@type': 'WebPage', '@id': url },
+    datePublished,
+    dateModified: dateModified || datePublished,
+    ...(section ? { articleSection: section } : {}),
+    author: {
+      '@type': 'Organization',
+      name: SITE_NAME,
+      url: SITE_URL,
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: SITE_NAME,
+      logo: {
+        '@type': 'ImageObject',
+        url: `${SITE_URL}/images/brand/nwl-logo-wine.png`,
+      },
+    },
+  };
+
+  return <JsonLdScript data={data} />;
+}
+
 /* ── BreadcrumbList — used on all pages ── */
 export function BreadcrumbJsonLd({
   items,
