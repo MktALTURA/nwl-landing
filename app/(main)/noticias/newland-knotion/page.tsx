@@ -6,7 +6,6 @@ import {
   FiClock,
   FiSmartphone,
   FiSun,
-  FiHeart,
   FiLayers,
   FiAward,
   FiUser,
@@ -570,33 +569,6 @@ export default function NewlandKnotionNews() {
                 <p className="text-sm text-charcoal/75 leading-relaxed">{card.body}</p>
               </div>
             ))}
-          </div>
-        </motion.section>
-
-        {/* Teaching team */}
-        <motion.section {...fadeUp} className="mt-16">
-          <SectionHeading eyebrow="For Our Teaching Team">
-            A Note to Our Teachers
-          </SectionHeading>
-          <div className="rounded-2xl border border-mustard/30 bg-mustard/[0.07] p-7 space-y-5">
-            <p className="text-charcoal/80 leading-relaxed">
-              <FiHeart className="inline mb-1 mr-2 text-wine" size={18} />
-              Estos cambios <strong>los refuerzan a ustedes, no los reemplazan.</strong>
-            </p>
-            <p className="text-charcoal/80 leading-relaxed">
-              En Maternal, la ausencia de la pantalla significa más espacio para su
-              voz, su guía y su relación con cada niño. Ustedes son el medio de
-              aprendizaje más poderoso en esa etapa.
-            </p>
-            <p className="text-charcoal/80 leading-relaxed">
-              En Kinder 1 y 2, el rol docente en la introducción gradual es crítico.
-              El iPad no aparece solo: aparece cuando la maestra lo introduce, lo
-              contextualiza y lo conecta con el reto.
-            </p>
-            <p className="text-charcoal/80 leading-relaxed font-medium">
-              Knotion es una herramienta al servicio del modelo pedagógico de Newland.
-              Y el modelo pedagógico de Newland lo llevan ustedes.
-            </p>
           </div>
         </motion.section>
       </article>
