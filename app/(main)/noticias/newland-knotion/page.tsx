@@ -48,18 +48,18 @@ const sensePillars = [
 const kinderSteps = [
   {
     label: 'Kinder 1',
-    title: 'Uso mínimo de iPad',
-    body: 'El enfoque sigue siendo la experiencia física y la construcción de habilidades socioemocionales. La tecnología aparece solo en momentos específicos y siempre acompañada por la maestra.',
+    title: 'Sin iPad propio',
+    body: 'El niño no necesita traer iPad. El enfoque es completamente físico y socioemocional; cualquier acercamiento a lo digital es puntual y guiado por la maestra en dispositivos del aula.',
   },
   {
     label: 'Kinder 2',
-    title: 'Introducción gradual',
-    body: 'Los niños comienzan a interactuar con herramientas digitales de forma guiada, desarrollando las competencias de ciudadanía digital que Knotion promueve desde una base sólida.',
+    title: 'Sin iPad, acercamiento guiado',
+    body: 'Tampoco se requiere traer iPad. Los niños empiezan a familiarizarse con herramientas digitales de forma guiada, sentando las bases de ciudadanía digital que Knotion promueve.',
   },
   {
     label: 'Kinder 3',
-    title: 'Integración con Knotion Sense',
-    body: 'Los alumnos ya cuentan con la madurez cognitiva y la autorregulación necesaria para aprovechar la plataforma de forma significativa.',
+    title: 'iPad propio + Knotion Sense',
+    body: 'A partir de Kinder 3 el niño cuenta con su propio iPad, con un uso moderado de alrededor de 5 horas por semana, ya integrado de lleno con Knotion Sense.',
   },
 ];
 
