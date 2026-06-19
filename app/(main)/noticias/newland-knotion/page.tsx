@@ -48,18 +48,18 @@ const sensePillars = [
 const kinderSteps = [
   {
     label: 'Kinder 1',
-    title: 'Knotion Sense, sin iPad propio',
-    body: 'El niño trabaja con Knotion Sense en momentos puntuales y guiados por la maestra, sobre dispositivos del aula. No necesita traer iPad; el enfoque sigue siendo físico y socioemocional.',
+    title: 'Sin iPad, 100% guiado por el coach',
+    body: 'El aprendizaje es 100% guiado por el coach y el aprendiz no usa iPad. El coach utiliza su dispositivo para presentar contenidos y actividades, integrando los materiales sensoriales y los Kn·Books.',
   },
   {
     label: 'Kinder 2',
-    title: 'Knotion Sense, acercamiento guiado',
-    body: 'Tampoco se requiere traer iPad. Los niños usan Knotion Sense de forma guiada, ampliando su familiaridad digital y las bases de ciudadanía digital que Knotion promueve.',
+    title: 'iPad 1:1 · 120 min por semana',
+    body: 'Uso de iPad 1:1 dos veces por semana, 30 minutos en Ruta Local (español) y 30 minutos en Global Pathway (inglés). Total: 120 minutos semanales con dispositivo.',
   },
   {
     label: 'Kinder 3',
-    title: 'Knotion Sense con iPad propio',
-    body: 'A partir de Kinder 3 el niño cuenta con su propio iPad, con un uso moderado de alrededor de 5 horas por semana, aprovechando Knotion Sense de forma más autónoma.',
+    title: 'iPad 1:1 + alianzas · 210 min por semana',
+    body: 'Mismo esquema que Kinder 2, más el uso de alianzas o plataformas adaptativas que fortalecen la comprensión lectora en inglés, las habilidades matemáticas y la fluidez lectora en español. Total: 210 minutos semanales con dispositivo.',
   },
 ];
 
