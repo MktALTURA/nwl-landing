@@ -59,7 +59,7 @@ const kinderSteps = [
   {
     label: 'Kinder 3',
     title: 'iPad 1:1 + alianzas · 210 min por semana',
-    body: 'Mismo esquema que Kinder 2, más el uso de alianzas o plataformas adaptativas que fortalecen la comprensión lectora en inglés, las habilidades matemáticas y la fluidez lectora en español. Total: 210 minutos semanales con dispositivo.',
+    body: 'Mismo esquema que Kinder 2, más el uso de alianzas (Lecto Inteligente, Dreambox y Scholastic) que fortalecen la comprensión lectora en inglés, las habilidades matemáticas y la fluidez lectora en español. Total: 210 minutos semanales con dispositivo.',
   },
 ];
 
@@ -427,15 +427,16 @@ export default function NewlandKnotionNews() {
 
           <div className="rounded-2xl border-l-4 border-blueberry bg-blueberry/[0.06] p-6">
             <p className="text-xs font-bold uppercase tracking-wider text-charcoal/50 mb-2">
-              ¿Por qué gradual?
+              Menos pantalla, más experiencia
             </p>
             <p className="text-charcoal/80 leading-relaxed">
-              Porque Knotion está diseñado para acompañar el desarrollo del niño.
-              Conforme maduran la atención, la autorregulación y las habilidades de{' '}
-              <strong>ciudadanía digital</strong>, la plataforma incorpora nuevas
-              herramientas. Así, cuando el iPad llega, lo hace de la mano de la
-              maestra y con un propósito claro, sumando a un aprendizaje que ya tiene
-              bases sólidas.
+              Este esquema representa una{' '}
+              <strong>reducción considerable del uso del dispositivo</strong> frente al
+              modelo anterior. El tiempo recomendado no es todo frente a la pantalla:
+              incluye eBooks, materiales sensoriales y otras actividades. Los niños
+              siguen escribiendo a mano y trabajando con pintura, plastilina, arena y
+              texturas. Además, los iPads no van a casa: se quedan en el colegio y cada
+              niño accede con su propio código QR, sin usuarios ni contraseñas.
             </p>
           </div>
         </motion.section>
@@ -543,11 +544,6 @@ export default function NewlandKnotionNews() {
             detalles de aplicación por campus.
           </p>
 
-          <PullQuote>
-            Este beneficio está vinculado al British Endowment Foundation Program y es
-            un reconocimiento a las familias que forman parte de la comunidad Newland
-            en estos campus.
-          </PullQuote>
         </motion.section>
 
         {/* What this means for your family */}
