@@ -52,6 +52,38 @@ export interface Dictionary {
     sectionTitleAccent: string;
     sectionSubtitle: string;
   };
+  beneficios: {
+    // Hero
+    eyebrow: string;
+    title: string;
+    titleAccent: string;
+    subtitle: string;
+    statPartners: string;
+    statCategories: string;
+    // Catalog
+    catalogTitle: string;
+    catalogTitleAccent: string;
+    catalogSubtitle: string;
+    filterAll: string;
+    vigenciaLabel: string;
+    viewMore: string;
+    noResults: string;
+    // How to redeem
+    howToTitle: string;
+    howToTitleAccent: string;
+    howToSubtitle: string;
+    howToSteps: { title: string; description: string }[];
+    // Apply to become a partner
+    applyTitle: string;
+    applyTitleAccent: string;
+    applySubtitle: string;
+    applyBenefits: string[];
+    applyFormId: string;
+    applyFormName: string;
+    applyFormTitle: string;
+    applyFormPlaceholder: string;
+    applyFormPlaceholderNote: string;
+  };
   levels: {
     sectionTitle: string;
     sectionTitleAccent: string;

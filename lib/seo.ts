@@ -72,6 +72,12 @@ export const PAGE_SEO = {
       'Actualizaciones oficiales de Colegio Newland: metodología, alianzas, campus y comunidad. News and updates from Newland School.',
     ogImage: '/images/levels/kinder/kinder-digital-learning.jpg',
   },
+  beneficios: {
+    title: 'Catálogo de Beneficios — Comunidad Newland',
+    description:
+      'Beneficios y descuentos exclusivos para la comunidad Newland: salud, estudios clínicos, dental y más. Aliados que reconocen a las familias y colaboradores de Colegio NWL.',
+    ogImage: '/images/og/home.jpg',
+  },
   newlandKnotion: {
     title: 'Knotion en Newland: introducción gradual en Kinder y descuentos en 3 campus',
     description:

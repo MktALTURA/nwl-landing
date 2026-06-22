@@ -27,6 +27,7 @@ export const en: Dictionary = {
           { name: 'Zibata', href: '/campus/zibata' },
         ],
       },
+      { name: 'Benefits', href: '/beneficios' },
       { name: 'Admissions', href: '#admissions', highlight: true },
       { name: 'Contact', href: '#contact' },
     ],
@@ -117,6 +118,54 @@ export const en: Dictionary = {
     sectionTitleAccent: 'Inspire Excellence',
     sectionSubtitle:
       'We collaborate with world-class institutions to deliver an education that transcends borders.',
+  },
+  beneficios: {
+    eyebrow: 'NWL Community',
+    title: 'Benefits',
+    titleAccent: 'Catalog',
+    subtitle:
+      'Partners that recognize the NWL family with exclusive discounts and benefits in health, wellness and more.',
+    statPartners: 'partners',
+    statCategories: 'categories',
+    catalogTitle: 'Benefits for',
+    catalogTitleAccent: 'our community',
+    catalogSubtitle:
+      'Browse by category and enjoy every benefit by presenting your NWL credential.',
+    filterAll: 'All',
+    vigenciaLabel: 'Valid',
+    viewMore: 'Visit partner',
+    noResults: 'No benefits in this category at the moment.',
+    howToTitle: 'How you get',
+    howToTitleAccent: 'your benefit',
+    howToSubtitle: 'Enjoying your NWL benefits is simple.',
+    howToSteps: [
+      {
+        title: 'Identify as NWL community',
+        description: 'You are a student, direct family member or staff of Colegio NWL.',
+      },
+      {
+        title: 'Present your credential',
+        description: 'Show your NWL credential when requesting the service from the partner.',
+      },
+      {
+        title: 'Get your benefit',
+        description: 'The exclusive discount or benefit is applied right away.',
+      },
+    ],
+    applyTitle: 'Want your business to become',
+    applyTitleAccent: 'an NWL partner?',
+    applySubtitle:
+      'Add your brand to the benefits catalog and connect with the entire NWL community of families and staff.',
+    applyBenefits: [
+      'Exposure to thousands of NWL community families',
+      'No enrollment cost to join the program',
+      'Promotion across our official channels',
+    ],
+    applyFormId: 'naXZnvvAoMuM86L1OwqV',
+    applyFormName: 'Formulario para Empresas web',
+    applyFormTitle: 'Formulario para Empresas web',
+    applyFormPlaceholder: 'Registration form',
+    applyFormPlaceholderNote: 'You will soon be able to register your business here.',
   },
   levels: {
     sectionTitle: 'Educational',
@@ -260,6 +309,7 @@ export const en: Dictionary = {
       { name: 'Work with Us', href: '/trabaja-con-nosotros' },
       { name: 'Information', href: '/informacion' },
       { name: 'News', href: '/noticias' },
+      { name: 'Benefits', href: '/beneficios' },
       { name: 'Parents Portal', href: '/padres' },
     ],
     programsHeading: 'Programs',

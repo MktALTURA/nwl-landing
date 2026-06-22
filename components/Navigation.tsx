@@ -161,8 +161,9 @@ export default function Navigation() {
   const isInformacion = pathname.startsWith('/informacion');
   const isPadres = pathname.startsWith('/padres');
   const isNoticias = pathname.startsWith('/noticias');
+  const isBeneficios = pathname.startsWith('/beneficios');
   // On pages with dark/bright heroes, use white logos/text before scroll
-  const useWhiteNav = (isCampusJuriquilla || isCampusMilenio || isCampusSanMiguel || isCareers || isElementary || isInformacion || isPadres || isNoticias) && !isScrolled;
+  const useWhiteNav = (isCampusJuriquilla || isCampusMilenio || isCampusSanMiguel || isCareers || isElementary || isInformacion || isPadres || isNoticias || isBeneficios) && !isScrolled;
 
   return (
     <nav
@@ -175,7 +176,7 @@ export default function Navigation() {
           {/* Logo — animate entrance only on homepage */}
           {isSubpage ? (
             <a href="/" className="flex items-center gap-2">
-              {(isCampusJuriquilla || isCampusMilenio || isCampusSanMiguel || isInformacion || isNoticias) ? (
+              {(isCampusJuriquilla || isCampusMilenio || isCampusSanMiguel || isInformacion || isNoticias || isBeneficios) ? (
                 <>
                   <img
                     src="/images/brand/kangaroo-white-transparent.png"
