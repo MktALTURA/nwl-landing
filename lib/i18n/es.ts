@@ -124,7 +124,7 @@ export const es: Dictionary = {
     title: 'Beneficios y',
     titleAccent: 'Convenios',
     subtitle:
-      'Aliados que reconocen a la familia NWL con descuentos y beneficios exclusivos en salud, bienestar y más.',
+      'Aliados que reconocen a la familia NWL con descuentos y beneficios exclusivos en salud, bienestar, gastronomía, entretenimiento y más.',
     statPartners: 'aliados',
     statCategories: 'categorías',
     catalogTitle: 'Beneficios para',
