@@ -27,7 +27,7 @@ export const es: Dictionary = {
           { name: 'Zibatá', href: '/campus/zibata' },
         ],
       },
-      { name: 'Beneficios', href: '/beneficios' },
+      { name: 'Beneficios y Convenios', href: '/beneficios' },
       { name: 'Admisiones', href: '#admissions', highlight: true },
       { name: 'Contacto', href: '#contact' },
     ],
@@ -121,8 +121,8 @@ export const es: Dictionary = {
   },
   beneficios: {
     eyebrow: 'Comunidad NWL',
-    title: 'Catálogo de',
-    titleAccent: 'Beneficios',
+    title: 'Beneficios y',
+    titleAccent: 'Convenios',
     subtitle:
       'Aliados que reconocen a la familia NWL con descuentos y beneficios exclusivos en salud, bienestar y más.',
     statPartners: 'aliados',
@@ -310,7 +310,7 @@ export const es: Dictionary = {
       { name: 'Trabaja con Nosotros', href: '/trabaja-con-nosotros' },
       { name: 'Información', href: '/informacion' },
       { name: 'Noticias', href: '/noticias' },
-      { name: 'Beneficios', href: '/beneficios' },
+      { name: 'Beneficios y Convenios', href: '/beneficios' },
       { name: 'Portal de Padres', href: '/padres' },
     ],
     programsHeading: 'Programas',

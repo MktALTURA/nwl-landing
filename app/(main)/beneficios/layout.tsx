@@ -14,7 +14,7 @@ export const metadata: Metadata = {
         url: PAGE_SEO.beneficios.ogImage,
         width: 1200,
         height: 630,
-        alt: 'Catálogo de Beneficios — Comunidad Newland',
+        alt: 'Beneficios y Convenios — Comunidad Newland',
       },
     ],
   },
@@ -39,7 +39,7 @@ export default function BeneficiosLayout({
       <BreadcrumbJsonLd
         items={[
           { name: 'Newland School', url: SITE_URL },
-          { name: 'Beneficios', url: `${SITE_URL}/beneficios` },
+          { name: 'Beneficios y Convenios', url: `${SITE_URL}/beneficios` },
         ]}
       />
       {children}

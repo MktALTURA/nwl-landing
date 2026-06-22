@@ -73,7 +73,7 @@ export const PAGE_SEO = {
     ogImage: '/images/levels/kinder/kinder-digital-learning.jpg',
   },
   beneficios: {
-    title: 'Catálogo de Beneficios — Comunidad Newland',
+    title: 'Beneficios y Convenios — Comunidad Newland',
     description:
       'Beneficios y descuentos exclusivos para la comunidad Newland: salud, estudios clínicos, dental y más. Aliados que reconocen a las familias y colaboradores de Colegio NWL.',
     ogImage: '/images/og/home.jpg',
