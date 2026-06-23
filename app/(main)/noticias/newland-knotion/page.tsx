@@ -59,7 +59,7 @@ const kinderSteps = [
   {
     label: 'Kinder 3',
     title: 'iPad 1:1 + alianzas · 210 min por semana',
-    body: 'Mismo esquema que Kinder 2, más el uso de alianzas (Lecto Inteligente, Dreambox y Scholastic) que fortalecen la comprensión lectora en inglés, las habilidades matemáticas y la fluidez lectora en español. Total: 210 minutos semanales con dispositivo.',
+    body: 'Mismo esquema que Kinder 2, más el uso de alianzas (Lectura Inteligente, Dreambox y Scholastic) que fortalecen la comprensión lectora en inglés, las habilidades matemáticas y la fluidez lectora en español. Total: 210 minutos semanales con dispositivo.',
   },
 ];
 
