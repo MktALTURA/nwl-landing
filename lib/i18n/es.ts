@@ -145,7 +145,7 @@ export const es: Dictionary = {
       },
       {
         title: 'Presenta tu credencial',
-        description: 'Muestra tu credencial NWL al momento de solicitar el servicio con el aliado.',
+        description: 'Presenta tu credencial de estudiante o colaborador, o la App NWL si eres mamá o papá de familia, al solicitar el servicio con el aliado.',
       },
       {
         title: 'Recibe tu beneficio',

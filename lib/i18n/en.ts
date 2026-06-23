@@ -145,7 +145,7 @@ export const en: Dictionary = {
       },
       {
         title: 'Present your credential',
-        description: 'Show your NWL credential when requesting the service from the partner.',
+        description: 'Show your student or staff credential, or the NWL App if you are a parent, when requesting the service from the partner.',
       },
       {
         title: 'Get your benefit',
