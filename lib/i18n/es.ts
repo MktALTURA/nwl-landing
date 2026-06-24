@@ -27,7 +27,6 @@ export const es: Dictionary = {
           { name: 'Zibatá', href: '/campus/zibata' },
         ],
       },
-      { name: 'Beneficios y Convenios', href: '/beneficios' },
       { name: 'Admisiones', href: '#admissions', highlight: true },
       { name: 'Contacto', href: '#contact' },
     ],
