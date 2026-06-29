@@ -6,6 +6,7 @@ import { useLanguage } from '@/lib/i18n/LanguageContext';
 const getPartners = (locale: string) => [
   { name: 'Apple Distinguished School', src: '/images/logos/partners/Apple-Distinguished-School.png', scale: '' },
   { name: 'Knotion', src: '/images/logos/partners/knotion.png', scale: '' },
+  { name: 'Kn·Spark Sense by Knotion', src: '/images/logos/partners/kn-spark-sense-knotion-color.png', scale: '' },
   { name: 'Universidad Mondragón México', src: '/images/logos/partners/universidad-mondragon-mexico.png', scale: '' },
   { name: 'Hokku Academy', src: '/images/logos/partners/hokku-academy.webp', scale: '' },
   { name: locale === 'en' ? 'Philosophy for Children' : 'CFPN - Filosofía para Niños', src: `/images/logos/partners/CFPN-${locale}.png`, scale: 'large' },

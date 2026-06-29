@@ -348,7 +348,7 @@ export const es: Dictionary = {
     tagline: 'Pequeños Pasos, Grandes Sueños',
     subtitle: 'Los primeros pasos de tu hijo en un entorno de inmersión en inglés',
     description:
-      'En el Colegio NWL tenemos la mejor opción para iniciar con la formación de tu hijo desde los dos años. Dedicamos especial cuidado y atención en su seguridad y desarrollo integral a través de la lúdica y nuestro programa bilingüe "Brain Up".',
+      'En el Colegio NWL tenemos la mejor opción para iniciar con la formación de tu hijo desde los dos años. Dedicamos especial cuidado y atención en su seguridad y desarrollo integral a través de la lúdica y nuestro programa bilingüe "Brain Up". En esta etapa el aprendizaje es sensorial, afectivo y sin pantallas: una base sólida antes de la introducción gradual de la tecnología en Kínder con el modelo Knotion.',
     statBilingual: 'Inmersión en Inglés',
     statCampuses: 'Campus',
     schedule: '8:20–1:30',
@@ -447,7 +447,7 @@ export const es: Dictionary = {
     ageBadge: '3–5 años',
     tagline: 'Mentes que Crecen, Futuros que se Construyen',
     description:
-      'Creemos que cada niño tiene un potencial extraordinario. Nuestro programa de Kinder nutre la curiosidad a través de la inmersión en inglés, aprendizaje basado en proyectos y nuestro Programa Multisensorial único.',
+      'Creemos que cada niño tiene un potencial extraordinario. Nuestro programa de Kinder nutre la curiosidad a través de la inmersión en inglés, aprendizaje basado en proyectos y nuestro Programa Multisensorial único. La tecnología se introduce de forma gradual e intencional, guiada por el modelo Knotion, para que cada niño aprenda no solo a usar las herramientas digitales, sino por qué y para qué.',
     statBilingual: 'Inmersión en Inglés',
     statCampuses: 'Campus',
     schedule: '8:20–1:50',
@@ -465,6 +465,31 @@ export const es: Dictionary = {
     backToHome: 'Volver al Inicio',
     overviewTitle: 'Descubre',
     overviewTitleAccent: 'Kinder NWL',
+    knotionSenseBadge: 'Kn·Spark Sense · diseñado para esta etapa',
+    gradTechTitle: 'Tecnología',
+    gradTechTitleAccent: 'Gradual',
+    gradTechSubtitle:
+      'Introducimos el iPad paso a paso, guiados por el modelo Knotion. Cada grado tiene un propósito claro: primero el niño, después la pantalla.',
+    gradTech: [
+      {
+        grade: 'Kinder 1',
+        device: 'Sin iPad',
+        detail:
+          'El aprendizaje es 100% guiado por el coach. El aprendiz no usa iPad; el coach utiliza su dispositivo para presentar contenidos y actividades, integrando los materiales sensoriales y los Kn·Books.',
+      },
+      {
+        grade: 'Kinder 2',
+        device: 'iPad 1:1 · 120 min/semana',
+        detail:
+          'Uso de iPad 1:1 dos veces por semana: 30 minutos en Ruta Local (español) y 30 minutos en Global Pathway (inglés), siempre acompañado por el coach.',
+      },
+      {
+        grade: 'Kinder 3',
+        device: 'iPad 1:1 + alianzas · 210 min/semana',
+        detail:
+          'Mismo esquema que Kinder 2, sumando alianzas (Lectura Inteligente, Dreambox y Scholastic) que fortalecen la comprensión lectora en inglés, las matemáticas y la fluidez lectora en español.',
+      },
+    ],
     pillarsTitle: 'El Modelo',
     pillarsTitleAccent: 'NWL',
     pillarsSubtitle: 'Tres pilares que definen cómo educamos desde el inicio.',

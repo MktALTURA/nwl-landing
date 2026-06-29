@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import {
   FiArrowRight,
@@ -82,7 +83,7 @@ const familyCards = [
 ];
 
 const pricingRows = [
-  { level: 'Kinder', be: '10%', sense: '+10% (Knotion Sense)', total: 'hasta 20%' },
+  { level: 'Kinder', be: '10%', sense: '+10% (Kn·Spark Sense)', total: 'hasta 20%' },
   { level: 'Primaria', be: '20%', sense: 'No aplica', total: '20%' },
   { level: 'Secundaria', be: '15%', sense: 'No aplica', total: '15%' },
 ];
@@ -228,9 +229,9 @@ export default function NewlandKnotionNews() {
             <span className="font-display text-2xl md:text-3xl text-white/40">×</span>
             <span className="rounded-lg bg-white px-3 py-2 shadow-lg">
               <img
-                src="/images/logos/partners/knotion.png"
-                alt="Knotion"
-                className="h-6 md:h-7 w-auto"
+                src="/images/logos/partners/kn-spark-sense-knotion-color.png"
+                alt="Kn·Spark Sense by Knotion"
+                className="h-7 md:h-9 w-auto"
               />
             </span>
           </div>
@@ -441,10 +442,10 @@ export default function NewlandKnotionNews() {
           </div>
         </motion.section>
 
-        {/* Knotion Sense */}
+        {/* Kn·Spark Sense */}
         <motion.section {...fadeUp} className="mt-16">
           <SectionHeading eyebrow="New Platform">
-            Introducing Knotion Sense
+            Introducing Kn·Spark Sense
           </SectionHeading>
           <Body>
             <strong className="text-charcoal">Kn·Spark Sense</strong> es la nueva
@@ -452,6 +453,16 @@ export default function NewlandKnotionNews() {
             versión reducida del sistema principal: es una aplicación construida
             desde cero para las características del aprendizaje en primera infancia.
           </Body>
+
+          <div className="mt-8 rounded-2xl border border-charcoal/10 bg-ivory px-6 py-8 flex items-center justify-center">
+            <Image
+              src="/images/logos/partners/kn-spark-sense-knotion-color.png"
+              alt="Kn·Spark Sense by Knotion"
+              width={460}
+              height={132}
+              className="h-14 md:h-16 w-auto object-contain"
+            />
+          </div>
 
           <div className="mt-8 grid gap-4 sm:grid-cols-2">
             {sensePillars.map((p) => {
@@ -475,7 +486,7 @@ export default function NewlandKnotionNews() {
 
           <div className="mt-8 space-y-6">
             <Body>
-              A diferencia de las apps genéricas de entretenimiento, Knotion Sense fue
+              A diferencia de las apps genéricas de entretenimiento, Kn·Spark Sense fue
               desarrollada en colaboración con instituciones educativas líderes en
               América Latina y probada en entornos 1:1 con resultados documentados en
               desarrollo de competencias globales.
@@ -486,7 +497,7 @@ export default function NewlandKnotionNews() {
                 <span className="font-display text-xl font-bold leading-none mt-1">-10%</span>
               </div>
               <p className="text-white/85 leading-relaxed">
-                Knotion Sense para Kinder tendrá un costo{' '}
+                Kn·Spark Sense para Kinder tendrá un costo{' '}
                 <strong className="text-white">10% menor</strong> que la plataforma
                 completa, porque fue diseñada con precisión para esa etapa, y el
                 precio debe reflejarlo.

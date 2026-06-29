@@ -19,6 +19,8 @@ import {
   FiUsers,
   FiCompass,
   FiSun,
+  FiTablet,
+  FiUserCheck,
 } from 'react-icons/fi';
 import { HiOutlineLightBulb } from 'react-icons/hi';
 import { LuBrain, LuRocket } from 'react-icons/lu';
@@ -37,6 +39,13 @@ const pillarConfig = [
   { icon: FiBookOpen, gradient: 'from-blueberry/20 to-blueberry/5', border: 'border-blueberry/25', accent: 'text-blueberry', num: 'bg-blueberry/15 text-blueberry' },
   { icon: FiGlobe, gradient: 'from-ocean/20 to-ocean/5', border: 'border-ocean/25', accent: 'text-ocean', num: 'bg-ocean/15 text-ocean' },
   { icon: FiAward, gradient: 'from-wine/15 to-wine/5', border: 'border-wine/20', accent: 'text-wine', num: 'bg-wine/10 text-wine' },
+];
+
+/* ── Gradual-technology (iPad by grade) config ── */
+const gradeTechConfig = [
+  { icon: FiUserCheck, gradient: 'from-coral/20 via-sunshine/10 to-coral/5', border: 'border-coral/30', iconBox: 'bg-coral/15 text-coral', chip: 'bg-coral text-white' },
+  { icon: FiTablet, gradient: 'from-blueberry/20 via-ocean/10 to-blueberry/5', border: 'border-blueberry/30', iconBox: 'bg-blueberry/15 text-blueberry', chip: 'bg-blueberry text-white' },
+  { icon: FiTablet, gradient: 'from-wine/18 via-mustard/15 to-wine/5', border: 'border-wine/30', iconBox: 'bg-wine/12 text-wine', chip: 'bg-wine text-white' },
 ];
 
 /* ── Timeline icon map ── */
@@ -234,6 +243,18 @@ export default function KinderPage() {
                     <span className="text-xs md:text-sm text-charcoal/50 font-medium">{k.statSchedule}</span>
                   </div>
                 </div>
+
+                {/* Kn·Spark Sense pill */}
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: 0.4, type: 'spring' }}
+                  viewport={{ once: true }}
+                  className="inline-flex items-center gap-2 bg-gradient-to-r from-blueberry to-ocean text-white px-5 py-2.5 rounded-full font-bold shadow-lg text-sm"
+                >
+                  <FiStar size={14} />
+                  {kp.knotionSenseBadge}
+                </motion.div>
               </motion.div>
 
               {/* Right — Testimonial */}
@@ -322,6 +343,69 @@ export default function KinderPage() {
                     <h3 className="font-display text-xl font-bold text-charcoal mb-1 pr-10">{pillar.title}</h3>
                     <p className={`text-sm font-semibold ${cfg.accent} mb-3`}>{pillar.subtitle}</p>
                     <p className="text-charcoal/60 leading-relaxed text-[15px]">{pillar.description}</p>
+                  </motion.div>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+
+        {/* ════════════════════════════════════════════════
+            SECTION 3.5 — GRADUAL TECHNOLOGY (iPad by grade)
+        ════════════════════════════════════════════════ */}
+        <section className="section-padding bg-gradient-to-b from-white via-sand/40 to-white relative overflow-hidden animate-section">
+          {/* Playful background blobs */}
+          <div className="absolute top-12 right-[8%] w-72 h-72 bg-coral/8 rounded-full blur-3xl" />
+          <div className="absolute bottom-10 left-[10%] w-64 h-64 bg-blueberry/8 rounded-full blur-3xl" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 w-80 h-40 bg-sunshine/8 rounded-full blur-3xl" />
+
+          <div className="container-custom relative z-10">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="text-center mb-14"
+            >
+              <div className="wine-divider mx-auto mb-4" />
+              <h2 className="font-display text-4xl md:text-5xl font-bold text-charcoal mb-4">
+                {kp.gradTechTitle}{' '}
+                <span className="text-wine">{kp.gradTechTitleAccent}</span>
+              </h2>
+              <p className="text-lg text-charcoal/60 max-w-2xl mx-auto">
+                {kp.gradTechSubtitle}
+              </p>
+              <Image
+                src="/images/logos/partners/kn-spark-sense-knotion-color.png"
+                alt="Kn·Spark Sense by Knotion"
+                width={360}
+                height={104}
+                className="h-12 md:h-14 w-auto object-contain mx-auto mt-7"
+              />
+            </motion.div>
+
+            <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+              {kp.gradTech.map((g, i) => {
+                const cfg = gradeTechConfig[i];
+                const Icon = cfg.icon;
+                return (
+                  <motion.div
+                    key={i}
+                    initial={{ opacity: 0, y: 24 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: i * 0.12 }}
+                    viewport={{ once: true }}
+                    whileHover={{ y: -6, transition: { duration: 0.25 } }}
+                    className={`bg-gradient-to-br ${cfg.gradient} rounded-2xl p-7 border ${cfg.border} hover:shadow-lg transition-shadow`}
+                  >
+                    <div className={`w-12 h-12 rounded-xl ${cfg.iconBox} flex items-center justify-center mb-4 shadow-md`}>
+                      <Icon size={22} />
+                    </div>
+                    <h3 className="font-display text-xl font-bold text-charcoal mb-3">{g.grade}</h3>
+                    <div className={`inline-flex items-center gap-2 ${cfg.chip} px-3 py-1.5 rounded-full text-sm font-semibold mb-4`}>
+                      {g.device}
+                    </div>
+                    <p className="text-charcoal/70 leading-relaxed text-[15px]">{g.detail}</p>
                   </motion.div>
                 );
               })}

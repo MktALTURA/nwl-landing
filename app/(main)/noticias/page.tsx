@@ -24,7 +24,7 @@ const posts: NewsPost[] = [
     readingTime: '6 min',
     title: 'Newland × Knotion: A Smarter, Braver Way to Learn',
     excerpt:
-      'Introducción gradual de Knotion en Kinder con Knotion Sense y descuentos exclusivos en los campus Milenio, San Miguel y Corregidora. Una actualización importante sobre nuestra metodología y lo que significa para tu familia.',
+      'Introducción gradual de Knotion en Kinder con Kn·Spark Sense y descuentos exclusivos en los campus Milenio, San Miguel y Corregidora. Una actualización importante sobre nuestra metodología y lo que significa para tu familia.',
     image: '/images/levels/kinder/kinder-digital-learning.jpg',
     featured: true,
   },

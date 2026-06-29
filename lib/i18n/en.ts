@@ -347,7 +347,7 @@ export const en: Dictionary = {
     tagline: 'Little Steps, Big Dreams',
     subtitle: 'Your child\'s first steps in an English-immersive environment',
     description:
-      'At NWL we have the best option to begin your child\'s education from age two. We dedicate special care and attention to their safety and comprehensive development through play-based learning and our bilingual "Brain Up" program.',
+      'At NWL we have the best option to begin your child\'s education from age two. We dedicate special care and attention to their safety and comprehensive development through play-based learning and our bilingual "Brain Up" program. At this stage, learning is sensory, nurturing and screen-free — a solid foundation before technology is introduced gradually in Kinder through the Knotion model.',
     statBilingual: 'English Immersion',
     statCampuses: 'Campuses',
     schedule: '8:20–1:30',
@@ -446,7 +446,7 @@ export const en: Dictionary = {
     ageBadge: 'Ages 3–5',
     tagline: 'Growing Minds, Building Futures',
     description:
-      'We believe every child holds extraordinary potential. Our Kinder program nurtures curiosity through English immersion, project-based learning, and our unique Multisensory Program.',
+      'We believe every child holds extraordinary potential. Our Kinder program nurtures curiosity through English immersion, project-based learning, and our unique Multisensory Program. Technology is introduced gradually and intentionally, guided by the Knotion model, so every child learns not just how to use digital tools, but why and what for.',
     statBilingual: 'English Immersion',
     statCampuses: 'Campuses',
     schedule: '8:20–1:50',
@@ -464,6 +464,31 @@ export const en: Dictionary = {
     backToHome: 'Back to Home',
     overviewTitle: 'Discover',
     overviewTitleAccent: 'Kinder NWL',
+    knotionSenseBadge: 'Kn·Spark Sense · built for this stage',
+    gradTechTitle: 'Gradual',
+    gradTechTitleAccent: 'Technology',
+    gradTechSubtitle:
+      'We introduce the iPad step by step, guided by the Knotion model. Each grade has a clear purpose: the child first, the screen second.',
+    gradTech: [
+      {
+        grade: 'Kinder 1',
+        device: 'No iPad',
+        detail:
+          'Learning is 100% coach-guided. The learner does not use an iPad; the coach uses their own device to present content and activities, integrating sensory materials and Kn·Books.',
+      },
+      {
+        grade: 'Kinder 2',
+        device: 'iPad 1:1 · 120 min/week',
+        detail:
+          'iPad 1:1 twice a week: 30 minutes on the Local Route (Spanish) and 30 minutes on the Global Pathway (English), always alongside the coach.',
+      },
+      {
+        grade: 'Kinder 3',
+        device: 'iPad 1:1 + partners · 210 min/week',
+        detail:
+          'Same as Kinder 2, adding partners (Lectura Inteligente, Dreambox and Scholastic) that strengthen English reading comprehension, math skills and Spanish reading fluency.',
+      },
+    ],
     pillarsTitle: 'The NWL',
     pillarsTitleAccent: 'Model',
     pillarsSubtitle: 'Three pillars that define how we educate from the start.',

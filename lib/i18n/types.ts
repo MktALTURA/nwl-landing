@@ -206,6 +206,11 @@ export interface Dictionary {
     backToHome: string;
     overviewTitle: string;
     overviewTitleAccent: string;
+    knotionSenseBadge: string;
+    gradTechTitle: string;
+    gradTechTitleAccent: string;
+    gradTechSubtitle: string;
+    gradTech: { grade: string; device: string; detail: string }[];
     pillarsTitle: string;
     pillarsTitleAccent: string;
     pillarsSubtitle: string;
