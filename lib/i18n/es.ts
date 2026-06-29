@@ -133,6 +133,8 @@ export const es: Dictionary = {
     filterAll: 'Todos',
     vigenciaLabel: 'Vigencia',
     viewMore: 'Visitar aliado',
+    viewPromo: 'Ver promoción',
+    closeLabel: 'Cerrar',
     noResults: 'No hay beneficios en esta categoría por el momento.',
     howToTitle: 'Cómo obtienes',
     howToTitleAccent: 'tu beneficio',

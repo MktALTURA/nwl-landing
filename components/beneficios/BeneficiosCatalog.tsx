@@ -1,8 +1,9 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FiExternalLink } from 'react-icons/fi';
+import { FiExternalLink, FiMaximize2, FiX } from 'react-icons/fi';
 import { useLanguage } from '@/lib/i18n/LanguageContext';
 import {
   benefitCategories,
@@ -62,11 +63,28 @@ const initials = (name: string) => {
 export default function BeneficiosCatalog() {
   const { t, locale } = useLanguage();
   const [active, setActive] = useState<string>('all');
+  // Lightbox: the promo image currently expanded (with its alt), or null.
+  const [promo, setPromo] = useState<{ src: string; alt: string } | null>(null);
 
   const filtered =
     active === 'all'
       ? benefitPartners
       : benefitPartners.filter((p) => p.categoryKey === active);
+
+  // Close on Escape and lock body scroll while the lightbox is open.
+  useEffect(() => {
+    if (!promo) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setPromo(null);
+    };
+    window.addEventListener('keydown', onKey);
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    return () => {
+      window.removeEventListener('keydown', onKey);
+      document.body.style.overflow = prevOverflow;
+    };
+  }, [promo]);
 
   return (
     <section id="catalogo" className="section-padding bg-ivory animate-section">
@@ -109,7 +127,13 @@ export default function BeneficiosCatalog() {
         >
           <AnimatePresence mode="popLayout">
             {filtered.map((partner) => (
-              <PartnerCard key={partner.slug} partner={partner} locale={locale} t={t} />
+              <PartnerCard
+                key={partner.slug}
+                partner={partner}
+                locale={locale}
+                t={t}
+                onOpenPromo={setPromo}
+              />
             ))}
           </AnimatePresence>
         </motion.div>
@@ -118,6 +142,49 @@ export default function BeneficiosCatalog() {
           <p className="text-center text-charcoal/60 mt-10">{t.beneficios.noResults}</p>
         )}
       </div>
+
+      {/* Promo lightbox — rendered via a portal to escape the GSAP
+          ScrollSmoother transform (a fixed element inside it would otherwise
+          be positioned relative to the transformed wrapper, off-screen). */}
+      {typeof document !== 'undefined' &&
+        createPortal(
+          <AnimatePresence>
+            {promo && (
+              <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            onClick={() => setPromo(null)}
+            className="fixed inset-0 z-[100] flex items-center justify-center bg-charcoal/85 backdrop-blur-sm p-4 sm:p-8 cursor-zoom-out"
+            role="dialog"
+            aria-modal="true"
+            aria-label={promo.alt}
+          >
+            <button
+              type="button"
+              onClick={() => setPromo(null)}
+              aria-label={t.beneficios.closeLabel}
+              className="absolute top-4 right-4 sm:top-6 sm:right-6 flex items-center justify-center w-11 h-11 rounded-full bg-white/15 hover:bg-white/25 text-white transition-colors"
+            >
+              <FiX size={22} />
+            </button>
+            <motion.img
+              key={promo.src}
+              src={promo.src}
+              alt={promo.alt}
+              initial={{ scale: 0.94, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.94, opacity: 0 }}
+              transition={{ duration: 0.25, ease: 'easeOut' }}
+              onClick={(e) => e.stopPropagation()}
+              className="max-w-full max-h-full w-auto h-auto rounded-xl shadow-2xl cursor-default"
+            />
+          </motion.div>
+            )}
+          </AnimatePresence>,
+          document.body
+        )}
     </section>
   );
 }
@@ -151,13 +218,19 @@ function PartnerCard({
   partner,
   locale,
   t,
+  onOpenPromo,
 }: {
   partner: BenefitPartner;
   locale: 'es' | 'en';
   t: ReturnType<typeof useLanguage>['t'];
+  onOpenPromo: (promo: { src: string; alt: string }) => void;
 }) {
   const category = getCategory(partner.categoryKey);
   const c = COLOR[category.color] ?? COLOR.mustard;
+  const promoAlt =
+    locale === 'es'
+      ? `Promoción ${partner.name} — comunidad NWL`
+      : `${partner.name} promotion — NWL community`;
 
   return (
     <motion.article
@@ -226,6 +299,28 @@ function PartnerCard({
           <p className="text-sm text-charcoal/70 leading-relaxed mb-3">
             {tr(partner.detail, locale)}
           </p>
+        )}
+
+        {/* Promo flyer — clickable thumbnail that opens the lightbox */}
+        {partner.promoImage && (
+          <button
+            type="button"
+            onClick={() => onOpenPromo({ src: partner.promoImage!, alt: promoAlt })}
+            aria-label={t.beneficios.viewPromo}
+            className="group/promo relative w-full overflow-hidden rounded-lg ring-1 ring-warmgray/60 mb-3 cursor-zoom-in"
+          >
+            <img
+              src={partner.promoImage}
+              alt={promoAlt}
+              loading="lazy"
+              className="w-full h-auto object-cover transition-transform duration-300 group-hover/promo:scale-[1.03]"
+            />
+            <span className="absolute inset-0 bg-charcoal/0 group-hover/promo:bg-charcoal/15 transition-colors duration-300" />
+            <span className="absolute bottom-2 right-2 inline-flex items-center gap-1.5 rounded-full bg-charcoal/70 px-2.5 py-1 text-[11px] font-medium text-white backdrop-blur-sm">
+              <FiMaximize2 size={12} />
+              {t.beneficios.viewPromo}
+            </span>
+          </button>
         )}
 
         {/* Restrictions / fine print */}

@@ -67,6 +67,8 @@ export interface Dictionary {
     filterAll: string;
     vigenciaLabel: string;
     viewMore: string;
+    viewPromo: string;
+    closeLabel: string;
     noResults: string;
     // How to redeem
     howToTitle: string;

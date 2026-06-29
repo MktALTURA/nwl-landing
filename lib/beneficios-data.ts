@@ -46,6 +46,11 @@ export interface BenefitPartner {
   vigencia?: LocalizedString;
   /** Outbound link (partner site, WhatsApp, etc.). */
   url?: string;
+  /**
+   * Optional promo flyer image (path under /images/benefits/). When set, the
+   * card shows a "view flyer" affordance that opens the image in a lightbox.
+   */
+  promoImage?: string;
 }
 
 export const benefitCategories: BenefitCategory[] = [
@@ -128,6 +133,7 @@ export const benefitPartners: BenefitPartner[] = [
     categoryKey: 'alimentos',
     logo: '/images/logos/benefits/tim-hortons.svg',
     url: 'https://timhortonsmx.com/',
+    promoImage: '/images/benefits/tim-hortons-promo.jpg',
     discount: { es: '10% de descuento', en: '10% discount' },
     detail: {
       es: 'Lleva tu antojo al campus con un 10% de descuento presentando tu credencial NWL (alumno o colaborador) en sucursales participantes.',

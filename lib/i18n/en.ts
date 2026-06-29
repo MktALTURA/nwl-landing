@@ -133,6 +133,8 @@ export const en: Dictionary = {
     filterAll: 'All',
     vigenciaLabel: 'Valid',
     viewMore: 'Visit partner',
+    viewPromo: 'View flyer',
+    closeLabel: 'Close',
     noResults: 'No benefits in this category at the moment.',
     howToTitle: 'How you get',
     howToTitleAccent: 'your benefit',
