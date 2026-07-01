@@ -37,6 +37,44 @@ export interface UTMData {
 const STORAGE_FIRST = 'nwl_utm_first';
 const STORAGE_LAST = 'nwl_utm_last';
 
+/* ── Self-referral detection ──────────────────────────────────────── */
+
+// Our own hosts. Traffic coming from these is internal navigation, not a
+// real referral — it must NEVER become a utm_source, or it overwrites the
+// genuine inbound source (e.g. facebook) in last-touch storage.
+// The current hostname is added dynamically at call time so this never
+// goes stale when the production domain changes.
+const SELF_HOSTS = [
+  'nwl.com.mx',
+  'newlandschool.com',
+  'newlandschool.edu.mx',
+  'localhost',
+  'vercel.app',
+];
+
+function isSelfHost(host: string): boolean {
+  const h = host.toLowerCase();
+  const hosts = [...SELF_HOSTS];
+  if (typeof window !== 'undefined' && window.location.hostname) {
+    hosts.push(window.location.hostname.toLowerCase());
+  }
+  // Exact match or subdomain match (www., api., etc.) — no loose substring
+  // matching, so a lookalike domain can't be misclassified as internal.
+  return hosts.some((self) => h === self || h.endsWith('.' + self));
+}
+
+// A stored entry is a self-referral if it was inferred as a `referral`
+// whose source is one of our own hosts. Used to retroactively discard
+// polluted localStorage written before this bug was fixed.
+function isSelfReferralData(data: UTMData | null): boolean {
+  return (
+    !!data &&
+    data.utm_medium === 'referral' &&
+    !!data.utm_source &&
+    isSelfHost(data.utm_source)
+  );
+}
+
 /* ── Parse UTMs from current URL ──────────────────────────────────── */
 
 function parseUTMsFromURL(): Partial<Record<UTMKey, string>> | null {
@@ -117,13 +155,9 @@ function inferUTMsFromReferrer(): Partial<Record<UTMKey, string>> | null {
       return { utm_source: 'linkedin', utm_medium: 'social' };
     }
 
-    // Skip self-referrals
-    if (
-      host.includes('newlandschool.com') ||
-      host.includes('newlandschool.edu.mx') ||
-      host.includes('localhost') ||
-      host.includes('vercel.app')
-    ) {
+    // Skip self-referrals — internal navigation must never overwrite the
+    // real inbound source (facebook, google, etc.) with our own domain.
+    if (isSelfHost(host)) {
       return null;
     }
 
@@ -194,12 +228,16 @@ export function captureUTMs(): void {
 
 /** Retrieve first-touch UTM data, or null if never captured. */
 export function getFirstTouchUTMs(): UTMData | null {
-  return loadUTMData(STORAGE_FIRST);
+  const data = loadUTMData(STORAGE_FIRST);
+  // Discard legacy self-referral entries written before the bug was fixed.
+  return isSelfReferralData(data) ? null : data;
 }
 
 /** Retrieve last-touch UTM data, or null if never captured. */
 export function getLastTouchUTMs(): UTMData | null {
-  return loadUTMData(STORAGE_LAST);
+  const data = loadUTMData(STORAGE_LAST);
+  // Discard legacy self-referral entries written before the bug was fixed.
+  return isSelfReferralData(data) ? null : data;
 }
 
 /**
