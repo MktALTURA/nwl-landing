@@ -6,7 +6,7 @@ import { FiCalendar, FiFileText } from 'react-icons/fi';
 import { FaWhatsapp } from 'react-icons/fa';
 import { useLanguage } from '@/lib/i18n/LanguageContext';
 import { useGHLFormTracking } from '@/lib/hooks/useGHLFormTracking';
-import { injectUTMsIntoURL } from '@/lib/utm';
+import { buildGHLFormSrc } from '@/lib/utm';
 
 export default function FinalCTA() {
   const { locale, t } = useLanguage();
@@ -22,7 +22,9 @@ export default function FinalCTA() {
     container.innerHTML = '';
 
     const iframe = document.createElement('iframe');
-    iframe.src = `https://api.leadconnectorhq.com/widget/form/${formId}`;
+    // Append tracking params directly to the iframe src — cross-origin
+    // iframes don't inherit the parent URL, so this is how GHL sees them.
+    iframe.src = buildGHLFormSrc(`https://api.leadconnectorhq.com/widget/form/${formId}`);
     iframe.style.cssText = 'width:100%;height:1400px;border:none;';
     iframe.id = `inline-${formId}`;
     iframe.setAttribute('data-layout', "{'id':'INLINE'}");
@@ -40,9 +42,6 @@ export default function FinalCTA() {
 
     container.appendChild(iframe);
 
-    // Inject stored UTMs into URL so form_embed.js reads them as hidden fields
-    const cleanupUTMs = injectUTMsIntoURL();
-
     // Load GHL embed script
     const script = document.createElement('script');
     script.src = 'https://link.msgsndr.com/js/form_embed.js';
@@ -50,7 +49,6 @@ export default function FinalCTA() {
     document.body.appendChild(script);
 
     return () => {
-      cleanupUTMs?.();
       try { script.parentNode?.removeChild(script); } catch { /* noop */ }
       container.innerHTML = '';
     };

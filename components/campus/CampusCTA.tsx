@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import { FaWhatsapp, FaPhone } from 'react-icons/fa';
 import { useLanguage } from '@/lib/i18n/LanguageContext';
 import { useGHLFormTracking } from '@/lib/hooks/useGHLFormTracking';
-import { injectUTMsIntoURL } from '@/lib/utm';
+import { buildGHLFormSrc } from '@/lib/utm';
 
 interface CampusCTAProps {
   campusName?: string;
@@ -24,9 +24,9 @@ export default function CampusCTA({ campusName, phone, phoneLink }: CampusCTAPro
 
     container.innerHTML = '';
 
-    // GHL iframe embeds do not support URL parameter pre-fill on external sites.
-    // The form_embed.js script reads params from window.location (parent page), not iframe src.
-    const iframeSrc = `https://api.leadconnectorhq.com/widget/form/${formId}`;
+    // Append tracking params directly to the iframe src — cross-origin
+    // iframes don't inherit the parent URL, so this is how GHL sees them.
+    const iframeSrc = buildGHLFormSrc(`https://api.leadconnectorhq.com/widget/form/${formId}`);
 
     const iframe = document.createElement('iframe');
     iframe.src = iframeSrc;
@@ -47,16 +47,12 @@ export default function CampusCTA({ campusName, phone, phoneLink }: CampusCTAPro
 
     container.appendChild(iframe);
 
-    // Inject stored UTMs into URL so form_embed.js reads them as hidden fields
-    const cleanupUTMs = injectUTMsIntoURL();
-
     const script = document.createElement('script');
     script.src = 'https://link.msgsndr.com/js/form_embed.js';
     script.async = true;
     document.body.appendChild(script);
 
     return () => {
-      cleanupUTMs?.();
       try { script.parentNode?.removeChild(script); } catch { /* noop */ }
       container.innerHTML = '';
     };

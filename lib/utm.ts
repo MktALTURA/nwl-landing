@@ -240,67 +240,81 @@ export function getLastTouchUTMs(): UTMData | null {
   return isSelfReferralData(data) ? null : data;
 }
 
+/* ── GHL iframe param passing ─────────────────────────────────────── */
+
+// Click IDs and other non-UTM tracking params worth forwarding to GHL.
+// These live only in the inbound URL (never in our UTM storage), so we
+// persist them to sessionStorage to survive internal navigation within
+// the visit.
+const CLICK_ID_PARAMS = ['fbclid', 'gclid', 'gbraid', 'wbraid', 'msclkid'];
+const SESSION_PREFIX = 'nwl_track_';
+
+function safeSessionGet(key: string): string | null {
+  try {
+    return sessionStorage.getItem(key);
+  } catch {
+    return null;
+  }
+}
+
+function safeSessionSet(key: string, value: string): void {
+  try {
+    sessionStorage.setItem(key, value);
+  } catch {
+    /* sessionStorage unavailable — fail silently */
+  }
+}
+
 /**
- * Inject stored UTMs into the current URL via history.replaceState.
+ * Build the GHL form iframe `src` with tracking params appended.
  *
- * Last-touch UTMs → standard params (utm_source, etc.)
- * First-touch UTMs → prefixed params (ft_utm_source, etc.)
- * Landing pages → landing_page & ft_landing_page params
+ * Cross-origin iframes do NOT inherit the parent page's URL, so GHL can't
+ * read utm_* / fbclid from window.location on its own. We append them
+ * directly to the iframe src instead — the reliable channel.
  *
- * Returns a cleanup function that restores the original URL.
- * Call this BEFORE loading form_embed.js so GHL picks up the params.
+ * Sources merged, in priority order per key:
+ *   1. Current inbound URL params        (freshest ad/campaign click)
+ *   2. sessionStorage                     (survives internal navigation)
+ *   3. Stored last-touch UTMs (localStorage, cross-session)
+ * Plus first-touch UTMs as ft_* params and landing_page / ft_landing_page.
+ *
+ * Pass the bare form URL; returns it with a query string appended.
  */
-export function injectUTMsIntoURL(): (() => void) | null {
-  if (typeof window === 'undefined') return null;
+export function buildGHLFormSrc(baseUrl: string): string {
+  if (typeof window === 'undefined') return baseUrl;
 
-  const originalURL = window.location.pathname + window.location.search;
+  const url = new URL(window.location.href);
+  const params = new URLSearchParams();
 
-  const firstTouch = getFirstTouchUTMs();
-  const lastTouch = getLastTouchUTMs();
-
-  if (!firstTouch && !lastTouch) return null;
-
-  // Start from current params (preserve non-UTM params like locale, etc.)
-  const params = new URLSearchParams(window.location.search);
-
-  // Inject last-touch as standard UTM params (only if not already in URL)
-  if (lastTouch) {
-    for (const key of UTM_PARAMS) {
-      const value = lastTouch[key];
-      if (value && !params.has(key)) {
-        params.set(key, value);
-      }
-    }
-    // Pass landing page so GHL stores which page brought the lead in
-    if (lastTouch.landing_page) {
-      params.set('landing_page', lastTouch.landing_page);
-    }
+  // 1. Click IDs (fbclid, gclid, …): capture from URL → sessionStorage,
+  //    then read back so they persist across internal navigation.
+  for (const key of CLICK_ID_PARAMS) {
+    const fromUrl = url.searchParams.get(key);
+    if (fromUrl) safeSessionSet(`${SESSION_PREFIX}${key}`, fromUrl);
+    const value = fromUrl || safeSessionGet(`${SESSION_PREFIX}${key}`);
+    if (value) params.set(key, value);
   }
 
-  // Inject first-touch as ft_ prefixed params
+  // 2. Last-touch UTMs: prefer live inbound URL params, fall back to the
+  //    value we persisted. getLastTouchUTMs() already strips self-referrals.
+  const lastTouch = getLastTouchUTMs();
+  for (const key of UTM_PARAMS) {
+    const value = url.searchParams.get(key) || lastTouch?.[key];
+    if (value) params.set(key, value);
+  }
+  if (lastTouch?.landing_page) params.set('landing_page', lastTouch.landing_page);
+
+  // 3. First-touch UTMs as ft_ prefixed params (never overwritten once set).
+  const firstTouch = getFirstTouchUTMs();
   if (firstTouch) {
     for (const key of UTM_PARAMS) {
       const value = firstTouch[key];
-      if (value) {
-        params.set(`ft_${key}`, value);
-      }
+      if (value) params.set(`ft_${key}`, value);
     }
-    if (firstTouch.landing_page) {
-      params.set('ft_landing_page', firstTouch.landing_page);
-    }
+    if (firstTouch.landing_page) params.set('ft_landing_page', firstTouch.landing_page);
   }
 
-  const newSearch = params.toString();
-  const newURL = newSearch
-    ? `${window.location.pathname}?${newSearch}`
-    : window.location.pathname;
-
-  if (newURL !== originalURL) {
-    window.history.replaceState(null, '', newURL);
-  }
-
-  // Return cleanup that restores original URL
-  return () => {
-    window.history.replaceState(null, '', originalURL);
-  };
+  const qs = params.toString();
+  if (!qs) return baseUrl;
+  return `${baseUrl}${baseUrl.includes('?') ? '&' : '?'}${qs}`;
 }
