@@ -4,7 +4,7 @@ import { useEffect, useRef, useCallback } from 'react';
 import { FaWhatsapp } from 'react-icons/fa';
 import { useLanguage } from '@/lib/i18n/LanguageContext';
 import { useGHLFormTracking } from '@/lib/hooks/useGHLFormTracking';
-import { injectUTMsIntoURL } from '@/lib/utm';
+import { buildGHLFormSrc } from '@/lib/utm';
 import type { InformacionPage } from '@/lib/informacion-data';
 
 
@@ -25,7 +25,9 @@ export default function InformacionCTA({ page }: InformacionCTAProps) {
     container.innerHTML = '';
 
     const iframe = document.createElement('iframe');
-    iframe.src = `https://api.leadconnectorhq.com/widget/form/${formId}`;
+    // Append tracking params directly to the iframe src — cross-origin
+    // iframes don't inherit the parent URL, so this is how GHL sees them.
+    iframe.src = buildGHLFormSrc(`https://api.leadconnectorhq.com/widget/form/${formId}`);
     iframe.style.cssText = 'width:100%;height:1400px;border:none;';
     iframe.id = `inline-${formId}`;
     iframe.setAttribute('data-layout', "{'id':'INLINE'}");
@@ -43,15 +45,12 @@ export default function InformacionCTA({ page }: InformacionCTAProps) {
 
     container.appendChild(iframe);
 
-    const cleanupUTMs = injectUTMsIntoURL();
-
     const script = document.createElement('script');
     script.src = 'https://link.msgsndr.com/js/form_embed.js';
     script.async = true;
     document.body.appendChild(script);
 
     return () => {
-      cleanupUTMs?.();
       try { script.parentNode?.removeChild(script); } catch { /* noop */ }
       container.innerHTML = '';
     };

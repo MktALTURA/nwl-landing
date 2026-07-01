@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import { FiCheck, FiFileText } from 'react-icons/fi';
 import { useLanguage } from '@/lib/i18n/LanguageContext';
 import { useGHLFormTracking } from '@/lib/hooks/useGHLFormTracking';
-import { injectUTMsIntoURL } from '@/lib/utm';
+import { buildGHLFormSrc } from '@/lib/utm';
 
 /**
  * "Become an NWL partner" section. The right column hosts the GHL lead form.
@@ -28,7 +28,9 @@ export default function PartnerApplyForm() {
       container.innerHTML = '';
 
       const iframe = document.createElement('iframe');
-      iframe.src = `https://api.nwl.com.mx/widget/form/${id}`;
+      // Append tracking params directly to the iframe src — cross-origin
+      // iframes don't inherit the parent URL, so this is how GHL sees them.
+      iframe.src = buildGHLFormSrc(`https://api.nwl.com.mx/widget/form/${id}`);
       iframe.style.cssText = 'width:100%;height:1344px;border:none;';
       iframe.id = `inline-${id}`;
       iframe.setAttribute('data-layout', "{'id':'INLINE'}");
@@ -46,15 +48,12 @@ export default function PartnerApplyForm() {
 
       container.appendChild(iframe);
 
-      const cleanupUTMs = injectUTMsIntoURL();
-
       const script = document.createElement('script');
       script.src = 'https://api.nwl.com.mx/js/form_embed.js';
       script.async = true;
       document.body.appendChild(script);
 
       return () => {
-        cleanupUTMs?.();
         try {
           script.parentNode?.removeChild(script);
         } catch {
