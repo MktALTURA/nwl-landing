@@ -327,8 +327,10 @@ export default function KangarooGame({ onExit }: { onExit: () => void }) {
       }
 
       // kangaroo
+      // idle (ready/over) holds the leap pose — the same silhouette as the
+      // logo the mascot just landed from; the run cycle alternates while moving
       const sprite =
-        jumping ? ROO_JUMP : state === 'run' && frames % 12 < 6 ? ROO_RUN_A : ROO_RUN_B;
+        jumping || state !== 'run' ? ROO_JUMP : frames % 12 < 6 ? ROO_RUN_A : ROO_RUN_B;
       if (deadFlash > 0) deadFlash--;
       drawSprite(ctx, sprite, 34, rooY, deadFlash % 4 >= 2 ? '#F4EEE2' : undefined);
 
