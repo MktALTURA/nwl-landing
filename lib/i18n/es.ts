@@ -211,7 +211,7 @@ export const es: Dictionary = {
       },
     ],
     availableAt: 'Disponible en:',
-    learnMore: 'Conocer Más →',
+    learnMore: 'Conocer Más',
     cta: 'Solicita Información',
   },
   campus: {
@@ -245,7 +245,7 @@ export const es: Dictionary = {
         href: '/campus/zibata',
       },
     ],
-    exploreCta: 'Explorar Campus →',
+    exploreCta: 'Explorar Campus',
     contactCard: {
       title: '¿Necesitas Ayuda?',
       description: '¡Encontremos juntos el campus perfecto para tu familia!',

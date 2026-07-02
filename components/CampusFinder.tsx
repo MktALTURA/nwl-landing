@@ -68,10 +68,10 @@ export default function CampusFinder() {
             </span>
           </motion.div>
 
-          <h2 className="font-display text-5xl md:text-6xl font-bold mb-4 text-navy tracking-tight">
+          <h2 className="font-display text-5xl md:text-6xl font-bold mb-4 text-paper tracking-tight">
             {t.campus.sectionTitleLine2}
           </h2>
-          <p className="text-xl text-navy/70 max-w-2xl mx-auto font-medium">
+          <p className="text-xl text-paper/70 max-w-2xl mx-auto font-medium">
             {t.campus.sectionSubtitle}
           </p>
         </div>
