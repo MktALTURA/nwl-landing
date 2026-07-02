@@ -11,60 +11,45 @@ import { useEffect, useRef } from 'react';
  */
 
 /* ---------- pixel sprites (22×16 · G gold, D deep gold, . empty) ---------- */
-const ROO_RUN_A = [
-  '..................GG..',
-  '.................GGGG.',
-  '.................GGGG.',
-  '..............GGGGG...',
-  '.............GGGGGG...',
-  '..........GGGGGGGG....',
-  '.......GGGGGGGGGGG....',
-  '.....GGGGGGGGGGGG.....',
-  '...GGGGGGGGGGGGG......',
-  '.GGGGGGGGGGGGGG.......',
-  'GGG..GGGGGGGGG........',
-  'GG....GGGGGGGG........',
-  '.......GGGGGGG........',
-  '......GGG...GGG.......',
-  '.....GGG.....GGG......',
-  '....GG........GGG.....',
+/* Leap pose downsampled from the official brand kangaroo art (26x14). */
+const ROO_LEAP = [
+  '..........................',
+  '.............GGGGG....G...',
+  '...........GGGGGGGG...GG..',
+  '.GG.......GGGGGGGGGGGGGGG.',
+  '..GGGG.GGGGGGGGGGGGGGG....',
+  '....GGGGGGGGGGGGGGGGG.....',
+  '.............GGGGG.G......',
+  '.............GGG..........',
+  '............GGG...........',
+  '...........GG.............',
+  '..........GG..............',
+  '.........GG...............',
+  '........GG................',
+  '..........................',
 ];
-const ROO_RUN_B = [
-  '..................GG..',
-  '.................GGGG.',
-  '.................GGGG.',
-  '..............GGGGG...',
-  '.............GGGGGG...',
-  '..........GGGGGGGG....',
-  '.......GGGGGGGGGGG....',
-  '.....GGGGGGGGGGGG.....',
-  '...GGGGGGGGGGGGG......',
-  '.GGGGGGGGGGGGGG.......',
-  'GGG..GGGGGGGGG........',
-  'GG....GGGGGGGG........',
-  '.......GGGGGGG........',
-  '......GGGGGGGG........',
-  '.......GGG.GGG........',
-  '......GG.....GG.......',
+/* Same pose with the hind leg gathered under the body (ground-contact frame). */
+const ROO_GATHER = [
+  '..........................',
+  '.............GGGGG....G...',
+  '...........GGGGGGGG...GG..',
+  '.GG.......GGGGGGGGGGGGGGG.',
+  '..GGGG.GGGGGGGGGGGGGGG....',
+  '....GGGGGGGGGGGGGGGGG.....',
+  '...........GGGGGG.G.......',
+  '..........GGGGGGG.........',
+  '..........GG..GGG.........',
+  '..........G....GG.........',
+  '..........................',
+  '..........................',
+  '..........................',
+  '..........................',
 ];
-const ROO_JUMP = [
-  '..................GG..',
-  '.................GGGG.',
-  '.................GGGG.',
-  '..............GGGGG...',
-  '.............GGGGGG...',
-  '..........GGGGGGGG....',
-  '.......GGGGGGGGGGG....',
-  '.....GGGGGGGGGGGG.....',
-  '...GGGGGGGGGGGGG......',
-  '.GGGGGGGGGGGGGG.......',
-  'GGG..GGGGGGGGGG.......',
-  'GG....GGGGGGGGGG......',
-  '.......GGGGGGGGGG.....',
-  '........GGG...GGG.....',
-  '.........GG....GG.....',
-  '......................',
-];
+const ROO_RUN_A = ROO_LEAP;
+const ROO_RUN_B = ROO_GATHER;
+const ROO_JUMP = ROO_LEAP;
+const ROO_W = 26;
+const ROO_H = 14;
 
 const SPINIFEX = [
   '....G....G....',
@@ -186,7 +171,7 @@ export default function KangarooGame({ onExit }: { onExit: () => void }) {
     let best = 0;
     try { best = parseInt(localStorage.getItem('nwl-outback-run-best') || '0', 10) || 0; } catch { /* private mode */ }
 
-    let rooY = GROUND - 16;
+    let rooY = GROUND - ROO_H;
     let vy = 0;
     let jumping = false;
     let nextSpawn = 70;
@@ -198,7 +183,7 @@ export default function KangarooGame({ onExit }: { onExit: () => void }) {
       frames = 0;
       speed = 2.4;
       score = 0;
-      rooY = GROUND - 16;
+      rooY = GROUND - ROO_H;
       vy = 0;
       jumping = false;
       obstacles = [];
@@ -272,7 +257,7 @@ export default function KangarooGame({ onExit }: { onExit: () => void }) {
         if (jumping) {
           vy += 0.22;
           rooY += vy;
-          if (rooY >= GROUND - 16) { rooY = GROUND - 16; jumping = false; vy = 0; }
+          if (rooY >= GROUND - ROO_H) { rooY = GROUND - ROO_H; jumping = false; vy = 0; }
         }
 
         nextSpawn -= speed;
@@ -285,10 +270,10 @@ export default function KangarooGame({ onExit }: { onExit: () => void }) {
         obstacles = obstacles.filter((o) => o.x > -24);
 
         // collision (forgiving insets)
-        const px = 34 + 4;
-        const pw = 22 - 9;
-        const py = rooY + 3;
-        const ph = 16 - 5;
+        const px = 34 + 6;
+        const pw = ROO_W - 12;
+        const py = rooY + 2;
+        const ph = ROO_H - 5;
         for (const o of obstacles) {
           if (px < o.x + o.w - 2 && px + pw > o.x + 2 && py < o.y + o.h - 1 && py + ph > o.y + 1) {
             die();
