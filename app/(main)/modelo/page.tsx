@@ -36,22 +36,35 @@ const Icon = ({ name, size = 18, className = '' }: { name: string; size?: number
 
 /* ---------- wheel geometry ---------- */
 const SEG = 360 / 7;
-const GAP = 1.2; // degrees of breathing room between segments
-const R_OUTER = 48;
-const R_INNER = 28;
+const GAP = 1.2; // degrees of breathing room between component segments
+const R_OUTER = 40; // component ring, outer edge
+const R_INNER = 25.5; // component ring, inner edge
 const R_LABEL = (R_OUTER + R_INNER) / 2;
+const R_CAP_IN = 41.2; // capability ring (the slide's outer ring)
+const R_CAP_OUT = 49.4;
+const R_CAP_ICON = (R_CAP_IN + R_CAP_OUT) / 2;
+const CAP_GAP = 0.6; // gap between capability sub-segments
 
 function polar(r: number, deg: number) {
   const rad = ((deg - 90) * Math.PI) / 180;
-  return { x: 50 + r * Math.cos(rad), y: 50 + r * Math.sin(rad) };
+  // Rounded so SSR and client produce byte-identical path strings
+  // (full-precision trig differs in the last digit across runtimes → hydration mismatch).
+  return { x: +(50 + r * Math.cos(rad)).toFixed(3), y: +(50 + r * Math.sin(rad)).toFixed(3) };
 }
-function segmentPath(startDeg: number, endDeg: number) {
-  const p1 = polar(R_OUTER, startDeg);
-  const p2 = polar(R_OUTER, endDeg);
-  const p3 = polar(R_INNER, endDeg);
-  const p4 = polar(R_INNER, startDeg);
+function ringPath(rIn: number, rOut: number, startDeg: number, endDeg: number) {
+  const p1 = polar(rOut, startDeg);
+  const p2 = polar(rOut, endDeg);
+  const p3 = polar(rIn, endDeg);
+  const p4 = polar(rIn, startDeg);
   const large = endDeg - startDeg > 180 ? 1 : 0;
-  return `M ${p1.x} ${p1.y} A ${R_OUTER} ${R_OUTER} 0 ${large} 1 ${p2.x} ${p2.y} L ${p3.x} ${p3.y} A ${R_INNER} ${R_INNER} 0 ${large} 0 ${p4.x} ${p4.y} Z`;
+  return `M ${p1.x} ${p1.y} A ${rOut} ${rOut} 0 ${large} 1 ${p2.x} ${p2.y} L ${p3.x} ${p3.y} A ${rIn} ${rIn} 0 ${large} 0 ${p4.x} ${p4.y} Z`;
+}
+const segmentPath = (startDeg: number, endDeg: number) => ringPath(R_INNER, R_OUTER, startDeg, endDeg);
+/** Angular span of capability j (0-2) inside component i's segment. */
+function capAngles(i: number, j: number): [number, number] {
+  const start = i * SEG - SEG / 2 + GAP;
+  const span = (SEG - GAP * 2) / 3;
+  return [start + j * span + (j > 0 ? CAP_GAP : 0), start + (j + 1) * span - (j < 2 ? CAP_GAP : 0)];
 }
 
 /* ---------- page-local UI strings ---------- */
@@ -259,7 +272,7 @@ function PisaDotPlot({ locale }: { locale: 'en' | 'es' }) {
   const H = 236;
   const PAD_L = 96;
   const PAD_R = 30;
-  const x = (v: number) => PAD_L + ((v - PISA.min) / (PISA.max - PISA.min)) * (W - PAD_L - PAD_R);
+  const x = (v: number) => +(PAD_L + ((v - PISA.min) / (PISA.max - PISA.min)) * (W - PAD_L - PAD_R)).toFixed(3);
   const rowY = (i: number) => 58 + i * 62;
   const ticks = [350, 400, 450, 500, 550];
 
@@ -359,7 +372,7 @@ function ModelRadar({ locale }: { locale: 'en' | 'es' }) {
   const pt = (i: number, v: number) => {
     const a = (Math.PI * 2 * i) / N - Math.PI / 2;
     const r = (v / RADAR.max) * R;
-    return { x: CX + r * Math.cos(a), y: CY + r * Math.sin(a) };
+    return { x: +(CX + r * Math.cos(a)).toFixed(3), y: +(CY + r * Math.sin(a)).toFixed(3) };
   };
   const ring = (v: number) =>
     Array.from({ length: N }, (_, i) => {
@@ -551,6 +564,27 @@ export default function ModeloPage() {
             {/* --- the wheel --- */}
             <div className="relative w-full max-w-[560px] mx-auto aspect-square select-none">
               <svg viewBox="0 0 100 100" className="absolute inset-0 w-full h-full">
+                {/* capability ring — the slide's outer ring; the active component's
+                    three capabilities light up, the rest stay as quiet tints */}
+                {MODEL_COMPONENTS.map((comp, i) => {
+                  const isActive = i === active;
+                  return comp.capabilities.map((cap, j) => {
+                    const [a0, a1] = capAngles(i, j);
+                    return (
+                      <path
+                        key={`${comp.id}-cap-${j}`}
+                        d={ringPath(R_CAP_IN, R_CAP_OUT, a0, a1)}
+                        fill={comp.color}
+                        opacity={isActive ? 0.42 : 0.13}
+                        className="cursor-pointer transition-all duration-300"
+                        onClick={() => setActive(i)}
+                      >
+                        <title>{L(cap.name)}</title>
+                      </path>
+                    );
+                  });
+                })}
+                {/* component ring */}
                 {MODEL_COMPONENTS.map((comp, i) => {
                   const mid = i * SEG;
                   const isActive = i === active;
@@ -569,9 +603,36 @@ export default function ModeloPage() {
                   );
                 })}
                 {/* center */}
-                <circle cx="50" cy="50" r="25.5" fill="var(--nwl-gold)" opacity="0.9" />
-                <circle cx="50" cy="50" r="24.6" fill="#071638" />
+                <circle cx="50" cy="50" r="24.7" fill="var(--nwl-gold)" opacity="0.9" />
+                <circle cx="50" cy="50" r="23.8" fill="#071638" />
               </svg>
+
+              {/* capability icons on the outer ring — appear when their component is active */}
+              {MODEL_COMPONENTS.map((comp, i) =>
+                comp.capabilities.map((cap, j) => {
+                  const [a0, a1] = capAngles(i, j);
+                  const p = polar(R_CAP_ICON, (a0 + a1) / 2);
+                  const isActive = i === active;
+                  return (
+                    <motion.button
+                      key={`${comp.id}-capicon-${j}`}
+                      onClick={() => setActive(i)}
+                      aria-label={L(cap.name)}
+                      title={L(cap.name)}
+                      initial={false}
+                      animate={
+                        isActive
+                          ? { opacity: 1, scale: 1.15, transition: { delay: 0.08 + j * 0.07, duration: 0.3 } }
+                          : { opacity: 0.35, scale: 0.9 }
+                      }
+                      className="absolute -translate-x-1/2 -translate-y-1/2 flex items-center justify-center text-paper"
+                      style={{ left: `${p.x}%`, top: `${p.y}%` }}
+                    >
+                      <Icon name={cap.icon} size={15} />
+                    </motion.button>
+                  );
+                })
+              )}
 
               {/* segment labels */}
               {MODEL_COMPONENTS.map((comp, i) => {
@@ -582,13 +643,13 @@ export default function ModeloPage() {
                     key={comp.id}
                     onClick={() => setActive(i)}
                     aria-pressed={isActive}
-                    className={`absolute -translate-x-1/2 -translate-y-1/2 flex flex-col items-center text-center w-[24%] transition-all duration-300 ${
+                    className={`absolute -translate-x-1/2 -translate-y-1/2 flex flex-col items-center text-center w-[21%] transition-all duration-300 ${
                       isActive ? 'opacity-100 scale-105' : 'opacity-75 hover:opacity-100'
                     }`}
                     style={{ left: `${p.x}%`, top: `${p.y}%`, color: comp.darkText ? '#1C0F00' : '#F4EEE2' }}
                   >
-                    <Icon name={comp.icon} size={18} className="mb-1 hidden sm:block" />
-                    <span className="font-semibold text-[8.5px] sm:text-[10px] md:text-[11px] leading-[1.15] drop-shadow-sm">
+                    <Icon name={comp.icon} size={15} className="mb-1 hidden sm:block" />
+                    <span className="font-semibold text-[8px] sm:text-[9px] md:text-[10px] leading-[1.15] drop-shadow-sm">
                       {L(comp.name)}
                     </span>
                   </button>
