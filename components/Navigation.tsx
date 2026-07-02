@@ -132,19 +132,10 @@ export default function Navigation() {
   };
 
   const isSubpage = pathname !== '/';
-  const isCampusJuriquilla = pathname === '/campus/juriquilla';
-  const isCampusMilenio = pathname === '/campus/milenio';
-  const isCareers = pathname === '/trabaja-con-nosotros';
-  const isElementary = pathname === '/elementary';
-  const isCampusSanMiguel = pathname === '/campus/san-miguel';
-  const isInformacion = pathname.startsWith('/informacion');
-  const isPadres = pathname.startsWith('/padres');
-  const isNoticias = pathname.startsWith('/noticias');
-  const isBeneficios = pathname.startsWith('/beneficios');
-  // On pages with dark/bright heroes (incl. the homepage outback-dawn hero),
-  // use white logo/text before scroll; switch to navy once the paper bar appears.
-  const isHome = !isSubpage;
-  const useWhiteNav = (isHome || isCampusJuriquilla || isCampusMilenio || isCampusSanMiguel || isCareers || isElementary || isInformacion || isPadres || isNoticias || isBeneficios) && !isScrolled;
+  // After the Australian School rebrand every page opens on a dark hero
+  // (outback-dawn or a navy-graded photo), so the nav is always white
+  // before scroll and switches to navy once the paper bar appears.
+  const useWhiteNav = !isScrolled;
 
   return (
     <nav
