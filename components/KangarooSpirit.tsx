@@ -360,7 +360,7 @@ export default function KangarooSpirit() {
     const tl = gsap.timeline({
       onComplete: () => {
         window.clearTimeout(failsafe);
-        setGameActive(true);
+        setGameActive(true); // mounts the game; the flight effect below pulls the mascot in
       },
     });
     // the words hop away one by one…
@@ -373,12 +373,95 @@ export default function KangarooSpirit() {
     tl.to([ringRef.current, ringOuterRef.current], {
       scale: 0.7, opacity: 0, duration: 0.4, ease: 'power2.in',
     }, '<');
-    // …and the kangaroo squashes down into 8-bit size
-    tl.to(img, { scaleY: 0.8, scaleX: 1.15, duration: 0.16, ease: 'power2.in' }, '<');
-    tl.to(img, {
-      scale: 0.1, y: 60, rotation: 0, opacity: 0, duration: 0.45, ease: 'back.in(1.6)',
+    // …the kangaroo winds up, then the fixed-position flyer takes over so it
+    // can physically hop INTO the game once the canvas mounts
+    tl.to(img, { scaleY: 0.85, scaleX: 1.12, duration: 0.18, ease: 'power2.in' }, '<');
+    tl.to(img, { scaleY: 1.1, scaleX: 0.94, duration: 0.12, ease: 'power2.out' });
+    tl.call(() => {
+      const rect = img.getBoundingClientRect();
+      const flyer = getFlyer();
+      gsap.set(flyer, {
+        left: rect.left, top: rect.top, width: rect.width, height: rect.height,
+        opacity: 1, scaleX: 1, scaleY: 1, rotation: 0,
+      });
+      img.style.visibility = 'hidden';
     });
-  }, []);
+  }, [getFlyer]);
+
+  // Once the game canvas exists, fly the mascot into the pixel-roo's exact
+  // spot (two diminishing hops) while the game fades in underneath it.
+  useEffect(() => {
+    if (!gameActive) return;
+    const flyer = flyerRef.current;
+    if (!flyer) {
+      // failsafe path (intro timeline was interrupted) — just reveal the game
+      gsap.set('#outback-game-wrap', { opacity: 1 });
+      return;
+    }
+
+    let cancelled = false;
+    let tries = 0;
+    const attempt = () => {
+      if (cancelled) return;
+      const canvas = containerRef.current?.querySelector('canvas');
+      const wrap = document.getElementById('outback-game-wrap');
+      if (!canvas || !wrap) {
+        if (++tries < 40) window.setTimeout(attempt, 40);
+        else gsap.set('#outback-game-wrap', { opacity: 1 }); // give up gracefully
+        return;
+      }
+      const cr = canvas.getBoundingClientRect();
+      // pixel roo: x 34, ground 132, sprite 26x14 in the 360x150 internal space
+      const scale = cr.width / 360;
+      const tw = 26 * scale;
+      const th = 14 * scale;
+      const tx = cr.left + 34 * scale + tw / 2;
+      const ty = cr.top + (132 - 14) * scale + th / 2;
+
+      const fr = flyer.getBoundingClientRect();
+      const sx = fr.left + fr.width / 2;
+      const sy = fr.top + fr.height / 2;
+      const midW = Math.max(tw * 2.2, fr.width * 0.4);
+
+      const tl = gsap.timeline();
+      // game surfaces under the flying mascot
+      tl.to(wrap, { opacity: 1, duration: 0.45, ease: 'power1.inOut' }, 0);
+
+      // hop 1: big shrinking arc to a midpoint above the canvas
+      const mx = sx + (tx - sx) * 0.55;
+      const my = Math.min(sy, ty) - 30;
+      const arc1 = arcKeyframes(sx, sy, mx, my, 90);
+      tl.to(flyer, {
+        duration: 0.45, ease: 'none',
+        keyframes: arc1.map((f, i) => {
+          const t = i / (arc1.length - 1);
+          const w = fr.width + (midW - fr.width) * t;
+          const h = w * (fr.height / fr.width);
+          return { left: f.left - w / 2, top: f.top - h / 2, width: w, height: h, duration: 0.45 / arc1.length };
+        }),
+      }, 0);
+      // hop 2: small arc down onto the pixel roo's spot
+      const arc2 = arcKeyframes(mx, my, tx, ty, 40);
+      tl.to(flyer, {
+        duration: 0.4, ease: 'none',
+        keyframes: arc2.map((f, i) => {
+          const t = i / (arc2.length - 1);
+          const w = midW + (tw - midW) * t;
+          const h = w * (fr.height / fr.width);
+          return { left: f.left - w / 2, top: f.top - h / 2, width: w, height: h, duration: 0.4 / arc2.length };
+        }),
+      });
+      // landing squash on the spot, then the canvas roo takes over
+      tl.set(flyer, { left: tx - tw / 2, top: ty - th / 2, width: tw, height: th });
+      tl.to(flyer, { scaleY: 0.8, scaleX: 1.15, duration: 0.09, ease: 'power2.in' });
+      tl.call(() => burstDust(tx, ty + th / 2));
+      tl.to(flyer, { scaleY: 1, scaleX: 1, duration: 0.16, ease: 'power2.out' });
+      tl.to(flyer, { opacity: 0, duration: 0.18 });
+    };
+    window.setTimeout(attempt, 30);
+
+    return () => { cancelled = true; };
+  }, [gameActive]);
 
   const exitGame = useCallback(() => {
     gameActiveRef.current = false;
@@ -387,8 +470,13 @@ export default function KangarooSpirit() {
     // restore the section pieces the intro animation owns
     gsap.set('.spirit-text, .spirit-trait', { clearProps: 'all', opacity: 1, y: 0, scale: 1 });
     gsap.set([ringRef.current, ringOuterRef.current], { clearProps: 'all', opacity: 1, scale: 1 });
+    if (flyerRef.current) {
+      gsap.killTweensOf(flyerRef.current);
+      gsap.set(flyerRef.current, { opacity: 0 });
+    }
     const img = kangarooImgRef.current;
     if (img) {
+      img.style.visibility = 'visible';
       gsap.set(img, { clearProps: 'transform,opacity', opacity: 1 });
       gsap.from(img, { scale: 0.4, duration: 0.5, ease: 'back.out(1.7)' });
     }
@@ -550,11 +638,15 @@ export default function KangarooSpirit() {
       <div className="absolute inset-0 nwl-bg-dawn-deep opacity-70" />
       <div className="container-custom relative z-10">
         {gameActive && (
-          <div className="py-6">
+          <div
+            id="outback-game-wrap"
+            className="absolute inset-0 z-20 flex items-center justify-center px-4"
+            style={{ opacity: 0 }}
+          >
             <KangarooGame onExit={exitGame} />
           </div>
         )}
-        <div className={`flex flex-col lg:flex-row items-center gap-12 lg:gap-20 ${gameActive ? 'hidden' : ''}`}>
+        <div className={`flex flex-col lg:flex-row items-center gap-12 lg:gap-20 ${gameActive ? 'invisible' : ''}`}>
           <div className="relative flex-shrink-0">
             <div ref={circleAreaRef} className="relative w-[280px] h-[280px] md:w-[360px] md:h-[360px]">
               <div className="kangaroo-reveal w-full h-full flex items-center justify-center">
