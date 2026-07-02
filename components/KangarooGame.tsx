@@ -67,8 +67,8 @@ const ROCK = [
   '.RRRRRRRRRRRRRR.',
   'RRRRRRRRRRRRRRRR',
 ];
-/* emu — tall outback bird, faces the incoming kangaroo */
-const EMU = [
+/* emu — tall outback bird, faces the incoming kangaroo (2 frames: head up / pecking) */
+const EMU_A = [
   '.GG........',
   'GGG........',
   '.G.........',
@@ -82,6 +82,21 @@ const EMU = [
   '.....G.G...',
   '.....G.G...',
   '....GG.GG..',
+];
+const EMU_B = [
+  '...........',
+  '...........',
+  '.GG........',
+  'GGG........',
+  '.GGGGG.....',
+  '.GGGGGGG...',
+  '..GGGGGGG..',
+  '...GGGGGG..',
+  '....GGGG...',
+  '.....GG....',
+  '....G.G....',
+  '....G..G...',
+  '...GG..GG..',
 ];
 
 const BOOMERANG_A = [
@@ -350,12 +365,18 @@ export default function KangarooGame({ onExit }: { onExit: () => void }) {
 
     const spawn = () => {
       const prog = progress();
-      // obstacle types unlock as the run progresses
-      const pool: Obstacle['kind'][] = ['spinifex'];
-      if (score > 120) pool.push('rock');
-      if (score > 300) pool.push('emu');
-      if (score > 550) pool.push('boomerang');
-      const kind = pool[Math.floor(Math.random() * pool.length)];
+      // obstacle types unlock as the run progresses; emus stay rare
+      const pool: [Obstacle['kind'], number][] = [['spinifex', 4]];
+      if (score > 120) pool.push(['rock', 3.5]);
+      if (score > 300) pool.push(['emu', 1.2]);
+      if (score > 550) pool.push(['boomerang', 2]);
+      const total = pool.reduce((sum, [, w]) => sum + w, 0);
+      let roll2 = Math.random() * total;
+      let kind: Obstacle['kind'] = 'spinifex';
+      for (const [k, w] of pool) {
+        roll2 -= w;
+        if (roll2 <= 0) { kind = k; break; }
+      }
       if (kind === 'boomerang') {
         obstacles.push({ kind, x: W + 8, y: GROUND - 30, w: 8, h: 6 });
       } else if (kind === 'emu') {
@@ -489,7 +510,7 @@ export default function KangarooGame({ onExit }: { onExit: () => void }) {
       for (const o of obstacles) {
         if (o.kind === 'spinifex') drawSprite(ctx, SPINIFEX, o.x, o.y, mix([147, 168, 96], [90, 120, 52], dayT));
         else if (o.kind === 'rock') drawSprite(ctx, ROCK, o.x, o.y, '#B5532A');
-        else if (o.kind === 'emu') drawSprite(ctx, EMU, o.x, o.y, mix([154, 162, 179], [90, 98, 116], dayT));
+        else if (o.kind === 'emu') drawSprite(ctx, frames % 22 < 11 ? EMU_A : EMU_B, o.x, o.y, mix([154, 162, 179], [90, 98, 116], dayT));
         else drawSprite(ctx, frames % 14 < 7 ? BOOMERANG_A : BOOMERANG_B, o.x, o.y, rooColor);
       }
 
