@@ -4,6 +4,7 @@ import { useEffect, useRef, useState, useCallback } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useLanguage } from '@/lib/i18n/LanguageContext';
+import KangarooGame from './KangarooGame';
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger);
@@ -60,6 +61,9 @@ export default function KangarooSpirit() {
   const ringOuterRef = useRef<HTMLDivElement>(null);
   const circleAreaRef = useRef<HTMLDivElement>(null);
   const [isMounted, setIsMounted] = useState(false);
+  const [gameActive, setGameActive] = useState(false);
+  const gameActiveRef = useRef(false);
+  const eggClicksRef = useRef<number[]>([]);
   const jumpTlRef = useRef<gsap.core.Timeline | null>(null);
   const hasJumpedRef = useRef(false);
   const flyerRef = useRef<HTMLDivElement | null>(null);
@@ -342,6 +346,72 @@ export default function KangarooSpirit() {
     }
   }, [getFlyer]);
 
+  // --- Easter egg: 5 quick taps on the kangaroo start "Outback Run" ---
+  const startGame = useCallback(() => {
+    if (gameActiveRef.current) return;
+    const img = kangarooImgRef.current;
+    if (!img || img.style.visibility === 'hidden') return; // mascot is off flying to the nav
+    gameActiveRef.current = true;
+    if (jumpTlRef.current) jumpTlRef.current.kill();
+
+    // Failsafe: if the timeline is interrupted (tab hidden, GSAP killed),
+    // still hand off to the game so the egg never soft-locks.
+    const failsafe = window.setTimeout(() => setGameActive(true), 2200);
+    const tl = gsap.timeline({
+      onComplete: () => {
+        window.clearTimeout(failsafe);
+        setGameActive(true);
+      },
+    });
+    // the words hop away one by one…
+    tl.to('.spirit-trait', {
+      y: -26, opacity: 0, stagger: 0.06, duration: 0.3, ease: 'power2.in',
+    });
+    tl.to('.spirit-text', {
+      y: -34, opacity: 0, stagger: 0.08, duration: 0.35, ease: 'power2.in',
+    }, '<0.05');
+    tl.to([ringRef.current, ringOuterRef.current], {
+      scale: 0.7, opacity: 0, duration: 0.4, ease: 'power2.in',
+    }, '<');
+    // …and the kangaroo squashes down into 8-bit size
+    tl.to(img, { scaleY: 0.8, scaleX: 1.15, duration: 0.16, ease: 'power2.in' }, '<');
+    tl.to(img, {
+      scale: 0.1, y: 60, rotation: 0, opacity: 0, duration: 0.45, ease: 'back.in(1.6)',
+    });
+  }, []);
+
+  const exitGame = useCallback(() => {
+    gameActiveRef.current = false;
+    setGameActive(false);
+    eggClicksRef.current = [];
+    // restore the section pieces the intro animation owns
+    gsap.set('.spirit-text, .spirit-trait', { clearProps: 'all', opacity: 1, y: 0, scale: 1 });
+    gsap.set([ringRef.current, ringOuterRef.current], { clearProps: 'all', opacity: 1, scale: 1 });
+    const img = kangarooImgRef.current;
+    if (img) {
+      gsap.set(img, { clearProps: 'transform,opacity', opacity: 1 });
+      gsap.from(img, { scale: 0.4, duration: 0.5, ease: 'back.out(1.7)' });
+    }
+    ScrollTrigger.refresh();
+  }, []);
+
+  const onKangarooTap = useCallback(() => {
+    if (gameActiveRef.current) return;
+    const now = performance.now();
+    const clicks = eggClicksRef.current.filter((t) => now - t < 2500);
+    clicks.push(now);
+    eggClicksRef.current = clicks;
+    const img = kangarooImgRef.current;
+    if (img && clicks.length > 1) {
+      // subtle "something is happening" squish per tap
+      gsap.fromTo(img, { scaleY: 0.94, scaleX: 1.05 }, { scaleY: 1, scaleX: 1, duration: 0.25, ease: 'elastic.out(1,0.5)' });
+    }
+    if (clicks.length >= 5) {
+      eggClicksRef.current = [];
+      startGame();
+    }
+  }, [startGame]);
+
   useEffect(() => {
     if (!isMounted) return;
 
@@ -454,12 +524,12 @@ export default function KangarooSpirit() {
           trigger: containerRef.current,
           start: 'bottom 60%',
           onEnter: () => {
-            if (hasJumpedRef.current) return;
+            if (hasJumpedRef.current || gameActiveRef.current) return;
             hasJumpedRef.current = true;
             performJump('forward');
           },
           onLeaveBack: () => {
-            if (!hasJumpedRef.current) return;
+            if (!hasJumpedRef.current || gameActiveRef.current) return;
             hasJumpedRef.current = false;
             performJump('reverse');
           },
@@ -479,12 +549,18 @@ export default function KangarooSpirit() {
     <div ref={containerRef} className="relative py-24 overflow-visible nwl-bg-dawn" id="our-spirit">
       <div className="absolute inset-0 nwl-bg-dawn-deep opacity-70" />
       <div className="container-custom relative z-10">
-        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+        {gameActive && (
+          <div className="py-6">
+            <KangarooGame onExit={exitGame} />
+          </div>
+        )}
+        <div className={`flex flex-col lg:flex-row items-center gap-12 lg:gap-20 ${gameActive ? 'hidden' : ''}`}>
           <div className="relative flex-shrink-0">
             <div ref={circleAreaRef} className="relative w-[280px] h-[280px] md:w-[360px] md:h-[360px]">
               <div className="kangaroo-reveal w-full h-full flex items-center justify-center">
                 <div ref={kangarooImgRef} id="spirit-kangaroo"
                   role="img" aria-label="NWL Kangaroo - Our Spirit"
+                  onClick={onKangarooTap}
                   className="w-[85%] h-[85%] drop-shadow-lg"
                   style={{
                     backgroundColor: 'var(--nwl-gold)',
