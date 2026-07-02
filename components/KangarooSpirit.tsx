@@ -402,7 +402,7 @@ export default function KangarooSpirit() {
     clicks.push(now);
     eggClicksRef.current = clicks;
     const img = kangarooImgRef.current;
-    if (img && clicks.length > 1) {
+    if (img) {
       // subtle "something is happening" squish per tap
       gsap.fromTo(img, { scaleY: 0.94, scaleX: 1.05 }, { scaleY: 1, scaleX: 1, duration: 0.25, ease: 'elastic.out(1,0.5)' });
     }
@@ -571,8 +571,8 @@ export default function KangarooSpirit() {
               <div className="absolute inset-0 overflow-hidden rounded-full pointer-events-none">
                 <div ref={shimmerRef} className="absolute inset-y-0 w-1/3 bg-gradient-to-r from-transparent via-gold/30 to-transparent -translate-x-full" />
               </div>
-              <div ref={ringRef} className="absolute -inset-4 border border-gold/25 rounded-full" />
-              <div ref={ringOuterRef} className="absolute -inset-10 border border-gold/10 rounded-full" />
+              <div ref={ringRef} className="absolute -inset-4 border border-gold/25 rounded-full pointer-events-none" />
+              <div ref={ringOuterRef} className="absolute -inset-10 border border-gold/10 rounded-full pointer-events-none" />
             </div>
           </div>
           <div className="text-center lg:text-left max-w-lg">
