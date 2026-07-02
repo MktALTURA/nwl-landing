@@ -23,6 +23,9 @@ export async function generateMetadata({
   }
 
   const title = `Campus ${campus.name}`;
+  // OG/Twitter need the brand suffix inline — the root `%s | …` template only
+  // applies to <title>, not to openGraph/twitter titles.
+  const socialTitle = `Campus ${campus.name} — ${SITE_NAME}`;
   const description = `${campus.tagline.en}. ${campus.levels.en}. ${campus.address}. Google rating: ${campus.googleRating}/5.`;
   const ogImage = `/images/og/campus-${slug}.jpg`;
   const url = `${SITE_URL}/campus/${slug}`;
@@ -31,14 +34,14 @@ export async function generateMetadata({
     title,
     description,
     openGraph: {
-      title,
+      title: socialTitle,
       description,
       url,
-      images: [{ url: ogImage, width: 1200, height: 630, alt: `Newland School Campus ${campus.name}` }],
+      images: [{ url: ogImage, width: 1200, height: 630, alt: `NWL Australian School — Campus ${campus.name}` }],
     },
     twitter: {
       card: 'summary_large_image',
-      title,
+      title: socialTitle,
       description,
       images: [ogImage],
     },
@@ -66,7 +69,7 @@ export default async function CampusLayout({
             <CampusJsonLd campus={campus} />
             <BreadcrumbJsonLd
               items={[
-                { name: 'Newland School', url: SITE_URL },
+                { name: SITE_NAME, url: SITE_URL },
                 { name: `Campus ${campus.name}`, url: `${SITE_URL}/campus/${slug}` },
               ]}
             />

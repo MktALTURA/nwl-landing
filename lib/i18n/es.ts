@@ -177,35 +177,35 @@ export const es: Dictionary = {
       {
         name: 'Maternal',
         ageRange: '2-3 años',
-        description: 'Desarrollo temprano en un ambiente cálido basado en el juego y la exploración.',
+        description: 'Aprendizaje temprano cálido y sin pantallas, con inmersión en inglés desde los 2 años.',
         campuses: ['Los 5 Campus'],
         href: '/maternal',
       },
       {
         name: 'Kínder',
         ageRange: '4-5 años',
-        description: 'Construyendo las bases a través de la exploración y el descubrimiento.',
+        description: 'La curiosidad crece con juego, proyectos Knotion e inglés todos los días.',
         campuses: ['Los 5 Campus'],
         href: '/kinder',
       },
       {
         name: 'Primaria',
         ageRange: '6-11 años',
-        description: 'Formación académica sólida y desarrollo del pensamiento crítico.',
+        description: 'La inmersión en inglés impulsa proyectos reales, laboratorios maker y pensamiento crítico.',
         campuses: ['Los 5 Campus'],
         href: '/elementary',
       },
       {
         name: 'Secundaria',
         ageRange: '12-14 años',
-        description: 'Fomentamos la independencia, el liderazgo y el autoconocimiento.',
+        description: 'Liderazgo, emprendimiento y credenciales internacionales: siempre hacia adelante.',
         campuses: ['Los 5 Campus'],
         href: '/middle-school',
       },
       {
         name: 'Preparatoria',
         ageRange: '15-17 años',
-        description: 'Preparación universitaria con perspectiva global y orientación vocacional.',
+        description: 'Una preparación para la vida: doble diploma de EE. UU. y rumbo a la universidad.',
         campuses: ['Corregidora', 'Zibatá', 'San Miguel'],
         href: '/high-school',
       },
@@ -348,7 +348,7 @@ export const es: Dictionary = {
     tagline: 'Pequeños Pasos, Grandes Sueños',
     subtitle: 'Los primeros pasos de tu hijo en un entorno de inmersión en inglés',
     description:
-      'En el Colegio NWL tenemos la mejor opción para iniciar con la formación de tu hijo desde los dos años. Dedicamos especial cuidado y atención en su seguridad y desarrollo integral a través de la lúdica y nuestro programa bilingüe "Brain Up". En esta etapa el aprendizaje es sensorial, afectivo y sin pantallas: una base sólida antes de la introducción gradual de la tecnología en Kínder con el modelo Knotion.',
+      'En NWL Australian School la formación de tu hijo comienza a los dos años, con especial cuidado en su seguridad y desarrollo integral: bienestar y aprendizaje en equilibrio, a través de la lúdica y nuestro programa bilingüe "Brain Up". En esta etapa el aprendizaje es sensorial, afectivo y sin pantallas: una base sólida antes de la introducción gradual de la tecnología en Kínder con el modelo Knotion.',
     statBilingual: 'Inmersión en Inglés',
     statCampuses: 'Campus',
     schedule: '8:20–1:30',
@@ -399,7 +399,7 @@ export const es: Dictionary = {
   maternalPage: {
     heroHeadline: 'Donde Cada Primer Paso Importa',
     heroSubheadline:
-      'NWL Maternal es el único programa de educación temprana en Querétaro que combina inmersión 100% en inglés, aprendizaje basado en neurociencia, y la calidez que tu hijo merece, desde los 2 años.',
+      'El modelo australiano de aprendizaje comienza a los 2 años: inmersión total en inglés, juego basado en neurociencia y una comunidad que impulsa a cada pequeño hacia adelante — con toda la calidez que tu hijo merece.',
     backToHome: 'Volver al Inicio',
     dayTitle: 'Un Día en',
     dayTitleAccent: 'Maternal NWL',
@@ -447,7 +447,7 @@ export const es: Dictionary = {
     ageBadge: '3–5 años',
     tagline: 'Mentes que Crecen, Futuros que se Construyen',
     description:
-      'Creemos que cada niño tiene un potencial extraordinario. Nuestro programa de Kinder nutre la curiosidad a través de la inmersión en inglés, aprendizaje basado en proyectos y nuestro Programa Multisensorial único. La tecnología se introduce de forma gradual e intencional, guiada por el modelo Knotion, para que cada niño aprenda no solo a usar las herramientas digitales, sino por qué y para qué.',
+      'Creemos que cada niño tiene un potencial extraordinario. Nuestro programa de Kinder lo despierta con inmersión diaria en inglés, aprendizaje basado en proyectos Knotion y nuestro Programa Multisensorial único: la curiosidad y el bienestar crecen a la par. La tecnología se introduce de forma gradual e intencional, guiada por el modelo Knotion, para que cada niño aprenda no solo a usar las herramientas digitales, sino por qué y para qué.',
     statBilingual: 'Inmersión en Inglés',
     statCampuses: 'Campus',
     schedule: '8:20–1:50',
@@ -461,7 +461,7 @@ export const es: Dictionary = {
   kinderPage: {
     heroHeadline: 'Mentes que Crecen, Futuros que se Construyen',
     heroSubheadline:
-      'Pensadores críticos que viven el inglés cada día. Aprendizaje basado en proyectos, sin tarea tradicional, y un enfoque multisensorial único en Querétaro.',
+      'Pensadores críticos que viven el inglés cada día. Aprendizaje basado en proyectos Knotion, Filosofía para Niños y un enfoque multisensorial único en Querétaro: bienestar y rigor en equilibrio.',
     backToHome: 'Volver al Inicio',
     overviewTitle: 'Descubre',
     overviewTitleAccent: 'Kinder NWL',
@@ -536,7 +536,7 @@ export const es: Dictionary = {
     ageBadge: '6–11 años',
     tagline: 'Construyendo el Futuro, Proyecto a Proyecto',
     description:
-      'En Primaria, los alumnos se adueñan de su aprendizaje a través del modelo IMPACT, laboratorios STEAM maker y un programa de filosofía que les enseña cómo pensar — no qué pensar. Modelo bilingüe. Sin tarea tradicional.',
+      'En Primaria, la inmersión en inglés se convierte en el motor del aprendizaje. Los alumnos se adueñan de su formación a través del modelo IMPACT de Knotion, laboratorios STEAM maker y un programa de filosofía que les enseña cómo pensar — no qué pensar. Bienestar y rigor académico en equilibrio. Sin tarea tradicional.',
     statBilingual: 'Modelo Bilingüe',
     statCampuses: 'Campus',
     statNoHomework: 'Sin Tarea',
@@ -551,7 +551,7 @@ export const es: Dictionary = {
   elementaryPage: {
     heroHeadline: 'Construyendo el Futuro, Proyecto a Proyecto',
     heroSubheadline:
-      'Pensadores de diseño que resuelven retos reales, lideran con propósito y viven el inglés cada día. Laboratorios maker, sin tarea y certificación internacional.',
+      'Pensadores de diseño que resuelven retos reales, lideran con propósito y viven el inglés cada día: el motor del modelo australiano de aprendizaje. Laboratorios maker, sin tarea y certificación internacional Cognia.',
     backToHome: 'Volver al Inicio',
     overviewTitle: 'Descubre',
     overviewTitleAccent: 'Primaria NWL',
@@ -649,7 +649,7 @@ export const es: Dictionary = {
     ageBadge: '12–15 años',
     tagline: 'De las Ideas al Impacto Real',
     description:
-      'Las mentes jóvenes se convierten en líderes audaces. Las ideas se transforman en impacto a través del Emprendizaje y la doble certificación de EE. UU. y México. La preparación global comienza aquí.',
+      'En Secundaria, el pensamiento crítico toma el liderazgo. Los alumnos se vuelven emprendedores, obtienen la doble certificación de EE. UU. y México con Hokku Academy y crecen como líderes con Yo Soy Líder NWL by Tec de Monterrey. Proyectos reales, no ejercicios de libro. Credenciales globales, no solo calificaciones.',
     statBilingual: 'Inmersión en Inglés',
     statCampuses: 'Campus',
     statCertifications: 'Certificaciones Internacionales',
@@ -664,7 +664,7 @@ export const es: Dictionary = {
   middleSchoolPage: {
     heroHeadline: 'De las Ideas al Impacto Real',
     heroSubheadline:
-      'Donde jóvenes emprendedores construyen su futuro con certificación internacional.',
+      'Donde pensadores críticos se convierten en jóvenes emprendedores: obtienen credenciales internacionales, lideran con Yo Soy Líder NWL by Tec de Monterrey y avanzan siempre hacia adelante.',
     backToHome: 'Volver al Inicio',
     // Transformación
     transformationTitle: 'La Transformación de',
@@ -805,7 +805,7 @@ export const es: Dictionary = {
     ageBadge: 'Edades 15–17',
     tagline: 'Una Preparación para la Vida',
     description:
-      'En la Prepa NWL preparamos a los estudiantes para enfrentar un futuro lleno de retos, con una mentalidad de crecimiento y habilidades que van más allá de lo académico. A través del modelo Life Project, cada semestre construye competencias reales.',
+      'En la Prepa NWL preparamos a los estudiantes para enfrentar un futuro lleno de retos, con una mentalidad de crecimiento y habilidades que van más allá de lo académico. Con el modelo Life Project, cada semestre construye competencias reales: como el canguro, siempre hacia adelante. Además, pueden obtener el doble diploma de EE. UU. y México con Hokku Academy, institución acreditada por Cognia.',
     statBilingual: 'Programa Bilingüe',
     statCampuses: 'Campus',
     statCertifications: 'Certificaciones',
@@ -818,7 +818,7 @@ export const es: Dictionary = {
   highSchoolPage: {
     heroHeadline: 'Más que una Prepa',
     heroSubheadline:
-      'Una preparación para la vida. Donde la mentalidad de crecimiento, las habilidades del mundo real y el propósito personal se unen en cada semestre.',
+      'Una preparación para la vida. Mentalidad de crecimiento, habilidades del mundo real y doble diploma de EE. UU. y México con Hokku Academy, institución acreditada por Cognia.',
     backToHome: 'Volver al Inicio',
     // Propuesta de valor
     valuePropsTitle: 'Lo que Nos Hace',
@@ -1173,6 +1173,6 @@ export const es: Dictionary = {
   metadata: {
     title: 'NWL Australian School | El modo australiano de aprender',
     description:
-      'En NWL Australian School impulsamos el desarrollo académico, emocional y social de nuestros alumnos con un modelo inspirado en el currículo australiano (ACARA).',
+      'En NWL Australian School despertamos la grandeza de cada niño: excelencia bilingüe con el modelo escolar australiano, equilibrando bienestar y rigor académico.',
   },
 };

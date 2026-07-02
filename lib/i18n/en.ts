@@ -177,35 +177,35 @@ export const en: Dictionary = {
       {
         name: 'Maternal',
         ageRange: '2-3 years',
-        description: 'Early childhood development in a nurturing, play-based environment.',
+        description: 'Warm, screen-free early learning where English immersion begins at age 2.',
         campuses: ['All 5 Campuses'],
         href: '/maternal',
       },
       {
         name: 'Kinder',
         ageRange: '4-5 years',
-        description: 'Building foundation skills through exploration and discovery.',
+        description: 'Curiosity grows through play, Knotion projects, and English every day.',
         campuses: ['All 5 Campuses'],
         href: '/kinder',
       },
       {
         name: 'Elementary',
         ageRange: '6-11 years',
-        description: 'Developing academic excellence and critical thinking skills.',
+        description: 'English immersion powers real projects, maker labs, and critical thinking.',
         campuses: ['All 5 Campuses'],
         href: '/elementary',
       },
       {
         name: 'Middle School',
         ageRange: '12-14 years',
-        description: 'Fostering independence, leadership, and self-discovery.',
+        description: 'Leadership, entrepreneurship, and international credentials — always forward.',
         campuses: ['All 5 Campuses'],
         href: '/middle-school',
       },
       {
         name: 'High School',
         ageRange: '15-17 years',
-        description: 'College prep with global perspective and career readiness.',
+        description: 'A preparation for life: US dual diploma and university readiness.',
         campuses: ['Corregidora', 'Zibatá', 'San Miguel'],
         href: '/high-school',
       },
@@ -347,7 +347,7 @@ export const en: Dictionary = {
     tagline: 'Little Steps, Big Dreams',
     subtitle: 'Your child\'s first steps in an English-immersive environment',
     description:
-      'At NWL we have the best option to begin your child\'s education from age two. We dedicate special care and attention to their safety and comprehensive development through play-based learning and our bilingual "Brain Up" program. At this stage, learning is sensory, nurturing and screen-free — a solid foundation before technology is introduced gradually in Kinder through the Knotion model.',
+      'At NWL Australian School, your child\'s education begins at age two with special care for their safety and whole-child development — wellbeing and learning in balance, through play and our bilingual "Brain Up" program. At this stage, learning is sensory, nurturing and screen-free — a solid foundation before technology is introduced gradually in Kinder through the Knotion model.',
     statBilingual: 'English Immersion',
     statCampuses: 'Campuses',
     schedule: '8:20–1:30',
@@ -398,7 +398,7 @@ export const en: Dictionary = {
   maternalPage: {
     heroHeadline: 'Where Every First Step Matters',
     heroSubheadline:
-      'NWL Maternal is the only early childhood program in Querétaro that combines 100% English immersion, neuroscience-based learning, and the warmth your child deserves, from age 2.',
+      'The Australian way of learning begins at age 2: full English immersion, neuroscience-based play, and a community that carries every joey forward — with all the warmth your child deserves.',
     backToHome: 'Back to Home',
     dayTitle: 'A Day in',
     dayTitleAccent: 'Maternal NWL',
@@ -446,7 +446,7 @@ export const en: Dictionary = {
     ageBadge: 'Ages 3–5',
     tagline: 'Growing Minds, Building Futures',
     description:
-      'We believe every child holds extraordinary potential. Our Kinder program nurtures curiosity through English immersion, project-based learning, and our unique Multisensory Program. Technology is introduced gradually and intentionally, guided by the Knotion model, so every child learns not just how to use digital tools, but why and what for.',
+      'We believe every child holds extraordinary potential. Our Kinder program unlocks it through daily English immersion, Knotion project-based learning, and our unique Multisensory Program — curiosity and wellbeing growing side by side. Technology is introduced gradually and intentionally, guided by the Knotion model, so every child learns not just how to use digital tools, but why and what for.',
     statBilingual: 'English Immersion',
     statCampuses: 'Campuses',
     schedule: '8:20–1:50',
@@ -460,7 +460,7 @@ export const en: Dictionary = {
   kinderPage: {
     heroHeadline: 'Growing Minds, Building Futures',
     heroSubheadline:
-      'Critical thinkers who live English every day. Project-based learning, no traditional homework, and a multisensory approach unique in Querétaro.',
+      'Critical thinkers who live English every day. Knotion project-based learning, Philosophy for Children, and a multisensory approach unique in Querétaro — wellbeing and rigor in balance.',
     backToHome: 'Back to Home',
     overviewTitle: 'Discover',
     overviewTitleAccent: 'Kinder NWL',
@@ -535,7 +535,7 @@ export const en: Dictionary = {
     ageBadge: 'Ages 6–11',
     tagline: 'Building the Future, One Project at a Time',
     description:
-      'In Elementary, students take ownership of their learning through the IMPACT model, STEAM maker labs, and a philosophy program that teaches them how to think — not what to think. Bilingual model. No traditional homework.',
+      'In Elementary, English immersion becomes the engine of learning. Students take ownership through the Knotion IMPACT model, STEAM maker labs, and a philosophy program that teaches them how to think — not what to think. Wellbeing and academic rigor in balance. No traditional homework.',
     statBilingual: 'Bilingual Model',
     statCampuses: 'Campuses',
     statNoHomework: 'No Homework',
@@ -550,7 +550,7 @@ export const en: Dictionary = {
   elementaryPage: {
     heroHeadline: 'Building the Future, One Project at a Time',
     heroSubheadline:
-      'Design thinkers who solve real challenges, lead with purpose, and live English every day. Maker labs, no homework, and international certification.',
+      'Design thinkers who solve real challenges, lead with purpose, and live English every day — the engine of the Australian way of learning. Maker labs, no homework, and Cognia international certification.',
     backToHome: 'Back to Home',
     overviewTitle: 'Discover',
     overviewTitleAccent: 'Elementary NWL',
@@ -648,7 +648,7 @@ export const en: Dictionary = {
     ageBadge: 'Ages 12–15',
     tagline: 'From Ideas to Impact',
     description:
-      'In Middle School, students become entrepreneurs, earn dual international certifications, and develop the critical thinking and leadership skills that define their future. Real projects, not textbook exercises. Global credentials, not just grades.',
+      'In Middle School, critical thinking takes the lead. Students become entrepreneurs, earn US-Mexico dual certification with Hokku Academy, and grow as leaders through I\'m NWL Leader by Tec de Monterrey. Real projects, not textbook exercises. Global credentials, not just grades.',
     statBilingual: 'English Immersion',
     statCampuses: 'Campuses',
     statCertifications: 'International Certifications',
@@ -663,7 +663,7 @@ export const en: Dictionary = {
   middleSchoolPage: {
     heroHeadline: 'From Ideas to Impact',
     heroSubheadline:
-      'Where young entrepreneurs earn international credentials, develop real-world skills, and become the leaders of tomorrow.',
+      'Where critical thinkers become young entrepreneurs: earning international credentials, leading through I\'m NWL Leader by Tec de Monterrey, and always moving forward.',
     backToHome: 'Back to Home',
     // Transformation
     transformationTitle: 'The Middle School',
@@ -804,7 +804,7 @@ export const en: Dictionary = {
     ageBadge: 'Ages 15–17',
     tagline: 'A Preparation for Life',
     description:
-      'Prepa NWL prepares students for a future full of challenges, with a growth mindset and skills that go far beyond academics. Through the Life Project model, every semester builds real-world abilities, from financial intelligence to entrepreneurship.',
+      'Prepa NWL prepares students for a future full of challenges, with a growth mindset and skills that go far beyond academics. Through the Life Project model, every semester builds real-world abilities — like the kangaroo, always forward, never backward. Students can also earn a US + Mexican dual diploma with Cognia-accredited Hokku Academy.',
     statBilingual: 'Bilingual Program',
     statCampuses: 'Campuses',
     statCertifications: 'Certifications',
@@ -817,7 +817,7 @@ export const en: Dictionary = {
   highSchoolPage: {
     heroHeadline: 'More Than High School',
     heroSubheadline:
-      'A preparation for life. Where growth mindset, real-world skills, and personal purpose come together in every semester.',
+      'A preparation for life. Growth mindset, real-world skills, and a US + Mexican dual diploma with Cognia-accredited Hokku Academy.',
     backToHome: 'Back to Home',
     // Value Props
     valuePropsTitle: 'What Makes Us',
@@ -1172,6 +1172,6 @@ export const en: Dictionary = {
   metadata: {
     title: 'NWL Australian School | The Australian way of learning',
     description:
-      'At NWL Australian School, we drive the academic, emotional, and social development of our students on an Australian-inspired (ACARA) model.',
+      'At NWL Australian School we unlock greatness in every child: bilingual excellence on the Australian school model, balancing wellbeing with academic rigor.',
   },
 };

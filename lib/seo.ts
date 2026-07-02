@@ -21,37 +21,37 @@ export const PAGE_SEO = {
   home: {
     title: 'The Australian way of learning — NWL Australian School',
     description:
-      'NWL Australian School — bilingual private school in Querétaro & San Miguel de Allende on an Australian-inspired (ACARA) model. Maternal through High School, English immersion, project-based learning. 5 campuses.',
+      'NWL Australian School — bilingual private school in Querétaro & San Miguel de Allende on the Australian school model. Maternal through High School, English immersion, project-based learning. 5 campuses.',
     ogImage: '/images/og/home.jpg',
   },
   maternal: {
     title: 'Maternal Program (Ages 2–3)',
     description:
-      'Early childhood bilingual program for ages 2–3. Play-based English immersion, Brain Up methodology, nurturing environment. 5 campuses in Querétaro & San Miguel.',
+      'The Australian way of learning begins at age 2: play-based English immersion, Brain Up neuroscience methodology, and a warm, protective community. 5 campuses in Querétaro & San Miguel.',
     ogImage: '/images/og/maternal.jpg',
   },
   kinder: {
     title: 'Kinder Program (Ages 3–5)',
     description:
-      'Bilingual kindergarten with English immersion, project-based learning, and multisensory approach. No traditional homework. Querétaro & San Miguel de Allende.',
+      'Bilingual kindergarten on the Australian school model: English immersion, Knotion project-based learning, and a multisensory approach. No traditional homework. Querétaro & San Miguel de Allende.',
     ogImage: '/images/og/kinder.jpg',
   },
   elementary: {
     title: 'Elementary School (Ages 6–11)',
     description:
-      'Bilingual elementary with IMPACT model, STEAM maker labs, philosophy program, and no homework. International certifications. Querétaro & San Miguel de Allende.',
+      'Bilingual elementary where English immersion is the engine: STEAM maker labs, Philosophy for Children, and no homework. International certifications. Querétaro & San Miguel de Allende.',
     ogImage: '/images/og/elementary.jpg',
   },
   middleSchool: {
     title: 'Middle School (Ages 12–15)',
     description:
-      'Bilingual middle school with dual international certifications, entrepreneurship program, and critical thinking focus. Querétaro & San Miguel de Allende.',
+      'Bilingual middle school balancing wellbeing with academic rigor: dual international certifications, entrepreneurship, and critical thinking at the core. Querétaro & San Miguel de Allende.',
     ogImage: '/images/og/middle-school.jpg',
   },
   highSchool: {
     title: 'High School — Prepa NWL (Ages 15–17)',
     description:
-      'Life Project model high school: financial intelligence, real-world certifications, zero homework, AI & modern technology. Querétaro & San Miguel de Allende.',
+      'Life Project high school, always forward: Hokku double diploma, Cognia accreditation, financial intelligence, and real-world certifications. Querétaro & San Miguel de Allende.',
     ogImage: '/images/og/high-school.jpg',
   },
   careers: {

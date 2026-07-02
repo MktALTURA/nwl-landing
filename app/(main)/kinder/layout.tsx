@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { SITE_URL, PAGE_SEO } from '@/lib/seo';
+import { SITE_URL, SITE_NAME, PAGE_SEO } from '@/lib/seo';
 import { BreadcrumbJsonLd } from '@/components/JsonLd';
 
 export const metadata: Metadata = {
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
         url: PAGE_SEO.kinder.ogImage,
         width: 1200,
         height: 630,
-        alt: 'Newland School Kinder Program — Ages 3–5',
+        alt: 'NWL Australian School — Kinder Program, Ages 3–5',
       },
     ],
   },
@@ -38,7 +38,7 @@ export default function KinderLayout({
     <>
       <BreadcrumbJsonLd
         items={[
-          { name: 'Newland School', url: SITE_URL },
+          { name: SITE_NAME, url: SITE_URL },
           { name: 'Kinder', url: `${SITE_URL}/kinder` },
         ]}
       />

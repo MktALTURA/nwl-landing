@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   },
   description: PAGE_SEO.home.description,
   keywords:
-    "nwl australian school, newland, colegio, school, querétaro, educación, education, modelo australiano, australian model, acara, maternal, kinder, primaria, secundaria, preparatoria, bilingual, bilingüe, san miguel de allende",
+    "nwl australian school, newland, colegio, school, querétaro, educación, education, modelo australiano, australian model, australian curriculum, colegio australiano, maternal, kinder, primaria, secundaria, preparatoria, bilingual, bilingüe, san miguel de allende",
   openGraph: {
     type: "website",
     locale: "es_MX",
