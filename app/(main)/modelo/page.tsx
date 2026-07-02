@@ -141,6 +141,307 @@ const UI = {
   },
 };
 
+/* ---------- "The case" — evidence content (from the rebrand case study) ---------- */
+const CASE = {
+  eyebrow: { en: 'The case · 16 years', es: 'El caso · 16 años' },
+  lead: {
+    en: "This isn't a new label — it's the culmination of sixteen years of work.",
+    es: 'No es una etiqueta nueva — es la culminación de dieciséis años de trabajo.',
+  },
+  p1: {
+    en: "NWL has spent over sixteen years raising the bar for education in Mexico — beginning with childhood wellbeing, maturing into critical thinking, and growing into a complete international model. The kangaroo was never decoration; Australia has been in the school's DNA from the start.",
+    es: 'NWL lleva más de dieciséis años elevando la educación en México — empezó con el bienestar infantil, maduró hacia el pensamiento crítico y creció hasta un modelo internacional completo. El canguro nunca fue decoración: Australia ha estado en nuestro ADN desde el inicio.',
+  },
+  p2: {
+    en: 'Adopting a model inspired by the Australian curriculum makes explicit what the school has always built toward: students who think critically, lead with purpose, and belong to the world.',
+    es: 'Adoptar un modelo inspirado en el currículo australiano hace explícito lo que siempre construimos: estudiantes que piensan críticamente, lideran con propósito y pertenecen al mundo.',
+  },
+  journey: [
+    {
+      title: { en: 'Childhood wellbeing', es: 'Bienestar infantil' },
+      text: {
+        en: 'Where it started — a school built around how children actually grow.',
+        es: 'Donde empezó — un colegio construido en torno a cómo crecen realmente los niños.',
+      },
+    },
+    {
+      title: { en: 'Critical thinking', es: 'Pensamiento crítico' },
+      text: {
+        en: 'Philosophy for Children matured into reasoning, inquiry and real-world projects.',
+        es: 'Filosofía para Niños maduró hacia el razonamiento, la indagación y proyectos reales.',
+      },
+    },
+    {
+      title: { en: 'The Australian model', es: 'El modelo australiano' },
+      text: {
+        en: 'An international mindset, aligned with the Australian curriculum — the culmination, not a detour.',
+        es: 'Una mentalidad internacional, alineada con el currículo australiano — la culminación, no un desvío.',
+      },
+    },
+  ],
+  stats: [
+    {
+      n: '503',
+      unit: '',
+      text: {
+        en: "Australia's PISA score in reading & science — above the OECD average of 487, and well ahead of memorization-led models.",
+        es: 'Puntaje PISA de Australia en lectura y ciencias — por encima del promedio OCDE de 487 y muy adelante de modelos basados en memorización.',
+      },
+    },
+    {
+      n: '65',
+      unit: '%',
+      text: {
+        en: 'of assessment comes from continuous work and real-world projects — not high-stakes final exams.',
+        es: 'de la evaluación proviene de trabajo continuo y proyectos reales — no de exámenes finales de alto impacto.',
+      },
+    },
+    {
+      n: '9',
+      unit: '/10',
+      text: {
+        en: 'emphasis on student wellbeing in the Australian model, versus 5/10 in traditional private schooling.',
+        es: 'de énfasis en el bienestar del estudiante en el modelo australiano, frente a 5/10 en la escuela privada tradicional.',
+      },
+    },
+  ],
+  source: {
+    en: 'Reference data · PISA 2022 · Australian Curriculum',
+    es: 'Datos de referencia · PISA 2022 · Currículo Australiano',
+  },
+};
+
+/* Chart palette — validated (OKLCH band, chroma, CVD, contrast) on the navy surface */
+const CH = { gold: '#C08109', goldBright: '#E3990F', teal: '#1D89A6', violet: '#8171C2' };
+
+const PISA = {
+  caption: {
+    en: 'PISA 2022 · Australia vs OECD vs Mexico (private est.)',
+    es: 'PISA 2022 · Australia vs OCDE vs México (privado)',
+  },
+  subjects: [
+    { label: { en: 'Math', es: 'Matemáticas' }, values: [491, 430, 489] },
+    { label: { en: 'Science', es: 'Ciencias' }, values: [503, 440, 489] },
+    { label: { en: 'Reading', es: 'Lectura' }, values: [503, 455, 487] },
+  ],
+  series: [
+    { name: { en: 'Australia', es: 'Australia' }, color: CH.gold, labelColor: CH.goldBright },
+    { name: { en: 'Mexico (private est.)', es: 'México (privado)' }, color: CH.teal, labelColor: '#4FB3CE' },
+    { name: { en: 'OECD average', es: 'Promedio OCDE' }, color: CH.violet, labelColor: '#A99BE0' },
+  ],
+  min: 350,
+  max: 550,
+};
+
+const RADAR = {
+  caption: {
+    en: 'Developmental emphasis · Australian model vs traditional',
+    es: 'Énfasis por dominio · modelo australiano vs tradicional',
+  },
+  axes: [
+    { en: 'Academic pressure', es: 'Presión académica' },
+    { en: 'Emotional support', es: 'Apoyo emocional' },
+    { en: 'Outdoor time', es: 'Aire libre' },
+    { en: 'Critical thinking', es: 'Pensamiento crítico' },
+    { en: 'Rote memorization', es: 'Memorización' },
+    { en: 'Peer collaboration', es: 'Colaboración' },
+  ],
+  series: [
+    { name: { en: 'Australian model', es: 'Modelo australiano' }, color: CH.gold, fill: 'rgba(192,129,9,0.25)', data: [4, 9, 8, 9, 3, 9] },
+    { name: { en: 'Traditional private', es: 'Privado tradicional' }, color: CH.violet, fill: 'rgba(129,113,194,0.20)', data: [9, 5, 4, 5, 8, 5] },
+  ],
+  max: 10,
+};
+
+/* ---------- PISA Cleveland dot plot (dependency-free SVG) ---------- */
+function PisaDotPlot({ locale }: { locale: 'en' | 'es' }) {
+  const W = 560;
+  const H = 236;
+  const PAD_L = 96;
+  const PAD_R = 30;
+  const x = (v: number) => PAD_L + ((v - PISA.min) / (PISA.max - PISA.min)) * (W - PAD_L - PAD_R);
+  const rowY = (i: number) => 58 + i * 62;
+  const ticks = [350, 400, 450, 500, 550];
+
+  return (
+    <div>
+      {/* legend */}
+      <div className="flex flex-wrap gap-x-5 gap-y-1.5 mb-4">
+        {PISA.series.map((s, i) => (
+          <span key={i} className="inline-flex items-center gap-2 text-[11px] text-paper/70">
+            <span className="w-2.5 h-2.5 rounded-full" style={{ background: s.color }} />
+            {s.name[locale]}
+          </span>
+        ))}
+      </div>
+      <svg viewBox={`0 0 ${W} ${H}`} className="w-full h-auto" role="img" aria-label={PISA.caption[locale]}>
+        {/* gridlines + tick labels */}
+        {ticks.map((tv) => (
+          <g key={tv}>
+            <line x1={x(tv)} y1={30} x2={x(tv)} y2={H - 34} stroke="rgba(244,238,226,0.10)" strokeWidth="1" />
+            <text x={x(tv)} y={H - 16} textAnchor="middle" fontSize="10" fill="rgba(244,238,226,0.45)" fontFamily="var(--font-mono)">
+              {tv}
+            </text>
+          </g>
+        ))}
+        {PISA.subjects.map((subj, i) => {
+          const y = rowY(i);
+          return (
+            <g key={i}>
+              <text x={0} y={y + 4} fontSize="11.5" fill="rgba(244,238,226,0.75)" fontWeight="600">
+                {subj.label[locale]}
+              </text>
+              {/* row track */}
+              <line x1={PAD_L} y1={y} x2={W - PAD_R} y2={y} stroke="rgba(244,238,226,0.12)" strokeWidth="1.5" strokeLinecap="round" />
+              {/* dots — surface ring separates overlapping marks; hero series drawn last (on top) */}
+              {[2, 1, 0].map((si) => {
+                const v = subj.values[si];
+                return (
+                  <g key={si}>
+                    <circle cx={x(v)} cy={y} r={6.5} fill={PISA.series[si].color} stroke="#0B224E" strokeWidth="2">
+                      <title>{`${PISA.series[si].name[locale]} — ${subj.label[locale]}: ${v}`}</title>
+                    </circle>
+                    {/* direct labels on the two series the comparison is about */}
+                    {si < 2 && (
+                      <text
+                        x={x(v)}
+                        y={si === 0 ? y - 13 : y + 22}
+                        textAnchor="middle"
+                        fontSize="10.5"
+                        fontWeight="700"
+                        fill={PISA.series[si].labelColor}
+                        fontFamily="var(--font-mono)"
+                      >
+                        {v}
+                      </text>
+                    )}
+                  </g>
+                );
+              })}
+            </g>
+          );
+        })}
+      </svg>
+      {/* screen-reader table */}
+      <table className="sr-only">
+        <caption>{PISA.caption[locale]}</caption>
+        <thead>
+          <tr>
+            <th>—</th>
+            {PISA.series.map((s, i) => (
+              <th key={i}>{s.name[locale]}</th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {PISA.subjects.map((subj, i) => (
+            <tr key={i}>
+              <th>{subj.label[locale]}</th>
+              {subj.values.map((v, j) => (
+                <td key={j}>{v}</td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
+/* ---------- Developmental-emphasis radar (dependency-free SVG) ---------- */
+function ModelRadar({ locale }: { locale: 'en' | 'es' }) {
+  const W = 440;
+  const S = 300;
+  const CX = W / 2;
+  const CY = S / 2 + 6;
+  const R = 100;
+  const N = RADAR.axes.length;
+  const pt = (i: number, v: number) => {
+    const a = (Math.PI * 2 * i) / N - Math.PI / 2;
+    const r = (v / RADAR.max) * R;
+    return { x: CX + r * Math.cos(a), y: CY + r * Math.sin(a) };
+  };
+  const ring = (v: number) =>
+    Array.from({ length: N }, (_, i) => {
+      const p = pt(i, v);
+      return `${p.x},${p.y}`;
+    }).join(' ');
+
+  return (
+    <div>
+      <div className="flex flex-wrap gap-x-5 gap-y-1.5 mb-4">
+        {RADAR.series.map((s, i) => (
+          <span key={i} className="inline-flex items-center gap-2 text-[11px] text-paper/70">
+            <span className="w-2.5 h-2.5 rounded-full" style={{ background: s.color }} />
+            {s.name[locale]}
+          </span>
+        ))}
+      </div>
+      <svg viewBox={`0 0 ${W} ${S}`} className="w-full h-auto max-w-[460px] mx-auto" role="img" aria-label={RADAR.caption[locale]}>
+        {/* rings + spokes */}
+        {[2.5, 5, 7.5, 10].map((v) => (
+          <polygon key={v} points={ring(v)} fill="none" stroke="rgba(244,238,226,0.10)" strokeWidth="1" />
+        ))}
+        {RADAR.axes.map((_, i) => {
+          const p = pt(i, RADAR.max);
+          return <line key={i} x1={CX} y1={CY} x2={p.x} y2={p.y} stroke="rgba(244,238,226,0.10)" strokeWidth="1" />;
+        })}
+        {/* series polygons */}
+        {RADAR.series.map((s, si) => (
+          <g key={si}>
+            <polygon
+              points={s.data.map((v, i) => { const p = pt(i, v); return `${p.x},${p.y}`; }).join(' ')}
+              fill={s.fill}
+              stroke={s.color}
+              strokeWidth="2"
+              strokeLinejoin="round"
+            />
+            {s.data.map((v, i) => {
+              const p = pt(i, v);
+              return (
+                <circle key={i} cx={p.x} cy={p.y} r={3.5} fill={s.color} stroke="#0B224E" strokeWidth="2">
+                  <title>{`${s.name[locale]} — ${RADAR.axes[i][locale]}: ${v}/10`}</title>
+                </circle>
+              );
+            })}
+          </g>
+        ))}
+        {/* axis labels */}
+        {RADAR.axes.map((ax, i) => {
+          const p = pt(i, RADAR.max + 2.4);
+          const anchor = Math.abs(p.x - CX) < 8 ? 'middle' : p.x > CX ? 'start' : 'end';
+          return (
+            <text key={i} x={p.x} y={p.y + 3} textAnchor={anchor} fontSize="10" fill="rgba(244,238,226,0.65)">
+              {ax[locale]}
+            </text>
+          );
+        })}
+      </svg>
+      <table className="sr-only">
+        <caption>{RADAR.caption[locale]}</caption>
+        <thead>
+          <tr>
+            <th>—</th>
+            {RADAR.axes.map((ax, i) => (
+              <th key={i}>{ax[locale]}</th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {RADAR.series.map((s, i) => (
+            <tr key={i}>
+              <th>{s.name[locale]}</th>
+              {s.data.map((v, j) => (
+                <td key={j}>{v}/10</td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
 export default function ModeloPage() {
   const { locale } = useLanguage();
   const L = (l: Localized) => l[locale];
@@ -520,6 +821,64 @@ export default function ModeloPage() {
               </motion.div>
             ))}
           </div>
+
+          {/* The case · 16 years — journey + evidence */}
+          <div className="grid lg:grid-cols-[1.05fr,0.95fr] gap-10 lg:gap-14 items-start mb-12">
+            <div>
+              <span className="inline-flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.22em] text-gold mb-4">
+                <span className="w-9 h-px bg-gold" />
+                {L(CASE.eyebrow)}
+              </span>
+              <p className="font-display text-2xl md:text-3xl leading-snug mb-5">
+                {L(CASE.lead)}
+              </p>
+              <p className="text-paper/70 leading-relaxed mb-4">{L(CASE.p1)}</p>
+              <p className="text-paper/70 leading-relaxed mb-7">{L(CASE.p2)}</p>
+              <ol className="space-y-0">
+                {CASE.journey.map((j, i) => (
+                  <li key={i} className="grid grid-cols-[auto,1fr] gap-4 py-4 border-t border-white/10">
+                    <span className="font-mono text-sm text-gold pt-0.5">0{i + 1}</span>
+                    <div>
+                      <b className="block font-display font-semibold text-paper mb-1">{L(j.title)}</b>
+                      <p className="text-sm text-paper/60 leading-relaxed">{L(j.text)}</p>
+                    </div>
+                  </li>
+                ))}
+              </ol>
+            </div>
+            <div className="bg-white/[0.06] border border-white/10 rounded-3xl p-7 md:p-8 backdrop-blur-sm">
+              <div className="space-y-7">
+                {CASE.stats.map((s, i) => (
+                  <div key={i} className={i > 0 ? 'pt-7 border-t border-white/10' : ''}>
+                    <div className="font-display text-5xl font-semibold text-gold leading-none mb-2">
+                      {s.n}
+                      {s.unit && <span className="text-3xl">{s.unit}</span>}
+                    </div>
+                    <p className="text-sm text-paper/65 leading-relaxed">{L(s.text)}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Evidence charts */}
+          <div className="grid md:grid-cols-2 gap-5 mb-4">
+            <figure className="bg-white/[0.06] border border-white/10 rounded-3xl p-6 md:p-7 backdrop-blur-sm flex flex-col">
+              <PisaDotPlot locale={locale} />
+              <figcaption className="mt-auto pt-4 font-mono text-[10px] uppercase tracking-[0.18em] text-paper/50">
+                {PISA.caption[locale]}
+              </figcaption>
+            </figure>
+            <figure className="bg-white/[0.06] border border-white/10 rounded-3xl p-6 md:p-7 backdrop-blur-sm">
+              <ModelRadar locale={locale} />
+              <figcaption className="mt-4 font-mono text-[10px] uppercase tracking-[0.18em] text-paper/50">
+                {RADAR.caption[locale]}
+              </figcaption>
+            </figure>
+          </div>
+          <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-paper/40 mb-12">
+            {L(CASE.source)}
+          </p>
 
           <p className="font-display italic text-xl md:text-2xl text-gold max-w-2xl mb-10">
             {L(UI.whyKangaroo)}
