@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
 import { FiMapPin, FiPhone, FiMail, FiArrowUpRight, FiTarget } from 'react-icons/fi';
 import { FaWhatsapp } from 'react-icons/fa';
@@ -41,6 +42,7 @@ const campusesData = [
 
 export default function CampusFinder() {
   const { t } = useLanguage();
+  const router = useRouter();
   const campuses = campusesData.map((c, i) => ({ ...c, ...t.campus.items[i] }));
 
   return (
@@ -86,7 +88,12 @@ export default function CampusFinder() {
               transition={{ duration: 0.5, delay: index * 0.08 }}
               viewport={{ once: true }}
               whileHover={{ y: -6, transition: { duration: 0.2 } }}
-              className="group bg-white rounded-2xl overflow-hidden border border-navy/10 shadow-[0_18px_40px_-24px_rgba(11,34,78,0.45)] hover:shadow-[0_28px_60px_-26px_rgba(11,34,78,0.55)] transition-shadow duration-300"
+              onClick={(e) => {
+                // Whole card navigates, but inner links (map, CTA) keep their own behavior
+                if ((e.target as HTMLElement).closest('a')) return;
+                router.push(campus.href);
+              }}
+              className="group cursor-pointer bg-white rounded-2xl overflow-hidden border border-navy/10 shadow-[0_18px_40px_-24px_rgba(11,34,78,0.45)] hover:shadow-[0_28px_60px_-26px_rgba(11,34,78,0.55)] transition-shadow duration-300"
             >
               {/* Campus Image — golden-hour overlay */}
               <div className="aspect-[4/3] overflow-hidden relative bg-paper nwl-grade">
