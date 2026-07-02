@@ -42,7 +42,6 @@ const R_INNER = 21.8; // component ring, inner edge
 const R_OUTER = 34; // component ring outer edge = capability band inner edge
 const R_CAP_OUT = 49.2; // capability band outer edge
 const R_LABEL = (R_INNER + R_OUTER) / 2;
-const R_CAP_ITEM = 43.2; // capability icon+label block center
 
 function polar(r: number, deg: number) {
   const rad = ((deg - 90) * Math.PI) / 180;
@@ -653,11 +652,13 @@ export default function ModeloPage() {
                 {MODEL_COMPONENTS.map((comp, i) =>
                   comp.capabilities.map((cap, j) => {
                     const am = capMid(i, j);
+                    const inward = +(2.2 * Math.abs(Math.sin((am * Math.PI) / 180))).toFixed(3);
+                    const labelR = (j === 1 ? 45.4 : 43.9) - inward;
                     const pd = polar(R_OUTER + 0.4, am);
-                    const pl = polar(R_OUTER + 3.8, am);
+                    const pl = polar(labelR - 4.4, am);
                     return (
                       <g key={comp.id + '-lead-' + j} className="pointer-events-none">
-                        <line x1={pd.x} y1={pd.y} x2={pl.x} y2={pl.y} stroke={comp.color} strokeWidth="0.35" />
+                        <line x1={pd.x} y1={pd.y} x2={pl.x} y2={pl.y} stroke={comp.color} strokeWidth="0.4" />
                         <circle cx={pd.x} cy={pd.y} r="1.05" fill={comp.color} stroke={pastel(comp.color)} strokeWidth="0.45" />
                       </g>
                     );
@@ -672,9 +673,10 @@ export default function ModeloPage() {
               {MODEL_COMPONENTS.map((comp, i) =>
                 comp.capabilities.map((cap, j) => {
                   const am = capMid(i, j);
-                  // near-horizontal labels get nudged inward so text stays on the band
+                  // near-horizontal labels get nudged inward so text stays on the band;
+                  // the middle capability sits slightly further out, like the deck
                   const inward = +(2.2 * Math.abs(Math.sin((am * Math.PI) / 180))).toFixed(3);
-                  const p = polar(R_CAP_ITEM - inward, am);
+                  const p = polar((j === 1 ? 45.4 : 43.9) - inward, am);
                   const isActive = i === active;
                   return (
                     <div
@@ -695,8 +697,8 @@ export default function ModeloPage() {
                         className="flex w-full flex-col items-center text-center"
                         style={{ color: comp.color }}
                       >
-                        <Icon name={cap.icon} size={12} className="mb-0.5" />
-                        <span className="hidden sm:block font-semibold text-[6.2px] md:text-[6.9px] leading-[1.12]">
+                        <Icon name={cap.icon} size={14} className="mb-0.5" />
+                        <span className="hidden sm:block font-semibold text-[7.4px] md:text-[8.4px] leading-[1.15]">
                           {L(cap.name)}
                         </span>
                       </motion.button>
