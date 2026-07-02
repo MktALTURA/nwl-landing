@@ -144,6 +144,8 @@ export default function KangarooGame({ onExit }: { onExit: () => void }) {
   /* --- React UI layer --- */
   const [ui, setUi] = useState<'ready' | 'run' | 'over'>('ready');
   const [finalScore, setFinalScore] = useState(0);
+  const [isRecord, setIsRecord] = useState(false);
+  const [bestScore, setBestScore] = useState(0);
   const [showBoard, setShowBoard] = useState(false);
   const [board, setBoard] = useState<ScoreEntry[] | null>(null);
   const [boardOffline, setBoardOffline] = useState(false);
@@ -183,7 +185,7 @@ export default function KangarooGame({ onExit }: { onExit: () => void }) {
   }, []);
 
   const saveScore = useCallback(async () => {
-    const name = playerName.replace(/\s+/g, ' ').trim().slice(0, 18);
+    const name = playerName.replace(/\s+/g, ' ').trim().slice(0, 18).toUpperCase();
     if (name.length < 2 || finalScore < 1 || saving) return;
     setSaving(true);
     try {
@@ -347,10 +349,13 @@ export default function KangarooGame({ onExit }: { onExit: () => void }) {
       state = 'over';
       deadFlash = 8;
       beep(160, 0.25, 0.05);
-      if (score > best) {
+      const record = score > best;
+      if (record) {
         best = score;
         try { localStorage.setItem('nwl-outback-run-best', String(best)); } catch { /* ignore */ }
       }
+      setIsRecord(record);
+      setBestScore(best);
       setFinalScore(score);
       setUi('over');
     };
@@ -517,16 +522,16 @@ export default function KangarooGame({ onExit }: { onExit: () => void }) {
         ESC ✕
       </button>
 
-      {/* pre-game actions */}
-      {ui === 'ready' && !showBoard && (
-        <div className="absolute bottom-4 left-0 right-0 flex justify-center">
-          <button
-            onClick={loadBoard}
-            className={`${btn} border-gold/40 text-gold hover:bg-gold/15`}
-          >
-            🏆 Leaderboard
-          </button>
-        </div>
+      {/* leaderboard trophy — always visible when not mid-run */}
+      {ui !== 'run' && !showBoard && (
+        <button
+          onClick={loadBoard}
+          aria-label="Leaderboard — top 20"
+          title="Leaderboard"
+          className="absolute top-2.5 left-3 text-[17px] leading-none opacity-80 hover:opacity-100 hover:scale-110 transition-all"
+        >
+          🏆
+        </button>
       )}
 
       {/* game-over: save your score */}
@@ -538,6 +543,10 @@ export default function KangarooGame({ onExit }: { onExit: () => void }) {
             </div>
             {savedAs ? (
               <div className="font-mono text-[10px] text-paper/70 mb-3">Saved as {savedAs} ✓</div>
+            ) : !isRecord ? (
+              <div className="font-mono text-[10px] text-paper/50 mb-3">
+                Best {String(bestScore).padStart(5, '0')} — beat it to sign the board
+              </div>
             ) : (
               <div className="flex gap-2 mb-3">
                 <input
@@ -555,6 +564,11 @@ export default function KangarooGame({ onExit }: { onExit: () => void }) {
                 >
                   {saving ? '…' : 'Save'}
                 </button>
+              </div>
+            )}
+            {isRecord && !savedAs && (
+              <div className="font-mono text-[9px] uppercase tracking-[0.16em] text-gold/70 -mt-1 mb-3">
+                New record!
               </div>
             )}
             <div className="flex justify-center gap-2">

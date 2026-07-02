@@ -19,7 +19,8 @@ export async function POST(req: Request) {
       .replace(/[<>]/g, '')
       .replace(/\s+/g, ' ')
       .trim()
-      .slice(0, 18);
+      .slice(0, 18)
+      .toUpperCase();
     const score = Math.floor(Number(body?.score));
     if (name.length < 2 || !Number.isFinite(score) || score < 1 || score > 99999) {
       return NextResponse.json({ error: 'invalid' }, { status: 400 });
