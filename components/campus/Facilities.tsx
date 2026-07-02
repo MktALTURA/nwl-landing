@@ -29,8 +29,8 @@ export default function Facilities({ facilities }: FacilitiesProps) {
   return (
     <section className="py-12 md:py-16 bg-white relative overflow-hidden">
       {/* Decorative blur */}
-      <div className="absolute top-0 right-0 w-72 h-72 bg-ocean/5 rounded-full blur-3xl" />
-      <div className="absolute bottom-0 left-0 w-64 h-64 bg-mustard/5 rounded-full blur-3xl" />
+      <div className="absolute top-0 right-0 w-72 h-72 bg-navy/5 rounded-full blur-3xl" />
+      <div className="absolute bottom-0 left-0 w-64 h-64 bg-gold/10 rounded-full blur-3xl" />
 
       <div className="container-custom relative z-10">
         {/* Header */}
@@ -42,9 +42,9 @@ export default function Facilities({ facilities }: FacilitiesProps) {
           className="text-center mb-8"
         >
           <div className="wine-divider mx-auto mb-4" />
-          <h2 className="font-display text-4xl md:text-5xl font-bold text-charcoal">
+          <h2 className="font-display text-4xl md:text-5xl font-bold text-navy">
             {t.campusDetail.facilitiesTitle}{' '}
-            <span className="text-wine">{t.campusDetail.facilitiesTitleAccent}</span>
+            <span className="italic text-gold">{t.campusDetail.facilitiesTitleAccent}</span>
           </h2>
         </motion.div>
 
@@ -63,7 +63,7 @@ export default function Facilities({ facilities }: FacilitiesProps) {
               {facility.image ? (
                 <Image
                   src={facility.image}
-                  alt={`${localized(facility.name, locale)} – Newland School`}
+                  alt={`${localized(facility.name, locale)} – NWL Australian School`}
                   fill
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   className="object-cover transition-transform duration-300 group-hover:scale-105"
@@ -74,7 +74,7 @@ export default function Facilities({ facilities }: FacilitiesProps) {
                 </div>
               )}
               {/* Overlay with label */}
-              <div className="absolute inset-0 bg-gradient-to-t from-charcoal/70 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-navy-900/70 via-transparent to-transparent" />
               <div className="absolute bottom-0 left-0 right-0 p-5">
                 <h3 className="font-display text-lg font-bold text-white">
                   {localized(facility.name, locale)}

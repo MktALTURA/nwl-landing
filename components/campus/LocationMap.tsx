@@ -13,14 +13,19 @@ interface LocationMapProps {
 export default function LocationMap({ address, mapUrl, campusName }: LocationMapProps) {
   const { t } = useLanguage();
 
-  // Build the embed URL from the campus name for a cleaner embed
+  // Build the embed URL from the campus name for a cleaner embed.
+  // TODO(rebrand follow-up): this query intentionally keeps the legacy "Colegio Newland"
+  // name — the Google Business listings have NOT been verified as renamed to
+  // "NWL Australian School <campus>" yet (plan §3). Once the listings are renamed,
+  // update this query AND the mapUrl entries in lib/campus-data.ts. Note: "Querétaro"
+  // is hardcoded and is inaccurate for the San Miguel de Allende campus (Guanajuato).
   const embedQuery = encodeURIComponent(`Colegio Newland ${campusName}, Querétaro`);
   const embedUrl = `https://www.google.com/maps?q=${embedQuery}&output=embed`;
 
   return (
-    <section className="py-10 md:py-14 bg-gradient-to-b from-sand to-ivory relative overflow-hidden">
+    <section className="py-10 md:py-14 bg-gradient-to-b from-paper to-white relative overflow-hidden">
       {/* Decorative blur */}
-      <div className="absolute bottom-0 left-0 w-64 h-64 bg-eucalyptus/8 rounded-full blur-3xl" />
+      <div className="absolute bottom-0 left-0 w-64 h-64 bg-gold/10 rounded-full blur-3xl" />
 
       <div className="container-custom relative z-10">
         {/* Header */}
@@ -32,9 +37,9 @@ export default function LocationMap({ address, mapUrl, campusName }: LocationMap
           className="text-center mb-8"
         >
           <div className="wine-divider mx-auto mb-4" />
-          <h2 className="font-display text-3xl md:text-4xl font-bold text-charcoal">
+          <h2 className="font-display text-3xl md:text-4xl font-bold text-navy">
             {t.campusDetail.locationTitle}{' '}
-            <span className="text-wine">{t.campusDetail.locationTitleAccent}</span>
+            <span className="italic text-gold">{t.campusDetail.locationTitleAccent}</span>
           </h2>
         </motion.div>
 
@@ -67,15 +72,15 @@ export default function LocationMap({ address, mapUrl, campusName }: LocationMap
             viewport={{ once: true }}
             className="flex flex-col justify-center bg-white rounded-lg p-6 shadow-sm"
           >
-            <div className="w-12 h-12 rounded-full bg-wine/10 flex items-center justify-center mb-4">
-              <FiMapPin size={24} className="text-wine" />
+            <div className="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center mb-4">
+              <FiMapPin size={24} className="text-gold-600" />
             </div>
 
-            <h3 className="font-display text-2xl font-bold text-charcoal mb-2">
+            <h3 className="font-display text-2xl font-bold text-navy mb-2">
               Campus {campusName}
             </h3>
 
-            <p className="text-charcoal/70 leading-relaxed mb-4 text-sm">
+            <p className="text-navy/70 leading-relaxed mb-4 text-sm">
               {address}
             </p>
 
@@ -83,7 +88,7 @@ export default function LocationMap({ address, mapUrl, campusName }: LocationMap
               href={mapUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-wine text-white px-6 py-3 rounded-sm font-bold hover:bg-wine/90 transition-colors duration-300 w-fit"
+              className="btn-primary inline-flex items-center gap-2 text-center w-fit"
             >
               <FiNavigation size={18} />
               {t.campusDetail.getDirections}

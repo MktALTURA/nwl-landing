@@ -16,10 +16,10 @@ export default function CampusTestimonials({ testimonials, googleRating, googleR
   const { t } = useLanguage();
 
   return (
-    <section className="py-12 md:py-16 bg-gradient-to-b from-white to-sand relative overflow-hidden">
+    <section className="py-12 md:py-16 bg-gradient-to-b from-white to-paper relative overflow-hidden">
       {/* Decorative blurs */}
-      <div className="absolute top-0 left-10 w-40 h-40 bg-mustard/8 rounded-full blur-3xl" />
-      <div className="absolute bottom-0 right-10 w-48 h-48 bg-sunshine/10 rounded-full blur-3xl" />
+      <div className="absolute top-0 left-10 w-40 h-40 bg-gold/10 rounded-full blur-3xl" />
+      <div className="absolute bottom-0 right-10 w-48 h-48 bg-navy/5 rounded-full blur-3xl" />
 
       <div className="container-custom relative z-10">
         {/* Header */}
@@ -31,9 +31,9 @@ export default function CampusTestimonials({ testimonials, googleRating, googleR
           className="text-center mb-8"
         >
           <div className="wine-divider mx-auto mb-4" />
-          <h2 className="font-display text-4xl md:text-5xl font-bold text-charcoal">
+          <h2 className="font-display text-4xl md:text-5xl font-bold text-navy">
             {t.campusDetail.testimonialsTitle}{' '}
-            <span className="text-wine">{t.campusDetail.testimonialsTitleAccent}</span>
+            <span className="italic text-gold">{t.campusDetail.testimonialsTitleAccent}</span>
           </h2>
 
           {/* Google Rating Badge */}
@@ -50,12 +50,12 @@ export default function CampusTestimonials({ testimonials, googleRating, googleR
                 <FiStar
                   key={i}
                   size={16}
-                  className={i < Math.round(googleRating) ? 'text-mustard fill-mustard' : 'text-gray-300'}
+                  className={i < Math.round(googleRating) ? 'text-gold fill-gold' : 'text-gray-300'}
                 />
               ))}
             </div>
-            <span className="text-sm font-bold text-charcoal">{googleRating}</span>
-            <span className="text-sm text-charcoal/50">
+            <span className="text-sm font-bold text-navy">{googleRating}</span>
+            <span className="text-sm text-n-500">
               ({googleReviewCount}+ {t.campusDetail.testimonialsReviewsLabel})
             </span>
           </motion.div>
@@ -75,19 +75,19 @@ export default function CampusTestimonials({ testimonials, googleRating, googleR
               {/* Stars */}
               <div className="flex items-center gap-0.5 mb-4">
                 {[...Array(5)].map((_, j) => (
-                  <FiStar key={j} size={14} className="text-mustard fill-mustard" />
+                  <FiStar key={j} size={14} className="text-gold fill-gold" />
                 ))}
               </div>
 
               {/* Quote */}
-              <p className="text-charcoal/80 text-sm leading-relaxed flex-grow mb-4">
+              <p className="text-navy/80 text-sm leading-relaxed flex-grow mb-4">
                 &ldquo;{testimonial.quote}&rdquo;
               </p>
 
               {/* Author */}
-              <div className="border-t border-sand pt-4">
-                <p className="font-bold text-charcoal text-sm">{testimonial.author}</p>
-                <p className="text-xs text-charcoal/50">{testimonial.role}</p>
+              <div className="border-t border-n-200 pt-4">
+                <p className="font-bold text-navy text-sm">{testimonial.author}</p>
+                <p className="text-xs text-n-500">{testimonial.role}</p>
               </div>
             </motion.div>
           ))}

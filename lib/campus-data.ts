@@ -85,8 +85,8 @@ export const campuses: Record<string, CampusData> = {
     slug: 'juriquilla',
     name: 'Juriquilla',
     tagline: {
-      en: 'Our flagship campus with a tradition of excellence',
-      es: 'Nuestro campus insignia con tradición de excelencia',
+      en: 'Our flagship campus, where the Australian way of learning comes to life',
+      es: 'Nuestro campus insignia, donde el modelo australiano de aprendizaje cobra vida',
     },
     levels: {
       en: 'Maternal — Middle School',
@@ -117,7 +117,7 @@ export const campuses: Record<string, CampusData> = {
           en: 'Soccer, basketball, volleyball, and more competitive and recreational options.',
           es: 'Fútbol, basquetbol, voleibol y más opciones competitivas y recreativas.',
         },
-        color: 'sunshine',
+        color: 'gold',
       },
       {
         name: { en: 'Arts & Culture', es: 'Arte y Cultura' },
@@ -125,7 +125,7 @@ export const campuses: Record<string, CampusData> = {
           en: 'Visual arts, theater, and cultural expression workshops.',
           es: 'Artes visuales, teatro y talleres de expresión cultural.',
         },
-        color: 'coral',
+        color: 'navy',
       },
       {
         name: { en: 'Robotics & STEAM', es: 'Robótica y STEAM' },
@@ -133,7 +133,7 @@ export const campuses: Record<string, CampusData> = {
           en: 'Hands-on projects in science, technology, engineering, arts, and math.',
           es: 'Proyectos prácticos en ciencia, tecnología, ingeniería, arte y matemáticas.',
         },
-        color: 'blueberry',
+        color: 'jacaranda',
       },
       {
         name: { en: 'Music', es: 'Música' },
@@ -141,7 +141,7 @@ export const campuses: Record<string, CampusData> = {
           en: 'Instrumental lessons, choir, and ensemble performances.',
           es: 'Clases de instrumentos, coro y presentaciones en ensamble.',
         },
-        color: 'ocean',
+        color: 'coral-sea',
       },
     ],
     director: {
@@ -197,8 +197,8 @@ export const campuses: Record<string, CampusData> = {
     slug: 'milenio',
     name: 'Milenio',
     tagline: {
-      en: 'A safe, nurturing space with great facilities for expanded growth',
-      es: 'Un espacio seguro y acogedor con excelentes instalaciones para crecer',
+      en: 'A safe, nurturing campus with outstanding facilities for growing forward',
+      es: 'Un campus seguro y acogedor con excelentes instalaciones para crecer hacia adelante',
     },
     levels: {
       en: 'Maternal — Middle School',
@@ -229,7 +229,7 @@ export const campuses: Record<string, CampusData> = {
           en: 'Volleyball, flag football (tochito), basketball, soccer, and dance team.',
           es: 'Voleibol, tochito, basquetbol, fútbol y dance team.',
         },
-        color: 'coral',
+        color: 'navy',
       },
       {
         name: { en: 'Arts & Wellness', es: 'Arte y Bienestar' },
@@ -237,7 +237,7 @@ export const campuses: Record<string, CampusData> = {
           en: 'Cooking workshops, yoga, and creative expression.',
           es: 'Talleres de cocina, yoga y expresión creativa.',
         },
-        color: 'ocean',
+        color: 'coral-sea',
       },
       {
         name: { en: 'Robotics & STEAM', es: 'Robótica y STEAM' },
@@ -245,7 +245,7 @@ export const campuses: Record<string, CampusData> = {
           en: 'Hands-on projects in science, technology, engineering, arts, and math.',
           es: 'Proyectos prácticos en ciencia, tecnología, ingeniería, arte y matemáticas.',
         },
-        color: 'blueberry',
+        color: 'jacaranda',
       },
       {
         name: { en: 'Music', es: 'Música' },
@@ -253,7 +253,7 @@ export const campuses: Record<string, CampusData> = {
           en: 'Instrumental lessons, choir, and ensemble performances.',
           es: 'Clases de instrumentos, coro y presentaciones en ensamble.',
         },
-        color: 'sunshine',
+        color: 'gold',
       },
     ],
     director: {
@@ -318,8 +318,8 @@ export const campuses: Record<string, CampusData> = {
     slug: 'san-miguel',
     name: 'San Miguel de Allende',
     tagline: {
-      en: 'Cultural richness meets academic excellence',
-      es: 'Donde la riqueza cultural se encuentra con la excelencia académica',
+      en: 'Where cultural richness meets bilingual excellence',
+      es: 'Donde la riqueza cultural se encuentra con la excelencia bilingüe',
     },
     levels: {
       en: 'Maternal — High School',
@@ -350,7 +350,7 @@ export const campuses: Record<string, CampusData> = {
           en: 'Soccer, basketball, volleyball, and more competitive and recreational options.',
           es: 'Fútbol, basquetbol, voleibol y más opciones competitivas y recreativas.',
         },
-        color: 'coral',
+        color: 'navy',
       },
       {
         name: { en: 'Arts & Culture', es: 'Arte y Cultura' },
@@ -358,7 +358,7 @@ export const campuses: Record<string, CampusData> = {
           en: 'Painting, sculpture, theater, and immersion in San Miguel\'s vibrant art scene.',
           es: 'Pintura, escultura, teatro e inmersión en la vibrante escena artística de San Miguel.',
         },
-        color: 'tangerine',
+        color: 'gold',
       },
       {
         name: { en: 'Robotics & STEAM', es: 'Robótica y STEAM' },
@@ -366,7 +366,7 @@ export const campuses: Record<string, CampusData> = {
           en: 'Hands-on projects in science, technology, engineering, arts, and math.',
           es: 'Proyectos prácticos en ciencia, tecnología, ingeniería, arte y matemáticas.',
         },
-        color: 'blueberry',
+        color: 'jacaranda',
       },
       {
         name: { en: 'Music', es: 'Música' },
@@ -374,7 +374,7 @@ export const campuses: Record<string, CampusData> = {
           en: 'Instrumental lessons, choir, and ensemble performances.',
           es: 'Clases de instrumentos, coro y presentaciones en ensamble.',
         },
-        color: 'sunshine',
+        color: 'gold',
       },
     ],
     director: {
@@ -437,8 +437,8 @@ export const campuses: Record<string, CampusData> = {
     slug: 'corregidora',
     name: 'Corregidora',
     tagline: {
-      en: 'A warm, community-centered campus in the heart of Corregidora',
-      es: 'Un campus cálido y comunitario en el corazón de Corregidora',
+      en: 'A warm, close-knit community in the heart of Corregidora',
+      es: 'Una comunidad cálida y unida en el corazón de Corregidora',
     },
     levels: {
       en: 'Maternal — High School',
@@ -469,7 +469,7 @@ export const campuses: Record<string, CampusData> = {
           en: 'Basketball, volleyball, and flag football.',
           es: 'Basquetbol, voleibol y tochito (flag football).',
         },
-        color: 'lime',
+        color: 'coral-sea',
       },
       {
         name: { en: 'Arts & Culture', es: 'Arte y Cultura' },
@@ -477,7 +477,7 @@ export const campuses: Record<string, CampusData> = {
           en: 'Dance, theater, and podcast creation.',
           es: 'Dance, teatro y creación de podcast.',
         },
-        color: 'coral',
+        color: 'navy',
       },
       {
         name: { en: 'Robotics & STEAM', es: 'Robótica y STEAM' },
@@ -485,7 +485,7 @@ export const campuses: Record<string, CampusData> = {
           en: 'Hands-on projects in science, programming, and AI.',
           es: 'Proyectos prácticos en ciencia, programación y uso de IA.',
         },
-        color: 'blueberry',
+        color: 'jacaranda',
       },
       {
         name: { en: 'Music', es: 'Música' },
@@ -493,7 +493,7 @@ export const campuses: Record<string, CampusData> = {
           en: 'Instrument classes and ensemble performances.',
           es: 'Clases de instrumentos y presentaciones en conjunto.',
         },
-        color: 'sunshine',
+        color: 'gold',
       },
     ],
     director: {
@@ -559,8 +559,8 @@ export const campuses: Record<string, CampusData> = {
     slug: 'zibata',
     name: 'Zibatá',
     tagline: {
-      en: 'Modern facilities in a growing community',
-      es: 'Instalaciones modernas en una comunidad en crecimiento',
+      en: 'A modern campus for a community that always moves forward',
+      es: 'Un campus moderno para una comunidad que siempre avanza',
     },
     levels: {
       en: 'Maternal — High School',
@@ -591,7 +591,7 @@ export const campuses: Record<string, CampusData> = {
           en: 'Soccer, basketball, volleyball, and more competitive and recreational options.',
           es: 'Fútbol, basquetbol, voleibol y más opciones competitivas y recreativas.',
         },
-        color: 'ocean',
+        color: 'coral-sea',
       },
       {
         name: { en: 'Arts & Culture', es: 'Arte y Cultura' },
@@ -599,7 +599,7 @@ export const campuses: Record<string, CampusData> = {
           en: 'Visual arts, theater, and cultural expression workshops.',
           es: 'Artes visuales, teatro y talleres de expresión cultural.',
         },
-        color: 'coral',
+        color: 'navy',
       },
       {
         name: { en: 'Robotics & STEAM', es: 'Robótica y STEAM' },
@@ -607,7 +607,7 @@ export const campuses: Record<string, CampusData> = {
           en: 'Hands-on projects in science, technology, engineering, arts, and math.',
           es: 'Proyectos prácticos en ciencia, tecnología, ingeniería, arte y matemáticas.',
         },
-        color: 'blueberry',
+        color: 'jacaranda',
       },
       {
         name: { en: 'Music', es: 'Música' },
@@ -615,7 +615,7 @@ export const campuses: Record<string, CampusData> = {
           en: 'Instrumental lessons, choir, and ensemble performances.',
           es: 'Clases de instrumentos, coro y presentaciones en ensamble.',
         },
-        color: 'sunshine',
+        color: 'gold',
       },
     ],
     director: {

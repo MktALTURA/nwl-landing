@@ -13,11 +13,11 @@ export default function DirectorMessage({ director }: DirectorMessageProps) {
   const { locale, t } = useLanguage();
 
   return (
-    <section className="py-12 md:py-16 bg-gradient-to-br from-wine to-wine/90 text-white relative overflow-hidden">
+    <section className="py-12 md:py-16 nwl-bg-dawn-deep text-white relative overflow-hidden">
       {/* Decorative blurs — like homepage FinalCTA */}
       <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-0 left-0 w-80 h-80 bg-mustard rounded-full blur-3xl" />
-        <div className="absolute bottom-0 right-0 w-72 h-72 bg-eucalyptus rounded-full blur-3xl" />
+        <div className="absolute top-0 left-0 w-80 h-80 bg-gold rounded-full blur-3xl" />
+        <div className="absolute bottom-0 right-0 w-72 h-72 bg-gold-400 rounded-full blur-3xl" />
       </div>
 
       {/* Kangaroo watermark */}
@@ -37,10 +37,10 @@ export default function DirectorMessage({ director }: DirectorMessageProps) {
           viewport={{ once: true }}
           className="text-center mb-8"
         >
-          <div className="w-16 h-[2px] bg-mustard mx-auto mb-4" />
+          <div className="w-16 h-[2px] bg-gold mx-auto mb-4" />
           <h2 className="font-display text-3xl md:text-5xl font-bold">
             {t.campusDetail.directorTitle}{' '}
-            <span className="text-mustard">{t.campusDetail.directorTitleAccent}</span>
+            <span className="italic text-gold-400">{t.campusDetail.directorTitleAccent}</span>
           </h2>
         </motion.div>
 
@@ -72,13 +72,13 @@ export default function DirectorMessage({ director }: DirectorMessageProps) {
             viewport={{ once: true }}
             className="lg:col-span-3"
           >
-            <div className="border-l-4 border-mustard pl-6">
+            <div className="border-l-4 border-gold pl-6">
               <p className="font-display text-xl md:text-2xl text-white/90 italic leading-relaxed mb-6">
                 &ldquo;{localized(director.message, locale)}&rdquo;
               </p>
               <div>
                 <p className="font-bold text-white text-lg">{director.name}</p>
-                <p className="text-mustard text-sm font-medium">
+                <p className="text-gold-400 text-sm font-medium">
                   {localized(director.title, locale)}
                 </p>
               </div>

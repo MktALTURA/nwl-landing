@@ -8,10 +8,10 @@ import { type CampusActivity, localized } from '@/lib/campus-data';
 const activityIcons = [FiActivity, FiFeather, FiCpu, FiMusic];
 
 const colorMap: Record<string, { bg: string; text: string; border: string }> = {
-  ocean: { bg: 'bg-ocean/10', text: 'text-ocean', border: 'border-ocean/30' },
-  coral: { bg: 'bg-coral/10', text: 'text-coral', border: 'border-coral/30' },
-  blueberry: { bg: 'bg-blueberry/10', text: 'text-blueberry', border: 'border-blueberry/30' },
-  sunshine: { bg: 'bg-sunshine/10', text: 'text-sunshine', border: 'border-sunshine/30' },
+  gold: { bg: 'bg-gold/10', text: 'text-gold-600', border: 'border-gold/30' },
+  'coral-sea': { bg: 'bg-coral-sea/10', text: 'text-coral-sea', border: 'border-coral-sea/30' },
+  jacaranda: { bg: 'bg-jacaranda/10', text: 'text-jacaranda', border: 'border-jacaranda/30' },
+  navy: { bg: 'bg-navy/10', text: 'text-navy', border: 'border-navy/20' },
 };
 
 interface ExtracurricularsProps {
@@ -22,10 +22,10 @@ export default function Extracurriculars({ activities }: ExtracurricularsProps) 
   const { locale, t } = useLanguage();
 
   return (
-    <section className="py-12 md:py-16 bg-gradient-to-b from-white via-sand to-sand relative overflow-hidden">
+    <section className="py-12 md:py-16 bg-gradient-to-b from-white via-paper to-paper relative overflow-hidden">
       {/* Decorative blurs */}
-      <div className="absolute top-10 left-0 w-48 h-48 bg-coral/8 rounded-full blur-3xl" />
-      <div className="absolute bottom-10 right-0 w-56 h-56 bg-blueberry/8 rounded-full blur-3xl" />
+      <div className="absolute top-10 left-0 w-48 h-48 bg-gold/10 rounded-full blur-3xl" />
+      <div className="absolute bottom-10 right-0 w-56 h-56 bg-navy/5 rounded-full blur-3xl" />
 
       <div className="container-custom relative z-10">
         {/* Header */}
@@ -37,9 +37,9 @@ export default function Extracurriculars({ activities }: ExtracurricularsProps) 
           className="text-center mb-8"
         >
           <div className="wine-divider mx-auto mb-4" />
-          <h2 className="font-display text-4xl md:text-5xl font-bold text-charcoal">
+          <h2 className="font-display text-4xl md:text-5xl font-bold text-navy">
             {t.campusDetail.activitiesTitle}{' '}
-            <span className="text-wine">{t.campusDetail.activitiesTitleAccent}</span>
+            <span className="italic text-gold">{t.campusDetail.activitiesTitleAccent}</span>
           </h2>
         </motion.div>
 
@@ -47,7 +47,7 @@ export default function Extracurriculars({ activities }: ExtracurricularsProps) 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {activities.map((activity, i) => {
             const Icon = activityIcons[i % activityIcons.length];
-            const colors = colorMap[activity.color] || colorMap.ocean;
+            const colors = colorMap[activity.color] || colorMap.gold;
 
             return (
               <motion.div
@@ -61,10 +61,10 @@ export default function Extracurriculars({ activities }: ExtracurricularsProps) 
                 <div className={`w-12 h-12 rounded-full ${colors.bg} flex items-center justify-center mb-4`}>
                   <Icon size={24} className={colors.text} />
                 </div>
-                <h3 className="font-display text-xl font-bold text-charcoal mb-2">
+                <h3 className="font-display text-xl font-bold text-navy mb-2">
                   {localized(activity.name, locale)}
                 </h3>
-                <p className="text-sm text-charcoal/70 leading-relaxed">
+                <p className="text-sm text-navy/70 leading-relaxed">
                   {localized(activity.description, locale)}
                 </p>
               </motion.div>

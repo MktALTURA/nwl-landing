@@ -19,7 +19,7 @@ export default function CampusHero({ campus }: CampusHeroProps) {
         {campus.heroImage ? (
           <Image
             src={campus.heroImage}
-            alt={`Newland School Campus ${campus.name} – ${localized(campus.tagline, locale)}`}
+            alt={`NWL Australian School Campus ${campus.name} – ${localized(campus.tagline, locale)}`}
             fill
             sizes="100vw"
             className="object-cover"
@@ -27,10 +27,10 @@ export default function CampusHero({ campus }: CampusHeroProps) {
             quality={80}
           />
         ) : (
-          <div className="absolute inset-0 bg-gradient-to-br from-wine via-charcoal to-charcoal" />
+          <div className="absolute inset-0 bg-gradient-to-br from-navy-800 via-navy-900 to-navy-900" />
         )}
-        <div className="absolute inset-0 bg-gradient-to-r from-charcoal/70 via-charcoal/40 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-charcoal/50 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-navy-900/70 via-navy-900/40 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-navy-900/50 via-transparent to-transparent" />
         {/* Subtle top strip so navbar text is readable over bright hero images */}
         <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-black/50 to-transparent" />
       </div>
@@ -51,11 +51,17 @@ export default function CampusHero({ campus }: CampusHeroProps) {
             {t.campusDetail.backToHome}
           </a>
 
+          {/* Eyebrow */}
+          <div className="inline-flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.22em] text-gold-400 mb-4">
+            <span className="w-9 h-px bg-gold-400" />
+            NWL Australian School
+          </div>
+
           {/* Campus name */}
           <h1 className="font-display text-6xl md:text-8xl font-bold text-white mb-4">
             {campus.name}
             <span className="sr-only">
-              {locale === 'es' ? ` — Campus Newland School` : ` — Newland School Campus`}
+              {locale === 'es' ? ` — Campus NWL Australian School` : ` — NWL Australian School Campus`}
             </span>
           </h1>
 
@@ -65,7 +71,7 @@ export default function CampusHero({ campus }: CampusHeroProps) {
           </p>
 
           {/* Levels badge */}
-          <div className="inline-flex items-center bg-wine/80 backdrop-blur-sm text-white px-5 py-2 rounded-full text-sm font-medium mb-8">
+          <div className="inline-flex items-center bg-gold text-[#1C0F00] px-5 py-2 rounded-full text-sm font-medium mb-8">
             {localized(campus.levels, locale)}
           </div>
 
@@ -78,7 +84,7 @@ export default function CampusHero({ campus }: CampusHeroProps) {
               href="https://wa.me/5214421227791"
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-secondary !border-white !text-white hover:!bg-white hover:!text-wine text-center"
+              className="btn-secondary !border-white !text-white hover:!bg-white hover:!text-navy text-center"
             >
               {t.campusDetail.ctaWhatsapp}
             </a>

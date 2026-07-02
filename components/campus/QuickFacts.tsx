@@ -15,7 +15,7 @@ export default function QuickFacts({ stats }: QuickFactsProps) {
   const { locale } = useLanguage();
 
   return (
-    <section className="bg-sand py-10 border-y border-wine/10">
+    <section className="bg-paper py-10 border-y border-gold/20">
       <div className="container-custom">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           {stats.map((stat, i) => {
@@ -29,11 +29,11 @@ export default function QuickFacts({ stats }: QuickFactsProps) {
                 viewport={{ once: true }}
                 className="flex flex-col items-center text-center"
               >
-                <Icon size={24} className="text-wine mb-3" />
-                <span className="font-display text-xl md:text-2xl font-bold text-charcoal">
+                <Icon size={24} className="text-gold-600 mb-3" />
+                <span className="font-display text-xl md:text-2xl font-bold text-navy">
                   {localized(stat.value, locale)}
                 </span>
-                <span className="text-sm text-charcoal/60 mt-1">
+                <span className="text-sm text-n-500 mt-1">
                   {localized(stat.label, locale)}
                 </span>
               </motion.div>

@@ -67,11 +67,11 @@ export default function CampusCTA({ campusName, phone, phoneLink }: CampusCTAPro
   useGHLFormTracking(formContainerRef, `campus_${campusName?.toLowerCase().replace(/\s+/g, '_') || 'unknown'}_form`);
 
   return (
-    <section id="campus-admissions" className="py-12 md:py-16 bg-gradient-to-br from-wine to-wine/90 text-white relative overflow-hidden">
+    <section id="campus-admissions" className="py-12 md:py-16 nwl-bg-dawn-deep text-white relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-mustard rounded-full blur-3xl" />
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-eucalyptus rounded-full blur-3xl" />
+        <div className="absolute top-0 right-0 w-96 h-96 bg-gold rounded-full blur-3xl" />
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-gold-400 rounded-full blur-3xl" />
       </div>
 
       {/* Kangaroo Watermark */}
@@ -94,7 +94,7 @@ export default function CampusCTA({ campusName, phone, phoneLink }: CampusCTAPro
         >
           <h2 className="font-display text-4xl md:text-6xl font-bold mb-6">
             {t.campusDetail.ctaTitle}{' '}
-            <span className="text-mustard">{campusName}?</span>
+            <span className="italic text-gold-400">{campusName}?</span>
           </h2>
           <p className="text-xl text-white/90 leading-relaxed max-w-2xl mx-auto">
             {t.campusDetail.ctaSubtitle}
@@ -128,7 +128,7 @@ export default function CampusCTA({ campusName, phone, phoneLink }: CampusCTAPro
               rel="noopener noreferrer"
               className="w-full text-left bg-white/10 backdrop-blur-sm rounded-lg p-6 hover:bg-white/20 transition-colors duration-300 group block"
             >
-              <div className="text-mustard group-hover:text-green-400 transition-colors mb-3">
+              <div className="text-gold-400 group-hover:text-green-400 transition-colors mb-3">
                 <FaWhatsapp size={28} />
               </div>
               <h3 className="font-bold text-lg mb-2 group-hover:text-green-400 transition-colors">
@@ -145,7 +145,7 @@ export default function CampusCTA({ campusName, phone, phoneLink }: CampusCTAPro
                 href={`tel:+52${phoneLink}`}
                 className="w-full text-left bg-white/10 backdrop-blur-sm rounded-lg p-6 hover:bg-white/20 transition-colors duration-300 group block"
               >
-                <div className="text-mustard group-hover:text-white transition-colors mb-3">
+                <div className="text-gold-400 group-hover:text-white transition-colors mb-3">
                   <FaPhone size={24} />
                 </div>
                 <h3 className="font-bold text-lg mb-2 group-hover:text-white transition-colors">
@@ -159,24 +159,24 @@ export default function CampusCTA({ campusName, phone, phoneLink }: CampusCTAPro
 
             {/* Trust badges */}
             <div className="bg-white/5 backdrop-blur-sm rounded-lg p-6 space-y-4">
-              <h3 className="font-bold text-lg text-mustard">
+              <h3 className="font-bold text-lg text-gold-400">
                 {locale === 'es' ? '¿Por qué NWL?' : 'Why NWL?'}
               </h3>
               <ul className="space-y-3 text-white/80 text-sm">
                 <li className="flex items-start gap-2">
-                  <span className="text-mustard mt-0.5">✓</span>
+                  <span className="text-gold-400 mt-0.5">✓</span>
                   {locale === 'es' ? '100% Programa Bilingüe' : '100% Bilingual Program'}
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-mustard mt-0.5">✓</span>
+                  <span className="text-gold-400 mt-0.5">✓</span>
                   {locale === 'es' ? 'Docentes Certificados' : 'Certified Teachers'}
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-mustard mt-0.5">✓</span>
+                  <span className="text-gold-400 mt-0.5">✓</span>
                   {locale === 'es' ? 'Instalaciones de Primer Nivel' : 'World-Class Facilities'}
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-mustard mt-0.5">✓</span>
+                  <span className="text-gold-400 mt-0.5">✓</span>
                   {locale === 'es' ? '+16 Años de Experiencia' : '16+ Years of Experience'}
                 </li>
               </ul>

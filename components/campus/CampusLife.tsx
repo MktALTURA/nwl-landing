@@ -47,10 +47,10 @@ export default function CampusLife({ images }: CampusLifeProps) {
   }, [images]);
 
   return (
-    <section id="campus-gallery" className="py-10 md:py-14 bg-gradient-to-b from-white to-sand relative overflow-hidden">
+    <section id="campus-gallery" className="py-10 md:py-14 bg-gradient-to-b from-white to-paper relative overflow-hidden">
       {/* Decorative blurs */}
-      <div className="absolute top-0 left-10 w-40 h-40 bg-mustard/8 rounded-full blur-3xl" />
-      <div className="absolute bottom-0 right-10 w-48 h-48 bg-sunshine/10 rounded-full blur-3xl" />
+      <div className="absolute top-0 left-10 w-40 h-40 bg-gold/10 rounded-full blur-3xl" />
+      <div className="absolute bottom-0 right-10 w-48 h-48 bg-navy/5 rounded-full blur-3xl" />
 
       <div className="container-custom relative z-10">
         {/* Header */}
@@ -62,9 +62,9 @@ export default function CampusLife({ images }: CampusLifeProps) {
           className="text-center mb-8"
         >
           <div className="wine-divider mx-auto mb-4" />
-          <h2 className="font-display text-3xl md:text-5xl font-bold text-charcoal">
+          <h2 className="font-display text-3xl md:text-5xl font-bold text-navy">
             {t.campusDetail.galleryTitle}{' '}
-            <span className="text-wine">{t.campusDetail.galleryTitleAccent}</span>
+            <span className="italic text-gold">{t.campusDetail.galleryTitleAccent}</span>
           </h2>
         </motion.div>
 
@@ -77,7 +77,7 @@ export default function CampusLife({ images }: CampusLifeProps) {
           className="max-w-5xl mx-auto"
         >
           {/* Main Image */}
-          <div className="relative aspect-[16/9] rounded-lg overflow-hidden shadow-xl mb-4 bg-sand">
+          <div className="relative aspect-[16/9] rounded-lg overflow-hidden shadow-xl mb-4 bg-paper">
             <AnimatePresence mode="wait">
               <motion.div
                 key={active}
@@ -89,13 +89,13 @@ export default function CampusLife({ images }: CampusLifeProps) {
               >
                 <Image
                   src={images[active].src}
-                  alt={`${localized(images[active].caption, locale)} – Newland School`}
+                  alt={`${localized(images[active].caption, locale)} – NWL Australian School`}
                   fill
                   sizes="(max-width: 768px) 100vw, 80vw"
                   className="object-cover"
                 />
                 {/* Gradient overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-charcoal/60 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-navy-900/60 via-transparent to-transparent" />
               </motion.div>
             </AnimatePresence>
 
@@ -112,14 +112,14 @@ export default function CampusLife({ images }: CampusLifeProps) {
               className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/80 backdrop-blur-sm flex items-center justify-center hover:bg-white transition-colors z-10"
               aria-label="Previous"
             >
-              <FiChevronLeft size={20} className="text-charcoal" />
+              <FiChevronLeft size={20} className="text-navy" />
             </button>
             <button
               onClick={next}
               className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/80 backdrop-blur-sm flex items-center justify-center hover:bg-white transition-colors z-10"
               aria-label="Next"
             >
-              <FiChevronRight size={20} className="text-charcoal" />
+              <FiChevronRight size={20} className="text-navy" />
             </button>
           </div>
 
@@ -131,7 +131,7 @@ export default function CampusLife({ images }: CampusLifeProps) {
                 onClick={() => setActive(i)}
                 className={`relative flex-shrink-0 w-20 h-14 md:w-24 md:h-16 rounded-md overflow-hidden transition-all duration-200 ${
                   i === active
-                    ? 'ring-2 ring-wine opacity-100 scale-105'
+                    ? 'ring-2 ring-gold opacity-100 scale-105'
                     : 'opacity-50 hover:opacity-80'
                 }`}
               >
