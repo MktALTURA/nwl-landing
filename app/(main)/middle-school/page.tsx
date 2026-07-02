@@ -24,6 +24,7 @@ import { useBrochure } from '@/lib/BrochureContext';
 import FinalCTA from '@/components/FinalCTA';
 import Footer from '@/components/Footer';
 import ConstellationAnimation from '@/components/ConstellationAnimation';
+import Crest from '@/components/ui/Crest';
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger);
@@ -31,27 +32,27 @@ if (typeof window !== 'undefined') {
 
 /* ── Pillar color config ── */
 const pillarColors = [
-  { gradient: 'from-secundaria/25 to-secundaria/8', border: 'border-secundaria/25', accent: 'text-secundaria', num: 'bg-secundaria/20 text-charcoal' },
-  { gradient: 'from-mustard/25 to-mustard/8', border: 'border-mustard/25', accent: 'text-mustard', num: 'bg-mustard/20 text-charcoal' },
-  { gradient: 'from-wine/20 to-wine/8', border: 'border-wine/25', accent: 'text-wine', num: 'bg-wine/15 text-wine' },
+  { gradient: 'from-coral-sea/15 to-coral-sea/5', border: 'border-coral-sea/25', accent: 'text-coral-sea', num: 'bg-coral-sea/15 text-coral-sea' },
+  { gradient: 'from-gold/15 to-gold/5', border: 'border-gold/25', accent: 'text-gold-600', num: 'bg-gold/15 text-gold-600' },
+  { gradient: 'from-navy/10 to-navy/[0.03]', border: 'border-navy/20', accent: 'text-navy', num: 'bg-navy/10 text-navy' },
 ];
 
 /* ── Differentiator config ── */
 const diffItems = [
-  { accent: 'text-secundaria', border: 'border-secundaria/25', bg: 'bg-secundaria/15', icon: FiGlobe },
-  { accent: 'text-mustard', border: 'border-mustard/25', bg: 'bg-mustard/15', icon: FiAward },
-  { accent: 'text-wine', border: 'border-wine/25', bg: 'bg-wine/12', icon: FiHeart },
-  { accent: 'text-secundaria', border: 'border-secundaria/25', bg: 'bg-secundaria/15', icon: FiShield },
-  { accent: 'text-charcoal/70', border: 'border-charcoal/15', bg: 'bg-charcoal/8', icon: FiVideo },
-  { accent: 'text-wine', border: 'border-wine/25', bg: 'bg-wine/12', icon: FiUsers },
+  { accent: 'text-coral-sea', border: 'border-coral-sea/25', bg: 'bg-coral-sea/10', icon: FiGlobe },
+  { accent: 'text-gold-600', border: 'border-gold/30', bg: 'bg-gold/10', icon: FiAward },
+  { accent: 'text-navy', border: 'border-navy/20', bg: 'bg-navy/10', icon: FiHeart },
+  { accent: 'text-coral-sea', border: 'border-coral-sea/25', bg: 'bg-coral-sea/10', icon: FiShield },
+  { accent: 'text-navy/70', border: 'border-n-200', bg: 'bg-n-50', icon: FiVideo },
+  { accent: 'text-gold-600', border: 'border-gold/30', bg: 'bg-gold/10', icon: FiUsers },
 ];
 
 /* ── Activity config ── */
 const activityStyles = [
-  { bg: 'bg-gradient-to-br from-secundaria/25 to-secundaria/10', icon: 'text-secundaria' },
-  { bg: 'bg-gradient-to-br from-wine/18 to-wine/8', icon: 'text-wine' },
-  { bg: 'bg-gradient-to-br from-mustard/25 to-mustard/10', icon: 'text-mustard' },
-  { bg: 'bg-gradient-to-br from-secundaria/20 to-mustard/10', icon: 'text-secundaria' },
+  { bg: 'bg-gradient-to-br from-coral-sea/15 to-coral-sea/5', icon: 'text-coral-sea' },
+  { bg: 'bg-gradient-to-br from-gold/15 to-gold/5', icon: 'text-gold-600' },
+  { bg: 'bg-gradient-to-br from-navy/10 to-navy/[0.03]', icon: 'text-navy' },
+  { bg: 'bg-gradient-to-br from-coral-sea/10 to-gold/10', icon: 'text-coral-sea' },
 ];
 const activityIcons = [GiSoccerBall, PiPaintBrush, GiMusicalNotes, PiMicrophone];
 const activityRotations = [-0.5, 0.3, -0.3, 0.5];
@@ -71,8 +72,13 @@ const galleryImages = [
   { src: '/images/levels/secundaria/nwl-secundaria-classroom-orange-wall.jpg', alt: 'Newland Middle School modern classroom with round tables and iPads' },
 ];
 
-/* ── Knotion phase dot colors ── */
-const phaseDotColors = ['bg-secundaria', 'bg-secundaria', 'bg-mustard', 'bg-wine'];
+/* ── Knotion phase dot colors (gold solid takes dark text per contrast rule) ── */
+const phaseDotColors = [
+  'bg-coral-sea text-paper',
+  'bg-coral-sea text-paper',
+  'bg-gold text-[#1C0F00]',
+  'bg-navy text-paper',
+];
 
 export default function MiddleSchoolPage() {
   const mainRef = useRef<HTMLElement>(null);
@@ -125,9 +131,12 @@ export default function MiddleSchoolPage() {
             sizes="100vw"
             className="object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-charcoal/90 via-charcoal/40 to-charcoal/10" />
+          <div className="absolute inset-0 bg-gradient-to-t from-navy-900/90 via-navy-900/40 to-navy-900/10" />
 
           <div className="container-custom relative z-10 pb-20 pt-40">
+            <div className="absolute right-4 md:right-8 bottom-24 z-10 hidden md:flex">
+              <Crest level="middle" size={104} showBanner={false} />
+            </div>
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -152,7 +161,7 @@ export default function MiddleSchoolPage() {
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.3, type: 'spring', stiffness: 200 }}
-                className="inline-block bg-white/90 backdrop-blur-sm text-secundaria px-4 py-1.5 rounded-full text-sm font-bold mb-5 border border-white/30 shadow-md"
+                className="inline-block bg-white/90 backdrop-blur-sm text-coral-sea px-4 py-1.5 rounded-full text-sm font-bold mb-5 border border-white/30 shadow-md"
               >
                 {ms.ageBadge}
               </motion.span>
@@ -166,10 +175,7 @@ export default function MiddleSchoolPage() {
               </p>
 
               <div className="flex items-center gap-4">
-                <a
-                  href="#admissions"
-                  className="bg-wine text-white px-8 py-3.5 rounded-sm font-medium hover:bg-wine/90 transition-colors border border-wine"
-                >
+                <a href="#admissions" className="btn-primary">
                   {ms.cta}
                 </a>
                 <button
@@ -186,7 +192,7 @@ export default function MiddleSchoolPage() {
         {/* ════════════════════════════════════════════════
             SECTION 2 — TRANSFORMATION NARRATIVE
         ════════════════════════════════════════════════ */}
-        <section className="py-12 md:py-18 bg-gradient-to-b from-sand via-warmgray/15 to-warmgray/25 animate-section relative overflow-hidden">
+        <section className="py-12 md:py-20 bg-paper animate-section relative overflow-hidden">
           <ConstellationAnimation />
           <div className="container-custom relative z-10">
             {/* Section heading */}
@@ -198,9 +204,9 @@ export default function MiddleSchoolPage() {
               className="text-center mb-12"
             >
               <div className="wine-divider mx-auto mb-4" />
-              <h2 className="font-display text-4xl md:text-5xl font-bold text-charcoal">
+              <h2 className="font-display text-4xl md:text-5xl font-bold text-navy">
                 {msp.transformationTitle}{' '}
-                <span className="bg-gradient-to-r from-secundaria to-secundaria/70 bg-clip-text text-transparent">
+                <span className="italic text-gold">
                   {msp.transformationTitleAccent}
                 </span>
               </h2>
@@ -208,17 +214,17 @@ export default function MiddleSchoolPage() {
 
             {/* Before / After transformation card */}
             <div className="max-w-4xl mx-auto mb-14">
-              <div className="grid md:grid-cols-2 rounded-2xl overflow-hidden shadow-lg border border-charcoal/8 bg-white">
+              <div className="grid md:grid-cols-2 rounded-2xl overflow-hidden shadow-lg border border-n-200 bg-white">
                 {/* Before */}
                 <motion.div
                   initial={{ opacity: 0, x: -30 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.6 }}
                   viewport={{ once: true }}
-                  className="bg-charcoal/[0.03] p-8 md:p-10 relative"
+                  className="bg-navy/[0.03] p-8 md:p-10 relative"
                 >
-                  <div className="absolute top-0 left-0 w-full h-[3px] bg-gradient-to-r from-charcoal/20 to-charcoal/5" />
-                  <p className="text-sm font-bold tracking-widest uppercase text-charcoal/35 mb-6">
+                  <div className="absolute top-0 left-0 w-full h-[3px] bg-gradient-to-r from-navy/20 to-navy/5" />
+                  <p className="text-sm font-bold tracking-widest uppercase text-n-500 mb-6">
                     {msp.transformationBefore}
                   </p>
                   <ul className="space-y-4">
@@ -231,8 +237,8 @@ export default function MiddleSchoolPage() {
                         viewport={{ once: true }}
                         className="flex items-start gap-3"
                       >
-                        <div className="w-2 h-2 rounded-full bg-charcoal/20 mt-2 flex-shrink-0" />
-                        <span className="text-charcoal/60 text-[15px] leading-relaxed">{item}</span>
+                        <div className="w-2 h-2 rounded-full bg-navy/20 mt-2 flex-shrink-0" />
+                        <span className="text-n-500 text-[15px] leading-relaxed">{item}</span>
                       </motion.li>
                     ))}
                   </ul>
@@ -244,10 +250,10 @@ export default function MiddleSchoolPage() {
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.6, delay: 0.15 }}
                   viewport={{ once: true }}
-                  className="bg-gradient-to-br from-secundaria/12 via-secundaria/6 to-secundaria/3 p-8 md:p-10 relative"
+                  className="bg-gradient-to-br from-coral-sea/10 via-coral-sea/5 to-coral-sea/5 p-8 md:p-10 relative"
                 >
-                  <div className="absolute top-0 left-0 w-full h-[3px] bg-gradient-to-r from-secundaria to-secundaria/40" />
-                  <p className="text-sm font-bold tracking-widest uppercase text-secundaria/60 mb-6">
+                  <div className="absolute top-0 left-0 w-full h-[3px] bg-gradient-to-r from-coral-sea to-coral-sea/40" />
+                  <p className="text-sm font-bold tracking-widest uppercase text-coral-sea/70 mb-6">
                     {msp.transformationAfter}
                   </p>
                   <ul className="space-y-4">
@@ -260,8 +266,8 @@ export default function MiddleSchoolPage() {
                         viewport={{ once: true }}
                         className="flex items-start gap-3"
                       >
-                        <div className="w-2 h-2 rounded-full bg-secundaria mt-2 flex-shrink-0" />
-                        <span className="text-charcoal font-medium text-[15px] leading-relaxed">{item}</span>
+                        <div className="w-2 h-2 rounded-full bg-coral-sea mt-2 flex-shrink-0" />
+                        <span className="text-navy font-medium text-[15px] leading-relaxed">{item}</span>
                       </motion.li>
                     ))}
                   </ul>
@@ -277,13 +283,13 @@ export default function MiddleSchoolPage() {
               viewport={{ once: true }}
               className="max-w-3xl mx-auto text-center mb-14 relative"
             >
-              <div className="absolute -top-6 left-1/2 -translate-x-1/2 text-secundaria/15 text-[120px] font-display leading-none select-none pointer-events-none">
+              <div className="absolute -top-6 left-1/2 -translate-x-1/2 text-coral-sea/15 text-[120px] font-display leading-none select-none pointer-events-none">
                 &ldquo;
               </div>
-              <blockquote className="relative z-10 text-xl md:text-2xl text-charcoal italic leading-relaxed mb-4 px-4">
+              <blockquote className="relative z-10 text-xl md:text-2xl text-navy italic leading-relaxed mb-4 px-4">
                 &ldquo;{ms.testimonial}&rdquo;
               </blockquote>
-              <p className="relative z-10 text-charcoal/50 font-medium text-sm">
+              <p className="relative z-10 text-n-500 font-medium text-sm">
                 &mdash; {ms.testimonialAuthor}
               </p>
             </motion.div>
@@ -291,10 +297,10 @@ export default function MiddleSchoolPage() {
             {/* Compact stats row */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-3 max-w-4xl mx-auto">
               {[
-                { value: '100%', label: ms.statBilingual, gradient: 'from-secundaria/18 to-secundaria/8', border: 'border-secundaria/25' },
-                { value: '5', label: ms.statCampuses, gradient: 'from-mustard/18 to-mustard/8', border: 'border-mustard/25' },
-                { value: ms.schedule, label: ms.statSchedule, gradient: 'from-wine/15 to-wine/8', border: 'border-wine/25' },
-                { value: '2', label: ms.statCertifications, gradient: 'from-charcoal/8 to-warmgray/15', border: 'border-charcoal/15' },
+                { value: '100%', label: ms.statBilingual, gradient: 'from-coral-sea/15 to-coral-sea/5', border: 'border-coral-sea/25' },
+                { value: '5', label: ms.statCampuses, gradient: 'from-gold/15 to-gold/5', border: 'border-gold/25' },
+                { value: ms.schedule, label: ms.statSchedule, gradient: 'from-navy/10 to-navy/[0.03]', border: 'border-navy/20' },
+                { value: '2', label: ms.statCertifications, gradient: 'from-n-100 to-n-50', border: 'border-n-200' },
               ].map((stat, i) => (
                 <motion.div
                   key={i}
@@ -304,8 +310,8 @@ export default function MiddleSchoolPage() {
                   viewport={{ once: true }}
                   className={`bg-gradient-to-br ${stat.gradient} rounded-2xl p-5 border ${stat.border}`}
                 >
-                  <span className="block text-3xl font-bold text-charcoal tracking-tight">{stat.value}</span>
-                  <span className="text-sm text-charcoal/60 font-medium">{stat.label}</span>
+                  <span className="block text-3xl font-bold text-navy tracking-tight">{stat.value}</span>
+                  <span className="text-sm text-navy/70 font-medium">{stat.label}</span>
                 </motion.div>
               ))}
             </div>
@@ -315,7 +321,7 @@ export default function MiddleSchoolPage() {
         {/* ════════════════════════════════════════════════
             SECTION 3 — THE NWL MODEL (3 Pillars)
         ════════════════════════════════════════════════ */}
-        <section className="py-12 md:py-18 bg-gradient-to-b from-warmgray/15 to-sand/80 animate-section">
+        <section className="py-12 md:py-20 bg-white animate-section">
           <div className="container-custom">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -325,11 +331,11 @@ export default function MiddleSchoolPage() {
               className="text-center mb-12"
             >
               <div className="wine-divider mx-auto mb-4" />
-              <h2 className="font-display text-4xl md:text-5xl font-bold text-charcoal mb-4">
+              <h2 className="font-display text-4xl md:text-5xl font-bold text-navy mb-4">
                 {msp.pillarsTitle}{' '}
-                <span className="text-secundaria">{msp.pillarsTitleAccent}</span>
+                <span className="italic text-coral-sea">{msp.pillarsTitleAccent}</span>
               </h2>
-              <p className="text-lg text-charcoal/70 max-w-2xl mx-auto">
+              <p className="text-lg text-navy/70 max-w-2xl mx-auto">
                 {msp.pillarsSubtitle}
               </p>
             </motion.div>
@@ -370,9 +376,9 @@ export default function MiddleSchoolPage() {
                     <div className={`w-10 h-10 rounded-xl ${c.num} flex items-center justify-center font-bold text-lg mb-5`}>
                       {i + 1}
                     </div>
-                    <h3 className="font-display text-xl font-bold text-charcoal mb-1 pr-10">{pillar.title}</h3>
+                    <h3 className="font-display text-xl font-bold text-navy mb-1 pr-10">{pillar.title}</h3>
                     <p className={`text-sm font-semibold ${c.accent} mb-3`}>{pillar.subtitle}</p>
-                    <p className="text-charcoal/65 leading-relaxed text-[15px]">{pillar.description}</p>
+                    <p className="text-navy/70 leading-relaxed text-[15px]">{pillar.description}</p>
                   </motion.div>
                 );
               })}
@@ -383,7 +389,7 @@ export default function MiddleSchoolPage() {
         {/* ════════════════════════════════════════════════
             SECTION 4 — EXCLUSIVE PROGRAMS
         ════════════════════════════════════════════════ */}
-        <section className="py-12 md:py-18 bg-gradient-to-b from-sand/80 via-warmgray/10 to-sand animate-section overflow-hidden relative">
+        <section className="py-12 md:py-20 bg-n-50 animate-section overflow-hidden relative">
           <div className="container-custom relative z-10">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -393,13 +399,13 @@ export default function MiddleSchoolPage() {
               className="text-center mb-14"
             >
               <div className="wine-divider mx-auto mb-4" />
-              <h2 className="font-display text-4xl md:text-5xl font-bold text-charcoal mb-4">
+              <h2 className="font-display text-4xl md:text-5xl font-bold text-navy mb-4">
                 {msp.exclusiveTitle}{' '}
-                <span className="bg-gradient-to-r from-secundaria to-wine/70 bg-clip-text text-transparent">
+                <span className="italic text-gold">
                   {msp.exclusiveTitleAccent}
                 </span>
               </h2>
-              <p className="text-lg text-charcoal/70 max-w-2xl mx-auto">
+              <p className="text-lg text-navy/70 max-w-2xl mx-auto">
                 {msp.exclusiveSubtitle}
               </p>
             </motion.div>
@@ -407,7 +413,10 @@ export default function MiddleSchoolPage() {
             <div className="grid lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
               {msp.exclusivePrograms.map((program, i) => {
                 const isFirst = i === 0;
-                const accentColor = isFirst ? 'secundaria' : 'wine';
+                /* Literal classes (no template interpolation) so Tailwind JIT picks them up */
+                const accent = isFirst
+                  ? { stripe: 'bg-coral-sea', num: 'bg-coral-sea/10 text-coral-sea', label: 'text-coral-sea', dot: 'bg-coral-sea' }
+                  : { stripe: 'bg-gold', num: 'bg-gold/10 text-gold-600', label: 'text-gold-600', dot: 'bg-gold' };
                 return (
                   <motion.div
                     key={i}
@@ -415,24 +424,24 @@ export default function MiddleSchoolPage() {
                     whileInView={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.6, delay: i * 0.15 }}
                     viewport={{ once: true }}
-                    className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow border border-charcoal/8"
+                    className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow border border-n-200"
                   >
                     {/* Top accent stripe */}
-                    <div className={`h-[3px] bg-${accentColor}`} />
+                    <div className={`h-[3px] ${accent.stripe}`} />
 
                     <div className="p-8 md:p-10">
                       {/* Numbered badge */}
-                      <div className={`w-10 h-10 rounded-xl bg-${accentColor}/15 flex items-center justify-center font-bold text-lg text-${accentColor} mb-5`}>
+                      <div className={`w-10 h-10 rounded-xl ${accent.num} flex items-center justify-center font-bold text-lg mb-5`}>
                         {String(i + 1).padStart(2, '0')}
                       </div>
 
-                      <h3 className="font-display text-2xl font-bold text-charcoal mb-1">
+                      <h3 className="font-display text-2xl font-bold text-navy mb-1">
                         {program.title}
                       </h3>
-                      <p className={`text-sm font-semibold text-${accentColor} mb-4`}>
+                      <p className={`text-sm font-semibold ${accent.label} mb-4`}>
                         {program.partner}
                       </p>
-                      <p className="text-charcoal/65 leading-relaxed mb-6">
+                      <p className="text-navy/70 leading-relaxed mb-6">
                         {program.description}
                       </p>
 
@@ -447,14 +456,14 @@ export default function MiddleSchoolPage() {
                             viewport={{ once: true }}
                             className="flex items-start gap-3"
                           >
-                            <div className={`w-1.5 h-1.5 rounded-full bg-${accentColor} mt-2 flex-shrink-0`} />
-                            <span className="text-charcoal/70 text-sm leading-relaxed">{highlight}</span>
+                            <div className={`w-1.5 h-1.5 rounded-full ${accent.dot} mt-2 flex-shrink-0`} />
+                            <span className="text-navy/70 text-sm leading-relaxed">{highlight}</span>
                           </motion.li>
                         ))}
                       </ul>
 
                       {/* Partner logo */}
-                      <div className="pt-4 border-t border-charcoal/6">
+                      <div className="pt-4 border-t border-n-200">
                         <Image
                           src={isFirst
                             ? '/images/logos/universidad-mondragon-mexico.jpg'
@@ -477,7 +486,7 @@ export default function MiddleSchoolPage() {
               whileInView={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.3 }}
               viewport={{ once: true }}
-              className="text-center text-charcoal/40 font-display italic text-lg mt-10"
+              className="text-center text-n-500 font-display italic text-lg mt-10"
             >
               &ldquo;{msp.exclusiveQuote}&rdquo;
             </motion.p>
@@ -487,7 +496,7 @@ export default function MiddleSchoolPage() {
         {/* ════════════════════════════════════════════════
             SECTION 5 — KNOTION / IMPACT MODEL
         ════════════════════════════════════════════════ */}
-        <section className="py-12 md:py-18 bg-gradient-to-b from-sand via-warmgray/15 to-warmgray/20 animate-section overflow-hidden relative">
+        <section className="py-12 md:py-20 bg-paper animate-section overflow-hidden relative">
           <div className="container-custom relative z-10">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -497,13 +506,13 @@ export default function MiddleSchoolPage() {
               className="text-center mb-14"
             >
               <div className="wine-divider mx-auto mb-4" />
-              <h2 className="font-display text-4xl md:text-5xl font-bold text-charcoal mb-4">
+              <h2 className="font-display text-4xl md:text-5xl font-bold text-navy mb-4">
                 {msp.knotionTitle}{' '}
-                <span className="bg-gradient-to-r from-secundaria to-mustard bg-clip-text text-transparent">
+                <span className="italic text-gold">
                   {msp.knotionTitleAccent}
                 </span>
               </h2>
-              <p className="text-lg text-charcoal/70 max-w-xl mx-auto">
+              <p className="text-lg text-navy/70 max-w-xl mx-auto">
                 {msp.knotionSubtitle}
               </p>
             </motion.div>
@@ -514,7 +523,7 @@ export default function MiddleSchoolPage() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
-              className="relative aspect-[21/9] md:aspect-[3/1] rounded-2xl overflow-hidden shadow-lg bg-sand max-w-5xl mx-auto mb-12"
+              className="relative aspect-[21/9] md:aspect-[3/1] rounded-2xl overflow-hidden shadow-lg bg-paper max-w-5xl mx-auto mb-12"
             >
               <Image
                 src="/images/levels/secundaria/nwl-sma-secundaria-alumnos-tablets-discusion.jpg"
@@ -522,7 +531,7 @@ export default function MiddleSchoolPage() {
                 fill
                 className="object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-charcoal/30 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-navy-900/30 via-transparent to-transparent" />
               {/* Knotion logo badge */}
               <div className="absolute bottom-4 left-4 bg-white/95 backdrop-blur-sm rounded-lg px-3 py-2 shadow-md">
                 <Image
@@ -539,13 +548,13 @@ export default function MiddleSchoolPage() {
             <div className="max-w-4xl mx-auto">
               <div className="hidden md:block relative">
                 {/* Connecting line */}
-                <div className="absolute top-[28px] left-[12.5%] right-[12.5%] h-[2px] bg-warmgray/30">
+                <div className="absolute top-[28px] left-[12.5%] right-[12.5%] h-[2px] bg-n-200">
                   <motion.div
                     initial={{ scaleX: 0 }}
                     whileInView={{ scaleX: 1 }}
                     transition={{ duration: 1.2, ease: 'easeOut' }}
                     viewport={{ once: true }}
-                    className="h-full bg-gradient-to-r from-secundaria via-mustard to-wine/60 origin-left"
+                    className="h-full bg-gradient-to-r from-coral-sea via-gold to-navy origin-left"
                   />
                 </div>
 
@@ -560,15 +569,15 @@ export default function MiddleSchoolPage() {
                       className="flex flex-col items-center text-center"
                     >
                       <div className={`w-14 h-14 rounded-full ${phaseDotColors[i]} flex items-center justify-center ring-4 ring-white shadow-md mb-5 relative z-10`}>
-                        <span className="text-white font-bold text-lg">{i + 1}</span>
+                        <span className="font-bold text-lg">{i + 1}</span>
                       </div>
-                      <p className="text-[11px] font-bold tracking-widest uppercase text-charcoal/35 mb-1">
+                      <p className="text-[11px] font-bold tracking-widest uppercase text-n-500 mb-1">
                         {phase.name}
                       </p>
-                      <p className="font-bold text-charcoal text-sm mb-2">
+                      <p className="font-bold text-navy text-sm mb-2">
                         {phase.title}
                       </p>
-                      <p className="text-charcoal/55 text-xs leading-relaxed">
+                      <p className="text-n-500 text-xs leading-relaxed">
                         {phase.description}
                       </p>
                     </motion.div>
@@ -584,7 +593,7 @@ export default function MiddleSchoolPage() {
                   transition={{ duration: 1.2, ease: 'easeOut' }}
                   viewport={{ once: true }}
                   style={{ left: 6 }}
-                  className="absolute top-1 bottom-1 w-[2px] origin-top bg-gradient-to-b from-secundaria via-mustard to-wine/60"
+                  className="absolute top-1 bottom-1 w-[2px] origin-top bg-gradient-to-b from-coral-sea via-gold to-navy"
                 />
 
                 <div className="flex flex-col gap-8">
@@ -598,13 +607,13 @@ export default function MiddleSchoolPage() {
                       className="relative"
                     >
                       <div className={`absolute -left-10 top-0.5 w-[14px] h-[14px] rounded-full ${phaseDotColors[i]} ring-[3px] ring-white shadow-sm`} />
-                      <p className="text-[11px] font-bold tracking-widest uppercase text-charcoal/35 mb-0.5">
+                      <p className="text-[11px] font-bold tracking-widest uppercase text-n-500 mb-0.5">
                         {phase.name}
                       </p>
-                      <p className="font-bold text-charcoal text-[15px] mb-1.5">
+                      <p className="font-bold text-navy text-[15px] mb-1.5">
                         {phase.title}
                       </p>
-                      <p className="text-charcoal/55 text-sm leading-relaxed">
+                      <p className="text-n-500 text-sm leading-relaxed">
                         {phase.description}
                       </p>
                     </motion.div>
@@ -618,7 +627,7 @@ export default function MiddleSchoolPage() {
         {/* ════════════════════════════════════════════════
             SECTION 6 — WHAT SETS US APART (scattered badges)
         ════════════════════════════════════════════════ */}
-        <section className="py-12 md:py-16 bg-gradient-to-b from-warmgray/20 to-sand/60 animate-section overflow-hidden">
+        <section className="py-12 md:py-16 bg-white animate-section overflow-hidden">
           <div className="container-custom">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -628,7 +637,7 @@ export default function MiddleSchoolPage() {
               className="text-center mb-10"
             >
               <div className="wine-divider mx-auto mb-4" />
-              <h2 className="font-display text-3xl md:text-5xl font-bold text-charcoal">
+              <h2 className="font-display text-3xl md:text-5xl font-bold text-navy">
                 {msp.differentiatorsSectionTitle}
               </h2>
             </motion.div>
@@ -677,7 +686,7 @@ export default function MiddleSchoolPage() {
                     <div className={`w-7 h-7 rounded-full ${c.bg} flex items-center justify-center flex-shrink-0`}>
                       <Icon size={14} className={c.accent} />
                     </div>
-                    <span className="font-semibold text-charcoal text-sm whitespace-nowrap">{item.title}</span>
+                    <span className="font-semibold text-navy text-sm whitespace-nowrap">{item.title}</span>
                   </motion.div>
                 );
               })}
@@ -688,7 +697,7 @@ export default function MiddleSchoolPage() {
         {/* ════════════════════════════════════════════════
             SECTION 7 — BEYOND THE CLASSROOM (Activities)
         ════════════════════════════════════════════════ */}
-        <section className="py-12 md:py-18 bg-gradient-to-b from-sand/60 via-warmgray/15 to-warmgray/25 animate-section">
+        <section className="py-12 md:py-20 bg-n-50 animate-section">
           <div className="container-custom">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -698,11 +707,11 @@ export default function MiddleSchoolPage() {
               className="text-center mb-14"
             >
               <div className="wine-divider mx-auto mb-4" />
-              <h2 className="font-display text-4xl md:text-5xl font-bold text-charcoal mb-4">
+              <h2 className="font-display text-4xl md:text-5xl font-bold text-navy mb-4">
                 {msp.activitiesTitle}{' '}
-                <span className="text-secundaria">{msp.activitiesTitleAccent}</span>
+                <span className="italic text-coral-sea">{msp.activitiesTitleAccent}</span>
               </h2>
-              <p className="text-lg text-charcoal/70 max-w-2xl mx-auto">
+              <p className="text-lg text-navy/70 max-w-2xl mx-auto">
                 {msp.activitiesSubtitle}
               </p>
             </motion.div>
@@ -721,10 +730,10 @@ export default function MiddleSchoolPage() {
                     className={`${s.bg} rounded-2xl p-6 md:p-8 text-center select-none`}
                   >
                     <Icon className={`${s.icon} mx-auto mb-3 opacity-60`} size={32} />
-                    <p className="font-bold text-charcoal text-base mb-2">
+                    <p className="font-bold text-navy text-base mb-2">
                       {activity.name}
                     </p>
-                    <p className="text-charcoal/55 text-xs leading-relaxed">
+                    <p className="text-n-500 text-xs leading-relaxed">
                       {activity.description}
                     </p>
                   </motion.div>
@@ -732,7 +741,7 @@ export default function MiddleSchoolPage() {
               })}
             </div>
 
-            <p className="text-center text-charcoal/40 text-sm mt-8 italic">
+            <p className="text-center text-n-500 text-sm mt-8 italic">
               {msp.activitiesNote}
             </p>
           </div>
@@ -741,7 +750,7 @@ export default function MiddleSchoolPage() {
         {/* ════════════════════════════════════════════════
             SECTION 8 — PHOTO GALLERY
         ════════════════════════════════════════════════ */}
-        <section className="py-10 md:py-14 bg-gradient-to-b from-warmgray/20 to-sand relative overflow-hidden animate-section">
+        <section className="py-10 md:py-14 bg-paper relative overflow-hidden animate-section">
           <div className="container-custom relative z-10">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -751,9 +760,9 @@ export default function MiddleSchoolPage() {
               className="text-center mb-8"
             >
               <div className="wine-divider mx-auto mb-4" />
-              <h2 className="font-display text-3xl md:text-5xl font-bold text-charcoal">
+              <h2 className="font-display text-3xl md:text-5xl font-bold text-navy">
                 {msp.galleryTitle}{' '}
-                <span className="text-secundaria">{msp.galleryTitleAccent}</span>
+                <span className="italic text-coral-sea">{msp.galleryTitleAccent}</span>
               </h2>
             </motion.div>
 
@@ -765,7 +774,7 @@ export default function MiddleSchoolPage() {
               className="max-w-5xl mx-auto"
             >
               {/* Main Image */}
-              <div className="relative aspect-[16/9] rounded-lg overflow-hidden shadow-xl mb-4 bg-sand">
+              <div className="relative aspect-[16/9] rounded-lg overflow-hidden shadow-xl mb-4 bg-paper">
                 <AnimatePresence mode="wait">
                   <motion.div
                     key={activeGallery}
@@ -790,14 +799,14 @@ export default function MiddleSchoolPage() {
                   className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/80 backdrop-blur-sm flex items-center justify-center hover:bg-white transition-colors z-10"
                   aria-label="Previous"
                 >
-                  <FiChevronLeft size={20} className="text-charcoal" />
+                  <FiChevronLeft size={20} className="text-navy" />
                 </button>
                 <button
                   onClick={() => setActiveGallery((idx) => (idx + 1) % galleryImages.length)}
                   className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/80 backdrop-blur-sm flex items-center justify-center hover:bg-white transition-colors z-10"
                   aria-label="Next"
                 >
-                  <FiChevronRight size={20} className="text-charcoal" />
+                  <FiChevronRight size={20} className="text-navy" />
                 </button>
               </div>
 
@@ -809,7 +818,7 @@ export default function MiddleSchoolPage() {
                     onClick={() => setActiveGallery(i)}
                     className={`relative flex-shrink-0 w-20 h-14 md:w-24 md:h-16 rounded-md overflow-hidden transition-all duration-200 ${
                       i === activeGallery
-                        ? 'ring-2 ring-secundaria opacity-100 scale-105'
+                        ? 'ring-2 ring-coral-sea opacity-100 scale-105'
                         : 'opacity-50 hover:opacity-80'
                     }`}
                   >

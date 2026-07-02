@@ -28,6 +28,7 @@ import { useBrochure } from '@/lib/BrochureContext';
 import FinalCTA from '@/components/FinalCTA';
 import Footer from '@/components/Footer';
 import BubbleAnimation from '@/components/BubbleAnimation';
+import Crest from '@/components/ui/Crest';
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger);
@@ -36,12 +37,9 @@ if (typeof window !== 'undefined') {
 /* ── Feature card data ── */
 const featureIcons = [FiGlobe, FiStar, FiHeart, FiUsers, FiHeart, FiShield];
 const featureColors = [
-  { bg: 'bg-sunshine/10', text: 'text-sunshine-700', iconBg: 'bg-sunshine/20', border: 'border-sunshine/30' },
-  { bg: 'bg-coral/10', text: 'text-coral-700', iconBg: 'bg-coral/20', border: 'border-coral/30' },
-  { bg: 'bg-lime/10', text: 'text-lime-700', iconBg: 'bg-lime/20', border: 'border-lime/30' },
-  { bg: 'bg-ocean/10', text: 'text-ocean-700', iconBg: 'bg-ocean/20', border: 'border-ocean/30' },
-  { bg: 'bg-wine/10', text: 'text-wine', iconBg: 'bg-wine/20', border: 'border-wine/30' },
-  { bg: 'bg-bubblegum/10', text: 'text-bubblegum-700', iconBg: 'bg-bubblegum/20', border: 'border-bubblegum/30' },
+  { bg: 'bg-eucalyptus/10', text: 'text-navy', iconBg: 'bg-eucalyptus/20', border: 'border-eucalyptus/30' },
+  { bg: 'bg-gold/10', text: 'text-gold-600', iconBg: 'bg-gold/15', border: 'border-gold/25' },
+  { bg: 'bg-navy/10', text: 'text-navy', iconBg: 'bg-navy/10', border: 'border-navy/15' },
 ];
 
 /* ── Schedule icon map ── */
@@ -56,24 +54,18 @@ const scheduleIcons: Record<string, React.ElementType> = {
   home: FiHome,
 };
 
-/* Solid pastel colors (brand color blended at ~40% over white) so the
+/* Solid brand tints (level color blended at ~20% over white) so the
    timeline line is fully hidden behind each icon box. */
 const scheduleColors = [
-  { bg: '#FFF0B1', color: '#3D3D3D' }, // sunshine
-  { bg: '#B8EBE7', color: '#3D3D3D' }, // ocean
-  { bg: '#FFC4C4', color: '#3D3D3D' }, // coral
-  { bg: '#DCF5EC', color: '#3D3D3D' }, // lime
-  { bg: '#C4BEF5', color: '#3D3D3D' }, // blueberry
-  { bg: '#FFD1B3', color: '#3D3D3D' }, // tangerine
-  { bg: '#FFD6E9', color: '#3D3D3D' }, // bubblegum
-  { bg: '#DCBDC2', color: '#8B2332' }, // wine
+  { bg: '#E9EEDF', color: '#0B224E' }, // eucalyptus tint
+  { bg: '#F5E7CD', color: '#0B224E' }, // gold tint
+  { bg: '#CED3DC', color: '#0B224E' }, // navy tint
 ];
 
 const pillarColors = [
-  { accent: 'text-sunshine-700', bg: 'bg-sunshine/10', border: 'border-sunshine/20' },
-  { accent: 'text-coral-700', bg: 'bg-coral/10', border: 'border-coral/20' },
-  { accent: 'text-lime-700', bg: 'bg-lime/10', border: 'border-lime/20' },
-  { accent: 'text-ocean-700', bg: 'bg-ocean/10', border: 'border-ocean/20' },
+  { accent: 'text-navy', bg: 'bg-eucalyptus/10', border: 'border-eucalyptus/25' },
+  { accent: 'text-gold-600', bg: 'bg-gold/10', border: 'border-gold/25' },
+  { accent: 'text-navy', bg: 'bg-navy/10', border: 'border-navy/15' },
 ];
 
 const maternalGalleryImages = [
@@ -142,7 +134,7 @@ export default function MaternalPage() {
             className="object-cover"
           />
           {/* Gradient overlay — stronger at bottom for text legibility */}
-          <div className="absolute inset-0 bg-gradient-to-t from-charcoal/90 via-charcoal/40 to-charcoal/10" />
+          <div className="absolute inset-0 bg-gradient-to-t from-navy-900/90 via-navy-900/40 to-navy-900/10" />
 
           <div className="container-custom relative z-10 pb-20 pt-40">
             {/* Back link */}
@@ -161,40 +153,53 @@ export default function MaternalPage() {
             </motion.div>
 
             {/* Content — bottom-aligned, clean hierarchy */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.15 }}
-              className="max-w-3xl"
-            >
-              <span className="inline-block bg-white/15 backdrop-blur-sm text-sunshine px-4 py-1.5 rounded-full text-sm font-bold mb-5 border border-white/10">
-                {m.ageBadge}
-              </span>
+            <div className="flex items-end justify-between gap-10">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 0.15 }}
+                className="max-w-3xl"
+              >
+                <span className="inline-flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.22em] text-gold-400 mb-5">
+                  <span className="w-9 h-px bg-gold-400" />
+                  {m.ageBadge}
+                </span>
 
-              <h1 className="font-display text-5xl md:text-7xl font-bold text-white mb-5 leading-[1.1]">
-                {mp.heroHeadline}
-              </h1>
+                <h1 className="font-display text-5xl md:text-7xl font-bold text-white mb-5 leading-[1.1]">
+                  {mp.heroHeadline}
+                </h1>
 
-              <p className="text-lg text-white/80 leading-relaxed mb-10 max-w-2xl">
-                {mp.heroSubheadline}
-              </p>
+                <p className="text-lg text-white/80 leading-relaxed mb-10 max-w-2xl">
+                  {mp.heroSubheadline}
+                </p>
 
-              <div className="flex items-center gap-4">
-                <a href="#admissions" className="bg-wine text-white px-8 py-3.5 rounded-sm font-medium hover:bg-wine/90 transition-colors border border-wine">
-                  {m.cta}
-                </a>
-                <button onClick={() => openBrochure('maternal-kinder')} className="bg-white/10 backdrop-blur-sm text-white px-8 py-3.5 rounded-sm font-medium hover:bg-white/20 transition-colors border border-white/25">
-                  {m.ctaSecondary}
-                </button>
-              </div>
-            </motion.div>
+                <div className="flex items-center gap-4">
+                  <a href="#admissions" className="btn-primary inline-flex items-center justify-center">
+                    {m.cta}
+                  </a>
+                  <button onClick={() => openBrochure('maternal-kinder')} className="inline-flex items-center justify-center px-7 py-3 rounded-full font-semibold bg-paper/5 text-paper border border-paper/25 backdrop-blur-sm hover:border-gold/60 transition-colors duration-300">
+                    {m.ctaSecondary}
+                  </button>
+                </div>
+              </motion.div>
+
+              {/* Level crest */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 0.3 }}
+                className="hidden md:flex flex-shrink-0"
+              >
+                <Crest level="kinder" size={104} showBanner={false} />
+              </motion.div>
+            </div>
           </div>
         </section>
 
         {/* ════════════════════════════════════════════════
             SECTION 2 — QUICK OVERVIEW + STATS
         ════════════════════════════════════════════════ */}
-        <section className="section-padding bg-gradient-to-b from-sand via-white to-warmgray/30 animate-section">
+        <section className="section-padding bg-paper animate-section">
           <div className="container-custom">
             <div className="grid lg:grid-cols-2 gap-16 items-center">
               {/* Left — Description */}
@@ -205,44 +210,42 @@ export default function MaternalPage() {
                 viewport={{ once: true }}
               >
                 <div className="flex items-center gap-2 mb-4">
-                  <div className="h-2 w-2 rounded-full bg-sunshine animate-bounce" style={{ animationDelay: '0s' }} />
-                  <div className="h-2 w-2 rounded-full bg-coral animate-bounce" style={{ animationDelay: '0.15s' }} />
-                  <div className="h-2 w-2 rounded-full bg-lime animate-bounce" style={{ animationDelay: '0.3s' }} />
+                  <div className="h-2 w-2 rounded-full bg-eucalyptus animate-bounce" style={{ animationDelay: '0s' }} />
+                  <div className="h-2 w-2 rounded-full bg-gold animate-bounce" style={{ animationDelay: '0.15s' }} />
+                  <div className="h-2 w-2 rounded-full bg-navy animate-bounce" style={{ animationDelay: '0.3s' }} />
                 </div>
-                <h2 className="font-display text-4xl md:text-5xl font-bold text-charcoal mb-6">
-                  <span className="bg-gradient-to-r from-sunshine via-coral to-tangerine bg-clip-text text-transparent">
-                    {m.tagline}
-                  </span>
+                <h2 className="font-display text-4xl md:text-5xl font-medium tracking-[-0.02em] text-navy mb-6">
+                  <span className="italic text-gold">{m.tagline}</span>
                 </h2>
-                <p className="text-lg text-charcoal/70 leading-relaxed mb-8">
+                <p className="text-lg text-navy/70 leading-relaxed mb-8">
                   {m.description}
                 </p>
 
                 {/* Stats row */}
                 <div className="grid grid-cols-3 gap-3 mb-8">
                   {/* Bilingual stat */}
-                  <div className="relative group bg-gradient-to-br from-sunshine/10 to-sunshine/5 rounded-2xl p-5 border border-sunshine/20 hover:shadow-md hover:border-sunshine/40 transition-all duration-300">
-                    <div className="w-10 h-10 rounded-xl bg-sunshine/20 flex items-center justify-center mb-3">
-                      <FiGlobe size={20} className="text-sunshine-700" />
+                  <div className="relative group bg-eucalyptus/10 rounded-2xl p-5 border border-eucalyptus/25 hover:shadow-navy-sm hover:border-eucalyptus/40 transition-all duration-300">
+                    <div className="w-10 h-10 rounded-xl bg-eucalyptus/20 flex items-center justify-center mb-3">
+                      <FiGlobe size={20} className="text-navy" />
                     </div>
-                    <span className="block text-2xl md:text-3xl font-bold text-charcoal tracking-tight">100%</span>
-                    <span className="text-xs md:text-sm text-charcoal/50 font-medium">{m.statBilingual}</span>
+                    <span className="block text-2xl md:text-3xl font-bold text-navy tracking-tight">100%</span>
+                    <span className="text-xs md:text-sm text-n-500 font-medium">{m.statBilingual}</span>
                   </div>
                   {/* Campuses stat */}
-                  <div className="relative group bg-gradient-to-br from-coral/10 to-coral/5 rounded-2xl p-5 border border-coral/20 hover:shadow-md hover:border-coral/40 transition-all duration-300">
-                    <div className="w-10 h-10 rounded-xl bg-coral/20 flex items-center justify-center mb-3">
-                      <FiMapPin size={20} className="text-coral-700" />
+                  <div className="relative group bg-gold/10 rounded-2xl p-5 border border-gold/25 hover:shadow-navy-sm hover:border-gold/40 transition-all duration-300">
+                    <div className="w-10 h-10 rounded-xl bg-gold/15 flex items-center justify-center mb-3">
+                      <FiMapPin size={20} className="text-gold-600" />
                     </div>
-                    <span className="block text-2xl md:text-3xl font-bold text-charcoal tracking-tight">5</span>
-                    <span className="text-xs md:text-sm text-charcoal/50 font-medium">{m.statCampuses}</span>
+                    <span className="block text-2xl md:text-3xl font-bold text-navy tracking-tight">5</span>
+                    <span className="text-xs md:text-sm text-n-500 font-medium">{m.statCampuses}</span>
                   </div>
                   {/* Schedule stat */}
-                  <div className="relative group bg-gradient-to-br from-lime/10 to-lime/5 rounded-2xl p-5 border border-lime/20 hover:shadow-md hover:border-lime/40 transition-all duration-300">
-                    <div className="w-10 h-10 rounded-xl bg-lime/20 flex items-center justify-center mb-3">
-                      <FiClock size={20} className="text-lime-700" />
+                  <div className="relative group bg-navy/10 rounded-2xl p-5 border border-navy/15 hover:shadow-navy-sm hover:border-navy/25 transition-all duration-300">
+                    <div className="w-10 h-10 rounded-xl bg-navy/10 flex items-center justify-center mb-3">
+                      <FiClock size={20} className="text-navy" />
                     </div>
-                    <span className="block text-2xl md:text-3xl font-bold text-charcoal tracking-tight">{m.schedule}</span>
-                    <span className="text-xs md:text-sm text-charcoal/50 font-medium">{m.statSchedule}</span>
+                    <span className="block text-2xl md:text-3xl font-bold text-navy tracking-tight">{m.schedule}</span>
+                    <span className="text-xs md:text-sm text-n-500 font-medium">{m.statSchedule}</span>
                   </div>
                 </div>
 
@@ -251,9 +254,10 @@ export default function MaternalPage() {
                   whileInView={{ opacity: 1, scale: 1 }}
                   transition={{ delay: 0.4, type: 'spring' }}
                   viewport={{ once: true }}
-                  className="inline-flex items-center gap-2 bg-gradient-to-r from-sunshine to-tangerine text-white px-5 py-2.5 rounded-full font-bold shadow-lg text-sm"
+                  className="inline-flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.22em] text-gold-600"
                 >
-                  <FiStar size={14} />
+                  <span className="w-9 h-px bg-gold" />
+                  <FiStar size={12} />
                   {m.uniqueBadge}
                 </motion.div>
               </motion.div>
@@ -264,15 +268,15 @@ export default function MaternalPage() {
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
                 viewport={{ once: true }}
-                className="bg-gradient-to-br from-sunshine/15 via-coral/15 to-lime/15 rounded-3xl p-8 md:p-10 relative overflow-hidden"
+                className="bg-white border border-n-200 shadow-navy-sm rounded-3xl p-8 md:p-10 relative overflow-hidden"
               >
-                <div className="absolute top-2 left-6 text-sunshine/30 text-8xl font-display leading-none select-none">
+                <div className="absolute top-2 left-6 text-eucalyptus/30 text-8xl font-display leading-none select-none">
                   &ldquo;
                 </div>
-                <blockquote className="relative z-10 text-xl md:text-2xl text-charcoal font-medium italic leading-relaxed mb-6">
+                <blockquote className="relative z-10 text-xl md:text-2xl text-navy font-medium italic leading-relaxed mb-6">
                   &ldquo;{m.testimonial}&rdquo;
                 </blockquote>
-                <p className="relative z-10 text-charcoal/60 font-medium">&mdash; {m.testimonialAuthor}</p>
+                <p className="relative z-10 text-n-500 font-medium">&mdash; {m.testimonialAuthor}</p>
               </motion.div>
             </div>
           </div>
@@ -291,20 +295,20 @@ export default function MaternalPage() {
               className="text-center mb-14"
             >
               <div className="wine-divider mx-auto mb-4" />
-              <h2 className="font-display text-4xl md:text-5xl font-bold text-charcoal mb-4">
+              <h2 className="font-display text-4xl md:text-5xl font-medium tracking-[-0.02em] text-navy mb-4">
                 {mp.philosophyTitle}{' '}
-                <span className="bg-gradient-to-r from-coral to-tangerine bg-clip-text text-transparent">
+                <span className="italic text-gold">
                   {mp.philosophyTitleAccent}
                 </span>
               </h2>
-              <p className="text-lg text-charcoal/70 max-w-3xl mx-auto">
+              <p className="text-lg text-navy/70 max-w-3xl mx-auto">
                 {mp.philosophyDescription}
               </p>
             </motion.div>
 
             <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
               {mp.philosophyPillars.map((pillar, i) => {
-                const colors = pillarColors[i];
+                const colors = pillarColors[i % pillarColors.length];
                 return (
                   <motion.div
                     key={i}
@@ -316,8 +320,8 @@ export default function MaternalPage() {
                     className={`rounded-2xl p-8 border ${colors.border} ${colors.bg} hover:shadow-lg transition-shadow`}
                   >
                     <div className={`inline-block text-3xl font-bold ${colors.accent} mb-1`}>0{i + 1}</div>
-                    <h3 className="font-display text-xl font-bold text-charcoal mb-3">{pillar.title}</h3>
-                    <p className="text-charcoal/60 leading-relaxed">{pillar.description}</p>
+                    <h3 className="font-display text-xl font-bold text-navy mb-3">{pillar.title}</h3>
+                    <p className="text-navy/70 leading-relaxed">{pillar.description}</p>
                   </motion.div>
                 );
               })}
@@ -328,11 +332,11 @@ export default function MaternalPage() {
         {/* ════════════════════════════════════════════════
             SECTION 4 — WHAT MAKES US UNIQUE (Feature Cards)
         ════════════════════════════════════════════════ */}
-        <section className="section-padding bg-gradient-to-b from-warmgray/30 via-sand to-coral/5 animate-section overflow-hidden relative">
+        <section className="section-padding bg-n-50 animate-section overflow-hidden relative">
           {/* Soft orbs */}
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            <div className="absolute top-20 right-20 w-40 h-40 rounded-full bg-sunshine/15 blur-3xl" />
-            <div className="absolute bottom-20 left-10 w-48 h-48 rounded-full bg-coral/10 blur-3xl" />
+            <div className="absolute top-20 right-20 w-40 h-40 rounded-full bg-eucalyptus/15 blur-3xl" />
+            <div className="absolute bottom-20 left-10 w-48 h-48 rounded-full bg-gold/10 blur-3xl" />
           </div>
 
           <div className="container-custom relative z-10">
@@ -343,7 +347,8 @@ export default function MaternalPage() {
               viewport={{ once: true }}
               className="text-center mb-14"
             >
-              <h2 className="font-display text-3xl md:text-5xl font-bold text-charcoal">
+              <div className="wine-divider mx-auto mb-4" />
+              <h2 className="font-display text-3xl md:text-5xl font-medium tracking-[-0.02em] text-navy">
                 {m.featuresTitle}
               </h2>
             </motion.div>
@@ -351,7 +356,7 @@ export default function MaternalPage() {
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {m.features.map((feature, index) => {
                 const Icon = featureIcons[index];
-                const colors = featureColors[index];
+                const colors = featureColors[index % featureColors.length];
                 return (
                   <motion.div
                     key={index}
@@ -385,8 +390,8 @@ export default function MaternalPage() {
                     <div className={`w-14 h-14 rounded-xl ${colors.iconBg} flex items-center justify-center mb-5`}>
                       <Icon size={26} className={colors.text} />
                     </div>
-                    <h3 className="font-bold text-charcoal text-lg mb-3 pr-12">{feature.title}</h3>
-                    <p className="text-charcoal/60 leading-relaxed">{feature.description}</p>
+                    <h3 className="font-bold text-navy text-lg mb-3 pr-12">{feature.title}</h3>
+                    <p className="text-navy/70 leading-relaxed">{feature.description}</p>
                   </motion.div>
                 );
               })}
@@ -407,11 +412,11 @@ export default function MaternalPage() {
               className="text-center mb-14"
             >
               <div className="wine-divider mx-auto mb-4" />
-              <h2 className="font-display text-4xl md:text-5xl font-bold text-charcoal mb-4">
+              <h2 className="font-display text-4xl md:text-5xl font-medium tracking-[-0.02em] text-navy mb-4">
                 {mp.dayTitle}{' '}
-                <span className="text-wine">{mp.dayTitleAccent}</span>
+                <span className="italic text-gold">{mp.dayTitleAccent}</span>
               </h2>
-              <p className="text-lg text-charcoal/70 max-w-2xl mx-auto">
+              <p className="text-lg text-navy/70 max-w-2xl mx-auto">
                 {mp.daySubtitle}
               </p>
             </motion.div>
@@ -420,7 +425,7 @@ export default function MaternalPage() {
             <div className="max-w-3xl mx-auto">
               <div className="relative">
                 {/* Vertical line */}
-                <div className="absolute left-8 md:left-12 top-0 bottom-0 w-0.5 bg-gradient-to-b from-sunshine via-coral to-wine opacity-40" />
+                <div className="absolute left-8 md:left-12 top-0 bottom-0 w-0.5 bg-gradient-to-b from-eucalyptus via-gold to-navy opacity-40" />
 
                 <div className="space-y-6">
                   {mp.daySchedule.map((item, i) => {
@@ -445,11 +450,11 @@ export default function MaternalPage() {
                         </div>
 
                         {/* Content */}
-                        <div className="flex-1 flex items-center gap-4 bg-white rounded-xl px-5 py-4 shadow-sm border border-charcoal/5 group-hover:shadow-md transition-shadow">
-                          <span className="text-lg md:text-xl font-bold text-charcoal whitespace-nowrap">
+                        <div className="flex-1 flex items-center gap-4 bg-white rounded-xl px-5 py-4 shadow-sm border border-n-200 group-hover:shadow-md transition-shadow">
+                          <span className="text-lg md:text-xl font-bold text-navy whitespace-nowrap">
                             {item.time}
                           </span>
-                          <span className="text-charcoal/70">{item.activity}</span>
+                          <span className="text-navy/70">{item.activity}</span>
                         </div>
                       </motion.div>
                     );
@@ -463,9 +468,9 @@ export default function MaternalPage() {
         {/* ════════════════════════════════════════════════
             SECTION 6 — PHOTO GALLERY
         ════════════════════════════════════════════════ */}
-        <section className="py-10 md:py-14 bg-gradient-to-b from-white to-sand relative overflow-hidden animate-section">
-          <div className="absolute top-0 left-10 w-40 h-40 bg-mustard/8 rounded-full blur-3xl" />
-          <div className="absolute bottom-0 right-10 w-48 h-48 bg-sunshine/10 rounded-full blur-3xl" />
+        <section className="py-10 md:py-14 bg-paper relative overflow-hidden animate-section">
+          <div className="absolute top-0 left-10 w-40 h-40 bg-eucalyptus/10 rounded-full blur-3xl" />
+          <div className="absolute bottom-0 right-10 w-48 h-48 bg-gold/10 rounded-full blur-3xl" />
 
           <div className="container-custom relative z-10">
             <motion.div
@@ -476,9 +481,9 @@ export default function MaternalPage() {
               className="text-center mb-8"
             >
               <div className="wine-divider mx-auto mb-4" />
-              <h2 className="font-display text-3xl md:text-5xl font-bold text-charcoal">
+              <h2 className="font-display text-3xl md:text-5xl font-medium tracking-[-0.02em] text-navy">
                 {mp.galleryTitle}{' '}
-                <span className="text-wine">{mp.galleryTitleAccent}</span>
+                <span className="italic text-gold">{mp.galleryTitleAccent}</span>
               </h2>
             </motion.div>
 
@@ -490,7 +495,7 @@ export default function MaternalPage() {
               className="max-w-5xl mx-auto"
             >
               {/* Main Image */}
-              <div className="relative aspect-[16/9] rounded-lg overflow-hidden shadow-xl mb-4 bg-sand">
+              <div className="relative aspect-[16/9] rounded-lg overflow-hidden shadow-navy-md mb-4 bg-n-100">
                 <AnimatePresence mode="wait">
                   <motion.div
                     key={activeGallery}
@@ -515,14 +520,14 @@ export default function MaternalPage() {
                   className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/80 backdrop-blur-sm flex items-center justify-center hover:bg-white transition-colors z-10"
                   aria-label="Previous"
                 >
-                  <FiChevronLeft size={20} className="text-charcoal" />
+                  <FiChevronLeft size={20} className="text-navy" />
                 </button>
                 <button
                   onClick={() => setActiveGallery((i) => (i + 1) % maternalGalleryImages.length)}
                   className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/80 backdrop-blur-sm flex items-center justify-center hover:bg-white transition-colors z-10"
                   aria-label="Next"
                 >
-                  <FiChevronRight size={20} className="text-charcoal" />
+                  <FiChevronRight size={20} className="text-navy" />
                 </button>
               </div>
 
@@ -534,7 +539,7 @@ export default function MaternalPage() {
                     onClick={() => setActiveGallery(i)}
                     className={`relative flex-shrink-0 w-20 h-14 md:w-24 md:h-16 rounded-md overflow-hidden transition-all duration-200 ${
                       i === activeGallery
-                        ? 'ring-2 ring-wine opacity-100 scale-105'
+                        ? 'ring-2 ring-gold opacity-100 scale-105'
                         : 'opacity-50 hover:opacity-80'
                     }`}
                   >

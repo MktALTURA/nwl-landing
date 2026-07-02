@@ -15,34 +15,35 @@ import { useBrochure } from '@/lib/BrochureContext';
 import FinalCTA from '@/components/FinalCTA';
 import Footer from '@/components/Footer';
 import GridAnimation from '@/components/GridAnimation';
+import Crest from '@/components/ui/Crest';
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger);
 }
 
-/* ── Pillar color config (no icons) ── */
+/* ── Pillar color config (no icons) — wattle / gold / navy triad ── */
 const pillarColors = [
-  { gradient: 'from-primaria/30 to-primaria/10', border: 'border-primaria/30', accent: 'text-primaria', num: 'bg-primaria/20 text-charcoal' },
-  { gradient: 'from-mustard/25 to-mustard/8', border: 'border-mustard/25', accent: 'text-mustard', num: 'bg-mustard/20 text-charcoal' },
-  { gradient: 'from-wine/20 to-wine/8', border: 'border-wine/25', accent: 'text-wine', num: 'bg-wine/15 text-wine' },
+  { gradient: 'from-wattle/25 to-wattle/10', border: 'border-wattle/30', accent: 'text-navy', num: 'bg-wattle/25 text-navy' },
+  { gradient: 'from-gold/15 to-gold/5', border: 'border-gold/25', accent: 'text-gold-600', num: 'bg-gold/15 text-gold-600' },
+  { gradient: 'from-navy/10 to-navy/5', border: 'border-navy/15', accent: 'text-navy', num: 'bg-navy/10 text-navy' },
 ];
 
-/* ── Activity config ── */
+/* ── Activity config — wattle / navy / gold tints ── */
 const activityStyles = [
-  { bg: 'bg-gradient-to-br from-primaria/25 to-primaria/10', icon: 'text-primaria' },
-  { bg: 'bg-gradient-to-br from-wine/18 to-wine/8', icon: 'text-wine' },
-  { bg: 'bg-gradient-to-br from-mustard/25 to-mustard/10', icon: 'text-mustard' },
-  { bg: 'bg-gradient-to-br from-primaria/20 to-mustard/10', icon: 'text-primaria' },
+  { bg: 'bg-gradient-to-br from-wattle/25 to-wattle/10', icon: 'text-gold-600' },
+  { bg: 'bg-gradient-to-br from-navy/10 to-navy/5', icon: 'text-navy' },
+  { bg: 'bg-gradient-to-br from-gold/20 to-gold/10', icon: 'text-gold-600' },
+  { bg: 'bg-gradient-to-br from-wattle/20 to-gold/10', icon: 'text-gold-600' },
 ];
 const activityIcons = [GiSoccerBall, PiMaskHappy, GiMusicalNotes, TbFlask];
 const activityRotations = [-0.5, 0.3, -0.3, 0.5];
 
-/* ── Differentiator colors + icons ── */
+/* ── Differentiator colors + icons — gold-600 / navy accents ── */
 const diffItems = [
-  { accent: 'text-primaria', border: 'border-primaria/25', bg: 'bg-primaria/15', icon: FiGlobe },
-  { accent: 'text-wine', border: 'border-wine/25', bg: 'bg-wine/12', icon: FiHeart },
-  { accent: 'text-mustard', border: 'border-mustard/30', bg: 'bg-mustard/15', icon: FiAward },
-  { accent: 'text-charcoal/70', border: 'border-charcoal/15', bg: 'bg-charcoal/8', icon: FiShield },
+  { accent: 'text-gold-600', border: 'border-wattle/30', bg: 'bg-wattle/15', icon: FiGlobe },
+  { accent: 'text-navy', border: 'border-navy/15', bg: 'bg-navy/10', icon: FiHeart },
+  { accent: 'text-gold-600', border: 'border-gold/25', bg: 'bg-gold/10', icon: FiAward },
+  { accent: 'text-navy/70', border: 'border-n-200', bg: 'bg-n-50', icon: FiShield },
 ];
 
 /* ── Gallery images ── */
@@ -113,7 +114,7 @@ export default function ElementaryPage() {
             sizes="100vw"
             className="object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-charcoal/90 via-charcoal/40 to-charcoal/10" />
+          <div className="absolute inset-0 bg-gradient-to-t from-navy-900/90 via-navy-900/40 to-navy-900/10" />
 
           <div className="container-custom relative z-10 pb-20 pt-40">
             <motion.div
@@ -136,11 +137,14 @@ export default function ElementaryPage() {
               transition={{ duration: 0.7, delay: 0.15 }}
               className="max-w-3xl"
             >
+              <div className="hidden md:flex mb-6">
+                <Crest level="elementary" size={104} showBanner={false} />
+              </div>
               <motion.span
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.3, type: 'spring', stiffness: 200 }}
-                className="inline-block bg-white/15 backdrop-blur-sm text-primaria px-4 py-1.5 rounded-full text-sm font-bold mb-5 border border-white/10"
+                className="inline-block bg-white/15 backdrop-blur-sm text-gold-400 px-4 py-1.5 rounded-full text-sm font-bold mb-5 border border-white/10"
               >
                 {e.ageBadge}
               </motion.span>
@@ -156,13 +160,13 @@ export default function ElementaryPage() {
               <div className="flex items-center gap-4">
                 <a
                   href="#admissions"
-                  className="bg-wine text-white px-8 py-3.5 rounded-sm font-medium hover:bg-wine/90 transition-colors border border-wine"
+                  className="btn-primary"
                 >
                   {e.cta}
                 </a>
                 <button
                   onClick={() => openBrochure('elementary')}
-                  className="bg-white/10 backdrop-blur-sm text-white px-8 py-3.5 rounded-sm font-medium hover:bg-white/20 transition-colors border border-white/25"
+                  className="bg-white/10 backdrop-blur-sm text-white px-7 py-3 rounded-full font-semibold hover:bg-white/20 transition-colors border border-white/25"
                 >
                   {e.ctaSecondary}
                 </button>
@@ -174,7 +178,7 @@ export default function ElementaryPage() {
         {/* ════════════════════════════════════════════════
             SECTION 2 — OVERVIEW + STATS
         ════════════════════════════════════════════════ */}
-        <section className="py-12 md:py-18 bg-gradient-to-b from-sand via-warmgray/15 to-warmgray/25 animate-section">
+        <section className="py-12 md:py-20 bg-paper animate-section">
           <div className="container-custom">
             <div className="grid lg:grid-cols-2 gap-16 items-center">
               {/* Left — Description + Stats */}
@@ -184,33 +188,33 @@ export default function ElementaryPage() {
                 transition={{ duration: 0.6 }}
                 viewport={{ once: true }}
               >
-                <h2 className="font-display text-4xl md:text-5xl font-bold text-charcoal mb-6">
+                <h2 className="font-display text-4xl md:text-5xl font-bold text-navy mb-6">
                   {ep.overviewTitle}{' '}
-                  <span className="bg-gradient-to-r from-primaria via-mustard to-primaria bg-clip-text text-transparent">
+                  <span className="italic text-gold">
                     {ep.overviewTitleAccent}
                   </span>
                 </h2>
-                <p className="text-lg text-charcoal/70 leading-relaxed mb-8">
+                <p className="text-lg text-navy/70 leading-relaxed mb-8">
                   {e.description}
                 </p>
 
                 {/* Stats — clean number-first cards, no icons */}
                 <div className="grid grid-cols-2 gap-3 mb-8">
-                  <div className="bg-gradient-to-br from-primaria/18 to-primaria/8 rounded-2xl p-5 border border-primaria/25">
-                    <span className="block text-3xl font-bold text-charcoal tracking-tight">100%</span>
-                    <span className="text-sm text-charcoal/60 font-medium">{e.statBilingual}</span>
+                  <div className="bg-gradient-to-br from-wattle/20 to-wattle/10 rounded-2xl p-5 border border-wattle/30">
+                    <span className="block text-3xl font-bold text-navy tracking-tight">100%</span>
+                    <span className="text-sm text-n-500 font-medium">{e.statBilingual}</span>
                   </div>
-                  <div className="bg-gradient-to-br from-mustard/18 to-mustard/8 rounded-2xl p-5 border border-mustard/25">
-                    <span className="block text-3xl font-bold text-charcoal tracking-tight">5</span>
-                    <span className="text-sm text-charcoal/60 font-medium">{e.statCampuses}</span>
+                  <div className="bg-gradient-to-br from-gold/15 to-gold/5 rounded-2xl p-5 border border-gold/25">
+                    <span className="block text-3xl font-bold text-navy tracking-tight">5</span>
+                    <span className="text-sm text-n-500 font-medium">{e.statCampuses}</span>
                   </div>
-                  <div className="bg-gradient-to-br from-wine/15 to-wine/8 rounded-2xl p-5 border border-wine/25">
-                    <span className="block text-3xl font-bold text-charcoal tracking-tight">{e.schedule}</span>
-                    <span className="text-sm text-charcoal/60 font-medium">{e.statSchedule}</span>
+                  <div className="bg-gradient-to-br from-navy/10 to-navy/5 rounded-2xl p-5 border border-navy/15">
+                    <span className="block text-3xl font-bold text-navy tracking-tight">{e.schedule}</span>
+                    <span className="text-sm text-n-500 font-medium">{e.statSchedule}</span>
                   </div>
-                  <div className="bg-gradient-to-br from-charcoal/8 to-warmgray/15 rounded-2xl p-5 border border-charcoal/15">
-                    <span className="block text-3xl font-bold text-charcoal tracking-tight">0</span>
-                    <span className="text-sm text-charcoal/60 font-medium">{e.statNoHomework}</span>
+                  <div className="bg-gradient-to-br from-n-100 to-n-50 rounded-2xl p-5 border border-n-200">
+                    <span className="block text-3xl font-bold text-navy tracking-tight">0</span>
+                    <span className="text-sm text-n-500 font-medium">{e.statNoHomework}</span>
                   </div>
                 </div>
               </motion.div>
@@ -221,15 +225,15 @@ export default function ElementaryPage() {
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
                 viewport={{ once: true }}
-                className="bg-gradient-to-br from-primaria/15 via-warmgray/35 to-sand rounded-3xl p-8 md:p-10 relative overflow-hidden"
+                className="bg-gradient-to-br from-wattle/15 via-n-100/50 to-white rounded-3xl p-8 md:p-10 relative overflow-hidden"
               >
-                <div className="absolute top-2 left-6 text-primaria/20 text-8xl font-display leading-none select-none">
+                <div className="absolute top-2 left-6 text-wattle/25 text-8xl font-display leading-none select-none">
                   &ldquo;
                 </div>
-                <blockquote className="relative z-10 text-xl md:text-2xl text-charcoal font-medium italic leading-relaxed mb-6">
+                <blockquote className="relative z-10 text-xl md:text-2xl text-navy font-medium italic leading-relaxed mb-6">
                   &ldquo;{e.testimonial}&rdquo;
                 </blockquote>
-                <p className="relative z-10 text-charcoal/60 font-medium">&mdash; {e.testimonialAuthor}</p>
+                <p className="relative z-10 text-n-500 font-medium">&mdash; {e.testimonialAuthor}</p>
               </motion.div>
             </div>
           </div>
@@ -238,7 +242,7 @@ export default function ElementaryPage() {
         {/* ════════════════════════════════════════════════
             SECTION 3 — THE NWL MODEL (3 Pillars)
         ════════════════════════════════════════════════ */}
-        <section className="py-12 md:py-18 bg-gradient-to-b from-warmgray/15 to-sand/80 animate-section">
+        <section className="py-12 md:py-20 bg-white animate-section">
           <div className="container-custom">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -248,11 +252,11 @@ export default function ElementaryPage() {
               className="text-center mb-12"
             >
               <div className="wine-divider mx-auto mb-4" />
-              <h2 className="font-display text-4xl md:text-5xl font-bold text-charcoal mb-4">
+              <h2 className="font-display text-4xl md:text-5xl font-bold text-navy mb-4">
                 {ep.pillarsTitle}{' '}
-                <span className="text-primaria">{ep.pillarsTitleAccent}</span>
+                <span className="italic text-gold">{ep.pillarsTitleAccent}</span>
               </h2>
-              <p className="text-lg text-charcoal/70 max-w-2xl mx-auto">
+              <p className="text-lg text-navy/70 max-w-2xl mx-auto">
                 {ep.pillarsSubtitle}
               </p>
             </motion.div>
@@ -293,9 +297,9 @@ export default function ElementaryPage() {
                     <div className={`w-10 h-10 rounded-xl ${c.num} flex items-center justify-center font-bold text-lg mb-5`}>
                       {i + 1}
                     </div>
-                    <h3 className="font-display text-xl font-bold text-charcoal mb-1 pr-10">{pillar.title}</h3>
+                    <h3 className="font-display text-xl font-bold text-navy mb-1 pr-10">{pillar.title}</h3>
                     <p className={`text-sm font-semibold ${c.accent} mb-3`}>{pillar.subtitle}</p>
-                    <p className="text-charcoal/65 leading-relaxed text-[15px]">{pillar.description}</p>
+                    <p className="text-navy/70 leading-relaxed text-[15px]">{pillar.description}</p>
                   </motion.div>
                 );
               })}
@@ -306,7 +310,7 @@ export default function ElementaryPage() {
         {/* ════════════════════════════════════════════════
             SECTION 4 — KNOTION / IMPACT MODEL
         ════════════════════════════════════════════════ */}
-        <section className="py-12 md:py-18 bg-gradient-to-b from-sand via-warmgray/10 to-sand animate-section overflow-hidden relative">
+        <section className="py-12 md:py-20 bg-n-50 animate-section overflow-hidden relative">
           <GridAnimation />
           <div className="container-custom relative z-10">
             {/* Header */}
@@ -318,13 +322,13 @@ export default function ElementaryPage() {
               className="text-center mb-14"
             >
               <div className="wine-divider mx-auto mb-4" />
-              <h2 className="font-display text-4xl md:text-5xl font-bold text-charcoal mb-4">
+              <h2 className="font-display text-4xl md:text-5xl font-bold text-navy mb-4">
                 {ep.knotionTitle}{' '}
-                <span className="bg-gradient-to-r from-primaria to-mustard bg-clip-text text-transparent">
+                <span className="italic text-gold">
                   {ep.knotionTitleAccent}
                 </span>
               </h2>
-              <p className="text-lg text-charcoal/70 max-w-xl mx-auto">
+              <p className="text-lg text-navy/70 max-w-xl mx-auto">
                 {ep.knotionSubtitle}
               </p>
             </motion.div>
@@ -337,7 +341,7 @@ export default function ElementaryPage() {
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6 }}
                 viewport={{ once: true }}
-                className="lg:col-span-3 relative aspect-[4/3] rounded-2xl overflow-hidden shadow-lg bg-sand"
+                className="lg:col-span-3 relative aspect-[4/3] rounded-2xl overflow-hidden shadow-lg bg-paper"
               >
                 <Image
                   src="/images/levels/primaria/nwl-primaria-knotion-geoboard.jpg"
@@ -345,7 +349,7 @@ export default function ElementaryPage() {
                   fill
                   className="object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-charcoal/30 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-navy-900/30 via-transparent to-transparent" />
                 {/* Knotion logo badge */}
                 <div className="absolute bottom-4 left-4 bg-white/95 backdrop-blur-sm rounded-lg px-3 py-2 shadow-md">
                   <Image
@@ -367,16 +371,16 @@ export default function ElementaryPage() {
                   transition={{ duration: 1.2, ease: 'easeOut' }}
                   viewport={{ once: true }}
                   style={{ left: 6 }}
-                  className="absolute top-1 bottom-1 w-[2px] origin-top bg-gradient-to-b from-primaria via-mustard to-wine/60"
+                  className="absolute top-1 bottom-1 w-[2px] origin-top bg-gradient-to-b from-wattle via-gold to-navy"
                 />
 
                 <div className="flex flex-col gap-8">
                   {ep.knotionPhases.map((phase, i) => {
                     const dotColors = [
-                      'bg-primaria',
-                      'bg-primaria/80',
-                      'bg-mustard',
-                      'bg-wine',
+                      'bg-wattle',
+                      'bg-wattle/80',
+                      'bg-gold',
+                      'bg-navy',
                     ];
                     return (
                       <motion.div
@@ -389,10 +393,10 @@ export default function ElementaryPage() {
                       >
                         {/* Dot on the line */}
                         <div className={`absolute -left-10 top-0.5 w-[14px] h-[14px] rounded-full ${dotColors[i]} ring-[3px] ring-white shadow-sm`} />
-                        <p className="text-[11px] font-bold tracking-widest uppercase text-charcoal/35 mb-0.5">
+                        <p className="text-[11px] font-bold tracking-widest uppercase text-n-400 mb-0.5">
                           {phase.name}
                         </p>
-                        <p className="font-bold text-charcoal text-[15px]">
+                        <p className="font-bold text-navy text-[15px]">
                           {phase.title}
                         </p>
                       </motion.div>
@@ -407,13 +411,13 @@ export default function ElementaryPage() {
         {/* ════════════════════════════════════════════════
             SECTION 5 — TECNIKIDS STEAM SPOTLIGHT
         ════════════════════════════════════════════════ */}
-        <section className="py-12 md:py-18 bg-gradient-to-b from-warmgray/25 via-sand/60 to-sand animate-section overflow-hidden relative">
+        <section className="py-12 md:py-20 bg-paper animate-section overflow-hidden relative">
           {/* Geometric background */}
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            <div className="absolute top-20 right-[10%] w-64 h-64 border-2 border-primaria/25 rounded-lg rotate-12" />
-            <div className="absolute bottom-20 left-[5%] w-48 h-48 border-2 border-charcoal/12 rounded-lg -rotate-6" />
-            <div className="absolute top-[60%] left-[15%] w-32 h-32 border border-mustard/20 rounded-full" />
-            <div className="absolute top-10 left-[30%] w-20 h-20 border border-wine/15 rounded-lg rotate-45" />
+            <div className="absolute top-20 right-[10%] w-64 h-64 border-2 border-wattle/25 rounded-lg rotate-12" />
+            <div className="absolute bottom-20 left-[5%] w-48 h-48 border-2 border-navy/10 rounded-lg -rotate-6" />
+            <div className="absolute top-[60%] left-[15%] w-32 h-32 border border-gold/20 rounded-full" />
+            <div className="absolute top-10 left-[30%] w-20 h-20 border border-navy/10 rounded-lg rotate-45" />
           </div>
 
           <div className="container-custom relative z-10">
@@ -425,13 +429,13 @@ export default function ElementaryPage() {
               className="text-center mb-14"
             >
               <div className="wine-divider mx-auto mb-4" />
-              <h2 className="font-display text-4xl md:text-5xl font-bold text-charcoal mb-4">
+              <h2 className="font-display text-4xl md:text-5xl font-bold text-navy mb-4">
                 {ep.steamTitle}{' '}
-                <span className="bg-gradient-to-r from-primaria to-mustard bg-clip-text text-transparent">
+                <span className="italic text-gold">
                   {ep.steamTitleAccent}
                 </span>
               </h2>
-              <p className="text-lg text-charcoal/70 max-w-2xl mx-auto">
+              <p className="text-lg text-navy/70 max-w-2xl mx-auto">
                 {ep.steamSubtitle}
               </p>
             </motion.div>
@@ -439,11 +443,11 @@ export default function ElementaryPage() {
             {/* STEAM acronym reveal */}
             <div className="flex justify-center gap-3 md:gap-6 mb-14 max-w-3xl mx-auto">
               {[
-                { letter: 'S', word: 'Science', color: 'text-primaria' },
-                { letter: 'T', word: 'Technology', color: 'text-mustard' },
-                { letter: 'E', word: 'Engineering', color: 'text-wine' },
-                { letter: 'A', word: 'Arts', color: 'text-primaria' },
-                { letter: 'M', word: 'Mathematics', color: 'text-mustard' },
+                { letter: 'S', word: 'Science', color: 'text-gold-600' },
+                { letter: 'T', word: 'Technology', color: 'text-gold' },
+                { letter: 'E', word: 'Engineering', color: 'text-navy' },
+                { letter: 'A', word: 'Arts', color: 'text-gold-600' },
+                { letter: 'M', word: 'Mathematics', color: 'text-gold' },
               ].map((item, i) => (
                 <motion.div
                   key={item.letter}
@@ -467,7 +471,7 @@ export default function ElementaryPage() {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.3, delay: 0.35 + i * 0.12 }}
                     viewport={{ once: true }}
-                    className="text-[10px] md:text-xs font-semibold text-charcoal/40 tracking-wider uppercase mt-1"
+                    className="text-[10px] md:text-xs font-semibold text-n-400 tracking-wider uppercase mt-1"
                   >
                     {item.word}
                   </motion.span>
@@ -482,7 +486,7 @@ export default function ElementaryPage() {
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6 }}
                 viewport={{ once: true }}
-                className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-lg bg-sand"
+                className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-lg bg-paper"
               >
                 <Image
                   src="/images/levels/primaria/nwl-primaria-steam-lab.jpg"
@@ -490,7 +494,7 @@ export default function ElementaryPage() {
                   fill
                   className="object-cover"
                 />
-                <div className="absolute bottom-4 left-4 bg-charcoal/80 backdrop-blur-sm text-white px-4 py-2 rounded-lg text-sm font-bold">
+                <div className="absolute bottom-4 left-4 bg-navy-900/80 backdrop-blur-sm text-white px-4 py-2 rounded-lg text-sm font-bold">
                   TecniKids Lab
                 </div>
               </motion.div>
@@ -505,13 +509,13 @@ export default function ElementaryPage() {
                     transition={{ duration: 0.4, delay: i * 0.1 }}
                     viewport={{ once: true }}
                     whileHover={{ y: -4, transition: { duration: 0.2 } }}
-                    className="bg-white rounded-xl p-5 border border-charcoal/12 shadow-sm hover:shadow-md hover:border-primaria/35 transition-all duration-300"
+                    className="bg-white rounded-xl p-5 border border-n-200 shadow-sm hover:shadow-md hover:border-wattle/35 transition-all duration-300"
                   >
-                    <div className="w-8 h-8 rounded-lg bg-primaria/15 flex items-center justify-center mb-3">
-                      <span className="text-sm font-bold text-primaria">{String(i + 1).padStart(2, '0')}</span>
+                    <div className="w-8 h-8 rounded-lg bg-wattle/15 flex items-center justify-center mb-3">
+                      <span className="text-sm font-bold text-gold-600">{String(i + 1).padStart(2, '0')}</span>
                     </div>
-                    <h3 className="font-bold text-charcoal text-sm mb-1.5">{feature.title}</h3>
-                    <p className="text-charcoal/65 text-xs leading-relaxed">{feature.description}</p>
+                    <h3 className="font-bold text-navy text-sm mb-1.5">{feature.title}</h3>
+                    <p className="text-navy/70 text-xs leading-relaxed">{feature.description}</p>
                   </motion.div>
                 ))}
               </div>
@@ -522,7 +526,7 @@ export default function ElementaryPage() {
         {/* ════════════════════════════════════════════════
             SECTION 6 — WHAT SETS US APART
         ════════════════════════════════════════════════ */}
-        <section className="py-12 md:py-18 bg-gradient-to-b from-sand/60 to-warmgray/20 animate-section">
+        <section className="py-12 md:py-20 bg-white animate-section">
           <div className="container-custom">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -532,7 +536,7 @@ export default function ElementaryPage() {
               className="text-center mb-12"
             >
               <div className="wine-divider mx-auto mb-4" />
-              <h2 className="font-display text-3xl md:text-5xl font-bold text-charcoal">
+              <h2 className="font-display text-3xl md:text-5xl font-bold text-navy">
                 {ep.differentiatorsSectionTitle}
               </h2>
             </motion.div>
@@ -554,8 +558,8 @@ export default function ElementaryPage() {
                     <div className={`w-8 h-8 rounded-lg ${c.bg} flex items-center justify-center mb-4`}>
                       <Icon size={16} className={c.accent} />
                     </div>
-                    <h3 className="font-bold text-charcoal mb-2">{item.title}</h3>
-                    <p className="text-charcoal/65 text-sm leading-relaxed">{item.description}</p>
+                    <h3 className="font-bold text-navy mb-2">{item.title}</h3>
+                    <p className="text-navy/70 text-sm leading-relaxed">{item.description}</p>
                   </motion.div>
                 );
               })}
@@ -566,13 +570,13 @@ export default function ElementaryPage() {
         {/* ════════════════════════════════════════════════
             SECTION 7 — BEYOND THE CLASSROOM (Activities)
         ════════════════════════════════════════════════ */}
-        <section className="py-12 md:py-18 bg-gradient-to-b from-warmgray/20 via-sand/70 to-warmgray/25 animate-section overflow-hidden relative">
+        <section className="py-12 md:py-20 bg-n-50 animate-section overflow-hidden relative">
           {/* Subtle decorative circles */}
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            <div className="absolute -top-10 -right-10 w-40 h-40 rounded-full border-2 border-primaria/20" />
-            <div className="absolute bottom-20 -left-8 w-28 h-28 rounded-full border-2 border-mustard/25" />
-            <div className="absolute top-[40%] right-[8%] w-24 h-24 rounded-full border border-wine/15" />
-            <div className="absolute top-16 left-[20%] w-16 h-16 rounded-lg border border-primaria/15 rotate-12" />
+            <div className="absolute -top-10 -right-10 w-40 h-40 rounded-full border-2 border-wattle/20" />
+            <div className="absolute bottom-20 -left-8 w-28 h-28 rounded-full border-2 border-gold/25" />
+            <div className="absolute top-[40%] right-[8%] w-24 h-24 rounded-full border border-navy/10" />
+            <div className="absolute top-16 left-[20%] w-16 h-16 rounded-lg border border-wattle/15 rotate-12" />
           </div>
 
           <div className="container-custom relative z-10">
@@ -584,11 +588,11 @@ export default function ElementaryPage() {
               className="text-center mb-14"
             >
               <div className="wine-divider mx-auto mb-4" />
-              <h2 className="font-display text-4xl md:text-5xl font-bold text-charcoal mb-4">
+              <h2 className="font-display text-4xl md:text-5xl font-bold text-navy mb-4">
                 {ep.activitiesTitle}{' '}
-                <span className="text-primaria">{ep.activitiesTitleAccent}</span>
+                <span className="italic text-gold">{ep.activitiesTitleAccent}</span>
               </h2>
-              <p className="text-lg text-charcoal/70 max-w-2xl mx-auto">
+              <p className="text-lg text-navy/70 max-w-2xl mx-auto">
                 {ep.activitiesSubtitle}
               </p>
             </motion.div>
@@ -607,10 +611,10 @@ export default function ElementaryPage() {
                     className={`${s.bg} rounded-2xl p-6 md:p-8 text-center select-none`}
                   >
                     <Icon className={`${s.icon} mx-auto mb-3 opacity-60`} size={32} />
-                    <p className="font-bold text-charcoal text-base mb-2">
+                    <p className="font-bold text-navy text-base mb-2">
                       {activity.name}
                     </p>
-                    <p className="text-charcoal/55 text-xs leading-relaxed">
+                    <p className="text-n-500 text-xs leading-relaxed">
                       {activity.description}
                     </p>
                   </motion.div>
@@ -618,7 +622,7 @@ export default function ElementaryPage() {
               })}
             </div>
 
-            <p className="text-center text-charcoal/40 text-sm mt-8 italic">
+            <p className="text-center text-n-400 text-sm mt-8 italic">
               {ep.activitiesNote}
             </p>
           </div>
@@ -627,7 +631,7 @@ export default function ElementaryPage() {
         {/* ════════════════════════════════════════════════
             SECTION 8 — PHOTO GALLERY
         ════════════════════════════════════════════════ */}
-        <section className="py-10 md:py-14 bg-gradient-to-b from-warmgray/20 to-sand relative overflow-hidden animate-section">
+        <section className="py-10 md:py-14 bg-paper relative overflow-hidden animate-section">
           <div className="container-custom relative z-10">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -637,9 +641,9 @@ export default function ElementaryPage() {
               className="text-center mb-8"
             >
               <div className="wine-divider mx-auto mb-4" />
-              <h2 className="font-display text-3xl md:text-5xl font-bold text-charcoal">
+              <h2 className="font-display text-3xl md:text-5xl font-bold text-navy">
                 {ep.galleryTitle}{' '}
-                <span className="text-wine">{ep.galleryTitleAccent}</span>
+                <span className="italic text-gold">{ep.galleryTitleAccent}</span>
               </h2>
             </motion.div>
 
@@ -651,7 +655,7 @@ export default function ElementaryPage() {
               className="max-w-5xl mx-auto"
             >
               {/* Main Image */}
-              <div className="relative aspect-[16/9] rounded-lg overflow-hidden shadow-xl mb-4 bg-sand">
+              <div className="relative aspect-[16/9] rounded-lg overflow-hidden shadow-xl mb-4 bg-paper">
                 <AnimatePresence mode="wait">
                   <motion.div
                     key={activeGallery}
@@ -676,14 +680,14 @@ export default function ElementaryPage() {
                   className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/80 backdrop-blur-sm flex items-center justify-center hover:bg-white transition-colors z-10"
                   aria-label="Previous"
                 >
-                  <FiChevronLeft size={20} className="text-charcoal" />
+                  <FiChevronLeft size={20} className="text-navy" />
                 </button>
                 <button
                   onClick={() => setActiveGallery((i) => (i + 1) % elementaryGalleryImages.length)}
                   className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/80 backdrop-blur-sm flex items-center justify-center hover:bg-white transition-colors z-10"
                   aria-label="Next"
                 >
-                  <FiChevronRight size={20} className="text-charcoal" />
+                  <FiChevronRight size={20} className="text-navy" />
                 </button>
               </div>
 
@@ -695,7 +699,7 @@ export default function ElementaryPage() {
                     onClick={() => setActiveGallery(i)}
                     className={`relative flex-shrink-0 w-20 h-14 md:w-24 md:h-16 rounded-md overflow-hidden transition-all duration-200 ${
                       i === activeGallery
-                        ? 'ring-2 ring-wine opacity-100 scale-105'
+                        ? 'ring-2 ring-gold opacity-100 scale-105'
                         : 'opacity-50 hover:opacity-80'
                     }`}
                   >

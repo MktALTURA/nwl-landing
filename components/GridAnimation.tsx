@@ -5,11 +5,11 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 /* ── Node palette ─────────────────────────────────────── */
 const COLORS = [
-  '#d0d689', // primaria accent
-  '#d0d689',
-  '#d0d689',
-  '#E6A944', // mustard
-  '#3D3D3D', // charcoal (subtle)
+  '#EDB500', // wattle accent
+  '#EDB500',
+  '#EDB500',
+  '#CB8606', // gold-600
+  '#0B224E', // navy (subtle)
 ];
 
 /* ── Generate a wave of nodes ─────────────────────────── */
@@ -180,7 +180,7 @@ function Wave({
               y1={from.y}
               x2={to.x}
               y2={to.y}
-              stroke="#d0d689"
+              stroke="#EDB500"
               strokeWidth="0.2"
               strokeLinecap="round"
               initial={{ pathLength: 0, opacity: 0 }}
@@ -211,9 +211,9 @@ function Wave({
             top: `${n.y}%`,
             background: n.color,
             boxShadow:
-              n.color === '#d0d689'
-                ? `0 0 ${n.size * 3}px ${n.size * 1.5}px rgba(208,214,137,0.35)`
-                : `0 0 ${n.size * 2}px ${n.size}px rgba(230,169,68,0.2)`,
+              n.color === '#EDB500'
+                ? `0 0 ${n.size * 3}px ${n.size * 1.5}px rgba(237,181,0,0.35)`
+                : `0 0 ${n.size * 2}px ${n.size}px rgba(203,134,6,0.2)`,
           }}
           initial={{ opacity: 0, scale: 0 }}
           animate={{

@@ -12,14 +12,14 @@ if (typeof window !== 'undefined') {
 
 /* ── Sparkle palette ─────────────────────────────────────── */
 const COLORS = [
-  '#FFD93D', // gold / sunshine
-  '#FFD93D',
-  '#6C5CE7', // blueberry
-  '#6C5CE7',
+  '#E3990F', // gold
+  '#E3990F',
+  '#93A860', // eucalyptus
+  '#93A860',
   '#FFFFFF', // white
   '#FFFFFF',
   '#FFFFFF',
-  '#4ECDC4', // ocean (accent)
+  '#B7C68F', // eucalyptus light (accent)
 ];
 
 /* ── Generate sparkles with random properties ──────────── */
@@ -83,13 +83,13 @@ export default function SparkleAnimation() {
     >
       {active &&
         sparkles.map((s) => {
-          const isGold = s.color === '#FFD93D';
+          const isGold = s.color === '#E3990F';
           const glowColor = isGold
-            ? 'rgba(255,217,61,0.6)'
-            : s.color === '#6C5CE7'
-            ? 'rgba(108,92,231,0.5)'
-            : s.color === '#4ECDC4'
-            ? 'rgba(78,205,196,0.5)'
+            ? 'rgba(227,153,15,0.6)'
+            : s.color === '#93A860'
+            ? 'rgba(147,168,96,0.5)'
+            : s.color === '#B7C68F'
+            ? 'rgba(183,198,143,0.5)'
             : 'rgba(255,255,255,0.6)';
 
           // Build shimmer keyframes: fade in, pulse, fade out

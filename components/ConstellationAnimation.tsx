@@ -25,7 +25,7 @@ export default function ConstellationAnimation() {
           left: '10%',
           top: '-10%',
           borderRadius: '50%',
-          background: '#91BAEF',
+          background: '#5E97A3',
           opacity: 0.25,
           filter: 'blur(80px)',
           animation: 'auroraDrift1 10s ease-in-out infinite alternate',
@@ -41,14 +41,14 @@ export default function ConstellationAnimation() {
           right: '5%',
           bottom: '-15%',
           borderRadius: '50%',
-          background: '#91BAEF',
+          background: '#5E97A3',
           opacity: 0.2,
           filter: 'blur(80px)',
           animation: 'auroraDrift2 13s ease-in-out infinite alternate',
         }}
       />
 
-      {/* Blob 3 — wine accent, center-bottom */}
+      {/* Blob 3 — gold accent, center-bottom */}
       <div
         style={{
           position: 'absolute',
@@ -57,7 +57,7 @@ export default function ConstellationAnimation() {
           left: '40%',
           bottom: '-5%',
           borderRadius: '50%',
-          background: '#8B2332',
+          background: '#CB8606',
           opacity: 0.08,
           filter: 'blur(80px)',
           animation: 'auroraDrift3 11s ease-in-out infinite alternate',

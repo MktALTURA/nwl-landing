@@ -26,52 +26,53 @@ import { useLanguage } from '@/lib/i18n/LanguageContext';
 import { useBrochure } from '@/lib/BrochureContext';
 import FinalCTA from '@/components/FinalCTA';
 import Footer from '@/components/Footer';
+import Crest from '@/components/ui/Crest';
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger);
 }
 
 /* ── Tailwind safelist — ensures JIT generates these dynamic classes ──
-   bg-deep-ember/12 bg-deep-ember/15 bg-golden-spark/15 bg-steel/15
-   text-deep-ember text-golden-spark text-steel text-deep-ember/60
-   border-deep-ember/20 border-golden-spark/25 border-steel/20
-   from-deep-ember/15 from-deep-ember/5 from-golden-spark/15 from-golden-spark/5 from-steel/12 from-steel/5
-   to-deep-ember/5 to-golden-spark/5 to-steel/5
-   from-deep-ember to-golden-spark
-   bg-deep-ember/20 border-golden-spark/30
-   ring-[#31356e]/30 ring-[#a455bb]/30 ring-[#ff914d]/30 ring-[#c6de27]/30 ring-[#00ad60]/30 ring-[#2d8bba]/30
-   bg-[#31356e] bg-[#a455bb] bg-[#ff914d] bg-[#c6de27] bg-[#00ad60] bg-[#2d8bba]
-   bg-[#31356e]/10 bg-[#a455bb]/10 bg-[#ff914d]/10 bg-[#c6de27]/10 bg-[#00ad60]/10 bg-[#2d8bba]/10
-   text-[#31356e] text-[#a455bb] text-[#ff914d] text-[#6b7a00] text-[#00ad60] text-[#2d8bba]
+   bg-gold bg-jacaranda text-gold text-jacaranda
+   bg-jacaranda/10 bg-gold/15 bg-jacaranda/15 bg-n-500/15
+   text-gold-600 text-n-500
+   border-jacaranda/20 border-gold/25 border-n-200
+   from-jacaranda/15 from-jacaranda/5 from-gold/15 from-gold/5 from-n-500/10 from-n-500/5
+   to-jacaranda/5 to-gold/5 to-n-500/5
+   from-jacaranda via-gold via-jacaranda to-gold to-coral-sea
+   bg-navy bg-coral-sea bg-wattle bg-eucalyptus
+   bg-navy/10 bg-jacaranda/10 bg-coral-sea/10 bg-gold/10 bg-wattle/15 bg-eucalyptus/15
+   text-navy text-coral-sea text-paper text-[#1C0F00]
+   ring-navy/30 ring-jacaranda/30 ring-coral-sea/30 ring-gold/30 ring-wattle/30 ring-eucalyptus/30
 ── */
 
 /* ── Value prop icons ── */
 const valuePropIcons = [FiCompass, FiZap, FiBookOpen, FiDollarSign, FiAward, FiCpu, FiTarget];
 const valuePropStyles = [
-  { bg: 'bg-deep-ember/12', accent: 'text-deep-ember', border: 'border-deep-ember/20' },
-  { bg: 'bg-golden-spark/15', accent: 'text-golden-spark', border: 'border-golden-spark/25' },
-  { bg: 'bg-deep-ember/12', accent: 'text-deep-ember', border: 'border-deep-ember/20' },
-  { bg: 'bg-golden-spark/15', accent: 'text-golden-spark', border: 'border-golden-spark/25' },
-  { bg: 'bg-deep-ember/12', accent: 'text-deep-ember', border: 'border-deep-ember/20' },
-  { bg: 'bg-golden-spark/15', accent: 'text-golden-spark', border: 'border-golden-spark/25' },
-  { bg: 'bg-deep-ember/12', accent: 'text-deep-ember', border: 'border-deep-ember/20' },
+  { bg: 'bg-jacaranda/10', accent: 'text-jacaranda', border: 'border-jacaranda/20' },
+  { bg: 'bg-gold/15', accent: 'text-gold-600', border: 'border-gold/25' },
+  { bg: 'bg-jacaranda/10', accent: 'text-jacaranda', border: 'border-jacaranda/20' },
+  { bg: 'bg-gold/15', accent: 'text-gold-600', border: 'border-gold/25' },
+  { bg: 'bg-jacaranda/10', accent: 'text-jacaranda', border: 'border-jacaranda/20' },
+  { bg: 'bg-gold/15', accent: 'text-gold-600', border: 'border-gold/25' },
+  { bg: 'bg-jacaranda/10', accent: 'text-jacaranda', border: 'border-jacaranda/20' },
 ];
 
-/* ── Semester colors (from the PDF palette) ── */
+/* ── Semester colors — 6-stop NWL brand journey ── */
 const semesterColors = [
-  { bg: 'bg-[#31356e]', text: 'text-white', ring: 'ring-[#31356e]/30', badge: 'bg-[#31356e]/10 text-[#31356e]' },
-  { bg: 'bg-[#a455bb]', text: 'text-white', ring: 'ring-[#a455bb]/30', badge: 'bg-[#a455bb]/10 text-[#a455bb]' },
-  { bg: 'bg-[#ff914d]', text: 'text-white', ring: 'ring-[#ff914d]/30', badge: 'bg-[#ff914d]/10 text-[#ff914d]' },
-  { bg: 'bg-[#c6de27]', text: 'text-charcoal', ring: 'ring-[#c6de27]/30', badge: 'bg-[#c6de27]/10 text-[#6b7a00]' },
-  { bg: 'bg-[#00ad60]', text: 'text-white', ring: 'ring-[#00ad60]/30', badge: 'bg-[#00ad60]/10 text-[#00ad60]' },
-  { bg: 'bg-[#2d8bba]', text: 'text-white', ring: 'ring-[#2d8bba]/30', badge: 'bg-[#2d8bba]/10 text-[#2d8bba]' },
+  { bg: 'bg-navy', text: 'text-paper', ring: 'ring-navy/30', badge: 'bg-navy/10 text-navy' },
+  { bg: 'bg-jacaranda', text: 'text-paper', ring: 'ring-jacaranda/30', badge: 'bg-jacaranda/10 text-jacaranda' },
+  { bg: 'bg-coral-sea', text: 'text-paper', ring: 'ring-coral-sea/30', badge: 'bg-coral-sea/10 text-coral-sea' },
+  { bg: 'bg-gold', text: 'text-[#1C0F00]', ring: 'ring-gold/30', badge: 'bg-gold/10 text-gold-600' },
+  { bg: 'bg-wattle', text: 'text-[#1C0F00]', ring: 'ring-wattle/30', badge: 'bg-wattle/15 text-gold-600' },
+  { bg: 'bg-eucalyptus', text: 'text-[#1C0F00]', ring: 'ring-eucalyptus/30', badge: 'bg-eucalyptus/15 text-navy' },
 ];
 
 /* ── Pillar colors ── */
 const pillarColors = [
-  { gradient: 'from-deep-ember/15 to-deep-ember/5', border: 'border-deep-ember/20', accent: 'text-deep-ember', num: 'bg-deep-ember/15 text-deep-ember' },
-  { gradient: 'from-golden-spark/15 to-golden-spark/5', border: 'border-golden-spark/25', accent: 'text-golden-spark', num: 'bg-golden-spark/15 text-charcoal' },
-  { gradient: 'from-steel/12 to-steel/5', border: 'border-steel/20', accent: 'text-steel', num: 'bg-steel/15 text-charcoal' },
+  { gradient: 'from-jacaranda/15 to-jacaranda/5', border: 'border-jacaranda/20', accent: 'text-jacaranda', num: 'bg-jacaranda/15 text-jacaranda' },
+  { gradient: 'from-gold/15 to-gold/5', border: 'border-gold/25', accent: 'text-gold-600', num: 'bg-gold/15 text-navy' },
+  { gradient: 'from-n-500/10 to-n-500/5', border: 'border-n-200', accent: 'text-n-500', num: 'bg-n-500/15 text-navy' },
 ];
 
 /* ── Gallery images ── */
@@ -155,7 +156,12 @@ export default function HighSchoolPage() {
             sizes="100vw"
             className="object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-charcoal/90 via-charcoal/50 to-deep-ember/20" />
+          <div className="absolute inset-0 bg-gradient-to-t from-navy-900/90 via-navy-900/50 to-jacaranda/20" />
+
+          {/* Level crest — bottom right */}
+          <div className="absolute bottom-16 right-8 z-10 hidden lg:block">
+            <Crest level="high" size={104} showBanner={false} />
+          </div>
 
           {/* Logos floating top-right */}
           <div className="absolute top-6 right-6 z-20 flex items-center gap-3">
@@ -200,7 +206,7 @@ export default function HighSchoolPage() {
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ delay: 0.3, type: 'spring', stiffness: 200 }}
-                  className="inline-block bg-golden-spark/20 backdrop-blur-sm text-golden-spark px-4 py-1.5 rounded-full text-sm font-bold border border-golden-spark/30"
+                  className="inline-block bg-gold/20 backdrop-blur-sm text-gold-400 px-4 py-1.5 rounded-full text-sm font-bold border border-gold/30"
                 >
                   {hs.ageBadge}
                 </motion.span>
@@ -215,15 +221,12 @@ export default function HighSchoolPage() {
               </p>
 
               <div className="flex items-center gap-4">
-                <a
-                  href="#admissions"
-                  className="bg-deep-ember text-white px-8 py-3.5 rounded-sm font-medium hover:bg-deep-ember/90 transition-colors border border-deep-ember"
-                >
+                <a href="#admissions" className="btn-primary inline-block">
                   {hs.cta}
                 </a>
                 <button
                   onClick={() => openBrochure('high-school')}
-                  className="bg-white/10 backdrop-blur-sm text-white px-8 py-3.5 rounded-sm font-medium hover:bg-white/20 transition-colors border border-white/25"
+                  className="bg-white/10 backdrop-blur-sm text-white px-7 py-3 rounded-full font-semibold hover:bg-white/20 transition-colors border border-white/25"
                 >
                   {hs.ctaSecondary}
                 </button>
@@ -235,7 +238,7 @@ export default function HighSchoolPage() {
         {/* ════════════════════════════════════════════════
             SECTION 2 — WHAT MAKES US DIFFERENT
         ════════════════════════════════════════════════ */}
-        <section className="py-12 md:py-18 bg-gradient-to-b from-sand via-warmgray/15 to-warmgray/25 animate-section">
+        <section className="py-12 md:py-20 bg-gradient-to-b from-paper via-n-100/15 to-n-100/25 animate-section">
           <div className="container-custom">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -245,11 +248,11 @@ export default function HighSchoolPage() {
               className="text-center mb-12"
             >
               <div className="wine-divider mx-auto mb-4" />
-              <h2 className="font-display text-4xl md:text-5xl font-bold text-charcoal">
+              <h2 className="font-display text-4xl md:text-5xl font-bold text-navy">
                 {hsp.valuePropsTitle}{' '}
-                <span className="text-deep-ember">{hsp.valuePropsTitleAccent}</span>
+                <span className="italic text-jacaranda">{hsp.valuePropsTitleAccent}</span>
               </h2>
-              <p className="text-lg text-charcoal/70 max-w-2xl mx-auto mt-4">
+              <p className="text-lg text-navy/70 max-w-2xl mx-auto mt-4">
                 {hsp.valuePropsSubtitle}
               </p>
             </motion.div>
@@ -275,7 +278,7 @@ export default function HighSchoolPage() {
                           alt="Life Project"
                           className="h-24 w-auto mb-4"
                         />
-                        <p className="text-charcoal/60 text-sm leading-relaxed">{prop.description}</p>
+                        <p className="text-n-500 text-sm leading-relaxed">{prop.description}</p>
                       </>
                     ) : i === 2 ? (
                       <>
@@ -286,8 +289,8 @@ export default function HighSchoolPage() {
                             className="h-12 w-auto"
                           />
                         </div>
-                        <h3 className="font-display text-lg font-bold text-charcoal mb-2">{prop.title}</h3>
-                        <p className="text-charcoal/60 text-sm leading-relaxed">{prop.description}</p>
+                        <h3 className="font-display text-lg font-bold text-navy mb-2">{prop.title}</h3>
+                        <p className="text-n-500 text-sm leading-relaxed">{prop.description}</p>
                       </>
                     ) : i === 4 ? (
                       <>
@@ -296,15 +299,15 @@ export default function HighSchoolPage() {
                           alt="Hokku Academy"
                           className="h-16 w-auto mb-4"
                         />
-                        <p className="text-charcoal/60 text-sm leading-relaxed">{prop.description}</p>
+                        <p className="text-n-500 text-sm leading-relaxed">{prop.description}</p>
                       </>
                     ) : (
                       <>
                         <div className={`w-10 h-10 rounded-xl ${s.bg} flex items-center justify-center mb-4`}>
                           <Icon size={20} className={s.accent} />
                         </div>
-                        <h3 className="font-display text-lg font-bold text-charcoal mb-2">{prop.title}</h3>
-                        <p className="text-charcoal/60 text-sm leading-relaxed">{prop.description}</p>
+                        <h3 className="font-display text-lg font-bold text-navy mb-2">{prop.title}</h3>
+                        <p className="text-n-500 text-sm leading-relaxed">{prop.description}</p>
                       </>
                     )}
                   </motion.div>
@@ -317,7 +320,7 @@ export default function HighSchoolPage() {
         {/* ════════════════════════════════════════════════
             SECTION 3 — LIFE PROJECT JOURNEY (6 Semesters)
         ════════════════════════════════════════════════ */}
-        <section className="py-12 md:py-18 bg-gradient-to-b from-warmgray/25 to-sand animate-section overflow-hidden">
+        <section className="py-12 md:py-20 bg-gradient-to-b from-n-100/25 to-paper animate-section overflow-hidden">
           <div className="container-custom">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -327,13 +330,13 @@ export default function HighSchoolPage() {
               className="text-center mb-14"
             >
               <div className="wine-divider mx-auto mb-4" />
-              <h2 className="font-display text-4xl md:text-5xl font-bold text-charcoal">
+              <h2 className="font-display text-4xl md:text-5xl font-bold text-navy">
                 {hsp.journeyTitle}{' '}
-                <span className="bg-gradient-to-r from-deep-ember to-golden-spark bg-clip-text text-transparent">
+                <span className="italic text-gold">
                   {hsp.journeyTitleAccent}
                 </span>
               </h2>
-              <p className="text-lg text-charcoal/70 max-w-2xl mx-auto mt-4">
+              <p className="text-lg text-navy/70 max-w-2xl mx-auto mt-4">
                 {hsp.journeySubtitle}
               </p>
             </motion.div>
@@ -349,7 +352,7 @@ export default function HighSchoolPage() {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: i * 0.1 }}
                     viewport={{ once: true }}
-                    className="bg-white rounded-2xl p-6 border border-charcoal/8 hover:shadow-lg transition-shadow relative overflow-hidden"
+                    className="bg-white rounded-2xl p-6 border border-n-200 hover:shadow-lg transition-shadow relative overflow-hidden"
                   >
                     {/* Top color stripe */}
                     <div className={`absolute top-0 left-0 right-0 h-1 ${c.bg}`} />
@@ -363,7 +366,7 @@ export default function HighSchoolPage() {
                       </span>
                     </div>
 
-                    <h3 className="font-display text-base font-bold text-charcoal mb-3 leading-snug">
+                    <h3 className="font-display text-base font-bold text-navy mb-3 leading-snug">
                       {sem.theme}
                     </h3>
 
@@ -371,16 +374,16 @@ export default function HighSchoolPage() {
                       {sem.skills.map((skill, j) => (
                         <span
                           key={j}
-                          className="text-[11px] font-medium text-charcoal/50 bg-warmgray/40 px-2 py-0.5 rounded-full"
+                          className="text-[11px] font-medium text-n-500 bg-n-100/40 px-2 py-0.5 rounded-full"
                         >
                           {skill}
                         </span>
                       ))}
                     </div>
 
-                    <p className="text-xs text-charcoal/40 italic">
+                    <p className="text-xs text-n-400 italic">
                       {locale === 'es' ? 'Proyecto: ' : 'Project: '}
-                      <span className="font-semibold text-charcoal/60">{sem.project}</span>
+                      <span className="font-semibold text-navy/70">{sem.project}</span>
                     </p>
                   </motion.div>
                 );
@@ -395,7 +398,7 @@ export default function HighSchoolPage() {
                 transition={{ duration: 1.2, ease: 'easeOut' }}
                 viewport={{ once: true }}
                 style={{ left: 6 }}
-                className="absolute top-1 bottom-1 w-[2px] origin-top bg-gradient-to-b from-deep-ember via-golden-spark to-[#2d8bba]"
+                className="absolute top-1 bottom-1 w-[2px] origin-top bg-gradient-to-b from-jacaranda via-gold to-coral-sea"
               />
 
               <div className="flex flex-col gap-8">
@@ -411,22 +414,22 @@ export default function HighSchoolPage() {
                       className="relative"
                     >
                       <div className={`absolute -left-10 top-0.5 w-[14px] h-[14px] rounded-full ${c.bg} ring-[3px] ring-white shadow-sm`} />
-                      <span className="text-[11px] font-bold tracking-widest uppercase text-charcoal/35 mb-0.5 block">
+                      <span className="text-[11px] font-bold tracking-widest uppercase text-n-400 mb-0.5 block">
                         {locale === 'es' ? `Semestre ${sem.number}` : `Semester ${sem.number}`}
                       </span>
-                      <p className="font-bold text-charcoal text-[15px] mb-1.5">
+                      <p className="font-bold text-navy text-[15px] mb-1.5">
                         {sem.theme}
                       </p>
                       <div className="flex flex-wrap gap-1 mb-1.5">
                         {sem.skills.map((skill, j) => (
-                          <span key={j} className="text-[10px] font-medium text-charcoal/45 bg-warmgray/40 px-2 py-0.5 rounded-full">
+                          <span key={j} className="text-[10px] font-medium text-n-500 bg-n-100/40 px-2 py-0.5 rounded-full">
                             {skill}
                           </span>
                         ))}
                       </div>
-                      <p className="text-xs text-charcoal/40 italic">
+                      <p className="text-xs text-n-400 italic">
                         {locale === 'es' ? 'Proyecto: ' : 'Project: '}
-                        <span className="font-semibold text-charcoal/55">{sem.project}</span>
+                        <span className="font-semibold text-navy/70">{sem.project}</span>
                       </p>
                     </motion.div>
                   );
@@ -439,7 +442,7 @@ export default function HighSchoolPage() {
         {/* ════════════════════════════════════════════════
             SECTION 4 — LIFE PROJECT MODEL (3 Pillars)
         ════════════════════════════════════════════════ */}
-        <section className="py-12 md:py-18 bg-gradient-to-b from-sand via-warmgray/10 to-warmgray/20 animate-section">
+        <section className="py-12 md:py-20 bg-gradient-to-b from-paper via-n-100/10 to-n-100/20 animate-section">
           <div className="container-custom">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -449,11 +452,11 @@ export default function HighSchoolPage() {
               className="text-center mb-12"
             >
               <div className="wine-divider mx-auto mb-4" />
-              <h2 className="font-display text-4xl md:text-5xl font-bold text-charcoal mb-4">
+              <h2 className="font-display text-4xl md:text-5xl font-bold text-navy mb-4">
                 {hsp.pillarsTitle}{' '}
-                <span className="text-deep-ember">{hsp.pillarsTitleAccent}</span>
+                <span className="italic text-jacaranda">{hsp.pillarsTitleAccent}</span>
               </h2>
-              <p className="text-lg text-charcoal/70 max-w-2xl mx-auto">
+              <p className="text-lg text-navy/70 max-w-2xl mx-auto">
                 {hsp.pillarsSubtitle}
               </p>
             </motion.div>
@@ -480,7 +483,7 @@ export default function HighSchoolPage() {
                 />
                 {/* Explore hint overlay */}
                 <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-                  <span className="flex items-center gap-2 bg-charcoal/75 backdrop-blur-sm text-white text-sm font-medium px-4 py-2 rounded-full shadow-lg">
+                  <span className="flex items-center gap-2 bg-navy-900/75 backdrop-blur-sm text-white text-sm font-medium px-4 py-2 rounded-full shadow-lg">
                     <FiZoomIn size={16} />
                     {locale === 'es' ? 'Explorar' : 'Explore'}
                   </span>
@@ -497,7 +500,7 @@ export default function HighSchoolPage() {
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
                     transition={{ duration: 0.25 }}
-                    className="fixed inset-0 z-[9999] bg-charcoal/90 backdrop-blur-sm"
+                    className="fixed inset-0 z-[9999] bg-navy-900/90 backdrop-blur-sm"
                     onClick={() => setWheelOpen(false)}
                   >
                     {/* Close button — always visible */}
@@ -578,9 +581,9 @@ export default function HighSchoolPage() {
                     <div className={`w-10 h-10 rounded-xl ${c.num} flex items-center justify-center font-bold text-lg mb-5`}>
                       {i + 1}
                     </div>
-                    <h3 className="font-display text-xl font-bold text-charcoal mb-1">{pillar.title}</h3>
+                    <h3 className="font-display text-xl font-bold text-navy mb-1">{pillar.title}</h3>
                     <p className={`text-sm font-semibold ${c.accent} mb-3`}>{pillar.subtitle}</p>
-                    <p className="text-charcoal/65 leading-relaxed text-[15px]">{pillar.description}</p>
+                    <p className="text-navy/70 leading-relaxed text-[15px]">{pillar.description}</p>
                   </motion.div>
                 );
               })}
@@ -591,7 +594,7 @@ export default function HighSchoolPage() {
         {/* ════════════════════════════════════════════════
             SECTION 5 — EXCLUSIVE PROGRAMS
         ════════════════════════════════════════════════ */}
-        <section className="py-12 md:py-18 bg-gradient-to-b from-warmgray/20 to-sand/80 animate-section">
+        <section className="py-12 md:py-20 bg-gradient-to-b from-n-100/20 to-paper/80 animate-section">
           <div className="container-custom">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -601,13 +604,13 @@ export default function HighSchoolPage() {
               className="text-center mb-14"
             >
               <div className="wine-divider mx-auto mb-4" />
-              <h2 className="font-display text-4xl md:text-5xl font-bold text-charcoal mb-4">
+              <h2 className="font-display text-4xl md:text-5xl font-bold text-navy mb-4">
                 {hsp.exclusiveTitle}{' '}
-                <span className="bg-gradient-to-r from-deep-ember to-golden-spark bg-clip-text text-transparent">
+                <span className="italic text-gold">
                   {hsp.exclusiveTitleAccent}
                 </span>
               </h2>
-              <p className="text-lg text-charcoal/70 max-w-2xl mx-auto">
+              <p className="text-lg text-navy/70 max-w-2xl mx-auto">
                 {hsp.exclusiveSubtitle}
               </p>
             </motion.div>
@@ -620,39 +623,39 @@ export default function HighSchoolPage() {
               viewport={{ once: true }}
               className="max-w-5xl mx-auto mb-8"
             >
-              <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow border border-deep-ember/15">
-                <div className="h-[3px] bg-gradient-to-r from-deep-ember to-golden-spark" />
+              <div className="nwl-bg-dawn-deep rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow border border-white/10">
+                <div className="h-[3px] bg-gradient-to-r from-jacaranda via-gold to-gold" />
                 <div className="p-8 md:p-10">
                   <div className="flex flex-col md:flex-row md:items-start gap-6">
                     <div className="flex-1">
                       <div className="flex items-center gap-3 mb-4">
-                        <div className="w-10 h-10 rounded-xl bg-deep-ember/12 flex items-center justify-center">
-                          <FiAward size={20} className="text-deep-ember" />
+                        <div className="w-10 h-10 rounded-xl bg-gold/15 flex items-center justify-center">
+                          <FiAward size={20} className="text-gold-400" />
                         </div>
-                        <span className="text-xs font-bold tracking-widest uppercase text-deep-ember/60">
+                        <span className="inline-flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.22em] text-gold-400">
                           {locale === 'es' ? 'Programa Estrella' : 'Star Program'}
                         </span>
                       </div>
-                      <h3 className="font-display text-2xl font-bold text-charcoal mb-1">
+                      <h3 className="font-display text-2xl font-bold text-paper mb-1">
                         {hsp.exclusivePrograms[0].title}
                       </h3>
-                      <p className="text-sm font-semibold text-deep-ember mb-4">
+                      <p className="text-sm font-semibold text-gold-400 mb-4">
                         {hsp.exclusivePrograms[0].partner}
                       </p>
-                      <p className="text-charcoal/65 leading-relaxed mb-6">
+                      <p className="text-paper/70 leading-relaxed mb-6">
                         {hsp.exclusivePrograms[0].description}
                       </p>
                       <ul className="space-y-3">
                         {hsp.exclusivePrograms[0].highlights.map((h, j) => (
                           <li key={j} className="flex items-start gap-3">
-                            <div className="w-1.5 h-1.5 rounded-full bg-deep-ember mt-2 flex-shrink-0" />
-                            <span className="text-charcoal/70 text-sm leading-relaxed">{h}</span>
+                            <div className="w-1.5 h-1.5 rounded-full bg-gold mt-2 flex-shrink-0" />
+                            <span className="text-paper/80 text-sm leading-relaxed">{h}</span>
                           </li>
                         ))}
                       </ul>
                     </div>
                     <div className="flex-shrink-0 pt-2">
-                      <div className="bg-warmgray/20 rounded-xl px-4 py-3">
+                      <div className="bg-white/95 rounded-xl px-4 py-3">
                         <Image
                           src="/images/logos/hokku-academy.webp"
                           alt="Hokku Academy"
@@ -670,7 +673,7 @@ export default function HighSchoolPage() {
             {/* Fitness + Projects — 2-column grid */}
             <div className="grid md:grid-cols-2 gap-5 max-w-5xl mx-auto mb-8">
               {hsp.exclusivePrograms.slice(1, 3).map((program, i) => {
-                const accentColors = ['golden-spark', 'deep-ember'];
+                const accentColors = ['gold', 'jacaranda'];
                 const accent = accentColors[i];
                 return (
                   <motion.div
@@ -679,24 +682,24 @@ export default function HighSchoolPage() {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: i * 0.1 }}
                     viewport={{ once: true }}
-                    className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow border border-charcoal/8"
+                    className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow border border-n-200"
                   >
                     <div className={`h-[3px] bg-${accent}`} />
                     <div className="p-6">
-                      <h3 className="font-display text-lg font-bold text-charcoal mb-1">
+                      <h3 className="font-display text-lg font-bold text-navy mb-1">
                         {program.title}
                       </h3>
                       <p className={`text-xs font-semibold text-${accent} mb-3`}>
                         {program.partner}
                       </p>
-                      <p className="text-charcoal/60 text-sm leading-relaxed mb-4">
+                      <p className="text-n-500 text-sm leading-relaxed mb-4">
                         {program.description}
                       </p>
                       <ul className="space-y-2">
                         {program.highlights.map((h, j) => (
                           <li key={j} className="flex items-start gap-2">
                             <div className={`w-1 h-1 rounded-full bg-${accent} mt-2 flex-shrink-0`} />
-                            <span className="text-charcoal/55 text-xs leading-relaxed">{h}</span>
+                            <span className="text-n-500 text-xs leading-relaxed">{h}</span>
                           </li>
                         ))}
                       </ul>
@@ -715,31 +718,31 @@ export default function HighSchoolPage() {
                 viewport={{ once: true }}
                 className="max-w-5xl mx-auto"
               >
-                <div className="relative rounded-2xl overflow-hidden bg-gradient-to-br from-white via-sand/60 to-golden-spark/10 shadow-sm hover:shadow-lg transition-shadow border border-golden-spark/20">
-                  <div className="h-[3px] bg-gradient-to-r from-golden-spark via-deep-ember to-golden-spark" />
+                <div className="relative rounded-2xl overflow-hidden bg-gradient-to-br from-white via-paper/60 to-gold/10 shadow-sm hover:shadow-lg transition-shadow border border-gold/20">
+                  <div className="h-[3px] bg-gradient-to-r from-gold via-jacaranda to-gold" />
                   <div className="relative p-8 md:p-10 flex flex-col md:flex-row md:items-center gap-8">
                     <div className="flex-1">
                       <div className="flex items-center gap-3 mb-4">
-                        <div className="w-10 h-10 rounded-xl bg-golden-spark/15 flex items-center justify-center">
-                          <FiGlobe size={20} className="text-deep-ember" />
+                        <div className="w-10 h-10 rounded-xl bg-gold/15 flex items-center justify-center">
+                          <FiGlobe size={20} className="text-jacaranda" />
                         </div>
-                        <span className="text-xs font-bold tracking-widest uppercase text-deep-ember/60">
+                        <span className="inline-flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.22em] text-gold-600">
                           {locale === 'es' ? 'Experiencia Global' : 'Global Experience'}
                         </span>
                       </div>
-                      <h3 className="font-display text-2xl md:text-3xl font-bold text-charcoal mb-2">
+                      <h3 className="font-display text-2xl md:text-3xl font-bold text-navy mb-2">
                         {hsp.exclusivePrograms[3].title}
                       </h3>
-                      <p className="text-charcoal/60 leading-relaxed mb-6">
+                      <p className="text-navy/70 leading-relaxed mb-6">
                         {hsp.exclusivePrograms[3].description}
                       </p>
                       <div className="flex flex-wrap gap-3">
                         {hsp.exclusivePrograms[3].highlights.map((h, j) => (
                           <span
                             key={j}
-                            className="inline-flex items-center gap-2 bg-deep-ember/8 text-charcoal/70 text-sm px-4 py-2 rounded-full border border-deep-ember/12"
+                            className="inline-flex items-center gap-2 bg-jacaranda/10 text-navy/70 text-sm px-4 py-2 rounded-full border border-jacaranda/10"
                           >
-                            <span className="w-1.5 h-1.5 rounded-full bg-deep-ember flex-shrink-0" />
+                            <span className="w-1.5 h-1.5 rounded-full bg-jacaranda flex-shrink-0" />
                             {h}
                           </span>
                         ))}
@@ -747,7 +750,7 @@ export default function HighSchoolPage() {
                     </div>
                     <div className="flex-shrink-0 hidden md:flex flex-col items-center gap-2">
                       <div className="text-6xl">🌍</div>
-                      <span className="text-charcoal/35 text-xs font-medium tracking-wider uppercase">
+                      <span className="text-n-400 text-xs font-medium tracking-wider uppercase">
                         {locale === 'es' ? 'Semestres 5-6' : 'Semesters 5-6'}
                       </span>
                     </div>
@@ -761,7 +764,7 @@ export default function HighSchoolPage() {
         {/* ════════════════════════════════════════════════
             SECTION 6 — ACADEMIC EXCELLENCE (McGraw-Hill)
         ════════════════════════════════════════════════ */}
-        <section className="py-12 md:py-18 bg-gradient-to-b from-sand/80 to-warmgray/20 animate-section">
+        <section className="py-12 md:py-20 bg-gradient-to-b from-paper/80 to-n-100/20 animate-section">
           <div className="container-custom">
             <div className="max-w-4xl mx-auto">
               <motion.div
@@ -769,17 +772,17 @@ export default function HighSchoolPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
                 viewport={{ once: true }}
-                className="bg-white rounded-2xl overflow-hidden border border-charcoal/8 shadow-sm"
+                className="bg-white rounded-2xl overflow-hidden border border-n-200 shadow-sm"
               >
                 {/* Banner image with McGraw-Hill badge */}
-                <div className="relative aspect-[21/9] bg-sand">
+                <div className="relative aspect-[21/9] bg-paper">
                   <Image
                     src="/images/levels/prepa/prepa-nwl-student-studying-classroom.jpg"
                     alt="Prepa NWL student studying in classroom"
                     fill
                     className="object-cover"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-charcoal/40 via-transparent to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-navy-900/40 via-transparent to-transparent" />
                   {/* McGraw-Hill logo badge */}
                   <div className="absolute bottom-4 right-4 bg-white/95 backdrop-blur-sm rounded-lg px-2 py-1.5 shadow-md">
                     <Image
@@ -795,11 +798,11 @@ export default function HighSchoolPage() {
                 {/* Content below image */}
                 <div className="p-8 md:p-10">
                   <div className="wine-divider mb-4" />
-                  <h2 className="font-display text-3xl md:text-4xl font-bold text-charcoal mb-2">
+                  <h2 className="font-display text-3xl md:text-4xl font-bold text-navy mb-2">
                     {hsp.academicTitle}{' '}
-                    <span className="text-deep-ember">{hsp.academicTitleAccent}</span>
+                    <span className="italic text-jacaranda">{hsp.academicTitleAccent}</span>
                   </h2>
-                  <p className="text-charcoal/65 leading-relaxed mb-6">
+                  <p className="text-navy/70 leading-relaxed mb-6">
                     {hsp.academicDescription}
                   </p>
                   <ul className="space-y-3">
@@ -812,8 +815,8 @@ export default function HighSchoolPage() {
                         viewport={{ once: true }}
                         className="flex items-start gap-3"
                       >
-                        <div className="w-2 h-2 rounded-full bg-golden-spark mt-2 flex-shrink-0" />
-                        <span className="text-charcoal/70 text-sm leading-relaxed">{highlight}</span>
+                        <div className="w-2 h-2 rounded-full bg-gold mt-2 flex-shrink-0" />
+                        <span className="text-navy/70 text-sm leading-relaxed">{highlight}</span>
                       </motion.li>
                     ))}
                   </ul>
@@ -823,7 +826,7 @@ export default function HighSchoolPage() {
                       : '/images/levels/prepa/en/plan-de-estudios-prepa-nwl.pdf'}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 mt-6 px-5 py-2.5 text-sm font-semibold text-deep-ember border border-deep-ember/25 rounded-full hover:bg-deep-ember/5 transition-colors"
+                    className="inline-flex items-center gap-2 mt-6 px-5 py-2.5 text-sm font-semibold text-jacaranda border border-jacaranda/25 rounded-full hover:bg-jacaranda/5 transition-colors"
                   >
                     <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                       <path strokeLinecap="round" strokeLinejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
@@ -839,7 +842,7 @@ export default function HighSchoolPage() {
         {/* ════════════════════════════════════════════════
             SECTION 7 — UNIVERSITY PATHWAYS
         ════════════════════════════════════════════════ */}
-        <section className="py-12 md:py-18 bg-gradient-to-b from-warmgray/20 to-sand/60 animate-section">
+        <section className="py-12 md:py-20 bg-gradient-to-b from-n-100/20 to-paper/60 animate-section">
           <div className="container-custom">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -849,13 +852,13 @@ export default function HighSchoolPage() {
               className="text-center mb-12"
             >
               <div className="wine-divider mx-auto mb-4" />
-              <h2 className="font-display text-4xl md:text-5xl font-bold text-charcoal">
+              <h2 className="font-display text-4xl md:text-5xl font-bold text-navy">
                 {hsp.universityPathwaysTitle}{' '}
-                <span className="bg-gradient-to-r from-deep-ember to-golden-spark bg-clip-text text-transparent">
+                <span className="italic text-gold">
                   {hsp.universityPathwaysTitleAccent}
                 </span>
               </h2>
-              <p className="text-lg text-charcoal/70 max-w-2xl mx-auto mt-4">
+              <p className="text-lg text-navy/70 max-w-2xl mx-auto mt-4">
                 {hsp.universityPathwaysSubtitle}
               </p>
             </motion.div>
@@ -866,11 +869,11 @@ export default function HighSchoolPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.1 }}
                 viewport={{ once: true }}
-                className="bg-white rounded-2xl overflow-hidden border border-charcoal/8 shadow-sm"
+                className="bg-white rounded-2xl overflow-hidden border border-n-200 shadow-sm"
               >
-                <div className="h-[3px] bg-gradient-to-r from-deep-ember to-golden-spark" />
+                <div className="h-[3px] bg-gradient-to-r from-jacaranda to-gold" />
                 <div className="p-8 md:p-12">
-                  <p className="text-charcoal/65 leading-relaxed text-center mb-10 max-w-3xl mx-auto">
+                  <p className="text-navy/70 leading-relaxed text-center mb-10 max-w-3xl mx-auto">
                     {hsp.universityPathwaysDescription}
                   </p>
 
@@ -911,7 +914,7 @@ export default function HighSchoolPage() {
                     </div>
                   </div>
 
-                  <p className="text-xs text-charcoal/40 text-center mt-8 italic">
+                  <p className="text-xs text-n-400 text-center mt-8 italic">
                     {hsp.universityPathwaysFootnote}
                   </p>
                 </div>
@@ -923,14 +926,14 @@ export default function HighSchoolPage() {
         {/* ════════════════════════════════════════════════
             SECTION 8 — STATS BAR
         ════════════════════════════════════════════════ */}
-        <section className="py-10 md:py-14 bg-gradient-to-b from-warmgray/20 to-sand/60 animate-section">
+        <section className="py-10 md:py-14 bg-gradient-to-b from-n-100/20 to-paper/60 animate-section">
           <div className="container-custom">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-3 max-w-4xl mx-auto">
               {[
-                { value: '3', label: hs.statCampuses, gradient: 'from-deep-ember/15 to-deep-ember/5', border: 'border-deep-ember/20' },
-                { value: '100%', label: hs.statBilingual, gradient: 'from-golden-spark/15 to-golden-spark/5', border: 'border-golden-spark/25' },
-                { value: '6', label: hs.statCertifications, gradient: 'from-steel/12 to-steel/5', border: 'border-steel/20' },
-                { value: '6', label: hs.statProjects, gradient: 'from-deep-ember/10 to-golden-spark/8', border: 'border-golden-spark/20' },
+                { value: '3', label: hs.statCampuses, gradient: 'from-jacaranda/15 to-jacaranda/5', border: 'border-jacaranda/20' },
+                { value: '100%', label: hs.statBilingual, gradient: 'from-gold/15 to-gold/5', border: 'border-gold/25' },
+                { value: '6', label: hs.statCertifications, gradient: 'from-n-500/10 to-n-500/5', border: 'border-n-200' },
+                { value: '6', label: hs.statProjects, gradient: 'from-jacaranda/10 to-gold/10', border: 'border-gold/20' },
               ].map((stat, i) => (
                 <motion.div
                   key={i}
@@ -940,8 +943,8 @@ export default function HighSchoolPage() {
                   viewport={{ once: true }}
                   className={`bg-gradient-to-br ${stat.gradient} rounded-2xl p-5 border ${stat.border}`}
                 >
-                  <span className="block text-3xl font-bold text-charcoal tracking-tight">{stat.value}</span>
-                  <span className="text-sm text-charcoal/60 font-medium">{stat.label}</span>
+                  <span className="block text-3xl font-bold text-navy tracking-tight">{stat.value}</span>
+                  <span className="text-sm text-n-500 font-medium">{stat.label}</span>
                 </motion.div>
               ))}
             </div>
@@ -951,7 +954,7 @@ export default function HighSchoolPage() {
         {/* ════════════════════════════════════════════════
             SECTION 9 — PHOTO GALLERY
         ════════════════════════════════════════════════ */}
-        <section className="py-10 md:py-14 bg-gradient-to-b from-sand/60 to-warmgray/20 relative overflow-hidden animate-section">
+        <section className="py-10 md:py-14 bg-gradient-to-b from-paper/60 to-n-100/20 relative overflow-hidden animate-section">
           <div className="container-custom relative z-10">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -961,9 +964,9 @@ export default function HighSchoolPage() {
               className="text-center mb-8"
             >
               <div className="wine-divider mx-auto mb-4" />
-              <h2 className="font-display text-3xl md:text-5xl font-bold text-charcoal">
+              <h2 className="font-display text-3xl md:text-5xl font-bold text-navy">
                 {hsp.galleryTitle}{' '}
-                <span className="text-deep-ember">{hsp.galleryTitleAccent}</span>
+                <span className="italic text-jacaranda">{hsp.galleryTitleAccent}</span>
               </h2>
             </motion.div>
 
@@ -975,7 +978,7 @@ export default function HighSchoolPage() {
               className="max-w-5xl mx-auto"
             >
               {/* Main Image */}
-              <div className="relative aspect-[16/9] rounded-lg overflow-hidden shadow-xl mb-4 bg-sand">
+              <div className="relative aspect-[16/9] rounded-lg overflow-hidden shadow-xl mb-4 bg-paper">
                 <AnimatePresence mode="wait">
                   <motion.div
                     key={activeGallery}
@@ -1000,14 +1003,14 @@ export default function HighSchoolPage() {
                   className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/80 backdrop-blur-sm flex items-center justify-center hover:bg-white transition-colors z-10"
                   aria-label="Previous"
                 >
-                  <FiChevronLeft size={20} className="text-charcoal" />
+                  <FiChevronLeft size={20} className="text-navy" />
                 </button>
                 <button
                   onClick={() => setActiveGallery((idx) => (idx + 1) % galleryImages.length)}
                   className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/80 backdrop-blur-sm flex items-center justify-center hover:bg-white transition-colors z-10"
                   aria-label="Next"
                 >
-                  <FiChevronRight size={20} className="text-charcoal" />
+                  <FiChevronRight size={20} className="text-navy" />
                 </button>
               </div>
 
@@ -1019,7 +1022,7 @@ export default function HighSchoolPage() {
                     onClick={() => setActiveGallery(i)}
                     className={`relative flex-shrink-0 w-20 h-14 md:w-24 md:h-16 rounded-md overflow-hidden transition-all duration-200 ${
                       i === activeGallery
-                        ? 'ring-2 ring-deep-ember opacity-100 scale-105'
+                        ? 'ring-2 ring-jacaranda opacity-100 scale-105'
                         : 'opacity-50 hover:opacity-80'
                     }`}
                   >
