@@ -67,6 +67,23 @@ const ROCK = [
   '.RRRRRRRRRRRRRR.',
   'RRRRRRRRRRRRRRRR',
 ];
+/* emu — tall outback bird, faces the incoming kangaroo */
+const EMU = [
+  '.GG........',
+  'GGG........',
+  '.G.........',
+  '.G.........',
+  '.GGGGG.....',
+  '.GGGGGGG...',
+  '..GGGGGGG..',
+  '...GGGGGG..',
+  '....GGGG...',
+  '.....GG....',
+  '.....G.G...',
+  '.....G.G...',
+  '....GG.GG..',
+];
+
 const BOOMERANG_A = [
   'GG......',
   '.GG.....',
@@ -85,7 +102,7 @@ const BOOMERANG_B = [
 ];
 
 type Obstacle = {
-  kind: 'spinifex' | 'rock' | 'boomerang';
+  kind: 'spinifex' | 'rock' | 'boomerang' | 'emu';
   x: number;
   y: number;
   w: number;
@@ -254,7 +271,7 @@ export default function KangarooGame({ onExit }: { onExit: () => void }) {
     let raf = 0;
     let state: 'ready' | 'run' | 'over' = 'ready';
     let frames = 0;
-    let speed = 1.9;
+    let speed = 1.8;
     let score = 0;
     let best = 0;
     try { best = parseInt(localStorage.getItem('nwl-outback-run-best') || '0', 10) || 0; } catch { /* ignore */ }
@@ -262,22 +279,24 @@ export default function KangarooGame({ onExit }: { onExit: () => void }) {
     let rooY = GROUND - ROO_H;
     let vy = 0;
     let jumping = false;
-    let nextSpawn = 130;
+    let nextSpawn = 260;
     let obstacles: Obstacle[] = [];
     let uluruX = W + 40;
     let deadFlash = 0;
+    let dist = 0; // integrated scroll distance — keeps the ground in sync with obstacles
     let dayT = 0; // 0 = night, 1 = day (eased)
 
     const reset = () => {
       frames = 0;
-      speed = 1.9;
+      speed = 1.8;
       score = 0;
       rooY = GROUND - ROO_H;
       vy = 0;
       jumping = false;
       obstacles = [];
-      nextSpawn = 130;
+      nextSpawn = 260;
       uluruX = W + 40;
+      dist = 0;
     };
 
     const jump = () => {
@@ -326,23 +345,33 @@ export default function KangarooGame({ onExit }: { onExit: () => void }) {
     window.addEventListener('keyup', onKeyUp, { capture: true });
     canvas.addEventListener('pointerdown', onPointer);
 
-    /* difficulty: gentle start, full pace around the 500-point mark */
-    const progress = () => Math.min(1, score / 520);
+    /* difficulty: long, gentle ramp — 500 should be easy, 1000 doable */
+    const progress = () => Math.min(1, score / 900);
 
     const spawn = () => {
       const prog = progress();
-      const canBoomerang = score > 420;
-      const roll = Math.random();
-      if (canBoomerang && roll < 0.25) {
-        obstacles.push({ kind: 'boomerang', x: W + 8, y: GROUND - 30, w: 8, h: 6 });
-      } else if (roll < 0.62) {
-        obstacles.push({ kind: 'spinifex', x: W + 8, y: GROUND - 8, w: 14, h: 8 });
+      // obstacle types unlock as the run progresses
+      const pool: Obstacle['kind'][] = ['spinifex'];
+      if (score > 120) pool.push('rock');
+      if (score > 300) pool.push('emu');
+      if (score > 550) pool.push('boomerang');
+      const kind = pool[Math.floor(Math.random() * pool.length)];
+      if (kind === 'boomerang') {
+        obstacles.push({ kind, x: W + 8, y: GROUND - 30, w: 8, h: 6 });
+      } else if (kind === 'emu') {
+        obstacles.push({ kind, x: W + 8, y: GROUND - 13, w: 11, h: 13 });
+      } else if (kind === 'spinifex') {
+        obstacles.push({ kind, x: W + 8, y: GROUND - 8, w: 14, h: 8 });
       } else {
         obstacles.push({ kind: 'rock', x: W + 8, y: GROUND - 6, w: 16, h: 6 });
+        // late game: occasional wide rock pair
+        if (score > 850 && Math.random() < 0.3) {
+          obstacles.push({ kind: 'rock', x: W + 8 + 18, y: GROUND - 6, w: 16, h: 6 });
+        }
       }
-      // wide, forgiving gaps early → tight gaps at full pace
-      const gapBase = 150 - 95 * prog;
-      nextSpawn = gapBase + Math.random() * (110 - 55 * prog);
+      // gap measured in TIME (frames at current speed): ~1.6-2.3s early, ~0.7-1.3s late
+      const framesGap = 96 - 52 * prog + Math.random() * 44;
+      nextSpawn = speed * framesGap;
     };
 
     const die = () => {
@@ -368,7 +397,7 @@ export default function KangarooGame({ onExit }: { onExit: () => void }) {
         frames++;
         score = Math.floor(frames / 5);
         const prog = progress();
-        speed = Math.min(7.6, 1.9 + 4.4 * prog + Math.max(0, score - 520) * 0.0009);
+        speed = Math.min(7, 1.8 + 3.9 * prog + Math.max(0, score - 900) * 0.0006);
 
         if (jumping) {
           vy += 0.22;
@@ -376,6 +405,7 @@ export default function KangarooGame({ onExit }: { onExit: () => void }) {
           if (rooY >= GROUND - ROO_H) { rooY = GROUND - ROO_H; jumping = false; vy = 0; }
         }
 
+        dist += speed;
         nextSpawn -= speed;
         if (nextSpawn <= 0) spawn();
 
@@ -450,7 +480,7 @@ export default function KangarooGame({ onExit }: { onExit: () => void }) {
       ctx.fillRect(0, GROUND, W, 1);
       ctx.fillStyle = dayT > 0.5 ? 'rgba(120,80,10,0.35)' : 'rgba(200,135,14,0.35)';
       for (let i = 0; i < 14; i++) {
-        const gx = (i * 47 - ((frames * speed) % 47)) % (W + 20);
+        const gx = (i * 47 - (dist % 47)) % (W + 20);
         ctx.fillRect(gx, GROUND + 4 + ((i * 13) % 9), 3, 1);
       }
 
@@ -459,6 +489,7 @@ export default function KangarooGame({ onExit }: { onExit: () => void }) {
       for (const o of obstacles) {
         if (o.kind === 'spinifex') drawSprite(ctx, SPINIFEX, o.x, o.y, mix([147, 168, 96], [90, 120, 52], dayT));
         else if (o.kind === 'rock') drawSprite(ctx, ROCK, o.x, o.y, '#B5532A');
+        else if (o.kind === 'emu') drawSprite(ctx, EMU, o.x, o.y, mix([154, 162, 179], [90, 98, 116], dayT));
         else drawSprite(ctx, frames % 14 < 7 ? BOOMERANG_A : BOOMERANG_B, o.x, o.y, rooColor);
       }
 
