@@ -125,7 +125,7 @@ export default function KangarooSpirit() {
       gsap.set(flyer, {
         left: sx - srcW / 2, top: sy - srcH / 2,
         width: srcW, height: srcH,
-        opacity: 0, scaleX: 1, scaleY: 1, rotation: 15,
+        opacity: 0, scaleX: 1, scaleY: 1, rotation: 0,
       });
 
       // Show flyer, hide source
@@ -155,7 +155,7 @@ export default function KangarooSpirit() {
           const t1 = i / (arc1.length - 1);
           return {
             left: f.left, top: f.top,
-            rotation: 15 + 12 * Math.sin(t1 * Math.PI),
+            rotation: 10 * Math.sin(t1 * Math.PI),
             scaleY: 1 + 0.08 * Math.sin(t1 * Math.PI),
             scaleX: 1 - 0.05 * Math.sin(t1 * Math.PI),
             duration: 0.65 / arc1.length,
@@ -164,7 +164,7 @@ export default function KangarooSpirit() {
       });
 
       // Bounce squash + dust
-      tl.to(flyer, { scaleY: 0.8, scaleX: 1.15, rotation: 15, duration: 0.1, ease: 'power2.in' });
+      tl.to(flyer, { scaleY: 0.8, scaleX: 1.15, rotation: 0, duration: 0.1, ease: 'power2.in' });
       tl.call(() => burstDust(bx, by + halfFlight));
 
       // Stretch for second jump
@@ -187,7 +187,7 @@ export default function KangarooSpirit() {
             left: f.left + (halfFlight - w / 2) * (1 - t),
             top: f.top + (halfFlight - h / 2) * (1 - t),
             width: w, height: h,
-            rotation: 15 + (-8 * Math.sin(t * Math.PI) * (1 - t)),
+            rotation: -7 * Math.sin(t * Math.PI) * (1 - t),
             scaleY: 1 + 0.06 * Math.sin(t * Math.PI),
             scaleX: 1 - 0.04 * Math.sin(t * Math.PI),
             duration: 0.6 / arc2.length,
@@ -199,7 +199,7 @@ export default function KangarooSpirit() {
       tl.set(flyer, {
         left: ex - navW / 2, top: ey - navH / 2,
         width: navW, height: navH,
-        rotation: 15,
+        rotation: 0,
       });
 
       // Landing squash + dust
@@ -281,7 +281,7 @@ export default function KangarooSpirit() {
       gsap.set(flyer, {
         left: sx - navW / 2, top: sy - navH / 2,
         width: navW, height: navH,
-        opacity: 0, scaleX: 1, scaleY: 1, rotation: 15,
+        opacity: 0, scaleX: 1, scaleY: 1, rotation: 0,
       });
 
       // Show flyer, hide nav — simultaneous swap via GSAP
@@ -309,7 +309,7 @@ export default function KangarooSpirit() {
             left: f.left - w / 2,
             top: f.top - h / 2,
             width: w, height: h,
-            rotation: 15 + (-10 * Math.sin(t * Math.PI) * (1 - t)),
+            rotation: -8 * Math.sin(t * Math.PI) * (1 - t),
             scaleY: 1 + 0.08 * Math.sin(t * Math.PI),
             scaleX: 1 - 0.05 * Math.sin(t * Math.PI),
             duration: 0.9 / arcR.length,
@@ -320,7 +320,7 @@ export default function KangarooSpirit() {
       // Snap to circle's REAL position (user may have scrolled during the arc)
       tl.call(() => {
         pinToCircle();
-        gsap.set(flyer, { rotation: 15 });
+        gsap.set(flyer, { rotation: 0 });
         scrollPinActive = true;
         window.addEventListener('scroll', onScrollPin, { passive: true });
       });
@@ -601,7 +601,7 @@ export default function KangarooSpirit() {
             // Stretch + jump up
             hop.to(img, { scaleY: 1.15, scaleX: 0.9, y: -60, rotation: 5, duration: 0.3, ease: 'power2.out' });
             // Fall + squash on land
-            hop.to(img, { y: 0, scaleY: 0.88, scaleX: 1.1, rotation: 15, duration: 0.25, ease: 'power2.in' });
+            hop.to(img, { y: 0, scaleY: 0.88, scaleX: 1.1, rotation: 0, duration: 0.25, ease: 'power2.in' });
             // Elastic settle
             hop.to(img, { scaleY: 1, scaleX: 1, duration: 0.4, ease: 'elastic.out(1, 0.4)' });
           },
