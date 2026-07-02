@@ -71,7 +71,7 @@ export const MODEL_COMPONENTS: ModelComponent[] = [
   {
     id: 'wellbeing',
     icon: 'heart',
-    color: '#3E7A5F', // deep eucalyptus
+    color: '#1C7C70', // wellbeing teal (deck)
     name: { en: 'Wellbeing & Human Development', es: 'Bienestar y Desarrollo Humano' },
     tagline: {
       en: 'Wellbeing, emotional intelligence & relationships',
@@ -151,7 +151,7 @@ export const MODEL_COMPONENTS: ModelComponent[] = [
   {
     id: 'future-skills',
     icon: 'trending-up',
-    color: '#2E5090', // southern blue
+    color: '#2A5C9A', // southern blue (deck)
     name: { en: 'Future Skills & Leadership', es: 'Habilidades del Futuro y Liderazgo' },
     tagline: {
       en: 'Leadership & competencies for the future',
@@ -191,7 +191,7 @@ export const MODEL_COMPONENTS: ModelComponent[] = [
   {
     id: 'portfolio',
     icon: 'folder',
-    color: '#CB8606', // Outback Gold
+    color: '#C8870E', // Outback Gold (deck)
     darkText: true,
     name: { en: 'Portfolio & Real Evidence', es: 'Portafolio y Evidencia Real' },
     tagline: {
@@ -232,7 +232,7 @@ export const MODEL_COMPONENTS: ModelComponent[] = [
   {
     id: 'stem-innovation',
     icon: 'cpu',
-    color: '#004756', // Coral Sea
+    color: '#2E6E78', // STEM teal (deck)
     name: { en: 'STEM & Innovation', es: 'STEM e Innovación' },
     tagline: {
       en: 'Science, technology & emerging tech',
@@ -272,7 +272,7 @@ export const MODEL_COMPONENTS: ModelComponent[] = [
   {
     id: 'international-mindset',
     icon: 'compass',
-    color: '#A85B32', // outback terracotta
+    color: '#B5532A', // outback terracotta (deck)
     name: { en: 'International Mindset', es: 'Mentalidad Internacional' },
     tagline: {
       en: 'Global citizens with purpose & empathy',

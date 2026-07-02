@@ -34,16 +34,15 @@ const Icon = ({ name, size = 18, className = '' }: { name: string; size?: number
   return <C size={size} className={className} />;
 };
 
-/* ---------- wheel geometry ---------- */
+/* ---------- wheel geometry (deck construction: pastel outer band touching
+   the component ring, white dividers, leader lines + dots per capability) ---------- */
 const SEG = 360 / 7;
-const GAP = 1.2; // degrees of breathing room between component segments
-const R_OUTER = 40; // component ring, outer edge
-const R_INNER = 25.5; // component ring, inner edge
-const R_LABEL = (R_OUTER + R_INNER) / 2;
-const R_CAP_IN = 41.2; // capability ring (the slide's outer ring)
-const R_CAP_OUT = 49.4;
-const R_CAP_ICON = (R_CAP_IN + R_CAP_OUT) / 2;
-const CAP_GAP = 0.6; // gap between capability sub-segments
+const R_HUB = 20.8; // center circle
+const R_INNER = 21.8; // component ring, inner edge
+const R_OUTER = 34; // component ring outer edge = capability band inner edge
+const R_CAP_OUT = 49.2; // capability band outer edge
+const R_LABEL = (R_INNER + R_OUTER) / 2;
+const R_CAP_ITEM = 43.2; // capability icon+label block center
 
 function polar(r: number, deg: number) {
   const rad = ((deg - 90) * Math.PI) / 180;
@@ -59,12 +58,15 @@ function ringPath(rIn: number, rOut: number, startDeg: number, endDeg: number) {
   const large = endDeg - startDeg > 180 ? 1 : 0;
   return `M ${p1.x} ${p1.y} A ${rOut} ${rOut} 0 ${large} 1 ${p2.x} ${p2.y} L ${p3.x} ${p3.y} A ${rIn} ${rIn} 0 ${large} 0 ${p4.x} ${p4.y} Z`;
 }
-const segmentPath = (startDeg: number, endDeg: number) => ringPath(R_INNER, R_OUTER, startDeg, endDeg);
-/** Angular span of capability j (0-2) inside component i's segment. */
-function capAngles(i: number, j: number): [number, number] {
-  const start = i * SEG - SEG / 2 + GAP;
-  const span = (SEG - GAP * 2) / 3;
-  return [start + j * span + (j > 0 ? CAP_GAP : 0), start + (j + 1) * span - (j < 2 ? CAP_GAP : 0)];
+/** Mid angle of capability j (0-2) inside component i's wedge. */
+function capMid(i: number, j: number) {
+  return i * SEG - SEG / 2 + ((j + 0.5) * SEG) / 3;
+}
+/** Much lighter, "whiter" version of the wedge color (the deck's outer band). */
+function pastel(hex: string, t = 0.76) {
+  const n = parseInt(hex.slice(1), 16);
+  const m = (c: number) => Math.round(c + (255 - c) * t);
+  return `rgb(${m((n >> 16) & 255)},${m((n >> 8) & 255)},${m(n & 255)})`;
 }
 
 /* ---------- page-local UI strings ---------- */
@@ -609,109 +611,134 @@ export default function ModeloPage() {
 
           <div className="grid lg:grid-cols-[1.05fr,0.95fr] gap-10 lg:gap-14 items-center">
             {/* --- the wheel --- */}
-            <div className="relative w-full max-w-[560px] mx-auto aspect-square select-none">
+            <div className="relative w-full max-w-[620px] mx-auto aspect-square select-none">
               <svg viewBox="0 0 100 100" className="absolute inset-0 w-full h-full">
-                {/* capability ring — the slide's outer ring; the active component's
-                    three capabilities light up, the rest stay as quiet tints */}
-                {MODEL_COMPONENTS.map((comp, i) => {
-                  const isActive = i === active;
-                  return comp.capabilities.map((cap, j) => {
-                    const [a0, a1] = capAngles(i, j);
+                {/* capability band — a whiter version of each wedge color, touching the ring */}
+                {MODEL_COMPONENTS.map((comp, i) => (
+                  <path
+                    key={comp.id + '-band'}
+                    d={ringPath(R_OUTER, R_CAP_OUT, i * SEG - SEG / 2, i * SEG + SEG / 2)}
+                    fill={pastel(comp.color)}
+                    className="cursor-pointer"
+                    onClick={() => setActive(i)}
+                  />
+                ))}
+                {/* component wedges */}
+                {MODEL_COMPONENTS.map((comp, i) => (
+                  <path
+                    key={comp.id}
+                    d={ringPath(R_INNER, R_OUTER, i * SEG - SEG / 2, i * SEG + SEG / 2)}
+                    fill={comp.color}
+                    opacity={i === active ? 1 : 0.92}
+                    className="cursor-pointer transition-all duration-300"
+                    onClick={() => setActive(i)}
+                  />
+                ))}
+                {/* white dividers between the 7 wedges */}
+                {MODEL_COMPONENTS.map((_, i) => {
+                  const a = i * SEG + SEG / 2;
+                  const p1 = polar(R_INNER - 0.3, a);
+                  const p2 = polar(R_CAP_OUT + 0.1, a);
+                  return <line key={'div' + i} x1={p1.x} y1={p1.y} x2={p2.x} y2={p2.y} stroke="#FFFFFF" strokeWidth="1.1" />;
+                })}
+                {/* gold halo on the active wedge */}
+                <path
+                  d={ringPath(R_INNER, R_CAP_OUT, active * SEG - SEG / 2 + 0.6, active * SEG + SEG / 2 - 0.6)}
+                  fill="none"
+                  stroke="var(--nwl-gold)"
+                  strokeWidth="0.55"
+                  className="pointer-events-none transition-all duration-300"
+                />
+                {/* leader lines + dots for each capability (deck detail) */}
+                {MODEL_COMPONENTS.map((comp, i) =>
+                  comp.capabilities.map((cap, j) => {
+                    const am = capMid(i, j);
+                    const pd = polar(R_OUTER + 0.4, am);
+                    const pl = polar(R_OUTER + 3.8, am);
                     return (
-                      <path
-                        key={`${comp.id}-cap-${j}`}
-                        d={ringPath(R_CAP_IN, R_CAP_OUT, a0, a1)}
-                        fill={comp.color}
-                        opacity={isActive ? 0.42 : 0.13}
-                        className="cursor-pointer transition-all duration-300"
-                        onClick={() => setActive(i)}
-                      >
-                        <title>{L(cap.name)}</title>
-                      </path>
+                      <g key={comp.id + '-lead-' + j} className="pointer-events-none">
+                        <line x1={pd.x} y1={pd.y} x2={pl.x} y2={pl.y} stroke={comp.color} strokeWidth="0.35" />
+                        <circle cx={pd.x} cy={pd.y} r="1.05" fill={comp.color} stroke={pastel(comp.color)} strokeWidth="0.45" />
+                      </g>
                     );
-                  });
-                })}
-                {/* component ring */}
-                {MODEL_COMPONENTS.map((comp, i) => {
-                  const mid = i * SEG;
-                  const isActive = i === active;
-                  return (
-                    <path
-                      key={comp.id}
-                      d={segmentPath(mid - SEG / 2 + GAP, mid + SEG / 2 - GAP)}
-                      fill={comp.color}
-                      opacity={isActive ? 1 : 0.5}
-                      stroke={isActive ? 'var(--nwl-gold)' : 'transparent'}
-                      strokeWidth={isActive ? 0.7 : 0}
-                      className="cursor-pointer transition-all duration-300"
-                      style={{ transformOrigin: '50% 50%', transform: isActive ? 'scale(1.02)' : 'scale(1)' }}
-                      onClick={() => setActive(i)}
-                    />
-                  );
-                })}
+                  })
+                )}
                 {/* center */}
-                <circle cx="50" cy="50" r="24.7" fill="var(--nwl-gold)" opacity="0.9" />
-                <circle cx="50" cy="50" r="23.8" fill="#071638" />
+                <circle cx="50" cy="50" r={R_HUB + 0.8} fill="var(--nwl-gold)" opacity="0.95" />
+                <circle cx="50" cy="50" r={R_HUB} fill="#071638" />
               </svg>
 
-              {/* capability icons on the outer ring — appear when their component is active */}
+              {/* capability items — icon + name in the wedge color, on the pastel band */}
               {MODEL_COMPONENTS.map((comp, i) =>
                 comp.capabilities.map((cap, j) => {
-                  const [a0, a1] = capAngles(i, j);
-                  const p = polar(R_CAP_ICON, (a0 + a1) / 2);
+                  const am = capMid(i, j);
+                  // near-horizontal labels get nudged inward so text stays on the band
+                  const inward = +(2.2 * Math.abs(Math.sin((am * Math.PI) / 180))).toFixed(3);
+                  const p = polar(R_CAP_ITEM - inward, am);
                   const isActive = i === active;
                   return (
-                    <motion.button
-                      key={`${comp.id}-capicon-${j}`}
-                      onClick={() => setActive(i)}
-                      aria-label={L(cap.name)}
-                      title={L(cap.name)}
-                      initial={false}
-                      animate={
-                        isActive
-                          ? { opacity: 1, scale: 1.15, transition: { delay: 0.08 + j * 0.07, duration: 0.3 } }
-                          : { opacity: 0.35, scale: 0.9 }
-                      }
-                      className="absolute -translate-x-1/2 -translate-y-1/2 flex items-center justify-center text-paper"
+                    <div
+                      key={comp.id + '-capitem-' + j}
+                      className="absolute -translate-x-1/2 -translate-y-1/2 w-[15%]"
                       style={{ left: `${p.x}%`, top: `${p.y}%` }}
                     >
-                      <Icon name={cap.icon} size={15} />
-                    </motion.button>
+                      <motion.button
+                        onClick={() => setActive(i)}
+                        aria-label={L(cap.name)}
+                        title={L(cap.name)}
+                        initial={false}
+                        animate={
+                          isActive
+                            ? { opacity: 1, scale: 1.08, transition: { delay: 0.05 + j * 0.06, duration: 0.25 } }
+                            : { opacity: 0.85, scale: 1 }
+                        }
+                        className="flex w-full flex-col items-center text-center"
+                        style={{ color: comp.color }}
+                      >
+                        <Icon name={cap.icon} size={12} className="mb-0.5" />
+                        <span className="hidden sm:block font-semibold text-[6.2px] md:text-[6.9px] leading-[1.12]">
+                          {L(cap.name)}
+                        </span>
+                      </motion.button>
+                    </div>
                   );
                 })
               )}
 
-              {/* segment labels */}
+              {/* component labels — white icon, uppercase name, tagline */}
               {MODEL_COMPONENTS.map((comp, i) => {
-                const p = polar(R_LABEL, i * SEG);
+                const p = polar(R_LABEL + 1, i * SEG);
                 const isActive = i === active;
                 return (
                   <button
                     key={comp.id}
                     onClick={() => setActive(i)}
                     aria-pressed={isActive}
-                    className={`absolute -translate-x-1/2 -translate-y-1/2 flex flex-col items-center text-center w-[21%] transition-all duration-300 ${
-                      isActive ? 'opacity-100 scale-105' : 'opacity-75 hover:opacity-100'
+                    className={`absolute -translate-x-1/2 -translate-y-1/2 flex flex-col items-center text-center w-[23%] text-white transition-all duration-300 ${
+                      isActive ? 'opacity-100 scale-[1.04]' : 'opacity-90 hover:opacity-100'
                     }`}
-                    style={{ left: `${p.x}%`, top: `${p.y}%`, color: comp.darkText ? '#1C0F00' : '#F4EEE2' }}
+                    style={{ left: `${p.x}%`, top: `${p.y}%` }}
                   >
-                    <Icon name={comp.icon} size={15} className="mb-1 hidden sm:block" />
-                    <span className="font-semibold text-[8px] sm:text-[9px] md:text-[10px] leading-[1.15] drop-shadow-sm">
+                    <Icon name={comp.icon} size={14} className="mb-1 hidden sm:block" />
+                    <span className="font-bold uppercase tracking-[0.04em] text-[6.8px] sm:text-[7.6px] md:text-[8.4px] leading-[1.2]">
                       {L(comp.name)}
+                    </span>
+                    <span className="hidden md:block text-[6.4px] leading-[1.25] text-white/85 mt-0.5">
+                      {L(comp.tagline)}
                     </span>
                   </button>
                 );
               })}
 
               {/* center label */}
-              <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[42%] text-center pointer-events-none">
-                <span className="inline-flex items-center justify-center w-9 h-9 md:w-10 md:h-10 rounded-full bg-gold/15 text-gold mb-2">
-                  <FiUser size={18} />
+              <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[34%] text-center pointer-events-none">
+                <span className="inline-flex items-center justify-center w-8 h-8 md:w-9 md:h-9 rounded-full bg-gold/15 text-gold mb-1.5">
+                  <FiUser size={16} />
                 </span>
-                <div className="font-display text-sm md:text-lg font-semibold leading-tight text-paper">
+                <div className="font-display text-[13px] md:text-lg font-semibold leading-tight text-white">
                   {L(UI.wheelCenterTitle)}
                 </div>
-                <div className="font-mono text-[7.5px] md:text-[9px] uppercase tracking-[0.16em] text-paper/55 mt-1.5">
+                <div className="font-mono text-[7px] md:text-[8.5px] uppercase tracking-[0.14em] text-paper/55 mt-1">
                   {L(UI.wheelCenterSub)}
                 </div>
               </div>
