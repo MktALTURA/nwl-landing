@@ -154,10 +154,15 @@ export default function Navigation() {
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
-              className="flex items-center"
+              className="relative flex items-center"
             >
-              {/* GSAP kangaroo-flight target (Hero animates the mascot here) */}
-              <span id="nav-kangaroo-target" aria-hidden="true" className="absolute w-10 h-10" />
+              {/* GSAP kangaroo-flight target — positioned exactly over the gold
+                  kangaroo inside the 46px lockup art, so the mascot lands on it */}
+              <span
+                id="nav-kangaroo-target"
+                aria-hidden="true"
+                style={{ position: 'absolute', left: 7, top: 12, width: 43, height: 24 }}
+              />
               <a href="/" className="flex items-center" aria-label="NWL Australian School — Inicio">
                 <Logo variant={useWhiteNav ? 'white' : 'navy'} height={46} />
               </a>
