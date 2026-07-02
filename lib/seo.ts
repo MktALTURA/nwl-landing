@@ -24,6 +24,12 @@ export const PAGE_SEO = {
       'NWL Australian School — bilingual private school in Querétaro & San Miguel de Allende on the Australian school model. Maternal through High School, English immersion, project-based learning. 5 campuses.',
     ogImage: '/images/og/home.jpg',
   },
+  modelo: {
+    title: 'The NWL Academic Model — Modelo Educativo Australiano',
+    description:
+      'Inside the NWL Australian School academic model: 7 components and 21 capabilities around one student experience. Wellbeing with rigor, English immersion, Knotion projects, STEM and a global pathway — the Australian way of learning in Querétaro.',
+    ogImage: '/images/og/home.jpg',
+  },
   maternal: {
     title: 'Maternal Program (Ages 2–3)',
     description:

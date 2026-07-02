@@ -9,6 +9,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Static pages
   const staticPages: MetadataRoute.Sitemap = [
     { url: `${SITE_URL}`, lastModified: now },
+    { url: `${SITE_URL}/modelo`, lastModified: now },
     { url: `${SITE_URL}/maternal`, lastModified: now },
     { url: `${SITE_URL}/kinder`, lastModified: now },
     { url: `${SITE_URL}/elementary`, lastModified: now },

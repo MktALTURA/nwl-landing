@@ -46,6 +46,7 @@ export interface Dictionary {
     sectionDescription: string;
     pillars: { title: string; subtitle: string; description: string }[];
     cta: string;
+    modelCta: string;
   };
   partnerships: {
     sectionTitle: string;

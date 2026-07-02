@@ -75,11 +75,17 @@ export default function Philosophy() {
               ))}
             </div>
 
-            <BrochureLevelDropdown
-              className="btn-secondary inline-flex items-center"
-            >
-              {t.philosophy.cta}
-            </BrochureLevelDropdown>
+            <div className="flex flex-wrap items-center gap-4">
+              <a href="/modelo" className="btn-primary inline-flex items-center gap-2">
+                {t.philosophy.modelCta}
+                <span aria-hidden="true">→</span>
+              </a>
+              <BrochureLevelDropdown
+                className="btn-secondary inline-flex items-center"
+              >
+                {t.philosophy.cta}
+              </BrochureLevelDropdown>
+            </div>
           </div>
 
           {/* Right: Large Image Stack */}

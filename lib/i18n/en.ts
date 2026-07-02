@@ -5,6 +5,7 @@ export const en: Dictionary = {
     links: [
       { name: 'Home', href: '#home' },
       { name: 'Our School', href: '#about' },
+      { name: 'The Model', href: '/modelo' },
       {
         name: 'Academic Offer',
         href: '#levels',
@@ -111,6 +112,7 @@ export const en: Dictionary = {
       },
     ],
     cta: 'Download Full Model (PDF)',
+    modelCta: 'Explore the Academic Model',
   },
   partnerships: {
     sectionTitle: 'Partnerships that',

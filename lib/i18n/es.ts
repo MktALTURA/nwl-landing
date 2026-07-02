@@ -5,6 +5,7 @@ export const es: Dictionary = {
     links: [
       { name: 'Inicio', href: '#home' },
       { name: 'Conócenos', href: '#about' },
+      { name: 'El Modelo', href: '/modelo' },
       {
         name: 'Oferta Académica',
         href: '#levels',
@@ -111,6 +112,7 @@ export const es: Dictionary = {
       },
     ],
     cta: 'Descargar Modelo Completo (PDF)',
+    modelCta: 'Explora el Modelo Académico',
   },
   partnerships: {
     sectionTitle: 'Alianzas que',
