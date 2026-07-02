@@ -266,20 +266,17 @@ const RADAR = {
   max: 10,
 };
 
-/* ---------- PISA Cleveland dot plot (dependency-free SVG) ---------- */
-function PisaDotPlot({ locale }: { locale: 'en' | 'es' }) {
-  const W = 560;
-  const H = 236;
-  const PAD_L = 96;
-  const PAD_R = 30;
-  const x = (v: number) => +(PAD_L + ((v - PISA.min) / (PISA.max - PISA.min)) * (W - PAD_L - PAD_R)).toFixed(3);
-  const rowY = (i: number) => 58 + i * 62;
-  const ticks = [350, 400, 450, 500, 550];
+/* ---------- PISA grouped bar chart (HTML bars, hover tooltips) ---------- */
+function PisaBars({ locale }: { locale: 'en' | 'es' }) {
+  const [hover, setHover] = useState<{ g: number; s: number } | null>(null);
+  const MAX = 550;
+  const ticks = [0, 100, 200, 300, 400, 500];
+  const pct = (v: number) => +((v / MAX) * 100).toFixed(2);
 
   return (
     <div>
       {/* legend */}
-      <div className="flex flex-wrap gap-x-5 gap-y-1.5 mb-4">
+      <div className="flex flex-wrap gap-x-5 gap-y-1.5 mb-5">
         {PISA.series.map((s, i) => (
           <span key={i} className="inline-flex items-center gap-2 text-[11px] text-paper/70">
             <span className="w-2.5 h-2.5 rounded-full" style={{ background: s.color }} />
@@ -287,54 +284,77 @@ function PisaDotPlot({ locale }: { locale: 'en' | 'es' }) {
           </span>
         ))}
       </div>
-      <svg viewBox={`0 0 ${W} ${H}`} className="w-full h-auto" role="img" aria-label={PISA.caption[locale]}>
-        {/* gridlines + tick labels */}
-        {ticks.map((tv) => (
-          <g key={tv}>
-            <line x1={x(tv)} y1={30} x2={x(tv)} y2={H - 34} stroke="rgba(244,238,226,0.10)" strokeWidth="1" />
-            <text x={x(tv)} y={H - 16} textAnchor="middle" fontSize="10" fill="rgba(244,238,226,0.45)" fontFamily="var(--font-mono)">
-              {tv}
-            </text>
-          </g>
-        ))}
-        {PISA.subjects.map((subj, i) => {
-          const y = rowY(i);
-          return (
-            <g key={i}>
-              <text x={0} y={y + 4} fontSize="11.5" fill="rgba(244,238,226,0.75)" fontWeight="600">
-                {subj.label[locale]}
-              </text>
-              {/* row track */}
-              <line x1={PAD_L} y1={y} x2={W - PAD_R} y2={y} stroke="rgba(244,238,226,0.12)" strokeWidth="1.5" strokeLinecap="round" />
-              {/* dots — surface ring separates overlapping marks; hero series drawn last (on top) */}
-              {[2, 1, 0].map((si) => {
-                const v = subj.values[si];
-                return (
-                  <g key={si}>
-                    <circle cx={x(v)} cy={y} r={6.5} fill={PISA.series[si].color} stroke="#0B224E" strokeWidth="2">
-                      <title>{`${PISA.series[si].name[locale]} — ${subj.label[locale]}: ${v}`}</title>
-                    </circle>
-                    {/* direct labels on the two series the comparison is about */}
-                    {si < 2 && (
-                      <text
-                        x={x(v)}
-                        y={si === 0 ? y - 13 : y + 22}
-                        textAnchor="middle"
-                        fontSize="10.5"
-                        fontWeight="700"
-                        fill={PISA.series[si].labelColor}
-                        fontFamily="var(--font-mono)"
+
+      <div className="space-y-5">
+        {PISA.subjects.map((subj, g) => (
+          <div key={g} className="grid grid-cols-[64px,1fr] items-center gap-3">
+            <div className="text-[12px] font-semibold text-paper/75 text-right pr-1">{subj.label[locale]}</div>
+            <div className="relative py-0.5">
+              {ticks.map((t) => (
+                <span key={t} aria-hidden="true" className="absolute top-0 bottom-0 w-px bg-paper/10" style={{ left: `${pct(t)}%` }} />
+              ))}
+              <div className="relative space-y-[3px]">
+                {subj.values.map((v, si) => {
+                  const isHover = hover !== null && hover.g === g && hover.s === si;
+                  const dimmed = hover !== null && hover.g === g && hover.s !== si;
+                  return (
+                    <div
+                      key={si}
+                      className="relative h-[15px] cursor-pointer"
+                      onMouseEnter={() => setHover({ g, s: si })}
+                      onMouseLeave={() => setHover(null)}
+                    >
+                      <div
+                        className="absolute inset-y-0 left-0 rounded-r-[4px] transition-all duration-200"
+                        style={{
+                          width: `${pct(v)}%`,
+                          background: PISA.series[si].color,
+                          filter: isHover ? 'brightness(1.3)' : 'none',
+                          opacity: dimmed ? 0.45 : 1,
+                        }}
+                      />
+                      <span
+                        className="absolute top-1/2 -translate-y-1/2 font-mono text-[10px] font-bold"
+                        style={{ left: `calc(${pct(v)}% + 7px)`, color: PISA.series[si].labelColor }}
                       >
                         {v}
-                      </text>
-                    )}
-                  </g>
-                );
-              })}
-            </g>
-          );
-        })}
-      </svg>
+                      </span>
+                      {isHover && (
+                        <div
+                          className="absolute z-10 -top-9 px-3 py-1.5 rounded-lg bg-[#071638] border border-gold/40 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.6)] whitespace-nowrap pointer-events-none"
+                          style={{ left: `min(${pct(v)}%, 55%)` }}
+                        >
+                          <span className="text-[11px] text-paper">
+                            {PISA.series[si].name[locale]} · {subj.label[locale]}:{' '}
+                            <b className="text-gold-400 font-mono">{v}</b>
+                          </span>
+                        </div>
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+        ))}
+
+        {/* axis ticks */}
+        <div className="grid grid-cols-[64px,1fr] gap-3">
+          <span />
+          <div className="relative h-4">
+            {ticks.map((t) => (
+              <span
+                key={t}
+                className={`absolute font-mono text-[9.5px] text-paper/45 ${t === 0 ? '' : '-translate-x-1/2'}`}
+                style={{ left: `${pct(t)}%` }}
+              >
+                {t}
+              </span>
+            ))}
+          </div>
+        </div>
+      </div>
+
       {/* screen-reader table */}
       <table className="sr-only">
         <caption>{PISA.caption[locale]}</caption>
@@ -363,6 +383,7 @@ function PisaDotPlot({ locale }: { locale: 'en' | 'es' }) {
 
 /* ---------- Developmental-emphasis radar (dependency-free SVG) ---------- */
 function ModelRadar({ locale }: { locale: 'en' | 'es' }) {
+  const [hover, setHover] = useState<{ s: number; i: number } | null>(null);
   const W = 440;
   const S = 300;
   const CX = W / 2;
@@ -390,7 +411,8 @@ function ModelRadar({ locale }: { locale: 'en' | 'es' }) {
           </span>
         ))}
       </div>
-      <svg viewBox={`0 0 ${W} ${S}`} className="w-full h-auto max-w-[460px] mx-auto" role="img" aria-label={RADAR.caption[locale]}>
+      <div className="relative max-w-[460px] mx-auto">
+      <svg viewBox={`0 0 ${W} ${S}`} className="w-full h-auto" role="img" aria-label={RADAR.caption[locale]}>
         {/* rings + spokes */}
         {[2.5, 5, 7.5, 10].map((v) => (
           <polygon key={v} points={ring(v)} fill="none" stroke="rgba(244,238,226,0.10)" strokeWidth="1" />
@@ -411,10 +433,20 @@ function ModelRadar({ locale }: { locale: 'en' | 'es' }) {
             />
             {s.data.map((v, i) => {
               const p = pt(i, v);
+              const isHover = hover !== null && hover.s === si && hover.i === i;
               return (
-                <circle key={i} cx={p.x} cy={p.y} r={3.5} fill={s.color} stroke="#0B224E" strokeWidth="2">
-                  <title>{`${s.name[locale]} — ${RADAR.axes[i][locale]}: ${v}/10`}</title>
-                </circle>
+                <circle
+                  key={i}
+                  cx={p.x}
+                  cy={p.y}
+                  r={isHover ? 5.5 : 4}
+                  fill={s.color}
+                  stroke="#0B224E"
+                  strokeWidth="2"
+                  className="cursor-pointer transition-all duration-150"
+                  onMouseEnter={() => setHover({ s: si, i })}
+                  onMouseLeave={() => setHover(null)}
+                />
               );
             })}
           </g>
@@ -430,6 +462,21 @@ function ModelRadar({ locale }: { locale: 'en' | 'es' }) {
           );
         })}
       </svg>
+      {hover !== null && (() => {
+        const p = pt(hover.i, RADAR.series[hover.s].data[hover.i]);
+        return (
+          <div
+            className="absolute z-10 px-3 py-1.5 rounded-lg bg-[#071638] border border-gold/40 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.6)] whitespace-nowrap pointer-events-none -translate-x-1/2 -translate-y-full"
+            style={{ left: `${((p.x / W) * 100).toFixed(2)}%`, top: `calc(${((p.y / S) * 100).toFixed(2)}% - 10px)` }}
+          >
+            <span className="text-[11px] text-paper">
+              {RADAR.series[hover.s].name[locale]} · {RADAR.axes[hover.i][locale]}:{' '}
+              <b className="text-gold-400 font-mono">{RADAR.series[hover.s].data[hover.i]}/10</b>
+            </span>
+          </div>
+        );
+      })()}
+      </div>
       <table className="sr-only">
         <caption>{RADAR.caption[locale]}</caption>
         <thead>
@@ -925,7 +972,7 @@ export default function ModeloPage() {
           {/* Evidence charts */}
           <div className="grid md:grid-cols-2 gap-5 mb-4">
             <figure className="bg-white/[0.06] border border-white/10 rounded-3xl p-6 md:p-7 backdrop-blur-sm flex flex-col">
-              <PisaDotPlot locale={locale} />
+              <PisaBars locale={locale} />
               <figcaption className="mt-auto pt-4 font-mono text-[10px] uppercase tracking-[0.18em] text-paper/50">
                 {PISA.caption[locale]}
               </figcaption>
