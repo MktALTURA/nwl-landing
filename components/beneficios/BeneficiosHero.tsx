@@ -32,9 +32,9 @@ export default function BeneficiosHero() {
       {/* Kangaroo watermark */}
       <div className="absolute right-[-6%] bottom-[-12%] w-[55vh] h-[55vh] opacity-[0.06] pointer-events-none">
         <img
-          src="/images/brand/kangaroo-white-transparent.png"
+          src="/images/brand/nwl-as-kangaroo-white.png"
           alt=""
-          className="w-full h-full object-contain rotate-[15deg]"
+          className="w-full h-full object-contain"
         />
       </div>
 

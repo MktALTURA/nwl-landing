@@ -23,9 +23,9 @@ export default function CareersHero() {
       {/* Kangaroo watermark */}
       <div className="absolute bottom-10 right-10 opacity-[0.04]">
         <img
-          src="/images/brand/kangaroo-white-transparent.png"
+          src="/images/brand/nwl-as-kangaroo-white.png"
           alt=""
-          className="w-64 h-64 object-contain rotate-[15deg]"
+          className="w-64 h-64 object-contain"
         />
       </div>
 

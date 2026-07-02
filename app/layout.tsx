@@ -1,19 +1,23 @@
 import type { Metadata } from "next";
-import { Inter, Playfair_Display } from "next/font/google";
+import { Gabarito, Spline_Sans_Mono } from "next/font/google";
 import Script from "next/script";
 import { SITE_URL, SITE_NAME, PAGE_SEO } from "@/lib/seo";
 import { OrganizationJsonLd, WebSiteJsonLd } from "@/components/JsonLd";
 import MetaTracking from "@/components/MetaTracking";
 import "./globals.css";
 
-const inter = Inter({
+// Gabarito — the official NWL Australian School brand typeface (display → body).
+const gabarito = Gabarito({
   subsets: ["latin"],
-  variable: "--font-inter",
+  weight: ["400", "500", "600", "700", "800", "900"],
+  variable: "--font-brand",
 });
 
-const playfair = Playfair_Display({
+// Spline Sans Mono — uppercase eyebrows, labels, coordinates micro-type.
+const splineMono = Spline_Sans_Mono({
   subsets: ["latin"],
-  variable: "--font-playfair",
+  weight: ["400", "500", "600"],
+  variable: "--font-mono",
 });
 
 export const metadata: Metadata = {
@@ -24,7 +28,7 @@ export const metadata: Metadata = {
   },
   description: PAGE_SEO.home.description,
   keywords:
-    "newland, colegio, school, querétaro, educación, education, maternal, kinder, primaria, secundaria, preparatoria, bilingual, bilingüe, san miguel de allende",
+    "nwl australian school, newland, colegio, school, querétaro, educación, education, modelo australiano, australian model, acara, maternal, kinder, primaria, secundaria, preparatoria, bilingual, bilingüe, san miguel de allende",
   openGraph: {
     type: "website",
     locale: "es_MX",
@@ -38,7 +42,7 @@ export const metadata: Metadata = {
         url: PAGE_SEO.home.ogImage,
         width: 1200,
         height: 630,
-        alt: "Newland School — Bilingual private school in Querétaro",
+        alt: "NWL Australian School — Bilingual private school in Querétaro",
       },
     ],
   },
@@ -75,7 +79,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es" className={`${inter.variable} ${playfair.variable}`}>
+    <html lang="es" className={`${gabarito.variable} ${splineMono.variable}`}>
       <body className="font-sans antialiased">
         <OrganizationJsonLd />
         <WebSiteJsonLd />

@@ -2,42 +2,36 @@
 
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { FiStar, FiBook, FiUsers, FiTrendingUp } from 'react-icons/fi';
-import { FaChild } from 'react-icons/fa';
 import { useLanguage } from '@/lib/i18n/LanguageContext';
+import Crest from './ui/Crest';
 
-const levelsData = [
-  { icon: FaChild, color: 'sunshine', image: '/images/levels/maternal.jpg' },
-  { icon: FiStar, color: 'coral', image: '/images/levels/kinder.jpg' },
-  { icon: FiBook, color: 'ocean', image: '/images/levels/primaria.jpg' },
-  { icon: FiUsers, color: 'tangerine', image: '/images/levels/secundaria/nwl-secundaria-lab-team-fist-bump.jpg' },
-  { icon: FiTrendingUp, color: 'blueberry', image: '/images/levels/preparatoria.jpg' },
+// Escudo level mapping (NWL Australian School): Maternal + Kinder → Eucalyptus,
+// Elementary → Golden Wattle, Middle → Coral Sea, High School → Jacaranda.
+type CrestLevel = 'kinder' | 'elementary' | 'middle' | 'high';
+const levelsData: { crest: CrestLevel; color: string; image: string }[] = [
+  { crest: 'kinder', color: 'var(--nwl-eucalyptus)', image: '/images/levels/maternal.jpg' },
+  { crest: 'kinder', color: 'var(--nwl-eucalyptus)', image: '/images/levels/kinder.jpg' },
+  { crest: 'elementary', color: 'var(--nwl-wattle)', image: '/images/levels/primaria.jpg' },
+  { crest: 'middle', color: 'var(--nwl-coral-sea)', image: '/images/levels/secundaria/nwl-secundaria-lab-team-fist-bump.jpg' },
+  { crest: 'high', color: 'var(--nwl-jacaranda)', image: '/images/levels/preparatoria.jpg' },
 ];
-
-const colorMap: Record<string, string> = {
-  sunshine: 'bg-sunshine/30 text-sunshine-700 border-sunshine',
-  coral: 'bg-coral/30 text-coral-700 border-coral',
-  ocean: 'bg-ocean/30 text-ocean-700 border-ocean',
-  tangerine: 'bg-tangerine/30 text-tangerine-700 border-tangerine',
-  blueberry: 'bg-blueberry/30 text-blueberry-700 border-blueberry',
-};
 
 export default function Levels() {
   const { t } = useLanguage();
   const levels = levelsData.map((l, i) => ({ ...l, ...t.levels.items[i] }));
 
   return (
-    <section id="levels" className="section-padding bg-gradient-to-b from-white via-warmgray to-sand animate-section">
+    <section id="levels" className="section-padding bg-paper animate-section">
       <div className="container-custom">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <div className="bg-gradient-to-r from-sunshine via-coral to-ocean h-1 w-24 mx-auto mb-6 rounded-full" />
-          <h2 className="font-display text-4xl md:text-5xl font-bold text-charcoal mb-4">
-            {t.levels.sectionTitle} <span className="bg-gradient-to-r from-coral to-tangerine bg-clip-text text-transparent">{t.levels.sectionTitleAccent}</span>
-          </h2>
-          <p className="text-lg text-charcoal/70 max-w-2xl mx-auto">
+          <span className="inline-flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.22em] text-gold mb-5">
+            <span className="w-9 h-px bg-gold" />
             {t.levels.sectionSubtitle}
-          </p>
+          </span>
+          <h2 className="font-display text-4xl md:text-5xl font-medium tracking-[-0.02em] text-navy mb-4">
+            {t.levels.sectionTitle} <span className="italic text-gold">{t.levels.sectionTitleAccent}</span>
+          </h2>
         </div>
 
         {/* Levels Grid */}
@@ -49,40 +43,49 @@ export default function Levels() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="group bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 border-2 border-transparent hover:border-current"
-              style={{ borderColor: `var(--${level.color})` }}
+              className="group bg-white rounded-2xl overflow-hidden border border-navy/10 shadow-navy-sm hover:shadow-navy-lg hover:-translate-y-1 transition-all duration-300"
             >
-              {/* Level Image */}
-              <div className="aspect-[4/3] relative overflow-hidden bg-sand">
+              {/* Level color accent edge */}
+              <span aria-hidden="true" className="block h-[3px] w-full" style={{ background: level.color }} />
+
+              {/* Level Image with escudo crest + golden-hour grade */}
+              <div className="aspect-[4/3] relative overflow-hidden bg-paper nwl-grade">
                 <Image
                   src={level.image}
-                  alt={`${level.name} program at Newland - ${level.ageRange}`}
+                  alt={`${level.name} — NWL Australian School (${level.ageRange})`}
                   fill
                   sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   className="object-cover transition-transform duration-300 group-hover:scale-105"
                 />
+                <div className="absolute left-4 top-4 z-10 drop-shadow">
+                  <Crest level={level.crest} size={64} showBanner={false} />
+                </div>
               </div>
 
               {/* Content */}
               <div className="p-6">
-                <h3 className="text-2xl font-bold text-charcoal mb-2">
+                <h3 className="font-display text-2xl font-semibold text-navy mb-1">
                   {level.name}
                 </h3>
-                <p className={`text-sm font-bold mb-4 ${colorMap[level.color].split(' ')[1]}`}>
+                <p
+                  className="font-mono text-[11px] uppercase tracking-[0.18em] mb-4"
+                  style={{ color: level.color }}
+                >
                   {level.ageRange}
                 </p>
-                <p className="text-charcoal/70 mb-4 leading-relaxed">
+                <p className="text-navy/70 mb-4 leading-relaxed">
                   {level.description}
                 </p>
 
                 {/* Campuses */}
-                <div className="pt-4 border-t border-charcoal/10">
-                  <p className="text-xs text-charcoal/60 mb-2">{t.levels.availableAt}</p>
+                <div className="pt-4 border-t border-navy/10">
+                  <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-n-500 mb-2">{t.levels.availableAt}</p>
                   <div className="flex flex-wrap gap-2">
                     {level.campuses.map((campus) => (
                       <span
                         key={campus}
-                        className={`text-xs px-2 py-1 rounded-full ${colorMap[level.color].split(' ')[0]} font-medium`}
+                        className="font-mono text-[10px] uppercase tracking-[0.06em] px-2.5 py-1 rounded-full border"
+                        style={{ color: level.color, borderColor: level.color }}
                       >
                         {campus}
                       </span>
@@ -91,8 +94,11 @@ export default function Levels() {
                 </div>
 
                 {/* CTA */}
-                <a href={level.href} className={`mt-6 inline-block text-sm font-bold group-hover:underline ${colorMap[level.color].split(' ')[1]}`}>
-                  {t.levels.learnMore}
+                <a
+                  href={level.href}
+                  className="mt-6 inline-flex items-center gap-1 text-sm font-semibold text-gold-600 hover:gap-2 transition-all"
+                >
+                  {t.levels.learnMore} <span aria-hidden="true">→</span>
                 </a>
               </div>
             </motion.div>

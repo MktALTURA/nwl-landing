@@ -1050,7 +1050,7 @@ export const en: Dictionary = {
   careers: {
     heroTitle: 'Join Our',
     heroTitleAccent: 'Team',
-    heroSubtitle: 'Be part of a community that transforms lives through education. Discover your next opportunity at Newland School.',
+    heroSubtitle: 'Be part of a community that transforms lives through education. Discover your next opportunity at NWL Australian School.',
     heroCta: 'View Open Positions',
     whyTitle: 'Why Work at',
     whyTitleAccent: 'Newland',
@@ -1170,8 +1170,8 @@ export const en: Dictionary = {
     campusPortalCta: 'Parents Portal',
   },
   metadata: {
-    title: 'Newland School | At Newland, we unlock greatness',
+    title: 'NWL Australian School | The Australian way of learning',
     description:
-      'At Newland, we drive the academic, emotional, and social development of our students in a close and trusting environment.',
+      'At NWL Australian School, we drive the academic, emotional, and social development of our students on an Australian-inspired (ACARA) model.',
   },
 };

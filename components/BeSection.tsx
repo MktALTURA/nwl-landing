@@ -159,32 +159,33 @@ export default function BeSection() {
     <div ref={triggerRef}>
       <div
         ref={sectionRef}
-        className="min-h-[60vh] md:min-h-screen flex items-center justify-center bg-gradient-to-b from-white via-ivory to-white relative overflow-hidden"
+        className="min-h-[60vh] md:min-h-screen flex items-center justify-center nwl-bg-dawn relative overflow-hidden"
       >
-        {/* Faint kangaroo watermark for brand continuity */}
-        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[50vh] h-[50vh] opacity-[0.03] pointer-events-none">
-          <img
-            src="/images/brand/kangaroo-wine.png"
-            alt=""
-            className="w-full h-full object-contain rotate-[15deg]"
-          />
-        </div>
+        {/* Faint gold kangaroo watermark for brand continuity */}
+        <div
+          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[50vh] h-[50vh] opacity-[0.06] pointer-events-none"
+          style={{
+            backgroundColor: 'var(--nwl-gold)',
+            WebkitMask: "url('/images/brand/nwl-as-kangaroo-white.png') center / contain no-repeat",
+            mask: "url('/images/brand/nwl-as-kangaroo-white.png') center / contain no-repeat",
+          }}
+        />
 
         <div className="text-center relative z-10 w-full px-4">
-          {/* Wine accent divider — always visible */}
-          <div className="be-divider-pin w-16 h-[2px] bg-wine mx-auto mb-8" />
+          {/* Gold accent divider — always visible */}
+          <div className="be-divider-pin w-16 h-[2px] bg-gold mx-auto mb-8" />
 
           {/* "Be" / "Sé" static label — always visible */}
-          <div className="be-static font-display text-7xl md:text-8xl lg:text-9xl font-bold text-charcoal leading-none">
+          <div className="be-static font-display text-7xl md:text-8xl lg:text-9xl font-bold text-paper leading-none">
             {t.beSection.be}
           </div>
 
-          {/* Cycling word — stacked below, same size */}
+          {/* Cycling word — stacked below, same size, italic gold emphasis */}
           <div className="relative h-[86px] md:h-[115px] lg:h-[154px] mt-2 w-full">
             {t.beSection.words.map((word) => (
               <span
                 key={word}
-                className="be-word absolute inset-0 flex items-start justify-center font-display text-7xl md:text-8xl lg:text-9xl font-bold text-wine leading-none opacity-0"
+                className="be-word absolute inset-0 flex items-start justify-center font-display italic text-7xl md:text-8xl lg:text-9xl font-bold text-gold leading-none opacity-0"
               >
                 {word}
               </span>

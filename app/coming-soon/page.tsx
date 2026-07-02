@@ -12,7 +12,7 @@ export default function ComingSoon() {
       {/* Subtle background kangaroo */}
       <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[60vh] h-[60vh] opacity-[0.03] pointer-events-none">
         <Image
-          src="/images/brand/kangaroo-wine.png"
+          src="/images/brand/nwl-as-kangaroo-gold.png"
           alt=""
           width={600}
           height={600}
@@ -25,7 +25,7 @@ export default function ComingSoon() {
         {/* Logo */}
         <div className="flex justify-center mb-8">
           <Image
-            src="/images/brand/kangaroo-wine.png"
+            src="/images/brand/nwl-as-kangaroo-gold.png"
             alt="Newland School"
             width={80}
             height={80}

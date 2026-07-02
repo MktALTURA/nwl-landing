@@ -216,9 +216,9 @@ export default function NewlandKnotionNews() {
           <div className="flex items-center gap-4 md:gap-5 mb-8">
             <span className="flex items-center gap-2">
               <img
-                src="/images/brand/kangaroo-white-transparent.png"
+                src="/images/brand/nwl-as-kangaroo-white.png"
                 alt="Newland"
-                className="h-10 md:h-12 w-auto rotate-[15deg]"
+                className="h-10 md:h-12 w-auto"
               />
               <img
                 src="/images/brand/nwl-logo-white.png"

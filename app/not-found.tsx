@@ -14,7 +14,7 @@ export default function NotFound() {
       {/* Giant faded kangaroo background */}
       <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vh] h-[80vh] opacity-[0.03] pointer-events-none select-none">
         <Image
-          src="/images/brand/kangaroo-wine.png"
+          src="/images/brand/nwl-as-kangaroo-gold.png"
           alt=""
           width={800}
           height={800}

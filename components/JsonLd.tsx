@@ -20,12 +20,12 @@ export function OrganizationJsonLd() {
     '@id': `${SITE_URL}/#organization`,
     name: SITE_NAME,
     legalName: SITE_LEGAL_NAME,
-    alternateName: ['Colegio Newland', 'Colegio NWL'],
+    alternateName: ['Colegio Newland', 'Colegio NWL', 'NWL Australian School'],
     url: SITE_URL,
     dateModified: SITE_LAST_UPDATED,
     logo: {
       '@type': 'ImageObject',
-      url: `${SITE_URL}/images/brand/nwl-combo.png`,
+      url: `${SITE_URL}/images/brand/nwl-as-logo-color.png`,
     },
     image: `${SITE_URL}/images/og/home.jpg`,
     description:
@@ -128,7 +128,7 @@ export function WebSiteJsonLd() {
     '@type': 'WebSite',
     '@id': `${SITE_URL}/#website`,
     name: SITE_NAME,
-    alternateName: ['Colegio Newland', 'Colegio NWL'],
+    alternateName: ['Colegio Newland', 'Colegio NWL', 'NWL Australian School'],
     url: SITE_URL,
     publisher: { '@id': `${SITE_URL}/#organization` },
     inLanguage: ['es-MX', 'en'],
@@ -143,7 +143,7 @@ export function CampusJsonLd({ campus }: { campus: CampusData }) {
     '@context': 'https://schema.org',
     '@type': ['School', 'LocalBusiness'],
     '@id': `${SITE_URL}/#campus-${campus.slug}`,
-    name: `Newland School — Campus ${campus.name}`,
+    name: `NWL Australian School — Campus ${campus.name}`,
     url: `${SITE_URL}/campus/${campus.slug}`,
     image: `${SITE_URL}/images/og/campus-${campus.slug}.jpg`,
     description: `${campus.tagline.en}. ${campus.levels.en}.`,
@@ -261,7 +261,7 @@ export function ArticleJsonLd({
       name: SITE_NAME,
       logo: {
         '@type': 'ImageObject',
-        url: `${SITE_URL}/images/brand/nwl-logo-wine.png`,
+        url: `${SITE_URL}/images/brand/nwl-as-logo-color.png`,
       },
     },
   };

@@ -45,7 +45,7 @@ function BrochureContent({ level }: { level: string }) {
       <header className="flex items-center justify-between px-4 sm:px-6 py-3 bg-white border-b border-charcoal/10 shrink-0">
         <div className="flex items-center gap-3 min-w-0">
           <Image
-            src="/images/brand/kangaroo-wine.png"
+            src="/images/brand/nwl-as-kangaroo-gold.png"
             alt="Newland School"
             width={32}
             height={32}

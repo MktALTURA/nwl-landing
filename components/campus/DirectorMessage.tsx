@@ -23,7 +23,7 @@ export default function DirectorMessage({ director }: DirectorMessageProps) {
       {/* Kangaroo watermark */}
       <div className="absolute left-[-3%] bottom-[-8%] w-[30vh] h-[30vh] opacity-[0.05] pointer-events-none">
         <img
-          src="/images/brand/kangaroo-white-transparent.png"
+          src="/images/brand/nwl-as-kangaroo-white.png"
           alt=""
           className="w-full h-full object-contain rotate-[-15deg]"
         />

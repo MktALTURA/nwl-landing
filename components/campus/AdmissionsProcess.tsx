@@ -70,7 +70,7 @@ export default function AdmissionsProcess() {
                       {Icon ? (
                         <Icon size={26} className={colors.text} />
                       ) : (
-                        <img src="/images/brand/kangaroo-wine.png" alt="NWL" className="w-8 h-8 object-contain rotate-[15deg]" />
+                        <img src="/images/brand/nwl-as-kangaroo-gold.png" alt="NWL" className="w-8 h-8 object-contain" />
                       )}
                     </div>
 
@@ -120,7 +120,7 @@ export default function AdmissionsProcess() {
                       {Icon ? (
                         <Icon size={24} className={colors.text} />
                       ) : (
-                        <img src="/images/brand/kangaroo-wine.png" alt="NWL" className="w-7 h-7 object-contain rotate-[15deg]" />
+                        <img src="/images/brand/nwl-as-kangaroo-gold.png" alt="NWL" className="w-7 h-7 object-contain" />
                       )}
                     </div>
 

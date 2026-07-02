@@ -1,11 +1,11 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { FiDownload, FiArrowRight } from 'react-icons/fi';
 import { FaWhatsapp } from 'react-icons/fa';
 import BrochureLevelDropdown from './BrochureLevelDropdown';
+import SouthernCross from './ui/SouthernCross';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ScrollSmoother } from 'gsap/ScrollSmoother';
@@ -107,84 +107,70 @@ export default function Hero() {
     <section
       ref={heroRef}
       id="home"
-      className="relative min-h-screen flex items-center bg-gradient-to-br from-ivory via-sand to-warmgray overflow-hidden"
+      className="relative min-h-screen flex items-center nwl-bg-dawn-deep overflow-hidden"
     >
-      {/* Animated Background Gradient Orbs — CSS animation on mobile, Framer on desktop */}
+      {/* Soft navy/gold blooms — CSS animation on mobile, Framer on desktop */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-wine/10 rounded-full blur-3xl md:hidden animate-[orb1_20s_ease-in-out_infinite]" />
-        <div className="absolute bottom-1/3 right-1/4 w-[30rem] h-[30rem] bg-terracotta/10 rounded-full blur-3xl md:hidden animate-[orb2_25s_ease-in-out_2s_infinite]" />
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-navy rounded-full blur-3xl opacity-60 md:hidden animate-[orb1_20s_ease-in-out_infinite]" style={{ mixBlendMode: 'screen' }} />
+        <div className="absolute bottom-1/3 right-1/4 w-[30rem] h-[30rem] bg-gold/15 rounded-full blur-3xl md:hidden animate-[orb2_25s_ease-in-out_2s_infinite]" />
         <motion.div
-          animate={{
-            scale: [1, 1.2, 1],
-            x: [0, 50, 0],
-            y: [0, 30, 0],
-          }}
-          transition={{
-            duration: 20,
-            repeat: Infinity,
-            ease: 'easeInOut',
-          }}
-          className="absolute top-1/4 left-1/4 w-96 h-96 bg-wine/10 rounded-full blur-3xl hidden md:block"
+          animate={{ scale: [1, 1.2, 1], x: [0, 50, 0], y: [0, 30, 0] }}
+          transition={{ duration: 20, repeat: Infinity, ease: 'easeInOut' }}
+          className="absolute top-1/4 left-1/4 w-96 h-96 bg-navy rounded-full blur-3xl opacity-60 hidden md:block"
+          style={{ mixBlendMode: 'screen' }}
         />
         <motion.div
-          animate={{
-            scale: [1, 1.3, 1],
-            x: [0, -30, 0],
-            y: [0, 50, 0],
-          }}
-          transition={{
-            duration: 25,
-            repeat: Infinity,
-            ease: 'easeInOut',
-            delay: 2,
-          }}
-          className="absolute bottom-1/3 right-1/4 w-[30rem] h-[30rem] bg-terracotta/10 rounded-full blur-3xl hidden md:block"
+          animate={{ scale: [1, 1.3, 1], x: [0, -30, 0], y: [0, 50, 0] }}
+          transition={{ duration: 25, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
+          className="absolute bottom-1/3 right-1/4 w-[30rem] h-[30rem] bg-gold/15 rounded-full blur-3xl hidden md:block"
         />
       </div>
 
-      {/* Kangaroo Watermark */}
+      {/* Southern Cross — quiet corner motif */}
       <motion.div
-        initial={{ opacity: 0, scale: 0.9 }}
-        animate={{ opacity: 0.04, scale: 1 }}
-        transition={{ duration: 2, delay: 0.5 }}
-        className="absolute right-[-5%] top-[10%] w-[60vh] h-[60vh] z-[5] pointer-events-none"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 2, delay: 0.4 }}
+        className="absolute top-[14%] right-[6%] z-[5] pointer-events-none hidden md:block"
       >
-        <img 
-          src="/images/brand/kangaroo-wine.png" 
-          alt="" 
-          className="w-full h-full object-contain rotate-[15deg]"
-        />
+        <SouthernCross height={170} color="var(--nwl-paper)" opacity={0.42} />
       </motion.div>
 
-      {/* Background Image */}
-      <div className="absolute inset-0">
-        <Image
-          src="/images/hero-background.jpg"
-          alt="NWL School campus with students"
-          fill
-          priority
-          quality={80}
-          sizes="100vw"
-          className="object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-ivory/85 via-ivory/65 to-ivory/40 md:from-ivory/70 md:via-ivory/50 md:to-ivory/30 z-10" />
-      </div>
+      {/* Gold kangaroo watermark (existing silhouette, recolored via mask) */}
+      <motion.div
+        initial={{ opacity: 0, scale: 0.9 }}
+        animate={{ opacity: 0.07, scale: 1 }}
+        transition={{ duration: 2, delay: 0.5 }}
+        className="absolute right-[-5%] bottom-[2%] w-[55vh] h-[55vh] z-[4] pointer-events-none"
+        aria-hidden="true"
+        style={{
+          background: 'var(--nwl-gold)',
+          WebkitMaskImage: 'url(/images/brand/nwl-as-kangaroo-white.png)',
+          maskImage: 'url(/images/brand/nwl-as-kangaroo-white.png)',
+          WebkitMaskRepeat: 'no-repeat',
+          maskRepeat: 'no-repeat',
+          WebkitMaskPosition: 'center',
+          maskPosition: 'center',
+          WebkitMaskSize: 'contain',
+          maskSize: 'contain',
+        }}
+      />
 
       <div className="container-custom relative z-20 pt-28 md:pt-32 pb-20">
         <div className="max-w-4xl">
-          {/* Eyebrow — instant message match for paid traffic */}
+          {/* Eyebrow — mono kicker, instant message match for paid traffic */}
           <motion.p
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.05 }}
-            className="hero-divider mb-5 md:mb-6 inline-flex items-center gap-3 text-xs md:text-sm font-medium uppercase tracking-[0.18em] text-wine"
+            className="hero-divider mb-5 md:mb-6 inline-flex items-center gap-3 font-mono text-xs uppercase tracking-[0.22em] text-gold"
           >
-            <span className="w-10 h-[2px] bg-wine shrink-0" />
+            <span className="w-10 h-[1px] bg-gold shrink-0" />
             {t.hero.eyebrow}
           </motion.p>
 
           {/* Main Headline - Split into Left and Right for drift effect */}
-          <h1 className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-charcoal mb-5 md:mb-6 leading-tight">
+          <h1 className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-medium text-paper mb-5 md:mb-6 leading-[1.02] tracking-[-0.02em]">
             {/* Left side - drifts left and up */}
             <span className="headline-left inline-block">
               {t.hero.headlineLeft.map((word, i) => (
@@ -199,7 +185,7 @@ export default function Hero() {
             <span className="headline-right inline-block">
               {t.hero.headlineRight.map((word, i) => (
                 <span key={i}>
-                  <span className="word-wrap inline-block text-wine">{word}</span>
+                  <span className="word-wrap inline-block italic text-gold">{word}</span>
                   {i < t.hero.headlineRight.length - 1 ? ' ' : ''}
                 </span>
               ))}
@@ -211,7 +197,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.35 }}
-            className="text-xl md:text-2xl font-display text-charcoal/70 mb-8 md:mb-10 max-w-3xl leading-relaxed hero-subheadline"
+            className="text-lg md:text-xl text-paper/70 mb-8 md:mb-10 max-w-3xl leading-relaxed hero-subheadline"
           >
             {t.hero.subheadline}
           </motion.p>
@@ -230,13 +216,13 @@ export default function Hero() {
                 data-cta="hero_schedule_visit"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="btn-primary inline-flex items-center justify-center group shadow-lg shadow-wine/20"
+                className="btn-primary inline-flex items-center justify-center group"
               >
                 {t.hero.ctaPrimary}
                 <FiArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
               </motion.a>
 
-              {/* Secondary CTA — WhatsApp */}
+              {/* Secondary CTA — WhatsApp (ghost pill on dark) */}
               <motion.a
                 href="https://wa.me/5214421227791"
                 target="_blank"
@@ -244,7 +230,7 @@ export default function Hero() {
                 data-cta="hero_whatsapp"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="inline-flex items-center justify-center px-8 py-3 rounded-sm font-medium bg-white/90 text-charcoal border border-charcoal/15 shadow-sm hover:border-[#25D366]/60 transition-colors duration-300"
+                className="inline-flex items-center justify-center px-7 py-3 rounded-full font-semibold bg-paper/5 text-paper border border-paper/25 backdrop-blur-sm hover:border-[#25D366]/60 transition-colors duration-300"
               >
                 <FaWhatsapp className="mr-2 text-[#25D366]" size={20} />
                 {t.hero.ctaWhatsapp}
@@ -252,10 +238,17 @@ export default function Hero() {
             </div>
 
             {/* Tertiary — brochure download as quiet text link */}
-            <BrochureLevelDropdown className="mt-5 inline-flex items-center text-sm text-charcoal/70 underline underline-offset-4 decoration-wine/40 hover:text-wine transition-colors">
+            <BrochureLevelDropdown className="mt-5 inline-flex items-center text-sm text-paper/70 underline underline-offset-4 decoration-gold/50 hover:text-gold transition-colors">
               <FiDownload className="mr-2" />
               {t.hero.ctaBrochure}
             </BrochureLevelDropdown>
+
+            {/* Coordinates micro-type */}
+            <div className="mt-6 font-mono text-[11px] uppercase tracking-[0.18em] text-paper/45 flex items-center gap-2">
+              <span className="text-gold">QRO 20.59° N</span>
+              <span>·</span><span>↔</span><span>·</span>
+              <span className="text-gold">SYD 33.87° S</span>
+            </div>
           </motion.div>
 
           {/* Trust indicators with delayed reveal */}
@@ -263,7 +256,7 @@ export default function Hero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.7 }}
-            className="mt-10 md:mt-14 flex flex-wrap items-center gap-x-8 gap-y-3 text-sm text-charcoal/70 hero-trust"
+            className="mt-10 md:mt-14 flex flex-wrap items-center gap-x-8 gap-y-3 text-sm text-paper/70 hero-trust"
           >
             {t.hero.trustIndicators.map((label, index) => ({ label, delay: index * 0.08 })).map((item, index) => (
               <motion.div
@@ -273,7 +266,7 @@ export default function Hero() {
                 transition={{ duration: 0.4, delay: 0.75 + item.delay }}
                 className="flex items-center"
               >
-                <div className="w-12 h-[2px] bg-wine mr-3" />
+                <div className="w-12 h-[2px] bg-gold mr-3" />
                 <span>{item.label}</span>
               </motion.div>
             ))}
@@ -291,7 +284,7 @@ export default function Hero() {
         <motion.div
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 1.5, repeat: Infinity }}
-          className="w-6 h-10 border-2 border-wine/30 rounded-full flex justify-center cursor-pointer"
+          className="w-6 h-10 border-2 border-gold/40 rounded-full flex justify-center cursor-pointer"
           onClick={() => {
             // Benefits section's id is "about" — 'benefits' doesn't exist
             const target = document.getElementById('about');
@@ -306,13 +299,13 @@ export default function Hero() {
           <motion.div
             animate={{ y: [0, 12, 0] }}
             transition={{ duration: 1.5, repeat: Infinity }}
-            className="w-1 h-3 bg-wine/50 rounded-full mt-2"
+            className="w-1 h-3 bg-gold/60 rounded-full mt-2"
           />
         </motion.div>
       </motion.div>
 
-      {/* Decorative elements */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white to-transparent z-10" />
+      {/* Decorative fade into the next (light) section */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-paper to-transparent z-10" />
     </section>
   );
 }

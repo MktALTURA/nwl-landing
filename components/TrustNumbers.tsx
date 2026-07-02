@@ -7,7 +7,7 @@ export default function TrustNumbers() {
   const { locale, t } = useLanguage();
 
   return (
-    <section className="py-12 md:py-16 bg-sand">
+    <section className="py-12 md:py-16 bg-paper border-y border-navy/10">
       <div className="container-custom">
         <motion.div
           initial={{ opacity: 0 }}
@@ -29,8 +29,8 @@ export default function TrustNumbers() {
               : stat.value;
             return (
               <div key={i}>
-                <div className="text-4xl font-bold text-nwl-yellow mb-2">{value}</div>
-                <div className="text-sm text-charcoal/60">{stat.label}</div>
+                <div className="font-display text-4xl md:text-5xl font-medium tracking-[-0.02em] text-navy mb-2">{value}</div>
+                <div className="font-mono text-[11px] uppercase tracking-[0.18em] text-n-500">{stat.label}</div>
               </div>
             );
           })}

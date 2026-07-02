@@ -63,9 +63,9 @@ export default function BecomePartner() {
       {/* Kangaroo watermark */}
       <div className="absolute top-10 right-10 opacity-[0.04]">
         <img
-          src="/images/brand/kangaroo-white-transparent.png"
+          src="/images/brand/nwl-as-kangaroo-white.png"
           alt=""
-          className="w-48 h-48 object-contain rotate-[15deg]"
+          className="w-48 h-48 object-contain"
         />
       </div>
 

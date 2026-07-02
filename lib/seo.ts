@@ -1,8 +1,8 @@
 /** Centralized SEO constants used across metadata, sitemap, JSON-LD, etc. */
 
 export const SITE_URL = 'https://www.nwl.com.mx';
-export const SITE_NAME = 'Newland School';
-export const SITE_NAME_ES = 'Colegio Newland';
+export const SITE_NAME = 'NWL Australian School';
+export const SITE_NAME_ES = 'NWL Australian School';
 /** Registered legal entity name (distinct from the public brand names above). */
 export const SITE_LEGAL_NAME = 'Colegio NWL';
 
@@ -19,9 +19,9 @@ export const DEFAULT_OG_IMAGE = `${SITE_URL}/images/og/home.jpg`;
 /** Per-page SEO data — English metadata (server-rendered default for crawlers) */
 export const PAGE_SEO = {
   home: {
-    title: 'At Newland, we unlock greatness',
+    title: 'The Australian way of learning — NWL Australian School',
     description:
-      'Bilingual private school in Querétaro & San Miguel de Allende. Maternal through High School. English immersion, no homework, project-based learning. 5 campuses.',
+      'NWL Australian School — bilingual private school in Querétaro & San Miguel de Allende on an Australian-inspired (ACARA) model. Maternal through High School, English immersion, project-based learning. 5 campuses.',
     ogImage: '/images/og/home.jpg',
   },
   maternal: {
@@ -57,25 +57,25 @@ export const PAGE_SEO = {
   careers: {
     title: 'Work with Us — Trabaja con Nosotros',
     description:
-      'Join the Newland School team. Explore open teaching and administrative positions across our 5 campuses in Querétaro and San Miguel de Allende.',
+      'Join the NWL Australian School team. Explore open teaching and administrative positions across our 5 campuses in Querétaro and San Miguel de Allende.',
     ogImage: '/images/og/careers.jpg',
   },
   padres: {
     title: 'Parents Portal — Portal de Padres',
     description:
-      'Access school calendars, cafeteria menus, announcements, and supply lists for Newland School. Portal de padres de Colegio Newland.',
+      'Access school calendars, cafeteria menus, announcements, and supply lists for NWL Australian School. Portal de padres de NWL Australian School.',
     ogImage: '/images/og/home.jpg',
   },
   noticias: {
-    title: 'Noticias — Newland School',
+    title: 'Noticias — NWL Australian School',
     description:
-      'Actualizaciones oficiales de Colegio Newland: metodología, alianzas, campus y comunidad. News and updates from Newland School.',
+      'Actualizaciones oficiales de NWL Australian School: metodología, alianzas, campus y comunidad. News and updates from NWL Australian School.',
     ogImage: '/images/levels/kinder/kinder-digital-learning.jpg',
   },
   beneficios: {
-    title: 'Beneficios y Convenios — Comunidad Newland',
+    title: 'Beneficios y Convenios — Comunidad NWL',
     description:
-      'Beneficios y descuentos exclusivos para la comunidad Newland: salud, estudios clínicos, dental y más. Aliados que reconocen a las familias y colaboradores de Colegio NWL.',
+      'Beneficios y descuentos exclusivos para la comunidad NWL: salud, estudios clínicos, dental y más. Aliados que reconocen a las familias y colaboradores de Colegio NWL.',
     ogImage: '/images/og/home.jpg',
   },
   newlandKnotion: {

@@ -30,10 +30,10 @@ export default function Partnerships() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="font-display text-4xl md:text-5xl font-bold text-charcoal mb-4"
+            className="font-display text-4xl md:text-5xl font-bold text-charcoal tracking-tight mb-4"
           >
             {t.partnerships.sectionTitle}{' '}
-            <span className="text-wine">{t.partnerships.sectionTitleAccent}</span>
+            <span className="text-wine italic">{t.partnerships.sectionTitleAccent}</span>
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 15 }}
@@ -68,7 +68,7 @@ export default function Partnerships() {
                       />
                     </div>
                     {/* Name tooltip on hover */}
-                    <span className="absolute -bottom-6 whitespace-nowrap text-xs font-medium text-charcoal/70 opacity-0 group-hover/logo:opacity-100 transition-opacity duration-300">
+                    <span className="absolute -bottom-7 whitespace-nowrap text-[11px] font-medium text-paper bg-navy/90 px-3 py-1 rounded-full opacity-0 group-hover/logo:opacity-100 transition-opacity duration-300">
                       {partner.name}
                     </span>
                   </div>

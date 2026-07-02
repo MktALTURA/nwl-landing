@@ -99,7 +99,7 @@ export const es: Dictionary = {
       },
       {
         title: 'Yo Soy Líder NWL by Tec de Monterrey (YsL)',
-        subtitle: 'Único en México, exclusivo de Colegio Newland',
+        subtitle: 'Único en México, exclusivo de NWL Australian School',
         description:
           'Desarrollamos capacidades para trabajar en equipo. A través de una sana convivencia buscamos acuerdos para solucionar problemas. Programa diseñado y avalado exclusivamente para Colegio NWL S.C. por el Tec de Monterrey.',
       },
@@ -1051,7 +1051,7 @@ export const es: Dictionary = {
   careers: {
     heroTitle: 'Únete a Nuestro',
     heroTitleAccent: 'Equipo',
-    heroSubtitle: 'Sé parte de una comunidad que transforma vidas a través de la educación. Descubre tu próxima oportunidad en Colegio Newland.',
+    heroSubtitle: 'Sé parte de una comunidad que transforma vidas a través de la educación. Descubre tu próxima oportunidad en NWL Australian School.',
     heroCta: 'Ver Vacantes',
     whyTitle: 'Por Qué Trabajar en',
     whyTitleAccent: 'Newland',
@@ -1171,8 +1171,8 @@ export const es: Dictionary = {
     campusPortalCta: 'Portal de Padres',
   },
   metadata: {
-    title: 'Colegio Newland | En Newland, despertamos tu grandeza',
+    title: 'NWL Australian School | El modo australiano de aprender',
     description:
-      'En Newland impulsamos el desarrollo académico, emocional y social de nuestros alumnos en un ambiente cercano y de confianza.',
+      'En NWL Australian School impulsamos el desarrollo académico, emocional y social de nuestros alumnos con un modelo inspirado en el currículo australiano (ACARA).',
   },
 };

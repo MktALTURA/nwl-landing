@@ -4,6 +4,7 @@ import { usePathname } from 'next/navigation';
 import { FiMail, FiPhone, FiMapPin, FiFacebook, FiInstagram } from 'react-icons/fi';
 import { FaWhatsapp } from 'react-icons/fa';
 import { useLanguage } from '@/lib/i18n/LanguageContext';
+import Logo from './ui/Logo';
 
 const campuses = [
   'Juriquilla',
@@ -25,27 +26,22 @@ export default function Footer() {
   };
 
   return (
-    <footer id="contact" className="bg-charcoal text-white">
+    <footer id="contact" className="bg-navy-900 text-paper">
       {/* Main Footer */}
       <div className="container-custom py-16">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Brand Column */}
           <div>
-            <div className="flex items-center gap-2 mb-4">
-              <img
-                src="/images/brand/kangaroo-white-transparent.png"
-                alt="NWL mascot"
-                className="h-14 w-auto rotate-[15deg]"
-              />
-              <img
-                src="/images/brand/nwl-logo-white.png"
-                alt="Colegio NWL"
-                className="h-12 w-auto"
-              />
+            <div className="mb-5">
+              <Logo variant="white" height={52} />
             </div>
 
-            <p className="text-white/70 mb-6 leading-relaxed">
+            <p className="text-paper/70 mb-5 leading-relaxed">
               {t.footer.brandDescription}
+            </p>
+
+            <p className="font-display italic text-lg text-paper mb-6">
+              Be Proud. <span className="text-gold">Be Newland.</span>
             </p>
 
             {/* Social Links */}
@@ -54,7 +50,7 @@ export default function Footer() {
                 href="https://www.facebook.com/ColegioNewland"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-wine transition-colors"
+                className="w-10 h-10 bg-paper/10 rounded-full flex items-center justify-center hover:bg-gold hover:text-navy-900 transition-colors"
               >
                 <FiFacebook size={18} />
               </a>
@@ -62,7 +58,7 @@ export default function Footer() {
                 href="https://www.instagram.com/colegionwl"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-wine transition-colors"
+                className="w-10 h-10 bg-paper/10 rounded-full flex items-center justify-center hover:bg-gold hover:text-navy-900 transition-colors"
               >
                 <FiInstagram size={18} />
               </a>
@@ -71,7 +67,7 @@ export default function Footer() {
 
           {/* Our School */}
           <div>
-            <h3 className="font-bold text-lg mb-4 text-white">{t.footer.schoolHeading}</h3>
+            <h3 className="font-mono text-[11px] uppercase tracking-[0.22em] text-gold mb-4">{t.footer.schoolHeading}</h3>
             <ul className="space-y-2">
               {t.footer.schoolLinks.map((link) => (
                 <li key={link.href}>
@@ -88,7 +84,7 @@ export default function Footer() {
 
           {/* Programs */}
           <div>
-            <h3 className="font-bold text-lg mb-4 text-white">{t.footer.programsHeading}</h3>
+            <h3 className="font-mono text-[11px] uppercase tracking-[0.22em] text-gold mb-4">{t.footer.programsHeading}</h3>
             <ul className="space-y-2">
               {t.footer.programLinks.map((link) => (
                 <li key={link.name}>
@@ -105,7 +101,7 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h3 className="font-bold text-lg mb-4 text-white">{t.footer.contactHeading}</h3>
+            <h3 className="font-mono text-[11px] uppercase tracking-[0.22em] text-gold mb-4">{t.footer.contactHeading}</h3>
             <div className="bg-white/5 border border-white/10 rounded-lg px-4 py-3 mb-4">
               <p className="text-[11px] uppercase tracking-wider text-white/40 mb-2">{t.footer.contactLabel}</p>
               <a
@@ -148,12 +144,32 @@ export default function Footer() {
       </div>
 
       {/* Bottom Bar */}
-      <div className="border-t border-white/10">
+      <div className="border-t border-paper/10">
         <div className="container-custom py-6">
-          <div className="flex flex-col md:flex-row justify-between items-center text-sm text-white/60">
-            <p>{t.footer.copyright}</p>
-            <div className="flex gap-6 mt-4 md:mt-0">
-              <a href="/images/Aviso de privacidad/AVISO-PRIVACIDAD-NWL.pdf" target="_blank" rel="noopener noreferrer" className="hover:text-white">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-paper/60">
+            <p className="flex items-center gap-3">
+              <span
+                aria-hidden="true"
+                className="nwl-hop--loop inline-block w-6 h-6 flex-shrink-0"
+                style={{
+                  background: 'var(--nwl-gold)',
+                  WebkitMaskImage: 'url(/images/brand/nwl-as-kangaroo-white.png)',
+                  maskImage: 'url(/images/brand/nwl-as-kangaroo-white.png)',
+                  WebkitMaskRepeat: 'no-repeat',
+                  maskRepeat: 'no-repeat',
+                  WebkitMaskPosition: 'center',
+                  maskPosition: 'center',
+                  WebkitMaskSize: 'contain',
+                  maskSize: 'contain',
+                }}
+              />
+              {t.footer.copyright}
+            </p>
+            <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-paper/40">
+              QRO 20.59° N <span className="text-gold">↔</span> SYD 33.87° S
+            </p>
+            <div className="flex gap-6">
+              <a href="/images/Aviso de privacidad/AVISO-PRIVACIDAD-NWL.pdf" target="_blank" rel="noopener noreferrer" className="hover:text-paper">
                 {t.footer.privacyPolicy}
               </a>
             </div>

@@ -23,7 +23,7 @@ export default function Benefits() {
         <div className="text-center mb-16">
           <div className="wine-divider mx-auto mb-6" />
           <h2 className="font-display text-4xl md:text-5xl font-bold text-charcoal mb-4">
-            {t.benefits.sectionTitle} <span className="text-wine">{t.benefits.sectionTitleAccent}</span>
+            {t.benefits.sectionTitle} <span className="italic text-gold">{t.benefits.sectionTitleAccent}</span>
           </h2>
           <p className="text-lg text-charcoal/70 max-w-2xl mx-auto">
             {t.benefits.sectionSubtitle}
@@ -39,13 +39,13 @@ export default function Benefits() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="group bg-ivory rounded-lg overflow-hidden transition-shadow duration-300 hover:shadow-xl"
+              className="group bg-white rounded-2xl overflow-hidden border border-navy/10 shadow-navy-sm transition-shadow duration-300 hover:shadow-navy-md"
             >
-              {/* Yellow brand accent bar */}
-              <div className="h-[3px] bg-nwl-yellow" />
+              {/* Gold brand accent bar */}
+              <div className="h-[3px] bg-gold" />
 
               {/* Benefit Image */}
-              <div className="aspect-[4/3] relative overflow-hidden bg-sand">
+              <div className="aspect-[4/3] relative overflow-hidden bg-paper nwl-grade">
                 <Image
                   src={benefit.image}
                   alt={benefit.title}
@@ -74,9 +74,9 @@ export default function Benefits() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
           viewport={{ once: true }}
-          className="mt-16 rounded-lg overflow-hidden shadow-xl"
+          className="mt-16 rounded-2xl overflow-hidden shadow-navy-md"
         >
-          <div className="aspect-[21/9] relative bg-sand">
+          <div className="aspect-[21/9] relative bg-paper nwl-grade">
             <Image
               src="/images/campus-life-hero.jpg"
               alt="Students engaged in activities across the Newland campus"

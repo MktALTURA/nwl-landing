@@ -71,9 +71,9 @@ export default function InformacionHero({ page }: InformacionHeroProps) {
       {/* Kangaroo Watermark */}
       <div className="absolute right-[-5%] bottom-[-5%] w-[30vh] h-[30vh] opacity-[0.06] pointer-events-none">
         <img
-          src="/images/brand/kangaroo-white-transparent.png"
+          src="/images/brand/nwl-as-kangaroo-white.png"
           alt=""
-          className="w-full h-full object-contain rotate-[15deg]"
+          className="w-full h-full object-contain"
         />
       </div>
     </section>

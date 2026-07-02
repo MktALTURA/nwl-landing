@@ -9,7 +9,8 @@ if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger);
 }
 
-function burstDust(x: number, y: number, color = 'rgba(114,47,55,0.3)') {
+// DS Outback Gold (#CB8606) at low alpha — kicked-up dust on the dark dawn surface
+function burstDust(x: number, y: number, color = 'rgba(203,134,6,0.4)') {
   for (let i = 0; i < 8; i++) {
     const dot = document.createElement('div');
     const size = 3 + Math.random() * 5;
@@ -53,7 +54,7 @@ function arcKeyframes(
 
 export default function KangarooSpirit() {
   const containerRef = useRef<HTMLDivElement>(null);
-  const kangarooImgRef = useRef<HTMLImageElement>(null);
+  const kangarooImgRef = useRef<HTMLDivElement>(null);
   const shimmerRef = useRef<HTMLDivElement>(null);
   const ringRef = useRef<HTMLDivElement>(null);
   const ringOuterRef = useRef<HTMLDivElement>(null);
@@ -61,19 +62,21 @@ export default function KangarooSpirit() {
   const [isMounted, setIsMounted] = useState(false);
   const jumpTlRef = useRef<gsap.core.Timeline | null>(null);
   const hasJumpedRef = useRef(false);
-  const flyerRef = useRef<HTMLImageElement | null>(null);
+  const flyerRef = useRef<HTMLDivElement | null>(null);
   const { t } = useLanguage();
 
   useEffect(() => { setIsMounted(true); }, []);
 
   const getFlyer = useCallback(() => {
     if (flyerRef.current) return flyerRef.current;
-    const flyer = document.createElement('img');
-    flyer.src = '/images/brand/kangaroo-wine.png';
-    flyer.alt = '';
+    // Gold-masked kangaroo silhouette so the in-flight mascot matches the DS Outback Gold mascot
+    const flyer = document.createElement('div');
     flyer.style.cssText = `
-      position:fixed;pointer-events:none;z-index:10000;
-      object-fit:contain;opacity:0;filter:drop-shadow(0 4px 12px rgba(0,0,0,0.15));
+      position:fixed;pointer-events:none;z-index:10000;opacity:0;
+      background:var(--nwl-gold);
+      -webkit-mask:url('/images/brand/nwl-as-kangaroo-white.png') center / contain no-repeat;
+      mask:url('/images/brand/nwl-as-kangaroo-white.png') center / contain no-repeat;
+      filter:drop-shadow(0 6px 16px rgba(11,34,78,0.35));
     `;
     document.body.appendChild(flyer);
     flyerRef.current = flyer;
@@ -473,35 +476,40 @@ export default function KangarooSpirit() {
   if (!isMounted) return null;
 
   return (
-    <div ref={containerRef} className="relative py-24 overflow-visible" id="our-spirit">
-      <div className="absolute inset-0 bg-gradient-to-b from-white via-sand/30 to-ivory" />
+    <div ref={containerRef} className="relative py-24 overflow-visible nwl-bg-dawn" id="our-spirit">
+      <div className="absolute inset-0 nwl-bg-dawn-deep opacity-70" />
       <div className="container-custom relative z-10">
         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
           <div className="relative flex-shrink-0">
             <div ref={circleAreaRef} className="relative w-[280px] h-[280px] md:w-[360px] md:h-[360px]">
               <div className="kangaroo-reveal w-full h-full flex items-center justify-center">
-                <img ref={kangarooImgRef} id="spirit-kangaroo"
-                  src="/images/brand/kangaroo-wine.png" alt="NWL Kangaroo - Our Spirit"
-                  className="w-[85%] h-[85%] object-contain drop-shadow-lg rotate-[15deg]" />
+                <div ref={kangarooImgRef} id="spirit-kangaroo"
+                  role="img" aria-label="NWL Kangaroo - Our Spirit"
+                  className="w-[85%] h-[85%] drop-shadow-lg"
+                  style={{
+                    backgroundColor: 'var(--nwl-gold)',
+                    WebkitMask: "url('/images/brand/nwl-as-kangaroo-white.png') center / contain no-repeat",
+                    mask: "url('/images/brand/nwl-as-kangaroo-white.png') center / contain no-repeat",
+                  }} />
               </div>
               <div className="absolute inset-0 overflow-hidden rounded-full pointer-events-none">
-                <div ref={shimmerRef} className="absolute inset-y-0 w-1/3 bg-gradient-to-r from-transparent via-white/40 to-transparent -translate-x-full" />
+                <div ref={shimmerRef} className="absolute inset-y-0 w-1/3 bg-gradient-to-r from-transparent via-gold/30 to-transparent -translate-x-full" />
               </div>
-              <div ref={ringRef} className="absolute -inset-4 border border-wine/15 rounded-full" />
-              <div ref={ringOuterRef} className="absolute -inset-10 border border-wine/8 rounded-full" />
+              <div ref={ringRef} className="absolute -inset-4 border border-gold/25 rounded-full" />
+              <div ref={ringOuterRef} className="absolute -inset-10 border border-gold/10 rounded-full" />
             </div>
           </div>
           <div className="text-center lg:text-left max-w-lg">
             <div className="spirit-text wine-divider mb-6 mx-auto lg:mx-0" />
-            <h2 className="spirit-text font-display text-3xl md:text-4xl font-bold text-charcoal mb-4">
-              {t.kangarooSpirit.titleBefore} <span className="text-wine">{t.kangarooSpirit.titleAccent}</span>
+            <h2 className="spirit-text font-display text-3xl md:text-4xl font-bold text-paper mb-4">
+              {t.kangarooSpirit.titleBefore} <span className="italic text-gold">{t.kangarooSpirit.titleAccent}</span>
             </h2>
-            <p className="spirit-text text-charcoal/70 text-lg leading-relaxed mb-6">
+            <p className="spirit-text text-paper/70 text-lg leading-relaxed mb-6">
               {t.kangarooSpirit.description}
             </p>
             <div className="flex flex-wrap gap-4 justify-center lg:justify-start">
               {t.kangarooSpirit.traits.map((trait) => (
-                <span key={trait} className="spirit-trait px-5 py-2 bg-wine/5 text-wine text-sm font-medium rounded-full border border-wine/15 hover:bg-wine/10 transition-colors">
+                <span key={trait} className="spirit-trait px-5 py-2 bg-gold/10 text-gold text-sm font-medium rounded-full border border-gold/30 hover:bg-gold/20 transition-colors">
                   {trait}
                 </span>
               ))}

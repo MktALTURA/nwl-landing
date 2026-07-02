@@ -26,8 +26,8 @@ export default function Philosophy() {
           {/* Left: Content */}
           <div>
             <div className="wine-divider mb-6" />
-            <h2 className="font-display text-4xl md:text-5xl font-bold text-charcoal mb-6">
-              {t.philosophy.sectionTitle} <span className="text-wine">{t.philosophy.sectionTitleAccent}</span>{t.philosophy.sectionTitleEnd ? ` ${t.philosophy.sectionTitleEnd}` : ''}
+            <h2 className="font-display text-4xl md:text-5xl font-bold text-charcoal tracking-tight mb-6">
+              {t.philosophy.sectionTitle} <span className="text-wine italic">{t.philosophy.sectionTitleAccent}</span>{t.philosophy.sectionTitleEnd ? ` ${t.philosophy.sectionTitleEnd}` : ''}
             </h2>
             <p className="text-lg text-charcoal/80 mb-8 leading-relaxed">
               {t.philosophy.sectionDescription}
@@ -42,10 +42,10 @@ export default function Philosophy() {
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.15 }}
                   viewport={{ once: true }}
-                  className="flex items-center gap-5 bg-white p-5 rounded-lg hover:shadow-md transition-all duration-300 border-l-4 border-transparent hover:border-nwl-yellow"
+                  className="flex items-center gap-5 bg-white p-5 rounded-2xl border border-navy/10 border-l-4 border-l-transparent shadow-[0_12px_32px_-20px_rgba(11,34,78,0.28)] hover:shadow-[0_18px_44px_-18px_rgba(11,34,78,0.32)] hover:border-l-gold transition-all duration-300"
                 >
                   {/* Logo */}
-                  <div className={`flex-shrink-0 w-20 h-20 rounded-lg flex items-center justify-center overflow-hidden ${pillar.logoImage ? '' : 'border-2 border-dashed border-wine/30 bg-wine/5'}`}>
+                  <div className={`flex-shrink-0 w-20 h-20 rounded-xl flex items-center justify-center overflow-hidden ${pillar.logoImage ? '' : 'border-2 border-dashed border-wine/30 bg-wine/5'}`}>
                     {pillar.logoImage ? (
                       <Image
                         src={pillar.logoImage}
@@ -64,7 +64,7 @@ export default function Philosophy() {
                     <h3 className="text-lg font-bold text-charcoal mb-1">
                       {pillar.title}
                     </h3>
-                    <p className="text-base font-semibold text-wine mb-2">
+                    <p className="text-base font-semibold text-wine italic mb-2">
                       {pillar.subtitle}
                     </p>
                     <p className="text-charcoal/70 text-sm leading-relaxed">
@@ -91,7 +91,7 @@ export default function Philosophy() {
             className="relative space-y-4"
           >
             {/* Main large image */}
-            <div className="aspect-[4/3] rounded-lg overflow-hidden relative bg-sand">
+            <div className="aspect-[4/3] rounded-2xl overflow-hidden relative bg-sand ring-1 ring-navy/10 nwl-grade">
               <Image
                 src="/images/philosophy/philosophy-main.jpg"
                 alt="Students collaborating on a project at Newland"
@@ -103,7 +103,7 @@ export default function Philosophy() {
 
             {/* Two smaller images below */}
             <div className="grid grid-cols-2 gap-4">
-              <div className="aspect-square rounded-lg overflow-hidden relative bg-sand">
+              <div className="aspect-square rounded-2xl overflow-hidden relative bg-sand ring-1 ring-navy/10 nwl-grade">
                 <Image
                   src="/images/philosophy/philosophy-1.jpg"
                   alt="Outdoor learning at Newland"
@@ -112,7 +112,7 @@ export default function Philosophy() {
                   className="object-cover"
                 />
               </div>
-              <div className="aspect-square rounded-lg overflow-hidden relative bg-sand">
+              <div className="aspect-square rounded-2xl overflow-hidden relative bg-sand ring-1 ring-navy/10 nwl-grade">
                 <Image
                   src="/images/philosophy/philosophy-2.jpg"
                   alt="Hands-on collaboration at Newland"
@@ -124,7 +124,7 @@ export default function Philosophy() {
             </div>
 
             {/* Accent decoration */}
-            <div className="absolute -bottom-4 -right-4 w-32 h-32 bg-nwl-yellow/20 -z-10 rounded-lg" />
+            <div className="absolute -bottom-4 -right-4 w-32 h-32 bg-gold/15 -z-10 rounded-2xl" />
           </motion.div>
         </div>
       </div>

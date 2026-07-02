@@ -7,6 +7,7 @@ import { FaWhatsapp } from 'react-icons/fa';
 import { useLanguage } from '@/lib/i18n/LanguageContext';
 import { useGHLFormTracking } from '@/lib/hooks/useGHLFormTracking';
 import { buildGHLFormSrc } from '@/lib/utm';
+import SouthernCross from './ui/SouthernCross';
 
 export default function FinalCTA() {
   const { locale, t } = useLanguage();
@@ -93,19 +94,24 @@ export default function FinalCTA() {
   ];
 
   return (
-    <section id="admissions" className="section-padding bg-gradient-to-br from-wine to-wine/90 text-white relative overflow-hidden animate-section">
+    <section id="admissions" className="section-padding nwl-bg-dawn text-paper relative overflow-hidden animate-section">
       {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-mustard rounded-full blur-3xl" />
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-eucalyptus rounded-full blur-3xl" />
+      <div className="absolute inset-0 opacity-20">
+        <div className="absolute top-0 right-0 w-96 h-96 bg-gold rounded-full blur-3xl" />
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-navy rounded-full blur-3xl" style={{ mixBlendMode: 'screen' }} />
+      </div>
+
+      {/* Southern Cross motif */}
+      <div className="absolute top-10 right-[6%] z-[1] pointer-events-none hidden md:block">
+        <SouthernCross height={120} color="var(--nwl-gold)" opacity={0.3} />
       </div>
 
       {/* Kangaroo Watermark */}
       <div className="absolute right-[-5%] bottom-[-10%] w-[50vh] h-[50vh] opacity-[0.06] pointer-events-none">
         <img
-          src="/images/brand/kangaroo-white-transparent.png"
+          src="/images/brand/nwl-as-kangaroo-white.png"
           alt=""
-          className="w-full h-full object-contain rotate-[15deg]"
+          className="w-full h-full object-contain"
         />
       </div>
 
@@ -118,10 +124,10 @@ export default function FinalCTA() {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <h2 className="font-display text-4xl md:text-6xl font-bold mb-6">
-            {t.finalCta.title} <span className="text-mustard">{t.finalCta.titleAccent}</span>
+          <h2 className="font-display text-4xl md:text-6xl font-medium tracking-[-0.02em] mb-6">
+            {t.finalCta.title} <span className="italic text-gold">{t.finalCta.titleAccent}</span>
           </h2>
-          <p className="text-xl text-white/90 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-xl text-paper/80 max-w-2xl mx-auto leading-relaxed">
             {t.finalCta.subtitle}
           </p>
         </motion.div>
@@ -158,9 +164,9 @@ export default function FinalCTA() {
                   target="_blank"
                   rel="noopener noreferrer"
                   data-cta={card.label}
-                  className="w-full text-left bg-white/10 backdrop-blur-sm rounded-lg p-6 hover:bg-white/20 transition-colors duration-300 group block"
+                  className="w-full text-left bg-paper/10 backdrop-blur-sm rounded-2xl p-6 hover:bg-paper/20 border border-paper/10 transition-colors duration-300 group block"
                 >
-                  <div className="text-mustard group-hover:text-green-400 transition-colors mb-3">
+                  <div className="text-gold group-hover:text-green-400 transition-colors mb-3">
                     {card.icon}
                   </div>
                   <h3 className="font-bold text-lg mb-2 group-hover:text-green-400 transition-colors">
@@ -175,12 +181,12 @@ export default function FinalCTA() {
                   key={card.label}
                   onClick={scrollToForm}
                   data-cta={card.label}
-                  className="w-full text-left bg-white/10 backdrop-blur-sm rounded-lg p-6 hover:bg-white/20 transition-colors duration-300 group"
+                  className="w-full text-left bg-paper/10 backdrop-blur-sm rounded-2xl p-6 hover:bg-paper/20 border border-paper/10 transition-colors duration-300 group"
                 >
-                  <div className="text-mustard mb-3">
+                  <div className="text-gold mb-3">
                     {card.icon}
                   </div>
-                  <h3 className="font-bold text-lg mb-2 group-hover:text-mustard transition-colors">
+                  <h3 className="font-bold text-lg mb-2 group-hover:text-gold transition-colors">
                     {card.title}
                   </h3>
                   <p className="text-white/80 text-sm leading-relaxed">

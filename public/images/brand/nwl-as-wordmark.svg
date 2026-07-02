@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="200" viewBox="0 0 640 200" role="img" aria-label="NWL Australian School">
+  <rect width="640" height="200" fill="#0B224E"/>
+  <!-- Southern Cross accent (gold) -->
+  <g fill="#CB8606" transform="translate(70 100) scale(0.42) translate(-100 -130)">
+    <path d="M100 10l3.09 9.59 9.42-3.57-5.58 8.4 8.67 5.14-10.04.87 1.38 9.99L100 33.11l-6.94 7.31 1.38-9.99-10.04-.87 8.67-5.14-5.58-8.4 9.42 3.57z"/>
+    <path d="M100 218l3.09 9.59 9.42-3.57-5.58 8.4 8.67 5.14-10.04.87 1.38 9.99L100 241.11l-6.94 7.31 1.38-9.99-10.04-.87 8.67-5.14-5.58-8.4 9.42 3.57z"/>
+    <path d="M32 102l3.09 9.59 9.42-3.57-5.58 8.4 8.67 5.14-10.04.87 1.38 9.99L32 125.11l-6.94 7.31 1.38-9.99-10.04-.87 8.67-5.14-5.58-8.4 9.42 3.57z"/>
+    <path d="M168 80l3.09 9.59 9.42-3.57-5.58 8.4 8.67 5.14-10.04.87 1.38 9.99L168 103.11l-6.94 7.31 1.38-9.99-10.04-.87 8.67-5.14-5.58-8.4 9.42 3.57z"/>
+    <path d="M124 139l2.35 5.76 6.21.46-4.76 4.02 1.49 6.04L124 152l-5.29 3.28 1.49-6.04-4.76-4.02 6.21-.46z"/>
+  </g>
+  <text x="150" y="108" font-family="Gabarito, system-ui, sans-serif" font-weight="800" font-size="68" letter-spacing="-1.5" fill="#F4EEE2">NWL</text>
+  <text x="152" y="146" font-family="'Spline Sans Mono', ui-monospace, monospace" font-weight="500" font-size="20" letter-spacing="6" fill="#CB8606">AUSTRALIAN SCHOOL</text>
+</svg>
