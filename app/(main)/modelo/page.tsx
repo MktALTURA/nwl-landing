@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
-import { motion } from 'framer-motion';
+import { motion, useMotionValue, useSpring, useTransform, useReducedMotion } from 'framer-motion';
 import {
   FiAward, FiHeart, FiMessageSquare, FiTrendingUp, FiFolder, FiCpu, FiCompass,
   FiLayers, FiTarget, FiMessageCircle, FiSmile, FiGlobe, FiUsers, FiMap,
@@ -35,13 +35,34 @@ const Icon = ({ name, size = 18, className = '' }: { name: string; size?: number
 };
 
 /* ---------- wheel geometry (deck construction: pastel outer band touching
-   the component ring, white dividers, leader lines + dots per capability) ---------- */
+   the component ring, white dividers hub→perimeter, and per-capability
+   sub-divider lines that run from a dot at the ring edge out to the perimeter,
+   splitting each slice into thirds with the label inside each third) ---------- */
 const SEG = 360 / 7;
-const R_HUB = 20.8; // center circle
-const R_INNER = 21.8; // component ring, inner edge
-const R_OUTER = 34; // component ring outer edge = capability band inner edge
+const R_HUB = 17.2; // center circle
+const R_INNER = 18.2; // component ring, inner edge
+const R_OUTER = 33.8; // component ring outer edge = capability band inner edge
 const R_CAP_OUT = 49.2; // capability band outer edge
-const R_LABEL = (R_INNER + R_OUTER) / 2;
+const R_LABEL = (R_INNER + R_OUTER) / 2 + 0.3; // component name cluster
+const R_CAP_LABEL = (R_OUTER + R_CAP_OUT) / 2; // capability label cluster
+/** How far (viewBox units) the active slice pops outward along its mid-angle. */
+const EXPLODE = 1.4;
+function sliceOffset(i: number, active: number) {
+  if (i !== active) return { dx: 0, dy: 0 };
+  const rad = ((i * SEG - 90) * Math.PI) / 180;
+  return { dx: +(EXPLODE * Math.cos(rad)).toFixed(3), dy: +(EXPLODE * Math.sin(rad)).toFixed(3) };
+}
+const POP_EASE = 'cubic-bezier(0.34, 1.56, 0.64, 1)';
+/* Twinkling stars inside the hub — a loose Southern Cross, placed clear of the
+   center text (positions are % of the hub circle's bounding box). */
+const HUB_STARS = [
+  { x: 50, y: 11, r: 3 },
+  { x: 31, y: 22, r: 2 },
+  { x: 67, y: 19, r: 2.5 },
+  { x: 79, y: 33, r: 2 },
+  { x: 22, y: 81, r: 2 },
+  { x: 64, y: 87, r: 2.5 },
+];
 
 function polar(r: number, deg: number) {
   const rad = ((deg - 90) * Math.PI) / 180;
@@ -87,12 +108,12 @@ const UI = {
   heroCtaWheel: { en: 'Explore the wheel', es: 'Explora la rueda' },
   heroCtaVisit: { en: 'Schedule a visit', es: 'Agenda una visita' },
   componentsLabel: {
-    en: 'Components — the seven core dimensions of an NWL education: the inner ring of the wheel.',
-    es: 'Componentes — las siete dimensiones centrales de una educación NWL: el anillo interior de la rueda.',
+    en: 'Components are the seven core dimensions of an NWL education: the inner ring of the wheel.',
+    es: 'Los componentes son las siete dimensiones centrales de una educación NWL: el anillo interior de la rueda.',
   },
   capabilitiesLabel: {
-    en: 'Capabilities — the concrete skills and experiences within each component that students live every day.',
-    es: 'Capacidades — las habilidades y experiencias concretas de cada componente que los alumnos viven todos los días.',
+    en: 'Capabilities are the concrete skills and experiences within each component that students live every day.',
+    es: 'Las capacidades son las habilidades y experiencias concretas de cada componente que los alumnos viven todos los días.',
   },
   wheelEyebrow: { en: 'The wheel', es: 'La rueda' },
   wheelTitle: { en: 'Inside the', es: 'Dentro del' },
@@ -115,16 +136,16 @@ const UI = {
   whyTitle: { en: 'Why is the model', es: '¿Por qué es un modelo' },
   whyTitleAccent: { en: 'Australian?', es: 'australiano?' },
   whyIntro: {
-    en: 'Australia runs one of the most admired school systems in the world — not because it demands more homework, but because it balances academic rigor with wellbeing, creativity and real-world capabilities. That balance is exactly what NWL has built toward for sixteen years.',
-    es: 'Australia tiene uno de los sistemas escolares más admirados del mundo — no porque exija más tarea, sino porque equilibra el rigor académico con el bienestar, la creatividad y las capacidades para la vida real. Ese equilibrio es exactamente lo que NWL ha construido durante dieciséis años.',
+    en: 'Australia runs one of the most admired school systems in the world. Not because it demands more homework, but because it balances academic rigor with wellbeing, creativity and real-world capabilities. That balance is exactly what NWL has built toward for sixteen years.',
+    es: 'Australia tiene uno de los sistemas escolares más admirados del mundo. No porque exija más tarea, sino porque equilibra el rigor académico con el bienestar, la creatividad y las capacidades para la vida real. Ese equilibrio es exactamente lo que NWL ha construido durante dieciséis años.',
   },
   whyCards: [
     {
       icon: 'heart',
       title: { en: 'Wellbeing next to rigor', es: 'Bienestar junto al rigor' },
       text: {
-        en: 'The Australian curriculum treats emotional development as a condition for deep learning — not a nice-to-have.',
-        es: 'El currículo australiano trata el desarrollo emocional como condición del aprendizaje profundo — no como un extra.',
+        en: 'The Australian curriculum treats emotional development as a condition for deep learning, not a nice-to-have.',
+        es: 'El currículo australiano trata el desarrollo emocional como condición del aprendizaje profundo, no como un extra.',
       },
     },
     {
@@ -145,8 +166,8 @@ const UI = {
     },
   ],
   whyKangaroo: {
-    en: 'And like the kangaroo on our crest — the model only knows how to move forward.',
-    es: 'Y como el canguro de nuestro escudo — este modelo solo sabe avanzar.',
+    en: 'And like the kangaroo on our crest, the model only knows how to move forward.',
+    es: 'Y como el canguro de nuestro escudo, este modelo solo sabe avanzar.',
   },
   recognitionsEyebrow: { en: 'Globally recognized', es: 'Reconocimiento global' },
   recognitionsTitle: {
@@ -159,12 +180,12 @@ const UI = {
 const CASE = {
   eyebrow: { en: 'The case · 16 years', es: 'El caso · 16 años' },
   lead: {
-    en: "This isn't a new label — it's the culmination of sixteen years of work.",
-    es: 'No es una etiqueta nueva — es la culminación de dieciséis años de trabajo.',
+    en: "This isn't a new label. It's the culmination of sixteen years of work.",
+    es: 'No es una etiqueta nueva. Es la culminación de dieciséis años de trabajo.',
   },
   p1: {
-    en: "NWL has spent over sixteen years raising the bar for education in Mexico — beginning with childhood wellbeing, maturing into critical thinking, and growing into a complete international model. The kangaroo was never decoration; Australia has been in the school's DNA from the start.",
-    es: 'NWL lleva más de dieciséis años elevando la educación en México — empezó con el bienestar infantil, maduró hacia el pensamiento crítico y creció hasta un modelo internacional completo. El canguro nunca fue decoración: Australia ha estado en nuestro ADN desde el inicio.',
+    en: "NWL has spent over sixteen years raising the bar for education in Mexico, beginning with childhood wellbeing, maturing into critical thinking, and growing into a complete international model. The kangaroo was never decoration; Australia has been in the school's DNA from the start.",
+    es: 'NWL lleva más de dieciséis años elevando la educación en México: empezó con el bienestar infantil, maduró hacia el pensamiento crítico y creció hasta un modelo internacional completo. El canguro nunca fue decoración: Australia ha estado en nuestro ADN desde el inicio.',
   },
   p2: {
     en: 'Adopting a model inspired by the Australian curriculum makes explicit what the school has always built toward: students who think critically, lead with purpose, and belong to the world.',
@@ -174,8 +195,8 @@ const CASE = {
     {
       title: { en: 'Childhood wellbeing', es: 'Bienestar infantil' },
       text: {
-        en: 'Where it started — a school built around how children actually grow.',
-        es: 'Donde empezó — un colegio construido en torno a cómo crecen realmente los niños.',
+        en: 'Where it started: a school built around how children actually grow.',
+        es: 'Donde empezó: un colegio construido en torno a cómo crecen realmente los niños.',
       },
     },
     {
@@ -188,8 +209,8 @@ const CASE = {
     {
       title: { en: 'The Australian model', es: 'El modelo australiano' },
       text: {
-        en: 'An international mindset, aligned with the Australian curriculum — the culmination, not a detour.',
-        es: 'Una mentalidad internacional, alineada con el currículo australiano — la culminación, no un desvío.',
+        en: 'An international mindset, aligned with the Australian curriculum: the culmination, not a detour.',
+        es: 'Una mentalidad internacional, alineada con el currículo australiano: la culminación, no un desvío.',
       },
     },
   ],
@@ -198,16 +219,16 @@ const CASE = {
       n: '503',
       unit: '',
       text: {
-        en: "Australia's PISA score in reading & science — above the OECD average of 487, and well ahead of memorization-led models.",
-        es: 'Puntaje PISA de Australia en lectura y ciencias — por encima del promedio OCDE de 487 y muy adelante de modelos basados en memorización.',
+        en: "Australia's PISA score in reading & science, above the OECD average of 487 and well ahead of memorization-led models.",
+        es: 'Puntaje PISA de Australia en lectura y ciencias, por encima del promedio OCDE de 487 y muy adelante de modelos basados en memorización.',
       },
     },
     {
       n: '65',
       unit: '%',
       text: {
-        en: 'of assessment comes from continuous work and real-world projects — not high-stakes final exams.',
-        es: 'de la evaluación proviene de trabajo continuo y proyectos reales — no de exámenes finales de alto impacto.',
+        en: 'of assessment comes from continuous work and real-world projects, not high-stakes final exams.',
+        es: 'de la evaluación proviene de trabajo continuo y proyectos reales, no de exámenes finales de alto impacto.',
       },
     },
     {
@@ -361,7 +382,8 @@ function PisaBars({ locale }: { locale: 'en' | 'es' }) {
         <caption>{PISA.caption[locale]}</caption>
         <thead>
           <tr>
-            <th>—</th>
+            <th />
+
             {PISA.series.map((s, i) => (
               <th key={i}>{s.name[locale]}</th>
             ))}
@@ -482,7 +504,8 @@ function ModelRadar({ locale }: { locale: 'en' | 'es' }) {
         <caption>{RADAR.caption[locale]}</caption>
         <thead>
           <tr>
-            <th>—</th>
+            <th />
+
             {RADAR.axes.map((ax, i) => (
               <th key={i}>{ax[locale]}</th>
             ))}
@@ -508,6 +531,22 @@ export default function ModeloPage() {
   const L = (l: Localized) => l[locale];
   const [active, setActive] = useState(0);
   const c: ModelComponent = MODEL_COMPONENTS[active];
+
+  /* 3D tilt — the wheel leans toward the cursor inside a perspective container */
+  const reduceMotion = useReducedMotion();
+  const mx = useMotionValue(0);
+  const my = useMotionValue(0);
+  const tiltY = useSpring(useTransform(mx, [-0.5, 0.5], [-8, 8]), { stiffness: 150, damping: 18 });
+  const tiltX = useSpring(useTransform(my, [-0.5, 0.5], [8, -8]), { stiffness: 150, damping: 18 });
+  const onWheelMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const r = e.currentTarget.getBoundingClientRect();
+    mx.set((e.clientX - r.left) / r.width - 0.5);
+    my.set((e.clientY - r.top) / r.height - 0.5);
+  };
+  const onWheelLeave = () => {
+    mx.set(0);
+    my.set(0);
+  };
 
   return (
     <main className="overflow-hidden">
@@ -610,140 +649,307 @@ export default function ModeloPage() {
 
           <div className="grid lg:grid-cols-[1.05fr,0.95fr] gap-10 lg:gap-14 items-center">
             {/* --- the wheel --- */}
-            <div className="relative w-full max-w-[620px] mx-auto aspect-square select-none">
-              <svg viewBox="0 0 100 100" className="absolute inset-0 w-full h-full">
-                {/* capability band — a whiter version of each wedge color, touching the ring */}
-                {MODEL_COMPONENTS.map((comp, i) => (
-                  <path
-                    key={comp.id + '-band'}
-                    d={ringPath(R_OUTER, R_CAP_OUT, i * SEG - SEG / 2, i * SEG + SEG / 2)}
-                    fill={pastel(comp.color)}
-                    className="cursor-pointer"
-                    onClick={() => setActive(i)}
-                  />
-                ))}
-                {/* component wedges */}
-                {MODEL_COMPONENTS.map((comp, i) => (
-                  <path
-                    key={comp.id}
-                    d={ringPath(R_INNER, R_OUTER, i * SEG - SEG / 2, i * SEG + SEG / 2)}
-                    fill={comp.color}
-                    opacity={i === active ? 1 : 0.92}
-                    className="cursor-pointer transition-all duration-300"
-                    onClick={() => setActive(i)}
-                  />
-                ))}
-                {/* white dividers between the 7 wedges */}
-                {MODEL_COMPONENTS.map((_, i) => {
-                  const a = i * SEG + SEG / 2;
-                  const p1 = polar(R_INNER - 0.3, a);
-                  const p2 = polar(R_CAP_OUT + 0.1, a);
-                  return <line key={'div' + i} x1={p1.x} y1={p1.y} x2={p2.x} y2={p2.y} stroke="#FFFFFF" strokeWidth="1.1" />;
-                })}
-                {/* gold halo on the active wedge */}
-                <path
-                  d={ringPath(R_INNER, R_CAP_OUT, active * SEG - SEG / 2 + 0.6, active * SEG + SEG / 2 - 0.6)}
-                  fill="none"
-                  stroke="var(--nwl-gold)"
-                  strokeWidth="0.55"
-                  className="pointer-events-none transition-all duration-300"
-                />
-                {/* leader lines + dots for each capability (deck detail) */}
+            <div
+              className="relative w-full max-w-[620px] mx-auto aspect-square select-none [container-type:size]"
+              style={{ perspective: 1400 }}
+              onMouseMove={reduceMotion ? undefined : onWheelMove}
+              onMouseLeave={reduceMotion ? undefined : onWheelLeave}
+            >
+              <motion.div
+                className="relative w-full h-full"
+                style={reduceMotion ? undefined : { rotateX: tiltX, rotateY: tiltY }}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true, margin: '-80px' }}
+                variants={{
+                  hidden: reduceMotion ? { opacity: 0 } : { opacity: 0, rotate: -42, scale: 0.84 },
+                  show: {
+                    opacity: 1,
+                    rotate: 0,
+                    scale: 1,
+                    transition: { duration: 1.1, ease: [0.16, 1, 0.3, 1] },
+                  },
+                }}
+              >
+                {/* ambient dashed orbit — its own svg layer so the spin never
+                    forces the wheel svg to repaint */}
+                {!reduceMotion && (
+                  <svg
+                    viewBox="0 0 100 100"
+                    aria-hidden="true"
+                    className="absolute inset-0 w-full h-full overflow-visible animate-spin pointer-events-none"
+                    style={{ animationDuration: '90s' }}
+                  >
+                    <circle
+                      cx="50"
+                      cy="50"
+                      r="49.7"
+                      fill="none"
+                      stroke="var(--nwl-gold)"
+                      strokeOpacity="0.25"
+                      strokeWidth="0.22"
+                      strokeDasharray="0.4 2.2"
+                    />
+                  </svg>
+                )}
+                <svg viewBox="0 0 100 100" className="absolute inset-0 w-full h-full overflow-visible">
+                  {/* one group per slice: pastel band + wedge + capability sub-dividers.
+                      The active slice pops outward along its mid-angle. */}
+                  {MODEL_COMPONENTS.map((comp, i) => {
+                    const start = i * SEG - SEG / 2;
+                    const end = i * SEG + SEG / 2;
+                    const { dx, dy } = sliceOffset(i, active);
+                    const isActive = i === active;
+                    return (
+                      <motion.g
+                        key={comp.id}
+                        variants={{
+                          hidden: { opacity: 0 },
+                          show: { opacity: 1, transition: { duration: 0.4, delay: 0.3 + i * 0.07 } },
+                        }}
+                      >
+                        <g
+                          onClick={() => setActive(i)}
+                          className="cursor-pointer"
+                          style={{
+                            transform: `translate(${dx}px, ${dy}px)`,
+                            transition: `transform 0.5s ${POP_EASE}`,
+                          }}
+                        >
+                          {/* pastel capability band, touching the ring */}
+                          <path d={ringPath(R_OUTER, R_CAP_OUT, start, end)} fill={pastel(comp.color)} />
+                          {/* component wedge */}
+                          <path
+                            d={ringPath(R_INNER, R_OUTER, start, end)}
+                            fill={comp.color}
+                            opacity={isActive ? 1 : 0.93}
+                            className="transition-opacity duration-300"
+                          />
+                          {/* capability sub-dividers — dot at the ring edge, line all the
+                              way to the outer perimeter, splitting the slice into thirds */}
+                          {[1, 2].map((j) => {
+                            const a = start + (j * SEG) / 3;
+                            const p1 = polar(R_OUTER + 0.9, a);
+                            const p2 = polar(R_CAP_OUT, a);
+                            return (
+                              <g key={j} className="pointer-events-none">
+                                <line x1={p1.x} y1={p1.y} x2={p2.x} y2={p2.y} stroke={comp.color} strokeWidth="0.35" />
+                                <circle cx={p1.x} cy={p1.y} r="0.95" fill={comp.color} />
+                              </g>
+                            );
+                          })}
+                          {/* gold halo on the active slice (moves with the pop) */}
+                          {isActive && (
+                            <path
+                              d={ringPath(R_INNER, R_CAP_OUT, start + 0.6, end - 0.6)}
+                              fill="none"
+                              stroke="var(--nwl-gold)"
+                              strokeWidth="0.55"
+                              className="pointer-events-none"
+                            />
+                          )}
+                        </g>
+                      </motion.g>
+                    );
+                  })}
+                  {/* white dividers between the 7 slices — hub to outer perimeter */}
+                  {MODEL_COMPONENTS.map((_, i) => {
+                    const a = i * SEG + SEG / 2;
+                    const p1 = polar(R_INNER - 0.4, a);
+                    const p2 = polar(R_CAP_OUT + 0.2, a);
+                    return (
+                      <line
+                        key={'div' + i}
+                        x1={p1.x}
+                        y1={p1.y}
+                        x2={p2.x}
+                        y2={p2.y}
+                        stroke="#FFFFFF"
+                        strokeWidth="1.1"
+                        className="pointer-events-none"
+                      />
+                    );
+                  })}
+                  {/* center */}
+                  <circle cx="50" cy="50" r={R_HUB + 0.8} fill="var(--nwl-gold)" opacity="0.95" />
+                  <circle cx="50" cy="50" r={R_HUB} fill="#071638" />
+                </svg>
+
+                {/* comet arc orbiting the hub ring — own svg layer, spins on
+                    the compositor without repainting the wheel */}
+                {!reduceMotion && (
+                  <svg
+                    viewBox="0 0 100 100"
+                    aria-hidden="true"
+                    className="absolute inset-0 w-full h-full animate-spin pointer-events-none"
+                    style={{ animationDuration: '11s' }}
+                  >
+                    <circle
+                      cx="50"
+                      cy="50"
+                      r={R_HUB + 0.8}
+                      fill="none"
+                      stroke="#E3990F"
+                      strokeOpacity="0.85"
+                      strokeWidth="0.55"
+                      strokeLinecap="round"
+                      strokeDasharray="9 104.1"
+                    />
+                  </svg>
+                )}
+
+                {/* hub ambience — breathing gold glow + twinkling Southern Cross */}
+                <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[34.4%] aspect-square rounded-full overflow-hidden pointer-events-none">
+                  {reduceMotion ? (
+                    <div
+                      className="absolute inset-0 rounded-full"
+                      style={{
+                        background:
+                          'radial-gradient(circle at 50% 42%, rgba(227,153,15,0.13) 0%, rgba(227,153,15,0.04) 38%, transparent 66%)',
+                      }}
+                    />
+                  ) : (
+                    <motion.div
+                      className="absolute inset-0 rounded-full"
+                      style={{
+                        background:
+                          'radial-gradient(circle at 50% 42%, rgba(227,153,15,0.16) 0%, rgba(227,153,15,0.05) 38%, transparent 66%)',
+                      }}
+                      animate={{ opacity: [0.45, 1, 0.45], scale: [1, 1.1, 1] }}
+                      transition={{ duration: 5.5, repeat: Infinity, ease: 'easeInOut' }}
+                    />
+                  )}
+                  {HUB_STARS.map((s, i) => (
+                    <motion.span
+                      key={i}
+                      className="absolute rounded-full bg-gold"
+                      style={{
+                        left: `${s.x}%`,
+                        top: `${s.y}%`,
+                        width: s.r,
+                        height: s.r,
+                        marginLeft: -s.r / 2,
+                        marginTop: -s.r / 2,
+                        boxShadow: '0 0 6px 1px rgba(227,153,15,0.55)',
+                      }}
+                      initial={false}
+                      animate={
+                        reduceMotion
+                          ? { opacity: 0.5 }
+                          : { opacity: [0.15, 0.85, 0.15], scale: [1, 1.35, 1] }
+                      }
+                      transition={
+                        reduceMotion
+                          ? undefined
+                          : { duration: 2.6 + i * 0.7, repeat: Infinity, delay: i * 0.45, ease: 'easeInOut' }
+                      }
+                    />
+                  ))}
+                </div>
+
+                {/* capability items — icon + name in the wedge color, centered inside
+                    each sub-slice of the pastel band (no wrap-around, no overflow) */}
                 {MODEL_COMPONENTS.map((comp, i) =>
                   comp.capabilities.map((cap, j) => {
-                    const am = capMid(i, j);
-                    const inward = +(2.2 * Math.abs(Math.sin((am * Math.PI) / 180))).toFixed(3);
-                    const labelR = (j === 1 ? 45.4 : 43.9) - inward;
-                    const pd = polar(R_OUTER + 0.4, am);
-                    const pl = polar(labelR - 4.4, am);
+                    const p = polar(R_CAP_LABEL, capMid(i, j));
+                    const { dx, dy } = sliceOffset(i, active);
+                    const isActive = i === active;
+                    const isKnotion = cap.name.en === 'Knotion';
                     return (
-                      <g key={comp.id + '-lead-' + j} className="pointer-events-none">
-                        <line x1={pd.x} y1={pd.y} x2={pl.x} y2={pl.y} stroke={comp.color} strokeWidth="0.4" />
-                        <circle cx={pd.x} cy={pd.y} r="1.05" fill={comp.color} stroke={pastel(comp.color)} strokeWidth="0.45" />
-                      </g>
+                      <div
+                        key={comp.id + '-capitem-' + j}
+                        className="absolute w-[12.5%]"
+                        style={{
+                          left: `${p.x}%`,
+                          top: `${p.y}%`,
+                          transform: `translate(-50%, -50%) translate(${dx}cqw, ${dy}cqw)`,
+                          transition: `transform 0.5s ${POP_EASE}`,
+                        }}
+                      >
+                        <motion.button
+                          onClick={() => setActive(i)}
+                          aria-label={L(cap.name)}
+                          title={L(cap.name)}
+                          initial={false}
+                          animate={
+                            isActive
+                              ? { opacity: 1, scale: 1.1, transition: { delay: 0.05 + j * 0.06, duration: 0.25 } }
+                              : { opacity: 0.85, scale: 1 }
+                          }
+                          className="flex w-full flex-col items-center text-center"
+                          style={{ color: comp.color }}
+                        >
+                          {isKnotion ? (
+                            <Image
+                              src="/images/logos/knotion.png"
+                              alt="Knotion"
+                              width={160}
+                              height={45}
+                              className="w-[74%] h-auto mb-0.5"
+                            />
+                          ) : (
+                            <Icon name={cap.icon} size={15} className="mb-0.5" />
+                          )}
+                          <span className="hidden sm:block font-semibold text-[7.6px] md:text-[8.4px] leading-[1.15]">
+                            {L(cap.name)}
+                          </span>
+                        </motion.button>
+                      </div>
                     );
                   })
                 )}
-                {/* center */}
-                <circle cx="50" cy="50" r={R_HUB + 0.8} fill="var(--nwl-gold)" opacity="0.95" />
-                <circle cx="50" cy="50" r={R_HUB} fill="#071638" />
-              </svg>
 
-              {/* capability items — icon + name in the wedge color, on the pastel band */}
-              {MODEL_COMPONENTS.map((comp, i) =>
-                comp.capabilities.map((cap, j) => {
-                  const am = capMid(i, j);
-                  // near-horizontal labels get nudged inward so text stays on the band;
-                  // the middle capability sits slightly further out, like the deck
-                  const inward = +(2.2 * Math.abs(Math.sin((am * Math.PI) / 180))).toFixed(3);
-                  const p = polar((j === 1 ? 45.4 : 43.9) - inward, am);
+                {/* component labels — white icon, uppercase name, tagline */}
+                {MODEL_COMPONENTS.map((comp, i) => {
+                  const p = polar(R_LABEL, i * SEG);
+                  const { dx, dy } = sliceOffset(i, active);
                   const isActive = i === active;
                   return (
-                    <div
-                      key={comp.id + '-capitem-' + j}
-                      className="absolute -translate-x-1/2 -translate-y-1/2 w-[15%]"
-                      style={{ left: `${p.x}%`, top: `${p.y}%` }}
+                    <button
+                      key={comp.id}
+                      onClick={() => setActive(i)}
+                      aria-pressed={isActive}
+                      className={`absolute flex flex-col items-center text-center w-[17%] text-white ${
+                        isActive ? 'opacity-100' : 'opacity-90 hover:opacity-100'
+                      }`}
+                      style={{
+                        left: `${p.x}%`,
+                        top: `${p.y}%`,
+                        transform: `translate(-50%, -50%) translate(${dx}cqw, ${dy}cqw) scale(${isActive ? 1.04 : 1})`,
+                        transition: `transform 0.5s ${POP_EASE}, opacity 0.3s ease`,
+                      }}
                     >
-                      <motion.button
-                        onClick={() => setActive(i)}
-                        aria-label={L(cap.name)}
-                        title={L(cap.name)}
-                        initial={false}
-                        animate={
-                          isActive
-                            ? { opacity: 1, scale: 1.08, transition: { delay: 0.05 + j * 0.06, duration: 0.25 } }
-                            : { opacity: 0.85, scale: 1 }
-                        }
-                        className="flex w-full flex-col items-center text-center"
-                        style={{ color: comp.color }}
-                      >
-                        <Icon name={cap.icon} size={14} className="mb-0.5" />
-                        <span className="hidden sm:block font-semibold text-[7.4px] md:text-[8.4px] leading-[1.15]">
-                          {L(cap.name)}
-                        </span>
-                      </motion.button>
-                    </div>
+                      <Icon name={comp.icon} size={15} className="mb-1 hidden sm:block" />
+                      <span className="font-bold uppercase tracking-[0.04em] text-[7px] sm:text-[7.8px] md:text-[8.6px] leading-[1.2]">
+                        {L(comp.name)}
+                      </span>
+                      <span className="hidden md:block text-[6.6px] leading-[1.25] text-white/85 mt-0.5">
+                        {L(comp.tagline)}
+                      </span>
+                    </button>
                   );
-                })
-              )}
+                })}
 
-              {/* component labels — white icon, uppercase name, tagline */}
-              {MODEL_COMPONENTS.map((comp, i) => {
-                const p = polar(R_LABEL + 1, i * SEG);
-                const isActive = i === active;
-                return (
-                  <button
-                    key={comp.id}
-                    onClick={() => setActive(i)}
-                    aria-pressed={isActive}
-                    className={`absolute -translate-x-1/2 -translate-y-1/2 flex flex-col items-center text-center w-[23%] text-white transition-all duration-300 ${
-                      isActive ? 'opacity-100 scale-[1.04]' : 'opacity-90 hover:opacity-100'
-                    }`}
-                    style={{ left: `${p.x}%`, top: `${p.y}%` }}
-                  >
-                    <Icon name={comp.icon} size={14} className="mb-1 hidden sm:block" />
-                    <span className="font-bold uppercase tracking-[0.04em] text-[6.8px] sm:text-[7.6px] md:text-[8.4px] leading-[1.2]">
-                      {L(comp.name)}
-                    </span>
-                    <span className="hidden md:block text-[6.4px] leading-[1.25] text-white/85 mt-0.5">
-                      {L(comp.tagline)}
-                    </span>
-                  </button>
-                );
-              })}
-
-              {/* center label */}
-              <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[34%] text-center pointer-events-none">
-                <span className="inline-flex items-center justify-center w-8 h-8 md:w-9 md:h-9 rounded-full bg-gold/15 text-gold mb-1.5">
-                  <FiUser size={16} />
-                </span>
-                <div className="font-display text-[13px] md:text-lg font-semibold leading-tight text-white">
-                  {L(UI.wheelCenterTitle)}
+                {/* center label */}
+                <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[30%] text-center pointer-events-none">
+                  <span className="relative inline-flex items-center justify-center w-7 h-7 md:w-8 md:h-8 rounded-full bg-gold/15 text-gold mb-1.5">
+                    {!reduceMotion && (
+                      <motion.span
+                        className="absolute inset-0 rounded-full border border-gold/60"
+                        animate={{ scale: [1, 1.9], opacity: [0.7, 0] }}
+                        transition={{ duration: 2.8, repeat: Infinity, ease: 'easeOut' }}
+                      />
+                    )}
+                    <FiUser size={15} />
+                  </span>
+                  <div className="font-display text-[12px] md:text-[16px] font-semibold leading-tight text-white">
+                    {L(UI.wheelCenterTitle)}
+                  </div>
+                  <div className="font-mono text-[6px] md:text-[7.2px] uppercase tracking-[0.08em] text-paper/55 mt-1">
+                    {L(UI.wheelCenterSub)}
+                  </div>
                 </div>
-                <div className="font-mono text-[7px] md:text-[8.5px] uppercase tracking-[0.14em] text-paper/55 mt-1">
-                  {L(UI.wheelCenterSub)}
-                </div>
-              </div>
+              </motion.div>
             </div>
 
             {/* --- detail panel --- */}

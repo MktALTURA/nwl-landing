@@ -14,7 +14,7 @@ export const metadata: Metadata = {
         url: PAGE_SEO.modelo.ogImage,
         width: 1200,
         height: 630,
-        alt: 'NWL Australian School — The NWL Academic Model',
+        alt: 'NWL Australian School | The NWL Academic Model',
       },
     ],
   },

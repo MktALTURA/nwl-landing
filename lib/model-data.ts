@@ -78,8 +78,8 @@ export const MODEL_COMPONENTS: ModelComponent[] = [
       es: 'Bienestar, inteligencia emocional y relaciones',
     },
     intro: {
-      en: 'The Australian model puts wellbeing next to rigor, not after it. Children who feel safe, known and connected learn more — and lead better.',
-      es: 'El modelo australiano pone el bienestar junto al rigor, no después. Un niño que se siente seguro, visto y conectado aprende más — y lidera mejor.',
+      en: 'The Australian model puts wellbeing next to rigor, not after it. Children who feel safe, known and connected learn more and lead better.',
+      es: 'El modelo australiano pone el bienestar junto al rigor, no después. Un niño que se siente seguro, visto y conectado aprende más y lidera mejor.',
     },
     capabilities: [
       {
@@ -158,8 +158,8 @@ export const MODEL_COMPONENTS: ModelComponent[] = [
       es: 'Liderazgo y competencias para el futuro',
     },
     intro: {
-      en: 'Students don’t wait to lead: they run initiatives, turn ideas into action and learn to work with others — the competencies the world of 2030 will ask of them.',
-      es: 'Los alumnos no esperan para liderar: impulsan iniciativas, convierten ideas en acción y aprenden a trabajar con otros — las competencias que el mundo de 2030 les va a exigir.',
+      en: 'Students don’t wait to lead: they run initiatives, turn ideas into action and learn to work with others. These are the competencies the world of 2030 will ask of them.',
+      es: 'Los alumnos no esperan para liderar: impulsan iniciativas, convierten ideas en acción y aprenden a trabajar con otros. Son las competencias que el mundo de 2030 les va a exigir.',
     },
     capabilities: [
       {
@@ -199,8 +199,8 @@ export const MODEL_COMPONENTS: ModelComponent[] = [
       es: 'Evidencia de crecimiento e impacto',
     },
     intro: {
-      en: 'Progress you can see: every student builds a living record of real work, real projects and measurable growth — not just grades on a report card.',
-      es: 'Progreso que se puede ver: cada alumno construye un registro vivo de trabajo real, proyectos reales y crecimiento medible — no solo calificaciones en una boleta.',
+      en: 'Progress you can see: every student builds a living record of real work, real projects and measurable growth, not just grades on a report card.',
+      es: 'Progreso que se puede ver: cada alumno construye un registro vivo de trabajo real, proyectos reales y crecimiento medible, no solo calificaciones en una boleta.',
     },
     capabilities: [
       {
@@ -328,7 +328,7 @@ export const MODEL_PROMISE = {
 
 /** "Globally recognized" strip — logos already shipped with the site. */
 export const MODEL_RECOGNITIONS: { name: string; image: string | Localized }[] = [
-  { name: 'Cognia — Accredited', image: '/images/logos/partners/Cognia_ACCRED-Badge-GREY-684x684-1.png' },
+  { name: 'Cognia Accredited', image: '/images/logos/partners/Cognia_ACCRED-Badge-GREY-684x684-1.png' },
   { name: 'Knotion', image: '/images/logos/partners/knotion.png' },
   { name: 'Hokku Academy', image: '/images/logos/partners/hokku-academy.webp' },
   { name: 'Tecnológico de Monterrey', image: '/images/logos/partners/tecnologico-de-monterrey.png' },
