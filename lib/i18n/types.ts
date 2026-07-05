@@ -446,6 +446,11 @@ export interface Dictionary {
     applicationFormId: string;
     applicationFormName: string;
     applicationFormTitle: string;
+    // Submit your CV (careers closing section)
+    cvTitle: string;
+    cvTitleAccent: string;
+    cvSubtitle: string;
+    cvNote: string;
     // Become a Partner
     partnerTitle: string;
     partnerTitleAccent: string;

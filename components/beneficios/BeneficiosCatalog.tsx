@@ -16,41 +16,37 @@ import {
 /**
  * Static color-class map so Tailwind keeps these classes at build time
  * (dynamic `bg-${token}` strings would be purged). Keyed by the category's
- * `color` token in lib/beneficios-data.ts.
+ * `color` token in lib/beneficios-data.ts; legacy tokens are remapped here to
+ * the NWL Australian School level accents and gold.
  */
 const COLOR: Record<
   string,
-  { bar: string; chip: string; tile: string; pill: string }
+  { bar: string; tile: string; pill: string }
 > = {
   eucalyptus: {
     bar: 'bg-eucalyptus',
-    chip: 'bg-eucalyptus border-eucalyptus text-charcoal',
     tile: 'from-eucalyptus/30 to-eucalyptus/10',
-    pill: 'bg-eucalyptus/20 text-charcoal',
+    pill: 'bg-eucalyptus/20 text-navy',
   },
   skyblue: {
-    bar: 'bg-skyblue',
-    chip: 'bg-skyblue border-skyblue text-charcoal',
-    tile: 'from-skyblue/30 to-skyblue/10',
-    pill: 'bg-skyblue/20 text-charcoal',
+    bar: 'bg-coral-sea',
+    tile: 'from-coral-sea/25 to-coral-sea/5',
+    pill: 'bg-coral-sea/15 text-navy',
   },
   terracotta: {
-    bar: 'bg-terracotta',
-    chip: 'bg-terracotta border-terracotta text-white',
-    tile: 'from-terracotta/30 to-terracotta/10',
-    pill: 'bg-terracotta/20 text-charcoal',
+    bar: 'bg-gold',
+    tile: 'from-gold/30 to-gold/10',
+    pill: 'bg-gold/20 text-navy',
   },
   mustard: {
-    bar: 'bg-mustard',
-    chip: 'bg-mustard border-mustard text-charcoal',
-    tile: 'from-mustard/30 to-mustard/10',
-    pill: 'bg-mustard/20 text-charcoal',
+    bar: 'bg-wattle',
+    tile: 'from-wattle/30 to-wattle/10',
+    pill: 'bg-wattle/20 text-navy',
   },
   coral: {
-    bar: 'bg-coral',
-    chip: 'bg-coral border-coral text-white',
-    tile: 'from-coral/30 to-coral/10',
-    pill: 'bg-coral/20 text-charcoal',
+    bar: 'bg-jacaranda',
+    tile: 'from-jacaranda/25 to-jacaranda/5',
+    pill: 'bg-jacaranda/15 text-navy',
   },
 };
 
@@ -87,16 +83,16 @@ export default function BeneficiosCatalog() {
   }, [promo]);
 
   return (
-    <section id="catalogo" className="section-padding bg-ivory animate-section">
+    <section id="catalogo" className="section-padding bg-paper animate-section">
       <div className="container-custom">
         {/* Header */}
         <div className="text-center mb-10 md:mb-12">
           <div className="wine-divider mx-auto mb-6" />
-          <h2 className="font-display text-4xl md:text-5xl font-bold text-charcoal mb-4">
+          <h2 className="font-display text-4xl md:text-5xl font-bold text-navy mb-4">
             {t.beneficios.catalogTitle}{' '}
-            <span className="text-wine">{t.beneficios.catalogTitleAccent}</span>
+            <span className="italic text-gold">{t.beneficios.catalogTitleAccent}</span>
           </h2>
-          <p className="text-lg text-charcoal/70 max-w-2xl mx-auto">
+          <p className="text-lg text-navy/70 max-w-2xl mx-auto leading-relaxed">
             {t.beneficios.catalogSubtitle}
           </p>
         </div>
@@ -106,7 +102,6 @@ export default function BeneficiosCatalog() {
           <FilterChip
             label={t.beneficios.filterAll}
             isActive={active === 'all'}
-            activeClass="bg-wine border-wine text-white"
             onClick={() => setActive('all')}
           />
           {benefitCategories.map((cat) => (
@@ -114,7 +109,6 @@ export default function BeneficiosCatalog() {
               key={cat.key}
               label={cat.label[locale]}
               isActive={active === cat.key}
-              activeClass={COLOR[cat.color]?.chip ?? 'bg-wine border-wine text-white'}
               onClick={() => setActive(cat.key)}
             />
           ))}
@@ -139,7 +133,7 @@ export default function BeneficiosCatalog() {
         </motion.div>
 
         {filtered.length === 0 && (
-          <p className="text-center text-charcoal/60 mt-10">{t.beneficios.noResults}</p>
+          <p className="text-center text-navy/60 mt-10">{t.beneficios.noResults}</p>
         )}
       </div>
 
@@ -156,7 +150,7 @@ export default function BeneficiosCatalog() {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
             onClick={() => setPromo(null)}
-            className="fixed inset-0 z-[100] flex items-center justify-center bg-charcoal/85 backdrop-blur-sm p-4 sm:p-8 cursor-zoom-out"
+            className="fixed inset-0 z-[100] flex items-center justify-center bg-navy-900/80 backdrop-blur-sm p-4 sm:p-8 cursor-zoom-out"
             role="dialog"
             aria-modal="true"
             aria-label={promo.alt}
@@ -165,7 +159,7 @@ export default function BeneficiosCatalog() {
               type="button"
               onClick={() => setPromo(null)}
               aria-label={t.beneficios.closeLabel}
-              className="absolute top-4 right-4 sm:top-6 sm:right-6 flex items-center justify-center w-11 h-11 rounded-full bg-white/15 hover:bg-white/25 text-white transition-colors"
+              className="absolute top-4 right-4 sm:top-6 sm:right-6 flex items-center justify-center w-11 h-11 rounded-full bg-paper/15 hover:bg-paper/25 text-paper transition-colors"
             >
               <FiX size={22} />
             </button>
@@ -178,7 +172,7 @@ export default function BeneficiosCatalog() {
               exit={{ scale: 0.94, opacity: 0 }}
               transition={{ duration: 0.25, ease: 'easeOut' }}
               onClick={(e) => e.stopPropagation()}
-              className="max-w-full max-h-full w-auto h-auto rounded-xl shadow-2xl cursor-default"
+              className="max-w-full max-h-full w-auto h-auto bg-white rounded-2xl shadow-navy-xl cursor-default"
             />
           </motion.div>
             )}
@@ -192,12 +186,10 @@ export default function BeneficiosCatalog() {
 function FilterChip({
   label,
   isActive,
-  activeClass,
   onClick,
 }: {
   label: string;
   isActive: boolean;
-  activeClass: string;
   onClick: () => void;
 }) {
   return (
@@ -205,8 +197,8 @@ function FilterChip({
       onClick={onClick}
       className={`px-5 py-2.5 rounded-full text-sm font-medium border-2 transition-all duration-300 ${
         isActive
-          ? `${activeClass} shadow-md`
-          : 'bg-white border-warmgray text-charcoal/70 hover:border-charcoal/40 hover:text-charcoal'
+          ? 'bg-gold border-gold text-[#1C0F00] shadow-gold'
+          : 'bg-white border-navy/25 text-navy hover:border-gold'
       }`}
     >
       {label}
@@ -229,8 +221,8 @@ function PartnerCard({
   const c = COLOR[category.color] ?? COLOR.mustard;
   const promoAlt =
     locale === 'es'
-      ? `Promoción ${partner.name} — comunidad NWL`
-      : `${partner.name} promotion — NWL community`;
+      ? `Promoción ${partner.name}, comunidad NWL`
+      : `${partner.name} promotion, NWL community`;
 
   return (
     <motion.article
@@ -239,7 +231,7 @@ function PartnerCard({
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, scale: 0.95 }}
       transition={{ duration: 0.4 }}
-      className="group bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow duration-300 flex flex-col"
+      className="group bg-white rounded-2xl overflow-hidden border border-n-200 shadow-navy-sm hover:shadow-lg transition-shadow duration-300 flex flex-col"
     >
       {/* Category accent bar */}
       <div className={`h-1 ${c.bar}`} />
@@ -250,7 +242,7 @@ function PartnerCard({
         <div
           className={`relative h-28 rounded-lg flex items-center justify-center px-5 mb-5 overflow-hidden transition-transform duration-300 group-hover:scale-[1.02] ${
             partner.logo
-              ? 'bg-white ring-1 ring-warmgray/60'
+              ? 'bg-white ring-1 ring-n-200'
               : `bg-gradient-to-br ${c.tile}`
           }`}
         >
@@ -273,7 +265,7 @@ function PartnerCard({
               />
             )
           ) : (
-            <span className="font-display text-3xl font-bold text-charcoal/80">
+            <span className="font-display text-3xl font-bold text-navy/80">
               {initials(partner.name)}
             </span>
           )}
@@ -285,18 +277,18 @@ function PartnerCard({
         >
           {category.label[locale]}
         </span>
-        <h3 className="font-display text-xl font-bold text-charcoal mb-3">
+        <h3 className="font-display text-xl font-bold text-navy mb-3">
           {partner.name}
         </h3>
 
         {/* Discount — focal element */}
-        <p className="text-wine font-bold text-2xl leading-tight mb-2">
+        <p className="text-gold font-bold text-2xl leading-tight mb-2">
           {tr(partner.discount, locale)}
         </p>
 
         {/* Detail */}
         {partner.detail && (
-          <p className="text-sm text-charcoal/70 leading-relaxed mb-3">
+          <p className="text-sm text-navy/70 leading-relaxed mb-3">
             {tr(partner.detail, locale)}
           </p>
         )}
@@ -307,7 +299,7 @@ function PartnerCard({
             type="button"
             onClick={() => onOpenPromo({ src: partner.promoImage!, alt: promoAlt })}
             aria-label={t.beneficios.viewPromo}
-            className="group/promo relative w-full overflow-hidden rounded-lg ring-1 ring-warmgray/60 mb-3 cursor-zoom-in"
+            className="group/promo relative w-full overflow-hidden rounded-lg ring-1 ring-n-200 mb-3 cursor-zoom-in"
           >
             <img
               src={partner.promoImage}
@@ -315,8 +307,8 @@ function PartnerCard({
               loading="lazy"
               className="w-full h-auto object-cover transition-transform duration-300 group-hover/promo:scale-[1.03]"
             />
-            <span className="absolute inset-0 bg-charcoal/0 group-hover/promo:bg-charcoal/15 transition-colors duration-300" />
-            <span className="absolute bottom-2 right-2 inline-flex items-center gap-1.5 rounded-full bg-charcoal/70 px-2.5 py-1 text-[11px] font-medium text-white backdrop-blur-sm">
+            <span className="absolute inset-0 bg-navy/0 group-hover/promo:bg-navy/15 transition-colors duration-300" />
+            <span className="absolute bottom-2 right-2 inline-flex items-center gap-1.5 rounded-full bg-navy-900/70 px-2.5 py-1 text-[11px] font-medium text-paper backdrop-blur-sm">
               <FiMaximize2 size={12} />
               {t.beneficios.viewPromo}
             </span>
@@ -325,15 +317,15 @@ function PartnerCard({
 
         {/* Restrictions / fine print */}
         {partner.restrictions && (
-          <p className="text-[11px] text-charcoal/45 italic leading-snug mb-4">
+          <p className="text-[11px] text-navy/45 italic leading-snug mb-4">
             {tr(partner.restrictions, locale)}
           </p>
         )}
 
         {/* Footer: vigencia + link */}
-        <div className="mt-auto pt-4 border-t border-warmgray/60 flex items-center justify-between gap-3">
+        <div className="mt-auto pt-4 border-t border-n-200 flex items-center justify-between gap-3">
           {partner.vigencia ? (
-            <span className="text-xs text-charcoal/50">
+            <span className="text-xs text-navy/50">
               {tr(partner.vigencia, locale)}
             </span>
           ) : (
@@ -344,7 +336,7 @@ function PartnerCard({
               href={partner.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-sm font-medium text-wine hover:text-deep-ember transition-colors whitespace-nowrap"
+              className="inline-flex items-center gap-1.5 text-sm font-medium text-navy hover:text-gold transition-colors whitespace-nowrap"
             >
               {t.beneficios.viewMore}
               <FiExternalLink size={14} />

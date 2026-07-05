@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function NotFound() {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-b from-ivory to-sand relative overflow-hidden">
+    <div className="min-h-screen flex items-center justify-center bg-paper relative overflow-hidden">
       {/* Giant faded kangaroo background */}
       <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vh] h-[80vh] opacity-[0.03] pointer-events-none select-none">
         <Image
@@ -28,7 +28,7 @@ export default function NotFound() {
         <div className="flex justify-center mb-4">
           <Image
             src="/images/brand/kangaroo-sign.png"
-            alt="Kangaroo crossing sign — page not found"
+            alt="Kangaroo crossing sign, page not found"
             width={220}
             height={220}
             className="w-44 sm:w-52 h-auto drop-shadow-xl"
@@ -37,21 +37,21 @@ export default function NotFound() {
         </div>
 
         {/* 404 */}
-        <h1 className="font-display text-8xl sm:text-9xl font-bold text-wine/20 leading-none mb-2 select-none">
+        <h1 className="font-display text-8xl sm:text-9xl font-bold text-gold/20 leading-none mb-2 select-none">
           404
         </h1>
 
-        {/* Wine divider */}
-        <div className="w-12 h-[2px] bg-wine mx-auto mb-6" />
+        {/* Gold divider */}
+        <div className="w-12 h-[2px] bg-gold mx-auto mb-6" />
 
         {/* Messages */}
-        <h2 className="font-display text-2xl sm:text-3xl font-bold text-charcoal mb-3">
+        <h2 className="font-display text-2xl sm:text-3xl font-bold text-navy mb-3">
           This page hopped away
         </h2>
-        <p className="text-charcoal/60 text-base sm:text-lg mb-2">
+        <p className="text-navy/60 text-base sm:text-lg mb-2">
           The page you&apos;re looking for doesn&apos;t exist or has been moved.
         </p>
-        <p className="text-charcoal/50 text-base sm:text-lg mb-10">
+        <p className="text-navy/50 text-base sm:text-lg mb-10">
           La p&aacute;gina que buscas no existe o fue movida.
         </p>
 

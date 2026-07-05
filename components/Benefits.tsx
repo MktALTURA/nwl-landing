@@ -22,10 +22,10 @@ export default function Benefits() {
         {/* Section Header */}
         <div className="text-center mb-16">
           <div className="wine-divider mx-auto mb-6" />
-          <h2 className="font-display text-4xl md:text-5xl font-bold text-charcoal mb-4">
+          <h2 className="font-display text-4xl md:text-5xl font-bold text-navy mb-4">
             {t.benefits.sectionTitle} <span className="italic text-gold">{t.benefits.sectionTitleAccent}</span>
           </h2>
-          <p className="text-lg text-charcoal/70 max-w-2xl mx-auto">
+          <p className="text-lg text-navy/70 max-w-2xl mx-auto">
             {t.benefits.sectionSubtitle}
           </p>
         </div>
@@ -57,10 +57,10 @@ export default function Benefits() {
 
               {/* Content */}
               <div className="p-6">
-                <h3 className="text-xl font-bold text-charcoal mb-3">
+                <h3 className="text-xl font-bold text-navy mb-3">
                   {benefit.title}
                 </h3>
-                <p className="text-charcoal/70 leading-relaxed text-sm">
+                <p className="text-navy/70 leading-relaxed text-sm">
                   {benefit.description}
                 </p>
               </div>
@@ -79,7 +79,7 @@ export default function Benefits() {
           <div className="aspect-[21/9] relative bg-paper nwl-grade">
             <Image
               src="/images/campus-life-hero.jpg"
-              alt="Students engaged in activities across the Newland campus"
+              alt="Students engaged in activities across the NWL Australian School campus"
               fill
               sizes="100vw"
               className="object-cover"

@@ -52,7 +52,7 @@ export default function NewlandKnotionLayout({
       />
       <BreadcrumbJsonLd
         items={[
-          { name: 'Newland School', url: SITE_URL },
+          { name: 'NWL Australian School', url: SITE_URL },
           { name: 'Noticias', url: `${SITE_URL}/noticias` },
           { name: 'Newland × Knotion', url: URL },
         ]}

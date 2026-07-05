@@ -22,7 +22,7 @@ export default function ApplicationModal({ isOpen, onClose, jobTitle }: Applicat
     const formId = t.careers.applicationFormId;
     if (!formId || formId.startsWith('PLACEHOLDER')) {
       container.innerHTML = `
-        <div class="text-center py-12 text-charcoal/40">
+        <div class="text-center py-12 text-navy/40">
           <p class="text-lg font-medium">Form coming soon</p>
           <p class="text-sm mt-2">The application form will be available shortly.</p>
         </div>
@@ -81,9 +81,9 @@ export default function ApplicationModal({ isOpen, onClose, jobTitle }: Applicat
           transition={{ duration: 0.2 }}
           className="fixed inset-0 z-[100] overflow-y-auto"
         >
-          {/* Backdrop — fixed so it stays while scrolling */}
+          {/* Backdrop, fixed so it stays while scrolling */}
           <div
-            className="fixed inset-0 bg-charcoal/60 backdrop-blur-sm"
+            className="fixed inset-0 bg-navy-900/80 backdrop-blur-sm"
             onClick={onClose}
           />
 
@@ -96,26 +96,26 @@ export default function ApplicationModal({ isOpen, onClose, jobTitle }: Applicat
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
               transition={{ duration: 0.3 }}
               onClick={(e) => e.stopPropagation()}
-              className="relative w-full max-w-2xl bg-white rounded-2xl shadow-2xl"
+              className="relative w-full max-w-2xl bg-white rounded-3xl shadow-navy-xl"
             >
               {/* Sticky Header */}
-              <div className="sticky top-0 z-10 flex items-center justify-between px-6 py-4 border-b border-gray-100 bg-ivory/95 backdrop-blur-sm rounded-t-2xl">
+              <div className="sticky top-0 z-10 flex items-center justify-between px-6 py-4 border-b border-n-200 bg-paper/95 backdrop-blur-sm rounded-t-3xl">
                 <div>
-                  <h3 className="font-display text-xl font-bold text-charcoal">
+                  <h3 className="font-display text-xl font-bold text-navy">
                     {t.careers.applicationFormTitle}
                   </h3>
-                  <p className="text-sm text-wine/80 mt-0.5">{jobTitle}</p>
+                  <p className="text-sm text-gold-600 mt-0.5">{jobTitle}</p>
                 </div>
                 <button
                   onClick={onClose}
-                  className="w-10 h-10 rounded-full bg-charcoal/5 hover:bg-charcoal/10 flex items-center justify-center transition-colors"
+                  className="w-10 h-10 rounded-full bg-navy/5 hover:bg-navy/10 flex items-center justify-center transition-colors"
                   aria-label="Close"
                 >
-                  <FiX size={20} className="text-charcoal/60" />
+                  <FiX size={20} className="text-navy/60" />
                 </button>
               </div>
 
-              {/* Form Container — GHL expands iframe naturally, page scrolls */}
+              {/* Form Container: GHL expands iframe naturally, page scrolls */}
               <div
                 ref={formContainerRef}
                 className="p-4 md:p-6 min-h-[300px]"

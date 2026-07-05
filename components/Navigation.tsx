@@ -8,6 +8,7 @@ import { FaWhatsapp } from 'react-icons/fa';
 import { useLanguage } from '@/lib/i18n/LanguageContext';
 import LanguageToggle from './LanguageToggle';
 import Logo from './ui/Logo';
+import Crest from './ui/Crest';
 
 // Decoration type for dropdown hover effects
 interface DropdownDecoration {
@@ -15,7 +16,7 @@ interface DropdownDecoration {
   hoverTextColor: string;
   accentBorder: string;
   bgSize?: { initial: string; hover: string };
-  logo?: string;
+  crest?: 'kinder' | 'elementary' | 'middle' | 'high';
 }
 
 // Per-level hover decorations for the Academic Offer dropdown (indexed 0–4),
@@ -59,7 +60,7 @@ const academicLevelDecorations: DropdownDecoration[] = [
       'radial-gradient(circle at 28% 50%, rgba(74,58,130,0.18) 0%, transparent 52%), linear-gradient(135deg, rgba(74,58,130,0.07) 0%, rgba(11,34,78,0.03) 100%)',
     hoverTextColor: 'rgb(74,58,130)',
     accentBorder: 'rgba(74,58,130,0.8)',
-    logo: '/images/levels/prepa/nwl-prepa-logo-small.png',
+    crest: 'high',
   },
 ];
 
@@ -140,7 +141,7 @@ export default function Navigation() {
   return (
     <nav
       className={`fixed w-full z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-ivory/95 backdrop-blur-sm shadow-md' : 'bg-transparent'
+        isScrolled ? 'bg-paper/95 backdrop-blur-sm shadow-md' : 'bg-transparent'
       }`}
     >
       <div className="container-custom">
@@ -185,8 +186,8 @@ export default function Navigation() {
                       useWhiteNav
                         ? 'text-white/90 hover:text-white'
                         : link.highlight
-                          ? 'text-wine underline decoration-2 underline-offset-4'
-                          : 'text-charcoal hover:text-wine'
+                          ? 'text-gold underline decoration-2 underline-offset-4'
+                          : 'text-navy hover:text-gold'
                     }`}
                     onClick={(e) => {
                       e.stopPropagation();
@@ -217,7 +218,7 @@ export default function Navigation() {
                           animate={{ opacity: 1, y: 0 }}
                           exit={{ opacity: 0, y: -8 }}
                           transition={{ duration: 0.2, ease: 'easeOut' }}
-                          className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-56 bg-white rounded-lg shadow-xl border border-wine/10 overflow-hidden"
+                          className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-56 bg-white rounded-lg shadow-navy-lg border border-n-200 overflow-hidden"
                         >
                           <div className="py-2">
                             {link.children.map((child, childIndex) => {
@@ -229,7 +230,7 @@ export default function Navigation() {
                                     key={child.href}
                                     href={resolveHref(child.href)}
                                     onClick={(e: React.MouseEvent<HTMLAnchorElement>) => handleHashClick(e, child.href)}
-                                    className="group/item block px-4 py-2.5 text-sm text-charcoal relative overflow-hidden"
+                                    className="group/item block px-4 py-2.5 text-sm text-navy relative overflow-hidden"
                                     style={{ borderLeft: '3px solid transparent' }}
                                     initial={{
                                       background: 'transparent',
@@ -245,12 +246,10 @@ export default function Navigation() {
                                     }}
                                   >
                                     <span className="relative z-10">{child.name}</span>
-                                    {decoration.logo && (
-                                      <img
-                                        src={decoration.logo}
-                                        alt=""
-                                        className="absolute right-3 top-1/2 h-7 w-auto opacity-0 translate-y-[-50%] translate-x-2 scale-75 group-hover/item:opacity-80 group-hover/item:translate-x-0 group-hover/item:scale-100 transition-all duration-500 ease-out pointer-events-none"
-                                      />
+                                    {decoration.crest && (
+                                      <span className="absolute right-3 top-1/2 opacity-0 translate-y-[-50%] translate-x-2 scale-75 group-hover/item:opacity-90 group-hover/item:translate-x-0 group-hover/item:scale-100 transition-all duration-500 ease-out pointer-events-none">
+                                        <Crest level={decoration.crest} size={20} showBanner={false} />
+                                      </span>
                                     )}
                                   </motion.a>
                                 );
@@ -261,7 +260,7 @@ export default function Navigation() {
                                   key={child.href}
                                   href={resolveHref(child.href)}
                                   onClick={(e) => handleHashClick(e, child.href)}
-                                  className="block px-4 py-2.5 text-sm text-charcoal hover:bg-sand hover:text-wine transition-colors duration-150"
+                                  className="block px-4 py-2.5 text-sm text-navy hover:bg-n-100 hover:text-gold transition-colors duration-150"
                                 >
                                   {child.name}
                                 </a>
@@ -282,8 +281,8 @@ export default function Navigation() {
                     useWhiteNav
                       ? 'text-white/90 hover:text-white'
                       : link.highlight
-                        ? 'text-wine underline decoration-2 underline-offset-4'
-                        : 'text-charcoal hover:text-wine'
+                        ? 'text-gold underline decoration-2 underline-offset-4'
+                        : 'text-navy hover:text-gold'
                   }`}
                 >
                   {link.name}
@@ -304,7 +303,7 @@ export default function Navigation() {
               className={`w-10 h-10 rounded-full flex items-center justify-center transition-colors duration-300 ${
                 useWhiteNav
                   ? 'bg-white/10 border border-white/30 text-white hover:bg-green-500 hover:border-green-500'
-                  : 'bg-wine/10 border border-wine/30 text-wine hover:bg-green-500 hover:border-green-500 hover:text-white'
+                  : 'bg-gold/10 border border-gold/30 text-gold hover:bg-green-500 hover:border-green-500 hover:text-white'
               }`}
               aria-label={t.nav.whatsappAriaLabel}
             >
@@ -317,7 +316,7 @@ export default function Navigation() {
           <div className="flex items-center gap-3 xl:hidden">
             <LanguageToggle light={useWhiteNav} />
             <button
-              className={useWhiteNav ? 'text-white' : 'text-charcoal'}
+              className={useWhiteNav ? 'text-white' : 'text-navy'}
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             >
               {isMobileMenuOpen ? <FiX size={24} /> : <FiMenu size={24} />}
@@ -330,14 +329,14 @@ export default function Navigation() {
           <motion.div
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
-            className="xl:hidden bg-ivory border-t border-wine/10"
+            className="xl:hidden bg-paper border-t border-n-200"
           >
             <div className="py-4 space-y-1">
               {t.nav.links.map((link) =>
                 link.children ? (
                   <div key={link.href}>
                     <button
-                      className="flex items-center justify-between w-full px-4 py-2 text-charcoal hover:bg-sand text-left"
+                      className="flex items-center justify-between w-full px-4 py-2 text-navy hover:bg-n-100 text-left"
                       onClick={() =>
                         setOpenMobileDropdown(
                           openMobileDropdown === link.name ? null : link.name
@@ -360,12 +359,12 @@ export default function Navigation() {
                           animate={{ opacity: 1, height: 'auto' }}
                           exit={{ opacity: 0, height: 0 }}
                           transition={{ duration: 0.2 }}
-                          className="overflow-hidden bg-sand/50"
+                          className="overflow-hidden bg-n-100/50"
                         >
                           {/* Parent section link */}
                           <a
                             href={resolveHref(link.href)}
-                            className="block px-8 py-2 text-sm text-wine font-medium hover:bg-sand"
+                            className="block px-8 py-2 text-sm text-gold font-medium hover:bg-n-100"
                             onClick={(e) => { setIsMobileMenuOpen(false); handleHashClick(e, link.href); }}
                           >
                             {link.name}
@@ -374,7 +373,7 @@ export default function Navigation() {
                             <a
                               key={child.href}
                               href={resolveHref(child.href)}
-                              className="block px-8 py-2 text-sm text-charcoal/80 hover:bg-sand hover:text-wine"
+                              className="block px-8 py-2 text-sm text-navy/80 hover:bg-n-100 hover:text-gold"
                               onClick={(e) => { setIsMobileMenuOpen(false); handleHashClick(e, child.href); }}
                             >
                               {child.name}
@@ -388,7 +387,7 @@ export default function Navigation() {
                   <a
                     key={link.href}
                     href={resolveHref(link.href)}
-                    className="block px-4 py-2 text-charcoal hover:bg-sand"
+                    className="block px-4 py-2 text-navy hover:bg-n-100"
                     onClick={(e) => { setIsMobileMenuOpen(false); handleHashClick(e, link.href); }}
                   >
                     {link.name}
@@ -406,7 +405,7 @@ export default function Navigation() {
                 href="https://wa.me/5214421227791"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2 mx-4 py-3 text-wine font-medium text-sm hover:text-wine/70 transition-colors"
+                className="flex items-center justify-center gap-2 mx-4 py-3 text-gold font-medium text-sm hover:text-gold-600 transition-colors"
               >
                 <FaWhatsapp size={16} />
                 {t.nav.whatsappUs}

@@ -261,7 +261,7 @@ export const es: Dictionary = {
     items: [
       {
         quote:
-          'Newland ha sido transformador para nuestra hija. Los maestros genuinamente se preocupan por su crecimiento, no solo académico sino también emocional.',
+          'NWL ha sido transformador para nuestra hija. Los maestros genuinamente se preocupan por su crecimiento, no solo académico sino también emocional.',
         role: 'Mamá - Kínder, Juriquilla',
       },
       {
@@ -1056,7 +1056,7 @@ export const es: Dictionary = {
     heroSubtitle: 'Sé parte de una comunidad que transforma vidas a través de la educación. Descubre tu próxima oportunidad en NWL Australian School.',
     heroCta: 'Ver Vacantes',
     whyTitle: 'Por Qué Trabajar en',
-    whyTitleAccent: 'Newland',
+    whyTitleAccent: 'NWL',
     whySubtitle: 'Más que un lugar de trabajo — una comunidad comprometida con la excelencia educativa.',
     whyBenefits: [
       { title: 'Crecimiento Profesional', description: 'Capacitación continua, certificaciones y oportunidades de desarrollo para avanzar tu carrera en educación.' },
@@ -1088,6 +1088,11 @@ export const es: Dictionary = {
     applicationFormId: 'XDVtGU9rtg9amiqI7lrB',
     applicationFormName: 'Formulario de Aplicación - ES',
     applicationFormTitle: 'Aplicar Ahora',
+    cvTitle: 'Envíanos tu',
+    cvTitleAccent: 'CV',
+    cvSubtitle:
+      '¿No encontraste la vacante ideal? Siempre buscamos grandes educadores y profesionales. Comparte tu CV y te contactaremos cuando una vacante coincida con tu perfil.',
+    cvNote: 'Revisamos cada solicitud y guardamos tu perfil para futuras vacantes en nuestros 5 campus.',
     partnerTitle: 'Conviértete en',
     partnerTitleAccent: 'Aliado',
     partnerSubtitle: 'Únete a nuestra red de aliados estratégicos.',

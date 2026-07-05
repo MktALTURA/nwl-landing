@@ -17,20 +17,17 @@ export default function BeneficiosPage() {
   const mainRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
-    const isMobile = window.innerWidth < 768;
-
     const ctx = gsap.context(() => {
       gsap.utils.toArray('.animate-section').forEach((section: any) => {
         gsap.from(section, {
           opacity: 0,
           y: 50,
           duration: 1,
+          ease: 'power2.out',
           scrollTrigger: {
             trigger: section,
             start: 'top 80%',
-            ...(isMobile
-              ? { toggleActions: 'play none none reverse' }
-              : { end: 'top 50%', scrub: 1 }),
+            toggleActions: 'play none none none',
           },
         });
       });

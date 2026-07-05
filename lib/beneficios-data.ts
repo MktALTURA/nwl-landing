@@ -86,12 +86,12 @@ export const benefitPartners: BenefitPartner[] = [
     url: 'https://saiens.com.mx/',
     discount: { es: '10% de descuento', en: '10% discount' },
     detail: {
-      es: 'En estudios clínicos, mencionando que perteneces a la Familia Newland. Toma de muestra a domicilio gratis en todo Querétaro.',
-      en: 'On clinical studies — mention you belong to the Newland Family. Free home sample collection across Querétaro.',
+      es: 'En estudios clínicos, mencionando que perteneces a la comunidad NWL Australian School. Toma de muestra a domicilio gratis en todo Querétaro.',
+      en: 'On clinical studies, mention you belong to the NWL Australian School community. Free home sample collection across Querétaro.',
     },
     restrictions: {
-      es: 'Válido mencionando que perteneces a la Familia Newland al agendar.',
-      en: 'Valid when you mention you belong to the Newland Family at booking.',
+      es: 'Válido mencionando que perteneces a la comunidad NWL Australian School al agendar.',
+      en: 'Valid when you mention you belong to the NWL Australian School community at booking.',
     },
   },
   {

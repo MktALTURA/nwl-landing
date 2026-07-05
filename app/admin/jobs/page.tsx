@@ -60,7 +60,7 @@ export default function AdminJobsPage() {
       {/* Header */}
       <div className="flex items-center justify-between mb-8">
         <div className="flex items-center gap-3">
-          <img src="/images/brand/nwl-logo-wine.png" alt="NWL" className="h-10 w-auto" />
+          <img src="/images/brand/nwl-as-logo-color.png" alt="NWL Australian School" className="h-10 w-auto" />
           <h1 className="text-2xl font-display font-bold">{t.admin.dashboardTitle}</h1>
         </div>
         <div className="flex gap-3">

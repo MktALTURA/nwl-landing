@@ -99,7 +99,7 @@ export default function CampusFinder() {
               <div className="aspect-[4/3] overflow-hidden relative bg-paper nwl-grade">
                 <Image
                   src={campus.image}
-                  alt={`Newland ${campus.name} campus - ${campus.location}`}
+                  alt={`NWL Australian School ${campus.name} campus - ${campus.location}`}
                   fill
                   sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   className="object-cover transition-transform duration-500 group-hover:scale-105"

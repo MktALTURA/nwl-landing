@@ -41,7 +41,7 @@ export default function Footer() {
             </p>
 
             <p className="font-display italic text-lg text-paper mb-6">
-              Be Proud. <span className="text-gold">Be Newland.</span>
+              Be Proud. <span className="text-gold">Be NWL.</span>
             </p>
 
             {/* Social Links */}

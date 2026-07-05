@@ -4,29 +4,27 @@ import { motion } from 'framer-motion';
 import { FiArrowDown } from 'react-icons/fi';
 import { useLanguage } from '@/lib/i18n/LanguageContext';
 import { benefitPartners, benefitCategories } from '@/lib/beneficios-data';
+import SouthernCross from '@/components/ui/SouthernCross';
 
 export default function BeneficiosHero() {
   const { t } = useLanguage();
 
   return (
-    <section className="relative overflow-hidden bg-wine text-white pt-32 pb-20 md:pt-40 md:pb-28">
+    <section className="relative overflow-hidden nwl-bg-dawn-deep text-paper pt-32 pb-20 md:pt-40 md:pb-28">
       {/* Background photo */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: "url('/images/benefits/hero-beneficios.jpg')" }}
       />
-      {/* Dark fade (like the Work with Us hero) — image stays clearly visible */}
-      <div className="absolute inset-0 bg-charcoal/55" />
-      <div className="absolute inset-0 bg-gradient-to-t from-charcoal/85 via-charcoal/40 to-charcoal/30" />
-      {/* Subtle wine tint to keep it on-brand */}
-      <div className="absolute inset-0 bg-wine/20 mix-blend-multiply" />
+      {/* Navy scrim: image stays clearly visible */}
+      <div className="absolute inset-0 bg-navy-900/55" />
+      <div className="absolute inset-0 bg-gradient-to-t from-navy-900/90 via-navy-900/45 to-navy-900/30" />
       {/* Top strip so the transparent nav stays readable */}
-      <div className="absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-black/40 to-transparent pointer-events-none" />
+      <div className="absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-navy-900/60 to-transparent pointer-events-none" />
 
-      {/* Soft color blooms */}
-      <div className="absolute inset-0 opacity-10 pointer-events-none">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-mustard rounded-full blur-3xl" />
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-eucalyptus rounded-full blur-3xl" />
+      {/* Southern Cross motif */}
+      <div className="absolute top-28 right-[7%] z-[1] pointer-events-none hidden md:block">
+        <SouthernCross height={110} color="var(--nwl-gold)" opacity={0.35} />
       </div>
 
       {/* Kangaroo watermark */}
@@ -43,9 +41,11 @@ export default function BeneficiosHero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="inline-block text-mustard text-sm font-semibold tracking-[0.25em] uppercase mb-5"
+          className="inline-flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.22em] text-gold mb-6"
         >
+          <span className="w-9 h-px bg-gold" />
           {t.beneficios.eyebrow}
+          <span className="w-9 h-px bg-gold" />
         </motion.span>
 
         <motion.h1
@@ -55,14 +55,14 @@ export default function BeneficiosHero() {
           className="font-display text-5xl md:text-7xl font-bold leading-[1.05] mb-6"
         >
           {t.beneficios.title}{' '}
-          <span className="text-mustard">{t.beneficios.titleAccent}</span>
+          <span className="italic text-gold">{t.beneficios.titleAccent}</span>
         </motion.h1>
 
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.25 }}
-          className="text-lg md:text-xl text-white/85 max-w-2xl mx-auto leading-relaxed"
+          className="text-lg md:text-xl text-paper/80 max-w-2xl mx-auto leading-relaxed"
         >
           {t.beneficios.subtitle}
         </motion.p>
@@ -75,19 +75,19 @@ export default function BeneficiosHero() {
           className="flex items-center justify-center gap-8 md:gap-12 mt-10"
         >
           <div className="text-center">
-            <div className="font-display text-4xl md:text-5xl font-bold text-mustard">
+            <div className="font-display text-4xl md:text-5xl font-bold text-gold">
               {benefitPartners.length}
             </div>
-            <div className="text-sm uppercase tracking-wider text-white/70 mt-1">
+            <div className="font-mono text-xs uppercase tracking-[0.18em] text-paper/70 mt-1">
               {t.beneficios.statPartners}
             </div>
           </div>
-          <div className="w-px h-12 bg-white/25" />
+          <div className="w-px h-12 bg-paper/25" />
           <div className="text-center">
-            <div className="font-display text-4xl md:text-5xl font-bold text-mustard">
+            <div className="font-display text-4xl md:text-5xl font-bold text-gold">
               {benefitCategories.length}
             </div>
-            <div className="text-sm uppercase tracking-wider text-white/70 mt-1">
+            <div className="font-mono text-xs uppercase tracking-[0.18em] text-paper/70 mt-1">
               {t.beneficios.statCategories}
             </div>
           </div>
@@ -98,13 +98,13 @@ export default function BeneficiosHero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="mt-12 inline-flex items-center gap-2 text-white/80 hover:text-mustard transition-colors group"
+          className="btn-primary mt-12 inline-flex items-center gap-2 group"
           aria-label="Ver catálogo"
         >
-          <span className="text-sm font-medium uppercase tracking-wider">
+          <span>
             {t.beneficios.catalogTitle} {t.beneficios.catalogTitleAccent}
           </span>
-          <FiArrowDown className="animate-bounce group-hover:translate-y-1 transition-transform" />
+          <FiArrowDown className="group-hover:translate-y-1 transition-transform" />
         </motion.a>
       </div>
     </section>

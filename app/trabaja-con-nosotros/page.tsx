@@ -4,7 +4,7 @@ import CareersHero from '@/components/careers/CareersHero';
 import WhyNWL from '@/components/careers/WhyNWL';
 import JobListings from '@/components/careers/JobListings';
 import ApplicationProcess from '@/components/careers/ApplicationProcess';
-import BecomePartner from '@/components/careers/BecomePartner';
+import SubmitCV from '@/components/careers/SubmitCV';
 import Footer from '@/components/Footer';
 
 export default function CareersPage() {
@@ -15,7 +15,7 @@ export default function CareersPage() {
         <WhyNWL />
         <JobListings />
         <ApplicationProcess />
-        <BecomePartner />
+        <SubmitCV />
       </main>
       <Footer />
     </>

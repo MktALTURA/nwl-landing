@@ -78,17 +78,17 @@ export default function BrochureLevelDropdown({
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 4 }}
             transition={{ duration: 0.2, ease: 'easeOut' }}
-            className="absolute left-full bottom-0 ml-3 w-52 bg-white rounded-lg shadow-xl border border-wine/10 overflow-hidden z-[60] max-sm:left-1/2 max-sm:-translate-x-1/2 max-sm:ml-0 max-sm:top-full max-sm:bottom-auto max-sm:mt-2"
+            className="absolute left-full bottom-0 ml-3 w-52 bg-white rounded-2xl shadow-navy-lg border border-n-200 overflow-hidden z-[60] max-sm:left-1/2 max-sm:-translate-x-1/2 max-sm:ml-0 max-sm:top-full max-sm:bottom-auto max-sm:mt-2"
           >
             <div className="py-1">
-              <p className="px-4 py-2 text-xs font-bold text-charcoal/50 uppercase tracking-wider">
+              <p className="px-4 py-2 text-xs font-bold text-n-500 uppercase tracking-wider">
                 {t.brochure.selectLevel}
               </p>
               {brochureLevels.map((level) => (
                 <button
                   key={level}
                   onClick={() => handleLevelClick(level)}
-                  className="block w-full text-left px-4 py-2.5 text-sm text-charcoal hover:bg-sand hover:text-wine transition-colors duration-150"
+                  className="block w-full text-left px-4 py-2.5 text-sm text-navy hover:bg-n-50 hover:text-gold-600 transition-colors duration-150"
                 >
                   {getLevelName(level)}
                 </button>

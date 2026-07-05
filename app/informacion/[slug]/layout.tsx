@@ -86,7 +86,7 @@ export default async function InformacionLayout({
             {page.faqs.length > 0 && <FAQPageJsonLd faqs={page.faqs} />}
             <BreadcrumbJsonLd
               items={[
-                { name: 'Newland School', url: SITE_URL },
+                { name: 'NWL Australian School', url: SITE_URL },
                 {
                   name: page.lang === 'es' ? 'Información' : 'Information',
                   url: `${SITE_URL}/informacion`,

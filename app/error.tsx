@@ -15,7 +15,7 @@ export default function Error({
   }, [error]);
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-b from-ivory to-sand relative overflow-hidden">
+    <div className="min-h-screen flex items-center justify-center bg-paper relative overflow-hidden">
       {/* Faded kangaroo background */}
       <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[60vh] h-[60vh] opacity-[0.03] pointer-events-none select-none">
         <Image
@@ -39,26 +39,26 @@ export default function Error({
               className="h-24 w-auto animate-[wiggle_1s_ease-in-out_infinite] opacity-80"
             />
             {/* Speech bubble */}
-            <div className="absolute -top-8 -right-16 bg-white rounded-2xl rounded-bl-none px-3 py-1.5 shadow-md border border-warmgray">
-              <span className="text-xs font-medium text-charcoal whitespace-nowrap">
+            <div className="absolute -top-8 -right-16 bg-white rounded-2xl rounded-bl-none px-3 py-1.5 shadow-navy-md border border-n-200">
+              <span className="text-xs font-medium text-navy whitespace-nowrap">
                 Hmm...
               </span>
             </div>
           </div>
         </div>
 
-        {/* Wine divider */}
-        <div className="w-12 h-[2px] bg-wine mx-auto mb-6" />
+        {/* Gold divider */}
+        <div className="w-12 h-[2px] bg-gold mx-auto mb-6" />
 
         {/* Messages */}
-        <h1 className="font-display text-2xl sm:text-3xl font-bold text-charcoal mb-3">
+        <h1 className="font-display text-2xl sm:text-3xl font-bold text-navy mb-3">
           Something went wrong
         </h1>
-        <p className="text-charcoal/60 text-base sm:text-lg mb-2">
-          Don&apos;t worry, it&apos;s not you — we&apos;re on it.
+        <p className="text-navy/60 text-base sm:text-lg mb-2">
+          Don&apos;t worry, it&apos;s not you. We&apos;re on it.
         </p>
-        <p className="text-charcoal/50 text-base sm:text-lg mb-10">
-          No te preocupes, no eres t&uacute; — ya estamos en ello.
+        <p className="text-navy/50 text-base sm:text-lg mb-10">
+          No te preocupes, no eres t&uacute;. Ya estamos en ello.
         </p>
 
         {/* Actions */}

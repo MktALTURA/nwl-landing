@@ -11,16 +11,16 @@ export default function LanguageToggle({ light = false }: LanguageToggleProps) {
 
   return (
     <div className={`flex items-center rounded-full p-0.5 text-xs font-medium ${
-      light ? 'bg-white/10' : 'bg-charcoal/5'
+      light ? 'bg-white/10' : 'bg-navy/5'
     }`}>
       <button
         onClick={() => setLocale('en')}
         className={`px-2.5 py-1 rounded-full transition-colors duration-200 ${
           locale === 'en'
-            ? 'bg-wine text-white'
+            ? 'bg-gold text-[#1C0F00]'
             : light
               ? 'text-white/60 hover:text-white'
-              : 'text-charcoal/60 hover:text-charcoal'
+              : 'text-n-500 hover:text-navy'
         }`}
         aria-label="Switch to English"
       >
@@ -30,10 +30,10 @@ export default function LanguageToggle({ light = false }: LanguageToggleProps) {
         onClick={() => setLocale('es')}
         className={`px-2.5 py-1 rounded-full transition-colors duration-200 ${
           locale === 'es'
-            ? 'bg-wine text-white'
+            ? 'bg-gold text-[#1C0F00]'
             : light
               ? 'text-white/60 hover:text-white'
-              : 'text-charcoal/60 hover:text-charcoal'
+              : 'text-n-500 hover:text-navy'
         }`}
         aria-label="Cambiar a Español"
       >

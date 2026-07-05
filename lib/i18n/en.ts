@@ -44,7 +44,7 @@ export const en: Dictionary = {
     ctaPrimary: 'Schedule your visit',
     ctaWhatsapp: 'Chat on WhatsApp',
     ctaBrochure: 'Download your level\'s brochure',
-    trustIndicators: ['5 Campuses', 'Maternal - Preparatoria', 'Bilingual Education'],
+    trustIndicators: ['5 Campuses', 'Maternal - High School', 'Bilingual Education'],
   },
   beSection: {
     be: 'Be',
@@ -261,7 +261,7 @@ export const en: Dictionary = {
     items: [
       {
         quote:
-          'Newland has been transformational for our daughter. The teachers genuinely care about her growth, not just academically but emotionally too.',
+          'NWL has been transformational for our daughter. The teachers genuinely care about her growth, not just academically but emotionally too.',
         role: 'Parent - Kinder, Juriquilla',
       },
       {
@@ -318,10 +318,10 @@ export const en: Dictionary = {
     programsHeading: 'Programs',
     programLinks: [
       { name: 'Maternal', href: '#levels' },
-      { name: 'Kinder', href: '#levels' },
-      { name: 'Primaria', href: '#levels' },
-      { name: 'Secundaria', href: '#levels' },
-      { name: 'Preparatoria', href: '#levels' },
+      { name: 'Kindergarten', href: '#levels' },
+      { name: 'Elementary', href: '#levels' },
+      { name: 'Middle School', href: '#levels' },
+      { name: 'High School', href: '#levels' },
     ],
     contactHeading: 'Contact',
     contactLabel: 'Admissions',
@@ -1055,7 +1055,7 @@ export const en: Dictionary = {
     heroSubtitle: 'Be part of a community that transforms lives through education. Discover your next opportunity at NWL Australian School.',
     heroCta: 'View Open Positions',
     whyTitle: 'Why Work at',
-    whyTitleAccent: 'Newland',
+    whyTitleAccent: 'NWL',
     whySubtitle: 'More than a workplace — a community committed to educational excellence.',
     whyBenefits: [
       { title: 'Professional Growth', description: 'Continuous training, certifications, and development opportunities to advance your career in education.' },
@@ -1087,6 +1087,11 @@ export const en: Dictionary = {
     applicationFormId: 'XDVtGU9rtg9amiqI7lrB',
     applicationFormName: 'Career Application Form - EN',
     applicationFormTitle: 'Apply Now',
+    cvTitle: 'Send Us Your',
+    cvTitleAccent: 'CV',
+    cvSubtitle:
+      "Didn't find the right opening? We are always looking for great educators and professionals. Share your CV and we will reach out when a role matches your profile.",
+    cvNote: 'We review every application and keep your profile on file for future openings across our 5 campuses.',
     partnerTitle: 'Become a',
     partnerTitleAccent: 'Partner',
     partnerSubtitle: 'Join our network of strategic allies.',

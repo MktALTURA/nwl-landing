@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { useLanguage } from '@/lib/i18n/LanguageContext';
+import Eyebrow from '@/components/ui/Eyebrow';
 
 export default function CareersHero() {
   const { t } = useLanguage();
@@ -13,15 +14,15 @@ export default function CareersHero() {
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: "url('/images/og/careers.jpg')" }}
       />
-      {/* Dark overlay for text readability */}
-      <div className="absolute inset-0 bg-charcoal/70" />
-      <div className="absolute inset-0 bg-gradient-to-r from-charcoal/80 via-charcoal/50 to-transparent" />
+      {/* Navy scrim for text readability */}
+      <div className="absolute inset-0 bg-navy-900/70" />
+      <div className="absolute inset-0 bg-gradient-to-r from-navy-900/85 via-navy-900/55 to-transparent" />
 
       {/* Subtle top strip for nav readability */}
-      <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-black/30 to-transparent" />
+      <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-navy-900/40 to-transparent" />
 
       {/* Kangaroo watermark */}
-      <div className="absolute bottom-10 right-10 opacity-[0.04]">
+      <div className="absolute bottom-10 right-10 opacity-[0.05] pointer-events-none">
         <img
           src="/images/brand/nwl-as-kangaroo-white.png"
           alt=""
@@ -40,7 +41,7 @@ export default function CareersHero() {
           {/* Back link */}
           <a
             href="/"
-            className="inline-flex items-center text-sm text-white/70 hover:text-white transition-colors mb-8"
+            className="inline-flex items-center text-sm text-paper/70 hover:text-paper transition-colors mb-8"
           >
             <svg className="w-4 h-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -48,16 +49,20 @@ export default function CareersHero() {
             Home
           </a>
 
+          <div className="mb-5">
+            <Eyebrow>NWL Australian School</Eyebrow>
+          </div>
+
           <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight">
             {t.careers.heroTitle}{' '}
-            <span className="text-mustard">{t.careers.heroTitleAccent}</span>
+            <span className="italic text-gold">{t.careers.heroTitleAccent}</span>
           </h1>
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-lg md:text-xl text-white/80 mt-6 max-w-lg leading-relaxed"
+            className="text-lg md:text-xl text-paper/80 mt-6 max-w-lg leading-relaxed"
           >
             {t.careers.heroSubtitle}
           </motion.p>
@@ -67,7 +72,7 @@ export default function CareersHero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="inline-flex items-center mt-8 px-8 py-4 bg-wine text-white rounded-full font-medium hover:bg-wine/90 transition-colors"
+            className="btn-primary inline-flex items-center mt-8"
           >
             {t.careers.heroCta}
             <svg className="w-5 h-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">

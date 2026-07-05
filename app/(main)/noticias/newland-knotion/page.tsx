@@ -15,6 +15,7 @@ import {
 } from 'react-icons/fi';
 import { FaWhatsapp } from 'react-icons/fa';
 import Footer from '@/components/Footer';
+import SouthernCross from '@/components/ui/SouthernCross';
 
 /* ──────────────────────────────────────────────────────────
    Newland × Knotion · News / methodology update
@@ -68,17 +69,17 @@ const familyCards = [
   {
     tag: 'Para Maternal',
     body: 'Tu hijo vivirá una etapa de Maternal sensorial, afectiva y sin pantallas, acompañado de cerca por docentes especializados en primera infancia. Una base sólida para todo lo que viene después.',
-    badge: 'bg-bubblegum/20',
+    badge: 'bg-eucalyptus/20',
   },
   {
     tag: 'Para Kinder',
     body: 'El camino hacia la tecnología es gradual e intencional, guiado por el modelo de Knotion. Tu hijo llegará a Primaria no solo sabiendo usar un iPad, sino sabiendo por qué y para qué lo usa.',
-    badge: 'bg-ocean/20',
+    badge: 'bg-coral-sea/15',
   },
   {
     tag: 'Primaria y Secundaria · Milenio, SMA y Corregidora',
     body: 'El acceso a la plataforma Knotion completa ahora es más accesible, sin ningún compromiso en calidad. El modelo es el mismo. La inversión es menor.',
-    badge: 'bg-mustard/25',
+    badge: 'bg-wattle/25',
   },
 ];
 
@@ -118,8 +119,8 @@ const fadeUp = {
 
 function Eyebrow({ children }: { children: React.ReactNode }) {
   return (
-    <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-wine">
-      <span className="w-6 h-[2px] bg-wine" />
+    <span className="inline-flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.22em] text-gold">
+      <span className="w-9 h-px bg-gold" />
       {children}
     </span>
   );
@@ -135,7 +136,7 @@ function SectionHeading({
   return (
     <div className="mb-7">
       <Eyebrow>{eyebrow}</Eyebrow>
-      <h2 className="font-display text-3xl md:text-[2.6rem] leading-[1.1] font-bold text-charcoal mt-4">
+      <h2 className="font-display text-3xl md:text-[2.6rem] leading-[1.1] font-bold text-navy mt-4">
         {children}
       </h2>
     </div>
@@ -143,59 +144,57 @@ function SectionHeading({
 }
 
 function Lead({ children }: { children: React.ReactNode }) {
-  return <p className="text-lg md:text-xl text-charcoal/70 leading-relaxed">{children}</p>;
+  return <p className="text-lg md:text-xl text-navy/70 leading-relaxed">{children}</p>;
 }
 
 function Body({ children }: { children: React.ReactNode }) {
-  return <p className="text-[1.05rem] text-charcoal/80 leading-[1.8]">{children}</p>;
+  return <p className="text-[1.05rem] text-navy/80 leading-[1.8]">{children}</p>;
 }
 
 function PullQuote({ children, attribution }: { children: React.ReactNode; attribution?: string }) {
   return (
     <motion.figure {...fadeUp} className="my-12 md:my-16 text-center">
-      <p className="font-display text-2xl md:text-4xl leading-snug text-wine italic">
+      <p className="font-display text-2xl md:text-4xl leading-snug text-gold-600 italic">
         “{children}”
       </p>
       {attribution && (
-        <figcaption className="mt-4 text-sm uppercase tracking-wider text-charcoal/50">
+        <figcaption className="mt-4 text-sm uppercase tracking-wider text-navy/50">
           {attribution}
         </figcaption>
       )}
-      <span className="mx-auto mt-6 block w-12 h-[3px] bg-mustard rounded-full" />
+      <span className="mx-auto mt-6 block w-12 h-[3px] bg-gold rounded-full" />
     </motion.figure>
   );
 }
 
 export default function NewlandKnotionNews() {
   return (
-    <main className="bg-ivory">
+    <main className="bg-paper">
       {/* ───────── Masthead / Hero ───────── */}
-      <header className="relative bg-charcoal text-white pt-32 md:pt-36 pb-0">
-        {/* ambient brand wash */}
+      <header className="relative overflow-hidden nwl-bg-dawn-deep text-paper pt-32 md:pt-36 pb-0">
         <div
-          className="absolute inset-0 opacity-90"
-          style={{
-            background:
-              'radial-gradient(circle at 18% 20%, rgba(139,35,50,0.55) 0%, transparent 55%), radial-gradient(circle at 85% 15%, rgba(230,169,68,0.18) 0%, transparent 50%), linear-gradient(160deg, #2c2c2c 0%, #3D3D3D 60%, #2a1416 100%)',
-          }}
-        />
+          className="hidden md:block absolute top-24 right-[5%] pointer-events-none"
+          aria-hidden="true"
+        >
+          <SouthernCross height={130} color="var(--nwl-gold)" opacity={0.32} />
+        </div>
         <div className="container-custom relative z-10 max-w-4xl">
           {/* Breadcrumb */}
           <nav aria-label="Breadcrumb" className="mb-8">
-            <ol className="flex flex-wrap items-center text-sm text-white/55 gap-2">
+            <ol className="flex flex-wrap items-center text-sm text-paper/55 gap-2">
               <li>
-                <a href="/" className="hover:text-white transition-colors">
-                  Newland School
+                <a href="/" className="hover:text-paper transition-colors">
+                  NWL Australian School
                 </a>
               </li>
               <li aria-hidden="true">/</li>
               <li>
-                <a href="/noticias" className="hover:text-white transition-colors">
+                <a href="/noticias" className="hover:text-paper transition-colors">
                   Noticias
                 </a>
               </li>
               <li aria-hidden="true">/</li>
-              <li className="text-white/90" aria-current="page">
+              <li className="text-paper/90" aria-current="page">
                 Newland × Knotion
               </li>
             </ol>
@@ -203,13 +202,13 @@ export default function NewlandKnotionNews() {
 
           {/* Category + date */}
           <div className="flex flex-wrap items-center gap-4 mb-7">
-            <span className="inline-flex items-center gap-2 rounded-full bg-mustard/20 border border-mustard/40 px-3.5 py-1.5 text-[11px] font-bold uppercase tracking-[0.16em] text-mustard">
+            <span className="inline-flex items-center gap-2 rounded-full bg-gold/20 border border-gold/40 px-3.5 py-1.5 text-[11px] font-bold uppercase tracking-[0.16em] text-gold-400">
               Actualización de metodología
             </span>
-            <span className="inline-flex items-center gap-1.5 text-sm text-white/60">
+            <span className="inline-flex items-center gap-1.5 text-sm text-paper/60">
               <FiClock size={14} /> {PUBLISHED}
             </span>
-            <span className="text-sm text-white/40">· 6 min de lectura</span>
+            <span className="text-sm text-paper/40">· 6 min de lectura</span>
           </div>
 
           {/* Newland × Knotion lockup */}
@@ -217,16 +216,16 @@ export default function NewlandKnotionNews() {
             <span className="flex items-center gap-2">
               <img
                 src="/images/brand/nwl-as-kangaroo-white.png"
-                alt="Newland"
+                alt="NWL"
                 className="h-10 md:h-12 w-auto"
               />
               <img
                 src="/images/brand/nwl-logo-white.png"
-                alt="Colegio Newland"
+                alt="NWL Australian School"
                 className="h-7 md:h-9 w-auto"
               />
             </span>
-            <span className="font-display text-2xl md:text-3xl text-white/40">×</span>
+            <span className="font-display text-2xl md:text-3xl text-paper/40">×</span>
             <span className="rounded-lg bg-white px-3 py-2 shadow-lg">
               <img
                 src="/images/logos/partners/kn-spark-sense-knotion-color.png"
@@ -249,7 +248,7 @@ export default function NewlandKnotionNews() {
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.12, ease: [0.22, 1, 0.36, 1] }}
-            className="mt-6 text-xl md:text-2xl text-white/75 max-w-2xl leading-relaxed"
+            className="mt-6 text-xl md:text-2xl text-paper/75 max-w-2xl leading-relaxed"
           >
             Una actualización importante sobre nuestra metodología y lo que
             significa para tu familia.
@@ -264,10 +263,10 @@ export default function NewlandKnotionNews() {
           >
             <img
               src="/images/levels/kinder/kinder-digital-learning.jpg"
-              alt="Niño de Newland aprendiendo con tecnología guiada por su maestra"
+              alt="Niño de NWL Australian School aprendiendo con tecnología guiada por su maestra"
               className="w-full h-[40vh] md:h-[52vh] object-cover"
             />
-            <figcaption className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/70 to-transparent px-5 py-4 text-xs text-white/80">
+            <figcaption className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/70 to-transparent px-5 py-4 text-xs text-paper/80">
               Tecnología al servicio del aprendizaje, introducida cuando el niño está listo.
             </figcaption>
           </motion.figure>
@@ -284,7 +283,7 @@ export default function NewlandKnotionNews() {
           <Body>
             Cada decisión que tomamos sobre cómo aprenden nuestros alumnos, qué
             herramientas usan y cuándo las usan, pasa primero por una pregunta:{' '}
-            <strong className="text-charcoal">¿esto sirve al desarrollo real del niño?</strong>
+            <strong className="text-navy">¿esto sirve al desarrollo real del niño?</strong>
           </Body>
           <Body>
             Esta temporada compartimos una de las actualizaciones más
@@ -306,19 +305,19 @@ export default function NewlandKnotionNews() {
               Para quienes son nuevos en nuestra comunidad: Knotion es el
               ecosistema de aprendizaje transdisciplinar que utilizamos en Newland
               desde hace varios años. Su modelo pedagógico, llamado{' '}
-              <strong className="text-charcoal">IMPACT® Learning</strong>, combina
+              <strong className="text-navy">IMPACT® Learning</strong>, combina
               design thinking, retos del mundo real y tecnología para generar
               aprendizaje basado en acciones concretas, no en memorización.
             </Body>
-            <div className="rounded-2xl bg-sand border border-charcoal/5 p-6 flex items-start gap-4">
+            <div className="rounded-2xl bg-white border border-n-200 p-6 flex items-start gap-4">
               <img
                 src="/images/logos/partners/knotion.png"
                 alt="Knotion"
                 className="h-6 w-auto mt-1 shrink-0"
               />
-              <p className="text-charcoal/80 leading-relaxed">
+              <p className="text-navy/80 leading-relaxed">
                 Sin tareas tradicionales. Sin hojas de trabajo repetitivas. En su
-                lugar: <strong className="text-charcoal">proyectos reales, pensamiento
+                lugar: <strong className="text-navy">proyectos reales, pensamiento
                 crítico, colaboración.</strong> Es por eso que Newland eligió Knotion.
                 Y es por eso que seguimos evolucionando junto a ellos.
               </p>
@@ -334,13 +333,13 @@ export default function NewlandKnotionNews() {
           <div className="space-y-6">
             <Body>
               En Maternal, el aprendizaje continúa{' '}
-              <strong className="text-charcoal">sin el uso de iPad</strong>. En esta
+              <strong className="text-navy">sin el uso de iPad</strong>. En esta
               etapa, la experiencia es sensorial, afectiva y humana: los niños
               aprenden a través del cuerpo, del juego y del vínculo con sus maestras.
             </Body>
           </div>
 
-          <figure className="my-9 rounded-2xl overflow-hidden shadow-lg ring-1 ring-charcoal/5">
+          <figure className="my-9 rounded-2xl overflow-hidden shadow-lg ring-1 ring-navy/5">
             <img
               src="/images/levels/maternal/maternal-playtime.jpg"
               alt="Alumnos de Maternal aprendiendo a través del juego sensorial, sin pantallas"
@@ -360,10 +359,10 @@ export default function NewlandKnotionNews() {
 
             {/* Sensory learning callout */}
             <div className="rounded-2xl border-l-4 border-eucalyptus bg-eucalyptus/10 p-6">
-              <p className="text-xs font-bold uppercase tracking-wider text-charcoal/50 mb-2">
+              <p className="text-xs font-bold uppercase tracking-wider text-navy/50 mb-2">
                 Aprender con todos los sentidos
               </p>
-              <p className="text-charcoal/80 leading-relaxed">
+              <p className="text-navy/80 leading-relaxed">
                 Los niños de Maternal trabajan con retos sensoriales, materiales
                 reales, exploración guiada, narración oral y juego simbólico.
                 Competencias como la{' '}
@@ -394,30 +393,30 @@ export default function NewlandKnotionNews() {
             {kinderSteps.map((step, i) => (
               <div
                 key={step.label}
-                className="relative rounded-2xl border border-charcoal/10 bg-white p-5 flex flex-col"
+                className="relative rounded-2xl border border-n-200 bg-white p-5 flex flex-col"
               >
                 <div className="flex items-center justify-between mb-3">
-                  <span className="inline-flex items-center justify-center w-9 h-9 rounded-full bg-blueberry/15 text-blueberry font-bold text-sm">
+                  <span className="inline-flex items-center justify-center w-9 h-9 rounded-full bg-jacaranda/15 text-jacaranda font-bold text-sm">
                     {i + 1}
                   </span>
                   <FiSmartphone
                     size={18}
-                    className="text-charcoal/30"
+                    className="text-navy/30"
                     style={{ opacity: 0.35 + i * 0.32 }}
                   />
                 </div>
-                <p className="text-xs font-bold uppercase tracking-wider text-blueberry mb-1">
+                <p className="text-xs font-bold uppercase tracking-wider text-jacaranda mb-1">
                   {step.label}
                 </p>
-                <p className="font-display text-lg font-bold text-charcoal mb-2 leading-snug">
+                <p className="font-display text-lg font-bold text-navy mb-2 leading-snug">
                   {step.title}
                 </p>
-                <p className="text-sm text-charcoal/70 leading-relaxed">{step.body}</p>
+                <p className="text-sm text-navy/70 leading-relaxed">{step.body}</p>
               </div>
             ))}
           </div>
 
-          <figure className="my-9 rounded-2xl overflow-hidden shadow-lg ring-1 ring-charcoal/5">
+          <figure className="my-9 rounded-2xl overflow-hidden shadow-lg ring-1 ring-navy/5">
             <img
               src="/images/levels/kinder/kinder-tablets.jpg"
               alt="Alumnos de Kinder usando iPads de forma guiada como parte de Knotion"
@@ -426,11 +425,11 @@ export default function NewlandKnotionNews() {
             />
           </figure>
 
-          <div className="rounded-2xl border-l-4 border-blueberry bg-blueberry/[0.06] p-6">
-            <p className="text-xs font-bold uppercase tracking-wider text-charcoal/50 mb-2">
+          <div className="rounded-2xl border-l-4 border-jacaranda bg-jacaranda/[0.06] p-6">
+            <p className="text-xs font-bold uppercase tracking-wider text-navy/50 mb-2">
               Menos pantalla, más experiencia
             </p>
-            <p className="text-charcoal/80 leading-relaxed">
+            <p className="text-navy/80 leading-relaxed">
               Este esquema representa una{' '}
               <strong>reducción considerable del uso del dispositivo</strong> frente al
               modelo anterior. El tiempo recomendado no es todo frente a la pantalla:
@@ -448,13 +447,13 @@ export default function NewlandKnotionNews() {
             Introducing Kn·Spark Sense
           </SectionHeading>
           <Body>
-            <strong className="text-charcoal">Kn·Spark Sense</strong> es la nueva
+            <strong className="text-navy">Kn·Spark Sense</strong> es la nueva
             plataforma de Knotion diseñada específicamente para preescolar. No es una
             versión reducida del sistema principal: es una aplicación construida
             desde cero para las características del aprendizaje en primera infancia.
           </Body>
 
-          <div className="mt-8 rounded-2xl border border-charcoal/10 bg-ivory px-6 py-8 flex items-center justify-center">
+          <div className="mt-8 rounded-2xl border border-n-200 bg-white px-6 py-8 flex items-center justify-center">
             <Image
               src="/images/logos/partners/kn-spark-sense-knotion-color.png"
               alt="Kn·Spark Sense by Knotion"
@@ -470,15 +469,15 @@ export default function NewlandKnotionNews() {
               return (
                 <div
                   key={p.title}
-                  className="rounded-2xl border border-charcoal/10 bg-white p-5"
+                  className="rounded-2xl border border-n-200 bg-white p-5"
                 >
-                  <span className="inline-flex items-center justify-center w-11 h-11 rounded-xl bg-ocean/15 text-ocean mb-4">
+                  <span className="inline-flex items-center justify-center w-11 h-11 rounded-xl bg-coral-sea/15 text-coral-sea mb-4">
                     <Icon size={20} />
                   </span>
-                  <p className="font-display text-lg font-bold text-charcoal mb-1.5">
+                  <p className="font-display text-lg font-bold text-navy mb-1.5">
                     {p.title}
                   </p>
-                  <p className="text-sm text-charcoal/70 leading-relaxed">{p.body}</p>
+                  <p className="text-sm text-navy/70 leading-relaxed">{p.body}</p>
                 </div>
               );
             })}
@@ -491,14 +490,14 @@ export default function NewlandKnotionNews() {
               América Latina y probada en entornos 1:1 con resultados documentados en
               desarrollo de competencias globales.
             </Body>
-            <div className="rounded-2xl bg-charcoal text-white p-6 flex items-center gap-5">
-              <div className="shrink-0 flex flex-col items-center justify-center w-20 h-20 rounded-2xl bg-mustard text-charcoal">
+            <div className="rounded-2xl bg-navy text-paper p-6 flex items-center gap-5">
+              <div className="shrink-0 flex flex-col items-center justify-center w-20 h-20 rounded-2xl bg-gold text-[#1C0F00]">
                 <FiTag size={20} />
                 <span className="font-display text-xl font-bold leading-none mt-1">-10%</span>
               </div>
-              <p className="text-white/85 leading-relaxed">
+              <p className="text-paper/85 leading-relaxed">
                 Kn·Spark Sense para Kinder tendrá un costo{' '}
-                <strong className="text-white">10% menor</strong> que la plataforma
+                <strong className="text-paper">10% menor</strong> que la plataforma
                 completa, porque fue diseñada con precisión para esa etapa, y el
                 precio debe reflejarlo.
               </p>
@@ -512,18 +511,18 @@ export default function NewlandKnotionNews() {
             Exclusive Pricing for Three Campuses
           </SectionHeading>
           <Body>
-            Las familias de los campus <strong className="text-charcoal">Milenio, San
+            Las familias de los campus <strong className="text-navy">Milenio, San
             Miguel de Allende y Corregidora</strong> tendrán acceso a descuentos
             adicionales en Knotion este ciclo, gracias al respaldo del{' '}
-            <strong className="text-charcoal">British Endowment Foundation (B.E.)
+            <strong className="text-navy">British Endowment Foundation (B.E.)
             Program</strong>, un programa de apoyo a la excelencia educativa que
             Newland ha incorporado en estos campus.
           </Body>
 
-          <div className="mt-8 overflow-hidden rounded-2xl border border-charcoal/10">
+          <div className="mt-8 overflow-hidden rounded-2xl border border-n-200">
             <table className="w-full text-left border-collapse">
               <thead>
-                <tr className="bg-wine text-white">
+                <tr className="bg-navy text-paper">
                   <th className="px-4 py-3 text-sm font-semibold">Nivel</th>
                   <th className="px-4 py-3 text-sm font-semibold">Descuento B.E.</th>
                   <th className="px-4 py-3 text-sm font-semibold hidden sm:table-cell">
@@ -536,20 +535,20 @@ export default function NewlandKnotionNews() {
                 {pricingRows.map((row, i) => (
                   <tr
                     key={row.level}
-                    className={i % 2 === 0 ? 'bg-white' : 'bg-sand/60'}
+                    className={i % 2 === 0 ? 'bg-white' : 'bg-n-100/60'}
                   >
-                    <td className="px-4 py-3 font-medium text-charcoal">{row.level}</td>
-                    <td className="px-4 py-3 text-charcoal/80">{row.be}</td>
-                    <td className="px-4 py-3 text-charcoal/80 hidden sm:table-cell">
+                    <td className="px-4 py-3 font-medium text-navy">{row.level}</td>
+                    <td className="px-4 py-3 text-navy/80">{row.be}</td>
+                    <td className="px-4 py-3 text-navy/80 hidden sm:table-cell">
                       {row.sense}
                     </td>
-                    <td className="px-4 py-3 font-bold text-wine">{row.total}</td>
+                    <td className="px-4 py-3 font-bold text-gold-600">{row.total}</td>
                   </tr>
                 ))}
               </tbody>
             </table>
           </div>
-          <p className="mt-3 text-xs text-charcoal/50 leading-relaxed">
+          <p className="mt-3 text-xs text-navy/50 leading-relaxed">
             Los descuentos aplican sobre el costo de la plataforma Knotion. No son
             acumulables con otros programas de apoyo. Consulta con tu CAP para los
             detalles de aplicación por campus.
@@ -566,14 +565,14 @@ export default function NewlandKnotionNews() {
             {familyCards.map((card) => (
               <div
                 key={card.tag}
-                className="rounded-2xl border border-charcoal/10 bg-white p-5 flex flex-col"
+                className="rounded-2xl border border-n-200 bg-white p-5 flex flex-col"
               >
                 <span
-                  className={`self-start rounded-full ${card.badge} text-charcoal text-[11px] font-bold uppercase tracking-wider px-3 py-1 mb-3`}
+                  className={`self-start rounded-full ${card.badge} text-navy text-[11px] font-bold uppercase tracking-wider px-3 py-1 mb-3`}
                 >
                   {card.tag}
                 </span>
-                <p className="text-sm text-charcoal/75 leading-relaxed">{card.body}</p>
+                <p className="text-sm text-navy/75 leading-relaxed">{card.body}</p>
               </div>
             ))}
           </div>
@@ -584,23 +583,22 @@ export default function NewlandKnotionNews() {
       <section className="container-custom max-w-4xl pb-16">
         <motion.div
           {...fadeUp}
-          className="relative overflow-hidden rounded-3xl bg-charcoal text-white px-7 py-10 md:px-12 md:py-14"
+          className="relative overflow-hidden rounded-3xl nwl-bg-dawn-deep text-paper px-7 py-10 md:px-12 md:py-14"
         >
           <div
-            className="absolute inset-0 opacity-90"
-            style={{
-              background:
-                'radial-gradient(circle at 80% 20%, rgba(139,35,50,0.5) 0%, transparent 55%), radial-gradient(circle at 10% 90%, rgba(230,169,68,0.18) 0%, transparent 50%), linear-gradient(135deg, #2c2c2c, #3D3D3D)',
-            }}
-          />
+            className="hidden md:block absolute top-8 right-8 pointer-events-none"
+            aria-hidden="true"
+          >
+            <SouthernCross height={110} color="var(--nwl-gold)" opacity={0.3} />
+          </div>
           <div className="relative z-10 max-w-2xl">
             <Eyebrow>
-              <span className="text-mustard">Questions? We&apos;re on WhatsApp</span>
+              <span className="text-gold-400">Questions? We&apos;re on WhatsApp</span>
             </Eyebrow>
             <h2 className="font-display text-3xl md:text-4xl font-bold mt-4 mb-4">
               Hablemos sobre lo que esto significa para tu hijo.
             </h2>
-            <p className="text-white/75 leading-relaxed mb-8">
+            <p className="text-paper/75 leading-relaxed mb-8">
               Si tienes dudas sobre cómo aplican estos cambios en el campus de tu
               hijo, o quieres entender mejor la metodología antes de inscribir,
               nuestro equipo de admisiones está disponible.
@@ -610,13 +608,13 @@ export default function NewlandKnotionNews() {
                 href="https://wa.me/5214421227791"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 rounded-sm bg-green-500 hover:bg-green-600 text-white px-7 py-3.5 font-medium transition-colors"
+                className="inline-flex items-center justify-center gap-2 rounded-pill bg-green-500 hover:bg-green-600 text-white px-7 py-3.5 font-medium transition-colors"
               >
                 <FaWhatsapp size={20} /> WhatsApp: +52 442 122 7791
               </a>
               <a
                 href="/#admissions"
-                className="inline-flex items-center justify-center gap-2 rounded-sm bg-white/10 border border-white/30 hover:bg-white hover:text-charcoal text-white px-7 py-3.5 font-medium transition-colors"
+                className="inline-flex items-center justify-center gap-2 rounded-pill bg-white/10 border border-white/30 hover:bg-white hover:text-navy text-paper px-7 py-3.5 font-medium transition-colors"
               >
                 Agenda una visita guiada <FiArrowRight size={18} />
               </a>
@@ -627,26 +625,26 @@ export default function NewlandKnotionNews() {
         {/* Closing banner */}
         <motion.p
           {...fadeUp}
-          className="text-center font-display text-2xl md:text-3xl font-bold text-wine mt-12"
+          className="text-center font-display text-2xl md:text-3xl font-bold text-gold-600 mt-12"
         >
           Be Proud. Be Newland.
         </motion.p>
       </section>
 
       {/* ───────── Sources ───────── */}
-      <section className="bg-ivory border-t border-charcoal/10 py-12">
+      <section className="bg-paper border-t border-n-200 py-12">
         <div className="container-custom max-w-3xl">
-          <p className="text-xs font-bold uppercase tracking-[0.18em] text-charcoal/50 mb-5">
+          <p className="text-xs font-bold uppercase tracking-[0.18em] text-navy/50 mb-5">
             Fuentes
           </p>
-          <ol className="grid gap-2 sm:grid-cols-2 list-decimal list-outside pl-5 marker:text-charcoal/40">
+          <ol className="grid gap-2 sm:grid-cols-2 list-decimal list-outside pl-5 marker:text-navy/40">
             {sources.map((s) => (
               <li key={s.label} className="text-sm leading-relaxed">
                 <a
                   href={s.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-charcoal/70 hover:text-wine transition-colors inline-flex items-start gap-1"
+                  className="text-navy/70 hover:text-gold-600 transition-colors inline-flex items-start gap-1"
                 >
                   {s.label}
                   <FiExternalLink size={12} className="mt-1 shrink-0 opacity-50" />

@@ -24,10 +24,10 @@ export default function InformacionContent({ page }: InformacionContentProps) {
               transition={{ duration: 0.6, delay: index * 0.1 }}
               className="mb-12"
             >
-              <h2 className="font-display text-3xl md:text-4xl font-bold text-charcoal mb-6">
+              <h2 className="font-display text-3xl md:text-4xl font-bold text-navy mb-6">
                 {section.heading}
               </h2>
-              <div className="prose prose-lg max-w-none text-charcoal/80 leading-relaxed">
+              <div className="prose prose-lg max-w-none text-navy/70 leading-relaxed">
                 {section.body.split('\n\n').map((paragraph, pIdx) => (
                   <p key={pIdx} className="mb-4 last:mb-0">
                     {paragraph}
@@ -47,7 +47,7 @@ export default function InformacionContent({ page }: InformacionContentProps) {
               >
                 <Image
                   src={images.content[index]}
-                  alt={`${page.h1} — ${section.heading}`}
+                  alt={`${page.h1}: ${section.heading}`}
                   fill
                   sizes="(max-width: 768px) 100vw, 800px"
                   className="object-cover"

@@ -22,9 +22,9 @@ export default function InformacionHero({ page }: InformacionHeroProps) {
           priority
           quality={80}
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-charcoal/80 via-charcoal/50 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-charcoal/60 via-transparent to-transparent" />
-        <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-black/50 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-navy-900/85 via-navy-900/55 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-navy-900/70 via-transparent to-transparent" />
+        <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-navy-900/60 to-transparent" />
       </div>
 
       {/* Content */}
@@ -37,32 +37,38 @@ export default function InformacionHero({ page }: InformacionHeroProps) {
         >
           {/* Breadcrumb */}
           <nav aria-label="Breadcrumb" className="mb-6">
-            <ol className="flex items-center text-sm text-white/70 gap-2">
+            <ol className="flex items-center text-sm text-paper/70 gap-2">
               <li>
-                <a href="/" className="hover:text-white transition-colors">
-                  Newland School
+                <a href="/" className="hover:text-paper transition-colors">
+                  NWL Australian School
                 </a>
               </li>
               <li aria-hidden="true">/</li>
               <li>
-                <a href="/informacion" className="hover:text-white transition-colors">
+                <a href="/informacion" className="hover:text-paper transition-colors">
                   {page.lang === 'es' ? 'Información' : 'Information'}
                 </a>
               </li>
               <li aria-hidden="true">/</li>
-              <li className="text-white/90 truncate max-w-[200px]" aria-current="page">
+              <li className="text-paper/90 truncate max-w-[200px]" aria-current="page">
                 {page.h1}
               </li>
             </ol>
           </nav>
 
+          {/* Eyebrow */}
+          <span className="inline-flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.22em] text-gold mb-5">
+            <span className="w-9 h-px bg-gold" aria-hidden="true" />
+            {page.lang === 'es' ? 'Información para familias' : 'Information for families'}
+          </span>
+
           {/* H1 */}
-          <h1 className="font-display text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6 leading-tight">
+          <h1 className="font-display text-4xl sm:text-5xl md:text-6xl font-bold text-paper mb-6 leading-tight">
             {page.h1}
           </h1>
 
           {/* Unique intro */}
-          <p className="text-lg md:text-xl text-white/90 leading-relaxed max-w-2xl">
+          <p className="text-lg md:text-xl text-paper/90 leading-relaxed max-w-2xl">
             {page.uniqueIntro}
           </p>
         </motion.div>

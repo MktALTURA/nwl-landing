@@ -42,8 +42,8 @@ export default function AdminLoginPage() {
       <div className="w-full max-w-sm">
         <div className="text-center mb-8">
           <img
-            src="/images/brand/nwl-logo-wine.png"
-            alt="Newland School"
+            src="/images/brand/nwl-as-logo-color.png"
+            alt="NWL Australian School"
             className="h-16 w-auto mx-auto mb-6"
           />
           <h1 className="text-2xl font-display font-bold text-charcoal">

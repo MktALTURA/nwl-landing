@@ -38,7 +38,7 @@ export default function CareersLayout({ children }: { children: React.ReactNode 
       <BrochureProvider>
         <BreadcrumbJsonLd
           items={[
-            { name: 'Newland School', url: SITE_URL },
+            { name: 'NWL Australian School', url: SITE_URL },
             { name: 'Trabaja con Nosotros', url },
           ]}
         />

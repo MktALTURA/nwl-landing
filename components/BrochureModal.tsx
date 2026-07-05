@@ -62,7 +62,7 @@ export default function BrochureModal() {
           onClick={closeBrochure}
         >
           {/* Dark backdrop */}
-          <div className="absolute inset-0 bg-charcoal/80 backdrop-blur-sm" />
+          <div className="absolute inset-0 bg-navy-900/80 backdrop-blur-sm" />
 
           {/* Modal container */}
           <motion.div
@@ -71,16 +71,16 @@ export default function BrochureModal() {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
             transition={{ duration: 0.3, ease: 'easeOut' }}
-            className="relative w-[95vw] h-[90vh] max-w-7xl bg-white rounded-lg shadow-2xl overflow-hidden flex flex-col"
+            className="relative w-[95vw] h-[90vh] max-w-7xl bg-white rounded-3xl shadow-navy-xl overflow-hidden flex flex-col"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Header bar */}
-            <div className="flex items-center justify-between px-4 sm:px-6 py-3 sm:py-4 border-b border-charcoal/10 bg-ivory shrink-0">
+            <div className="flex items-center justify-between px-4 sm:px-6 py-3 sm:py-4 border-b border-n-200 bg-paper shrink-0">
               <div className="flex items-center gap-3 min-w-0">
-                <div className="w-8 h-[2px] bg-wine shrink-0" />
-                <h3 className="font-display text-lg sm:text-xl font-bold text-charcoal truncate">
+                <div className="w-8 h-[2px] bg-gold shrink-0" />
+                <h3 className="font-display text-lg sm:text-xl font-bold text-navy truncate">
                   {levelDisplayName}
-                  <span className="text-charcoal/50 font-sans text-xs sm:text-sm font-normal ml-2 sm:ml-3">
+                  <span className="text-navy/50 font-sans text-xs sm:text-sm font-normal ml-2 sm:ml-3">
                     {t.brochure.modalSubtitle}
                   </span>
                 </h3>
@@ -91,7 +91,7 @@ export default function BrochureModal() {
                     href={pdfUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="hidden sm:inline-flex btn-secondary text-sm px-4 py-2 items-center gap-2"
+                    className="hidden sm:inline-flex btn-primary text-sm px-4 py-2 items-center gap-2"
                   >
                     <FiDownload size={14} />
                     {t.brochure.downloadPdf}
@@ -103,7 +103,7 @@ export default function BrochureModal() {
                     href={pdfUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="sm:hidden w-10 h-10 rounded-full bg-charcoal/5 hover:bg-charcoal/10 flex items-center justify-center text-charcoal transition-colors"
+                    className="sm:hidden w-10 h-10 rounded-full bg-navy/5 hover:bg-navy/10 flex items-center justify-center text-navy transition-colors"
                     aria-label={t.brochure.downloadPdf}
                   >
                     <FiDownload size={18} />
@@ -111,7 +111,7 @@ export default function BrochureModal() {
                 )}
                 <button
                   onClick={closeBrochure}
-                  className="w-10 h-10 rounded-full bg-charcoal/5 hover:bg-charcoal/10 flex items-center justify-center text-charcoal transition-colors"
+                  className="w-10 h-10 rounded-full bg-navy/5 hover:bg-navy/10 flex items-center justify-center text-navy transition-colors"
                   aria-label={t.brochure.closeAriaLabel}
                 >
                   <FiX size={20} />
@@ -120,7 +120,7 @@ export default function BrochureModal() {
             </div>
 
             {/* Flip-book iframe */}
-            <div className="flex-1 bg-sand">
+            <div className="flex-1 bg-paper">
               <iframe
                 src={heyzineUrl}
                 title={`${levelDisplayName} brochure`}

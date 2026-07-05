@@ -22,10 +22,10 @@ function BrochureContent({ level }: { level: string }) {
   // Validate level
   if (!brochureLevels.includes(level as BrochureLevel)) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-charcoal text-white">
+      <div className="min-h-screen flex items-center justify-center bg-navy text-paper">
         <div className="text-center">
           <h1 className="font-display text-4xl font-bold mb-4">Brochure not found</h1>
-          <a href="/" className="text-mustard hover:underline">
+          <a href="/" className="text-gold hover:underline">
             ← Back to NWL
           </a>
         </div>
@@ -40,24 +40,24 @@ function BrochureContent({ level }: { level: string }) {
   const pdfUrl = config.pdfDownloadUrl[lang];
 
   return (
-    <div className="h-screen flex flex-col bg-charcoal overflow-hidden">
+    <div className="h-screen flex flex-col bg-navy overflow-hidden">
       {/* Compact header */}
-      <header className="flex items-center justify-between px-4 sm:px-6 py-3 bg-white border-b border-charcoal/10 shrink-0">
+      <header className="flex items-center justify-between px-4 sm:px-6 py-3 bg-navy border-b border-white/10 shrink-0">
         <div className="flex items-center gap-3 min-w-0">
           <Image
             src="/images/brand/nwl-as-kangaroo-gold.png"
-            alt="Newland School"
+            alt="NWL Australian School"
             width={32}
             height={32}
             className="h-8 w-auto shrink-0"
           />
-          <div className="w-px h-6 bg-charcoal/10 shrink-0" />
+          <div className="w-px h-6 bg-white/15 shrink-0" />
           <div className="min-w-0">
-            <h1 className="font-display text-base sm:text-lg font-bold text-charcoal truncate">
+            <h1 className="font-display text-base sm:text-lg font-bold text-paper truncate">
               {displayName}
             </h1>
-            <p className="text-xs text-charcoal/50 hidden sm:block">
-              {lang === 'es' ? 'Modelo Educativo — Colegio Newland' : 'Educational Model — Newland School'}
+            <p className="text-xs text-paper/60 hidden sm:block">
+              {lang === 'es' ? 'Modelo Educativo · NWL Australian School' : 'Educational Model · NWL Australian School'}
             </p>
           </div>
         </div>
@@ -66,7 +66,7 @@ function BrochureContent({ level }: { level: string }) {
           {/* Language toggle */}
           <a
             href={lang === 'en' ? `/brochures/${level}?lang=es` : `/brochures/${level}`}
-            className="text-xs font-bold text-charcoal/50 hover:text-wine border border-charcoal/15 rounded px-2 py-1 transition-colors"
+            className="text-xs font-bold text-paper/60 hover:text-gold border border-white/20 rounded px-2 py-1 transition-colors"
           >
             {lang === 'en' ? 'ES' : 'EN'}
           </a>
@@ -75,7 +75,7 @@ function BrochureContent({ level }: { level: string }) {
             href={pdfUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 text-sm font-semibold text-white bg-wine hover:bg-wine/90 rounded-lg px-3 py-2 transition-colors"
+            className="inline-flex items-center gap-1.5 text-sm font-semibold text-navy bg-gold hover:bg-gold/90 rounded-lg px-3 py-2 transition-colors"
           >
             <FiDownload size={14} />
             <span className="hidden sm:inline">
@@ -109,8 +109,8 @@ export default function BrochurePage({
   return (
     <Suspense
       fallback={
-        <div className="min-h-screen flex items-center justify-center bg-charcoal">
-          <div className="w-8 h-8 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+        <div className="min-h-screen flex items-center justify-center bg-navy">
+          <div className="w-8 h-8 border-2 border-white/30 border-t-gold rounded-full animate-spin" />
         </div>
       }
     >

@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { FiArrowRight, FiClock } from 'react-icons/fi';
 import Footer from '@/components/Footer';
+import SouthernCross from '@/components/ui/SouthernCross';
 
 interface NewsPost {
   slug: string;
@@ -34,38 +35,37 @@ export default function NoticiasIndex() {
   const [featured, ...rest] = posts;
 
   return (
-    <main className="bg-ivory">
+    <main className="bg-paper">
       {/* Hero */}
-      <section className="relative overflow-hidden bg-charcoal text-white pt-32 md:pt-36 pb-16">
+      <section className="relative overflow-hidden nwl-bg-dawn-deep text-paper pt-32 md:pt-36 pb-16">
         <div
-          className="absolute inset-0 opacity-90"
-          style={{
-            background:
-              'radial-gradient(circle at 15% 25%, rgba(139,35,50,0.5) 0%, transparent 55%), radial-gradient(circle at 85% 20%, rgba(230,169,68,0.16) 0%, transparent 50%), linear-gradient(160deg, #2c2c2c 0%, #3D3D3D 60%, #2a1416 100%)',
-          }}
-        />
+          className="hidden md:block absolute top-24 right-[6%] pointer-events-none"
+          aria-hidden="true"
+        >
+          <SouthernCross height={130} color="var(--nwl-gold)" opacity={0.35} />
+        </div>
         <div className="container-custom relative z-10 max-w-5xl">
           <nav aria-label="Breadcrumb" className="mb-6">
-            <ol className="flex items-center text-sm text-white/55 gap-2">
+            <ol className="flex items-center text-sm text-paper/55 gap-2">
               <li>
-                <a href="/" className="hover:text-white transition-colors">
-                  Newland School
+                <a href="/" className="hover:text-paper transition-colors">
+                  NWL Australian School
                 </a>
               </li>
               <li aria-hidden="true">/</li>
-              <li className="text-white/90" aria-current="page">
+              <li className="text-paper/90" aria-current="page">
                 Noticias
               </li>
             </ol>
           </nav>
-          <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-mustard mb-4">
-            <span className="w-6 h-[2px] bg-mustard" />
+          <span className="inline-flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.22em] text-gold-400 mb-4">
+            <span className="w-9 h-px bg-gold-400" />
             News &amp; Updates
           </span>
           <h1 className="font-display text-4xl md:text-6xl font-bold leading-[1.05]">
-            Noticias Newland
+            Noticias <span className="italic text-gold-400">NWL</span>
           </h1>
-          <p className="mt-5 text-xl text-white/75 max-w-2xl leading-relaxed">
+          <p className="mt-5 text-xl text-paper/70 max-w-2xl leading-relaxed">
             Actualizaciones oficiales sobre metodología, alianzas, campus y
             comunidad, para familias, docentes y nuestro equipo de admisiones.
           </p>
@@ -82,7 +82,7 @@ export default function NoticiasIndex() {
         >
           <Link
             href={`/noticias/${featured.slug}`}
-            className="group grid md:grid-cols-2 gap-0 rounded-3xl overflow-hidden border border-charcoal/10 bg-white hover:shadow-xl transition-shadow"
+            className="group grid md:grid-cols-2 gap-0 rounded-3xl overflow-hidden border border-n-200 bg-white hover:shadow-navy-lg transition-shadow"
           >
             <div className="relative overflow-hidden h-56 md:h-auto">
               <img
@@ -90,13 +90,13 @@ export default function NoticiasIndex() {
                 alt={featured.title}
                 className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
               />
-              <span className="absolute top-4 left-4 rounded-full bg-mustard text-charcoal text-[11px] font-bold uppercase tracking-wider px-3 py-1">
+              <span className="absolute top-4 left-4 rounded-full bg-gold text-[#1C0F00] text-[11px] font-bold uppercase tracking-wider px-3 py-1">
                 Destacado
               </span>
             </div>
             <div className="p-7 md:p-10 flex flex-col justify-center">
-              <div className="flex flex-wrap items-center gap-3 mb-4 text-xs text-charcoal/55">
-                <span className="font-semibold uppercase tracking-wider text-wine">
+              <div className="flex flex-wrap items-center gap-3 mb-4 text-xs text-navy/55">
+                <span className="font-semibold uppercase tracking-wider text-gold-600">
                   {featured.category}
                 </span>
                 <span className="inline-flex items-center gap-1">
@@ -104,13 +104,13 @@ export default function NoticiasIndex() {
                 </span>
                 <span>· {featured.date}</span>
               </div>
-              <h2 className="font-display text-2xl md:text-3xl font-bold text-charcoal leading-snug mb-4 group-hover:text-wine transition-colors">
+              <h2 className="font-display text-2xl md:text-3xl font-bold text-navy leading-snug mb-4 group-hover:text-gold-600 transition-colors">
                 {featured.title}
               </h2>
-              <p className="text-charcoal/70 leading-relaxed mb-6">
+              <p className="text-navy/70 leading-relaxed mb-6">
                 {featured.excerpt}
               </p>
-              <span className="inline-flex items-center gap-2 text-wine font-medium">
+              <span className="inline-flex items-center gap-2 text-gold-600 font-medium">
                 Leer la actualización
                 <FiArrowRight className="group-hover:translate-x-1 transition-transform" />
               </span>
@@ -125,7 +125,7 @@ export default function NoticiasIndex() {
               <Link
                 key={post.slug}
                 href={`/noticias/${post.slug}`}
-                className="group rounded-2xl overflow-hidden border border-charcoal/10 bg-white hover:shadow-lg transition-shadow"
+                className="group rounded-2xl overflow-hidden border border-n-200 bg-white hover:shadow-lg transition-shadow"
               >
                 <div className="relative h-44 overflow-hidden">
                   <img
@@ -135,10 +135,10 @@ export default function NoticiasIndex() {
                   />
                 </div>
                 <div className="p-5">
-                  <p className="text-xs font-semibold uppercase tracking-wider text-wine mb-2">
+                  <p className="text-xs font-semibold uppercase tracking-wider text-gold-600 mb-2">
                     {post.category}
                   </p>
-                  <h3 className="font-display text-lg font-bold text-charcoal leading-snug group-hover:text-wine transition-colors">
+                  <h3 className="font-display text-lg font-bold text-navy leading-snug group-hover:text-gold-600 transition-colors">
                     {post.title}
                   </h3>
                 </div>

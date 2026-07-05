@@ -20,7 +20,7 @@ export default function Partnerships() {
   const partners = getPartners(locale);
 
   return (
-    <section className="py-12 md:py-16 bg-gradient-to-b from-white to-sand">
+    <section className="py-12 md:py-16 bg-gradient-to-b from-white to-paper">
       <div className="container-custom">
         {/* Section Header */}
         <div className="text-center mb-10 md:mb-14">
@@ -30,17 +30,17 @@ export default function Partnerships() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="font-display text-4xl md:text-5xl font-bold text-charcoal tracking-tight mb-4"
+            className="font-display text-4xl md:text-5xl font-bold text-navy tracking-tight mb-4"
           >
             {t.partnerships.sectionTitle}{' '}
-            <span className="text-wine italic">{t.partnerships.sectionTitleAccent}</span>
+            <span className="text-gold-600 italic">{t.partnerships.sectionTitleAccent}</span>
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.15 }}
             viewport={{ once: true }}
-            className="text-lg text-charcoal/70 max-w-2xl mx-auto"
+            className="text-lg text-navy/70 max-w-2xl mx-auto"
           >
             {t.partnerships.sectionSubtitle}
           </motion.p>

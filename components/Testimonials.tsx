@@ -28,15 +28,15 @@ export default function Testimonials() {
   const testimonials = testimonialsData.map((td, i) => ({ ...td, ...t.testimonials.items[i] }));
 
   return (
-    <section className="section-padding bg-gradient-to-b from-white to-sand animate-section">
+    <section className="section-padding bg-gradient-to-b from-white to-paper animate-section">
       <div className="container-custom">
         {/* Section Header */}
         <div className="text-center mb-16">
           <div className="wine-divider mx-auto mb-6" />
-          <h2 className="font-display text-4xl md:text-5xl font-bold text-charcoal mb-4">
-            {t.testimonials.sectionTitle} <span className="text-wine">{t.testimonials.sectionTitleAccent}</span>
+          <h2 className="font-display text-4xl md:text-5xl font-bold text-navy mb-4">
+            {t.testimonials.sectionTitle} <span className="italic text-gold">{t.testimonials.sectionTitleAccent}</span>
           </h2>
-          <p className="text-lg text-charcoal/70 max-w-2xl mx-auto">
+          <p className="text-lg text-navy/70 max-w-2xl mx-auto">
             {t.testimonials.sectionSubtitle}
           </p>
         </div>
@@ -50,10 +50,10 @@ export default function Testimonials() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300"
+              className="bg-white rounded-2xl overflow-hidden border border-n-200 shadow-navy-sm hover:shadow-navy-md transition-shadow duration-300"
             >
               {/* Portrait */}
-              <div className="aspect-square relative bg-sand">
+              <div className="aspect-square relative bg-paper nwl-grade">
                 <Image
                   src={testimonial.image}
                   alt={`${testimonial.author} - ${testimonial.role}`}
@@ -68,24 +68,24 @@ export default function Testimonials() {
                 {/* Rating Stars */}
                 <div className="flex gap-1 mb-4">
                   {[...Array(testimonial.rating)].map((_, i) => (
-                    <FiStar key={i} className="fill-mustard text-mustard" size={18} />
+                    <FiStar key={i} className="fill-gold text-gold" size={18} />
                   ))}
                 </div>
 
                 {/* Quote */}
-                <p className="text-charcoal/80 mb-6 leading-relaxed italic text-sm">
+                <p className="text-navy/80 mb-6 leading-relaxed italic text-sm">
                   &ldquo;{testimonial.quote}&rdquo;
                 </p>
 
                 {/* Author */}
-                <div className="border-t border-wine/10 pt-4">
-                  <p className="font-bold text-charcoal">{testimonial.author}</p>
-                  <p className="text-sm text-charcoal/60">{testimonial.role}</p>
+                <div className="border-t border-navy/10 pt-4">
+                  <p className="font-bold text-navy">{testimonial.author}</p>
+                  <p className="text-sm text-navy/60">{testimonial.role}</p>
                 </div>
               </div>
 
               {/* Accent */}
-              <div className="absolute top-6 right-6 text-6xl text-wine/10 font-display">
+              <div className="absolute top-6 right-6 text-6xl text-gold/10 font-display">
                 &ldquo;
               </div>
             </motion.div>

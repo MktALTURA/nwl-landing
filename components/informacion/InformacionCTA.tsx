@@ -5,6 +5,7 @@ import { FaWhatsapp } from 'react-icons/fa';
 import { useLanguage } from '@/lib/i18n/LanguageContext';
 import { useGHLFormTracking } from '@/lib/hooks/useGHLFormTracking';
 import { buildGHLFormSrc } from '@/lib/utm';
+import SouthernCross from '@/components/ui/SouthernCross';
 import type { InformacionPage } from '@/lib/informacion-data';
 
 
@@ -64,12 +65,21 @@ export default function InformacionCTA({ page }: InformacionCTAProps) {
   useGHLFormTracking(formContainerRef, `informacion_${page.slug}`);
 
   return (
-    <section id="informacion-form" className="py-16 md:py-24 bg-gradient-to-b from-ivory to-white">
-      <div className="container-custom max-w-3xl text-center">
-        <h2 className="font-display text-3xl md:text-4xl font-bold text-charcoal mb-4">
-          {locale === 'es' ? '¿Listo para conocer NWL?' : 'Ready to discover NWL?'}
+    <section id="informacion-form" className="py-16 md:py-24 nwl-bg-dawn text-paper relative overflow-hidden">
+      {/* Southern Cross motif */}
+      <div className="absolute top-10 right-[6%] z-[1] pointer-events-none hidden md:block">
+        <SouthernCross height={110} color="var(--nwl-gold)" opacity={0.32} />
+      </div>
+
+      <div className="container-custom max-w-3xl text-center relative z-10">
+        <h2 className="font-display text-3xl md:text-4xl font-bold text-paper mb-4">
+          {locale === 'es' ? (
+            <>¿Listo para conocer <span className="italic text-gold">NWL</span>?</>
+          ) : (
+            <>Ready to discover <span className="italic text-gold">NWL</span>?</>
+          )}
         </h2>
-        <p className="text-charcoal/70 text-lg mb-8">
+        <p className="text-paper/70 text-lg mb-8">
           {locale === 'es'
             ? 'Déjanos tus datos y un asesor se pondrá en contacto contigo.'
             : 'Leave your information and an advisor will contact you.'}
@@ -87,7 +97,7 @@ export default function InformacionCTA({ page }: InformacionCTAProps) {
         </a>
 
         {/* GHL Form */}
-        <div ref={formContainerRef} className="text-left" />
+        <div ref={formContainerRef} className="text-left rounded-2xl overflow-hidden shadow-2xl" />
       </div>
     </section>
   );

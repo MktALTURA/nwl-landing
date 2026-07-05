@@ -20,16 +20,19 @@ export default function Philosophy() {
   }));
 
   return (
-    <section className="section-padding bg-sand animate-section">
+    <section className="section-padding bg-paper animate-section">
       <div className="container-custom">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left: Content */}
           <div>
-            <div className="wine-divider mb-6" />
-            <h2 className="font-display text-4xl md:text-5xl font-bold text-charcoal tracking-tight mb-6">
-              {t.philosophy.sectionTitle} <span className="text-wine italic">{t.philosophy.sectionTitleAccent}</span>{t.philosophy.sectionTitleEnd ? ` ${t.philosophy.sectionTitleEnd}` : ''}
+            <span className="inline-flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.22em] text-gold mb-5">
+              <span className="w-9 h-px bg-gold" />
+              {locale === 'en' ? 'Educational Model' : 'Modelo educativo'}
+            </span>
+            <h2 className="font-display text-4xl md:text-5xl font-bold text-navy tracking-tight mb-6">
+              {t.philosophy.sectionTitle} <span className="italic text-gold">{t.philosophy.sectionTitleAccent}</span>{t.philosophy.sectionTitleEnd ? ` ${t.philosophy.sectionTitleEnd}` : ''}
             </h2>
-            <p className="text-lg text-charcoal/80 mb-8 leading-relaxed">
+            <p className="text-lg text-navy/70 mb-8 leading-relaxed">
               {t.philosophy.sectionDescription}
             </p>
 
@@ -45,7 +48,7 @@ export default function Philosophy() {
                   className="flex items-center gap-5 bg-white p-5 rounded-2xl border border-navy/10 border-l-4 border-l-transparent shadow-[0_12px_32px_-20px_rgba(11,34,78,0.28)] hover:shadow-[0_18px_44px_-18px_rgba(11,34,78,0.32)] hover:border-l-gold transition-all duration-300"
                 >
                   {/* Logo */}
-                  <div className={`flex-shrink-0 w-20 h-20 rounded-xl flex items-center justify-center overflow-hidden ${pillar.logoImage ? '' : 'border-2 border-dashed border-wine/30 bg-wine/5'}`}>
+                  <div className={`flex-shrink-0 w-20 h-20 rounded-xl flex items-center justify-center overflow-hidden ${pillar.logoImage ? '' : 'border-2 border-dashed border-gold/30 bg-gold/5'}`}>
                     {pillar.logoImage ? (
                       <Image
                         src={pillar.logoImage}
@@ -55,19 +58,19 @@ export default function Philosophy() {
                         className="object-contain"
                       />
                     ) : (
-                      <span className="text-wine font-bold text-sm text-center leading-tight">
+                      <span className="text-gold-600 font-bold text-sm text-center leading-tight">
                         {pillar.logoInitials}
                       </span>
                     )}
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-lg font-bold text-charcoal mb-1">
+                    <h3 className="text-lg font-bold text-navy mb-1">
                       {pillar.title}
                     </h3>
-                    <p className="text-base font-semibold text-wine italic mb-2">
+                    <p className="text-base font-semibold text-gold-600 italic mb-2">
                       {pillar.subtitle}
                     </p>
-                    <p className="text-charcoal/70 text-sm leading-relaxed">
+                    <p className="text-navy/70 text-sm leading-relaxed">
                       {pillar.description}
                     </p>
                   </div>
@@ -97,10 +100,10 @@ export default function Philosophy() {
             className="relative space-y-4"
           >
             {/* Main large image */}
-            <div className="aspect-[4/3] rounded-2xl overflow-hidden relative bg-sand ring-1 ring-navy/10 nwl-grade">
+            <div className="aspect-[4/3] rounded-2xl overflow-hidden relative bg-paper ring-1 ring-navy/10 nwl-grade">
               <Image
                 src="/images/philosophy/philosophy-main.jpg"
-                alt="Students collaborating on a project at Newland"
+                alt="Students collaborating on a project at NWL Australian School"
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover"
@@ -109,19 +112,19 @@ export default function Philosophy() {
 
             {/* Two smaller images below */}
             <div className="grid grid-cols-2 gap-4">
-              <div className="aspect-square rounded-2xl overflow-hidden relative bg-sand ring-1 ring-navy/10 nwl-grade">
+              <div className="aspect-square rounded-2xl overflow-hidden relative bg-paper ring-1 ring-navy/10 nwl-grade">
                 <Image
                   src="/images/philosophy/philosophy-1.jpg"
-                  alt="Outdoor learning at Newland"
+                  alt="Outdoor learning at NWL Australian School"
                   fill
                   sizes="(max-width: 1024px) 50vw, 25vw"
                   className="object-cover"
                 />
               </div>
-              <div className="aspect-square rounded-2xl overflow-hidden relative bg-sand ring-1 ring-navy/10 nwl-grade">
+              <div className="aspect-square rounded-2xl overflow-hidden relative bg-paper ring-1 ring-navy/10 nwl-grade">
                 <Image
                   src="/images/philosophy/philosophy-2.jpg"
-                  alt="Hands-on collaboration at Newland"
+                  alt="Hands-on collaboration at NWL Australian School"
                   fill
                   sizes="(max-width: 1024px) 50vw, 25vw"
                   className="object-cover"

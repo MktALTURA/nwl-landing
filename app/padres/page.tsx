@@ -4,6 +4,8 @@ import Image from 'next/image';
 import { useLanguage } from '@/lib/i18n/LanguageContext';
 import CampusSelector from '@/components/padres/CampusSelector';
 import Footer from '@/components/Footer';
+import Eyebrow from '@/components/ui/Eyebrow';
+import SouthernCross from '@/components/ui/SouthernCross';
 import { motion } from 'framer-motion';
 
 const heroImages = [
@@ -20,7 +22,7 @@ export default function PadresPage() {
   return (
     <main>
       {/* Hero with campus images */}
-      <section className="relative min-h-[60vh] md:min-h-[70vh] flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-[60vh] md:min-h-[70vh] flex items-center justify-center overflow-hidden nwl-bg-dawn-deep">
         {/* Background image collage */}
         <div className="absolute inset-0">
           <div className="absolute inset-0 grid grid-cols-5 h-full">
@@ -37,10 +39,15 @@ export default function PadresPage() {
               </div>
             ))}
           </div>
-          {/* Dark overlay */}
-          <div className="absolute inset-0 bg-charcoal/75" />
+          {/* Navy overlay */}
+          <div className="absolute inset-0 bg-navy/80" />
           {/* Gradient overlay for depth */}
-          <div className="absolute inset-0 bg-gradient-to-b from-charcoal/40 via-transparent to-charcoal/60" />
+          <div className="absolute inset-0 bg-gradient-to-b from-navy/50 via-transparent to-navy/70" />
+        </div>
+
+        {/* Southern Cross corner decoration */}
+        <div className="hidden md:block absolute top-24 right-12 z-10 pointer-events-none">
+          <SouthernCross height={150} opacity={0.35} />
         </div>
 
         <div className="container-custom relative z-10 text-center py-32 md:py-40">
@@ -49,11 +56,12 @@ export default function PadresPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-white">
+            <Eyebrow className="justify-center mb-5">NWL Australian School</Eyebrow>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-paper">
               {t.padres.heroTitle}{' '}
-              <span className="text-nwl-yellow">{t.padres.heroTitleAccent}</span>
+              <span className="italic text-gold">{t.padres.heroTitleAccent}</span>
             </h1>
-            <p className="mt-4 text-lg md:text-xl text-white/70 max-w-2xl mx-auto">
+            <p className="mt-4 text-lg md:text-xl text-paper/70 max-w-2xl mx-auto leading-relaxed">
               {t.padres.heroSubtitle}
             </p>
           </motion.div>
@@ -62,20 +70,20 @@ export default function PadresPage() {
         {/* Bottom wave */}
         <div className="absolute bottom-0 left-0 right-0 z-10">
           <svg viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full">
-            <path d="M0 60L1440 60L1440 0C1440 0 1080 40 720 40C360 40 0 0 0 0L0 60Z" fill="#FFFEF7" />
+            <path d="M0 60L1440 60L1440 0C1440 0 1080 40 720 40C360 40 0 0 0 0L0 60Z" fill="#F4EEE2" />
           </svg>
         </div>
       </section>
 
       {/* Campus Selection */}
-      <section className="section-padding bg-ivory">
+      <section className="section-padding bg-paper">
         <div className="container-custom">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-display font-bold text-charcoal">
+            <h2 className="text-4xl md:text-5xl font-display font-bold text-navy">
               {t.padres.selectCampus}
             </h2>
             <div className="wine-divider mx-auto mt-4" />
-            <p className="mt-4 text-charcoal/60 max-w-lg mx-auto">
+            <p className="mt-4 text-lg text-navy/70 leading-relaxed max-w-lg mx-auto">
               {t.padres.selectCampusSubtitle}
             </p>
           </div>
