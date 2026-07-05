@@ -195,13 +195,8 @@ export default function HighSchoolPage() {
               transition={{ duration: 0.7, delay: 0.15 }}
               className="max-w-3xl"
             >
-              {/* Prepa NWL Logo + Age Badge */}
+              {/* Age Badge */}
               <div className="flex items-center gap-5 mb-6">
-                <img
-                  src="/images/levels/prepa/nwl-prepa-logo.png"
-                  alt="Prepa NWL"
-                  className="h-16 md:h-20 w-auto drop-shadow-lg"
-                />
                 <motion.span
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
