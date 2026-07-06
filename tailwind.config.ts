@@ -26,8 +26,9 @@ const config: Config = {
         // ===== Education-level palette (escudo hierarchy) =====
         "coral-sea": "#004756", // Middle School
         jacaranda: "#4A3A82", // High School
-        wattle: "#EDB500", // Elementary
-        eucalyptus: "#93A860", // Maternal + Kinder (DS value)
+        galah: "#E89BB5", // Maternal + Kinder — galah cockatoo pink
+        eucalyptus: "#93A860", // Elementary — eucalyptus green
+        wattle: "#EDB500", // Golden wattle — brand yellow accent
 
         // Navy-tinted neutral scale
         n: {
@@ -60,12 +61,12 @@ const config: Config = {
         sunshine: "#EDB500", // → Wattle
         ocean: "#004756", // → Coral Sea
         tangerine: "#CB8606", // → Gold
-        bubblegum: "#93A860", // → Eucalyptus
+        bubblegum: "#E89BB5", // → Galah
         lime: "#93A860", // → Eucalyptus
         blueberry: "#4A3A82", // → Jacaranda
 
         // Level accents (legacy) → DS level colors
-        primaria: "#EDB500", // → Wattle (Elementary)
+        primaria: "#93A860", // → Eucalyptus (Elementary)
         secundaria: "#004756", // → Coral Sea (Middle)
         "deep-ember": "#4A3A82", // → Jacaranda (High School)
         "golden-spark": "#CB8606", // → Gold

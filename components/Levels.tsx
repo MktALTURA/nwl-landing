@@ -6,13 +6,13 @@ import { motion } from 'framer-motion';
 import { useLanguage } from '@/lib/i18n/LanguageContext';
 import Crest from './ui/Crest';
 
-// Escudo level mapping (NWL Australian School): Maternal + Kinder → Eucalyptus,
-// Elementary → Golden Wattle, Middle → Coral Sea, High School → Jacaranda.
+// Escudo level mapping (NWL Australian School): Maternal + Kinder → Galah,
+// Elementary → Eucalyptus, Middle → Coral Sea, High School → Jacaranda.
 type CrestLevel = 'kinder' | 'elementary' | 'middle' | 'high';
 const levelsData: { crest: CrestLevel; color: string; image: string }[] = [
-  { crest: 'kinder', color: 'var(--nwl-eucalyptus)', image: '/images/levels/maternal.jpg' },
-  { crest: 'kinder', color: 'var(--nwl-eucalyptus)', image: '/images/levels/kinder.jpg' },
-  { crest: 'elementary', color: 'var(--nwl-wattle)', image: '/images/levels/primaria.jpg' },
+  { crest: 'kinder', color: 'var(--nwl-galah)', image: '/images/levels/maternal.jpg' },
+  { crest: 'kinder', color: 'var(--nwl-galah)', image: '/images/levels/kinder.jpg' },
+  { crest: 'elementary', color: 'var(--nwl-eucalyptus)', image: '/images/levels/primaria.jpg' },
   { crest: 'middle', color: 'var(--nwl-coral-sea)', image: '/images/levels/secundaria/nwl-secundaria-lab-team-fist-bump.jpg' },
   { crest: 'high', color: 'var(--nwl-jacaranda)', image: '/images/levels/preparatoria.jpg' },
 ];

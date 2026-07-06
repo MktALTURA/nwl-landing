@@ -20,8 +20,9 @@
     --nwl-gold-400:    #E3990F;  /* gold hover / bright */
 
     /* ---- Education-level palette (escudo hierarchy) ---- */
-    --nwl-eucalyptus:  #93A860;  /* Maternal + Kinder */
-    --nwl-wattle:      #EDB500;  /* Elementary */
+    --nwl-galah:       #E89BB5;  /* Maternal + Kinder — galah cockatoo pink */
+    --nwl-eucalyptus:  #93A860;  /* Elementary — eucalyptus green */
+    --nwl-wattle:      #EDB500;  /* Golden wattle — brand yellow accent */
     --nwl-coral-sea:   #004756;  /* Middle School */
     --nwl-jacaranda:   #4A3A82;  /* High School */
 

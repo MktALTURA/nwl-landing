@@ -37,7 +37,7 @@ if (typeof window !== 'undefined') {
 /* ── Feature card data ── */
 const featureIcons = [FiGlobe, FiStar, FiHeart, FiUsers, FiHeart, FiShield];
 const featureColors = [
-  { bg: 'bg-eucalyptus/10', text: 'text-navy', iconBg: 'bg-eucalyptus/20', border: 'border-eucalyptus/30' },
+  { bg: 'bg-galah/10', text: 'text-navy', iconBg: 'bg-galah/20', border: 'border-galah/30' },
   { bg: 'bg-gold/10', text: 'text-gold-600', iconBg: 'bg-gold/15', border: 'border-gold/25' },
   { bg: 'bg-navy/10', text: 'text-navy', iconBg: 'bg-navy/10', border: 'border-navy/15' },
 ];
@@ -63,7 +63,7 @@ const scheduleColors = [
 ];
 
 const pillarColors = [
-  { accent: 'text-navy', bg: 'bg-eucalyptus/10', border: 'border-eucalyptus/25' },
+  { accent: 'text-navy', bg: 'bg-galah/10', border: 'border-galah/25' },
   { accent: 'text-gold-600', bg: 'bg-gold/10', border: 'border-gold/25' },
   { accent: 'text-navy', bg: 'bg-navy/10', border: 'border-navy/15' },
 ];
@@ -210,7 +210,7 @@ export default function MaternalPage() {
                 viewport={{ once: true }}
               >
                 <div className="flex items-center gap-2 mb-4">
-                  <div className="h-2 w-2 rounded-full bg-eucalyptus animate-bounce" style={{ animationDelay: '0s' }} />
+                  <div className="h-2 w-2 rounded-full bg-galah animate-bounce" style={{ animationDelay: '0s' }} />
                   <div className="h-2 w-2 rounded-full bg-gold animate-bounce" style={{ animationDelay: '0.15s' }} />
                   <div className="h-2 w-2 rounded-full bg-navy animate-bounce" style={{ animationDelay: '0.3s' }} />
                 </div>
@@ -224,8 +224,8 @@ export default function MaternalPage() {
                 {/* Stats row */}
                 <div className="grid grid-cols-3 gap-3 mb-8">
                   {/* Bilingual stat */}
-                  <div className="relative group bg-eucalyptus/10 rounded-2xl p-5 border border-eucalyptus/25 hover:shadow-navy-sm hover:border-eucalyptus/40 transition-all duration-300">
-                    <div className="w-10 h-10 rounded-xl bg-eucalyptus/20 flex items-center justify-center mb-3">
+                  <div className="relative group bg-galah/10 rounded-2xl p-5 border border-galah/25 hover:shadow-navy-sm hover:border-galah/40 transition-all duration-300">
+                    <div className="w-10 h-10 rounded-xl bg-galah/20 flex items-center justify-center mb-3">
                       <FiGlobe size={20} className="text-navy" />
                     </div>
                     <span className="block text-2xl md:text-3xl font-bold text-navy tracking-tight">100%</span>
@@ -270,7 +270,7 @@ export default function MaternalPage() {
                 viewport={{ once: true }}
                 className="bg-white border border-n-200 shadow-navy-sm rounded-3xl p-8 md:p-10 relative overflow-hidden"
               >
-                <div className="absolute top-2 left-6 text-eucalyptus/30 text-8xl font-display leading-none select-none">
+                <div className="absolute top-2 left-6 text-galah/30 text-8xl font-display leading-none select-none">
                   &ldquo;
                 </div>
                 <blockquote className="relative z-10 text-xl md:text-2xl text-navy font-medium italic leading-relaxed mb-6">
@@ -335,7 +335,7 @@ export default function MaternalPage() {
         <section className="section-padding bg-n-50 animate-section overflow-hidden relative">
           {/* Soft orbs */}
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            <div className="absolute top-20 right-20 w-40 h-40 rounded-full bg-eucalyptus/15 blur-3xl" />
+            <div className="absolute top-20 right-20 w-40 h-40 rounded-full bg-galah/15 blur-3xl" />
             <div className="absolute bottom-20 left-10 w-48 h-48 rounded-full bg-gold/10 blur-3xl" />
           </div>
 
@@ -425,7 +425,7 @@ export default function MaternalPage() {
             <div className="max-w-3xl mx-auto">
               <div className="relative">
                 {/* Vertical line */}
-                <div className="absolute left-8 md:left-12 top-0 bottom-0 w-0.5 bg-gradient-to-b from-eucalyptus via-gold to-navy opacity-40" />
+                <div className="absolute left-8 md:left-12 top-0 bottom-0 w-0.5 bg-gradient-to-b from-galah via-gold to-navy opacity-40" />
 
                 <div className="space-y-6">
                   {mp.daySchedule.map((item, i) => {
@@ -469,7 +469,7 @@ export default function MaternalPage() {
             SECTION 6 — PHOTO GALLERY
         ════════════════════════════════════════════════ */}
         <section className="py-10 md:py-14 bg-paper relative overflow-hidden animate-section">
-          <div className="absolute top-0 left-10 w-40 h-40 bg-eucalyptus/10 rounded-full blur-3xl" />
+          <div className="absolute top-0 left-10 w-40 h-40 bg-galah/10 rounded-full blur-3xl" />
           <div className="absolute bottom-0 right-10 w-48 h-48 bg-gold/10 rounded-full blur-3xl" />
 
           <div className="container-custom relative z-10">

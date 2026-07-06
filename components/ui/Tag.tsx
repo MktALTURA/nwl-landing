@@ -3,12 +3,13 @@ import type { CSSProperties, ReactNode } from 'react';
 const LEVEL_COLORS: Record<string, string> = {
   navy: 'var(--nwl-navy)',
   gold: 'var(--nwl-gold)',
+  galah: 'var(--nwl-galah)',
   eucalyptus: 'var(--nwl-eucalyptus)',
   wattle: 'var(--nwl-wattle)',
   coralSea: 'var(--nwl-coral-sea)',
   jacaranda: 'var(--nwl-jacaranda)',
 };
-const ON_LIGHT: Record<string, boolean> = { wattle: true, eucalyptus: true };
+const ON_LIGHT: Record<string, boolean> = { wattle: true, eucalyptus: true, galah: true };
 
 /**
  * NWL Australian School — Tag

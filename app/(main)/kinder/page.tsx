@@ -37,14 +37,14 @@ if (typeof window !== 'undefined') {
 
 /* ── Pillar icon + color config ── */
 const pillarConfig = [
-  { icon: FiBookOpen, gradient: 'from-eucalyptus/20 to-eucalyptus/5', border: 'border-eucalyptus/25', accent: 'text-navy', num: 'bg-eucalyptus/15 text-navy' },
+  { icon: FiBookOpen, gradient: 'from-galah/20 to-galah/5', border: 'border-galah/25', accent: 'text-navy', num: 'bg-galah/15 text-navy' },
   { icon: FiGlobe, gradient: 'from-navy/10 to-navy/5', border: 'border-navy/20', accent: 'text-navy', num: 'bg-navy/10 text-navy' },
   { icon: FiAward, gradient: 'from-gold/15 to-gold/5', border: 'border-gold/25', accent: 'text-gold-600', num: 'bg-gold/10 text-gold-600' },
 ];
 
 /* ── Gradual-technology (iPad by grade) config ── */
 const gradeTechConfig = [
-  { icon: FiUserCheck, gradient: 'from-eucalyptus/20 via-eucalyptus/10 to-eucalyptus/5', border: 'border-eucalyptus/30', iconBox: 'bg-eucalyptus/15 text-navy', chip: 'bg-eucalyptus text-[#1C0F00]' },
+  { icon: FiUserCheck, gradient: 'from-galah/20 via-galah/10 to-galah/5', border: 'border-galah/30', iconBox: 'bg-galah/15 text-navy', chip: 'bg-galah text-[#1C0F00]' },
   { icon: FiTablet, gradient: 'from-navy/10 via-navy/5 to-navy/5', border: 'border-navy/20', iconBox: 'bg-navy/10 text-navy', chip: 'bg-navy text-paper' },
   { icon: FiTablet, gradient: 'from-gold/15 via-gold/10 to-gold/5', border: 'border-gold/30', iconBox: 'bg-gold/10 text-gold-600', chip: 'bg-gold text-[#1C0F00]' },
 ];
@@ -62,13 +62,13 @@ const timelineIcons: Record<string, React.ComponentType<{ size?: number; classNa
 };
 
 const timelineColors = [
-  'bg-eucalyptus/15 text-navy border-eucalyptus/25',
+  'bg-galah/15 text-navy border-galah/25',
   'bg-navy/10 text-navy border-navy/20',
   'bg-gold/10 text-gold-600 border-gold/20',
-  'bg-eucalyptus/15 text-navy border-eucalyptus/25',
+  'bg-galah/15 text-navy border-galah/25',
   'bg-navy/10 text-navy border-navy/20',
   'bg-gold/10 text-gold-600 border-gold/20',
-  'bg-eucalyptus/15 text-navy border-eucalyptus/25',
+  'bg-galah/15 text-navy border-galah/25',
   'bg-navy/10 text-navy border-navy/20',
 ];
 
@@ -222,8 +222,8 @@ export default function KinderPage() {
 
                 {/* Stats row */}
                 <div className="grid grid-cols-3 gap-3 mb-8">
-                  <div className="relative group bg-gradient-to-br from-eucalyptus/10 to-eucalyptus/5 rounded-2xl p-5 border border-eucalyptus/25 hover:shadow-md hover:border-eucalyptus/40 transition-all duration-300">
-                    <div className="w-10 h-10 rounded-xl bg-eucalyptus/20 flex items-center justify-center mb-3">
+                  <div className="relative group bg-gradient-to-br from-galah/10 to-galah/5 rounded-2xl p-5 border border-galah/25 hover:shadow-md hover:border-galah/40 transition-all duration-300">
+                    <div className="w-10 h-10 rounded-xl bg-galah/20 flex items-center justify-center mb-3">
                       <FiGlobe size={20} className="text-navy" />
                     </div>
                     <span className="block text-2xl md:text-3xl font-bold text-navy tracking-tight">100%</span>
@@ -251,7 +251,7 @@ export default function KinderPage() {
                   whileInView={{ opacity: 1, scale: 1 }}
                   transition={{ delay: 0.4, type: 'spring' }}
                   viewport={{ once: true }}
-                  className="inline-flex items-center gap-2 bg-eucalyptus text-[#1C0F00] px-5 py-2.5 rounded-full font-bold shadow-lg text-sm"
+                  className="inline-flex items-center gap-2 bg-galah text-[#1C0F00] px-5 py-2.5 rounded-full font-bold shadow-lg text-sm"
                 >
                   <FiStar size={14} />
                   {kp.knotionSenseBadge}
@@ -264,7 +264,7 @@ export default function KinderPage() {
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
                 viewport={{ once: true }}
-                className="bg-gradient-to-br from-eucalyptus/10 via-white to-gold/10 rounded-3xl p-8 md:p-10 relative overflow-hidden border border-n-200"
+                className="bg-gradient-to-br from-galah/10 via-white to-gold/10 rounded-3xl p-8 md:p-10 relative overflow-hidden border border-n-200"
               >
                 <div className="absolute top-2 left-6 text-gold/30 text-8xl font-display leading-none select-none">
                   &ldquo;
@@ -357,7 +357,7 @@ export default function KinderPage() {
         <section className="section-padding bg-n-50 relative overflow-hidden animate-section">
           {/* Playful background blobs */}
           <div className="absolute top-12 right-[8%] w-72 h-72 bg-gold/10 rounded-full blur-3xl" />
-          <div className="absolute bottom-10 left-[10%] w-64 h-64 bg-eucalyptus/10 rounded-full blur-3xl" />
+          <div className="absolute bottom-10 left-[10%] w-64 h-64 bg-galah/10 rounded-full blur-3xl" />
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 w-80 h-40 bg-navy/5 rounded-full blur-3xl" />
 
           <div className="container-custom relative z-10">
@@ -419,7 +419,7 @@ export default function KinderPage() {
         ════════════════════════════════════════════════ */}
         <section className="py-16 md:py-20 bg-gradient-to-b from-paper to-white relative overflow-hidden animate-section">
           {/* Playful background blobs */}
-          <div className="absolute top-10 left-[10%] w-72 h-72 bg-eucalyptus/10 rounded-full blur-3xl" />
+          <div className="absolute top-10 left-[10%] w-72 h-72 bg-galah/10 rounded-full blur-3xl" />
           <div className="absolute bottom-20 right-[15%] w-56 h-56 bg-navy/5 rounded-full blur-3xl" />
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 w-80 h-40 bg-gold/10 rounded-full blur-3xl" />
 
@@ -441,30 +441,30 @@ export default function KinderPage() {
             {/* Desktop: single row of 8 with connecting line */}
             <div className="hidden md:block relative">
               {/* Connecting line — sits behind icons */}
-              <div className="absolute top-[26px] left-[6%] right-[6%] h-[3px] rounded-full bg-gradient-to-r from-eucalyptus/25 via-gold/20 to-navy/15 z-0" />
+              <div className="absolute top-[26px] left-[6%] right-[6%] h-[3px] rounded-full bg-gradient-to-r from-galah/25 via-gold/20 to-navy/15 z-0" />
 
               <div className="grid grid-cols-8 gap-3">
                 {kp.daySchedule.map((item, i) => {
                   const Icon = timelineIcons[item.icon] || FiStar;
                   const iconStyles = [
-                    'bg-eucalyptus text-[#1C0F00]',
+                    'bg-galah text-[#1C0F00]',
                     'bg-navy text-paper',
                     'bg-gold text-[#1C0F00]',
-                    'bg-eucalyptus text-[#1C0F00]',
+                    'bg-galah text-[#1C0F00]',
                     'bg-navy text-paper',
                     'bg-gold text-[#1C0F00]',
                     'bg-navy text-paper',
-                    'bg-eucalyptus text-[#1C0F00]',
+                    'bg-galah text-[#1C0F00]',
                   ];
                   const badgeStyles = [
-                    'bg-eucalyptus/15 text-navy',
+                    'bg-galah/15 text-navy',
                     'bg-navy/10 text-navy',
                     'bg-gold/10 text-gold-600',
-                    'bg-eucalyptus/15 text-navy',
+                    'bg-galah/15 text-navy',
                     'bg-navy/10 text-navy',
                     'bg-gold/10 text-gold-600',
                     'bg-navy/10 text-navy',
-                    'bg-eucalyptus/15 text-navy',
+                    'bg-galah/15 text-navy',
                   ];
                   return (
                     <motion.div
@@ -500,24 +500,24 @@ export default function KinderPage() {
               {kp.daySchedule.map((item, i) => {
                 const Icon = timelineIcons[item.icon] || FiStar;
                 const mobileColors = [
-                  'bg-eucalyptus/15 text-navy border-eucalyptus/25',
+                  'bg-galah/15 text-navy border-galah/25',
                   'bg-navy/10 text-navy border-navy/15',
                   'bg-gold/10 text-gold-600 border-gold/20',
-                  'bg-eucalyptus/15 text-navy border-eucalyptus/25',
+                  'bg-galah/15 text-navy border-galah/25',
                   'bg-navy/10 text-navy border-navy/15',
                   'bg-gold/10 text-gold-600 border-gold/20',
                   'bg-navy/10 text-navy border-navy/15',
-                  'bg-eucalyptus/15 text-navy border-eucalyptus/25',
+                  'bg-galah/15 text-navy border-galah/25',
                 ];
                 const timeBadgeColors = [
-                  'bg-eucalyptus/15 text-navy',
+                  'bg-galah/15 text-navy',
                   'bg-navy/10 text-navy',
                   'bg-gold/10 text-gold-600',
-                  'bg-eucalyptus/15 text-navy',
+                  'bg-galah/15 text-navy',
                   'bg-navy/10 text-navy',
                   'bg-gold/10 text-gold-600',
                   'bg-navy/10 text-navy',
-                  'bg-eucalyptus/15 text-navy',
+                  'bg-galah/15 text-navy',
                 ];
                 return (
                   <motion.div
@@ -548,7 +548,7 @@ export default function KinderPage() {
             SECTION 5 — PHOTO GALLERY
         ════════════════════════════════════════════════ */}
         <section className="py-10 md:py-14 bg-gradient-to-b from-n-50 to-paper relative overflow-hidden animate-section">
-          <div className="absolute top-0 right-10 w-40 h-40 bg-eucalyptus/10 rounded-full blur-3xl" />
+          <div className="absolute top-0 right-10 w-40 h-40 bg-galah/10 rounded-full blur-3xl" />
           <div className="absolute bottom-0 left-10 w-48 h-48 bg-navy/5 rounded-full blur-3xl" />
 
           <div className="container-custom relative z-10">

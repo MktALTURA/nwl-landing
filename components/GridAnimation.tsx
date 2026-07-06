@@ -5,9 +5,9 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 /* ── Node palette ─────────────────────────────────────── */
 const COLORS = [
-  '#EDB500', // wattle accent
-  '#EDB500',
-  '#EDB500',
+  '#93A860', // wattle accent
+  '#93A860',
+  '#93A860',
   '#CB8606', // gold-600
   '#0B224E', // navy (subtle)
 ];
@@ -180,7 +180,7 @@ function Wave({
               y1={from.y}
               x2={to.x}
               y2={to.y}
-              stroke="#EDB500"
+              stroke="#93A860"
               strokeWidth="0.2"
               strokeLinecap="round"
               initial={{ pathLength: 0, opacity: 0 }}
@@ -211,8 +211,8 @@ function Wave({
             top: `${n.y}%`,
             background: n.color,
             boxShadow:
-              n.color === '#EDB500'
-                ? `0 0 ${n.size * 3}px ${n.size * 1.5}px rgba(237,181,0,0.35)`
+              n.color === '#93A860'
+                ? `0 0 ${n.size * 3}px ${n.size * 1.5}px rgba(147,168,96,0.35)`
                 : `0 0 ${n.size * 2}px ${n.size}px rgba(203,134,6,0.2)`,
           }}
           initial={{ opacity: 0, scale: 0 }}
