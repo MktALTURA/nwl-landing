@@ -21,7 +21,7 @@ interface DropdownDecoration {
 
 // Per-level hover decorations for the Academic Offer dropdown (indexed 0–4),
 // mapped to the NWL Australian School escudo level colors.
-//   Maternal + Kinder → Galah (232,155,181) · Elementary → Eucalyptus (147,168,96)
+//   Maternal + Kinder → Galah (232,155,181) · Elementary → Bondi (58,167,155)
 //   Middle → Coral Sea (0,71,86) · High → Jacaranda (74,58,130)
 const academicLevelDecorations: DropdownDecoration[] = [
   // 0: Maternal — Galah
@@ -40,12 +40,12 @@ const academicLevelDecorations: DropdownDecoration[] = [
     accentBorder: 'rgba(232,155,181,0.9)',
     bgSize: { initial: '100% 100%', hover: '115% 115%' },
   },
-  // 2: Elementary — Eucalyptus
+  // 2: Elementary — Bondi
   {
     hoverBg:
-      'radial-gradient(circle at 25% 50%, rgba(147,168,96,0.20) 0%, transparent 52%), linear-gradient(135deg, rgba(147,168,96,0.07) 0%, rgba(11,34,78,0.03) 100%)',
+      'radial-gradient(circle at 25% 50%, rgba(58,167,155,0.20) 0%, transparent 52%), linear-gradient(135deg, rgba(58,167,155,0.07) 0%, rgba(11,34,78,0.03) 100%)',
     hoverTextColor: 'rgb(11,34,78)',
-    accentBorder: 'rgba(147,168,96,0.85)',
+    accentBorder: 'rgba(58,167,155,0.85)',
   },
   // 3: Middle School — Coral Sea
   {

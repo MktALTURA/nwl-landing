@@ -23,24 +23,24 @@ if (typeof window !== 'undefined') {
 
 /* ── Pillar color config (no icons) — wattle / gold / navy triad ── */
 const pillarColors = [
-  { gradient: 'from-eucalyptus/25 to-eucalyptus/10', border: 'border-eucalyptus/30', accent: 'text-navy', num: 'bg-eucalyptus/25 text-navy' },
+  { gradient: 'from-bondi/25 to-bondi/10', border: 'border-bondi/30', accent: 'text-navy', num: 'bg-bondi/25 text-navy' },
   { gradient: 'from-gold/15 to-gold/5', border: 'border-gold/25', accent: 'text-gold-600', num: 'bg-gold/15 text-gold-600' },
   { gradient: 'from-navy/10 to-navy/5', border: 'border-navy/15', accent: 'text-navy', num: 'bg-navy/10 text-navy' },
 ];
 
 /* ── Activity config — wattle / navy / gold tints ── */
 const activityStyles = [
-  { bg: 'bg-gradient-to-br from-eucalyptus/25 to-eucalyptus/10', icon: 'text-gold-600' },
+  { bg: 'bg-gradient-to-br from-bondi/25 to-bondi/10', icon: 'text-gold-600' },
   { bg: 'bg-gradient-to-br from-navy/10 to-navy/5', icon: 'text-navy' },
   { bg: 'bg-gradient-to-br from-gold/20 to-gold/10', icon: 'text-gold-600' },
-  { bg: 'bg-gradient-to-br from-eucalyptus/20 to-gold/10', icon: 'text-gold-600' },
+  { bg: 'bg-gradient-to-br from-bondi/20 to-gold/10', icon: 'text-gold-600' },
 ];
 const activityIcons = [GiSoccerBall, PiMaskHappy, GiMusicalNotes, TbFlask];
 const activityRotations = [-0.5, 0.3, -0.3, 0.5];
 
 /* ── Differentiator colors + icons — gold-600 / navy accents ── */
 const diffItems = [
-  { accent: 'text-gold-600', border: 'border-eucalyptus/30', bg: 'bg-eucalyptus/15', icon: FiGlobe },
+  { accent: 'text-gold-600', border: 'border-bondi/30', bg: 'bg-bondi/15', icon: FiGlobe },
   { accent: 'text-navy', border: 'border-navy/15', bg: 'bg-navy/10', icon: FiHeart },
   { accent: 'text-gold-600', border: 'border-gold/25', bg: 'bg-gold/10', icon: FiAward },
   { accent: 'text-navy/70', border: 'border-n-200', bg: 'bg-n-50', icon: FiShield },
@@ -200,7 +200,7 @@ export default function ElementaryPage() {
 
                 {/* Stats — clean number-first cards, no icons */}
                 <div className="grid grid-cols-2 gap-3 mb-8">
-                  <div className="bg-gradient-to-br from-eucalyptus/20 to-eucalyptus/10 rounded-2xl p-5 border border-eucalyptus/30">
+                  <div className="bg-gradient-to-br from-bondi/20 to-bondi/10 rounded-2xl p-5 border border-bondi/30">
                     <span className="block text-3xl font-bold text-navy tracking-tight">100%</span>
                     <span className="text-sm text-n-500 font-medium">{e.statBilingual}</span>
                   </div>
@@ -225,9 +225,9 @@ export default function ElementaryPage() {
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
                 viewport={{ once: true }}
-                className="bg-gradient-to-br from-eucalyptus/15 via-n-100/50 to-white rounded-3xl p-8 md:p-10 relative overflow-hidden"
+                className="bg-gradient-to-br from-bondi/15 via-n-100/50 to-white rounded-3xl p-8 md:p-10 relative overflow-hidden"
               >
-                <div className="absolute top-2 left-6 text-eucalyptus/25 text-8xl font-display leading-none select-none">
+                <div className="absolute top-2 left-6 text-bondi/25 text-8xl font-display leading-none select-none">
                   &ldquo;
                 </div>
                 <blockquote className="relative z-10 text-xl md:text-2xl text-navy font-medium italic leading-relaxed mb-6">
@@ -371,14 +371,14 @@ export default function ElementaryPage() {
                   transition={{ duration: 1.2, ease: 'easeOut' }}
                   viewport={{ once: true }}
                   style={{ left: 6 }}
-                  className="absolute top-1 bottom-1 w-[2px] origin-top bg-gradient-to-b from-eucalyptus via-gold to-navy"
+                  className="absolute top-1 bottom-1 w-[2px] origin-top bg-gradient-to-b from-bondi via-gold to-navy"
                 />
 
                 <div className="flex flex-col gap-8">
                   {ep.knotionPhases.map((phase, i) => {
                     const dotColors = [
-                      'bg-eucalyptus',
-                      'bg-eucalyptus/80',
+                      'bg-bondi',
+                      'bg-bondi/80',
                       'bg-gold',
                       'bg-navy',
                     ];
@@ -414,7 +414,7 @@ export default function ElementaryPage() {
         <section className="py-12 md:py-20 bg-paper animate-section overflow-hidden relative">
           {/* Geometric background */}
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            <div className="absolute top-20 right-[10%] w-64 h-64 border-2 border-eucalyptus/25 rounded-lg rotate-12" />
+            <div className="absolute top-20 right-[10%] w-64 h-64 border-2 border-bondi/25 rounded-lg rotate-12" />
             <div className="absolute bottom-20 left-[5%] w-48 h-48 border-2 border-navy/10 rounded-lg -rotate-6" />
             <div className="absolute top-[60%] left-[15%] w-32 h-32 border border-gold/20 rounded-full" />
             <div className="absolute top-10 left-[30%] w-20 h-20 border border-navy/10 rounded-lg rotate-45" />
@@ -509,9 +509,9 @@ export default function ElementaryPage() {
                     transition={{ duration: 0.4, delay: i * 0.1 }}
                     viewport={{ once: true }}
                     whileHover={{ y: -4, transition: { duration: 0.2 } }}
-                    className="bg-white rounded-xl p-5 border border-n-200 shadow-sm hover:shadow-md hover:border-eucalyptus/35 transition-all duration-300"
+                    className="bg-white rounded-xl p-5 border border-n-200 shadow-sm hover:shadow-md hover:border-bondi/35 transition-all duration-300"
                   >
-                    <div className="w-8 h-8 rounded-lg bg-eucalyptus/15 flex items-center justify-center mb-3">
+                    <div className="w-8 h-8 rounded-lg bg-bondi/15 flex items-center justify-center mb-3">
                       <span className="text-sm font-bold text-gold-600">{String(i + 1).padStart(2, '0')}</span>
                     </div>
                     <h3 className="font-bold text-navy text-sm mb-1.5">{feature.title}</h3>
@@ -573,10 +573,10 @@ export default function ElementaryPage() {
         <section className="py-12 md:py-20 bg-n-50 animate-section overflow-hidden relative">
           {/* Subtle decorative circles */}
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            <div className="absolute -top-10 -right-10 w-40 h-40 rounded-full border-2 border-eucalyptus/20" />
+            <div className="absolute -top-10 -right-10 w-40 h-40 rounded-full border-2 border-bondi/20" />
             <div className="absolute bottom-20 -left-8 w-28 h-28 rounded-full border-2 border-gold/25" />
             <div className="absolute top-[40%] right-[8%] w-24 h-24 rounded-full border border-navy/10" />
-            <div className="absolute top-16 left-[20%] w-16 h-16 rounded-lg border border-eucalyptus/15 rotate-12" />
+            <div className="absolute top-16 left-[20%] w-16 h-16 rounded-lg border border-bondi/15 rotate-12" />
           </div>
 
           <div className="container-custom relative z-10">

@@ -4,12 +4,13 @@ const LEVEL_COLORS: Record<string, string> = {
   navy: 'var(--nwl-navy)',
   gold: 'var(--nwl-gold)',
   galah: 'var(--nwl-galah)',
+  bondi: 'var(--nwl-bondi)',
   eucalyptus: 'var(--nwl-eucalyptus)',
   wattle: 'var(--nwl-wattle)',
   coralSea: 'var(--nwl-coral-sea)',
   jacaranda: 'var(--nwl-jacaranda)',
 };
-const ON_LIGHT: Record<string, boolean> = { wattle: true, eucalyptus: true, galah: true };
+const ON_LIGHT: Record<string, boolean> = { wattle: true, eucalyptus: true, galah: true, bondi: true };
 
 /**
  * NWL Australian School — Tag

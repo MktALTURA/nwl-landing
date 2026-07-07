@@ -27,7 +27,8 @@ const config: Config = {
         "coral-sea": "#004756", // Middle School
         jacaranda: "#4A3A82", // High School
         galah: "#E89BB5", // Maternal + Kinder — galah cockatoo pink
-        eucalyptus: "#93A860", // Elementary — eucalyptus green
+        bondi: "#3AA79B", // Elementary — Bondi teal
+        eucalyptus: "#93A860", // Eucalyptus green — brand accent
         wattle: "#EDB500", // Golden wattle — brand yellow accent
 
         // Navy-tinted neutral scale
@@ -66,7 +67,7 @@ const config: Config = {
         blueberry: "#4A3A82", // → Jacaranda
 
         // Level accents (legacy) → DS level colors
-        primaria: "#93A860", // → Eucalyptus (Elementary)
+        primaria: "#3AA79B", // → Bondi (Elementary)
         secundaria: "#004756", // → Coral Sea (Middle)
         "deep-ember": "#4A3A82", // → Jacaranda (High School)
         "golden-spark": "#CB8606", // → Gold

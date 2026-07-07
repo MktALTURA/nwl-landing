@@ -6,7 +6,7 @@ const LEVELS: Record<Level, { color: string; label: string }> = {
   brand: { color: 'var(--nwl-navy)', label: 'NWL' },
   gold: { color: 'var(--nwl-gold)', label: 'NWL' },
   kinder: { color: 'var(--nwl-galah)', label: 'Kinder / Maternal' },
-  elementary: { color: 'var(--nwl-eucalyptus)', label: 'Elementary' },
+  elementary: { color: 'var(--nwl-bondi)', label: 'Elementary' },
   middle: { color: 'var(--nwl-coral-sea)', label: 'Middle School' },
   high: { color: 'var(--nwl-jacaranda)', label: 'High School' },
 };
