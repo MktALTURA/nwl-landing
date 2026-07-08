@@ -91,9 +91,9 @@ function pastel(hex: string, t = 0.76) {
 
 /* ---------- page-local UI strings ---------- */
 const UI = {
-  heroEyebrow: { en: 'NWL Australian School · Academic Model', es: 'NWL Australian School · Modelo Académico' },
+  heroEyebrow: { en: 'NWL Australian School · Academic Model', es: 'NWL Australian School · Modelo Educativo' },
   heroTitle: { en: 'The NWL', es: 'El Modelo' },
-  heroTitleAccent: { en: 'Academic Model', es: 'Académico NWL' },
+  heroTitleAccent: { en: 'Academic Model', es: 'Educativo NWL' },
   heroMono: {
     en: 'AN AUSTRALIAN-INSPIRED, FUTURE-READY EDUCATION FOR CONFIDENT LEARNERS AND GLOBAL CITIZENS.',
     es: 'UNA EDUCACIÓN DE INSPIRACIÓN AUSTRALIANA, LISTA PARA EL FUTURO, PARA ALUMNOS SEGUROS Y CIUDADANOS GLOBALES.',
@@ -117,7 +117,7 @@ const UI = {
   },
   wheelEyebrow: { en: 'The wheel', es: 'La rueda' },
   wheelTitle: { en: 'Inside the', es: 'Dentro del' },
-  wheelTitleAccent: { en: 'Academic Model', es: 'Modelo Académico' },
+  wheelTitleAccent: { en: 'Academic Model', es: 'Modelo Educativo' },
   wheelSub: {
     en: 'What each part of the wheel actually means. Tap a component to see the capabilities students live every day.',
     es: 'Qué significa realmente cada parte de la rueda. Toca un componente para ver las capacidades que los alumnos viven a diario.',

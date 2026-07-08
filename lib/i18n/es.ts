@@ -112,7 +112,7 @@ export const es: Dictionary = {
       },
     ],
     cta: 'Descargar Modelo Completo (PDF)',
-    modelCta: 'Explora el Modelo Académico',
+    modelCta: 'Explora el Modelo Educativo',
   },
   partnerships: {
     sectionTitle: 'Alianzas que',

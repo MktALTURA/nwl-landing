@@ -39,7 +39,7 @@ export default function ModeloLayout({
       <BreadcrumbJsonLd
         items={[
           { name: SITE_NAME, url: SITE_URL },
-          { name: 'Modelo Académico NWL', url: `${SITE_URL}/modelo` },
+          { name: 'Modelo Educativo NWL', url: `${SITE_URL}/modelo` },
         ]}
       />
       {children}
