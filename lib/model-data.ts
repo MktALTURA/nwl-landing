@@ -11,6 +11,8 @@ export interface ModelCapability {
   icon: string;
   name: Localized;
   description: Localized;
+  /** Optional supporting framework points (e.g. UNESCO's five pillars) */
+  pillars?: Localized[];
 }
 
 export interface ModelComponent {
@@ -94,9 +96,16 @@ export const MODEL_COMPONENTS: ModelComponent[] = [
         icon: 'globe',
         name: { en: 'UNESCO 2030', es: 'UNESCO 2030' },
         description: {
-          en: "Learning aligned to UNESCO's 2030 goals for global, sustainable education.",
-          es: 'Aprendizaje alineado a las metas 2030 de la UNESCO para una educación global y sostenible.',
+          en: "Learning aligned to UNESCO's 2030 goals for global, sustainable education, built on its five pillars:",
+          es: 'Aprendizaje alineado a las metas 2030 de la UNESCO para una educación global y sostenible, sobre sus cinco pilares:',
         },
+        pillars: [
+          { en: 'Learning to know', es: 'Aprender a conocer' },
+          { en: 'Learning to do', es: 'Aprender a hacer' },
+          { en: 'Learning to live together', es: 'Aprender a vivir juntos' },
+          { en: 'Learning to be', es: 'Aprender a ser' },
+          { en: 'Learning to transform oneself and society', es: 'Aprender a transformarse y transformar la sociedad' },
+        ],
       },
       {
         icon: 'users',

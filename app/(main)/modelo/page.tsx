@@ -991,6 +991,20 @@ export default function ModeloPage() {
                         <div>
                           <div className="font-semibold text-paper">{L(cap.name)}</div>
                           <p className="text-sm text-paper/65 leading-relaxed">{L(cap.description)}</p>
+                          {cap.pillars && (
+                            <div className="flex flex-wrap gap-1.5 mt-2.5">
+                              {cap.pillars.map((pl, k) => (
+                                <span
+                                  key={k}
+                                  className="inline-flex items-baseline gap-1.5 rounded-full border px-2.5 py-1"
+                                  style={{ borderColor: `${c.color}66`, background: `${c.color}26` }}
+                                >
+                                  <span className="font-mono text-[8.5px] text-paper/50">0{k + 1}</span>
+                                  <span className="text-[10.5px] font-medium text-paper/90 leading-tight">{L(pl)}</span>
+                                </span>
+                              ))}
+                            </div>
+                          )}
                         </div>
                       </div>
                     ))}
@@ -1095,6 +1109,20 @@ export default function ModeloPage() {
                         <div>
                           <div className="font-semibold text-navy text-sm">{L(cap.name)}</div>
                           <p className="text-sm text-navy/65 leading-relaxed">{L(cap.description)}</p>
+                          {cap.pillars && (
+                            <div className="flex flex-wrap gap-1.5 mt-2.5">
+                              {cap.pillars.map((pl, k) => (
+                                <span
+                                  key={k}
+                                  className="inline-flex items-baseline gap-1.5 rounded-full border px-2.5 py-1"
+                                  style={{ borderColor: `${comp.color}40`, background: `${comp.color}12` }}
+                                >
+                                  <span className="font-mono text-[8.5px]" style={{ color: comp.color }}>0{k + 1}</span>
+                                  <span className="text-[10.5px] font-medium text-navy/85 leading-tight">{L(pl)}</span>
+                                </span>
+                              ))}
+                            </div>
+                          )}
                         </div>
                       </div>
                     ))}
