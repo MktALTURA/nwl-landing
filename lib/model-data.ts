@@ -1,5 +1,5 @@
 /**
- * NWL Australian School — Academic Model ("the wheel")
+ * NWL Australian School — Educational Model ("the wheel")
  * Content source: identity deck slide 14 (7 components · 21 capabilities).
  * Bilingual fields follow the campus-data pattern: { en, es } resolved at render.
  */

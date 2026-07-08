@@ -112,7 +112,7 @@ export const en: Dictionary = {
       },
     ],
     cta: 'Download Full Model (PDF)',
-    modelCta: 'Explore the Academic Model',
+    modelCta: 'Explore the Educational Model',
   },
   partnerships: {
     sectionTitle: 'Partnerships that',
