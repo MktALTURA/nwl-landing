@@ -48,6 +48,21 @@ const COLOR: Record<
     tile: 'from-jacaranda/25 to-jacaranda/5',
     pill: 'bg-jacaranda/15 text-navy',
   },
+  bondi: {
+    bar: 'bg-bondi',
+    tile: 'from-bondi/25 to-bondi/5',
+    pill: 'bg-bondi/15 text-navy',
+  },
+  galah: {
+    bar: 'bg-galah',
+    tile: 'from-galah/30 to-galah/10',
+    pill: 'bg-galah/20 text-navy',
+  },
+  navy: {
+    bar: 'bg-navy',
+    tile: 'from-navy/20 to-navy/5',
+    pill: 'bg-navy/10 text-navy',
+  },
 };
 
 const initials = (name: string) => {
@@ -293,26 +308,35 @@ function PartnerCard({
           </p>
         )}
 
-        {/* Promo flyer — clickable thumbnail that opens the lightbox */}
-        {partner.promoImage && (
-          <button
-            type="button"
-            onClick={() => onOpenPromo({ src: partner.promoImage!, alt: promoAlt })}
-            aria-label={t.beneficios.viewPromo}
-            className="group/promo relative w-full overflow-hidden rounded-lg ring-1 ring-n-200 mb-3 cursor-zoom-in"
+        {/* Promo flyers — clickable thumbnails that open the lightbox */}
+        {partner.promoImages && partner.promoImages.length > 0 && (
+          <div
+            className={`grid gap-2 mb-3 ${
+              partner.promoImages.length > 1 ? 'grid-cols-2' : 'grid-cols-1'
+            }`}
           >
-            <img
-              src={partner.promoImage}
-              alt={promoAlt}
-              loading="lazy"
-              className="w-full h-auto object-cover transition-transform duration-300 group-hover/promo:scale-[1.03]"
-            />
-            <span className="absolute inset-0 bg-navy/0 group-hover/promo:bg-navy/15 transition-colors duration-300" />
-            <span className="absolute bottom-2 right-2 inline-flex items-center gap-1.5 rounded-full bg-navy-900/70 px-2.5 py-1 text-[11px] font-medium text-paper backdrop-blur-sm">
-              <FiMaximize2 size={12} />
-              {t.beneficios.viewPromo}
-            </span>
-          </button>
+            {partner.promoImages.map((src) => (
+              <button
+                key={src}
+                type="button"
+                onClick={() => onOpenPromo({ src, alt: promoAlt })}
+                aria-label={t.beneficios.viewPromo}
+                className="group/promo relative w-full overflow-hidden rounded-lg ring-1 ring-n-200 cursor-zoom-in"
+              >
+                <img
+                  src={src}
+                  alt={promoAlt}
+                  loading="lazy"
+                  className="w-full h-auto object-cover transition-transform duration-300 group-hover/promo:scale-[1.03]"
+                />
+                <span className="absolute inset-0 bg-navy/0 group-hover/promo:bg-navy/15 transition-colors duration-300" />
+                <span className="absolute bottom-2 right-2 inline-flex items-center gap-1.5 rounded-full bg-navy-900/70 px-2.5 py-1 text-[11px] font-medium text-paper backdrop-blur-sm">
+                  <FiMaximize2 size={12} />
+                  {partner.promoImages!.length === 1 && t.beneficios.viewPromo}
+                </span>
+              </button>
+            ))}
+          </div>
         )}
 
         {/* Restrictions / fine print */}

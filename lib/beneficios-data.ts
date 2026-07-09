@@ -47,18 +47,21 @@ export interface BenefitPartner {
   /** Outbound link (partner site, WhatsApp, etc.). */
   url?: string;
   /**
-   * Optional promo flyer image (path under /images/benefits/). When set, the
-   * card shows a "view flyer" affordance that opens the image in a lightbox.
+   * Optional promo flyer images (paths under /images/benefits/). When set,
+   * the card shows "view flyer" thumbnails that open each image in a lightbox.
    */
-  promoImage?: string;
+  promoImages?: string[];
 }
 
 export const benefitCategories: BenefitCategory[] = [
   { key: 'salud', label: { es: 'Salud y Bienestar', en: 'Health & Wellness' }, color: 'eucalyptus' },
   { key: 'dental', label: { es: 'Dental y Ortopedia', en: 'Dental & Orthopedics' }, color: 'skyblue' },
+  { key: 'optica', label: { es: 'Óptica y Audiología', en: 'Optical & Hearing' }, color: 'bondi' },
   { key: 'laboratorio', label: { es: 'Estudios Clínicos', en: 'Clinical Studies' }, color: 'terracotta' },
   { key: 'prevision', label: { es: 'Previsión y Asistencia', en: 'Funeral & Assistance' }, color: 'mustard' },
   { key: 'alimentos', label: { es: 'Alimentos y Bebidas', en: 'Food & Drink' }, color: 'coral' },
+  { key: 'entretenimiento', label: { es: 'Entretenimiento', en: 'Entertainment' }, color: 'galah' },
+  { key: 'deporte', label: { es: 'Deporte y Danza', en: 'Sports & Dance' }, color: 'navy' },
 ];
 
 export const benefitPartners: BenefitPartner[] = [
@@ -133,7 +136,7 @@ export const benefitPartners: BenefitPartner[] = [
     categoryKey: 'alimentos',
     logo: '/images/logos/benefits/tim-hortons.svg',
     url: 'https://timhortonsmx.com/',
-    promoImage: '/images/benefits/tim-hortons-promo.jpg',
+    promoImages: ['/images/benefits/tim-hortons-promo.jpg'],
     discount: { es: '10% de descuento', en: '10% discount' },
     detail: {
       es: 'Lleva tu antojo al campus con un 10% de descuento presentando tu credencial NWL (alumno o colaborador) en sucursales participantes.',
@@ -142,6 +145,91 @@ export const benefitPartners: BenefitPartner[] = [
     restrictions: {
       es: 'Válido presentando tu credencial NWL en sucursales participantes. Aplican restricciones.',
       en: 'Valid when you present your NWL credential at participating locations. Restrictions apply.',
+    },
+  },
+  {
+    slug: 'carls-jr',
+    name: "Carl's Jr.",
+    categoryKey: 'alimentos',
+    logo: '/images/logos/benefits/carls-jr.svg',
+    url: 'https://carlsjr.com.mx/',
+    promoImages: [
+      '/images/benefits/carls-jr-promo-130.jpg',
+      '/images/benefits/carls-jr-promo-10off.jpg',
+    ],
+    discount: {
+      es: 'Combo Famous Star® $130',
+      en: 'Famous Star® combo $130',
+    },
+    detail: {
+      es: 'Combo Chico Famous Star® con queso (papas chicas y bebida chica) por solo $130 · Además, 10% de descuento en consumo general a partir del 15 de julio.',
+      en: 'Small Famous Star® with cheese combo (small fries & small drink) for just $130 · Plus 10% off your total check starting July 15.',
+    },
+    restrictions: {
+      es: 'Válido presentando credencial, uniforme del Colegio NWL o volante de la promoción en sucursales participantes de Querétaro. Una promoción por persona; no aplica con otras ofertas. Aplican restricciones.',
+      en: 'Valid with your credential, Colegio NWL uniform or promo flyer at participating Querétaro locations. One promotion per person; not valid with other offers. Restrictions apply.',
+    },
+    vigencia: {
+      es: '10% vigente desde el 15 de julio',
+      en: '10% off starts July 15',
+    },
+  },
+  {
+    slug: 'fun4us',
+    name: 'Fun4us',
+    categoryKey: 'entretenimiento',
+    logo: '/images/logos/benefits/fun4us.svg',
+    url: 'https://www.fun4us.mx/',
+    discount: { es: 'Tarifa especial $199–$249', en: 'Special rate $199–$249' },
+    detail: {
+      es: 'Acceso por $249 para pequeños que miden más de 90 cm y $199 para menores de 90 cm · 10% de descuento en cafetería (incluye golosinas y productos ICC y Holanda) · Acceso gratuito de papás al comedor.',
+      en: 'Entry for $249 for kids taller than 90 cm and $199 for kids under 90 cm · 10% off at the café (including candy and ICC & Holanda products) · Free dining-area access for parents.',
+    },
+    restrictions: {
+      es: 'Horario: lunes a jueves 13:00–20:00 · viernes y sábado 11:00–21:00 · domingo 11:00–19:00. Válido para la comunidad de todos los campus NWL.',
+      en: 'Hours: Mon–Thu 1:00–8:00 pm · Fri–Sat 11:00 am–9:00 pm · Sun 11:00 am–7:00 pm. Valid for the community of all NWL campuses.',
+    },
+  },
+  {
+    slug: 'dientes-co',
+    name: 'Dientes & Co',
+    categoryKey: 'dental',
+    logo: '/images/logos/benefits/dientes-co.jpg',
+    discount: { es: 'Hasta 20% de descuento', en: 'Up to 20% off' },
+    detail: {
+      es: 'Alumnos, docentes y personal administrativo: 20% en tratamientos generales y 10% en tratamientos de especialidad · Familiares directos: 10% en generales y 5% en especialidad.',
+      en: 'Students, teachers & administrative staff: 20% off general treatments and 10% off specialty treatments · Direct family members: 10% off general and 5% off specialty.',
+    },
+    restrictions: {
+      es: 'Válido para la comunidad de todos los campus NWL.',
+      en: 'Valid for the community of all NWL campuses.',
+    },
+  },
+  {
+    slug: 'we-dance',
+    name: 'We-Dance Studio',
+    categoryKey: 'deporte',
+    logo: '/images/logos/benefits/we-dance.png',
+    discount: { es: '50% de descuento en inscripción', en: '50% off enrollment' },
+    detail: {
+      es: 'Presenta tu credencial NWL al inscribirte y obtén la mitad de descuento en tu inscripción.',
+      en: 'Show your NWL credential when you sign up and get half off your enrollment fee.',
+    },
+  },
+  {
+    slug: 'devlyn',
+    name: 'Devlyn',
+    categoryKey: 'optica',
+    logo: '/images/logos/benefits/devlyn.svg',
+    url: 'https://www.devlyn.com.mx/',
+    discount: { es: 'Hasta 20% de descuento', en: 'Up to 20% off' },
+    detail: {
+      es: '20% en anteojos graduados, armazones, micas, lentes solares y de contacto (Essilor, Transitions, Varilux, Crizal y más) · 10% en consulta oftalmológica y cirugías en Clínicas Devlyn · Examen de la vista, asesoramiento, limpieza y ajuste de anteojos sin costo · Audiología: estudio auditivo gratis y 15% en auxiliares auditivos.',
+      en: '20% off prescription glasses, frames, lenses, sunglasses and contact lenses (Essilor, Transitions, Varilux, Crizal and more) · 10% off ophthalmology consultations and surgeries at Devlyn Clinics · Free eye exams, advice, cleaning and frame adjustments · Audiology: free hearing test and 15% off hearing aids.',
+    },
+    restrictions: {
+      es: 'Descuentos extensivos a familiares directos e indirectos. Válido pagando en efectivo o tarjeta sobre precio de lista en sucursales Devlyn de todo el país; no aplica en tiendas outlet ni concesiones dentro de tiendas departamentales.',
+      en: 'Discounts extend to direct and extended family. Valid paying cash or card on list prices at Devlyn locations nationwide; not valid at outlet stores or concessions inside department stores.',
     },
   },
 ];
