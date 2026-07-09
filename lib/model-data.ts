@@ -338,6 +338,8 @@ export const MODEL_PROMISE = {
 /** "Globally recognized" strip — logos already shipped with the site. */
 export const MODEL_RECOGNITIONS: { name: string; image: string | Localized }[] = [
   { name: 'Cognia Accredited', image: '/images/logos/partners/Cognia_ACCRED-Badge-GREY-684x684-1.png' },
+  { name: 'Cambridge English Qualifications', image: '/images/logos/partners/cambridge-english-qualifications.webp' },
+  { name: 'TOEFL', image: '/images/logos/partners/toefl.webp' },
   { name: 'Knotion', image: '/images/logos/partners/knotion.png' },
   { name: 'Hokku Academy', image: '/images/logos/partners/hokku-academy.webp' },
   { name: 'Tecnológico de Monterrey', image: '/images/logos/partners/tecnologico-de-monterrey.png' },

@@ -1277,7 +1277,7 @@ export default function ModeloPage() {
               {L(UI.recognitionsTitle)}
             </h2>
           </div>
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-8 items-center max-w-5xl mx-auto">
+          <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-4 gap-8 items-center max-w-5xl mx-auto">
             {MODEL_RECOGNITIONS.map((r, i) => {
               const src = typeof r.image === 'string' ? r.image : r.image[locale];
               return (
