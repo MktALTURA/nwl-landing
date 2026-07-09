@@ -52,6 +52,24 @@ const COLOR: Record<
     tile: 'from-coral/30 to-coral/10',
     pill: 'bg-coral/20 text-charcoal',
   },
+  ocean: {
+    bar: 'bg-ocean',
+    chip: 'bg-ocean border-ocean text-charcoal',
+    tile: 'from-ocean/30 to-ocean/10',
+    pill: 'bg-ocean/20 text-charcoal',
+  },
+  tangerine: {
+    bar: 'bg-tangerine',
+    chip: 'bg-tangerine border-tangerine text-white',
+    tile: 'from-tangerine/30 to-tangerine/10',
+    pill: 'bg-tangerine/20 text-charcoal',
+  },
+  blueberry: {
+    bar: 'bg-blueberry',
+    chip: 'bg-blueberry border-blueberry text-white',
+    tile: 'from-blueberry/30 to-blueberry/10',
+    pill: 'bg-blueberry/20 text-charcoal',
+  },
 };
 
 const initials = (name: string) => {
@@ -301,26 +319,35 @@ function PartnerCard({
           </p>
         )}
 
-        {/* Promo flyer — clickable thumbnail that opens the lightbox */}
-        {partner.promoImage && (
-          <button
-            type="button"
-            onClick={() => onOpenPromo({ src: partner.promoImage!, alt: promoAlt })}
-            aria-label={t.beneficios.viewPromo}
-            className="group/promo relative w-full overflow-hidden rounded-lg ring-1 ring-warmgray/60 mb-3 cursor-zoom-in"
+        {/* Promo flyers — clickable thumbnails that open the lightbox */}
+        {partner.promoImages && partner.promoImages.length > 0 && (
+          <div
+            className={`grid gap-2 mb-3 ${
+              partner.promoImages.length > 1 ? 'grid-cols-2' : 'grid-cols-1'
+            }`}
           >
-            <img
-              src={partner.promoImage}
-              alt={promoAlt}
-              loading="lazy"
-              className="w-full h-auto object-cover transition-transform duration-300 group-hover/promo:scale-[1.03]"
-            />
-            <span className="absolute inset-0 bg-charcoal/0 group-hover/promo:bg-charcoal/15 transition-colors duration-300" />
-            <span className="absolute bottom-2 right-2 inline-flex items-center gap-1.5 rounded-full bg-charcoal/70 px-2.5 py-1 text-[11px] font-medium text-white backdrop-blur-sm">
-              <FiMaximize2 size={12} />
-              {t.beneficios.viewPromo}
-            </span>
-          </button>
+            {partner.promoImages.map((src) => (
+              <button
+                key={src}
+                type="button"
+                onClick={() => onOpenPromo({ src, alt: promoAlt })}
+                aria-label={t.beneficios.viewPromo}
+                className="group/promo relative w-full overflow-hidden rounded-lg ring-1 ring-warmgray/60 cursor-zoom-in"
+              >
+                <img
+                  src={src}
+                  alt={promoAlt}
+                  loading="lazy"
+                  className="w-full h-auto object-cover transition-transform duration-300 group-hover/promo:scale-[1.03]"
+                />
+                <span className="absolute inset-0 bg-charcoal/0 group-hover/promo:bg-charcoal/15 transition-colors duration-300" />
+                <span className="absolute bottom-2 right-2 inline-flex items-center gap-1.5 rounded-full bg-charcoal/70 px-2.5 py-1 text-[11px] font-medium text-white backdrop-blur-sm">
+                  <FiMaximize2 size={12} />
+                  {partner.promoImages!.length === 1 && t.beneficios.viewPromo}
+                </span>
+              </button>
+            ))}
+          </div>
         )}
 
         {/* Restrictions / fine print */}
