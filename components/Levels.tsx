@@ -9,12 +9,12 @@ import Crest from './ui/Crest';
 // Escudo level mapping (NWL Australian School): Maternal + Kinder → Galah,
 // Elementary → Bondi, Middle → Coral Sea, High School → Jacaranda.
 type CrestLevel = 'kinder' | 'elementary' | 'middle' | 'high';
-const levelsData: { crest: CrestLevel; color: string; image: string }[] = [
-  { crest: 'kinder', color: 'var(--nwl-galah)', image: '/images/levels/maternal.jpg' },
-  { crest: 'kinder', color: 'var(--nwl-galah)', image: '/images/levels/kinder.jpg' },
-  { crest: 'elementary', color: 'var(--nwl-bondi)', image: '/images/levels/primaria.jpg' },
-  { crest: 'middle', color: 'var(--nwl-coral-sea)', image: '/images/levels/secundaria/nwl-secundaria-lab-team-fist-bump.jpg' },
-  { crest: 'high', color: 'var(--nwl-jacaranda)', image: '/images/levels/preparatoria.jpg' },
+const levelsData: { crest: CrestLevel; color: string; image: string; stage: string }[] = [
+  { crest: 'kinder', color: 'var(--nwl-galah)', image: '/images/levels/maternal.jpg', stage: 'Early Learning' },
+  { crest: 'kinder', color: 'var(--nwl-galah)', image: '/images/levels/kinder.jpg', stage: 'Kindergarten' },
+  { crest: 'elementary', color: 'var(--nwl-bondi)', image: '/images/levels/primaria.jpg', stage: 'Primary Years' },
+  { crest: 'middle', color: 'var(--nwl-coral-sea)', image: '/images/levels/secundaria/nwl-secundaria-lab-team-fist-bump.jpg', stage: 'Years 7–10' },
+  { crest: 'high', color: 'var(--nwl-jacaranda)', image: '/images/levels/preparatoria.jpg', stage: 'Senior Years' },
 ];
 
 export default function Levels() {
@@ -78,7 +78,7 @@ export default function Levels() {
                   className="font-mono text-[11px] uppercase tracking-[0.18em] mb-4"
                   style={{ color: level.color }}
                 >
-                  {level.ageRange}
+                  {level.ageRange} · {level.stage}
                 </p>
                 <p className="text-navy/70 mb-4 leading-relaxed">
                   {level.description}

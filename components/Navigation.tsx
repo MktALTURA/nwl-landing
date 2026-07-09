@@ -245,7 +245,14 @@ export default function Navigation() {
                                       transition: { duration: 0.3, ease: 'easeOut' },
                                     }}
                                   >
-                                    <span className="relative z-10">{child.name}</span>
+                                    <span className="relative z-10 block">
+                                      <span className="block">{child.name}</span>
+                                      {child.sub && (
+                                        <span className="block font-mono text-[8.5px] uppercase tracking-[0.16em] text-n-500/80 mt-0.5">
+                                          {child.sub}
+                                        </span>
+                                      )}
+                                    </span>
                                     {decoration.crest && (
                                       <span className="absolute right-3 top-1/2 opacity-0 translate-y-[-50%] translate-x-2 scale-75 group-hover/item:opacity-90 group-hover/item:translate-x-0 group-hover/item:scale-100 transition-all duration-500 ease-out pointer-events-none">
                                         <Crest level={decoration.crest} size={20} showBanner={false} />

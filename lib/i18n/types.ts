@@ -6,7 +6,7 @@ export interface Dictionary {
       name: string;
       href: string;
       highlight?: boolean;
-      children?: { name: string; href: string }[];
+      children?: { name: string; href: string; sub?: string }[];
     }[];
     scheduleVisit: string;
     whatsappUs: string;

@@ -10,11 +10,11 @@ export const es: Dictionary = {
         name: 'Oferta Académica',
         href: '#levels',
         children: [
-          { name: 'Maternal', href: '/maternal' },
-          { name: 'Kinder', href: '/kinder' },
-          { name: 'Primaria', href: '/elementary' },
-          { name: 'Secundaria', href: '/middle-school' },
-          { name: 'Preparatoria', href: '/high-school' },
+          { name: 'Maternal', href: '/maternal' , sub: 'Early Learning' },
+          { name: 'Kinder', href: '/kinder' , sub: 'Kindergarten' },
+          { name: 'Primaria', href: '/elementary' , sub: 'Primary Years' },
+          { name: 'Secundaria', href: '/middle-school' , sub: 'Years 7–10' },
+          { name: 'Preparatoria', href: '/high-school' , sub: 'Senior Years' },
         ],
       },
       {
@@ -346,7 +346,7 @@ export const es: Dictionary = {
     },
   },
   maternal: {
-    ageBadge: '2-3 años',
+    ageBadge: '2-3 años · Early Learning',
     tagline: 'Pequeños Pasos, Grandes Sueños',
     subtitle: 'Los primeros pasos de tu hijo en un entorno de inmersión en inglés',
     description:
@@ -446,7 +446,7 @@ export const es: Dictionary = {
     galleryTitleAccent: 'Maternal',
   },
   kinder: {
-    ageBadge: '3–5 años',
+    ageBadge: '3–5 años · Kindergarten',
     tagline: 'Mentes que Crecen, Futuros que se Construyen',
     description:
       'Creemos que cada niño tiene un potencial extraordinario. Nuestro programa de Kinder lo despierta con inmersión diaria en inglés, aprendizaje basado en proyectos Knotion y nuestro Programa Multisensorial único: la curiosidad y el bienestar crecen a la par. La tecnología se introduce de forma gradual e intencional, guiada por el modelo Knotion, para que cada niño aprenda no solo a usar las herramientas digitales, sino por qué y para qué.',
@@ -535,7 +535,7 @@ export const es: Dictionary = {
     ],
   },
   elementary: {
-    ageBadge: '6–11 años',
+    ageBadge: '6–11 años · Primary Years',
     tagline: 'Construyendo el Futuro, Proyecto a Proyecto',
     description:
       'En Primaria, la inmersión en inglés se convierte en el motor del aprendizaje. Los alumnos se adueñan de su formación a través del modelo IMPACT de Knotion, laboratorios STEAM maker y un programa de filosofía que les enseña cómo pensar — no qué pensar. Bienestar y rigor académico en equilibrio. Sin tarea tradicional.',
@@ -648,7 +648,7 @@ export const es: Dictionary = {
     galleryComingSoon: 'Galería próximamente. Visita un campus para conocer nuestros espacios.',
   },
   middleSchool: {
-    ageBadge: '12–15 años',
+    ageBadge: '12–15 años · Years 7–10',
     tagline: 'De las Ideas al Impacto Real',
     description:
       'En Secundaria, el pensamiento crítico toma el liderazgo. Los alumnos se vuelven emprendedores, obtienen la doble certificación de EE. UU. y México con Hokku Academy y crecen como líderes con Yo Soy Líder NWL by Tec de Monterrey. Proyectos reales, no ejercicios de libro. Credenciales globales, no solo calificaciones.',
@@ -804,7 +804,7 @@ export const es: Dictionary = {
     galleryTitleAccent: 'Secundaria',
   },
   highSchool: {
-    ageBadge: 'Edades 15–17',
+    ageBadge: 'Edades 15–17 · Senior Years',
     tagline: 'Una Preparación para la Vida',
     description:
       'En la Prepa NWL preparamos a los estudiantes para enfrentar un futuro lleno de retos, con una mentalidad de crecimiento y habilidades que van más allá de lo académico. Con el modelo Life Project, cada semestre construye competencias reales: como el canguro, siempre hacia adelante. Además, pueden obtener el doble diploma de EE. UU. y México con Hokku Academy, institución acreditada por Cognia.',
