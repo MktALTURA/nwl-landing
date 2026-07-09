@@ -13,7 +13,7 @@ const levelsData: { crest: CrestLevel; color: string; image: string; stage: stri
   { crest: 'kinder', color: 'var(--nwl-galah)', image: '/images/levels/maternal.jpg', stage: 'Early Learning' },
   { crest: 'kinder', color: 'var(--nwl-galah)', image: '/images/levels/kinder.jpg', stage: 'Kindergarten' },
   { crest: 'elementary', color: 'var(--nwl-bondi)', image: '/images/levels/primaria.jpg', stage: 'Primary Years' },
-  { crest: 'middle', color: 'var(--nwl-coral-sea)', image: '/images/levels/secundaria/nwl-secundaria-lab-team-fist-bump.jpg', stage: 'Years 7–10' },
+  { crest: 'middle', color: 'var(--nwl-coral-sea)', image: '/images/levels/secundaria/nwl-secundaria-lab-team-fist-bump.jpg', stage: 'Years 7–9' },
   { crest: 'high', color: 'var(--nwl-jacaranda)', image: '/images/levels/preparatoria.jpg', stage: 'Senior Years' },
 ];
 

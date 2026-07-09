@@ -13,7 +13,7 @@ export const es: Dictionary = {
           { name: 'Maternal', href: '/maternal' , sub: 'Early Learning' },
           { name: 'Kinder', href: '/kinder' , sub: 'Kindergarten' },
           { name: 'Primaria', href: '/elementary' , sub: 'Primary Years' },
-          { name: 'Secundaria', href: '/middle-school' , sub: 'Years 7–10' },
+          { name: 'Secundaria', href: '/middle-school' , sub: 'Years 7–9' },
           { name: 'Preparatoria', href: '/high-school' , sub: 'Senior Years' },
         ],
       },
@@ -648,7 +648,7 @@ export const es: Dictionary = {
     galleryComingSoon: 'Galería próximamente. Visita un campus para conocer nuestros espacios.',
   },
   middleSchool: {
-    ageBadge: '12–15 años · Years 7–10',
+    ageBadge: '12–15 años · Years 7–9',
     tagline: 'De las Ideas al Impacto Real',
     description:
       'En Secundaria, el pensamiento crítico toma el liderazgo. Los alumnos se vuelven emprendedores, obtienen la doble certificación de EE. UU. y México con Hokku Academy y crecen como líderes con Yo Soy Líder NWL by Tec de Monterrey. Proyectos reales, no ejercicios de libro. Credenciales globales, no solo calificaciones.',

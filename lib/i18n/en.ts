@@ -13,7 +13,7 @@ export const en: Dictionary = {
           { name: 'Maternal', href: '/maternal' , sub: 'Early Learning' },
           { name: 'Kinder', href: '/kinder' , sub: 'Kindergarten' },
           { name: 'Elementary', href: '/elementary' , sub: 'Primary Years' },
-          { name: 'Middle School', href: '/middle-school' , sub: 'Years 7–10' },
+          { name: 'Middle School', href: '/middle-school' , sub: 'Years 7–9' },
           { name: 'High School', href: '/high-school' , sub: 'Senior Years' },
         ],
       },
@@ -647,7 +647,7 @@ export const en: Dictionary = {
     galleryComingSoon: 'Gallery coming soon. Visit a campus to see our spaces firsthand.',
   },
   middleSchool: {
-    ageBadge: 'Ages 12–15 · Years 7–10',
+    ageBadge: 'Ages 12–15 · Years 7–9',
     tagline: 'From Ideas to Impact',
     description:
       'In Middle School, critical thinking takes the lead. Students become entrepreneurs, earn US-Mexico dual certification with Hokku Academy, and grow as leaders through I\'m NWL Leader by Tec de Monterrey. Real projects, not textbook exercises. Global credentials, not just grades.',
