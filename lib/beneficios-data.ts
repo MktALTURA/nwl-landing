@@ -88,7 +88,7 @@ export const benefitPartners: BenefitPartner[] = [
     categoryKey: 'laboratorio',
     logo: '/images/logos/benefits/saiens.png',
     url: 'https://saiens.com.mx/',
-    discount: { es: '10% de descuento', en: '10% discount' },
+    discount: { es: '25% de descuento', en: '25% discount' },
     detail: {
       es: 'En estudios clínicos, mencionando que perteneces a la Familia Newland. Toma de muestra a domicilio gratis en todo Querétaro.',
       en: 'On clinical studies — mention you belong to the Newland Family. Free home sample collection across Querétaro.',
