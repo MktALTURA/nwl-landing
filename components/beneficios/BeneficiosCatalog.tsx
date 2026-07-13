@@ -63,6 +63,11 @@ const COLOR: Record<
     tile: 'from-navy/20 to-navy/5',
     pill: 'bg-navy/10 text-navy',
   },
+  jacaranda: {
+    bar: 'bg-jacaranda',
+    tile: 'from-jacaranda/25 to-jacaranda/5',
+    pill: 'bg-jacaranda/15 text-navy',
+  },
 };
 
 const initials = (name: string) => {
