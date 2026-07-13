@@ -62,6 +62,7 @@ export const benefitCategories: BenefitCategory[] = [
   { key: 'alimentos', label: { es: 'Alimentos y Bebidas', en: 'Food & Drink' }, color: 'coral' },
   { key: 'entretenimiento', label: { es: 'Entretenimiento', en: 'Entertainment' }, color: 'tangerine' },
   { key: 'deporte', label: { es: 'Deporte y Danza', en: 'Sports & Dance' }, color: 'blueberry' },
+  { key: 'musica', label: { es: 'Música y Arte', en: 'Music & Arts' }, color: 'bubblegum' },
 ];
 
 export const benefitPartners: BenefitPartner[] = [
@@ -230,6 +231,22 @@ export const benefitPartners: BenefitPartner[] = [
     restrictions: {
       es: 'Descuentos extensivos a familiares directos e indirectos. Válido pagando en efectivo o tarjeta sobre precio de lista en sucursales Devlyn de todo el país; no aplica en tiendas outlet ni concesiones dentro de tiendas departamentales.',
       en: 'Discounts extend to direct and extended family. Valid paying cash or card on list prices at Devlyn locations nationwide; not valid at outlet stores or concessions inside department stores.',
+    },
+  },
+  {
+    slug: 'mvs-music-center',
+    name: 'MVS Music Center',
+    categoryKey: 'musica',
+    logo: '/images/logos/benefits/mvs-music-center.png',
+    url: 'https://mvsmusiccenter.com/',
+    discount: { es: '50% de descuento en inscripción', en: '50% off enrollment' },
+    detail: {
+      es: 'Escuela y tienda de música: 50% de descuento en inscripción · 15% en colegiaturas · 10% en tienda.',
+      en: 'Music school and store: 50% off enrollment · 15% off tuition · 10% off in-store purchases.',
+    },
+    restrictions: {
+      es: 'Válido presentando tu credencial NWL. Válido para la comunidad de todos los campus NWL.',
+      en: 'Valid when you present your NWL credential. Valid for the community of all NWL campuses.',
     },
   },
 ];

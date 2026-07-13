@@ -70,6 +70,12 @@ const COLOR: Record<
     tile: 'from-blueberry/30 to-blueberry/10',
     pill: 'bg-blueberry/20 text-charcoal',
   },
+  bubblegum: {
+    bar: 'bg-bubblegum',
+    chip: 'bg-bubblegum border-bubblegum text-charcoal',
+    tile: 'from-bubblegum/30 to-bubblegum/10',
+    pill: 'bg-bubblegum/20 text-charcoal',
+  },
 };
 
 const initials = (name: string) => {
