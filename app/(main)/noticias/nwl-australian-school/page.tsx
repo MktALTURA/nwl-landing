@@ -296,6 +296,16 @@ export default function NwlAustralianSchoolNews() {
                 Explora el Modelo Educativo →
               </a>
             </p>
+            <p className="mt-3 text-sm text-navy/70 leading-relaxed">
+              También puedes leer más sobre qué significa ser un{' '}
+              <a
+                href="/informacion/colegio-modelo-australiano-queretaro"
+                className="font-semibold text-gold-600 hover:underline"
+              >
+                colegio con modelo australiano en Querétaro
+              </a>
+              .
+            </p>
           </div>
         </motion.section>
 

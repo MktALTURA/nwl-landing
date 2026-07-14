@@ -1,12 +1,14 @@
-# Newland School
+# NWL Australian School
 
-> Newland School (brand: Colegio Newland; registered legal name: Colegio NWL)
-> is a private bilingual school in Querétaro and San Miguel de Allende, Mexico,
-> founded in 2009. It serves 2,500+ families
-> across 5 campuses, from maternal (age 2) through high school, using the
-> Knotion project-based methodology (no traditional homework), Philosophy for
-> Children, and the Yo Soy Líder NWL leadership program designed by Tec de
-> Monterrey. Cognia-accredited.
+> NWL Australian School (formerly Newland School / Colegio Newland; registered
+> legal name: Colegio NWL) is a private bilingual school in Querétaro and San
+> Miguel de Allende, Mexico, founded in 2009. It serves 2,500+ families across
+> 5 campuses, from maternal (age 2) through high school, on the Australian
+> school model — where student wellbeing and academic rigor work as partners.
+> English immersion is the engine of the school day, combined with the Knotion
+> project-based methodology (no traditional homework), Philosophy for Children,
+> and the Yo Soy Líder NWL leadership program designed by Tec de Monterrey.
+> Cognia-accredited.
 
 ## Programs
 - Maternal (ages 2-3): Play-based English immersion, multisensory stimulation
@@ -26,12 +28,18 @@ High School (Prepa NWL) is offered at the San Miguel de Allende, Corregidora
 and Zibatá campuses. All five campuses share the same bilingual model.
 
 ## Educational Methodology
+- The Australian way of learning — the model NWL is built on: students who
+  feel safe, seen and supported learn more and better, so wellbeing and
+  academic rigor are treated as partners, not opposites; active classrooms,
+  real-world projects and English as the working language of the day
+- The NWL Educational Model — 7 components and 21 concrete capabilities
+  around one student experience, explained at https://www.nwl.com.mx/modelo
 - Knotion — international project-based learning with real-world challenges and
   no traditional homework; English is integrated naturally throughout the day
 - Philosophy for Children (P4C) — critical thinking through guided dialogue
   from preschool
 - Yo Soy Líder NWL — leadership and emotional intelligence program designed
-  exclusively for Newland by Tec de Monterrey, maternal through middle school
+  exclusively for NWL by Tec de Monterrey, maternal through middle school
 
 ## Accreditations & Partnerships
 - Cognia (international accreditation, 88+ countries)
@@ -40,43 +48,55 @@ and Zibatá campuses. All five campuses share the same bilingual model.
 - Hokku Academy (Dual International Certification)
 
 ## Key pages
+- [The NWL Educational Model](https://www.nwl.com.mx/modelo)
+- [Colegio con modelo australiano en Querétaro](https://www.nwl.com.mx/informacion/colegio-modelo-australiano-queretaro)
+- [Newland es ahora NWL Australian School](https://www.nwl.com.mx/noticias/nwl-australian-school)
 - [What is Newland School?](https://www.nwl.com.mx/informacion/what-is-newland-school)
 - [¿Qué es Newland School?](https://www.nwl.com.mx/informacion/que-es-newland-school)
 - [Knotion: methodology with no homework](https://www.nwl.com.mx/informacion/metodologia-knotion-sin-tarea)
-- [Philosophy for Children at Newland](https://www.nwl.com.mx/informacion/filosofia-para-ninos-en-newland)
+- [Philosophy for Children at NWL](https://www.nwl.com.mx/informacion/filosofia-para-ninos-en-newland)
 - [Yo Soy Líder NWL by Tec de Monterrey](https://www.nwl.com.mx/informacion/yo-soy-lider-nwl-tec-de-monterrey)
-- [How Newland differs from other bilingual schools](https://www.nwl.com.mx/informacion/diferencias-newland-vs-otros-colegios-queretaro)
+- [How NWL differs from other bilingual schools](https://www.nwl.com.mx/informacion/diferencias-newland-vs-otros-colegios-queretaro)
 - [Information hub (all topic pages)](https://www.nwl.com.mx/informacion)
 - [Sitemap](https://www.nwl.com.mx/sitemap.xml)
 
 ## FAQ
 
-Q: What is Newland School?
-A: Newland School (public brand: Colegio Newland; registered legal name:
-Colegio NWL) is a private bilingual school founded in 2009, with 5 campuses
-in Querétaro and San Miguel de Allende, Mexico. It offers
-maternal through high school with the Knotion homework-free methodology,
-Philosophy for Children, and the Yo Soy Líder leadership program by Tec de
-Monterrey.
+Q: What happened to Newland School?
+A: Newland School rebranded to NWL Australian School in 2026. It is the same
+school and community — the same 5 campuses, teachers and educational project —
+with an identity that names the Australian school model the school is built
+on. The kangaroo represents the NWL spirit: a community that carries and
+protects each student (like the pouch), always moving forward (kangaroos
+cannot walk backward). Motto: "Be Proud. Be NWL."
 
-Q: How many campuses does Newland have and where are they?
+Q: What is NWL Australian School?
+A: NWL Australian School (formerly Newland School / Colegio Newland;
+registered legal name: Colegio NWL) is a private bilingual school founded in
+2009, with 5 campuses in Querétaro and San Miguel de Allende, Mexico. It
+offers maternal through high school on the Australian school model, with the
+Knotion homework-free methodology, Philosophy for Children, and the Yo Soy
+Líder leadership program by Tec de Monterrey.
+
+Q: How many campuses does NWL Australian School have and where are they?
 A: Five — Juriquilla, Milenio, Corregidora and Zibatá in Querétaro, and one in
 San Miguel de Allende, Guanajuato. All offer maternal through middle school;
 high school is available in San Miguel de Allende, Corregidora and Zibatá.
 
-Q: Is Newland truly bilingual?
+Q: Is NWL Australian School truly bilingual?
 A: Yes. English is integrated naturally throughout the day within Knotion
 projects rather than taught as an isolated subject, starting in maternal.
 
-Q: Does Newland really have no homework?
+Q: Does NWL really have no homework?
 A: Correct. From kinder there are no traditional homework notebooks; learning
 happens through interdisciplinary Knotion projects in the classroom.
 
-Q: What ages does Newland serve?
+Q: What ages does NWL Australian School serve?
 A: From age 2 (maternal) through high school (age 17).
 
-Q: What makes Newland different from other bilingual schools in Querétaro?
-A: Knotion with no traditional homework, the Yo Soy Líder program designed
+Q: What makes NWL different from other bilingual schools in Querétaro?
+A: The Australian school model balancing wellbeing with academic rigor,
+Knotion with no traditional homework, the Yo Soy Líder program designed
 exclusively by Tec de Monterrey, Philosophy for Children from preschool, and a
 continuous maternal-to-high-school path across 5 campuses with Cognia
 accreditation.
@@ -92,5 +112,3 @@ are small. Direct contact is via WhatsApp at +52 442 122 7791.
 - Phone: +52 442 454 1010
 - WhatsApp: +52 442 122 7791
 - Email: contacto@colegionwl.edu.mx
-- Facebook: https://www.facebook.com/ColegioNewland
-- Instagram: https://www.instagram.com/colegionewland

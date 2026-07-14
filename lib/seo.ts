@@ -11,7 +11,7 @@ export const SITE_LEGAL_NAME = 'Colegio NWL';
  * is meaningfully revised — do not derive from filesystem mtimes (Vercel
  * resets them on every build, which would falsely reset the signal).
  */
-export const SITE_LAST_UPDATED = '2026-05-15';
+export const SITE_LAST_UPDATED = '2026-07-15';
 
 /** Default OG image used as fallback when a page-specific image isn't set */
 export const DEFAULT_OG_IMAGE = `${SITE_URL}/images/og/home.jpg`;

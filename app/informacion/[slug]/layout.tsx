@@ -30,11 +30,13 @@ export async function generateMetadata({
 
   const url = `${SITE_URL}/informacion/${slug}`;
 
-  // Build hreflang alternates if this page has a bilingual pair
+  // Build hreflang alternates if this page has a bilingual pair.
+  // x-default points to the Spanish URL (the site's primary language).
   const languages: Record<string, string> | undefined = page.hreflangPair
     ? {
         'es-MX': `${SITE_URL}/informacion/${page.lang === 'es' ? slug : page.hreflangPair}`,
         en: `${SITE_URL}/informacion/${page.lang === 'en' ? slug : page.hreflangPair}`,
+        'x-default': `${SITE_URL}/informacion/${page.lang === 'es' ? slug : page.hreflangPair}`,
       }
     : undefined;
 

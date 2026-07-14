@@ -161,7 +161,6 @@ const nextConfig = {
 
   async rewrites() {
     return [
-      { source: '/secundaria', destination: '/middle-school' },
       { source: '/be_nwl', destination: '/be_nwl.html' },
       { source: '/golden_ticket', destination: '/golden_ticket.html' },
       { source: '/golden_ticket_cap', destination: '/golden_ticket_cap.html' },

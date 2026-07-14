@@ -4709,6 +4709,11 @@ export const informacionPages: Record<string, InformacionPage> = {
  answer:
  'La página del Modelo Educativo NWL explica los 7 componentes y las 21 capacidades del modelo australiano. También puedes agendar una visita guiada en el campus de tu interés por WhatsApp al +52 442 122 7791.',
  },
+ {
+ question: '¿NWL Australian School es el mismo colegio que Newland?',
+ answer:
+ 'Sí. Newland School (Colegio Newland) evolucionó en 2026 a NWL Australian School: la misma institución fundada en 2009, con la misma comunidad, los mismos 5 campus y el mismo proyecto educativo. El nuevo nombre refleja el modelo australiano que define al colegio; no cambió la razón social (Colegio NWL) ni el equipo que acompaña a las familias.',
+ },
  ],
  images: {
  hero: '/images/hero-background.jpg',
