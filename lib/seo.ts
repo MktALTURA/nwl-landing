@@ -84,6 +84,12 @@ export const PAGE_SEO = {
       'Beneficios y descuentos exclusivos para la comunidad NWL: salud, estudios clínicos, dental y más. Aliados que reconocen a las familias y colaboradores de Colegio NWL.',
     ogImage: '/images/og/home.jpg',
   },
+  nwlAustralianSchool: {
+    title: 'Newland es ahora NWL Australian School',
+    description:
+      'Colegio Newland evoluciona a NWL Australian School: la misma comunidad de 5 campus en Querétaro y San Miguel de Allende, ahora con un modelo educativo australiano que equilibra bienestar y excelencia académica.',
+    ogImage: '/images/og/home.jpg',
+  },
   newlandKnotion: {
     title: 'Knotion en Newland: introducción gradual en Kinder y descuentos en 3 campus',
     description:

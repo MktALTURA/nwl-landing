@@ -20,6 +20,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE_URL}/beneficios`, lastModified: now },
     { url: `${SITE_URL}/noticias`, lastModified: now },
     {
+      url: `${SITE_URL}/noticias/nwl-australian-school`,
+      lastModified: now,
+      changeFrequency: 'monthly' as const,
+      priority: 0.7,
+    },
+    {
       url: `${SITE_URL}/noticias/newland-knotion`,
       lastModified: now,
       changeFrequency: 'monthly' as const,

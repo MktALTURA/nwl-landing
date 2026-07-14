@@ -51,7 +51,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  description:
  'Descubre el kinder privado en Juriquilla de NWL Australian School: programa bilingüe, Filosofía para Niños y un entorno seguro para el desarrollo integral de tu hijo.',
  uniqueIntro:
- 'El kinder de NWL en Juriquilla es un preescolar bilingüe privado para niños de 3 a 5 años en Querétaro, dentro del campus insignia de NWL Australian School, con historia desde 2009. Trabaja con la metodología Knotion (sin tarea tradicional), inmersión bilingüe en inglés, Filosofía para Niños y el programa Yo Soy Líder NWL by Tec de Monterrey, en un entorno con áreas verdes, canchas deportivas, cafetorium y salones diseñados para la primera infancia, bajo la dirección de la Mtra. Dayana Rose Gómez.',
+ 'El kinder de NWL en Juriquilla es un preescolar bilingüe privado para niños de 3 a 5 años en Querétaro, dentro del campus insignia de NWL Australian School, con historia desde 2009. Trabaja con la metodología Knotion (sin tarea tradicional), inmersión bilingüe en inglés, Filosofía para Niños y el programa Yo Soy Líder NWL by Tec de Monterrey, en un entorno con áreas verdes, canchas deportivas, cafetorium y salones diseñados para la primera infancia.',
  sections: [
  {
  heading: 'Knotion: Aprendizaje sin tarea tradicional',
@@ -75,7 +75,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  {
  question: '¿El kinder en Juriquilla es completamente bilingüe?',
  answer:
- 'Sí. Utilizamos la metodología Knotion que integra el inglés de forma natural en proyectos interdisciplinarios. No hay tarea tradicional; el aprendizaje ocurre a través de retos reales. La directora del campus es la Mtra. Dayana Rose Gómez.',
+ 'Sí. Utilizamos la metodología Knotion que integra el inglés de forma natural en proyectos interdisciplinarios. No hay tarea tradicional; el aprendizaje ocurre a través de retos reales.',
  },
  {
  question: '¿Por qué el kinder de Juriquilla no deja tarea tradicional?',
@@ -294,7 +294,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  description:
  'Escuela privada bilingüe en Juriquilla con maternal, kinder, primaria y secundaria. Modelo educativo integral con Filosofía para Niños en NWL Australian School.',
  uniqueIntro:
- 'NWL Juriquilla es una escuela particular bilingüe en Querétaro que ofrece un recorrido educativo completo desde maternal hasta secundaria. Es el campus fundador de NWL Australian School (2009) y el de trayectoria más larga, donde la Mtra. Dayana Rose Gómez dirige un equipo docente que aplica Knotion (sin tarea tradicional), Filosofía para Niños y Yo Soy Líder NWL by Tec de Monterrey en cada nivel.',
+ 'NWL Juriquilla es una escuela particular bilingüe en Querétaro que ofrece un recorrido educativo completo desde maternal hasta secundaria. Es el campus fundador de NWL Australian School (2009) y el de trayectoria más larga, donde un equipo docente de amplia trayectoria aplica Knotion (sin tarea tradicional), Filosofía para Niños y Yo Soy Líder NWL by Tec de Monterrey en cada nivel.',
  sections: [
  {
  heading: 'De Brain Up a Emprendizaje: Un camino continuo',
@@ -313,7 +313,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  {
  question: '¿NWL Australian School en Juriquilla ofrece todos los niveles educativos?',
  answer:
- 'Juriquilla ofrece maternal, kinder, primaria y secundaria (no preparatoria). Es nuestro campus insignia fundado en 2009. La directora es la Mtra. Dayana Rose Gómez.',
+ 'Juriquilla ofrece maternal, kinder, primaria y secundaria (no preparatoria). Es nuestro campus insignia fundado en 2009.',
  },
  {
  question: '¿Qué porcentaje del programa es en inglés?',
@@ -379,7 +379,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  description:
  'Escuela privada cerca de Zibatá con programa bilingüe, Filosofía para Niños y todos los niveles desde maternal hasta prepa. Conoce NWL Australian School campus Zibatá.',
  uniqueIntro:
- 'NWL Australian School Zibatá es una escuela privada bilingüe ubicada en la zona de Zibatá, Querétaro, con todos los niveles desde maternal hasta preparatoria. Es el campus más nuevo y moderno de la red NWL, fundado en 2025 con instalaciones de última generación, y está dirigido por Daniela Arévalo. Aquí las familias encuentran Life Project, Doble Diploma y preparatoria NWL a pasos de casa.',
+ 'NWL Australian School Zibatá es una escuela privada bilingüe ubicada en la zona de Zibatá, Querétaro, con todos los niveles desde maternal hasta preparatoria. Es el campus más nuevo y moderno de la red NWL, fundado en 2025 con instalaciones de última generación, y está dirigido por la Mtra. Dayana Rose Gómez. Aquí las familias encuentran Life Project, Doble Diploma y preparatoria NWL a pasos de casa.',
  sections: [
  {
  heading: 'Maternal a Prepa: Trayectoria completa en Zibatá',
@@ -398,7 +398,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  {
  question: '¿Qué tan cerca está NWL Australian School del fraccionamiento Zibatá?',
  answer:
- 'El campus Zibatá se encuentra dentro de la zona de Zibatá, a pocos minutos de los accesos principales. Fundado en 2025, es nuestro campus más moderno y ofrece todos los niveles de maternal a preparatoria. Directora: Daniela Arévalo.',
+ 'El campus Zibatá se encuentra dentro de la zona de Zibatá, a pocos minutos de los accesos principales. Fundado en 2025, es nuestro campus más moderno y ofrece todos los niveles de maternal a preparatoria. Directora: Mtra. Dayana Rose Gómez.',
  },
  {
  question: '¿El campus Zibatá tiene preparatoria?',
@@ -2084,7 +2084,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  description:
  'Escuela privada bilingüe cerca del Refugio Querétaro con todos los niveles educativos, Filosofía para Niños y programas internacionales. Conoce NWL Australian School campus Zibatá.',
  uniqueIntro:
- 'Para las familias de El Refugio, Querétaro, NWL Australian School campus Zibatá es la escuela bilingüe más cercana con todos los niveles de maternal a preparatoria. Fundado en 2025, es el campus más moderno de la red NWL, con instalaciones de última generación y los programas Life Project, Doble Diploma y Kn U High/Coursera en preparatoria. Lo dirige Daniela Arévalo, con transporte escolar que cubre El Refugio.',
+ 'Para las familias de El Refugio, Querétaro, NWL Australian School campus Zibatá es la escuela bilingüe más cercana con todos los niveles de maternal a preparatoria. Fundado en 2025, es el campus más moderno de la red NWL, con instalaciones de última generación y los programas Life Project, Doble Diploma y Kn U High/Coursera en preparatoria. Lo dirige la Mtra. Dayana Rose Gómez, con transporte escolar que cubre El Refugio.',
  sections: [
  {
  heading: 'Campus Zibatá: El más moderno, a minutos de El Refugio',
@@ -2096,7 +2096,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  },
  {
  heading: 'El modelo NWL completo en Zibatá',
- body: 'Brain Up y Estimulación Multisensorial en maternal, Knotion sin tarea en kinder, TecniKids STEAM Lab en primaria, Emprendizaje con Universidad Mondragón en secundaria: todo el modelo NWL está disponible en campus Zibatá.\n\nFilosofía para Niños, Yo Soy Líder NWL by Tec de Monterrey, certificaciones Cambridge, programa BFS y Corazones Mágicos acompañan cada etapa. Directora: Daniela Arévalo.',
+ body: 'Brain Up y Estimulación Multisensorial en maternal, Knotion sin tarea en kinder, TecniKids STEAM Lab en primaria, Emprendizaje con Universidad Mondragón en secundaria: todo el modelo NWL está disponible en campus Zibatá.\n\nFilosofía para Niños, Yo Soy Líder NWL by Tec de Monterrey, certificaciones Cambridge, programa BFS y Corazones Mágicos acompañan cada etapa. Directora: Mtra. Dayana Rose Gómez.',
  },
  ],
  faqs: [
@@ -2108,7 +2108,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  {
  question: '¿Hay rutas de transporte desde El Refugio al campus Zibatá?',
  answer:
- 'Sí. Transporte escolar con unidades con GPS cubre El Refugio y zonas aledañas. El campus ofrece el modelo NWL completo, incluyendo preparatoria con Life Project y Doble Diploma. Directora: Daniela Arévalo.',
+ 'Sí. Transporte escolar con unidades con GPS cubre El Refugio y zonas aledañas. El campus ofrece el modelo NWL completo, incluyendo preparatoria con Life Project y Doble Diploma. Directora: Mtra. Dayana Rose Gómez.',
  },
  {
  question: '¿Por qué el campus Zibatá no deja tarea tradicional?',
@@ -2128,7 +2128,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  {
  question: '¿Hasta qué nivel puede continuar mi hijo en el campus Zibatá?',
  answer:
- 'Zibatá ofrece la trayectoria completa de maternal a preparatoria en un solo campus, así que el alumno no necesita cambiar de escuela. Directora: Daniela Arévalo.',
+ 'Zibatá ofrece la trayectoria completa de maternal a preparatoria en un solo campus, así que el alumno no necesita cambiar de escuela. Directora: Mtra. Dayana Rose Gómez.',
  },
  {
  question: '¿Cómo es el proceso de admisión en el campus Zibatá?',
@@ -3558,7 +3558,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  description:
  'Preparatoria bilingüe privada en Zibatá Querétaro con Filosofía para Niños, programas internacionales y formación integral. NWL Australian School campus Zibatá.',
  uniqueIntro:
- 'La preparatoria NWL Zibatá es una preparatoria bilingüe privada en Zibatá, Querétaro, ubicada en el campus más nuevo y moderno de la red, fundado en 2025 y dirigido por Daniela Arévalo. Los alumnos acceden a Life Project con mentores, Doble Diploma (México + EUA), certificaciones Kn U High/Coursera, Inteligencia Financiera, programa HIT/Hyrox e intercambio internacional, en instalaciones diseñadas desde cero.',
+ 'La preparatoria NWL Zibatá es una preparatoria bilingüe privada en Zibatá, Querétaro, ubicada en el campus más nuevo y moderno de la red, fundado en 2025 y dirigido por la Mtra. Dayana Rose Gómez. Los alumnos acceden a Life Project con mentores, Doble Diploma (México + EUA), certificaciones Kn U High/Coursera, Inteligencia Financiera, programa HIT/Hyrox e intercambio internacional, en instalaciones diseñadas desde cero.',
  sections: [
  {
  heading: 'Life Project en el campus más moderno de NWL',
@@ -3570,14 +3570,14 @@ export const informacionPages: Record<string, InformacionPage> = {
  },
  {
  heading: 'HIT/Hyrox, intercambio y comunidad Zibatá',
- body: 'El programa HIT/Hyrox mantiene la condición física con entrenamientos de alta intensidad en las instalaciones más modernas de la red NWL. En 5.° y 6.° semestre, los alumnos acceden a programas de intercambio internacional.\n\nLas familias de Zibatá y El Refugio tienen una preparatoria de primer nivel a minutos de casa. Filosofía para Niños, Yo Soy Líder NWL by Tec de Monterrey y BFS acompañan la formación integral. Directora: Daniela Arévalo.',
+ body: 'El programa HIT/Hyrox mantiene la condición física con entrenamientos de alta intensidad en las instalaciones más modernas de la red NWL. En 5.° y 6.° semestre, los alumnos acceden a programas de intercambio internacional.\n\nLas familias de Zibatá y El Refugio tienen una preparatoria de primer nivel a minutos de casa. Filosofía para Niños, Yo Soy Líder NWL by Tec de Monterrey y BFS acompañan la formación integral. Directora: Mtra. Dayana Rose Gómez.',
  },
  ],
  faqs: [
  {
  question: '¿La preparatoria en Zibatá tiene instalaciones nuevas?',
  answer:
- 'Sí. Campus Zibatá fue fundado en 2025 con instalaciones de última generación diseñadas desde cero. Es el campus más moderno de la red NWL. Directora: Daniela Arévalo.',
+ 'Sí. Campus Zibatá fue fundado en 2025 con instalaciones de última generación diseñadas desde cero. Es el campus más moderno de la red NWL. Directora: Mtra. Dayana Rose Gómez.',
  },
  {
  question: '¿Qué ventajas tiene estudiar la prepa en Zibatá?',
@@ -3607,7 +3607,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  {
  question: '¿Cómo es el proceso de admisión a la prepa en Zibatá?',
  answer:
- 'Se agenda una visita al campus más moderno de la red para conocer Life Project y las instalaciones 2025, se revisa el historial académico y se entregan los documentos. Conviene reservar el recorrido con anticipación. Directora: Daniela Arévalo.',
+ 'Se agenda una visita al campus más moderno de la red para conocer Life Project y las instalaciones 2025, se revisa el historial académico y se entregan los documentos. Conviene reservar el recorrido con anticipación. Directora: Mtra. Dayana Rose Gómez.',
  },
  ],
  images: {
@@ -3658,7 +3658,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  {
  question: '¿En qué campus de NWL Australian School puedo estudiar preparatoria?',
  answer:
- 'En tres: Corregidora (2019, director José Gustavo Flores), Zibatá (2025, directora Daniela Arévalo) y San Miguel de Allende (2018, director Ramón Godínez). Juriquilla y Milenio ofrecen hasta secundaria.',
+ 'En tres: Corregidora (2019, director José Gustavo Flores), Zibatá (2025, directora Dayana Rose Gómez) y San Miguel de Allende (2018, director Ramón Godínez). Juriquilla y Milenio ofrecen hasta secundaria.',
  },
  {
  question: '¿Qué certificaciones obtienen los alumnos de la prepa NWL?',
@@ -3723,11 +3723,11 @@ export const informacionPages: Record<string, InformacionPage> = {
  sections: [
  {
  heading: 'Juriquilla: 10 minutos desde Cumbres del Lago',
- body: 'NWL Juriquilla es el campus más cercano para las familias de Cumbres del Lago. Con más de 15 años de operación, ofrece maternal (2 años), kinder, primaria y secundaria. La directora Dayana Rose Gómez lidera un equipo con la trayectoria más larga de la zona norte.\n\nEl campus cuenta con canchas deportivas, cafetería, laboratorio STEAM, playground y áreas verdes. Rutas de transporte escolar cubren Cumbres del Lago, Juriquilla, El Refugio y fraccionamientos cercanos.',
+ body: 'NWL Juriquilla es el campus más cercano para las familias de Cumbres del Lago. Con más de 15 años de operación, ofrece maternal (2 años), kinder, primaria y secundaria. Su equipo docente cuenta con la trayectoria más larga de la zona norte.\n\nEl campus cuenta con canchas deportivas, cafetería, laboratorio STEAM, playground y áreas verdes. Rutas de transporte escolar cubren Cumbres del Lago, Juriquilla, El Refugio y fraccionamientos cercanos.',
  },
  {
  heading: 'Zibatá: preparatoria a 20 minutos',
- body: 'Si buscas preparatoria, campus Zibatá ofrece desde maternal hasta prepa. Fundado en 2025 con instalaciones diseñadas desde cero, opera bajo la dirección de Daniela Arévalo.\n\nZibatá complementa a Juriquilla: los alumnos pueden cursar maternal a secundaria en Juriquilla y pasar a la prepa en Zibatá sin cambiar de sistema educativo. Mismos programas, misma filosofía, continuidad total. El campus incluye maker spaces, estudios de grabación y zonas colaborativas de última generación.',
+ body: 'Si buscas preparatoria, campus Zibatá ofrece desde maternal hasta prepa. Fundado en 2025 con instalaciones diseñadas desde cero, opera bajo la dirección de la Mtra. Dayana Rose Gómez.\n\nZibatá complementa a Juriquilla: los alumnos pueden cursar maternal a secundaria en Juriquilla y pasar a la prepa en Zibatá sin cambiar de sistema educativo. Mismos programas, misma filosofía, continuidad total. El campus incluye maker spaces, estudios de grabación y zonas colaborativas de última generación.',
  },
  {
  heading: 'Knotion, FpN y programas que no encontrarás cerca',
@@ -3743,7 +3743,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  {
  question: '¿Qué niveles educativos hay cerca de Cumbres del Lago?',
  answer:
- 'Maternal a secundaria en Juriquilla (10 min) y maternal a preparatoria en Zibatá (20 min). Ambos campus usan Knotion, Filosofía para Niños y Yo Soy Líder by Tec de Monterrey. Directora Juriquilla: Dayana Rose Gómez. Directora Zibatá: Daniela Arévalo.',
+ 'Maternal a secundaria en Juriquilla (10 min) y maternal a preparatoria en Zibatá (20 min). Ambos campus usan Knotion, Filosofía para Niños y Yo Soy Líder by Tec de Monterrey. Directora Zibatá: Mtra. Dayana Rose Gómez.',
  },
  {
  question: '¿Cómo se complementan los campus Juriquilla y Zibatá?',
@@ -3799,11 +3799,11 @@ export const informacionPages: Record<string, InformacionPage> = {
  description:
  'Escuela privada bilingüe cerca de Gran Reserva Querétaro. Campus Juriquilla a 15 min. Maternal a secundaria con programa Knotion, Filosofía para Niños y certificaciones Cambridge.',
  uniqueIntro:
- 'Para las familias de Gran Reserva, Querétaro, NWL Australian School Juriquilla es el campus más cercano, a unos 15 minutos en auto. Fundado en 2009, es el campus insignia de NWL y ofrece maternal a secundaria con el modelo Knotion (sin tarea tradicional), Filosofía para Niños y Yo Soy Líder by Tec de Monterrey, con transporte escolar que cubre la zona. Lo dirige Dayana Rose Gómez.',
+ 'Para las familias de Gran Reserva, Querétaro, NWL Australian School Juriquilla es el campus más cercano, a unos 15 minutos en auto. Fundado en 2009, es el campus insignia de NWL y ofrece maternal a secundaria con el modelo Knotion (sin tarea tradicional), Filosofía para Niños y Yo Soy Líder by Tec de Monterrey, con transporte escolar que cubre la zona.',
  sections: [
  {
  heading: 'Juriquilla: el campus insignia a 15 minutos',
- body: 'NWL Juriquilla lleva más de 15 años formando alumnos bilingües en la zona norte de Querétaro. Bajo la dirección de Dayana Rose Gómez, ofrece maternal (2 años), kinder, primaria y secundaria en un campus con canchas deportivas, laboratorio STEAM, cafetería y playground.\n\nDesde Gran Reserva el trayecto es de unos 15 minutos por las vialidades principales. El campus tiene rutas de transporte escolar que cubren la zona, facilitando la logística diaria para las familias.',
+ body: 'NWL Juriquilla lleva más de 15 años formando alumnos bilingües en la zona norte de Querétaro. Ofrece maternal (2 años), kinder, primaria y secundaria en un campus con canchas deportivas, laboratorio STEAM, cafetería y playground.\n\nDesde Gran Reserva el trayecto es de unos 15 minutos por las vialidades principales. El campus tiene rutas de transporte escolar que cubren la zona, facilitando la logística diaria para las familias.',
  },
  {
  heading: 'Knotion sin tarea y Filosofía para Niños desde los 2 años',
@@ -3818,7 +3818,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  {
  question: '¿Cuánto se tarda de Gran Reserva al campus Juriquilla?',
  answer:
- 'Aproximadamente 15 minutos en auto. NWL Juriquilla ofrece maternal a secundaria con transporte escolar que cubre Gran Reserva. Para preparatoria, campus Zibatá y Corregidora son opciones adicionales. Directora Juriquilla: Dayana Rose Gómez.',
+ 'Aproximadamente 15 minutos en auto. NWL Juriquilla ofrece maternal a secundaria con transporte escolar que cubre Gran Reserva. Para preparatoria, campus Zibatá y Corregidora son opciones adicionales.',
  },
  {
  question: '¿Qué niveles educativos hay cerca de Gran Reserva?',
@@ -3848,7 +3848,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  {
  question: '¿Cómo es el proceso de admisión en el campus Juriquilla?',
  answer:
- 'Se agenda una visita al campus insignia para conocer la propuesta educativa por nivel y se entregan los documentos del alumno. Conviene reservar el recorrido con anticipación. Directora: Dayana Rose Gómez.',
+ 'Se agenda una visita al campus insignia para conocer la propuesta educativa por nivel y se entregan los documentos del alumno. Conviene reservar el recorrido con anticipación.',
  },
  ],
  images: {
@@ -4066,7 +4066,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  {
  question: '¿En qué campus de NWL Australian School hay secundaria?',
  answer:
- 'En los 5: Juriquilla (directora Dayana Rose Gómez), Milenio (directora Ximena Arellano), San Miguel de Allende (director Ramón Godínez), Corregidora (director José Gustavo Flores) y Zibatá (directora Daniela Arévalo).',
+ 'En los 5: Juriquilla, Milenio (directora Ximena Arellano), San Miguel de Allende (director Ramón Godínez), Corregidora (director José Gustavo Flores) y Zibatá (directora Dayana Rose Gómez).',
  },
  {
  question: '¿En qué consiste el programa de Emprendizaje?',
@@ -4201,9 +4201,9 @@ export const informacionPages: Record<string, InformacionPage> = {
  title: '¿Qué es Newland School? Hoy es NWL Australian School',
  h1: '¿Qué es Newland School?',
  description:
- 'Newland School es hoy NWL Australian School: un colegio bilingüe privado en Querétaro y San Miguel de Allende, fundado en 2009. 5 campus, de maternal a preparatoria, acreditación Cognia y Apple Distinguished School.',
+ 'Newland School es hoy NWL Australian School: un colegio bilingüe privado en Querétaro y San Miguel de Allende, fundado en 2009. 5 campus, de maternal a preparatoria y acreditación internacional Cognia.',
  uniqueIntro:
- 'Newland School, marca conocida como Colegio Newland (razón social Colegio NWL), es hoy NWL Australian School: un colegio bilingüe privado en Querétaro y San Miguel de Allende, fundado en 2009. La institución conserva el mismo proyecto educativo y atiende a más de 2,500 familias en 5 campus, desde maternal hasta preparatoria, con inmersión en inglés, la metodología Knotion (aprendizaje por proyectos sin tarea tradicional), Filosofía para Niños y el programa de liderazgo Yo Soy Líder NWL diseñado por el Tec de Monterrey. Cuenta con acreditación internacional Cognia y la distinción Apple Distinguished School.',
+ 'Newland School, marca conocida como Colegio Newland (razón social Colegio NWL), es hoy NWL Australian School: un colegio bilingüe privado en Querétaro y San Miguel de Allende, fundado en 2009. La institución conserva el mismo proyecto educativo y atiende a más de 2,500 familias en 5 campus, desde maternal hasta preparatoria, con inmersión en inglés, la metodología Knotion (aprendizaje por proyectos sin tarea tradicional), Filosofía para Niños y el programa de liderazgo Yo Soy Líder NWL diseñado por el Tec de Monterrey. Cuenta con acreditación internacional Cognia.',
  sections: [
  {
  heading: '¿Dónde está y qué niveles ofrece NWL Australian School?',
@@ -4215,7 +4215,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  },
  {
  heading: '¿Qué acreditaciones respaldan a NWL Australian School?',
- body: 'NWL Australian School cuenta con acreditación internacional Cognia (reconocida en más de 88 países), la distinción Apple Distinguished School, y alianzas con el Tecnológico de Monterrey, Universidad Mondragón México y Hokku Academy.\n\nEstas acreditaciones validan tanto el modelo pedagógico como la infraestructura tecnológica, y permiten que las certificaciones de los alumnos tengan reconocimiento internacional.',
+ body: 'NWL Australian School cuenta con acreditación internacional Cognia (reconocida en más de 88 países) y alianzas con el Tecnológico de Monterrey, Universidad Mondragón México y Hokku Academy.\n\nEstas acreditaciones validan tanto el modelo pedagógico como la infraestructura tecnológica, y permiten que las certificaciones de los alumnos tengan reconocimiento internacional.',
  },
  ],
  faqs: [
@@ -4247,7 +4247,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  {
  question: '¿Qué acreditaciones tiene NWL Australian School?',
  answer:
- 'Acreditación internacional Cognia, distinción Apple Distinguished School y alianzas con el Tec de Monterrey, Universidad Mondragón México y Hokku Academy, que dan reconocimiento internacional a las certificaciones de los alumnos.',
+ 'Acreditación internacional Cognia y alianzas con el Tec de Monterrey, Universidad Mondragón México y Hokku Academy, que dan reconocimiento internacional a las certificaciones de los alumnos.',
  },
  {
  question: '¿Cómo es el proceso de admisión en NWL Australian School?',
@@ -4281,9 +4281,9 @@ export const informacionPages: Record<string, InformacionPage> = {
  title: 'What is Newland School? Now NWL Australian School',
  h1: 'What is Newland School?',
  description:
- 'Newland School is now NWL Australian School: a private bilingual school in Querétaro and San Miguel de Allende, founded in 2009. 5 campuses, maternal through high school, Cognia-accredited and an Apple Distinguished School.',
+ 'Newland School is now NWL Australian School: a private bilingual school in Querétaro and San Miguel de Allende, founded in 2009. 5 campuses, maternal through high school, with Cognia international accreditation.',
  uniqueIntro:
- 'Newland School, branded as Colegio Newland (registered legal name: Colegio NWL), is now NWL Australian School: a private bilingual school in Querétaro and San Miguel de Allende, Mexico, founded in 2009. The school keeps the same educational project and serves more than 2,500 families across 5 campuses, from maternal (age 2) through high school, with English immersion, the Knotion project-based methodology (no traditional homework), Philosophy for Children, and the Yo Soy Líder NWL leadership program designed by Tec de Monterrey. It holds Cognia international accreditation and is an Apple Distinguished School.',
+ 'Newland School, branded as Colegio Newland (registered legal name: Colegio NWL), is now NWL Australian School: a private bilingual school in Querétaro and San Miguel de Allende, Mexico, founded in 2009. The school keeps the same educational project and serves more than 2,500 families across 5 campuses, from maternal (age 2) through high school, with English immersion, the Knotion project-based methodology (no traditional homework), Philosophy for Children, and the Yo Soy Líder NWL leadership program designed by Tec de Monterrey. It holds Cognia international accreditation.',
  sections: [
  {
  heading: 'Where is NWL Australian School and what levels does it offer?',
@@ -4295,7 +4295,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  },
  {
  heading: 'What accreditations back NWL Australian School?',
- body: 'NWL Australian School holds Cognia international accreditation (recognized in 88+ countries), the Apple Distinguished School distinction, and partnerships with Tec de Monterrey, Universidad Mondragón México and Hokku Academy.\n\nThese accreditations validate both the pedagogy and the technology infrastructure, and give international recognition to students\' certifications.',
+ body: 'NWL Australian School holds Cognia international accreditation (recognized in 88+ countries) and partnerships with Tec de Monterrey, Universidad Mondragón México and Hokku Academy.\n\nThese accreditations validate both the pedagogy and the technology infrastructure, and give international recognition to students\' certifications.',
  },
  ],
  faqs: [
@@ -4327,7 +4327,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  {
  question: 'What accreditations does NWL Australian School hold?',
  answer:
- 'Cognia international accreditation, the Apple Distinguished School distinction, and partnerships with Tec de Monterrey, Universidad Mondragón México and Hokku Academy.',
+ 'Cognia international accreditation and partnerships with Tec de Monterrey, Universidad Mondragón México and Hokku Academy.',
  },
  {
  question: 'How does NWL Australian School admission work?',
@@ -4590,7 +4590,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  description:
  'Comparativa clara: qué hace diferente a NWL Australian School (antes Newland School) frente a otros colegios bilingües privados en Querétaro: Knotion sin tarea, Yo Soy Líder by Tec de Monterrey y más.',
  uniqueIntro:
- 'NWL Australian School, el colegio antes conocido como Newland School, se diferencia de otros colegios bilingües en Querétaro por cuatro elementos concretos y verificables: la metodología Knotion, que elimina la tarea tradicional; el programa Yo Soy Líder diseñado exclusivamente por el Tec de Monterrey; Filosofía para Niños desde preescolar; y una continuidad de maternal a preparatoria en 5 campus con acreditación Cognia y distinción Apple Distinguished School.',
+ 'NWL Australian School, el colegio antes conocido como Newland School, se diferencia de otros colegios bilingües en Querétaro por cuatro elementos concretos y verificables: la metodología Knotion, que elimina la tarea tradicional; el programa Yo Soy Líder diseñado exclusivamente por el Tec de Monterrey; Filosofía para Niños desde preescolar; y una continuidad de maternal a preparatoria en 5 campus con acreditación internacional Cognia.',
  sections: [
  {
  heading: 'Metodología: proyectos reales, no tarea',
@@ -4602,7 +4602,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  },
  {
  heading: 'Continuidad, acreditación y tecnología',
- body: 'NWL Australian School ofrece un recorrido continuo de maternal a preparatoria en 5 campus, con el mismo modelo educativo, evitando cambios de institución. Cuenta con acreditación internacional Cognia y la distinción Apple Distinguished School.\n\nLa infraestructura incluye TecniKids STEAM Lab con impresión 3D, corte láser y robótica, y certificaciones Cambridge.',
+ body: 'NWL Australian School ofrece un recorrido continuo de maternal a preparatoria en 5 campus, con el mismo modelo educativo, evitando cambios de institución. Cuenta con acreditación internacional Cognia.\n\nLa infraestructura incluye TecniKids STEAM Lab con impresión 3D, corte láser y robótica, y certificaciones Cambridge.',
  },
  ],
  faqs: [
@@ -4624,7 +4624,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  {
  question: '¿NWL Australian School tiene reconocimiento internacional?',
  answer:
- 'Sí: acreditación internacional Cognia (88+ países) y distinción Apple Distinguished School, además de certificaciones Cambridge para los alumnos.',
+ 'Sí: acreditación internacional Cognia (88+ países), además de certificaciones Cambridge para los alumnos.',
  },
  {
  question: '¿Puedo tener a mis hijos en un solo colegio toda su trayectoria?',
@@ -4650,6 +4650,80 @@ export const informacionPages: Record<string, InformacionPage> = {
  'mejor colegio bilingüe queretaro comparativa',
  'por qué elegir newland',
  'colegio bilingüe queretaro diferencias',
+ ],
+ },
+
+ // =========================================================================
+ // PAGE 58 — Colegio con modelo australiano en Querétaro
+ // =========================================================================
+ 'colegio-modelo-australiano-queretaro': {
+ slug: 'colegio-modelo-australiano-queretaro',
+ lang: 'es',
+ title: 'Colegio con modelo australiano en Querétaro',
+ h1: 'El modelo educativo australiano llega a Querétaro con NWL',
+ description:
+ 'NWL Australian School aplica el modelo educativo australiano en Querétaro y San Miguel de Allende: bienestar con rigor académico, inmersión en inglés y aprendizaje por proyectos en 5 campus, de maternal a preparatoria.',
+ uniqueIntro:
+ 'NWL Australian School es el colegio con modelo educativo australiano en Querétaro. Australia construyó uno de los sistemas educativos más admirados del mundo sobre una idea simple: el bienestar del alumno y la excelencia académica no compiten, se potencian. NWL trae ese modelo a México y lo combina con lo que su comunidad ya practicaba desde 2009 — inmersión en inglés, metodología Knotion sin tarea tradicional y Filosofía para Niños — en 5 campus que cubren de maternal (2 años) a preparatoria.',
+ sections: [
+ {
+ heading: '¿Qué es el modelo educativo australiano?',
+ body: 'El modelo australiano de aprendizaje parte de que un alumno que se siente seguro, visto y acompañado aprende más y mejor. Por eso equilibra dos elementos que en muchos colegios se tratan como opuestos: el bienestar socioemocional del alumno y la exigencia académica con estándares internacionales.\n\nEn la práctica se traduce en aulas activas donde el alumno trabaja en proyectos reales en lugar de memorizar, en inglés como lengua de trabajo diaria — no como materia aislada — y en una cultura escolar de acompañamiento cercano donde cada niño avanza a su propio ritmo con metas claras.',
+ },
+ {
+ heading: 'Cómo lo vive un alumno NWL en Querétaro',
+ body: 'En NWL el modelo australiano no es un eslogan: estructura el día completo. Desde maternal, los alumnos viven inmersión en inglés de forma natural. A partir de kinder, la metodología Knotion sustituye la tarea tradicional por proyectos interdisciplinarios, y Filosofía para Niños desarrolla el pensamiento crítico desde preescolar.\n\nEl programa Yo Soy Líder NWL, diseñado por el Tec de Monterrey, forma liderazgo e inteligencia emocional; el TecniKids STEAM Lab lleva la ciencia y la tecnología a primaria; y en preparatoria el Life Project acompaña a cada alumno con mentores personales hasta el doble diploma México–EUA.',
+ },
+ {
+ heading: 'Un modelo con 7 componentes y 21 capacidades',
+ body: 'El Modelo Educativo NWL articula la experiencia del alumno en 7 componentes — desde el bienestar y la lengua inglesa hasta el pensamiento crítico y la proyección global — que se despliegan en 21 capacidades concretas y observables.\n\nEsa estructura permite a las familias saber exactamente qué está desarrollando su hijo en cada etapa, y a los docentes evaluar avances con estándares internacionales. La acreditación Cognia y las certificaciones Cambridge respaldan el modelo con reconocimiento internacional.',
+ },
+ {
+ heading: 'Dónde encontrarlo: 5 campus de maternal a preparatoria',
+ body: 'El modelo australiano de NWL está disponible en los 5 campus de la red: Juriquilla, Milenio y Zibatá en Querétaro, Corregidora en la zona sur, y San Miguel de Allende en Guanajuato. Todos ofrecen de maternal a secundaria; Corregidora, Zibatá y San Miguel de Allende continúan hasta preparatoria.\n\nLa continuidad es una de las mayores ventajas: un alumno puede recorrer toda su trayectoria escolar — de los 2 a los 17 años — dentro del mismo modelo educativo, sin cambios de institución ni de filosofía.',
+ },
+ ],
+ faqs: [
+ {
+ question: '¿Qué hace diferente a un colegio con modelo australiano?',
+ answer:
+ 'El equilibrio deliberado entre bienestar y rigor académico: aulas activas con proyectos reales, inglés como lengua de trabajo diaria y acompañamiento cercano de cada alumno. En NWL esto se implementa con Knotion, Filosofía para Niños y el programa Yo Soy Líder NWL by Tec de Monterrey.',
+ },
+ {
+ question: '¿El modelo australiano implica menos exigencia académica?',
+ answer:
+ 'Al contrario. El sistema educativo australiano es reconocido mundialmente por sus resultados. La premisa es que el bienestar potencia el aprendizaje: los alumnos NWL trabajan con estándares internacionales, acreditación Cognia y certificaciones Cambridge en todos los niveles.',
+ },
+ {
+ question: '¿Desde qué edad puede entrar mi hijo al modelo australiano de NWL?',
+ answer:
+ 'Desde los 2 años en maternal, con inmersión en inglés a través del juego. El modelo continúa en kinder, primaria, secundaria y preparatoria, hasta los 17 años, en un recorrido continuo sin cambiar de institución.',
+ },
+ {
+ question: '¿En qué campus de Querétaro está disponible?',
+ answer:
+ 'En los 5 campus: Juriquilla, Milenio, Zibatá, Corregidora y San Miguel de Allende. Todos ofrecen de maternal a secundaria; Corregidora, Zibatá y San Miguel de Allende también cuentan con preparatoria.',
+ },
+ {
+ question: '¿Dónde puedo conocer el modelo educativo NWL completo?',
+ answer:
+ 'La página del Modelo Educativo NWL explica los 7 componentes y las 21 capacidades del modelo australiano. También puedes agendar una visita guiada en el campus de tu interés por WhatsApp al +52 442 122 7791.',
+ },
+ ],
+ images: {
+ hero: '/images/hero-background.jpg',
+ content: [
+ '/images/philosophy/philosophy-main.jpg',
+ '/images/levels/primaria/nwl-primaria-steam-lab.jpg',
+ ],
+ },
+ category: 'general',
+ keywords: [
+ 'colegio modelo australiano queretaro',
+ 'modelo educativo australiano mexico',
+ 'colegio australiano queretaro',
+ 'escuela con modelo australiano',
+ 'nwl australian school modelo',
  ],
  },
 };

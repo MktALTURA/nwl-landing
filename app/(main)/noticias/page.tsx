@@ -19,6 +19,17 @@ interface NewsPost {
 
 const posts: NewsPost[] = [
   {
+    slug: 'nwl-australian-school',
+    category: 'Anuncio institucional',
+    date: '14 de julio, 2026',
+    readingTime: '5 min',
+    title: 'Newland es ahora NWL Australian School',
+    excerpt:
+      'La misma comunidad, el mismo proyecto educativo y los mismos 5 campus — con una identidad que refleja el modelo australiano que nos define: bienestar con rigor académico, inglés como motor y una comunidad que impulsa siempre hacia adelante.',
+    image: '/images/hero-background.jpg',
+    featured: true,
+  },
+  {
     slug: 'newland-knotion',
     category: 'Actualización de metodología',
     date: '18 de junio, 2026',
@@ -27,7 +38,6 @@ const posts: NewsPost[] = [
     excerpt:
       'Introducción gradual de Knotion en Kinder con Kn·Spark Sense y descuentos exclusivos en los campus Milenio, San Miguel y Corregidora. Una actualización importante sobre nuestra metodología y lo que significa para tu familia.',
     image: '/images/levels/kinder/kinder-digital-learning.jpg',
-    featured: true,
   },
 ];
 
