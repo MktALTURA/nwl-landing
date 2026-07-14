@@ -31,6 +31,7 @@ const academicLevelDecorations: DropdownDecoration[] = [
     hoverTextColor: 'rgb(11,34,78)',
     accentBorder: 'rgba(232,155,181,0.9)',
     bgSize: { initial: '100% 100%', hover: '120% 120%' },
+    crest: 'kinder',
   },
   // 1: Kinder — Galah
   {
@@ -39,6 +40,7 @@ const academicLevelDecorations: DropdownDecoration[] = [
     hoverTextColor: 'rgb(11,34,78)',
     accentBorder: 'rgba(232,155,181,0.9)',
     bgSize: { initial: '100% 100%', hover: '115% 115%' },
+    crest: 'kinder',
   },
   // 2: Elementary — Bondi
   {
@@ -46,6 +48,7 @@ const academicLevelDecorations: DropdownDecoration[] = [
       'radial-gradient(circle at 25% 50%, rgba(58,167,155,0.20) 0%, transparent 52%), linear-gradient(135deg, rgba(58,167,155,0.07) 0%, rgba(11,34,78,0.03) 100%)',
     hoverTextColor: 'rgb(11,34,78)',
     accentBorder: 'rgba(58,167,155,0.85)',
+    crest: 'elementary',
   },
   // 3: Middle School — Coral Sea
   {
@@ -53,6 +56,7 @@ const academicLevelDecorations: DropdownDecoration[] = [
       'radial-gradient(circle at 28% 50%, rgba(0,71,86,0.18) 0%, transparent 52%), linear-gradient(135deg, rgba(0,71,86,0.06) 0%, rgba(11,34,78,0.03) 100%)',
     hoverTextColor: 'rgb(0,71,86)',
     accentBorder: 'rgba(0,71,86,0.8)',
+    crest: 'middle',
   },
   // 4: High School — Jacaranda
   {
