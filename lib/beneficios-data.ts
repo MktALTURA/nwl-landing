@@ -4,7 +4,7 @@ import type { Locale } from './i18n/types';
  * Commercial benefits catalog for the NWL community ("Catálogo de Beneficios").
  *
  * This is DISTINCT from the academic/institutional partners shown in
- * components/Partnerships.tsx (Apple, Knotion, Cognia…). These are external
+ * components/Partnerships.tsx (Knotion, Cognia…). These are external
  * businesses that offer exclusive discounts to NWL families and collaborators.
  *
  * Translatable benefit/vigencia copy is stored inline-bilingual here (same

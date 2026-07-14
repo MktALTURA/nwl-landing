@@ -347,5 +347,4 @@ export const MODEL_RECOGNITIONS: { name: string; image: string | Localized }[] =
     name: 'Philosophy for Children',
     image: { en: '/images/logos/partners/CFPN-en.png', es: '/images/logos/partners/CFPN-es.png' },
   },
-  { name: 'Apple Distinguished School', image: '/images/logos/partners/Apple-Distinguished-School.png' },
 ];

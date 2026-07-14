@@ -98,16 +98,6 @@ export function OrganizationJsonLd() {
           url: 'https://www.cognia.org',
         },
       },
-      {
-        '@type': 'EducationalOccupationalCredential',
-        credentialCategory: 'Certification',
-        name: 'Apple Distinguished School',
-        recognizedBy: {
-          '@type': 'Organization',
-          name: 'Apple Inc.',
-          url: 'https://www.apple.com/education/apple-distinguished-schools/',
-        },
-      },
     ],
     subOrganization: [
       { '@id': `${SITE_URL}/#campus-juriquilla` },
