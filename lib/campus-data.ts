@@ -153,6 +153,9 @@ export const campuses: Record<string, CampusData> = {
       },
       image: '/images/campus/juriquilla/juriquilla-director.jpg',
     },
+    // Director transition in progress (Dayana Rose Gómez moved to Zibatá) —
+    // hide section until the new director's photo and message are in place.
+    hideDirector: true,
     address: 'Anillo Vial Fray Junípero Serra, Juriquilla, Querétaro',
     city: 'Juriquilla, Querétaro',
     state: 'Querétaro',
@@ -265,6 +268,8 @@ export const campuses: Record<string, CampusData> = {
       },
       image: '/images/campus/milenio/milenio-director.jpg',
     },
+    // Director section hidden by request — remove this flag to show it again.
+    hideDirector: true,
     address: 'Cerrada Panorámica, Distrito Piamonte, Querétaro',
     city: 'Querétaro',
     state: 'Querétaro',
@@ -619,17 +624,14 @@ export const campuses: Record<string, CampusData> = {
       },
     ],
     director: {
-      name: 'Daniela Arévalo Zapien',
+      name: 'Mtra. Dayana Rose Gómez',
       title: { en: 'Campus Director', es: 'Directora de Campus' },
       message: {
-        en: 'At NWL Zibatá, we believe every child carries the potential for greatness. Our modern campus is designed to nurture curiosity, build confidence, and prepare students for a world full of possibilities. We welcome you to visit and experience the NWL difference firsthand.',
-        es: 'En NWL Zibatá, creemos que cada niño lleva el potencial de la grandeza. Nuestro campus moderno está diseñado para nutrir la curiosidad, construir confianza y preparar a los alumnos para un mundo lleno de posibilidades. Te invitamos a visitarnos y vivir la diferencia NWL.',
+        en: 'At NWL Zibatá, we pair a modern, growing campus with the warmth of a close-knit community. Every child carries the potential for greatness, and our team nurtures that potential every single day. We invite you to visit and discover the NWL difference.',
+        es: 'En NWL Zibatá combinamos un campus moderno y en crecimiento con la calidez de una comunidad cercana. Cada niño lleva dentro el potencial de la grandeza, y nuestro equipo lo cultiva todos los días. Te invitamos a visitarnos y descubrir la diferencia NWL.',
       },
-      image: '/images/campus/zibata/zibata-director.jpg',
+      image: '/images/campus/juriquilla/juriquilla-director.jpg',
     },
-    // Director transition in progress — hide section until the new director's
-    // photo and message are uploaded, then remove this flag.
-    hideDirector: true,
     address: 'Paseo de las Pitahayas, Zibatá, Querétaro',
     city: 'Zibatá, El Marqués',
     state: 'Querétaro',
