@@ -490,11 +490,25 @@ export default function KangarooSpirit() {
     clicks.push(now);
     eggClicksRef.current = clicks;
     const img = kangarooImgRef.current;
-    if (img) {
-      // subtle "something is happening" squish per tap
-      gsap.fromTo(img, { scaleY: 0.94, scaleX: 1.05 }, { scaleY: 1, scaleX: 1, duration: 0.25, ease: 'elastic.out(1,0.5)' });
+    if (img && clicks.length < 3) {
+      // escalating "keep tapping" feedback — each tap reacts harder than the last
+      const tl = gsap.timeline();
+      if (clicks.length === 1) {
+        tl.to(img, { scaleY: 0.8, scaleX: 1.15, duration: 0.09, ease: 'power2.in', overwrite: 'auto' })
+          .to(img, { scaleY: 1, scaleX: 1, duration: 0.5, ease: 'elastic.out(1.2,0.4)' })
+          .fromTo(img, { rotation: -6 }, { rotation: 0, duration: 0.45, ease: 'elastic.out(1,0.3)' }, 0.09);
+      } else {
+        tl.to(img, { scale: 1.16, rotation: 4, duration: 0.11, ease: 'power2.out', overwrite: 'auto' })
+          .to(img, { scale: 1, rotation: 0, duration: 0.5, ease: 'elastic.out(1.2,0.35)' });
+        const ring = ringRef.current;
+        if (ring) {
+          gsap.fromTo(ring, { scale: 1, opacity: 1 },
+            { scale: 1.45, opacity: 0, duration: 0.55, ease: 'power2.out', overwrite: 'auto',
+              onComplete: () => { gsap.set(ring, { clearProps: 'transform,opacity' }); } });
+        }
+      }
     }
-    if (clicks.length >= 5) {
+    if (clicks.length >= 3) {
       eggClicksRef.current = [];
       startGame();
     }
