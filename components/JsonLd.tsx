@@ -27,7 +27,7 @@ export function OrganizationJsonLd() {
       '@type': 'ImageObject',
       url: `${SITE_URL}/images/brand/nwl-as-logo-color.png`,
     },
-    image: `${SITE_URL}/images/og/home.jpg`,
+    image: `${SITE_URL}/images/og/nwl/home.jpg`,
     description:
       'Bilingual private school in Querétaro & San Miguel de Allende. Maternal through High School. English immersion, project-based learning, 5 campuses.',
     foundingDate: '2009',
@@ -135,7 +135,7 @@ export function CampusJsonLd({ campus }: { campus: CampusData }) {
     '@id': `${SITE_URL}/#campus-${campus.slug}`,
     name: `NWL Australian School — Campus ${campus.name}`,
     url: `${SITE_URL}/campus/${campus.slug}`,
-    image: `${SITE_URL}/images/og/campus-${campus.slug}.jpg`,
+    image: `${SITE_URL}/images/og/nwl/campus-${campus.slug}.jpg`,
     description: `${campus.tagline.en}. ${campus.levels.en}.`,
     telephone: `+52${campus.phoneLink}`,
     address: {

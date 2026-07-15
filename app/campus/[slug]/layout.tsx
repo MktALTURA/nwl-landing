@@ -27,7 +27,7 @@ export async function generateMetadata({
   // applies to <title>, not to openGraph/twitter titles.
   const socialTitle = `Campus ${campus.name} — ${SITE_NAME}`;
   const description = `${campus.tagline.en}. ${campus.levels.en}. ${campus.address}. Google rating: ${campus.googleRating}/5.`;
-  const ogImage = `/images/og/campus-${slug}.jpg`;
+  const ogImage = `/images/og/nwl/campus-${slug}.jpg`;
   const url = `${SITE_URL}/campus/${slug}`;
 
   return {
