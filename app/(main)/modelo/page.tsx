@@ -1129,26 +1129,43 @@ export default function ModeloPage() {
                   </div>
                 </div>
 
-                {/* placeholder image slot */}
+                {/* component photo (placeholder fallback while a photo is pending) */}
                 <div className={i % 2 === 1 ? 'lg:order-1' : ''}>
-                  <div
-                    className="relative aspect-[4/3] rounded-3xl overflow-hidden border-2 border-dashed"
-                    style={{
-                      borderColor: `${comp.color}40`,
-                      background: `linear-gradient(135deg, ${comp.color}0F 0%, ${comp.color}26 100%)`,
-                    }}
-                  >
-                    <Image
-                      src="/images/brand/nwl-as-kangaroo-navy.png"
-                      alt=""
-                      width={220}
-                      height={220}
-                      className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-1/3 h-auto opacity-[0.12] pointer-events-none"
-                    />
-                    <span className="absolute bottom-4 left-5 font-mono text-[10px] uppercase tracking-[0.2em] text-navy/50">
-                      {L(UI.placeholder)} · {L(comp.name)}
-                    </span>
-                  </div>
+                  {comp.image ? (
+                    <div className="relative aspect-[4/3] rounded-3xl overflow-hidden ring-1 ring-navy/10 shadow-[0_24px_60px_-32px_rgba(11,34,78,0.45)] nwl-grade">
+                      <Image
+                        src={comp.image.src}
+                        alt={L(comp.image.alt)}
+                        fill
+                        sizes="(max-width: 1024px) 100vw, 50vw"
+                        className="object-cover"
+                      />
+                      <span
+                        aria-hidden="true"
+                        className="absolute inset-x-0 bottom-0 h-1.5"
+                        style={{ background: comp.color }}
+                      />
+                    </div>
+                  ) : (
+                    <div
+                      className="relative aspect-[4/3] rounded-3xl overflow-hidden border-2 border-dashed"
+                      style={{
+                        borderColor: `${comp.color}40`,
+                        background: `linear-gradient(135deg, ${comp.color}0F 0%, ${comp.color}26 100%)`,
+                      }}
+                    >
+                      <Image
+                        src="/images/brand/nwl-as-kangaroo-navy.png"
+                        alt=""
+                        width={220}
+                        height={220}
+                        className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-1/3 h-auto opacity-[0.12] pointer-events-none"
+                      />
+                      <span className="absolute bottom-4 left-5 font-mono text-[10px] uppercase tracking-[0.2em] text-navy/50">
+                        {L(UI.placeholder)} · {L(comp.name)}
+                      </span>
+                    </div>
+                  )}
                 </div>
               </motion.div>
             ))}

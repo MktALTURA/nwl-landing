@@ -18,6 +18,8 @@ export interface ModelCapability {
 export interface ModelComponent {
   id: string;
   icon: string;
+  /** Deep-dive section photo; localized alt keeps the page SEO-complete */
+  image?: { src: string; alt: Localized };
   /** Solid segment color (slide-derived, harmonized with the brand palette) */
   color: string;
   /** Whether the solid color needs dark text (light colors like gold) */
@@ -32,6 +34,13 @@ export interface ModelComponent {
 export const MODEL_COMPONENTS: ModelComponent[] = [
   {
     id: 'academic-excellence',
+    image: {
+      src: '/images/modelo/nwl-juriquilla-maestra-alumno-ipad-knotion.jpg',
+      alt: {
+        en: 'Teacher guiding a student through a Knotion project on iPad at NWL Australian School',
+        es: 'Maestra guía a un alumno en un proyecto Knotion en iPad en NWL Australian School',
+      },
+    },
     icon: 'award',
     color: '#0B224E', // Southern Cross navy
     name: { en: 'Academic Excellence', es: 'Excelencia Académica' },
@@ -72,6 +81,13 @@ export const MODEL_COMPONENTS: ModelComponent[] = [
   },
   {
     id: 'wellbeing',
+    image: {
+      src: '/images/modelo/nwl-juriquilla-maternal-nina-juego-arenero.jpg',
+      alt: {
+        en: 'Maternal student playing in the sandbox at NWL Australian School',
+        es: 'Alumna de maternal jugando en el arenero de NWL Australian School',
+      },
+    },
     icon: 'heart',
     color: '#1C7C70', // wellbeing teal (deck)
     name: { en: 'Wellbeing & Human Development', es: 'Bienestar y Desarrollo Humano' },
@@ -119,6 +135,13 @@ export const MODEL_COMPONENTS: ModelComponent[] = [
   },
   {
     id: 'global-english',
+    image: {
+      src: '/images/modelo/nwl-sma-maestra-alumno-pizarron.jpg',
+      alt: {
+        en: 'Teacher explaining a lesson at the board with a student at NWL Australian School',
+        es: 'Maestra explica una lección en el pizarrón a un alumno de NWL Australian School',
+      },
+    },
     icon: 'message-square',
     color: '#4A3A82', // Jacaranda
     name: { en: 'Global English Pathway', es: 'Global English Pathway' },
@@ -159,6 +182,13 @@ export const MODEL_COMPONENTS: ModelComponent[] = [
   },
   {
     id: 'future-skills',
+    image: {
+      src: '/images/modelo/nwl-estudio-podcast-alumnos.jpg',
+      alt: {
+        en: 'Students recording a podcast in the NWL Australian School media studio',
+        es: 'Alumnos grabando un podcast en el estudio de medios de NWL Australian School',
+      },
+    },
     icon: 'trending-up',
     color: '#2A5C9A', // southern blue (deck)
     name: { en: 'Future Skills & Leadership', es: 'Habilidades del Futuro y Liderazgo' },
@@ -199,6 +229,13 @@ export const MODEL_COMPONENTS: ModelComponent[] = [
   },
   {
     id: 'portfolio',
+    image: {
+      src: '/images/modelo/nwl-sma-preescolar-actividad-cientifica.jpg',
+      alt: {
+        en: 'Preschool students role-playing as doctors during a science activity at NWL',
+        es: 'Alumnos de preescolar juegan a ser doctores en una actividad científica en NWL',
+      },
+    },
     icon: 'folder',
     color: '#C8870E', // Outback Gold (deck)
     darkText: true,
@@ -240,6 +277,13 @@ export const MODEL_COMPONENTS: ModelComponent[] = [
   },
   {
     id: 'stem-innovation',
+    image: {
+      src: '/images/modelo/nwl-sma-secundaria-laboratorio-quimica.jpg',
+      alt: {
+        en: 'Secondary students running a chemistry experiment in the NWL science lab',
+        es: 'Alumnos de secundaria realizan un experimento de química en el laboratorio de NWL',
+      },
+    },
     icon: 'cpu',
     color: '#2E6E78', // STEM teal (deck)
     name: { en: 'STEM & Innovation', es: 'STEM e Innovación' },
@@ -280,6 +324,13 @@ export const MODEL_COMPONENTS: ModelComponent[] = [
   },
   {
     id: 'international-mindset',
+    image: {
+      src: '/images/modelo/nwl-milenio-cancha-banderas-internacionales.jpg',
+      alt: {
+        en: 'NWL multi-sports court decorated with international flags',
+        es: 'Cancha multiusos de NWL decorada con banderas internacionales',
+      },
+    },
     icon: 'compass',
     color: '#B5532A', // outback terracotta (deck)
     name: { en: 'International Mindset', es: 'Mentalidad Internacional' },
