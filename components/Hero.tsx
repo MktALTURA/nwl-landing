@@ -139,7 +139,7 @@ export default function Hero() {
       {/* Gold kangaroo watermark (existing silhouette, recolored via mask) */}
       <motion.div
         initial={{ opacity: 0, scale: 0.9 }}
-        animate={{ opacity: 0.07, scale: 1 }}
+        animate={{ opacity: 0.12, scale: 1 }}
         transition={{ duration: 2, delay: 0.5 }}
         className="absolute right-[-5%] bottom-[2%] w-[55vh] h-[55vh] z-[4] pointer-events-none"
         aria-hidden="true"
@@ -243,11 +243,15 @@ export default function Hero() {
               {t.hero.ctaBrochure}
             </BrochureLevelDropdown>
 
-            {/* Coordinates micro-type */}
+            {/* Coordinates micro-type — Southern Cross rides along on mobile,
+                where the desktop corner constellation is hidden */}
             <div className="mt-6 font-mono text-[11px] uppercase tracking-[0.18em] text-paper/45 flex items-center gap-2">
               <span className="text-gold">QRO 20.59° N</span>
               <span>·</span><span>↔</span><span>·</span>
               <span className="text-gold">SYD 33.87° S</span>
+              <span className="ml-auto mr-1 md:hidden" aria-hidden="true">
+                <SouthernCross height={46} color="var(--nwl-gold)" opacity={0.75} />
+              </span>
             </div>
           </motion.div>
 
