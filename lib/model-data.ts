@@ -35,10 +35,10 @@ export const MODEL_COMPONENTS: ModelComponent[] = [
   {
     id: 'academic-excellence',
     image: {
-      src: '/images/modelo/nwl-juriquilla-maestra-alumno-ipad-knotion.jpg',
+      src: '/images/modelo/nwl-graduacion-mascota-canguro-alumnas.jpg',
       alt: {
-        en: 'Teacher guiding a student through a Knotion project on iPad at NWL Australian School',
-        es: 'Maestra guía a un alumno en un proyecto Knotion en iPad en NWL Australian School',
+        en: 'NWL graduates celebrating with the kangaroo mascot in cap and gown',
+        es: 'Graduadas de NWL celebran con la mascota canguro con toga y birrete',
       },
     },
     icon: 'award',
@@ -82,10 +82,10 @@ export const MODEL_COMPONENTS: ModelComponent[] = [
   {
     id: 'wellbeing',
     image: {
-      src: '/images/modelo/nwl-juriquilla-maternal-nina-juego-arenero.jpg',
+      src: '/images/modelo/nwl-alumnas-yoga-bienestar.jpg',
       alt: {
-        en: 'Maternal student playing in the sandbox at NWL Australian School',
-        es: 'Alumna de maternal jugando en el arenero de NWL Australian School',
+        en: 'NWL students practicing yoga during a wellbeing session',
+        es: 'Alumnas de NWL practican yoga en una sesión de bienestar',
       },
     },
     icon: 'heart',
@@ -136,10 +136,10 @@ export const MODEL_COMPONENTS: ModelComponent[] = [
   {
     id: 'global-english',
     image: {
-      src: '/images/modelo/nwl-sma-maestra-alumno-pizarron.jpg',
+      src: '/images/modelo/nwl-alumnos-sombreros-bandera-australia.jpg',
       alt: {
-        en: 'Teacher explaining a lesson at the board with a student at NWL Australian School',
-        es: 'Maestra explica una lección en el pizarrón a un alumno de NWL Australian School',
+        en: 'NWL students in Australian-flag hats gathered in a circle',
+        es: 'Alumnos de NWL con sombreros de la bandera australiana reunidos en círculo',
       },
     },
     icon: 'message-square',
@@ -183,10 +183,10 @@ export const MODEL_COMPONENTS: ModelComponent[] = [
   {
     id: 'future-skills',
     image: {
-      src: '/images/modelo/nwl-estudio-podcast-alumnos.jpg',
+      src: '/images/modelo/nwl-alumna-discurso-podio.jpg',
       alt: {
-        en: 'Students recording a podcast in the NWL Australian School media studio',
-        es: 'Alumnos grabando un podcast en el estudio de medios de NWL Australian School',
+        en: 'NWL student giving a speech at the podium during a school ceremony',
+        es: 'Alumna de NWL da un discurso en el podio durante una ceremonia escolar',
       },
     },
     icon: 'trending-up',
@@ -230,10 +230,10 @@ export const MODEL_COMPONENTS: ModelComponent[] = [
   {
     id: 'portfolio',
     image: {
-      src: '/images/modelo/nwl-sma-preescolar-actividad-cientifica.jpg',
+      src: '/images/modelo/nwl-alumno-ipad-aula.jpg',
       alt: {
-        en: 'Preschool students role-playing as doctors during a science activity at NWL',
-        es: 'Alumnos de preescolar juegan a ser doctores en una actividad científica en NWL',
+        en: 'NWL student working on his iPad in the classroom',
+        es: 'Alumno de NWL trabaja en su iPad en el aula',
       },
     },
     icon: 'folder',
@@ -278,10 +278,10 @@ export const MODEL_COMPONENTS: ModelComponent[] = [
   {
     id: 'stem-innovation',
     image: {
-      src: '/images/modelo/nwl-sma-secundaria-laboratorio-quimica.jpg',
+      src: '/images/modelo/nwl-alumnos-laboratorio-experimento.jpg',
       alt: {
-        en: 'Secondary students running a chemistry experiment in the NWL science lab',
-        es: 'Alumnos de secundaria realizan un experimento de química en el laboratorio de NWL',
+        en: 'NWL students in lab coats examining a test tube in the science lab',
+        es: 'Alumnos de NWL con bata examinan un tubo de ensayo en el laboratorio',
       },
     },
     icon: 'cpu',
@@ -325,10 +325,10 @@ export const MODEL_COMPONENTS: ModelComponent[] = [
   {
     id: 'international-mindset',
     image: {
-      src: '/images/modelo/nwl-milenio-cancha-banderas-internacionales.jpg',
+      src: '/images/modelo/nwl-viaje-nueva-york-alumnos.jpg',
       alt: {
-        en: 'NWL multi-sports court decorated with international flags',
-        es: 'Cancha multiusos de NWL decorada con banderas internacionales',
+        en: 'NWL students on an international trip at Rockefeller Center, New York',
+        es: 'Alumnos de NWL en viaje internacional en el Rockefeller Center de Nueva York',
       },
     },
     icon: 'compass',
