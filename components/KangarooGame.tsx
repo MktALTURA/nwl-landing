@@ -410,30 +410,38 @@ export default function KangarooGame({ onExit }: { onExit: () => void }) {
       setUi('over');
     };
 
-    const loop = () => {
+    let lastT = 0;
+    const loop = (now: number) => {
       raf = requestAnimationFrame(loop);
+
+      /* Simulation runs in 60fps-equivalent units regardless of the display's
+         rAF rate — phones often throttle to ~30Hz (which made the game run in
+         slow motion and never ramp up) and ProMotion screens run at 120Hz.
+         dt is capped so a backgrounded tab can't teleport obstacles. */
+      const dt = lastT ? Math.min((now - lastT) / (1000 / 60), 2.5) : 1;
+      lastT = now;
 
       /* --- update --- */
       if (state === 'run') {
-        frames++;
+        frames += dt;
         score = Math.floor(frames / 5);
         const prog = progress();
         speed = Math.min(7, 1.8 + 3.9 * prog + Math.max(0, score - 900) * 0.0006);
 
         if (jumping) {
-          vy += 0.22;
-          rooY += vy;
+          vy += 0.22 * dt;
+          rooY += vy * dt;
           if (rooY >= GROUND - ROO_H) { rooY = GROUND - ROO_H; jumping = false; vy = 0; }
         }
 
-        dist += speed;
-        nextSpawn -= speed;
+        dist += speed * dt;
+        nextSpawn -= speed * dt;
         if (nextSpawn <= 0) spawn();
 
-        uluruX -= speed * 0.18;
+        uluruX -= speed * 0.18 * dt;
         if (uluruX < -80) uluruX = W + 120 + Math.random() * 200;
 
-        for (const o of obstacles) o.x -= speed;
+        for (const o of obstacles) o.x -= speed * dt;
         obstacles = obstacles.filter((o) => o.x > -24);
 
         const px = 34 + 6;
@@ -450,7 +458,7 @@ export default function KangarooGame({ onExit }: { onExit: () => void }) {
 
       /* day/night: flips every 1000 points, eased crossfade */
       const targetDay = Math.floor(score / 1000) % 2;
-      dayT += (targetDay - dayT) * 0.025;
+      dayT += (targetDay - dayT) * Math.min(1, 0.025 * dt);
       if (Math.abs(targetDay - dayT) < 0.002) dayT = targetDay;
 
       /* --- draw --- */
@@ -517,7 +525,7 @@ export default function KangarooGame({ onExit }: { onExit: () => void }) {
       // kangaroo — idle (ready/over) holds the leap pose, matching the logo
       const sprite =
         jumping || state !== 'run' ? ROO_LEAP : frames % 12 < 6 ? ROO_LEAP : ROO_GATHER;
-      if (deadFlash > 0) deadFlash--;
+      if (deadFlash > 0) deadFlash = Math.max(0, deadFlash - dt);
       drawSprite(ctx, sprite, 34, rooY, deadFlash % 4 >= 2 ? '#F4EEE2' : rooColor);
 
       // HUD
@@ -538,7 +546,7 @@ export default function KangarooGame({ onExit }: { onExit: () => void }) {
           ctx.fillText('ESC TO GO BACK', W / 2, 70);
           ctx.globalAlpha = 1;
         }
-        frames++;
+        frames += dt;
       } else if (state === 'over') {
         ctx.fillStyle = '#E3990F';
         ctx.fillText('GAME OVER, MATE', W / 2, 50);
