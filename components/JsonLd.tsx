@@ -84,8 +84,8 @@ export function OrganizationJsonLd() {
       { '@type': 'City', name: 'San Miguel de Allende' },
     ],
     sameAs: [
-      'https://www.facebook.com/ColegioNewland',
-      'https://www.instagram.com/colegionewland',
+      'https://www.facebook.com/ColegioNWL',
+      'https://www.instagram.com/colegionwl',
     ],
     hasCredential: [
       {

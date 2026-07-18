@@ -47,7 +47,7 @@ export default function Footer() {
             {/* Social Links */}
             <div className="flex gap-4">
               <a
-                href="https://www.facebook.com/ColegioNewland"
+                href="https://www.facebook.com/ColegioNWL"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 bg-paper/10 rounded-full flex items-center justify-center hover:bg-gold hover:text-navy-900 transition-colors"
