@@ -6,9 +6,11 @@ import { useCallback, useEffect, useRef, useState } from 'react';
  * NWL Australian School — "Outback Run" easter egg.
  * An 8-bit, Chrome-dino-style runner: the gold kangaroo hops over spinifex,
  * outback rocks and flying boomerangs across the outback. Space / ↑ / tap to
- * jump, ESC to leave. Starts gentle and ramps up to full pace around the
- * 500-point mark; every 1000 points the outback flips between night and day
- * (sun up, stars out). School-wide top-20 leaderboard via /api/game-scores.
+ * jump, ESC to leave. Ramps to full pace around the 650-point mark and keeps
+ * accelerating (speed AND obstacle density) after that; touch devices get a
+ * pace boost since the small canvas reads slower. Every 1000 points the
+ * outback flips between night and day (sun up, stars out). School-wide
+ * top-20 leaderboard via /api/game-scores.
  */
 
 /* ---------- pixel sprites ---------- */
@@ -286,7 +288,10 @@ export default function KangarooGame({ onExit }: { onExit: () => void }) {
     let raf = 0;
     let state: 'ready' | 'run' | 'over' = 'ready';
     let frames = 0;
-    let speed = 1.8;
+    /* Phones show the same 360px world on a ~1/2.5 physical width, so identical
+       sim speed reads slow — give touch devices a flat pace boost. */
+    const paceBoost = window.matchMedia?.('(pointer: coarse)').matches ? 1.25 : 1;
+    let speed = 2 * paceBoost;
     let score = 0;
     let best = 0;
     try { best = parseInt(localStorage.getItem('nwl-outback-run-best') || '0', 10) || 0; } catch { /* ignore */ }
@@ -303,7 +308,7 @@ export default function KangarooGame({ onExit }: { onExit: () => void }) {
 
     const reset = () => {
       frames = 0;
-      speed = 1.8;
+      speed = 2 * paceBoost;
       score = 0;
       rooY = GROUND - ROO_H;
       vy = 0;
@@ -360,16 +365,16 @@ export default function KangarooGame({ onExit }: { onExit: () => void }) {
     window.addEventListener('keyup', onKeyUp, { capture: true });
     canvas.addEventListener('pointerdown', onPointer);
 
-    /* difficulty: long, gentle ramp — 500 should be easy, 1000 doable */
-    const progress = () => Math.min(1, score / 900);
+    /* difficulty: full pace by ~650, then speed and density keep creeping up */
+    const progress = () => Math.min(1, score / 650);
 
     const spawn = () => {
       const prog = progress();
       // obstacle types unlock as the run progresses; emus stay rare
       const pool: [Obstacle['kind'], number][] = [['spinifex', 4]];
-      if (score > 120) pool.push(['rock', 3.5]);
-      if (score > 300) pool.push(['emu', 1.2]);
-      if (score > 550) pool.push(['boomerang', 2]);
+      if (score > 100) pool.push(['rock', 3.5]);
+      if (score > 250) pool.push(['emu', 1.2]);
+      if (score > 450) pool.push(['boomerang', 2]);
       const total = pool.reduce((sum, [, w]) => sum + w, 0);
       let roll2 = Math.random() * total;
       let kind: Obstacle['kind'] = 'spinifex';
@@ -383,15 +388,21 @@ export default function KangarooGame({ onExit }: { onExit: () => void }) {
         obstacles.push({ kind, x: W + 8, y: GROUND - 13, w: 11, h: 13 });
       } else if (kind === 'spinifex') {
         obstacles.push({ kind, x: W + 8, y: GROUND - 8, w: 14, h: 8 });
+        // mid game onwards: occasional spinifex cluster (one long jump)
+        if (score > 500 && Math.random() < 0.3) {
+          obstacles.push({ kind, x: W + 8 + 17, y: GROUND - 8, w: 14, h: 8 });
+        }
       } else {
         obstacles.push({ kind: 'rock', x: W + 8, y: GROUND - 6, w: 16, h: 6 });
-        // late game: occasional wide rock pair
-        if (score > 850 && Math.random() < 0.3) {
+        // occasional wide rock pair once the pace is up
+        if (score > 600 && Math.random() < 0.35) {
           obstacles.push({ kind: 'rock', x: W + 8 + 18, y: GROUND - 6, w: 16, h: 6 });
         }
       }
-      // gap measured in TIME (frames at current speed): ~1.6-2.3s early, ~0.7-1.3s late
-      const framesGap = 96 - 52 * prog + Math.random() * 44;
+      // gap measured in TIME (frames at current speed): ~1.5-2.2s early,
+      // ~0.5-0.9s at full ramp, and it keeps tightening past ~800 points
+      const late = Math.min(12, Math.max(0, score - 800) * 0.01);
+      const framesGap = 88 - 46 * prog - late + Math.random() * (44 - 20 * prog);
       nextSpawn = speed * framesGap;
     };
 
@@ -426,7 +437,7 @@ export default function KangarooGame({ onExit }: { onExit: () => void }) {
         frames += dt;
         score = Math.floor(frames / 5);
         const prog = progress();
-        speed = Math.min(7, 1.8 + 3.9 * prog + Math.max(0, score - 900) * 0.0006);
+        speed = Math.min(8, (2 + 4.2 * prog + Math.max(0, score - 650) * 0.0012) * paceBoost);
 
         if (jumping) {
           vy += 0.22 * dt;
