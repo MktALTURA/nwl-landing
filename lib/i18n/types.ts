@@ -112,6 +112,8 @@ export interface Dictionary {
     sectionTitle: string;
     sectionTitleAccent: string;
     sectionSubtitle: string;
+    videoCta: string;
+    videoTitle: string;
     items: { quote: string; role: string }[];
     stats: { value: string; label: string }[];
   };

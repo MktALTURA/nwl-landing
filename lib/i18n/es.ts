@@ -258,6 +258,8 @@ export const es: Dictionary = {
     sectionTitle: 'Lo que dicen',
     sectionTitleAccent: 'las Familias',
     sectionSubtitle: 'Conoce la experiencia de quienes ya eligieron NWL para la educación de sus hijos',
+    videoCta: 'Ver testimonio',
+    videoTitle: 'Testimonio de una familia NWL Australian School',
     items: [
       {
         quote:

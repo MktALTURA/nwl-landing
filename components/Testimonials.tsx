@@ -1,37 +1,36 @@
 'use client';
 
+import { useState } from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { FiStar } from 'react-icons/fi';
 import { useLanguage } from '@/lib/i18n/LanguageContext';
 
-const testimonialsData = [
-  {
-    author: 'María González',
-    rating: 5,
-    image: '/images/testimonials/maria.jpg',
-  },
-  {
-    author: 'Carlos Mendoza',
-    rating: 5,
-    image: '/images/testimonials/carlos.jpg',
-  },
-  {
-    author: 'Ana Torres',
-    rating: 5,
-    image: '/images/testimonials/ana.jpg',
-  },
-];
+/**
+ * Parent testimonial video — click-to-play YouTube facade so the homepage
+ * never pays the iframe cost unless a visitor presses play (embed loads
+ * from youtube-nocookie.com only after the click).
+ *
+ * To swap the video: change VIDEO_ID. POSTER is a local image so the
+ * facade doesn't depend on YouTube thumbnails; replace it with a real
+ * frame of the final video when available.
+ */
+const VIDEO_ID = 'REPLACE_WITH_VIDEO_ID';
+const POSTER = '/images/modelo/nwl-graduacion-mascota-canguro-alumnas.jpg';
 
 export default function Testimonials() {
   const { t } = useLanguage();
-  const testimonials = testimonialsData.map((td, i) => ({ ...td, ...t.testimonials.items[i] }));
+  const [playing, setPlaying] = useState(false);
+
+  const play = () => {
+    setPlaying(true);
+    window.gtag?.('event', 'video_testimonial_play', { video_id: VIDEO_ID });
+  };
 
   return (
     <section className="section-padding bg-gradient-to-b from-white to-paper animate-section">
       <div className="container-custom">
         {/* Section Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-12 md:mb-16">
           <div className="wine-divider mx-auto mb-6" />
           <h2 className="font-display text-4xl md:text-5xl font-bold text-navy mb-4">
             {t.testimonials.sectionTitle} <span className="italic text-gold">{t.testimonials.sectionTitleAccent}</span>
@@ -41,57 +40,64 @@ export default function Testimonials() {
           </p>
         </div>
 
-        {/* Testimonials Grid with Images */}
-        <div className="grid md:grid-cols-3 gap-8 mb-12">
-          {testimonials.map((testimonial, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              viewport={{ once: true }}
-              className="bg-white rounded-2xl overflow-hidden border border-n-200 shadow-navy-sm hover:shadow-navy-md transition-shadow duration-300"
-            >
-              {/* Portrait */}
-              <div className="aspect-square relative bg-paper nwl-grade">
+        {/* Video */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="max-w-4xl mx-auto"
+        >
+          <div className="relative aspect-video rounded-3xl overflow-hidden border border-navy/10 shadow-navy-lg bg-navy">
+            {playing ? (
+              <iframe
+                className="absolute inset-0 w-full h-full"
+                src={`https://www.youtube-nocookie.com/embed/${VIDEO_ID}?autoplay=1&rel=0&modestbranding=1`}
+                title={t.testimonials.videoTitle}
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+              />
+            ) : (
+              <button
+                onClick={play}
+                aria-label={t.testimonials.videoCta}
+                className="group absolute inset-0 w-full h-full text-left"
+              >
+                {/* .nwl-grade would override `absolute` (unlayered position:relative),
+                    so the golden-hour grade filter is applied to the img directly */}
                 <Image
-                  src={testimonial.image}
-                  alt={`${testimonial.author} - ${testimonial.role}`}
+                  src={POSTER}
+                  alt={t.testimonials.videoTitle}
                   fill
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 896px"
+                  className="object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+                  style={{ filter: 'var(--grade-filter)' }}
                 />
-              </div>
+                {/* Legibility + brand wash */}
+                <div className="absolute inset-0 bg-gradient-to-t from-navy/80 via-navy/20 to-navy/30" />
 
-              {/* Content */}
-              <div className="p-6">
-                {/* Rating Stars */}
-                <div className="flex gap-1 mb-4">
-                  {[...Array(testimonial.rating)].map((_, i) => (
-                    <FiStar key={i} className="fill-gold text-gold" size={18} />
-                  ))}
-                </div>
+                {/* Play control */}
+                <span className="absolute inset-0 flex items-center justify-center">
+                  <span className="flex items-center justify-center w-20 h-20 md:w-24 md:h-24 rounded-full bg-gold text-[#1C0F00] shadow-gold transition-transform duration-300 group-hover:scale-110">
+                    <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M8 5.5v13l11-6.5-11-6.5z" />
+                    </svg>
+                  </span>
+                </span>
 
-                {/* Quote */}
-                <p className="text-navy/80 mb-6 leading-relaxed italic text-sm">
-                  &ldquo;{testimonial.quote}&rdquo;
-                </p>
-
-                {/* Author */}
-                <div className="border-t border-navy/10 pt-4">
-                  <p className="font-bold text-navy">{testimonial.author}</p>
-                  <p className="text-sm text-navy/60">{testimonial.role}</p>
-                </div>
-              </div>
-
-              {/* Accent */}
-              <div className="absolute top-6 right-6 text-6xl text-gold/10 font-display">
-                &ldquo;
-              </div>
-            </motion.div>
-          ))}
-        </div>
-
+                {/* Caption */}
+                <span className="absolute bottom-0 left-0 right-0 p-6 md:p-8">
+                  <span className="block font-mono text-[10px] md:text-[11px] uppercase tracking-[0.22em] text-gold mb-1.5">
+                    {t.testimonials.videoCta}
+                  </span>
+                  <span className="block font-display text-xl md:text-2xl font-medium text-paper">
+                    {t.testimonials.videoTitle}
+                  </span>
+                </span>
+              </button>
+            )}
+          </div>
+        </motion.div>
       </div>
     </section>
   );

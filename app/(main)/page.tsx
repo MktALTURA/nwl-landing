@@ -77,7 +77,7 @@ export default function Home() {
         <KangarooSpirit />
         <BeSection />
         <Philosophy />
-        {/* <Testimonials /> — hidden until real testimonials are ready */}
+        <Testimonials />{/* parent video testimonial — opens the trust cluster */}
         <Partnerships />
         <TrustNumbers />
         <FinalCTA />
