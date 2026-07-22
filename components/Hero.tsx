@@ -109,6 +109,8 @@ export default function Hero() {
       id="home"
       className="relative min-h-screen flex items-center nwl-bg-dawn-deep overflow-hidden"
     >
+      {/* Hero image A/B test — variant B paints a photo over the dawn gradient */}
+      <div aria-hidden="true" className="hero-ab-photo absolute inset-0" />
       {/* Soft navy/gold blooms — CSS animation on mobile, Framer on desktop */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-navy rounded-full blur-3xl opacity-60 md:hidden animate-[orb1_20s_ease-in-out_infinite]" style={{ mixBlendMode: 'screen' }} />

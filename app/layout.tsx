@@ -79,8 +79,41 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es" className={`${gabarito.variable} ${splineMono.variable}`}>
+    // suppressHydrationWarning: the hero A/B script stamps data-hero-variant pre-hydration
+    <html lang="es" className={`${gabarito.variable} ${splineMono.variable}`} suppressHydrationWarning>
       <body className="font-sans antialiased">
+        {/* Hero image A/B test — sticky per-visitor variant (a = dawn gradient, b = photo).
+            Runs synchronously before first paint so the wrong hero never flashes; tags the
+            session in Clarity (custom tag) and GA4 (user property) for the analysis. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+(function () {
+  var v;
+  try {
+    v = localStorage.getItem('nwl_hero_variant');
+    if (v !== 'a' && v !== 'b') {
+      v = Math.random() < 0.5 ? 'a' : 'b';
+      localStorage.setItem('nwl_hero_variant', v);
+    }
+  } catch (e) { v = 'a'; }
+  document.documentElement.setAttribute('data-hero-variant', v);
+  if (v === 'b') {
+    var l = document.createElement('link');
+    l.rel = 'preload'; l.as = 'image'; l.fetchPriority = 'high';
+    l.href = window.matchMedia('(min-width: 768px)').matches
+      ? '/images/hero/nwl-alumnos-kinder-jugando-paises-1920.jpg'
+      : '/images/hero/nwl-alumnos-kinder-jugando-paises-movil.jpg';
+    document.head.appendChild(l);
+  }
+  window.clarity = window.clarity || function () { (window.clarity.q = window.clarity.q || []).push(arguments); };
+  window.clarity('set', 'hero_variant', v);
+  window.dataLayer = window.dataLayer || [];
+  function g() { window.dataLayer.push(arguments); }
+  g('set', 'user_properties', { hero_variant: v });
+})();`,
+          }}
+        />
         <OrganizationJsonLd />
         <WebSiteJsonLd />
         <MetaTracking />
