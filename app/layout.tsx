@@ -102,8 +102,8 @@ export default function RootLayout({
     var l = document.createElement('link');
     l.rel = 'preload'; l.as = 'image'; l.fetchPriority = 'high';
     l.href = window.matchMedia('(min-width: 768px)').matches
-      ? '/images/hero/nwl-alumnos-kinder-jugando-paises-1920.jpg'
-      : '/images/hero/nwl-alumnos-kinder-jugando-paises-movil.jpg';
+      ? '/images/hero/nwl-alumnos-kinder-circulo-paises-1920.jpg'
+      : '/images/hero/nwl-alumnos-kinder-circulo-paises-movil.jpg';
     document.head.appendChild(l);
   }
   window.clarity = window.clarity || function () { (window.clarity.q = window.clarity.q || []).push(arguments); };

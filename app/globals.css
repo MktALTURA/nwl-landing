@@ -258,14 +258,14 @@ html[data-hero-variant="b"] .hero-ab-photo {
   background:
     radial-gradient(120% 45% at 50% 104%, rgba(203, 134, 6, 0.30), rgba(203, 134, 6, 0) 58%),
     linear-gradient(180deg, rgba(4, 8, 26, 0.88) 0%, rgba(7, 22, 56, 0.78) 52%, rgba(8, 27, 64, 0.84) 100%),
-    url('/images/hero/nwl-alumnos-kinder-jugando-paises-movil.jpg') center / cover no-repeat;
+    url('/images/hero/nwl-alumnos-kinder-circulo-paises-movil.jpg') center / cover no-repeat;
 }
 @media (min-width: 768px) {
   html[data-hero-variant="b"] .hero-ab-photo {
     background:
       radial-gradient(120% 45% at 50% 104%, rgba(203, 134, 6, 0.30), rgba(203, 134, 6, 0) 58%),
       linear-gradient(180deg, rgba(4, 8, 26, 0.88) 0%, rgba(7, 22, 56, 0.78) 52%, rgba(8, 27, 64, 0.84) 100%),
-      url('/images/hero/nwl-alumnos-kinder-jugando-paises-1920.jpg') center / cover no-repeat;
+      url('/images/hero/nwl-alumnos-kinder-circulo-paises-1920.jpg') center / cover no-repeat;
   }
 }
 
