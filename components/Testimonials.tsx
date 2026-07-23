@@ -14,7 +14,7 @@ import { useLanguage } from '@/lib/i18n/LanguageContext';
  * facade doesn't depend on YouTube thumbnails; replace it with a real
  * frame of the final video when available.
  */
-const VIDEO_ID = 'REPLACE_WITH_VIDEO_ID';
+const VIDEO_ID = 'qHYcjGP_imQ';
 const POSTER = '/images/modelo/nwl-graduacion-mascota-canguro-alumnas.jpg';
 
 export default function Testimonials() {
@@ -52,7 +52,7 @@ export default function Testimonials() {
             {playing ? (
               <iframe
                 className="absolute inset-0 w-full h-full"
-                src={`https://www.youtube-nocookie.com/embed/${VIDEO_ID}?autoplay=1&rel=0&modestbranding=1`}
+                src={`https://www.youtube-nocookie.com/embed/${VIDEO_ID}?autoplay=1&playsinline=1&rel=0&modestbranding=1`}
                 title={t.testimonials.videoTitle}
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowFullScreen
