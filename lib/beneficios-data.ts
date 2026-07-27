@@ -265,6 +265,22 @@ export const benefitPartners: BenefitPartner[] = [
       en: 'Valid on individual massage sessions.',
     },
   },
+  {
+    slug: 'anytime-fitness',
+    name: 'Anytime Fitness',
+    categoryKey: 'deporte',
+    logo: '/images/logos/benefits/anytime-fitness.svg',
+    url: 'https://www.anytimefitness.com.mx/',
+    discount: { es: 'Inscripción sin costo', en: 'Free enrollment' },
+    detail: {
+      es: 'Membresía especial NWL: inscripción sin costo, llave de acceso multiclub $550 y mensualidad desde $900 (plan 12 meses) o $990 (plan 6 meses). Acceso 24/7, multiclub en +5,500 sucursales, coach y clases incluidas.',
+      en: 'Special NWL membership: free enrollment, $550 multi-club access key and monthly fees from $900 (12-month plan) or $990 (6-month plan). 24/7 access, multi-club entry to 5,500+ locations, coach and classes included.',
+    },
+    restrictions: {
+      es: 'Válido para colaboradores, alumnos y familiares directos. Sucursales participantes: Zakia, Toscana Juriquilla y Juriquilla Santa Fe (Qro) y San Miguel de Allende (Gto).',
+      en: 'Valid for staff, students and direct family members. Participating locations: Zakia, Toscana Juriquilla and Juriquilla Santa Fe (Qro) and San Miguel de Allende (Gto).',
+    },
+  },
 ];
 
 /** Resolve a localized string to the active locale. */
