@@ -249,6 +249,22 @@ export const benefitPartners: BenefitPartner[] = [
       en: 'Valid when you present your NWL credential. Valid for the community of all NWL campuses.',
     },
   },
+  {
+    slug: 'leoba-spa',
+    name: 'Leoba Centro de Masajes y Spa',
+    categoryKey: 'salud',
+    logo: '/images/logos/benefits/leoba.png',
+    url: 'https://leobacentrodemasajesyspa.com.mx/',
+    discount: { es: 'Hasta 30% de descuento', en: 'Up to 30% off' },
+    detail: {
+      es: 'En sesiones individuales de masaje: 30% de descuento para personal administrativo y 25% para la comunidad de padres de familia.',
+      en: 'On individual massage sessions: 30% off for administrative staff and 25% off for the parent community.',
+    },
+    restrictions: {
+      es: 'Aplica en sesiones individuales de masaje.',
+      en: 'Valid on individual massage sessions.',
+    },
+  },
 ];
 
 /** Resolve a localized string to the active locale. */
