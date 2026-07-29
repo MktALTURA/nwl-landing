@@ -105,13 +105,41 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: 'Invalid JSON' }, { status: 400 });
   }
 
-  const token = extractToken(body.token) ?? extractToken(body.message);
+  // Last resort: scan the ENTIRE payload for a reference code.
+  //
+  // GHL's plain Webhook action merges our custom pairs with its own "datos
+  // estándar", and we can't rely on `{{message.body}}` rendering inside that
+  // action — it demonstrably didn't. But if the message text reaches us under
+  // ANY key, whatever GHL happens to call it, the token is in there. The
+  // format (`NW-` + 6 chars from a no-lookalike alphabet) is distinctive
+  // enough that a false positive from an unrelated field isn't a real risk.
+  const token =
+    extractToken(body.token) ??
+    extractToken(body.message) ??
+    extractToken(JSON.stringify(body));
+
   if (!token) {
     // 200, not 400: this is the normal case for any inbound message that
     // simply has no reference code. It lets the GHL workflow run WITHOUT a
     // message-body filter and branch on a single condition (`found`), instead
     // of needing to tell HTTP error codes apart. Nothing is wrong here.
-    return NextResponse.json({ found: false, reason: 'no_code' }, { status: 200 });
+    //
+    // `_debug` echoes back WHAT WE RECEIVED, because Vercel does not log
+    // request bodies and GHL's execution log does show the response. It is
+    // the only way to see what GHL actually sent. Key names only, plus the
+    // message value — no other field values, so no contact PII is echoed.
+    return NextResponse.json(
+      {
+        found: false,
+        reason: 'no_code',
+        _debug: {
+          receivedKeys: Object.keys(body).sort(),
+          messageSeen: typeof body.message === 'string' ? body.message.slice(0, 200) : null,
+          messageType: typeof body.message,
+        },
+      },
+      { status: 200 },
+    );
   }
 
   let record: WaAttribution | null;
