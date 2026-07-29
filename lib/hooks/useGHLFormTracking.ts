@@ -80,20 +80,20 @@ function fireConversion(formLabel: string, eventId?: string) {
     window.gtag('event', 'generate_lead', ga4Params);
   }
 
-  // 4. Meta `Lead` — BROWSER PIXEL ONLY.
+  // 4. Meta `Lead` — browser pixel AND our own server-side CAPI, sharing
+  //    `eventId` so Meta collapses them into one event.
   //
-  // GHL still owns the server side: its Conversions API workflow sends Lead
-  // with hashed email/phone, which we can't read out of the cross-origin
-  // iframe. But GHL cannot send `fbc` / `fbp` — those are first-party cookies
-  // only the browser can read — which is why the server-only Lead scored 4.6
-  // match quality. This half contributes exactly those two fields.
+  // GHL's Conversions API action cannot send `event_id` (its custom mapping
+  // exposes FBCLID only), so it cannot deduplicate against us — its event is
+  // therefore renamed to `SubmitApplication` and we own `Lead` outright.
   //
-  // Dedup: `eventId` was minted before the iframe rendered and passed into the
-  // form src as `event_id`, so GHL can echo the same value on its Lead. Both
-  // halves then collapse into one event. We deliberately do NOT also POST to
-  // /api/meta-capi here — that would be a third copy of the same Lead.
+  // Owning both halves is what makes the server copy safe: the dedup key is
+  // literally the same variable on both sides. It also buys back the visitors
+  // the browser pixel loses — an ad blocker that kills connect.facebook.net
+  // does not touch a same-origin POST to /api/meta-capi, and that route
+  // rebuilds `fbc` from the stored fbclid when the cookie is missing.
   if (BROWSER_LEAD_ENABLED && eventId) {
-    fireMetaEvent('Lead', { form_label: formLabel }, { eventId, browserOnly: true });
+    fireMetaEvent('Lead', { form_label: formLabel }, { eventId });
   }
 }
 

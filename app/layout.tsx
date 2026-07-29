@@ -139,12 +139,13 @@ export default function RootLayout({
           `}
         </Script>
         {/* Meta (Facebook) Pixel — browser side. CAPI server side fires from /api/meta-capi.
-            Gated to the production hostname: preview deployments
+            Gated to the production hostnames: preview deployments
             (nwl-landing*.vercel.app) and localhost were sending live traffic
-            into the dataset. Mirror of META_HOST_RE in lib/meta-pixel.ts. */}
+            into the dataset. Covers nwl.mx AND nwl.com.mx — both serve this
+            app. Mirror of META_HOST_RE in lib/meta-pixel.ts. */}
         <Script id="meta-pixel-init" strategy="afterInteractive">
           {`
-            if (/(^|\\.)nwl\\.com\\.mx$/.test(location.hostname)) {
+            if (/(^|\\.)nwl\\.(com\\.)?mx$/.test(location.hostname)) {
             !function(f,b,e,v,n,t,s)
             {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
             n.callMethod.apply(n,arguments):n.queue.push(arguments)};

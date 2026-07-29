@@ -8,10 +8,10 @@ import { getFbclid } from '@/lib/utm';
 /*    2. server CAPI     — POST /api/meta-capi                          */
 /*  Meta deduplicates the pair via the shared event_id.                */
 /*                                                                     */
-/*  `browserOnly` skips step 2 — used for `Lead`, where the SERVER     */
-/*  side is owned by GoHighLevel (it has the hashed email/phone we     */
-/*  can't read out of the cross-origin form iframe). The browser half  */
-/*  exists to contribute `fbc` + `fbp`, which GHL cannot send at all.  */
+/*  `browserOnly` skips step 2. Currently unused: GHL's CAPI action    */
+/*  cannot emit an `event_id`, so it can never dedup against us — its  */
+/*  event is renamed `SubmitApplication` instead, leaving every event  */
+/*  named here owned end-to-end by this codebase.                      */
 /* ------------------------------------------------------------------ */
 
 export type MetaEventName = 'Lead' | 'ViewContent' | 'Contact' | 'CompleteRegistration';
@@ -23,8 +23,12 @@ export type MetaEventName = 'Lead' | 'ViewContent' | 'Contact' | 'CompleteRegist
  * live Pixel traffic into the production dataset, which both pollutes the
  * numbers and risks duplicate events. Keep this in sync with the equivalent
  * inline check in app/layout.tsx, which gates `fbq` init itself.
+ *
+ * `nwl.mx` / `www.nwl.mx` are NOT redirects — they serve this app directly,
+ * so they must be allowed or Meta tracking goes silent on them.
+ * `nwl.com.mx` 308s to `www.nwl.com.mx` (query string preserved).
  */
-export const META_HOST_RE = /(^|\.)nwl\.com\.mx$/;
+export const META_HOST_RE = /(^|\.)nwl\.(com\.)?mx$/;
 
 export function isMetaTrackingHost(): boolean {
   if (typeof window === 'undefined') return false;
