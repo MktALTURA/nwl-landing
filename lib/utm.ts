@@ -36,6 +36,9 @@ export interface UTMData {
 
 const STORAGE_FIRST = 'nwl_utm_first';
 const STORAGE_LAST = 'nwl_utm_last';
+// First landing page of the visit, kept separately from STORAGE_FIRST so a
+// direct/untagged first visit never locks first-touch UTMs to "no source".
+const STORAGE_FIRST_LANDING = 'nwl_landing_first';
 
 /* ── Self-referral detection ──────────────────────────────────────── */
 
@@ -190,6 +193,149 @@ function loadUTMData(key: string): UTMData | null {
   }
 }
 
+/* ── Click IDs (fbclid, gclid, …) ─────────────────────────────────── */
+
+// Ad-platform click identifiers. These live only in the inbound URL, never in
+// UTM storage, and they are the single most valuable attribution signal we get
+// — `fbclid` is what lets Meta tie a conversion back to a specific ad.
+const CLICK_ID_PARAMS = ['fbclid', 'gclid', 'gbraid', 'wbraid', 'msclkid'] as const;
+
+type ClickIdKey = (typeof CLICK_ID_PARAMS)[number];
+
+// Stored with the capture timestamp, because Meta's `fbc` is
+// `fb.1.<capturedAtMs>.<fbclid>` — the timestamp must be when the click was
+// observed, not when we happen to send the event.
+interface StoredClickId {
+  v: string;
+  ts: number; // epoch ms at capture
+}
+
+const STORAGE_CLICK_IDS = 'nwl_click_ids';
+
+// Meta's click-attribution window is 7 days; a click ID older than that can no
+// longer be attributed, so we stop carrying it around.
+const CLICK_ID_TTL_MS = 7 * 24 * 60 * 60 * 1000;
+
+// Legacy location — click IDs used to live in sessionStorage, one key each.
+// Still read (never written) so a visitor mid-session isn't dropped on deploy.
+const LEGACY_SESSION_PREFIX = 'nwl_track_';
+
+function safeLocalGet(key: string): string | null {
+  try {
+    return localStorage.getItem(key);
+  } catch {
+    return null;
+  }
+}
+
+function safeLocalSet(key: string, value: string): void {
+  try {
+    localStorage.setItem(key, value);
+  } catch {
+    /* localStorage full or unavailable — fail silently */
+  }
+}
+
+function safeSessionGet(key: string): string | null {
+  try {
+    return sessionStorage.getItem(key);
+  } catch {
+    return null;
+  }
+}
+
+function loadClickIds(): Partial<Record<ClickIdKey, StoredClickId>> {
+  try {
+    const raw = safeLocalGet(STORAGE_CLICK_IDS);
+    const parsed = raw ? (JSON.parse(raw) as Partial<Record<ClickIdKey, StoredClickId>>) : {};
+    const now = Date.now();
+    const fresh: Partial<Record<ClickIdKey, StoredClickId>> = {};
+    for (const key of CLICK_ID_PARAMS) {
+      const entry = parsed[key];
+      if (entry?.v && typeof entry.ts === 'number' && now - entry.ts < CLICK_ID_TTL_MS) {
+        fresh[key] = entry;
+      }
+    }
+    return fresh;
+  } catch {
+    return {};
+  }
+}
+
+/**
+ * Capture click IDs from the current URL into localStorage, stamped with the
+ * time of capture. First-touch wins within the TTL: a click ID is only
+ * replaced by a *newer* click, never by a stale re-read.
+ */
+export function captureClickIds(): void {
+  if (typeof window === 'undefined') return;
+
+  const params = new URLSearchParams(window.location.search);
+  const stored = loadClickIds();
+  let changed = false;
+
+  for (const key of CLICK_ID_PARAMS) {
+    const value = params.get(key);
+    if (!value) continue;
+    // A fresh click always wins — it's the most recent ad interaction.
+    if (stored[key]?.v !== value) {
+      stored[key] = { v: value, ts: Date.now() };
+      changed = true;
+    }
+  }
+
+  if (changed) safeLocalSet(STORAGE_CLICK_IDS, JSON.stringify(stored));
+}
+
+/**
+ * Current click IDs: live URL params first, then stored (localStorage, then
+ * the legacy sessionStorage keys). Values only — see `getFbclid()` when the
+ * capture timestamp matters.
+ */
+export function getClickIds(): Partial<Record<ClickIdKey, string>> {
+  if (typeof window === 'undefined') return {};
+
+  const params = new URLSearchParams(window.location.search);
+  const stored = loadClickIds();
+  const out: Partial<Record<ClickIdKey, string>> = {};
+
+  for (const key of CLICK_ID_PARAMS) {
+    const value =
+      params.get(key) ||
+      stored[key]?.v ||
+      safeSessionGet(`${LEGACY_SESSION_PREFIX}${key}`) ||
+      undefined;
+    if (value) out[key] = value;
+  }
+  return out;
+}
+
+/**
+ * `fbclid` plus the epoch-ms timestamp at which it was captured — the two
+ * halves Meta needs to reconstruct `fbc` as `fb.1.<ts>.<fbclid>` when the
+ * `_fbc` cookie is missing (pixel blocked, or a cross-tab WhatsApp handoff).
+ */
+export function getFbclid(): { fbclid: string; ts: number } | null {
+  if (typeof window === 'undefined') return null;
+
+  const fromUrl = new URLSearchParams(window.location.search).get('fbclid');
+  if (fromUrl) return { fbclid: fromUrl, ts: Date.now() };
+
+  const stored = loadClickIds().fbclid;
+  if (stored) return { fbclid: stored.v, ts: stored.ts };
+
+  const legacy = safeSessionGet(`${LEGACY_SESSION_PREFIX}fbclid`);
+  // No capture time recorded for legacy entries — "now" is the safest guess
+  // and stays inside the 7-day window.
+  return legacy ? { fbclid: legacy, ts: Date.now() } : null;
+}
+
+/** First landing page of the visitor, independent of whether it carried UTMs. */
+export function getFirstLandingPage(): string | null {
+  if (typeof window === 'undefined') return null;
+  return safeLocalGet(STORAGE_FIRST_LANDING);
+}
+
 /* ── Public API ───────────────────────────────────────────────────── */
 
 /**
@@ -201,6 +347,14 @@ function loadUTMData(key: string): UTMData | null {
 export function captureUTMs(): void {
   if (typeof window === 'undefined') return;
 
+  // 0. Click IDs and the landing page are captured unconditionally — they
+  //    matter even when the visit carries no UTMs at all (Meta auto-tagging
+  //    appends `fbclid` without any utm_*).
+  captureClickIds();
+  if (!safeLocalGet(STORAGE_FIRST_LANDING)) {
+    safeLocalSet(STORAGE_FIRST_LANDING, window.location.pathname);
+  }
+
   // 1. Try explicit UTM params in URL first
   let utms = parseUTMsFromURL();
 
@@ -209,7 +363,7 @@ export function captureUTMs(): void {
     utms = inferUTMsFromReferrer();
   }
 
-  if (!utms) return; // direct traffic with no referrer — nothing to store
+  if (!utms) return; // direct traffic with no referrer — nothing more to store
 
   const data: UTMData = {
     ...utms,
@@ -242,29 +396,6 @@ export function getLastTouchUTMs(): UTMData | null {
 
 /* ── GHL iframe param passing ─────────────────────────────────────── */
 
-// Click IDs and other non-UTM tracking params worth forwarding to GHL.
-// These live only in the inbound URL (never in our UTM storage), so we
-// persist them to sessionStorage to survive internal navigation within
-// the visit.
-const CLICK_ID_PARAMS = ['fbclid', 'gclid', 'gbraid', 'wbraid', 'msclkid'];
-const SESSION_PREFIX = 'nwl_track_';
-
-function safeSessionGet(key: string): string | null {
-  try {
-    return sessionStorage.getItem(key);
-  } catch {
-    return null;
-  }
-}
-
-function safeSessionSet(key: string, value: string): void {
-  try {
-    sessionStorage.setItem(key, value);
-  } catch {
-    /* sessionStorage unavailable — fail silently */
-  }
-}
-
 /**
  * Build the GHL form iframe `src` with tracking params appended.
  *
@@ -278,20 +409,25 @@ function safeSessionSet(key: string, value: string): void {
  *   3. Stored last-touch UTMs (localStorage, cross-session)
  * Plus first-touch UTMs as ft_* params and landing_page / ft_landing_page.
  *
- * Pass the bare form URL; returns it with a query string appended.
+ * Pass the bare form URL; returns it with a query string appended. `extra`
+ * carries per-form values that aren't attribution — notably `event_id`, the
+ * dedup key shared with the browser-side Meta Lead (see lib/meta-pixel.ts).
  */
-export function buildGHLFormSrc(baseUrl: string): string {
+export function buildGHLFormSrc(
+  baseUrl: string,
+  extra?: Record<string, string | undefined>,
+): string {
   if (typeof window === 'undefined') return baseUrl;
 
   const url = new URL(window.location.href);
   const params = new URLSearchParams();
 
-  // 1. Click IDs (fbclid, gclid, …): capture from URL → sessionStorage,
-  //    then read back so they persist across internal navigation.
-  for (const key of CLICK_ID_PARAMS) {
-    const fromUrl = url.searchParams.get(key);
-    if (fromUrl) safeSessionSet(`${SESSION_PREFIX}${key}`, fromUrl);
-    const value = fromUrl || safeSessionGet(`${SESSION_PREFIX}${key}`);
+  // 1. Click IDs (fbclid, gclid, …) — live URL, then 7-day localStorage.
+  //    captureClickIds() runs on every page load via <UTMCapture />, so this
+  //    is a read; calling it here too keeps forms correct if the visitor
+  //    landed straight on a route that renders before the capture effect.
+  captureClickIds();
+  for (const [key, value] of Object.entries(getClickIds())) {
     if (value) params.set(key, value);
   }
 
@@ -311,7 +447,15 @@ export function buildGHLFormSrc(baseUrl: string): string {
       const value = firstTouch[key];
       if (value) params.set(`ft_${key}`, value);
     }
-    if (firstTouch.landing_page) params.set('ft_landing_page', firstTouch.landing_page);
+  }
+  // First landing page is tracked separately so it survives an untagged
+  // first visit, which is exactly the case where GHL shows "sin identificar".
+  const firstLanding = firstTouch?.landing_page ?? getFirstLandingPage();
+  if (firstLanding) params.set('ft_landing_page', firstLanding);
+
+  // 4. Per-form extras (event_id, …).
+  for (const [key, value] of Object.entries(extra ?? {})) {
+    if (value) params.set(key, value);
   }
 
   const qs = params.toString();

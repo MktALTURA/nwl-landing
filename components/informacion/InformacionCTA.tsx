@@ -4,6 +4,7 @@ import { useEffect, useRef, useCallback } from 'react';
 import { FaWhatsapp } from 'react-icons/fa';
 import { useLanguage } from '@/lib/i18n/LanguageContext';
 import { useGHLFormTracking } from '@/lib/hooks/useGHLFormTracking';
+import { useFormEventId } from '@/lib/hooks/useFormEventId';
 import { buildGHLFormSrc } from '@/lib/utm';
 import SouthernCross from '@/components/ui/SouthernCross';
 import type { InformacionPage } from '@/lib/informacion-data';
@@ -16,6 +17,8 @@ interface InformacionCTAProps {
 export default function InformacionCTA({ page }: InformacionCTAProps) {
   const { locale, t } = useLanguage();
   const formContainerRef = useRef<HTMLDivElement>(null);
+  // Shared Meta event_id for this submission (browser pixel + GHL server side).
+  const eventId = useFormEventId();
 
   const whatsappNumber = '5214421227791';
 
@@ -28,7 +31,9 @@ export default function InformacionCTA({ page }: InformacionCTAProps) {
     const iframe = document.createElement('iframe');
     // Append tracking params directly to the iframe src — cross-origin
     // iframes don't inherit the parent URL, so this is how GHL sees them.
-    iframe.src = buildGHLFormSrc(`https://api.leadconnectorhq.com/widget/form/${formId}`);
+    iframe.src = buildGHLFormSrc(`https://api.leadconnectorhq.com/widget/form/${formId}`, {
+      event_id: eventId,
+    });
     iframe.style.cssText = 'width:100%;height:1400px;border:none;';
     iframe.id = `inline-${formId}`;
     iframe.setAttribute('data-layout', "{'id':'INLINE'}");
@@ -55,14 +60,14 @@ export default function InformacionCTA({ page }: InformacionCTAProps) {
       try { script.parentNode?.removeChild(script); } catch { /* noop */ }
       container.innerHTML = '';
     };
-  }, []);
+  }, [eventId]);
 
   useEffect(() => {
     const cleanup = buildIframe(t.finalCta.formId, t.finalCta.formName, t.finalCta.formTitle);
     return cleanup;
   }, [locale, t.finalCta.formId, t.finalCta.formName, t.finalCta.formTitle, buildIframe]);
 
-  useGHLFormTracking(formContainerRef, `informacion_${page.slug}`);
+  useGHLFormTracking(formContainerRef, `informacion_${page.slug}`, eventId);
 
   return (
     <section id="informacion-form" className="py-16 md:py-24 nwl-bg-dawn text-paper relative overflow-hidden">

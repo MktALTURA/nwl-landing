@@ -4,6 +4,7 @@ import Script from "next/script";
 import { SITE_URL, SITE_NAME, PAGE_SEO } from "@/lib/seo";
 import { OrganizationJsonLd, WebSiteJsonLd } from "@/components/JsonLd";
 import MetaTracking from "@/components/MetaTracking";
+import UTMCapture from "@/components/UTMCapture";
 import "./globals.css";
 
 // Gabarito — the official NWL Australian School brand typeface (display → body).
@@ -116,6 +117,11 @@ export default function RootLayout({
         />
         <OrganizationJsonLd />
         <WebSiteJsonLd />
+        {/* Attribution capture lives in the ROOT layout, not (main): the SEO
+            /informacion pages, /campus, /padres and /brochures are ad and
+            search landing pages, and previously none of them persisted the
+            inbound utm_* / fbclid at all. */}
+        <UTMCapture />
         <MetaTracking />
         {children}
         {/* Google Ads + GA4 (shared gtag.js) */}
@@ -132,9 +138,13 @@ export default function RootLayout({
             gtag('config', 'G-0D697PBCB2');
           `}
         </Script>
-        {/* Meta (Facebook) Pixel — browser side. CAPI server side fires from /api/meta-capi */}
+        {/* Meta (Facebook) Pixel — browser side. CAPI server side fires from /api/meta-capi.
+            Gated to the production hostname: preview deployments
+            (nwl-landing*.vercel.app) and localhost were sending live traffic
+            into the dataset. Mirror of META_HOST_RE in lib/meta-pixel.ts. */}
         <Script id="meta-pixel-init" strategy="afterInteractive">
           {`
+            if (/(^|\\.)nwl\\.com\\.mx$/.test(location.hostname)) {
             !function(f,b,e,v,n,t,s)
             {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
             n.callMethod.apply(n,arguments):n.queue.push(arguments)};
@@ -145,6 +155,7 @@ export default function RootLayout({
             'https://connect.facebook.net/en_US/fbevents.js');
             fbq('init', '${process.env.NEXT_PUBLIC_META_PIXEL_ID}');
             fbq('track', 'PageView');
+            }
           `}
         </Script>
         <noscript>

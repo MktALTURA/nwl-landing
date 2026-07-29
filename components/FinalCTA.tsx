@@ -6,12 +6,16 @@ import { FiCalendar, FiFileText } from 'react-icons/fi';
 import { FaWhatsapp } from 'react-icons/fa';
 import { useLanguage } from '@/lib/i18n/LanguageContext';
 import { useGHLFormTracking } from '@/lib/hooks/useGHLFormTracking';
+import { useFormEventId } from '@/lib/hooks/useFormEventId';
 import { buildGHLFormSrc } from '@/lib/utm';
 import SouthernCross from './ui/SouthernCross';
 
 export default function FinalCTA() {
   const { locale, t } = useLanguage();
   const formContainerRef = useRef<HTMLDivElement>(null);
+  // Minted before the iframe exists so GHL and the browser pixel can agree
+  // on one Meta event_id for this submission.
+  const eventId = useFormEventId();
 
   // Imperatively manage iframe + GHL script so React never reconciles DOM
   // that the GHL embed library may have mutated.
@@ -25,7 +29,9 @@ export default function FinalCTA() {
     const iframe = document.createElement('iframe');
     // Append tracking params directly to the iframe src — cross-origin
     // iframes don't inherit the parent URL, so this is how GHL sees them.
-    iframe.src = buildGHLFormSrc(`https://api.leadconnectorhq.com/widget/form/${formId}`);
+    iframe.src = buildGHLFormSrc(`https://api.leadconnectorhq.com/widget/form/${formId}`, {
+      event_id: eventId,
+    });
     iframe.style.cssText = 'width:100%;height:1400px;border:none;';
     iframe.id = `inline-${formId}`;
     iframe.setAttribute('data-layout', "{'id':'INLINE'}");
@@ -53,7 +59,7 @@ export default function FinalCTA() {
       try { script.parentNode?.removeChild(script); } catch { /* noop */ }
       container.innerHTML = '';
     };
-  }, []);
+  }, [eventId]);
 
   // Re-build iframe whenever locale changes
   useEffect(() => {
@@ -62,7 +68,7 @@ export default function FinalCTA() {
   }, [locale, t.finalCta.formId, t.finalCta.formName, t.finalCta.formTitle, buildIframe]);
 
   // Track GHL form submissions via postMessage + height-change fallback (no URL changes)
-  useGHLFormTracking(formContainerRef, 'home_form');
+  useGHLFormTracking(formContainerRef, 'home_form', eventId);
 
   // Scroll the form into view (works with GSAP ScrollSmoother)
   const scrollToForm = () => {

@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, type RefObject } from 'react';
 import { getFirstTouchUTMs, getLastTouchUTMs } from '@/lib/utm';
+import { fireMetaEvent } from '@/lib/meta-pixel';
 
 /* ------------------------------------------------------------------ */
 /*  GHL Form Submission Tracking Hook                                  */
@@ -19,9 +20,18 @@ const GHL_TRUSTED_ORIGINS = [
   'https://api.leadconnectorhq.com',
   'https://widgets.gohighlevel.com',
   'https://link.msgsndr.com',
+  // GHL white-label domain — serves the careers and partner-application forms.
+  // Without it those submissions post a message we silently ignore.
+  'https://api.nwl.com.mx',
 ];
 
-function fireConversion(formLabel: string) {
+// Browser-side Meta `Lead`. Off unless explicitly enabled, because it only
+// deduplicates correctly once GHL echoes our `event_id` back on its own
+// server-side Lead. Flip the env var off to fall back to server-only in one
+// redeploy if Events Manager shows Lead volume doubling.
+const BROWSER_LEAD_ENABLED = process.env.NEXT_PUBLIC_META_BROWSER_LEAD === 'true';
+
+function fireConversion(formLabel: string, eventId?: string) {
   console.log(`[NWL] Form submission detected — ${formLabel}`);
 
   const firstTouch = getFirstTouchUTMs();
@@ -70,20 +80,51 @@ function fireConversion(formLabel: string) {
     window.gtag('event', 'generate_lead', ga4Params);
   }
 
-  // NOTE: The Meta `Lead` event is intentionally NOT fired here. GHL owns the
-  // Meta Lead conversion — it sends it server-side via its Conversions API
-  // workflow with hashed email/phone (high match quality). Firing it here too
-  // would double-count, since the site and GHL can't share an event_id across
-  // the form iframe. Site-side Meta events (Contact/ViewContent/PageView) live
-  // in components/MetaTracking.tsx and app/layout.tsx.
+  // 4. Meta `Lead` — BROWSER PIXEL ONLY.
+  //
+  // GHL still owns the server side: its Conversions API workflow sends Lead
+  // with hashed email/phone, which we can't read out of the cross-origin
+  // iframe. But GHL cannot send `fbc` / `fbp` — those are first-party cookies
+  // only the browser can read — which is why the server-only Lead scored 4.6
+  // match quality. This half contributes exactly those two fields.
+  //
+  // Dedup: `eventId` was minted before the iframe rendered and passed into the
+  // form src as `event_id`, so GHL can echo the same value on its Lead. Both
+  // halves then collapse into one event. We deliberately do NOT also POST to
+  // /api/meta-capi here — that would be a third copy of the same Lead.
+  if (BROWSER_LEAD_ENABLED && eventId) {
+    fireMetaEvent('Lead', { form_label: formLabel }, { eventId, browserOnly: true });
+  }
 }
 
 export function useGHLFormTracking(
   formContainerRef: RefObject<HTMLDivElement | null>,
   formLabel: string,
+  /** Dedup id already handed to GHL via the iframe `event_id` param. */
+  eventId?: string,
 ) {
   const submittedRef = useRef(false);
   const mountTimeRef = useRef(Date.now());
+  // Whether the visitor has ever put focus inside the form iframe.
+  const interactedRef = useRef(false);
+
+  // ── Signal 0: did the visitor actually touch the form? ──
+  // We can't see into a cross-origin iframe, but focus tells us enough: when
+  // the window loses focus and the active element is our iframe, the click
+  // went into the form. Nothing can be submitted without that happening
+  // first, so this is the gate that keeps GHL's chattier lifecycle messages
+  // from being mistaken for a conversion.
+  useEffect(() => {
+    const handleBlur = () => {
+      const container = formContainerRef.current;
+      const active = document.activeElement;
+      if (container && active instanceof HTMLIFrameElement && container.contains(active)) {
+        interactedRef.current = true;
+      }
+    };
+    window.addEventListener('blur', handleBlur);
+    return () => window.removeEventListener('blur', handleBlur);
+  }, [formContainerRef]);
 
   // ── Signal 1: postMessage from GHL iframe ──
   useEffect(() => {
@@ -106,17 +147,27 @@ export function useGHLFormTracking(
       // submit a form in under 5 seconds, so ignore early messages.
       const tooEarly = Date.now() - mountTimeRef.current < 5000;
 
-      const isSubmission = !tooEarly && (
-        (Array.isArray(data) && data[0] === 'set-sticky-contacts' && data[1] === '_ud') ||
-        (Array.isArray(data) && data[0] === 'modify-parent-url') ||
-        (data?.action === 'modify-parent-url') ||
-        (data?.type === 'form:submit') ||
-        (data?.event === 'form_submitted')
-      );
+      // Messages that mean "submitted" and nothing else — trusted on their own.
+      const explicit =
+        data?.type === 'form:submit' ||
+        data?.type === 'FORM_SUBMITTED' ||
+        data?.event === 'form_submitted';
+
+      // Lifecycle messages that merely *correlate* with submission. GHL emits
+      // set-sticky-contacts on load too, and it has been observed arriving
+      // well past the 5s gate — so these additionally require that the
+      // visitor actually interacted with the form.
+      const heuristic =
+        interactedRef.current &&
+        ((Array.isArray(data) && data[0] === 'set-sticky-contacts' && data[1] === '_ud') ||
+          (Array.isArray(data) && data[0] === 'modify-parent-url') ||
+          data?.action === 'modify-parent-url');
+
+      const isSubmission = !tooEarly && (explicit || heuristic);
 
       if (isSubmission && !submittedRef.current) {
         submittedRef.current = true;
-        fireConversion(formLabel);
+        fireConversion(formLabel, eventId);
 
         // If GHL changed the URL via modify-parent-url, restore it.
         setTimeout(() => {
@@ -129,7 +180,7 @@ export function useGHLFormTracking(
 
     window.addEventListener('message', handleMessage);
     return () => window.removeEventListener('message', handleMessage);
-  }, [formLabel]);
+  }, [formLabel, eventId]);
 
   // ── Signal 2: MutationObserver on iframe height shrink (fallback) ──
   useEffect(() => {
@@ -141,13 +192,15 @@ export function useGHLFormTracking(
       const h = parseInt(iframe.style.height, 10);
 
       // GHL shrinks iframe after submission — enforce minimum height.
-      // Same 5-second gate as Signal 1 to avoid false positives on load.
+      // Same 5-second gate as Signal 1, plus the interaction gate: a form the
+      // visitor never touched cannot have been submitted, whatever the embed
+      // does to its own height.
       const tooEarly = Date.now() - mountTimeRef.current < 5000;
       if (h > 0 && h < 500) {
         iframe.style.height = '500px';
-        if (!submittedRef.current && !tooEarly) {
+        if (!submittedRef.current && !tooEarly && interactedRef.current) {
           submittedRef.current = true;
-          fireConversion(formLabel);
+          fireConversion(formLabel, eventId);
         }
       }
     });
@@ -161,5 +214,5 @@ export function useGHLFormTracking(
       });
     }
     return () => observer.disconnect();
-  }, [formContainerRef, formLabel]);
+  }, [formContainerRef, formLabel, eventId]);
 }

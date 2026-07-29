@@ -1,7 +1,6 @@
 import SmoothScroll from "@/components/SmoothScroll";
 import Navigation from "@/components/Navigation";
 import FixedCTAButton from "@/components/FixedCTAButton";
-import UTMCapture from "@/components/UTMCapture";
 import { LanguageProvider } from "@/lib/i18n/LanguageContext";
 import { BrochureProvider } from "@/lib/BrochureContext";
 import MetadataUpdater from "@/components/MetadataUpdater";
@@ -15,7 +14,7 @@ export default function MainLayout({
   return (
     <LanguageProvider>
       <BrochureProvider>
-        <UTMCapture />
+        {/* <UTMCapture /> moved to the root layout so every route captures. */}
         <MetadataUpdater />
         {/* Navigation + fixed CTA live outside #smooth-wrapper so
             position: fixed works relative to the viewport, not the

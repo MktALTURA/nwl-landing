@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import { FaWhatsapp, FaPhone } from 'react-icons/fa';
 import { useLanguage } from '@/lib/i18n/LanguageContext';
 import { useGHLFormTracking } from '@/lib/hooks/useGHLFormTracking';
+import { useFormEventId } from '@/lib/hooks/useFormEventId';
 import { buildGHLFormSrc } from '@/lib/utm';
 
 interface CampusCTAProps {
@@ -16,6 +17,8 @@ interface CampusCTAProps {
 export default function CampusCTA({ campusName, phone, phoneLink }: CampusCTAProps) {
   const { locale, t } = useLanguage();
   const formContainerRef = useRef<HTMLDivElement>(null);
+  // Shared Meta event_id for this submission (browser pixel + GHL server side).
+  const eventId = useFormEventId();
 
   // Imperatively manage iframe + GHL script (same pattern as FinalCTA)
   const buildIframe = useCallback((formId: string, formName: string, formTitle: string) => {
@@ -26,7 +29,9 @@ export default function CampusCTA({ campusName, phone, phoneLink }: CampusCTAPro
 
     // Append tracking params directly to the iframe src — cross-origin
     // iframes don't inherit the parent URL, so this is how GHL sees them.
-    const iframeSrc = buildGHLFormSrc(`https://api.leadconnectorhq.com/widget/form/${formId}`);
+    const iframeSrc = buildGHLFormSrc(`https://api.leadconnectorhq.com/widget/form/${formId}`, {
+      event_id: eventId,
+    });
 
     const iframe = document.createElement('iframe');
     iframe.src = iframeSrc;
@@ -56,7 +61,7 @@ export default function CampusCTA({ campusName, phone, phoneLink }: CampusCTAPro
       try { script.parentNode?.removeChild(script); } catch { /* noop */ }
       container.innerHTML = '';
     };
-  }, []);
+  }, [eventId]);
 
   useEffect(() => {
     const cleanup = buildIframe(t.finalCta.formId, t.finalCta.formName, t.finalCta.formTitle);
@@ -64,7 +69,11 @@ export default function CampusCTA({ campusName, phone, phoneLink }: CampusCTAPro
   }, [locale, t.finalCta.formId, t.finalCta.formName, t.finalCta.formTitle, buildIframe]);
 
   // Track GHL form submissions via postMessage + height-change fallback (no URL changes)
-  useGHLFormTracking(formContainerRef, `campus_${campusName?.toLowerCase().replace(/\s+/g, '_') || 'unknown'}_form`);
+  useGHLFormTracking(
+    formContainerRef,
+    `campus_${campusName?.toLowerCase().replace(/\s+/g, '_') || 'unknown'}_form`,
+    eventId,
+  );
 
   return (
     <section id="campus-admissions" className="py-12 md:py-16 nwl-bg-dawn-deep text-white relative overflow-hidden">
