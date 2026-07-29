@@ -24,9 +24,12 @@ export type MetaEventName = 'Lead' | 'ViewContent' | 'Contact' | 'CompleteRegist
  * numbers and risks duplicate events. Keep this in sync with the equivalent
  * inline check in app/layout.tsx, which gates `fbq` init itself.
  *
- * `nwl.mx` / `www.nwl.mx` are NOT redirects — they serve this app directly,
- * so they must be allowed or Meta tracking goes silent on them.
- * `nwl.com.mx` 308s to `www.nwl.com.mx` (query string preserved).
+ * As of 29 Jul 2026 `www.nwl.com.mx` is the sole canonical host: `nwl.mx`,
+ * `www.nwl.mx` and `nwl.com.mx` all 308 to it, preserving the query string.
+ * The pattern stays deliberately permissive rather than pinning the canonical
+ * host, so tracking doesn't go silent if a redirect is ever removed or a new
+ * `*.nwl.mx` alias is pointed at the project. Preview deploys and localhost
+ * are still excluded, which is the part that matters.
  */
 export const META_HOST_RE = /(^|\.)nwl\.(com\.)?mx$/;
 

@@ -49,10 +49,19 @@ const STORAGE_FIRST_LANDING = 'nwl_landing_first';
 // goes stale when the production domain changes.
 const SELF_HOSTS = [
   'nwl.com.mx',
+  // nwl.mx 308s to www.nwl.com.mx, but a visitor mid-session before that
+  // redirect existed can still carry it as a referrer.
+  'nwl.mx',
   'newlandschool.com',
   'newlandschool.edu.mx',
   'localhost',
   'vercel.app',
+  // Our own tooling. Observed live: a first-touch of
+  // {utm_source: 'vercel.com', utm_medium: 'referral'} was pinned in
+  // localStorage from clicking through the Vercel dashboard — and because
+  // first-touch never overwrites, it stuck for months. No real visitor's
+  // journey begins at a deploy dashboard.
+  'vercel.com',
 ];
 
 function isSelfHost(host: string): boolean {
