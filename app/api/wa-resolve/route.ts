@@ -107,7 +107,11 @@ export async function POST(request: NextRequest) {
 
   const token = extractToken(body.token) ?? extractToken(body.message);
   if (!token) {
-    return NextResponse.json({ error: 'No reference code found' }, { status: 400 });
+    // 200, not 400: this is the normal case for any inbound message that
+    // simply has no reference code. It lets the GHL workflow run WITHOUT a
+    // message-body filter and branch on a single condition (`found`), instead
+    // of needing to tell HTTP error codes apart. Nothing is wrong here.
+    return NextResponse.json({ found: false, reason: 'no_code' }, { status: 200 });
   }
 
   let record: WaAttribution | null;
@@ -120,8 +124,9 @@ export async function POST(request: NextRequest) {
 
   if (!record) {
     // Expired (>7 days) or never stored. Not an error worth alarming on —
-    // GHL should just leave the contact's attribution as-is.
-    return NextResponse.json({ found: false, token }, { status: 404 });
+    // GHL should just leave the contact's attribution as-is. Same 200 +
+    // `found: false` shape as the no-code case, so one condition covers both.
+    return NextResponse.json({ found: false, reason: 'expired_or_unknown', token }, { status: 200 });
   }
 
   const response: Record<string, unknown> = {
