@@ -129,9 +129,16 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ found: false, reason: 'expired_or_unknown', token }, { status: 200 });
   }
 
+  const fields = toContactFields(record);
+
   const response: Record<string, unknown> = {
     found: true,
-    attribution: toContactFields(record),
+    // Flat top-level copies alongside the nested object. GHL's webhook
+    // response picker frequently can't address a nested path like
+    // `attribution.utm_source`, so every field is also reachable as a
+    // top-level key. Same values, two shapes — map whichever GHL offers.
+    ...fields,
+    attribution: fields,
   };
 
   if (isTruthyFlag(body.sendLead)) {
