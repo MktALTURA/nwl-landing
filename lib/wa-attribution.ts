@@ -74,7 +74,10 @@ export function buildWhatsAppHref(href: string, token: string): string {
   // two the same.
   url.searchParams.delete('text');
   const others = url.searchParams.toString();
-  const textParam = `text=${encodeURIComponent(`${base} [${token}]`)}`;
+  // "Ref" makes the code read as a reference number rather than a random
+  // string, so a parent is less likely to delete it before sending.
+  // WA_TOKEN_GROUP strips the whole bracket group, so this stays idempotent.
+  const textParam = `text=${encodeURIComponent(`${base} [Ref ${token}]`)}`;
   url.search = others ? `${others}&${textParam}` : textParam;
 
   return url.toString();
