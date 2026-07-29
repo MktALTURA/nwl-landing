@@ -6,7 +6,7 @@ import {
   markWaResolved,
   type WaAttribution,
 } from '@/lib/db/wa-attribution';
-import { META_MAX_EVENT_AGE_SECONDS, buildFbc, sendMetaEvent } from '@/lib/meta-capi';
+import { META_MAX_EVENT_AGE_SECONDS, resolveFbc, sendMetaEvent } from '@/lib/meta-capi';
 
 /* ------------------------------------------------------------------ */
 /*  POST /api/wa-resolve                                               */
@@ -133,8 +133,21 @@ async function replayToMeta(record: WaAttribution, body: Record<string, unknown>
     return { sent: false, reason: 'Click is older than Meta\'s 7-day limit' };
   }
 
-  const fbc =
-    record.fbc ?? (record.fbclid ? buildFbc(record.fbclid, record.fbclidTs) : undefined);
+  // The click's own host decides the subdomain index — the visitor may have
+  // been on nwl.mx rather than nwl.com.mx, which uses a different one.
+  let clickHost: string | undefined;
+  try {
+    clickHost = record.href ? new URL(record.href).hostname : undefined;
+  } catch {
+    /* stored href unparseable — fall back to host-free derivation */
+  }
+  const fbc = resolveFbc({
+    fbcCookie: record.fbc,
+    fbpCookie: record.fbp,
+    fbclid: record.fbclid,
+    fbclidTs: record.fbclidTs,
+    host: clickHost,
+  });
 
   // Without a click ID Meta has almost nothing to match on, and an unmatched
   // Lead only drags the dataset's match quality down. Skip it.

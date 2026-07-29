@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { buildFbc, sendMetaEvent } from '@/lib/meta-capi';
+import { resolveFbc, sendMetaEvent } from '@/lib/meta-capi';
 
 /* ------------------------------------------------------------------ */
 /*  Meta Conversions API (server-side) endpoint                        */
@@ -46,11 +46,22 @@ export async function POST(request: NextRequest) {
 
   // Cookies set by the browser pixel — primary matching signal.
   const fbp = request.cookies.get('_fbp')?.value;
-  // Prefer the _fbc cookie; if the pixel was blocked, rebuild fbc from the raw
-  // fbclid using the timestamp at which the client captured it.
-  const fbc =
-    request.cookies.get('_fbc')?.value ??
-    (body.fbclid ? buildFbc(body.fbclid, body.fbclidTs) : undefined);
+  // Prefer the real _fbc verbatim; only synthesize when the pixel was blocked
+  // and never wrote one. The page's own host decides the subdomain index —
+  // nwl.mx and nwl.com.mx do not agree on it.
+  let host: string | undefined;
+  try {
+    host = body.eventSourceUrl ? new URL(body.eventSourceUrl).hostname : undefined;
+  } catch {
+    /* malformed URL from the client — fall through to the request host */
+  }
+  const fbc = resolveFbc({
+    fbcCookie: request.cookies.get('_fbc')?.value,
+    fbpCookie: fbp,
+    fbclid: body.fbclid,
+    fbclidTs: body.fbclidTs,
+    host: host ?? request.headers.get('host') ?? undefined,
+  });
 
   const result = await sendMetaEvent({
     eventName,
