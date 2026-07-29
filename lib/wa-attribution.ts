@@ -23,6 +23,11 @@ const TOKEN_LENGTH = 6;
 
 export const WA_TOKEN_PATTERN = /NW-[23456789ABCDEFGHJKLMNPQRSTUVWXYZ]{6}/;
 
+// Strips a whole bracketed reference group containing a token — `[NW-ABC234]`,
+// `[Ref NW-ABC234]`, `[ref: NW-ABC234]`. Keeps re-stamping idempotent even if
+// the wording inside the brackets changes later.
+const WA_TOKEN_GROUP = /\s*\[[^\]]*NW-[23456789ABCDEFGHJKLMNPQRSTUVWXYZ]{6}[^\]]*\]/g;
+
 /** Default prefilled message. Ops owns this copy — keep it short. */
 const DEFAULT_MESSAGE_ES = 'Hola, quiero informes de NWL Australian School.';
 const DEFAULT_MESSAGE_EN = 'Hi, I would like information about NWL Australian School.';
@@ -57,7 +62,12 @@ export function buildWhatsAppHref(href: string, token: string): string {
   const fallback = lang === 'en' ? DEFAULT_MESSAGE_EN : DEFAULT_MESSAGE_ES;
 
   const existing = url.searchParams.get('text');
-  const base = (existing ?? fallback).replace(WA_TOKEN_PATTERN, '').replace(/\[\s*\]/g, '').trim();
+  const base = (existing ?? fallback)
+    .replace(WA_TOKEN_GROUP, '')
+    // Belt and braces: a bare token that somehow isn't bracketed.
+    .replace(WA_TOKEN_PATTERN, '')
+    .replace(/\[\s*\]/g, '')
+    .trim();
 
   // Serialise by hand: URLSearchParams encodes spaces as `+`, and wa.me links
   // are conventionally `%20`. Don't bet the prefill on WhatsApp treating the

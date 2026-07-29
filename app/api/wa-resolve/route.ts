@@ -36,6 +36,28 @@ function secretOk(request: NextRequest): boolean {
   return a.length === b.length && timingSafeEqual(a, b);
 }
 
+/**
+ * GHL's webhook action sends every custom data pair as a STRING — there is no
+ * boolean type in that UI. So `sendLead` arrives as `"true"`, never `true`,
+ * and a strict `=== true` check would silently skip the Meta replay forever
+ * while still returning a 200 with attribution. Accept what GHL can actually
+ * send.
+ */
+function isTruthyFlag(v: unknown): boolean {
+  if (v === true) return true;
+  if (typeof v === 'number') return v === 1;
+  if (typeof v !== 'string') return false;
+  return ['true', '1', 'yes', 'si', 'sí'].includes(v.trim().toLowerCase());
+}
+
+/** Blank-ish merge fields arrive as empty strings or literal unrendered tags. */
+function cleanField(v: unknown): string | undefined {
+  if (typeof v !== 'string') return undefined;
+  const s = v.trim();
+  if (!s || s.includes('{{')) return undefined;
+  return s;
+}
+
 /** Accepts a bare token or the raw inbound message text to scan. */
 function extractToken(input: unknown): string | null {
   if (typeof input !== 'string') return null;
@@ -107,8 +129,12 @@ export async function POST(request: NextRequest) {
     attribution: toContactFields(record),
   };
 
-  if (body.sendLead === true) {
+  if (isTruthyFlag(body.sendLead)) {
     response.meta = await replayToMeta(record, body);
+  } else {
+    // Make the skip visible instead of silently returning attribution only —
+    // this is the exact failure a `=== true` check used to hide.
+    response.meta = { sent: false, reason: 'sendLead not set' };
   }
 
   try {
@@ -151,7 +177,7 @@ async function replayToMeta(record: WaAttribution, body: Record<string, unknown>
 
   // Without a click ID Meta has almost nothing to match on, and an unmatched
   // Lead only drags the dataset's match quality down. Skip it.
-  if (!fbc && !record.fbp && !body.email && !body.phone) {
+  if (!fbc && !record.fbp && !cleanField(body.email) && !cleanField(body.phone)) {
     return { sent: false, reason: 'No usable identifier (no fbc/fbp/email/phone)' };
   }
 
@@ -172,8 +198,10 @@ async function replayToMeta(record: WaAttribution, body: Record<string, unknown>
       fbp: record.fbp,
       client_ip_address: record.ip,
       client_user_agent: record.ua,
-      email: typeof body.email === 'string' ? body.email : undefined,
-      phone: typeof body.phone === 'string' ? body.phone : undefined,
+      // cleanField drops empty strings and unrendered `{{merge.tags}}`, which
+      // would otherwise be hashed and sent to Meta as garbage identifiers.
+      email: cleanField(body.email),
+      phone: cleanField(body.phone),
     },
     customData: {
       lead_source: 'whatsapp',
