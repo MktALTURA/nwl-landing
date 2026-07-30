@@ -173,8 +173,17 @@ export async function POST(request: NextRequest) {
     response.meta = await replayToMeta(record, body);
   } else {
     // Make the skip visible instead of silently returning attribution only —
-    // this is the exact failure a `=== true` check used to hide.
-    response.meta = { sent: false, reason: 'sendLead not set' };
+    // this is the exact failure a `=== true` check used to hide. Echo what
+    // actually arrived: "not set" is ambiguous between the key being absent
+    // entirely and it carrying a value we rejected, and those have different
+    // fixes. `receivedKeys` shows whether GHL sent the pair at all.
+    response.meta = {
+      sent: false,
+      reason: 'sendLead not set',
+      sendLeadSeen: body.sendLead ?? null,
+      sendLeadType: typeof body.sendLead,
+      receivedKeys: Object.keys(body).sort(),
+    };
   }
 
   try {
