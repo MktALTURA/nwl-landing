@@ -50,6 +50,41 @@ function isTruthyFlag(v: unknown): boolean {
   return ['true', '1', 'yes', 'si', 'sí'].includes(v.trim().toLowerCase());
 }
 
+/**
+ * GHL nests the workflow action's "DATOS PERSONALIZADOS" pairs under a
+ * `customData` object — they are NOT merged into the top level alongside its
+ * standard fields. Observed payload keys from a real execution:
+ *
+ *   contact_id, contact_type, country, customData, date_created, first_name,
+ *   full_address, full_name, last_name, location, message, phone, tags,
+ *   triggerData, workflow
+ *
+ * So `sendLead` lives at `customData.sendLead`, while `message` and `phone`
+ * at the top level are GHL's own standard fields. Read both: custom pairs win,
+ * then fall back to the standard field of the same name — which is how we get
+ * a phone number for Meta matching even if the merge field never renders.
+ */
+function pickField(body: Record<string, unknown>, key: string): unknown {
+  const cd = body.customData;
+  let nested: Record<string, unknown> | undefined;
+
+  if (cd && typeof cd === 'object') {
+    nested = cd as Record<string, unknown>;
+  } else if (typeof cd === 'string') {
+    // Defensive: some GHL versions send customData as a JSON string.
+    try {
+      const parsed = JSON.parse(cd);
+      if (parsed && typeof parsed === 'object') nested = parsed as Record<string, unknown>;
+    } catch {
+      /* not JSON — ignore */
+    }
+  }
+
+  const fromCustom = nested?.[key];
+  if (fromCustom !== undefined && fromCustom !== null && fromCustom !== '') return fromCustom;
+  return body[key];
+}
+
 /** Blank-ish merge fields arrive as empty strings or literal unrendered tags. */
 function cleanField(v: unknown): string | undefined {
   if (typeof v !== 'string') return undefined;
@@ -114,8 +149,8 @@ export async function POST(request: NextRequest) {
   // format (`NW-` + 6 chars from a no-lookalike alphabet) is distinctive
   // enough that a false positive from an unrelated field isn't a real risk.
   const token =
-    extractToken(body.token) ??
-    extractToken(body.message) ??
+    extractToken(pickField(body, 'token')) ??
+    extractToken(pickField(body, 'message')) ??
     extractToken(JSON.stringify(body));
 
   if (!token) {
@@ -169,7 +204,7 @@ export async function POST(request: NextRequest) {
     attribution: fields,
   };
 
-  if (isTruthyFlag(body.sendLead)) {
+  if (isTruthyFlag(pickField(body, 'sendLead'))) {
     response.meta = await replayToMeta(record, body);
   } else {
     // Make the skip visible instead of silently returning attribution only —
@@ -180,8 +215,8 @@ export async function POST(request: NextRequest) {
     response.meta = {
       sent: false,
       reason: 'sendLead not set',
-      sendLeadSeen: body.sendLead ?? null,
-      sendLeadType: typeof body.sendLead,
+      sendLeadSeen: pickField(body, 'sendLead') ?? null,
+      sendLeadType: typeof pickField(body, 'sendLead'),
       receivedKeys: Object.keys(body).sort(),
     };
   }
@@ -226,16 +261,22 @@ async function replayToMeta(record: WaAttribution, body: Record<string, unknown>
 
   // Without a click ID Meta has almost nothing to match on, and an unmatched
   // Lead only drags the dataset's match quality down. Skip it.
-  if (!fbc && !record.fbp && !cleanField(body.email) && !cleanField(body.phone)) {
+  if (
+    !fbc &&
+    !record.fbp &&
+    !cleanField(pickField(body, 'email')) &&
+    !cleanField(pickField(body, 'phone'))
+  ) {
     return { sent: false, reason: 'No usable identifier (no fbc/fbp/email/phone)' };
   }
 
-  const eventName = typeof body.eventName === 'string' ? body.eventName : 'Lead';
+  const eventNameRaw = pickField(body, 'eventName');
+  const eventName = typeof eventNameRaw === 'string' && eventNameRaw ? eventNameRaw : 'Lead';
 
   const result = await sendMetaEvent({
     eventName,
     // Supplied by GHL when it also fires its own copy, so the two dedup.
-    eventId: typeof body.eventId === 'string' ? body.eventId : `wa-${record.token}`,
+    eventId: cleanField(pickField(body, 'eventId')) ?? `wa-${record.token}`,
     eventSourceUrl: record.href,
     eventTime,
     // The identifiers are all website-session signals from the click, so
@@ -249,8 +290,8 @@ async function replayToMeta(record: WaAttribution, body: Record<string, unknown>
       client_user_agent: record.ua,
       // cleanField drops empty strings and unrendered `{{merge.tags}}`, which
       // would otherwise be hashed and sent to Meta as garbage identifiers.
-      email: cleanField(body.email),
-      phone: cleanField(body.phone),
+      email: cleanField(pickField(body, 'email')),
+      phone: cleanField(pickField(body, 'phone')),
     },
     customData: {
       lead_source: 'whatsapp',
