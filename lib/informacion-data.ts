@@ -100,7 +100,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  {
  question: '¿Cómo es el proceso de admisión al kinder en Juriquilla?',
  answer:
- 'El proceso inicia con una visita al campus para conocer instalaciones y metodología, seguida de la entrega de documentos y una valoración del niño acorde a su edad. Conviene agendar el recorrido con anticipación, ya que los grupos de preescolar son reducidos.',
+ 'El proceso inicia con una visita al campus para conocer instalaciones y metodología, seguida de la entrega de documentos y una valoración del niño acorde a su edad. Conviene agendar el recorrido con anticipación, ya que los grupos de preescolar son reducidos. Director: Mtro. Fernando Lizardi Álvarez.',
  },
  ],
  images: {
@@ -181,7 +181,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  {
  question: '¿Cómo es el proceso de admisión a la secundaria en Juriquilla?',
  answer:
- 'Comienza con una visita al campus y una entrevista, seguida de la revisión del historial académico del alumno y la entrega de documentos. Conviene agendar el recorrido con tiempo para conocer los laboratorios y el programa de Emprendizaje.',
+ 'Comienza con una visita al campus y una entrevista, seguida de la revisión del historial académico del alumno y la entrega de documentos. Conviene agendar el recorrido con tiempo para conocer los laboratorios y el programa de Emprendizaje. Director: Mtro. Fernando Lizardi Álvarez.',
  },
  ],
  images: {
@@ -262,7 +262,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  {
  question: '¿Cómo es el proceso de admisión al maternal en Juriquilla?',
  answer:
- 'Inicia con una visita para conocer las áreas de Estimulación Multisensorial y el equipo docente, seguida de la entrega de documentos. Los grupos de maternal son reducidos, por lo que conviene agendar el recorrido con anticipación.',
+ 'Inicia con una visita para conocer las áreas de Estimulación Multisensorial y el equipo docente, seguida de la entrega de documentos. Los grupos de maternal son reducidos, por lo que conviene agendar el recorrido con anticipación. Director: Mtro. Fernando Lizardi Álvarez.',
  },
  ],
  images: {
@@ -294,7 +294,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  description:
  'Escuela privada bilingüe en Juriquilla con maternal, kinder, primaria y secundaria. Modelo educativo integral con Filosofía para Niños en NWL Australian School.',
  uniqueIntro:
- 'NWL Juriquilla es una escuela particular bilingüe en Querétaro que ofrece un recorrido educativo completo desde maternal hasta secundaria. Es el campus fundador de NWL Australian School (2009) y el de trayectoria más larga, donde un equipo docente de amplia trayectoria aplica Knotion (sin tarea tradicional), Filosofía para Niños y Yo Soy Líder NWL by Tec de Monterrey en cada nivel.',
+ 'NWL Juriquilla es una escuela particular bilingüe en Querétaro que ofrece un recorrido educativo completo desde maternal hasta secundaria. Es el campus fundador de NWL Australian School (2009) y el de trayectoria más larga, dirigido por el Mtro. Fernando Lizardi Álvarez, donde un equipo docente de amplia trayectoria aplica Knotion (sin tarea tradicional), Filosofía para Niños y Yo Soy Líder NWL by Tec de Monterrey en cada nivel.',
  sections: [
  {
  heading: 'De Brain Up a Emprendizaje: Un camino continuo',
@@ -348,7 +348,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  {
  question: '¿Cómo es el proceso de admisión en Juriquilla?',
  answer:
- 'Se agenda una visita al campus, se conoce la propuesta educativa por nivel y se entregan los documentos del alumno. Como es el campus con mayor trayectoria de la red, conviene reservar el recorrido con tiempo.',
+ 'Se agenda una visita al campus, se conoce la propuesta educativa por nivel y se entregan los documentos del alumno. Como es el campus con mayor trayectoria de la red, conviene reservar el recorrido con tiempo. Director: Mtro. Fernando Lizardi Álvarez.',
  },
  ],
  images: {

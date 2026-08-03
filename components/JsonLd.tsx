@@ -174,6 +174,19 @@ export function CampusJsonLd({ campus }: { campus: CampusData }) {
     };
   }
 
+  // Name the campus director as an employee — an E-E-A-T signal, and the same
+  // person the page shows. Skipped while the director section is hidden so the
+  // markup never claims someone the page doesn't display.
+  if (!campus.hideDirector) {
+    data.employee = {
+      '@type': 'Person',
+      name: campus.director.name,
+      jobTitle: campus.director.title.en,
+      image: `${SITE_URL}${campus.director.image}`,
+      worksFor: { '@id': `${SITE_URL}/#campus-${campus.slug}` },
+    };
+  }
+
   return <JsonLdScript data={data} />;
 }
 

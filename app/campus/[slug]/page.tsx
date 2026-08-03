@@ -33,7 +33,9 @@ export default function CampusPage({
       <QuickFacts stats={campus.stats} />
       <Facilities facilities={campus.facilities} />
       <Extracurriculars activities={campus.activities} />
-      {!campus.hideDirector && <DirectorMessage director={campus.director} />}
+      {!campus.hideDirector && (
+        <DirectorMessage director={campus.director} campusName={campus.name} />
+      )}
       <CampusLife images={campus.galleryImages} />
       <LocationMap
         address={campus.address}

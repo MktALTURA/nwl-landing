@@ -7,10 +7,12 @@ import { type CampusDirector, localized } from '@/lib/campus-data';
 
 interface DirectorMessageProps {
   director: CampusDirector;
+  campusName: string;
 }
 
-export default function DirectorMessage({ director }: DirectorMessageProps) {
+export default function DirectorMessage({ director, campusName }: DirectorMessageProps) {
   const { locale, t } = useLanguage();
+  const photoAlt = `${director.name} — ${localized(director.title, locale)}, NWL Australian School Campus ${campusName}`;
 
   return (
     <section className="py-12 md:py-16 nwl-bg-dawn-deep text-white relative overflow-hidden">
@@ -56,7 +58,7 @@ export default function DirectorMessage({ director }: DirectorMessageProps) {
             <div className="relative aspect-[3/4] rounded-lg overflow-hidden shadow-2xl ring-4 ring-white/10">
               <Image
                 src={director.image}
-                alt={director.name}
+                alt={photoAlt}
                 fill
                 sizes="(max-width: 768px) 100vw, 33vw"
                 className="object-cover"

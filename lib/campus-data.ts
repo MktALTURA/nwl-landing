@@ -145,17 +145,14 @@ export const campuses: Record<string, CampusData> = {
       },
     ],
     director: {
-      name: 'Mtra. Dayana Rose Gómez',
-      title: { en: 'Campus Director', es: 'Directora de Campus' },
+      name: 'Mtro. Fernando Lizardi Álvarez',
+      title: { en: 'Campus Director', es: 'Director General de Campus' },
       message: {
-        en: 'At NWL Juriquilla, our flagship campus sets the standard for educational excellence. With over a decade of experience, we nurture every student\'s potential in a vibrant, close-knit community. We invite you to visit and discover the NWL difference.',
-        es: 'En NWL Juriquilla, nuestro campus insignia marca el estándar de excelencia educativa. Con más de una década de experiencia, cultivamos el potencial de cada alumno en una comunidad vibrante y cercana. Te invitamos a visitarnos y descubrir la diferencia NWL.',
+        en: 'Hello! As general director of NWL Australian School campus Juriquilla, I am passionate about leading a school community that keeps growing. Today we are evolving our model by integrating the best educational practices from Australia, creating an environment that prepares our students to stand out in a global world. I would love to meet your family in person and show you our vision. Come visit us and discover the experience that will transform your children\'s present and future!',
+        es: '¡Hola! Como director general del NWL Australian School campus Juriquilla, me apasiona liderar una comunidad escolar en constante crecimiento. Hoy estamos evolucionando nuestro modelo al integrar las mejores prácticas educativas de Australia, creando un entorno que prepara a nuestros estudiantes para destacar en un mundo global. Me encantaría conocer a tu familia en persona y mostrarles nuestra visión. ¡Ven a visitarnos y descubre la experiencia que transformará el presente y futuro de tus hijos!',
       },
-      image: '/images/campus/juriquilla/juriquilla-director.jpg',
+      image: '/images/campus/juriquilla/juriquilla-director-fernando-lizardi.jpg',
     },
-    // Director transition in progress (Dayana Rose Gómez moved to Zibatá) —
-    // hide section until the new director's photo and message are in place.
-    hideDirector: true,
     address: 'Anillo Vial Fray Junípero Serra, Juriquilla, Querétaro',
     city: 'Juriquilla, Querétaro',
     state: 'Querétaro',
@@ -630,7 +627,7 @@ export const campuses: Record<string, CampusData> = {
         en: 'At NWL Zibatá, we pair a modern, growing campus with the warmth of a close-knit community. Every child carries the potential for greatness, and our team nurtures that potential every single day. We invite you to visit and discover the NWL difference.',
         es: 'En NWL Zibatá combinamos un campus moderno y en crecimiento con la calidez de una comunidad cercana. Cada niño lleva dentro el potencial de la grandeza, y nuestro equipo lo cultiva todos los días. Te invitamos a visitarnos y descubrir la diferencia NWL.',
       },
-      image: '/images/campus/juriquilla/juriquilla-director.jpg',
+      image: '/images/campus/zibata/zibata-director-dayana-rose.jpg',
     },
     address: 'Paseo de las Pitahayas, Zibatá, Querétaro',
     city: 'Zibatá, El Marqués',
