@@ -29,6 +29,32 @@ function getClientIp(request: NextRequest): string {
 const clip = (v: unknown, max = 512): string | undefined =>
   typeof v === 'string' && v ? v.slice(0, max) : undefined;
 
+/**
+ * Click IDs are exact identifiers, and a truncated one is worse than none.
+ *
+ * Meta reports a shortened `fbclid` as "server sending modified fbclid value in
+ * the fbc parameter" — a high-priority data-quality error that degrades
+ * attribution and optimisation on every event carrying it. Modern fbclids run
+ * well past the 256 the generic clipper allowed, so this silently corrupted the
+ * one field the whole WhatsApp bridge exists to preserve.
+ *
+ * So: drop an implausibly long value whole rather than cut it to fit. An absent
+ * click ID costs us one unmatched event; a mangled one poisons the dataset.
+ */
+const MAX_CLICK_ID = 1024;
+const keepClickId = (v: unknown): string | undefined =>
+  typeof v === 'string' && v && v.length <= MAX_CLICK_ID ? v : undefined;
+
+function keepClickIds(v: unknown): Record<string, string> | undefined {
+  if (!v || typeof v !== 'object') return undefined;
+  const out: Record<string, string> = {};
+  for (const [k, val] of Object.entries(v as Record<string, unknown>).slice(0, 12)) {
+    const s = keepClickId(val);
+    if (s) out[k.slice(0, 40)] = s;
+  }
+  return Object.keys(out).length ? out : undefined;
+}
+
 function clipRecord(v: unknown): Record<string, string> | undefined {
   if (!v || typeof v !== 'object') return undefined;
   const out: Record<string, string> = {};
@@ -75,9 +101,9 @@ export async function POST(request: NextRequest) {
     source_path: clip(body.source_path, 256),
     landing_page: clip(body.landing_page, 256),
     ft_landing_page: clip(body.ft_landing_page, 256),
-    fbclid: clip(body.fbclid, 512),
+    fbclid: keepClickId(body.fbclid),
     fbclidTs: typeof body.fbclidTs === 'number' ? body.fbclidTs : undefined,
-    clickIds: clipRecord(body.clickIds),
+    clickIds: keepClickIds(body.clickIds),
     utm: clipRecord(body.utm),
     ft_utm: clipRecord(body.ft_utm),
     // First-party cookies — only readable here, on our own origin. These are
