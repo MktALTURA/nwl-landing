@@ -7,6 +7,7 @@ import {
   type WaAttribution,
 } from '@/lib/db/wa-attribution';
 import { META_MAX_EVENT_AGE_SECONDS, resolveFbc, sendMetaEvent } from '@/lib/meta-capi';
+import { writeAttributionToContact } from '@/lib/ghl';
 
 /* ------------------------------------------------------------------ */
 /*  POST /api/wa-resolve                                               */
@@ -203,6 +204,19 @@ export async function POST(request: NextRequest) {
     ...fields,
     attribution: fields,
   };
+
+  // Stamp the attribution onto the GHL contact itself. The Meta replay below
+  // rescues the ad platform's view of this lead; this is the half that fixes
+  // CRM reporting, because GHL's own reports read the contact record — and a
+  // WhatsApp lead lands there with nothing at all.
+  //
+  // Gated on first resolution: the "el cliente ha respondido" trigger fires on
+  // EVERY inbound message, so an ongoing conversation would otherwise repeat
+  // this write on every reply.
+  const contactId = pickField(body, 'contact_id');
+  response.ghl = record.resolvedAt
+    ? { written: false, reason: 'already resolved' }
+    : await writeAttributionToContact(typeof contactId === 'string' ? contactId : '', record);
 
   if (isTruthyFlag(pickField(body, 'sendLead'))) {
     response.meta = await replayToMeta(record, body);
