@@ -281,6 +281,23 @@ export const benefitPartners: BenefitPartner[] = [
       en: 'Valid for staff, students and direct family members. Participating locations: Zakia, Toscana Juriquilla and Juriquilla Santa Fe (Qro) and San Miguel de Allende (Gto).',
     },
   },
+  {
+    slug: 'dorado-padel',
+    name: 'Dorado Padel Club',
+    categoryKey: 'deporte',
+    logo: '/images/logos/benefits/dorado-padel.png',
+    logoStyle: 'badge',
+    promoImages: ['/images/benefits/dorado-padel-promo.jpg'],
+    discount: { es: '$1,200 por 8 clases al mes', en: '$1,200 for 8 classes/month' },
+    detail: {
+      es: 'Extraescolares de pádel para niños y jóvenes: 8 clases al mes en grupos por edades y niveles, con entrenadores certificados. Más que clases, creamos comunidad.',
+      en: 'Padel extracurriculars for kids and teens: 8 classes a month in age- and level-based groups, with certified coaches. More than classes — we build community.',
+    },
+    restrictions: {
+      es: 'Precio especial para la comunidad NWL.',
+      en: 'Special price for the NWL community.',
+    },
+  },
 ];
 
 /** Resolve a localized string to the active locale. */
