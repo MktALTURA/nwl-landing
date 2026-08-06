@@ -208,7 +208,7 @@ export const es: Dictionary = {
         name: 'Preparatoria',
         ageRange: '15-17 años',
         description: 'Una preparación para la vida: doble diploma de EE. UU. y rumbo a la universidad.',
-        campuses: ['Corregidora', 'Zibatá', 'San Miguel'],
+        campuses: ['Corregidora', 'Zibatá'],
         href: '/high-school',
       },
     ],
@@ -232,7 +232,7 @@ export const es: Dictionary = {
         href: '/campus/milenio',
       },
       {
-        levels: 'Maternal a Preparatoria',
+        levels: 'Maternal a Secundaria',
         description: 'Donde la riqueza cultural se encuentra con la excelencia académica.',
         href: '/campus/san-miguel',
       },

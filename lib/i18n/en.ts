@@ -208,7 +208,7 @@ export const en: Dictionary = {
         name: 'High School',
         ageRange: '15-17 years',
         description: 'A preparation for life: US dual diploma and university readiness.',
-        campuses: ['Corregidora', 'Zibatá', 'San Miguel'],
+        campuses: ['Corregidora', 'Zibatá'],
         href: '/high-school',
       },
     ],
@@ -232,7 +232,7 @@ export const en: Dictionary = {
         href: '/campus/milenio',
       },
       {
-        levels: 'Maternal - High School',
+        levels: 'Maternal - Middle School',
         description: 'Cultural richness meets academic excellence.',
         href: '/campus/san-miguel',
       },

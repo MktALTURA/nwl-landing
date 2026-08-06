@@ -107,6 +107,10 @@ const nextConfig = {
       // /noticias now has its own news section — redirect removed
       { source: '/venta-nocturna', destination: '/', permanent: true },
 
+      // ── Retired pages: San Miguel high school (no prepa at that campus) ──
+      { source: '/informacion/preparatoria-bilingue-privada-en-san-miguel-de-allende', destination: '/informacion/escuela-bilingue-en-san-miguel-de-allende', permanent: true },
+      { source: '/informacion/excellence-bilingual-high-school-in-san-miguel-de-allende', destination: '/informacion/international-school-in-san-miguel-de-allende', permanent: true },
+
       // ── Old SEO landing pages (/docs/*) → /informacion/ pages ──
       { source: '/docs/colegio-privado-en-juriquilla-con-maternal', destination: '/informacion/colegio-privado-en-juriquilla-con-maternal', permanent: true },
       { source: '/docs/escuela-maternal-en-san-miguel-de-allende', destination: '/informacion/escuela-maternal-en-san-miguel-de-allende', permanent: true },
@@ -137,10 +141,10 @@ const nextConfig = {
       { source: '/docs/private-bilingual-junior-high-school-in-queretaro', destination: '/informacion/private-bilingual-junior-high-school-in-queretaro', permanent: true },
       { source: '/docs/escuela-con-primaria-y-secundaria-en-corregidora-queretaro', destination: '/informacion/escuela-con-primaria-y-secundaria-en-corregidora-queretaro', permanent: true },
       { source: '/docs/preparatoria-bilingue-privada-en-queretaro', destination: '/informacion/preparatoria-bilingue-privada-en-queretaro', permanent: true },
-      { source: '/docs/preparatoria-bilingue-privada-en-san-miguel-de-allende', destination: '/informacion/preparatoria-bilingue-privada-en-san-miguel-de-allende', permanent: true },
+      { source: '/docs/preparatoria-bilingue-privada-en-san-miguel-de-allende', destination: '/informacion/escuela-bilingue-en-san-miguel-de-allende', permanent: true },
       { source: '/docs/preparatoria-bilingue-privada-en-corregidora-queretaro', destination: '/informacion/preparatoria-bilingue-privada-en-corregidora-queretaro', permanent: true },
       { source: '/docs/preparatoria-bilingue-privada-en-zibata-queretaro', destination: '/informacion/preparatoria-bilingue-privada-en-zibata-queretaro', permanent: true },
-      { source: '/docs/excellence-bilingual-high-school-in-san-miguel-de-allende', destination: '/informacion/excellence-bilingual-high-school-in-san-miguel-de-allende', permanent: true },
+      { source: '/docs/excellence-bilingual-high-school-in-san-miguel-de-allende', destination: '/informacion/international-school-in-san-miguel-de-allende', permanent: true },
       { source: '/docs/escuela-particular-y-bilingue-en-juriquilla', destination: '/informacion/escuela-particular-y-bilingue-en-juriquilla', permanent: true },
       { source: '/docs/escuela-privada-cerca-de-zibata-queretaro', destination: '/informacion/escuela-privada-cerca-de-zibata-queretaro', permanent: true },
       { source: '/docs/escuela-privada-cerca-de-milenio', destination: '/informacion/escuela-privada-cerca-de-milenio', permanent: true },

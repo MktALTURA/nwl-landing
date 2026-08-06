@@ -403,7 +403,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  {
  question: '¿El campus Zibatá tiene preparatoria?',
  answer:
- 'Sí. Zibatá es uno de los 3 campus NWL con preparatoria (junto con San Miguel y Corregidora). La prepa incluye Life Project, Doble Diploma (EUA + México), certificaciones Kn U High/Coursera, Inteligencia Financiera y programa HIT/Hyrox.',
+ 'Sí. Zibatá es uno de los 2 campus NWL con preparatoria (junto con Corregidora). La prepa incluye Life Project, Doble Diploma (EUA + México), certificaciones Kn U High/Coursera, Inteligencia Financiera y programa HIT/Hyrox.',
  },
  {
  question: '¿Qué niveles ofrece el campus Zibatá?',
@@ -907,7 +907,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  {
  question: '¿Hasta qué nivel puede continuar mi hijo en el campus San Miguel?',
  answer:
- 'Después de maternal, el niño puede continuar en kinder, primaria, secundaria y preparatoria dentro del mismo campus San Miguel, sin cambiar de escuela. Es uno de los 3 campus NWL con preparatoria.',
+ 'Después de maternal, el niño puede continuar en kinder, primaria y secundaria dentro del mismo campus San Miguel, sin cambiar de escuela. El campus, fundado en 2018, ofrece la trayectoria de maternal a secundaria.',
  },
  {
  question: '¿Cómo es el proceso de admisión al maternal en San Miguel?',
@@ -988,7 +988,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  {
  question: '¿Hasta qué nivel puede continuar mi hijo en el campus San Miguel?',
  answer:
- 'Después del kinder, el niño continúa en primaria, secundaria y preparatoria dentro del mismo campus San Miguel. Es uno de los 3 campus NWL con preparatoria, fundado en 2018.',
+ 'Después del kinder, el niño continúa en primaria y secundaria dentro del mismo campus San Miguel, fundado en 2018. La trayectoria del campus va de maternal a secundaria.',
  },
  {
  question: '¿Cómo es el proceso de admisión al kinder en San Miguel?',
@@ -1069,7 +1069,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  {
  question: '¿Hasta qué nivel puede continuar mi hijo en el campus San Miguel?',
  answer:
- 'Tras la primaria, el alumno continúa en secundaria y preparatoria dentro del mismo campus San Miguel. Es uno de los 3 campus NWL con preparatoria, fundado en 2018.',
+ 'Tras la primaria, el alumno continúa en secundaria dentro del mismo campus San Miguel, fundado en 2018. La trayectoria del campus va de maternal a secundaria.',
  },
  {
  question: '¿Cómo es el proceso de admisión a la primaria en San Miguel?',
@@ -1150,7 +1150,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  {
  question: '¿Hasta qué nivel puede continuar mi hijo en el campus San Miguel?',
  answer:
- 'Tras la secundaria, el alumno continúa en la preparatoria del mismo campus San Miguel. Es uno de los 3 campus NWL con preparatoria, fundado en 2018.',
+ 'El campus San Miguel, fundado en 2018, ofrece de maternal a secundaria. Para preparatoria, las familias NWL continúan en los campus Zibatá o Corregidora, en Querétaro, con el mismo modelo educativo.',
  },
  {
  question: '¿Cómo es el proceso de admisión a la secundaria en San Miguel?',
@@ -1185,38 +1185,38 @@ export const informacionPages: Record<string, InformacionPage> = {
  title: 'Escuela Bilingüe en San Miguel de Allende',
  h1: 'Una vanguardista escuela bilingüe en San Miguel de Allende',
  description:
- 'Escuela bilingüe en San Miguel de Allende con todos los niveles: maternal a prepa. Programa internacional, Filosofía para Niños y formación integral en NWL Australian School.',
+ 'Escuela bilingüe en San Miguel de Allende de maternal a secundaria. Programa internacional, Filosofía para Niños y formación integral en NWL Australian School.',
  uniqueIntro:
- 'NWL Australian School San Miguel de Allende es la escuela bilingüe privada con trayectoria completa de maternal a preparatoria en esta ciudad Patrimonio UNESCO, fundada en 2018 y dirigida por el Lic. Ramón Godínez. Integra la escena artística local con el modelo NWL: Knotion (sin tarea tradicional), Filosofía para Niños, Yo Soy Líder by Tec de Monterrey y, en preparatoria, el programa Life Project.',
+ 'NWL Australian School San Miguel de Allende es una escuela bilingüe privada de maternal a secundaria en esta ciudad Patrimonio UNESCO, fundada en 2018 y dirigida por el Lic. Ramón Godínez. Integra la escena artística local con el modelo NWL: Knotion (sin tarea tradicional), Filosofía para Niños y Yo Soy Líder by Tec de Monterrey.',
  sections: [
  {
- heading: 'Maternal a Prepa en una ciudad Patrimonio UNESCO',
- body: 'San Miguel de Allende es uno de los 3 campus NWL que ofrece preparatoria (junto con Corregidora y Zibatá). Los niños inician con Brain Up a los 2 años, avanzan con Knotion sin tarea, y en primaria acceden al TecniKids STEAM Lab y viajes internacionales desde 5.° grado.\n\nEn secundaria, Emprendizaje con Universidad Mondragón y la Doble Certificación Internacional los preparan para la preparatoria NWL, donde el programa Life Project, el Doble Diploma y certificaciones Kn U High/Coursera definen su camino universitario.',
+ heading: 'Maternal a secundaria en una ciudad Patrimonio UNESCO',
+ body: 'El campus San Miguel de Allende acompaña a los alumnos desde maternal hasta secundaria. Los niños inician con Brain Up a los 2 años, avanzan con Knotion sin tarea, y en primaria acceden al TecniKids STEAM Lab y viajes internacionales desde 5.° grado.\n\nEn secundaria, Emprendizaje con Universidad Mondragón y la Doble Certificación Internacional (diploma EUA + México vía Hokku Academy) cierran la etapa con credenciales que se reconocen dentro y fuera del país.',
  },
  {
  heading: 'Comunidad multicultural y arte como eje formativo',
  body: 'La diversidad de San Miguel de Allende (familias mexicanas, estadounidenses, canadienses, europeas) enriquece naturalmente el programa bilingüe. Los niños practican inglés en contextos reales fuera del aula y desarrollan sensibilidad intercultural de forma orgánica.\n\nLas actividades artísticas aprovechan el patrimonio de la ciudad: pintura, escultura, teatro y la inmersión en galerías, festivales y tradiciones locales. Esto hace de NWL San Miguel una experiencia educativa irrepetible.',
  },
  {
- heading: 'Life Project y Doble Diploma en prepa San Miguel',
- body: 'La preparatoria NWL San Miguel ofrece el Doble Diploma (SEP México + diploma EUA acreditado por Cognia), Life Project con mentores personales durante 6 semestres, y certificaciones Kn U High/Coursera desde el primer semestre.\n\nEl programa incluye Inteligencia Financiera, IA y Tecnología Moderna, HIT/Hyrox fitness, un Portafolio de 6 Proyectos Personales e intercambio internacional en 5.° y 6.° semestre. Todo esto en el contexto cultural único de San Miguel de Allende.',
+ heading: 'Qué sigue después de secundaria',
+ body: 'El campus San Miguel llega hasta secundaria. Para preparatoria, las familias NWL continúan en los campus Zibatá o Corregidora, en Querétaro, donde opera la Prepa NWL con el programa Life Project, mentores personales durante 6 semestres y Doble Diploma (SEP México + diploma EUA acreditado por Cognia).\n\nLa transición es natural porque el modelo es el mismo: Knotion sin tarea tradicional, Filosofía para Niños, Yo Soy Líder NWL by Tec de Monterrey y el protocolo Bullying Free School.',
  },
  ],
  faqs: [
  {
  question: '¿NWL Australian School San Miguel ofrece preparatoria?',
  answer:
- 'Sí. San Miguel es uno de los 3 campus con preparatoria. La prepa incluye Life Project, Doble Diploma, Kn U High/Coursera, Inteligencia Financiera y HIT/Hyrox. El campus fue fundado en 2018.',
+ 'No. El campus San Miguel, fundado en 2018, ofrece de maternal a secundaria. La Prepa NWL opera en los campus Corregidora y Zibatá, en Querétaro, con Life Project, Doble Diploma, Kn U High/Coursera, Inteligencia Financiera y HIT/Hyrox.',
  },
  {
  question: '¿Qué niveles educativos ofrece la escuela bilingüe en San Miguel?',
  answer:
- 'De maternal (2 años) a preparatoria (17 años). Es la trayectoria educativa más completa de San Miguel de Allende. Fundado en 2018, con playground con barco pirata y actividades artísticas únicas. Director: Lic. Ramón Godínez.',
+ 'De maternal (2 años) a secundaria (14 años). Fundado en 2018, con playground con barco pirata y actividades artísticas únicas. Director: Lic. Ramón Godínez.',
  },
  {
- question: '¿Cómo es la trayectoria de un alumno de maternal a preparatoria en San Miguel?',
+ question: '¿Cómo es la trayectoria de un alumno de maternal a secundaria en San Miguel?',
  answer:
- 'Inicia con Brain Up a los 2 años, avanza con Knotion sin tarea, accede al TecniKids STEAM Lab y viajes internacionales en primaria, hace Emprendizaje con Universidad Mondragón en secundaria, y culmina con Life Project y Doble Diploma en preparatoria.',
+ 'Inicia con Brain Up a los 2 años, avanza con Knotion sin tarea, accede al TecniKids STEAM Lab y viajes internacionales en primaria, y cierra en secundaria con Emprendizaje de Universidad Mondragón y la Doble Certificación Internacional vía Hokku Academy.',
  },
  {
  question: '¿Por qué San Miguel no deja tarea tradicional?',
@@ -1229,9 +1229,9 @@ export const informacionPages: Record<string, InformacionPage> = {
  'La diversidad de familias mexicanas, estadounidenses, canadienses y europeas permite practicar inglés en contextos reales fuera del aula. Las actividades artísticas aprovechan el patrimonio: pintura, escultura, teatro, galerías y festivales locales.',
  },
  {
- question: '¿En qué consiste la preparatoria de San Miguel?',
+ question: '¿Dónde puede cursar la preparatoria un egresado de secundaria en San Miguel?',
  answer:
- 'Ofrece Doble Diploma (SEP México + diploma EUA), Life Project con mentores personales durante 6 semestres, certificaciones Kn U High/Coursera, Inteligencia Financiera, IA y Tecnología Moderna, HIT/Hyrox, Portafolio de 6 Proyectos e intercambio internacional en 5.° y 6.° semestre.',
+ 'En los campus Corregidora o Zibatá, en Querétaro. La Prepa NWL ofrece Doble Diploma (SEP México + diploma EUA), Life Project con mentores personales durante 6 semestres, certificaciones Kn U High/Coursera, Inteligencia Financiera, IA y Tecnología Moderna, HIT/Hyrox, Portafolio de 6 Proyectos e intercambio internacional en 5.° y 6.° semestre.',
  },
  {
  question: '¿Cómo es el proceso de admisión en el campus San Miguel?',
@@ -2173,7 +2173,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  },
  {
  heading: '5 campus estratégicos en Querétaro',
- body: 'Juriquilla (2009) es el campus insignia con maternal a secundaria. Milenio (2016) tiene acreditación Cognia y talleres únicos de cocina y yoga. San Miguel de Allende (2018) aprovecha la ciudad UNESCO para arte y cultura.\n\nCorregidora (2019) destaca por podcasts, programación e IA. Zibatá (2025) es el más moderno, con instalaciones de última generación. San Miguel, Corregidora y Zibatá ofrecen también preparatoria.',
+ body: 'Juriquilla (2009) es el campus insignia con maternal a secundaria. Milenio (2016) tiene acreditación Cognia y talleres únicos de cocina y yoga. San Miguel de Allende (2018) aprovecha la ciudad UNESCO para arte y cultura.\n\nCorregidora (2019) destaca por podcasts, programación e IA. Zibatá (2025) es el más moderno, con instalaciones de última generación. Corregidora y Zibatá ofrecen también preparatoria.',
  },
  {
  heading: 'Certificaciones y alianzas de clase mundial',
@@ -2184,7 +2184,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  {
  question: '¿Cuántos campus tiene NWL Australian School en Querétaro?',
  answer:
- '5 campus: Juriquilla (2009), Milenio (2016), San Miguel de Allende (2018), Corregidora (2019) y Zibatá (2025). San Miguel, Corregidora y Zibatá ofrecen hasta preparatoria. Juriquilla y Milenio ofrecen hasta secundaria.',
+ '5 campus: Juriquilla (2009), Milenio (2016), San Miguel de Allende (2018), Corregidora (2019) y Zibatá (2025). Corregidora y Zibatá ofrecen hasta preparatoria. Juriquilla, Milenio y San Miguel de Allende ofrecen hasta secundaria.',
  },
  {
  question: '¿Qué niveles educativos ofrece el colegio bilingüe NWL?',
@@ -2257,7 +2257,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  },
  {
  heading: 'Doble Certificación y preparatoria con Life Project',
- body: 'En secundaria, los alumnos obtienen la Doble Certificación Internacional (diploma EUA + México vía Hokku Academy) y certificaciones Cambridge PET/FCE. En los 3 campus con preparatoria (San Miguel, Corregidora, Zibatá), el programa Life Project guía a cada alumno con mentores personales.\n\nDoble Diploma, certificaciones Kn U High/Coursera, Inteligencia Financiera, IA y Tecnología Moderna, HIT/Hyrox y Portafolio de 6 Proyectos Personales preparan a los egresados para las mejores universidades.',
+ body: 'En secundaria, los alumnos obtienen la Doble Certificación Internacional (diploma EUA + México vía Hokku Academy) y certificaciones Cambridge PET/FCE. En los 2 campus con preparatoria (Corregidora y Zibatá), el programa Life Project guía a cada alumno con mentores personales.\n\nDoble Diploma, certificaciones Kn U High/Coursera, Inteligencia Financiera, IA y Tecnología Moderna, HIT/Hyrox y Portafolio de 6 Proyectos Personales preparan a los egresados para las mejores universidades.',
  },
  ],
  faqs: [
@@ -2284,7 +2284,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  {
  question: '¿Qué niveles y certificaciones ofrece el colegio?',
  answer:
- 'De maternal a preparatoria. En secundaria, Doble Certificación Internacional vía Hokku Academy y Cambridge PET/FCE; en preparatoria (San Miguel, Corregidora, Zibatá), Life Project con mentores, Doble Diploma y certificaciones Kn U High/Coursera.',
+ 'De maternal a preparatoria. En secundaria, Doble Certificación Internacional vía Hokku Academy y Cambridge PET/FCE; en preparatoria (Corregidora y Zibatá), Life Project con mentores, Doble Diploma y certificaciones Kn U High/Coursera.',
  },
  {
  question: '¿En qué campus hay preparatoria?',
@@ -2496,11 +2496,11 @@ export const informacionPages: Record<string, InformacionPage> = {
  },
  {
  heading: 'Certificaciones que abren puertas',
- body: 'Cambridge en todos los niveles (Starters, Movers, Flyers en primaria; PET, FCE en secundaria). Doble Certificación Internacional en secundaria (diploma EUA + México vía Hokku Academy). Acreditación Cognia en campus Milenio.\n\nEn preparatoria (San Miguel, Corregidora, Zibatá): Doble Diploma, Kn U High/Coursera, Inteligencia Financiera, IA y Tecnología Moderna. Viajes internacionales desde 5.° de primaria e intercambio en 5.° y 6.° semestre de prepa.',
+ body: 'Cambridge en todos los niveles (Starters, Movers, Flyers en primaria; PET, FCE en secundaria). Doble Certificación Internacional en secundaria (diploma EUA + México vía Hokku Academy). Acreditación Cognia en campus Milenio.\n\nEn preparatoria (Corregidora y Zibatá): Doble Diploma, Kn U High/Coursera, Inteligencia Financiera, IA y Tecnología Moderna. Viajes internacionales desde 5.° de primaria e intercambio en 5.° y 6.° semestre de prepa.',
  },
  {
  heading: '5 campus, un mismo estándar',
- body: 'Juriquilla (2009): insignia, maternal-secundaria. Milenio (2016): Cognia, cocina, yoga, dance team. San Miguel (2018): arte, UNESCO, maternal-prepa. Corregidora (2019): podcasts, IA, cubo Rubik, maternal-prepa. Zibatá (2025): el más moderno, maternal-prepa.\n\nTodos comparten: Knotion sin tarea, FpN, Yo Soy Líder NWL, BFS, Cambridge, 90+ cámaras 24/7. Cada campus tiene actividades únicas que reflejan su comunidad.',
+ body: 'Juriquilla (2009): insignia, maternal-secundaria. Milenio (2016): Cognia, cocina, yoga, dance team. San Miguel (2018): arte, UNESCO, maternal-secundaria. Corregidora (2019): podcasts, IA, cubo Rubik, maternal-prepa. Zibatá (2025): el más moderno, maternal-prepa.\n\nTodos comparten: Knotion sin tarea, FpN, Yo Soy Líder NWL, BFS, Cambridge, 90+ cámaras 24/7. Cada campus tiene actividades únicas que reflejan su comunidad.',
  },
  ],
  faqs: [
@@ -2512,7 +2512,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  {
  question: '¿Dónde están ubicados los campus de NWL Australian School?',
  answer:
- 'Juriquilla, Milenio, San Miguel de Allende, Corregidora y Zibatá. Los 5 ofrecen maternal a secundaria. San Miguel, Corregidora y Zibatá también ofrecen preparatoria con Life Project y Doble Diploma.',
+ 'Juriquilla, Milenio, San Miguel de Allende, Corregidora y Zibatá. Los 5 ofrecen maternal a secundaria. Corregidora y Zibatá también ofrecen preparatoria con Life Project y Doble Diploma.',
  },
  {
  question: '¿Por qué NWL no deja tarea tradicional?',
@@ -2527,12 +2527,12 @@ export const informacionPages: Record<string, InformacionPage> = {
  {
  question: '¿Desde qué edad puede ingresar mi hijo?',
  answer:
- 'Desde los 2 años en maternal con Brain Up. La trayectoria continúa con kinder, primaria, secundaria y, en San Miguel, Corregidora y Zibatá, preparatoria, todo dentro del mismo sistema educativo.',
+ 'Desde los 2 años en maternal con Brain Up. La trayectoria continúa con kinder, primaria, secundaria y, en Corregidora y Zibatá, preparatoria, todo dentro del mismo sistema educativo.',
  },
  {
  question: '¿Qué distingue a cada uno de los 5 campus?',
  answer:
- 'Juriquilla (2009): insignia, maternal-secundaria. Milenio (2016): Cognia, cocina, yoga, dance team. San Miguel (2018): arte, UNESCO, maternal-prepa. Corregidora (2019): podcasts, IA, cubo Rubik. Zibatá (2025): el más moderno.',
+ 'Juriquilla (2009): insignia, maternal-secundaria. Milenio (2016): Cognia, cocina, yoga, dance team. San Miguel (2018): arte, UNESCO, maternal-secundaria. Corregidora (2019): podcasts, IA, cubo Rubik. Zibatá (2025): el más moderno.',
  },
  {
  question: '¿Cómo es el proceso de admisión en NWL Australian School?',
@@ -3141,11 +3141,11 @@ export const informacionPages: Record<string, InformacionPage> = {
  description:
  'NWL Prepa in Queretaro: SEP curriculum, Life Project, HÖKKU Dual Diploma, Life Mentors and B2 TOEFL English. A bilingual high school built to prepare students for the real world.',
  uniqueIntro:
- 'NWL Australian School runs five bilingual campuses across Queretaro and San Miguel de Allende, with programs from pre-kinder to high school since 2009. NWL Prepa - the high school level - is available at San Miguel, Corregidora and Zibata, and is built around the Life Project program, a personal Life Mentor for each student, and a Dual Diploma via HOKKU Academy alongside the official SEP curriculum.',
+ 'NWL Australian School runs five bilingual campuses across Queretaro and San Miguel de Allende, with programs from pre-kinder to high school since 2009. NWL Prepa - the high school level - is available at the Corregidora and Zibata campuses, and is built around the Life Project program, a personal Life Mentor for each student, and a Dual Diploma via HOKKU Academy alongside the official SEP curriculum.',
  sections: [
  {
  heading: 'Life Project: a high school designed around where your child is going',
- body: 'NWL\'s high school (available at San Miguel, Corregidora and Zibatá) is built around the Life Project program: six semesters, six life competencies, a Personal Project and an Integrative Project in each one. The semester themes move from growth mindset and communication in the early semesters, to innovation, entrepreneurship, social impact and, finally, professional and university preparation.\n\nEvery student is assigned a personal Life Mentor who walks with them through all six semesters — helping set goals, manage stress and define direction. By graduation, students leave with a portfolio of real projects they can actually show in a university interview.',
+ body: 'NWL\'s high school (available at Corregidora and Zibatá) is built around the Life Project program: six semesters, six life competencies, a Personal Project and an Integrative Project in each one. The semester themes move from growth mindset and communication in the early semesters, to innovation, entrepreneurship, social impact and, finally, professional and university preparation.\n\nEvery student is assigned a personal Life Mentor who walks with them through all six semesters — helping set goals, manage stress and define direction. By graduation, students leave with a portfolio of real projects they can actually show in a university interview.',
  },
  {
  heading: 'HÖKKU Dual Diploma, Financial Literacy and English that is measured',
@@ -3153,14 +3153,14 @@ export const informacionPages: Record<string, InformacionPage> = {
  },
  {
  heading: 'Five campuses, one model, many ways to grow',
- body: 'Juriquilla is the flagship campus, serving pre-kinder through junior high. Milenio offers cooking workshops, yoga and a competitive dance team. San Miguel de Allende runs the full journey from pre-kinder through high school inside a UNESCO World Heritage city. Corregidora stands out for its podcasting, programming and AI work, and also offers the full journey from pre-kinder to high school. Zibatá is the newest campus, with modern purpose-built facilities and the full pre-kinder to high school program.\n\nAll five campuses share the same model: Knotion project-based learning (no traditional homework), Philosophy for Children, the "Yo Soy Líder NWL" leadership program by Tec de Monterrey, Cambridge English certifications at every level, the Bullying Free School protocol and 24/7 surveillance with 90+ security cameras at each campus. Same standard, different campus personalities.',
+ body: 'Juriquilla is the flagship campus, serving pre-kinder through junior high. Milenio offers cooking workshops, yoga and a competitive dance team. San Miguel de Allende runs pre-kinder through junior high inside a UNESCO World Heritage city. Corregidora stands out for its podcasting, programming and AI work, and offers the full journey from pre-kinder to high school. Zibatá is the newest campus, with modern purpose-built facilities and the full pre-kinder to high school program.\n\nAll five campuses share the same model: Knotion project-based learning (no traditional homework), Philosophy for Children, the "Yo Soy Líder NWL" leadership program by Tec de Monterrey, Cambridge English certifications at every level, the Bullying Free School protocol and 24/7 surveillance with 90+ security cameras at each campus. Same standard, different campus personalities.',
  },
  ],
  faqs: [
  {
  question: 'How many campuses does NWL Australian School have and which ones offer high school?',
  answer:
- 'Five campuses: Juriquilla, Milenio, San Miguel de Allende, Corregidora and Zibata. NWL Prepa (the high school level) is available at San Miguel, Corregidora and Zibata, all built on the Life Project program and the HOKKU Dual Diploma.',
+ 'Five campuses: Juriquilla, Milenio, San Miguel de Allende, Corregidora and Zibata. NWL Prepa (the high school level) is available at Corregidora and Zibata, both built on the Life Project program and the HOKKU Dual Diploma.',
  },
  {
  question: 'What grade levels does NWL Australian School offer?',
@@ -3185,12 +3185,12 @@ export const informacionPages: Record<string, InformacionPage> = {
  {
  question: 'What activities does each campus offer?',
  answer:
- 'Juriquilla (flagship, pre-kinder to junior high) offers soccer and visual arts; Milenio adds cooking, yoga and a dance team; San Miguel runs the full journey in a UNESCO city; Corregidora stands out for podcasting, programming and AI; Zibata is the newest campus with purpose-built facilities.',
+ 'Juriquilla (flagship, pre-kinder to junior high) offers soccer and visual arts; Milenio adds cooking, yoga and a dance team; San Miguel (pre-kinder to junior high) runs its program in a UNESCO city; Corregidora stands out for podcasting, programming and AI; Zibata is the newest campus with purpose-built facilities.',
  },
  {
  question: 'How does admission work?',
  answer:
- 'Schedule a visit to the campus that fits your child\'s level, review the program and submit the required documents. For high school, ask specifically about the Life Project structure and the HOKKU Dual Diploma at San Miguel, Corregidora or Zibata.',
+ 'Schedule a visit to the campus that fits your child\'s level, review the program and submit the required documents. For high school, ask specifically about the Life Project structure and the HOKKU Dual Diploma at Corregidora or Zibata.',
  },
  ],
  images: {
@@ -3224,7 +3224,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  description:
  'Prepa NWL Querétaro: plan SEP, Life Project, doble titulación HÖKKU Academy, inglés B2 TOEFL y Life Mentors. Una preparatoria bilingüe hecha para preparar a tu hijo para el mundo.',
  uniqueIntro:
- 'Prepa NWL es la preparatoria bilingüe privada de NWL Australian School en Querétaro, disponible en 3 campus (San Miguel de Allende, Corregidora y Zibatá), donde el alumno egresa con doble titulación HÖKKU Academy, inglés nivel B2 TOEFL y un proyecto de vida claro. Cursa el plan oficial SEP con el programa Life Project y un mentor personal que lo acompaña los seis semestres.',
+ 'Prepa NWL es la preparatoria bilingüe privada de NWL Australian School en Querétaro, disponible en 2 campus (Corregidora y Zibatá), donde el alumno egresa con doble titulación HÖKKU Academy, inglés nivel B2 TOEFL y un proyecto de vida claro. Cursa el plan oficial SEP con el programa Life Project y un mentor personal que lo acompaña los seis semestres.',
  sections: [
  {
  heading: 'Una prepa que enseña a tu hijo a construir su propio camino',
@@ -3235,15 +3235,15 @@ export const informacionPages: Record<string, InformacionPage> = {
  body: 'En Prepa NWL tu hijo cursa el plan oficial SEP y, gracias a nuestra alianza con HÖKKU Academy, obtiene en paralelo el American High School Diploma, reconocido en Estados Unidos y más de 40 países. Una sola prepa, dos certificaciones, y muchas más universidades posibles al graduarse.\n\nLa doble titulación viene acompañada del College Guidance Program: asesoría real para aplicar a universidades en EE. UU., armar el ensayo de admisión, buscar becas y entender los procesos internacionales. Es el tipo de acompañamiento que normalmente las familias contratan por fuera; aquí está incluido.\n\nEn paralelo, el inglés deja de ser una materia y se vuelve una habilidad de salida medible: el nivel obligatorio al egresar es B2 TOEFL. Cada semestre también incluye Finanzas Personales, Filosofía para Jóvenes y certificaciones reales.',
  },
  {
- heading: 'Tres campus, una prepa, una misma experiencia',
- body: 'Prepa NWL está disponible en tres campus con la misma estructura Life Project: San Miguel de Allende (ciudad Patrimonio UNESCO, arte, gastronomía y comunidad multicultural), Corregidora (edificio cubo Rubik, podcasts, programación e IA) y Zibatá (el campus más reciente, con instalaciones modernas y espacios de trabajo colaborativo). Juriquilla y Milenio no tienen preparatoria.\n\nUna semana típica combina el plan SEP en plataforma McGraw Hill —sobre dispositivos Apple en el aula—, clases de Life Project en inglés, una sesión personal con el Life Mentor, Filosofía para Jóvenes, Finanzas Personales y su club estudiantil. El bienestar físico se cubre con FitCard (acceso a gimnasios y clases deportivas) y, en los semestres 4, 5 y 6, se abren los intercambios internacionales optativos y las actividades intercampus entre las tres prepas.',
+ heading: 'Dos campus, una prepa, una misma experiencia',
+ body: 'Prepa NWL está disponible en dos campus con la misma estructura Life Project: Corregidora (edificio cubo Rubik, podcasts, programación e IA) y Zibatá (el campus más reciente, con instalaciones modernas y espacios de trabajo colaborativo). Juriquilla, Milenio y San Miguel de Allende llegan hasta secundaria.\n\nUna semana típica combina el plan SEP en plataforma McGraw Hill —sobre dispositivos Apple en el aula—, clases de Life Project en inglés, una sesión personal con el Life Mentor, Filosofía para Jóvenes, Finanzas Personales y su club estudiantil. El bienestar físico se cubre con FitCard (acceso a gimnasios y clases deportivas) y, en los semestres 4, 5 y 6, se abren los intercambios internacionales optativos y las actividades intercampus entre las dos prepas.',
  },
  ],
  faqs: [
  {
  question: '¿En qué campus de NWL hay preparatoria?',
  answer:
- 'San Miguel de Allende, Corregidora y Zibatá. Juriquilla y Milenio no tienen preparatoria. Los 3 campus con prepa operan con el mismo programa Life Project (6 semestres y 6 competencias para la vida), doble titulación HÖKKU Academy, Life Mentor personal para cada alumno y nivel de salida B2 TOEFL.',
+ 'Corregidora y Zibatá. Juriquilla, Milenio y San Miguel de Allende llegan hasta secundaria. Los 2 campus con prepa operan con el mismo programa Life Project (6 semestres y 6 competencias para la vida), doble titulación HÖKKU Academy, Life Mentor personal para cada alumno y nivel de salida B2 TOEFL.',
  },
  {
  question: '¿La preparatoria bilingüe tiene programa de emprendimiento?',
@@ -3273,7 +3273,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  {
  question: '¿Cómo es el proceso de admisión a la Prepa NWL?',
  answer:
- 'Se agenda una visita a uno de los 3 campus con prepa (San Miguel, Corregidora o Zibatá), se conoce el programa Life Project y la doble titulación HÖKKU, y se entregan los documentos del alumno. Conviene reservar el recorrido con anticipación.',
+ 'Se agenda una visita a uno de los 2 campus con prepa (Corregidora o Zibatá), se conoce el programa Life Project y la doble titulación HÖKKU, y se entregan los documentos del alumno. Conviene reservar el recorrido con anticipación.',
  },
  ],
  images: {
@@ -3293,176 +3293,6 @@ export const informacionPages: Record<string, InformacionPage> = {
  'mejor preparatoria queretaro',
  'doble titulación preparatoria queretaro',
  'bachillerato bilingüe queretaro',
- ],
- },
-
- // =========================================================================
- // PAGE 41 — Preparatoria en San Miguel de Allende
- // =========================================================================
- 'preparatoria-bilingue-privada-en-san-miguel-de-allende': {
- slug: 'preparatoria-bilingue-privada-en-san-miguel-de-allende',
- lang: 'es',
- title: 'Preparatoria Bilingüe Privada en San Miguel de Allende | Prepa NWL',
- h1: 'Preparatoria bilingüe privada en San Miguel de Allende: forma a tu hijo para el mundo real',
- description:
- 'Prepa NWL San Miguel: plan SEP, Life Project, doble titulación HÖKKU Academy y Life Mentors. Una preparatoria bilingüe privada hecha para preparar a tu hijo para el mundo.',
- uniqueIntro:
- 'Prepa NWL es la preparatoria bilingüe privada de NWL Australian School en San Miguel de Allende, donde el alumno egresa con doble titulación HÖKKU Academy, inglés nivel B2 TOEFL y un proyecto de vida claro. Cursa el plan oficial SEP con el programa Life Project y un mentor personal que lo acompaña los seis semestres, en una ciudad Patrimonio de la Humanidad UNESCO con comunidad multicultural.',
- sections: [
- {
- heading: 'Una prepa que enseña a tu hijo a construir su propio camino',
- body: 'Cuando un papá o una mamá busca preparatoria bilingüe privada en San Miguel de Allende, la pregunta de fondo casi siempre es la misma: "¿qué va a ser de mi hijo cuando salga?". El programa Life Project de Prepa NWL responde esa pregunta con una estructura clara: seis semestres, seis competencias para la vida, un Proyecto Personal y un Proyecto Integrador en cada uno.\n\nLos ejes semestrales son: 1) mentalidad de crecimiento y superación personal, 2) habilidades sociales y comunicación efectiva, 3) innovación y pensamiento crítico, 4) emprendimiento y creación de negocios, 5) impacto social y responsabilidad, y 6) preparación profesional y universitaria. A todo esto se suman Filosofía para Jóvenes, Finanzas Personales y certificaciones reales cada semestre.\n\nNinguna de estas materias se vive en solitario. Cada alumno tiene un Life Mentor —un mentor personal asignado— que lo acompaña semestre a semestre, lo ayuda a poner metas, a manejar el estrés y a definir su rumbo. Al egresar, tu hijo no se lleva sólo un certificado: se lleva un portafolio de proyectos personales e integradores que puede mostrar en una entrevista universitaria o en su primer empleo.',
- },
- {
- heading: 'Doble titulación HÖKKU: una graduación, dos países, más universidades posibles',
- body: 'En Prepa NWL San Miguel tu hijo cursa el plan oficial SEP y, gracias a nuestra alianza con HÖKKU Academy, obtiene en paralelo el American High School Diploma, reconocido en Estados Unidos y más de 40 países. Es una sola prepa, dos certificaciones, y muchas más universidades posibles al graduarse.\n\nLa doble titulación viene acompañada del College Guidance Program: asesoría real para aplicar a universidades en EE. UU., armar el ensayo de admisión, buscar becas y entender los procesos internacionales. Es el tipo de acompañamiento que normalmente las familias contratan por fuera; aquí está incluido.\n\nEn paralelo, el inglés deja de ser una materia y se vuelve una habilidad de salida medible: el nivel obligatorio al egresar es B2 TOEFL. Vivir en San Miguel de Allende, donde conviven familias mexicanas, estadounidenses, canadienses y europeas, hace que ese inglés se practique fuera del aula todos los días, en cafés, eventos culturales y proyectos comunitarios.',
- },
- {
- heading: 'Vivir, crear y prepararse en San Miguel de Allende',
- body: 'Una semana típica en Prepa NWL San Miguel combina el plan SEP en plataforma digital McGraw Hill —sobre dispositivos Apple en el aula—, clases de Life Project en inglés, una sesión personal con su Life Mentor, Filosofía para Jóvenes, Finanzas Personales y su club estudiantil. Cada semestre cierra con un Proyecto Personal (la voz del alumno) y un Proyecto Integrador con impacto real en la comunidad.\n\nEl bienestar físico no es opcional ni un agregado: con la FitCard, cada alumno tiene acceso a gimnasios y clases deportivas en San Miguel, además de los clubes estudiantiles del campus. La vida académica y la vida sana van juntas porque así se forma a un adulto completo.\n\nEn los semestres 4, 5 y 6 se abren los intercambios internacionales optativos, y a lo largo del año hay actividades intercampus con NWL Corregidora y NWL Zibatá. Todo esto en una ciudad Patrimonio de la Humanidad UNESCO, llena de arte, gastronomía y emprendimiento, donde aprender se vuelve parte de salir a la calle.',
- },
- ],
- faqs: [
- {
- question: '¿Qué hace diferente a la Prepa NWL en San Miguel de Allende de otras preparatorias?',
- answer:
- 'Combinamos el plan oficial SEP con el programa Life Project (seis semestres y seis competencias para la vida), un Life Mentor personal para cada alumno, doble titulación con HÖKKU Academy, inglés con nivel de salida B2 TOEFL, plataforma McGraw Hill y dispositivos Apple en el aula. Todo en un campus en San Miguel de Allende, con comunidad multicultural y actividades intercampus con Querétaro.',
- },
- {
- question: '¿Mi hijo va a salir realmente bilingüe de la prepa?',
- answer:
- 'Sí. El nivel de salida obligatorio es B2 TOEFL. El inglés se trabaja desde primer semestre, las materias Life Project se imparten en inglés y la vida cotidiana en San Miguel —con familias mexicanas, estadounidenses, canadienses y europeas— da práctica real fuera del aula. Para los alumnos que entran con un nivel más bajo, el Life Mentor diseña un plan de nivelación personal.',
- },
- {
- question: '¿La doble titulación con HÖKKU Academy sirve para entrar a universidades en Estados Unidos?',
- answer:
- 'Sí. Al egresar, tu hijo obtiene el certificado oficial SEP y, en paralelo, el American High School Diploma de HÖKKU Academy, reconocido en Estados Unidos y más de 40 países. La prepa incluye el College Guidance Program, donde se asesora a los alumnos en sus aplicaciones universitarias, ensayos de admisión, búsqueda de becas y procesos internacionales.',
- },
- {
- question: '¿Cómo se ve una semana típica de un alumno de Prepa NWL San Miguel?',
- answer:
- 'Materias del plan SEP en plataforma McGraw Hill sobre dispositivos Apple, clases de Life Project en inglés, una sesión con su Life Mentor, Filosofía para Jóvenes, Finanzas Personales, su club estudiantil y entrenamiento físico con la FitCard. Cada semestre se cierra con un Proyecto Personal y un Proyecto Integrador con impacto real, además de actividades intercampus con NWL Corregidora y NWL Zibatá.',
- },
- {
- question: '¿En qué consiste el programa Life Project?',
- answer:
- 'Es una estructura de seis semestres con seis competencias: mentalidad de crecimiento, habilidades sociales, innovación, emprendimiento, impacto social y preparación profesional. Cada semestre incluye un Proyecto Personal y un Proyecto Integrador, además de Filosofía para Jóvenes y Finanzas Personales.',
- },
- {
- question: '¿La preparatoria de San Miguel incluye actividad física?',
- answer:
- 'Sí. Con la FitCard, cada alumno tiene acceso a gimnasios y clases deportivas en San Miguel, además de los clubes estudiantiles del campus. La vida académica y la vida sana van juntas como parte de la formación integral.',
- },
- {
- question: '¿Cómo es el proceso de admisión a la Prepa NWL San Miguel?',
- answer:
- 'Se agenda una visita al campus en San Miguel de Allende, se conoce el programa Life Project y la doble titulación HÖKKU, y se entregan los documentos del alumno. Conviene reservar el recorrido con anticipación.',
- },
- ],
- images: {
- hero: '/images/campus/san-miguel/san-miguel-hero.jpg',
- content: [
- '/images/levels/prepa/prepa-nwl-modern-classroom.jpg',
- '/images/levels/prepa/prepa-nwl-students-podcast-studio.jpg',
- ],
- },
- targetCampus: 'san-miguel',
- targetLevel: '/high-school',
- category: 'campus',
- hreflangPair: 'excellence-bilingual-high-school-in-san-miguel-de-allende',
- keywords: [
- 'preparatoria bilingüe privada en san miguel de allende',
- 'preparatoria san miguel de allende',
- 'prepa bilingüe san miguel',
- 'preparatoria privada san miguel de allende',
- 'bachillerato bilingüe san miguel de allende',
- 'doble titulación preparatoria san miguel',
- 'prepa con plan sep san miguel',
- 'high school san miguel de allende',
- ],
- },
-
- // =========================================================================
- // PAGE 42 — Bilingual High School in San Miguel (EN)
- // =========================================================================
- 'excellence-bilingual-high-school-in-san-miguel-de-allende': {
- slug: 'excellence-bilingual-high-school-in-san-miguel-de-allende',
- lang: 'en',
- title: 'Bilingual High School in San Miguel de Allende | NWL Prepa',
- h1: 'Bilingual high school in San Miguel de Allende: preparing your child for the real world',
- description:
- 'NWL Prepa San Miguel: SEP curriculum, Life Project, Dual Diploma via HÖKKU Academy, Life Mentors and B2 TOEFL English. A bilingual high school built to prepare your child for what comes next.',
- uniqueIntro:
- 'NWL Prepa is the bilingual high school in San Miguel de Allende where your child graduates with a Dual Diploma from HOKKU Academy, a B2 TOEFL English level and a clear life plan. It combines the official SEP curriculum with the Life Project program, and every student has a personal Life Mentor for all six semesters, inside a UNESCO World Heritage city with a multicultural community.',
- sections: [
- {
- heading: 'A high school that teaches your child to build their own path',
- body: 'When a parent searches for a bilingual high school in San Miguel de Allende, the real question underneath is always the same — "what will my child actually be when they graduate?". The Life Project program at NWL Prepa is built to answer that with structure: six semesters, six life competencies, a Personal Project and an Integrative Project in each one.\n\nThe six semester themes are: 1) growth mindset and personal resilience, 2) social skills and effective communication, 3) innovation and critical thinking, 4) entrepreneurship and business creation, 5) social impact and responsibility, and 6) professional and university preparation. Alongside those themes run Philosophy for Young People, Personal Finance and real-world certifications every semester.\n\nNone of it happens alone. Every student is assigned a personal Life Mentor who works with them semester by semester — setting goals, managing stress, defining direction. By graduation, your child is not walking away with just a certificate: they leave with a portfolio of Personal and Integrative Projects they can show in a university interview or a first job conversation.',
- },
- {
- heading: 'HÖKKU Dual Diploma: one graduation, two countries, more universities to choose from',
- body: 'At NWL Prepa San Miguel, your child follows the official SEP curriculum and, through our alliance with HÖKKU Academy, earns the American High School Diploma in parallel — recognized in the United States and more than 40 countries. One high school, two credentials, and far more universities on the table at graduation.\n\nThe Dual Diploma comes with the College Guidance Program: real support for applying to US universities, writing the admissions essay, finding scholarships and navigating international processes. It is the kind of guidance families usually hire separately. Here it is included.\n\nAt the same time, English stops being "a subject" and becomes a measurable graduation outcome: the required exit level is B2 TOEFL. Living in San Miguel de Allende — where Mexican, American, Canadian and European families share the same streets — means that English is practiced outside the classroom every day, in cafés, at cultural events, and in community projects.',
- },
- {
- heading: 'Living, creating and preparing in San Miguel de Allende',
- body: 'A typical week at NWL Prepa San Miguel combines the SEP curriculum on the McGraw Hill digital platform — running on Apple devices in the classroom — with Life Project classes in English, a one-on-one session with a Life Mentor, Philosophy for Young People, Personal Finance and a student club. Each semester closes with a Personal Project (the student\'s own voice) and an Integrative Project with real community impact.\n\nPhysical wellbeing is not an add-on: through FitCard, every student gets access to gyms and sports classes in San Miguel, on top of the campus student clubs. Academics and a healthy life walk side by side, because that is how you build a complete adult.\n\nIn semesters 4, 5 and 6, optional international exchanges open up, and throughout the year the campus runs intercampus activities with NWL Corregidora and NWL Zibatá. All of it inside a UNESCO World Heritage city full of art, gastronomy and entrepreneurship, where learning becomes part of stepping outside.',
- },
- ],
- faqs: [
- {
- question: 'What makes NWL Prepa in San Miguel de Allende different from other high schools?',
- answer:
- 'We combine the official SEP curriculum with the Life Project program (six semesters, six life competencies), a personal Life Mentor for each student, a Dual Diploma via HOKKU Academy, a required B2 TOEFL English level at graduation, the McGraw Hill platform and Apple devices in the classroom - inside a campus in San Miguel de Allende, with a multicultural community and intercampus activities with Querétaro.',
- },
- {
- question: 'Will my child really leave fully bilingual?',
- answer:
- 'Yes. The required exit level is B2 TOEFL. English is worked on from the first semester, Life Project classes are taught in English, and daily life in San Miguel - with Mexican, American, Canadian and European families - gives real practice outside the classroom. For students who arrive with a lower level, the Life Mentor designs a personal path to get them there.',
- },
- {
- question: 'Does the HOKKU Dual Diploma help with applications to US universities?',
- answer:
- 'Yes. At graduation, your child earns the official SEP certificate and, in parallel, the American High School Diploma from HOKKU Academy, recognized in the US and more than 40 countries. The high school also includes the College Guidance Program, which supports students with their university applications, admissions essays, scholarship search and international processes.',
- },
- {
- question: 'What does a typical week look like for an NWL Prepa San Miguel student?',
- answer:
- 'SEP subjects on the McGraw Hill platform over Apple devices, Life Project classes in English, a session with the Life Mentor, Philosophy for Young People, Personal Finance, a student club and physical training through the FitCard. Every semester closes with a Personal Project and an Integrative Project with real community impact, plus intercampus activities with NWL Corregidora and NWL Zibatá.',
- },
- {
- question: 'What is the Life Project program?',
- answer:
- 'A six-semester structure with six life competencies: growth mindset, social skills, innovation, entrepreneurship, social impact and university preparation. Each semester includes a Personal Project and an Integrative Project, alongside Philosophy for Young People and Personal Finance.',
- },
- {
- question: 'Does the high school include physical wellbeing?',
- answer:
- 'Yes. Through FitCard, every student gets access to gyms and sports classes in San Miguel, on top of the campus student clubs. Academics and a healthy life walk side by side as part of the integral formation.',
- },
- {
- question: 'How does admission to NWL Prepa San Miguel work?',
- answer:
- 'Schedule a visit to the campus in San Miguel de Allende, learn about the Life Project program and the HOKKU Dual Diploma, and submit the student\'s records and required documents. It is best to book the tour in advance.',
- },
- ],
- images: {
- hero: '/images/campus/san-miguel/san-miguel-hero.jpg',
- content: [
- '/images/levels/prepa/prepa-nwl-modern-classroom.jpg',
- '/images/levels/prepa/prepa-nwl-students-podcast-studio.jpg',
- ],
- },
- targetCampus: 'san-miguel',
- targetLevel: '/high-school',
- category: 'campus',
- hreflangPair: 'preparatoria-bilingue-privada-en-san-miguel-de-allende',
- keywords: [
- 'bilingual high school in san miguel de allende',
- 'high school san miguel de allende',
- 'bilingual high school san miguel',
- 'private high school san miguel de allende',
- 'dual diploma san miguel de allende',
- 'english school san miguel de allende',
  ],
  },
 
@@ -3634,16 +3464,16 @@ export const informacionPages: Record<string, InformacionPage> = {
  'mejores-preparatorias-privadas-en-queretaro': {
  slug: 'mejores-preparatorias-privadas-en-queretaro',
  lang: 'es',
- title: 'Preparatorias privadas en Querétaro y SMA',
+ title: 'Preparatorias privadas en Querétaro',
  h1: 'Preparatorias privadas en Querétaro con Doble Diploma y Life Project',
  description:
- 'Conoce las preparatorias de NWL Australian School en 3 campus: Corregidora, Zibatá y San Miguel de Allende. Doble Diploma, Life Project, Kn U High y certificaciones internacionales.',
+ 'Conoce las preparatorias de NWL Australian School en 2 campus: Corregidora y Zibatá. Doble Diploma, Life Project, Kn U High y certificaciones internacionales.',
  uniqueIntro:
- 'Tres campus de NWL Australian School ofrecen preparatoria bilingüe privada en Querétaro y San Miguel de Allende: Corregidora, Zibatá y San Miguel. Comparten un modelo donde cada alumno trabaja con un Life Mentor personal durante los 6 semestres, construye un Portafolio de 6 Proyectos Personales y egresa con Doble Diploma reconocido en México y Estados Unidos. Juriquilla y Milenio ofrecen hasta secundaria.',
+ 'Dos campus de NWL Australian School ofrecen preparatoria bilingüe privada en Querétaro: Corregidora y Zibatá. Comparten un modelo donde cada alumno trabaja con un Life Mentor personal durante los 6 semestres, construye un Portafolio de 6 Proyectos Personales y egresa con Doble Diploma reconocido en México y Estados Unidos. Juriquilla, Milenio y San Miguel de Allende ofrecen hasta secundaria.',
  sections: [
  {
- heading: 'Tres campus, un mismo modelo de preparatoria',
- body: 'Lo que hace distinta a la prepa NWL no es un solo programa sino cómo se conectan todos. Life Project asigna un mentor desde el primer día. Doble Diploma (SEP México + diploma EUA acreditado por Cognia) abre puertas a universidades en ambos países. Y las certificaciones Kn U High/Coursera arrancan desde el primer semestre, no al final de la carrera.\n\nCorregidora destaca por podcasts, programación e IA aplicada. Zibatá tiene las instalaciones más nuevas de la red, diseñadas en 2025. San Miguel aprovecha su entorno multicultural y artístico para enriquecer la experiencia. Los tres campus incluyen Inteligencia Financiera, IA y Tecnología Moderna, HIT/Hyrox y la posibilidad de intercambio internacional en 5.° y 6.° semestre.',
+ heading: 'Dos campus, un mismo modelo de preparatoria',
+ body: 'Lo que hace distinta a la prepa NWL no es un solo programa sino cómo se conectan todos. Life Project asigna un mentor desde el primer día. Doble Diploma (SEP México + diploma EUA acreditado por Cognia) abre puertas a universidades en ambos países. Y las certificaciones Kn U High/Coursera arrancan desde el primer semestre, no al final de la carrera.\n\nCorregidora destaca por podcasts, programación e IA aplicada. Zibatá tiene las instalaciones más nuevas de la red, diseñadas en 2025. Ambos campus incluyen Inteligencia Financiera, IA y Tecnología Moderna, HIT/Hyrox y la posibilidad de intercambio internacional en 5.° y 6.° semestre.',
  },
  {
  heading: 'Life Project: mentores reales, proyectos reales',
@@ -3651,14 +3481,14 @@ export const informacionPages: Record<string, InformacionPage> = {
  },
  {
  heading: 'HIT/Hyrox, deporte y formación integral',
- body: 'La condición física no es opcional: el programa HIT/Hyrox ofrece entrenamientos de alta intensidad en los tres campus. Basquetbol, voleibol, tochito, dance y música completan la oferta extracurricular.\n\nFilosofía para Niños sigue presente en preparatoria — los alumnos debaten ética, política y ciencia con herramientas de pensamiento crítico que desarrollaron desde maternal. Yo Soy Líder NWL by Tec de Monterrey y el programa BFS (Bullying Free School) acompañan la formación socioemocional. Contenido académico base: McGraw-Hill.',
+ body: 'La condición física no es opcional: el programa HIT/Hyrox ofrece entrenamientos de alta intensidad en ambos campus. Basquetbol, voleibol, tochito, dance y música completan la oferta extracurricular.\n\nFilosofía para Niños sigue presente en preparatoria — los alumnos debaten ética, política y ciencia con herramientas de pensamiento crítico que desarrollaron desde maternal. Yo Soy Líder NWL by Tec de Monterrey y el programa BFS (Bullying Free School) acompañan la formación socioemocional. Contenido académico base: McGraw-Hill.',
  },
  ],
  faqs: [
  {
  question: '¿En qué campus de NWL Australian School puedo estudiar preparatoria?',
  answer:
- 'En tres: Corregidora (2019, director José Gustavo Flores), Zibatá (2025, directora Dayana Rose Gómez) y San Miguel de Allende (2018, director Ramón Godínez). Juriquilla y Milenio ofrecen hasta secundaria.',
+ 'En dos: Corregidora (2019, director José Gustavo Flores) y Zibatá (2025, directora Dayana Rose Gómez). Juriquilla, Milenio y San Miguel de Allende ofrecen hasta secundaria.',
  },
  {
  question: '¿Qué certificaciones obtienen los alumnos de la prepa NWL?',
@@ -3673,12 +3503,12 @@ export const informacionPages: Record<string, InformacionPage> = {
  {
  question: '¿Qué distingue a cada campus con preparatoria?',
  answer:
- 'Corregidora destaca por podcasts, programación e IA aplicada; Zibatá tiene las instalaciones más nuevas de la red, diseñadas en 2025; y San Miguel aprovecha su entorno multicultural y artístico. Los tres incluyen Inteligencia Financiera, HIT/Hyrox e intercambio internacional en 5.° y 6.° semestre.',
+ 'Corregidora destaca por podcasts, programación e IA aplicada; Zibatá tiene las instalaciones más nuevas de la red, diseñadas en 2025. Ambos incluyen Inteligencia Financiera, HIT/Hyrox e intercambio internacional en 5.° y 6.° semestre.',
  },
  {
  question: '¿La preparatoria NWL incluye actividad física?',
  answer:
- 'Sí. El programa HIT/Hyrox ofrece entrenamientos de alta intensidad en los tres campus. Basquetbol, voleibol, tochito, dance y música completan la oferta extracurricular, junto con la Filosofía para Niños y Yo Soy Líder NWL by Tec de Monterrey.',
+ 'Sí. El programa HIT/Hyrox ofrece entrenamientos de alta intensidad en ambos campus. Basquetbol, voleibol, tochito, dance y música completan la oferta extracurricular, junto con la Filosofía para Niños y Yo Soy Líder NWL by Tec de Monterrey.',
  },
  {
  question: '¿La doble titulación sirve para entrar a universidades en el extranjero?',
@@ -3688,7 +3518,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  {
  question: '¿Cómo es el proceso de admisión a la preparatoria NWL?',
  answer:
- 'Se agenda una visita a uno de los 3 campus con prepa (Corregidora, Zibatá o San Miguel), se conoce el programa Life Project y la Doble Diploma, y se entregan los documentos del alumno. Conviene reservar el recorrido con anticipación.',
+ 'Se agenda una visita a uno de los 2 campus con prepa (Corregidora o Zibatá), se conoce el programa Life Project y la Doble Diploma, y se entregan los documentos del alumno. Conviene reservar el recorrido con anticipación.',
  },
  ],
  images: {
@@ -3891,7 +3721,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  },
  {
  heading: 'Maternal a preparatoria en un solo campus',
- body: 'Corregidora es uno de los 3 campus NWL que ofrece la trayectoria completa de maternal a preparatoria. Los niños inician con Brain Up a los 2 años, avanzan con Knotion en kinder y primaria, y en secundaria obtienen la Doble Certificación Internacional vía Hokku Academy.\n\nEn preparatoria: Life Project con mentores personales, Doble Diploma (México + EUA acreditado por Cognia), certificaciones Kn U High/Coursera, Inteligencia Financiera, HIT/Hyrox e intercambio internacional. Todo sin cambiar de campus.',
+ body: 'Corregidora es uno de los 2 campus NWL que ofrece la trayectoria completa de maternal a preparatoria. Los niños inician con Brain Up a los 2 años, avanzan con Knotion en kinder y primaria, y en secundaria obtienen la Doble Certificación Internacional vía Hokku Academy.\n\nEn preparatoria: Life Project con mentores personales, Doble Diploma (México + EUA acreditado por Cognia), certificaciones Kn U High/Coursera, Inteligencia Financiera, HIT/Hyrox e intercambio internacional. Todo sin cambiar de campus.',
  },
  ],
  faqs: [
@@ -3903,7 +3733,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  {
  question: '¿El campus Corregidora ofrece preparatoria?',
  answer:
- 'Sí. Es uno de los 3 campus NWL con preparatoria. Incluye Life Project con mentores, Doble Diploma (México + EUA), Kn U High/Coursera, programación, podcasts, IA, HIT/Hyrox e intercambio internacional.',
+ 'Sí. Es uno de los 2 campus NWL con preparatoria. Incluye Life Project con mentores, Doble Diploma (México + EUA), Kn U High/Coursera, programación, podcasts, IA, HIT/Hyrox e intercambio internacional.',
  },
  {
  question: '¿Por qué el campus Corregidora no deja tarea tradicional?',
@@ -3958,13 +3788,13 @@ export const informacionPages: Record<string, InformacionPage> = {
  title: 'International School in San Miguel de Allende | NWL Australian School',
  h1: 'A bilingual international school in San Miguel de Allende',
  description:
- 'NWL Australian School in San Miguel de Allende offers nursery through high school with Cambridge English, a HÖKKU Dual Diploma, Life Project and a multicultural learning environment.',
+ 'NWL Australian School in San Miguel de Allende offers nursery through middle school with Cambridge English, Knotion project-based learning and a multicultural learning environment.',
  uniqueIntro:
- 'NWL Australian School San Miguel de Allende is a bilingual international school in the heart of a UNESCO World Heritage city, serving families from Mexico, the United States, Canada and Europe. The campus runs from nursery (age 2) through high school (age 17) under the direction of Lic. Ramon Godinez, with full bilingual immersion, Cambridge English at every level and a HOKKU Dual Diploma in high school.',
+ 'NWL Australian School San Miguel de Allende is a bilingual international school in the heart of a UNESCO World Heritage city, serving families from Mexico, the United States, Canada and Europe. The campus runs from nursery (age 2) through middle school (age 14) under the direction of Lic. Ramon Godinez, with full bilingual immersion, Cambridge English at every level and the HOKKU Dual International Certification in middle school.',
  sections: [
  {
- heading: 'Nursery through high school in one campus',
- body: 'San Miguel de Allende is one of three NWL campuses that offers the full educational journey from nursery to high school. Children start with Brain Up English immersion at age 2, move through Knotion project-based learning in elementary, and reach the Emprendizaje entrepreneurship program with Universidad Mondragón in middle school.\n\nThe high school program — NWL Prepa — is built around Life Project, a six-semester structure with a personal Life Mentor for each student, and the HÖKKU Dual Diploma: the American High School Diploma earned in parallel with the Mexican SEP certificate, recognized in the United States and more than 40 countries. The required English exit level is B2 TOEFL, and optional international exchanges open up in the final year.',
+ heading: 'Nursery through middle school in one campus',
+ body: 'The San Miguel de Allende campus takes students from nursery all the way through middle school. Children start with Brain Up English immersion at age 2, move through Knotion project-based learning in elementary, and reach the Emprendizaje entrepreneurship program with Universidad Mondragón in middle school.\n\nMiddle school closes with the HÖKKU Dual International Certification — a US diploma earned in parallel with the Mexican certificate — plus Cambridge PET/FCE. Families who want to continue with NWL for high school move to the Corregidora or Zibatá campuses in Querétaro, where NWL Prepa runs the Life Project program, a personal Life Mentor for each student and the HÖKKU Dual Diploma.',
  },
  {
  heading: 'Cambridge English and a naturally bilingual environment',
@@ -3972,7 +3802,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  },
  {
  heading: 'Art, culture, and critical thinking in a UNESCO city',
- body: 'Philosophy for Children (P4C) starts at age 2 and continues through high school. Students learn to question, argue, and build ideas — skills that show up in every subject and every conversation. The Yo Soy Líder NWL program, designed by Tec de Monterrey, develops emotional intelligence and leadership alongside academics.\n\nSan Miguel\'s artistic heritage feeds directly into the curriculum: painting, sculpture, theater, and visits to local galleries and festivals. The campus includes a covered court, science labs, art rooms, a podcast studio, and a cafeteria. More than 90 security cameras operate around the clock.',
+ body: 'Philosophy for Children (P4C) starts at age 2 and continues through middle school. Students learn to question, argue, and build ideas — skills that show up in every subject and every conversation. The Yo Soy Líder NWL program, designed by Tec de Monterrey, develops emotional intelligence and leadership alongside academics.\n\nSan Miguel\'s artistic heritage feeds directly into the curriculum: painting, sculpture, theater, and visits to local galleries and festivals. The campus includes a covered court, science labs, art rooms, a podcast studio, and a cafeteria. More than 90 security cameras operate around the clock.',
  },
  ],
  faqs: [
@@ -3984,17 +3814,17 @@ export const informacionPages: Record<string, InformacionPage> = {
  {
  question: 'Does NWL Australian School accept international students?',
  answer:
- 'Yes. NWL San Miguel serves families from Mexico, the US, Canada and Europe. The high school\'s HOKKU Dual Diploma is recognized in the United States and more than 40 countries, which makes transitions easier for international families. The campus runs from nursery (age 2) through high school, under the direction of Lic. Ramon Godinez.',
+ 'Yes. NWL San Miguel serves families from Mexico, the US, Canada and Europe. The HOKKU Dual International Certification earned in middle school is recognized in the United States and more than 40 countries, which makes transitions easier for international families. The campus runs from nursery (age 2) through middle school, under the direction of Lic. Ramon Godinez.',
  },
  {
  question: 'What grade levels does the school offer?',
  answer:
- 'Nursery (age 2) through high school (age 17) in one campus. It is one of three NWL campuses offering the full journey: Brain Up English immersion in nursery, Knotion project-based learning in elementary, Emprendizaje with Universidad Mondragon in middle school, and NWL Prepa in high school.',
+ 'Nursery (age 2) through middle school (age 14) in one campus: Brain Up English immersion in nursery, Knotion project-based learning in elementary, and Emprendizaje with Universidad Mondragon plus the HOKKU Dual International Certification in middle school.',
  },
  {
- question: 'What makes the high school program different?',
+ question: 'Where can students continue for high school?',
  answer:
- 'NWL Prepa is built around Life Project: a six-semester structure with a personal Life Mentor for each student, plus the HOKKU Dual Diploma earned in parallel with the Mexican SEP certificate. The required English exit level is B2 TOEFL, with optional international exchanges in the final year.',
+ 'At the Corregidora or Zibata campuses in Queretaro. NWL Prepa is built around Life Project: a six-semester structure with a personal Life Mentor for each student, plus the HOKKU Dual Diploma earned in parallel with the Mexican SEP certificate. The required English exit level is B2 TOEFL, with optional international exchanges in the final year.',
  },
  {
  question: 'Why is NWL a no-homework school?',
@@ -4054,7 +3884,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  },
  {
  heading: 'Sin tarea, con laboratorio y deporte',
- body: 'La secundaria NWL mantiene el modelo Knotion sin tarea tradicional. El aprendizaje ocurre en el aula, en el laboratorio y en proyectos — no en cuadernos a las 10 de la noche.\n\nCada campus cuenta con laboratorios de ciencias, áreas deportivas (basquetbol, voleibol, tochito, fútbol), programa BFS (Bullying Free School) y más de 90 cámaras de seguridad. En San Miguel, Corregidora y Zibatá, los alumnos que terminan secundaria pueden continuar a preparatoria NWL sin cambiar de sistema.',
+ body: 'La secundaria NWL mantiene el modelo Knotion sin tarea tradicional. El aprendizaje ocurre en el aula, en el laboratorio y en proyectos — no en cuadernos a las 10 de la noche.\n\nCada campus cuenta con laboratorios de ciencias, áreas deportivas (basquetbol, voleibol, tochito, fútbol), programa BFS (Bullying Free School) y más de 90 cámaras de seguridad. En Corregidora y Zibatá, los alumnos que terminan secundaria pueden continuar a preparatoria NWL sin cambiar de sistema.',
  },
  ],
  faqs: [
@@ -4086,7 +3916,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  {
  question: '¿Hasta qué nivel puede continuar mi hijo después de la secundaria?',
  answer:
- 'En San Miguel, Corregidora y Zibatá, los alumnos que terminan secundaria pueden continuar a preparatoria NWL sin cambiar de sistema. Juriquilla y Milenio ofrecen hasta secundaria.',
+ 'En Corregidora y Zibatá, los alumnos que terminan secundaria pueden continuar a preparatoria NWL sin cambiar de sistema. Juriquilla, Milenio y San Miguel de Allende ofrecen hasta secundaria.',
  },
  {
  question: '¿Cómo es el proceso de admisión a la secundaria en Querétaro?',
@@ -4126,7 +3956,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  sections: [
  {
  heading: 'Five campuses, one educational model',
- body: 'Juriquilla (2009) is the flagship campus with the longest track record in the network. Milenio (2016) holds Cognia accreditation and offers cooking workshops, yoga, and a competitive dance team. San Miguel de Allende (2018) sits in a UNESCO World Heritage city with a thriving international community.\n\nCorregidora (2019) stands out for its Rubik\'s-cube-shaped building and programs in podcasting, programming, and AI. Zibatá (2025) is the newest campus with purpose-built maker spaces and recording studios. Three campuses (San Miguel, Corregidora, Zibatá) run through high school.',
+ body: 'Juriquilla (2009) is the flagship campus with the longest track record in the network. Milenio (2016) holds Cognia accreditation and offers cooking workshops, yoga, and a competitive dance team. San Miguel de Allende (2018) sits in a UNESCO World Heritage city with a thriving international community.\n\nCorregidora (2019) stands out for its Rubik\'s-cube-shaped building and programs in podcasting, programming, and AI. Zibatá (2025) is the newest campus with purpose-built maker spaces and recording studios. Two campuses (Corregidora and Zibatá) run through high school.',
  },
  {
  heading: 'Cognia accreditation and Cambridge English',
@@ -4146,7 +3976,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  {
  question: 'How many NWL Australian School campuses are in Queretaro?',
  answer:
- 'Five: Juriquilla, Milenio, Zibata, Corregidora, and San Miguel de Allende. All five offer nursery through middle school. San Miguel, Corregidora, and Zibata also offer high school with a Dual Diploma program.',
+ 'Five: Juriquilla, Milenio, Zibata, Corregidora, and San Miguel de Allende. All five offer nursery through middle school. Corregidora and Zibata also offer high school with a Dual Diploma program.',
  },
  {
  question: 'Why does Cognia accreditation matter for relocating families?',
@@ -4207,7 +4037,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  sections: [
  {
  heading: '¿Dónde está y qué niveles ofrece NWL Australian School?',
- body: 'NWL Australian School opera 5 campus: Juriquilla, Milenio, Corregidora y Zibatá en Querétaro, y un campus en San Miguel de Allende, Guanajuato. Todos los campus ofrecen desde maternal hasta secundaria; la preparatoria (Prepa NWL) se imparte en los campus de San Miguel de Allende, Corregidora y Zibatá.\n\nCada campus comparte el mismo modelo educativo bilingüe, de modo que una familia puede acompañar a su hijo de los 2 años hasta el bachillerato sin cambiar de institución.',
+ body: 'NWL Australian School opera 5 campus: Juriquilla, Milenio, Corregidora y Zibatá en Querétaro, y un campus en San Miguel de Allende, Guanajuato. Todos los campus ofrecen desde maternal hasta secundaria; la preparatoria (Prepa NWL) se imparte en los campus de Corregidora y Zibatá.\n\nCada campus comparte el mismo modelo educativo bilingüe, de modo que una familia puede acompañar a su hijo de los 2 años hasta el bachillerato sin cambiar de institución.',
  },
  {
  heading: '¿Qué hace diferente a NWL Australian School?',
@@ -4227,7 +4057,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  {
  question: '¿Cuántos campus tiene NWL Australian School y dónde están?',
  answer:
- 'Cinco campus: Juriquilla, Milenio, Corregidora y Zibatá en Querétaro, y uno en San Miguel de Allende, Guanajuato. Todos ofrecen de maternal a secundaria; la preparatoria está en San Miguel de Allende, Corregidora y Zibatá.',
+ 'Cinco campus: Juriquilla, Milenio, Corregidora y Zibatá en Querétaro, y uno en San Miguel de Allende, Guanajuato. Todos ofrecen de maternal a secundaria; la preparatoria está en Corregidora y Zibatá.',
  },
  {
  question: '¿NWL Australian School es bilingüe real o solo tiene clases de inglés?',
@@ -4242,7 +4072,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  {
  question: '¿Desde qué edad y hasta qué nivel se puede estudiar en NWL Australian School?',
  answer:
- 'Desde los 2 años en maternal hasta la preparatoria. Todos los campus llegan hasta secundaria y tres de ellos (San Miguel de Allende, Corregidora y Zibatá) ofrecen preparatoria con el modelo Life Project.',
+ 'Desde los 2 años en maternal hasta la preparatoria. Todos los campus llegan hasta secundaria y dos de ellos (Corregidora y Zibatá) ofrecen preparatoria con el modelo Life Project.',
  },
  {
  question: '¿Qué acreditaciones tiene NWL Australian School?',
@@ -4287,7 +4117,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  sections: [
  {
  heading: 'Where is NWL Australian School and what levels does it offer?',
- body: 'NWL Australian School operates 5 campuses: Juriquilla, Milenio, Corregidora and Zibatá in Querétaro, and one campus in San Miguel de Allende, Guanajuato. All campuses run from maternal through middle school; high school (Prepa NWL) is offered at the San Miguel de Allende, Corregidora and Zibatá campuses.\n\nEvery campus shares the same bilingual model, so a family can stay with one school from age 2 through high school.',
+ body: 'NWL Australian School operates 5 campuses: Juriquilla, Milenio, Corregidora and Zibatá in Querétaro, and one campus in San Miguel de Allende, Guanajuato. All campuses run from maternal through middle school; high school (Prepa NWL) is offered at the Corregidora and Zibatá campuses.\n\nEvery campus shares the same bilingual model, so a family can stay with one school from age 2 through high school.',
  },
  {
  heading: 'What makes NWL Australian School different?',
@@ -4307,7 +4137,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  {
  question: 'How many campuses does NWL Australian School have and where are they?',
  answer:
- 'Five: Juriquilla, Milenio, Corregidora and Zibatá in Querétaro, and one in San Miguel de Allende, Guanajuato. All offer maternal through middle school; high school is available in San Miguel de Allende, Corregidora and Zibatá.',
+ 'Five: Juriquilla, Milenio, Corregidora and Zibatá in Querétaro, and one in San Miguel de Allende, Guanajuato. All offer maternal through middle school; high school is available at Corregidora and Zibatá.',
  },
  {
  question: 'Is NWL Australian School truly bilingual?',
@@ -4322,7 +4152,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  {
  question: 'From what age and up to what level can students study at NWL Australian School?',
  answer:
- 'From age 2 in maternal through high school. All campuses run through middle school, and three (San Miguel de Allende, Corregidora and Zibatá) offer high school with the Life Project model.',
+ 'From age 2 in maternal through high school. All campuses run through middle school, and two (Corregidora and Zibatá) offer high school with the Life Project model.',
  },
  {
  question: 'What accreditations does NWL Australian School hold?',
@@ -4680,7 +4510,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  },
  {
  heading: 'Dónde encontrarlo: 5 campus de maternal a preparatoria',
- body: 'El modelo australiano de NWL está disponible en los 5 campus de la red: Juriquilla, Milenio y Zibatá en Querétaro, Corregidora en la zona sur, y San Miguel de Allende en Guanajuato. Todos ofrecen de maternal a secundaria; Corregidora, Zibatá y San Miguel de Allende continúan hasta preparatoria.\n\nLa continuidad es una de las mayores ventajas: un alumno puede recorrer toda su trayectoria escolar — de los 2 a los 17 años — dentro del mismo modelo educativo, sin cambios de institución ni de filosofía.',
+ body: 'El modelo australiano de NWL está disponible en los 5 campus de la red: Juriquilla, Milenio y Zibatá en Querétaro, Corregidora en la zona sur, y San Miguel de Allende en Guanajuato. Todos ofrecen de maternal a secundaria; Corregidora y Zibatá continúan hasta preparatoria.\n\nLa continuidad es una de las mayores ventajas: un alumno puede recorrer toda su trayectoria escolar — de los 2 a los 17 años — dentro del mismo modelo educativo, sin cambios de institución ni de filosofía.',
  },
  ],
  faqs: [
@@ -4702,7 +4532,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  {
  question: '¿En qué campus de Querétaro está disponible?',
  answer:
- 'En los 5 campus: Juriquilla, Milenio, Zibatá, Corregidora y San Miguel de Allende. Todos ofrecen de maternal a secundaria; Corregidora, Zibatá y San Miguel de Allende también cuentan con preparatoria.',
+ 'En los 5 campus: Juriquilla, Milenio, Zibatá, Corregidora y San Miguel de Allende. Todos ofrecen de maternal a secundaria; Corregidora y Zibatá también cuentan con preparatoria.',
  },
  {
  question: '¿Dónde puedo conocer el modelo educativo NWL completo?',

@@ -90,7 +90,6 @@ const galleryImages = [
   { src: '/images/levels/prepa/prepa-nwl-instructor-drums-music.jpg', alt: 'Music instructor playing drums' },
   { src: '/images/levels/prepa/prepa-nwl-podcast-studio-alt.jpg', alt: 'Podcast studio setup' },
   { src: '/images/levels/prepa/corregidora-prepa-classroom-2.jpg', alt: 'Prepa NWL Corregidora tech classroom' },
-  { src: '/images/levels/prepa/san-miguel-reception.jpg', alt: 'Prepa NWL San Miguel de Allende high school area' },
   { src: '/images/levels/prepa/nwl-zibata-prepa-classroom-jackets.jpg', alt: 'Prepa NWL classroom at Zibata with NWL varsity jackets and iPads' },
 ];
 
@@ -925,7 +924,7 @@ export default function HighSchoolPage() {
           <div className="container-custom">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-3 max-w-4xl mx-auto">
               {[
-                { value: '3', label: hs.statCampuses, gradient: 'from-jacaranda/15 to-jacaranda/5', border: 'border-jacaranda/20' },
+                { value: '2', label: hs.statCampuses, gradient: 'from-jacaranda/15 to-jacaranda/5', border: 'border-jacaranda/20' },
                 { value: '100%', label: hs.statBilingual, gradient: 'from-gold/15 to-gold/5', border: 'border-gold/25' },
                 { value: '6', label: hs.statCertifications, gradient: 'from-n-500/10 to-n-500/5', border: 'border-n-200' },
                 { value: '6', label: hs.statProjects, gradient: 'from-jacaranda/10 to-gold/10', border: 'border-gold/20' },

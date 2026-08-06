@@ -57,7 +57,7 @@ export const PAGE_SEO = {
   highSchool: {
     title: 'High School — Prepa NWL (Ages 15–17)',
     description:
-      'Life Project high school, always forward: Hokku double diploma, Cognia accreditation, financial intelligence, and real-world certifications. Querétaro & San Miguel de Allende.',
+      'Life Project high school, always forward: Hokku double diploma, Cognia accreditation, financial intelligence, and real-world certifications. Corregidora & Zibatá campuses, Querétaro.',
     ogImage: '/images/og/nwl/high-school.jpg',
   },
   careers: {
