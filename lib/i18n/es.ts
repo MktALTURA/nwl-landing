@@ -1175,6 +1175,8 @@ export const es: Dictionary = {
     downloadDocument: 'Descargar',
     noDocuments: 'Sin documentos',
     noDocumentsDescription: 'Aún no hay documentos disponibles en esta sección.',
+    pendingDocument: 'Próximamente',
+    pendingDocumentHint: 'Pendiente de publicación',
     campusPortalTitle: '¿Ya eres familia NWL?',
     campusPortalDescription: 'Accede al portal de padres para consultar calendarios, menús y comunicados.',
     campusPortalCta: 'Portal de Padres',

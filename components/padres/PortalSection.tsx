@@ -1,9 +1,9 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { FiInbox, FiEye, FiDownload } from 'react-icons/fi';
+import { FiInbox, FiEye, FiDownload, FiClock } from 'react-icons/fi';
 import { useLanguage } from '@/lib/i18n/LanguageContext';
-import type { PortalDocument } from '@/lib/padres-data';
+import { CURRENT_CYCLE, type PortalDocument } from '@/lib/padres-data';
 import type { Locale } from '@/lib/i18n/types';
 import DocumentCard from './DocumentCard';
 
@@ -64,6 +64,14 @@ export default function PortalSection({ documents, locale }: PortalSectionProps)
         transition={{ duration: 0.3 }}
         className="space-y-8"
       >
+        {documents.every((d) => d.pending || !d.pdfUrl) && (
+          <div className="flex items-center gap-2.5 px-4 py-3 rounded-xl border border-dashed border-n-300 bg-white text-sm text-navy/60">
+            <FiClock className="w-4 h-4 text-n-400 flex-shrink-0" />
+            <span>
+              <span className="font-medium text-navy/75">{CURRENT_CYCLE}</span> · {t.padres.pendingDocumentHint}
+            </span>
+          </div>
+        )}
         {groups.map((group, gi) => (
           <div key={group.label}>
             <div className="flex items-center gap-3 mb-4">
@@ -76,24 +84,46 @@ export default function PortalSection({ documents, locale }: PortalSectionProps)
               </span>
             </div>
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
-              {group.docs.map((doc, di) => (
+              {group.docs.map((doc, di) => {
+                const isPending = doc.pending || !doc.pdfUrl;
+                return (
                 <motion.div
                   key={doc.id}
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.3, delay: gi * 0.1 + di * 0.03 }}
-                  className="bg-white rounded-lg border border-n-200 px-4 py-3 hover:border-gold/40 hover:shadow-sm transition-all"
+                  className={`bg-white rounded-lg px-4 py-3 transition-all ${
+                    isPending
+                      ? 'border border-dashed border-n-300'
+                      : 'border border-n-200 hover:border-gold/40 hover:shadow-sm'
+                  }`}
                 >
                   <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 rounded-md bg-gold/10 flex items-center justify-center flex-shrink-0">
-                      <svg className="w-4 h-4 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
-                      </svg>
+                    <div
+                      className={`w-8 h-8 rounded-md flex items-center justify-center flex-shrink-0 ${
+                        isPending ? 'bg-n-100' : 'bg-gold/10'
+                      }`}
+                    >
+                      {isPending ? (
+                        <FiClock className="w-4 h-4 text-n-400" />
+                      ) : (
+                        <svg className="w-4 h-4 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
+                        </svg>
+                      )}
                     </div>
-                    <span className="text-sm font-medium text-navy truncate flex-1">
+                    <span className={`text-sm font-medium truncate flex-1 ${isPending ? 'text-navy/60' : 'text-navy'}`}>
                       {doc.title[locale]}
                     </span>
                   </div>
+                  {isPending ? (
+                    <div className="mt-2.5 pl-11">
+                      <span className="inline-flex items-center gap-1 px-2.5 py-1 text-xs font-medium text-n-500 bg-n-100 rounded-md">
+                        <FiClock className="w-3 h-3" />
+                        {t.padres.pendingDocument}
+                      </span>
+                    </div>
+                  ) : (
                   <div className="flex gap-2 mt-2.5 pl-11">
                     <a
                       href={doc.pdfUrl}
@@ -113,8 +143,10 @@ export default function PortalSection({ documents, locale }: PortalSectionProps)
                       {t.padres.downloadDocument}
                     </a>
                   </div>
+                  )}
                 </motion.div>
-              ))}
+                );
+              })}
             </div>
           </div>
         ))}

@@ -1174,6 +1174,8 @@ export const en: Dictionary = {
     downloadDocument: 'Download',
     noDocuments: 'No documents',
     noDocumentsDescription: 'No documents are available in this section yet.',
+    pendingDocument: 'Coming soon',
+    pendingDocumentHint: 'Pending publication',
     campusPortalTitle: 'Already an NWL family?',
     campusPortalDescription: 'Access the parents portal for calendars, menus, and announcements.',
     campusPortalCta: 'Parents Portal',

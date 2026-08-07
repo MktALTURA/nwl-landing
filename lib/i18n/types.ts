@@ -528,6 +528,8 @@ export interface Dictionary {
     downloadDocument: string;
     noDocuments: string;
     noDocumentsDescription: string;
+    pendingDocument: string;
+    pendingDocumentHint: string;
     // Campus portal link on campus pages
     campusPortalTitle: string;
     campusPortalDescription: string;
