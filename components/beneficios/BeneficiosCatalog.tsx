@@ -328,13 +328,15 @@ function PartnerCard({
                 aria-label={t.beneficios.viewPromo}
                 className="group/promo relative w-full overflow-hidden rounded-lg ring-1 ring-n-200 cursor-zoom-in"
               >
+                {/* Capped-height preview band (object-top) so tall portrait
+                    flyers stay compact; the full image opens in the lightbox. */}
                 <img
                   src={src}
                   alt={promoAlt}
                   loading="lazy"
-                  className="w-full h-auto object-cover transition-transform duration-300 group-hover/promo:scale-[1.03]"
+                  className="w-full h-40 object-cover object-top transition-transform duration-300 group-hover/promo:scale-[1.03]"
                 />
-                <span className="absolute inset-0 bg-navy/0 group-hover/promo:bg-navy/15 transition-colors duration-300" />
+                <span className="absolute inset-0 bg-gradient-to-t from-navy-900/25 to-transparent group-hover/promo:from-navy-900/40 transition-colors duration-300" />
                 <span className="absolute bottom-2 right-2 inline-flex items-center gap-1.5 rounded-full bg-navy-900/70 px-2.5 py-1 text-[11px] font-medium text-paper backdrop-blur-sm">
                   <FiMaximize2 size={12} />
                   {partner.promoImages!.length === 1 && t.beneficios.viewPromo}
