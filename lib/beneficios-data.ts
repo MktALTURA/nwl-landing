@@ -298,6 +298,22 @@ export const benefitPartners: BenefitPartner[] = [
       en: 'Special price for the NWL community.',
     },
   },
+  {
+    slug: 'vann-sport-center',
+    name: 'Vann Sport Center',
+    categoryKey: 'deporte',
+    logo: '/images/logos/benefits/vann-sport-center.png',
+    promoImages: ['/images/benefits/vann-sport-promo.jpg'],
+    discount: { es: 'Inscripción 100% de descuento', en: '100% off enrollment' },
+    detail: {
+      es: 'Natación para tus hijos: inscripción 100% de descuento (antes $550), primer pago preferencial $950 y renovación $890. Más que clases, formamos personas para toda la vida.',
+      en: 'Swimming for your kids: 100% off enrollment (was $550), $950 preferential first payment and $890 on renewal. More than classes — building people for life.',
+    },
+    restrictions: {
+      es: 'Precio especial para la comunidad NWL.',
+      en: 'Special price for the NWL community.',
+    },
+  },
 ];
 
 /** Resolve a localized string to the active locale. */
