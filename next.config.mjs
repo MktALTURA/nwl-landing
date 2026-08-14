@@ -55,7 +55,7 @@ const nextConfig = {
               "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://link.msgsndr.com https://api.nwl.com.mx https://va.vercel-scripts.com https://cdn.jsdelivr.net https://www.googletagmanager.com https://connect.facebook.net",
               "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
               "font-src 'self' https://fonts.gstatic.com",
-              "img-src 'self' data: blob: https://prod-files-secure.s3.us-west-2.amazonaws.com https://images.unsplash.com https://storage.googleapis.com https://assets.cdn.filesafe.space https://www.facebook.com",
+              "img-src 'self' data: blob: https://*.public.blob.vercel-storage.com https://prod-files-secure.s3.us-west-2.amazonaws.com https://images.unsplash.com https://storage.googleapis.com https://assets.cdn.filesafe.space https://www.facebook.com",
               "frame-src https://api.leadconnectorhq.com https://api.nwl.com.mx https://heyzine.com https://www.google.com https://www.youtube-nocookie.com",
               "connect-src 'self' https://api.leadconnectorhq.com https://api.nwl.com.mx https://link.msgsndr.com https://va.vercel-scripts.com https://vitals.vercel-insights.com https://fonts.googleapis.com https://fonts.gstatic.com https://www.googletagmanager.com https://www.google-analytics.com https://analytics.google.com https://www.facebook.com https://connect.facebook.net",
             ].join('; '),

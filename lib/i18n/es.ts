@@ -1111,9 +1111,9 @@ export const es: Dictionary = {
   },
   admin: {
     loginTitle: 'Acceso Admin',
-    loginSubtitle: 'Ingresa tu contraseña para administrar las vacantes.',
+    loginSubtitle: 'Ingresa tu contraseña para entrar al panel.',
     loginPasswordLabel: 'Contraseña',
-    loginPasswordPlaceholder: 'Ingresa la contraseña de admin',
+    loginPasswordPlaceholder: 'Tu contraseña',
     loginButton: 'Iniciar Sesión',
     loginError: 'Contraseña incorrecta. Intenta de nuevo.',
     loginRateLimit: 'Demasiados intentos. Intenta de nuevo en 15 minutos.',

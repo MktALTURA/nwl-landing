@@ -1110,9 +1110,9 @@ export const en: Dictionary = {
   },
   admin: {
     loginTitle: 'Admin Access',
-    loginSubtitle: 'Enter your password to manage job listings.',
+    loginSubtitle: 'Enter your password to open the admin panel.',
     loginPasswordLabel: 'Password',
-    loginPasswordPlaceholder: 'Enter admin password',
+    loginPasswordPlaceholder: 'Your password',
     loginButton: 'Sign In',
     loginError: 'Invalid password. Please try again.',
     loginRateLimit: 'Too many attempts. Please try again in 15 minutes.',

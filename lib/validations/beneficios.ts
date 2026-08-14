@@ -12,7 +12,7 @@ import { COLOR_KEYS } from '@/lib/beneficios/colors';
 /** Spanish required, English optional (empty English falls back to Spanish). */
 const localized = (max: number, campo: string) =>
   z.object({
-    es: z.string().trim().min(1, `Falta el texto en español de ${campo}`).max(max, `Máximo ${max} caracteres`),
+    es: z.string().trim().min(1, `Falta el texto en español ${campo}`).max(max, `Máximo ${max} caracteres`),
     en: z.string().trim().max(max, `Máximo ${max} caracteres`).optional(),
   });
 
@@ -48,7 +48,7 @@ export const partnerSchema = z.object({
   categoryKey: z.string().trim().min(1, 'Elige una categoría'),
   logo: imageRef.nullable(),
   logoStyle: z.enum(['wordmark', 'badge']).default('wordmark'),
-  discount: localized(80, 'el descuento'),
+  discount: localized(80, 'del descuento'),
   detail: localizedOptional(500),
   restrictions: localizedOptional(500),
   vigencia: localizedOptional(60),
@@ -69,7 +69,7 @@ export const categorySchema = z.object({
     .string()
     .trim()
     .regex(/^[a-z0-9-]{2,32}$/, 'Solo minúsculas, números y guiones (2–32)'),
-  label: localized(40, 'la categoría'),
+  label: localized(40, 'de la categoría'),
   color: z.enum(COLOR_KEYS as [string, ...string[]]),
 });
 
