@@ -1,13 +1,6 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
-import { jwtVerify } from 'jose';
-
-function getJwtSecret() {
-  const secret = process.env.JWT_SECRET;
-  if (!secret) throw new Error('JWT_SECRET environment variable is required');
-  return new TextEncoder().encode(secret);
-}
-const ADMIN_COOKIE = 'nwl-admin-token';
+import { COOKIE_NAME, ROLE_HOME, verifyToken } from '@/lib/auth-edge';
 
 export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
@@ -27,19 +20,23 @@ export async function middleware(request: NextRequest) {
   }
 
   // ── Admin route protection ──
+  // Note: this only guards PAGES. The matcher doesn't exclude /api, but the
+  // block below never fires for it, so every API route guards itself via
+  // getSession() — that is the real security boundary.
   if (pathname.startsWith('/admin') && pathname !== '/admin/login') {
-    const token = request.cookies.get(ADMIN_COOKIE)?.value;
+    const session = await verifyToken(request.cookies.get(COOKIE_NAME)?.value);
 
-    if (!token) {
+    if (!session) {
       return NextResponse.redirect(new URL('/admin/login', request.url));
     }
 
-    try {
-      await jwtVerify(token, getJwtSecret());
-      return NextResponse.next();
-    } catch {
-      return NextResponse.redirect(new URL('/admin/login', request.url));
+    // The beneficios role only reaches its own panel; anything else bounces
+    // back to its home instead of exposing the job-listings admin.
+    if (session.role === 'beneficios' && !pathname.startsWith('/admin/beneficios')) {
+      return NextResponse.redirect(new URL(ROLE_HOME.beneficios, request.url));
     }
+
+    return NextResponse.next();
   }
 
   return NextResponse.next();

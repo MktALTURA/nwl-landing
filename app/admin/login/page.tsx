@@ -24,7 +24,9 @@ export default function AdminLoginPage() {
       });
 
       if (res.ok) {
-        router.push('/admin/jobs');
+        // The API decides where each role lands (full admin vs beneficios).
+        const data = await res.json().catch(() => ({}));
+        router.push(data.redirectTo ?? '/admin/jobs');
       } else if (res.status === 429) {
         setError(t.admin.loginRateLimit);
       } else {

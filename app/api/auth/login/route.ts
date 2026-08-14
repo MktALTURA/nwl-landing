@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { verifyPassword, createSession, COOKIE_NAME } from '@/lib/auth';
+import { verifyPassword, createSession, COOKIE_NAME, ROLE_HOME } from '@/lib/auth';
 import { isRateLimited, recordFailedAttempt, clearRateLimit } from '@/lib/rate-limit';
 import { loginSchema } from '@/lib/validations/jobs';
 
@@ -26,8 +26,8 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: 'Password is required' }, { status: 400 });
   }
 
-  const valid = await verifyPassword(parsed.data.password);
-  if (!valid) {
+  const role = await verifyPassword(parsed.data.password);
+  if (!role) {
     // Only count FAILED attempts
     await recordFailedAttempt(ip);
     return NextResponse.json({ error: 'Invalid password' }, { status: 401 });
@@ -36,8 +36,10 @@ export async function POST(request: NextRequest) {
   // Successful login — clear any rate-limit counter
   await clearRateLimit(ip);
 
-  const token = await createSession();
-  const response = NextResponse.json({ success: true });
+  const token = await createSession(role);
+  // The cookie is httpOnly, so the client can't read the role back out of it —
+  // hand it the landing path directly.
+  const response = NextResponse.json({ success: true, redirectTo: ROLE_HOME[role] });
 
   response.cookies.set(COOKIE_NAME, token, {
     httpOnly: true,

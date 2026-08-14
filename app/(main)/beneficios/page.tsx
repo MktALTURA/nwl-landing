@@ -1,60 +1,30 @@
-'use client';
-
-import { useEffect, useRef } from 'react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import BeneficiosScrollAnimations from '@/components/beneficios/BeneficiosScrollAnimations';
 import BeneficiosHero from '@/components/beneficios/BeneficiosHero';
 import BeneficiosCatalog from '@/components/beneficios/BeneficiosCatalog';
 import BeneficiosHowTo from '@/components/beneficios/BeneficiosHowTo';
 import PartnerApplyForm from '@/components/beneficios/PartnerApplyForm';
 import Footer from '@/components/Footer';
+import { getCatalogSafe } from '@/lib/db/beneficios';
 
-if (typeof window !== 'undefined') {
-  gsap.registerPlugin(ScrollTrigger);
-}
+/**
+ * Server component so the partner copy is in the initial HTML (SEO) while the
+ * catalog itself comes from Redis and can be edited from /admin/beneficios
+ * without a redeploy. Writes call revalidateBeneficios(); this TTL is the
+ * self-heal floor if that ever fails.
+ */
+export const revalidate = 3600;
 
-export default function BeneficiosPage() {
-  const mainRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.utils.toArray('.animate-section').forEach((section: any) => {
-        gsap.from(section, {
-          opacity: 0,
-          y: 50,
-          duration: 1,
-          ease: 'power2.out',
-          scrollTrigger: {
-            trigger: section,
-            start: 'top 80%',
-            toggleActions: 'play none none none',
-          },
-        });
-      });
-
-      gsap.utils.toArray('.wine-divider').forEach((divider: any) => {
-        gsap.from(divider, {
-          width: 0,
-          duration: 0.8,
-          scrollTrigger: {
-            trigger: divider,
-            start: 'top 85%',
-          },
-        });
-      });
-    }, mainRef);
-
-    return () => ctx.revert();
-  }, []);
+export default async function BeneficiosPage() {
+  const { partners, categories } = await getCatalogSafe();
 
   return (
     <>
-      <main ref={mainRef}>
-        <BeneficiosHero />
-        <BeneficiosCatalog />
+      <BeneficiosScrollAnimations>
+        <BeneficiosHero partnerCount={partners.length} categoryCount={categories.length} />
+        <BeneficiosCatalog partners={partners} categories={categories} />
         <BeneficiosHowTo />
         <PartnerApplyForm />
-      </main>
+      </BeneficiosScrollAnimations>
       <Footer />
     </>
   );

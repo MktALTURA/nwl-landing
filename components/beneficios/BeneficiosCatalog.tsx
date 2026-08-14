@@ -5,70 +5,8 @@ import { createPortal } from 'react-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FiExternalLink, FiMaximize2, FiX } from 'react-icons/fi';
 import { useLanguage } from '@/lib/i18n/LanguageContext';
-import {
-  benefitCategories,
-  benefitPartners,
-  getCategory,
-  t as tr,
-  type BenefitPartner,
-} from '@/lib/beneficios-data';
-
-/**
- * Static color-class map so Tailwind keeps these classes at build time
- * (dynamic `bg-${token}` strings would be purged). Keyed by the category's
- * `color` token in lib/beneficios-data.ts; legacy tokens are remapped here to
- * the NWL Australian School level accents and gold.
- */
-const COLOR: Record<
-  string,
-  { bar: string; tile: string; pill: string }
-> = {
-  eucalyptus: {
-    bar: 'bg-eucalyptus',
-    tile: 'from-eucalyptus/30 to-eucalyptus/10',
-    pill: 'bg-eucalyptus/20 text-navy',
-  },
-  skyblue: {
-    bar: 'bg-coral-sea',
-    tile: 'from-coral-sea/25 to-coral-sea/5',
-    pill: 'bg-coral-sea/15 text-navy',
-  },
-  terracotta: {
-    bar: 'bg-gold',
-    tile: 'from-gold/30 to-gold/10',
-    pill: 'bg-gold/20 text-navy',
-  },
-  mustard: {
-    bar: 'bg-wattle',
-    tile: 'from-wattle/30 to-wattle/10',
-    pill: 'bg-wattle/20 text-navy',
-  },
-  coral: {
-    bar: 'bg-jacaranda',
-    tile: 'from-jacaranda/25 to-jacaranda/5',
-    pill: 'bg-jacaranda/15 text-navy',
-  },
-  bondi: {
-    bar: 'bg-bondi',
-    tile: 'from-bondi/25 to-bondi/5',
-    pill: 'bg-bondi/15 text-navy',
-  },
-  galah: {
-    bar: 'bg-galah',
-    tile: 'from-galah/30 to-galah/10',
-    pill: 'bg-galah/20 text-navy',
-  },
-  navy: {
-    bar: 'bg-navy',
-    tile: 'from-navy/20 to-navy/5',
-    pill: 'bg-navy/10 text-navy',
-  },
-  jacaranda: {
-    bar: 'bg-jacaranda',
-    tile: 'from-jacaranda/25 to-jacaranda/5',
-    pill: 'bg-jacaranda/15 text-navy',
-  },
-};
+import { getColor } from '@/lib/beneficios/colors';
+import { tr, type BenefitPartner, type BenefitCategory } from '@/lib/beneficios/types';
 
 const initials = (name: string) => {
   const words = name.trim().split(/\s+/);
@@ -76,7 +14,12 @@ const initials = (name: string) => {
   return name.slice(0, 2).toUpperCase();
 };
 
-export default function BeneficiosCatalog() {
+interface BeneficiosCatalogProps {
+  partners: BenefitPartner[];
+  categories: BenefitCategory[];
+}
+
+export default function BeneficiosCatalog({ partners, categories }: BeneficiosCatalogProps) {
   const { t, locale } = useLanguage();
   const [active, setActive] = useState<string>('all');
   // Lightbox: the promo image currently expanded (with its alt), or null.
@@ -84,8 +27,8 @@ export default function BeneficiosCatalog() {
 
   const filtered =
     active === 'all'
-      ? benefitPartners
-      : benefitPartners.filter((p) => p.categoryKey === active);
+      ? partners
+      : partners.filter((p) => p.categoryKey === active);
 
   // Close on Escape and lock body scroll while the lightbox is open.
   useEffect(() => {
@@ -124,10 +67,10 @@ export default function BeneficiosCatalog() {
             isActive={active === 'all'}
             onClick={() => setActive('all')}
           />
-          {benefitCategories.map((cat) => (
+          {categories.map((cat) => (
             <FilterChip
               key={cat.key}
-              label={cat.label[locale]}
+              label={tr(cat.label, locale)}
               isActive={active === cat.key}
               onClick={() => setActive(cat.key)}
             />
@@ -144,6 +87,7 @@ export default function BeneficiosCatalog() {
               <PartnerCard
                 key={partner.slug}
                 partner={partner}
+                categories={categories}
                 locale={locale}
                 t={t}
                 onOpenPromo={setPromo}
@@ -228,17 +172,19 @@ function FilterChip({
 
 function PartnerCard({
   partner,
+  categories,
   locale,
   t,
   onOpenPromo,
 }: {
   partner: BenefitPartner;
+  categories: BenefitCategory[];
   locale: 'es' | 'en';
   t: ReturnType<typeof useLanguage>['t'];
   onOpenPromo: (promo: { src: string; alt: string }) => void;
 }) {
-  const category = getCategory(partner.categoryKey);
-  const c = COLOR[category.color] ?? COLOR.mustard;
+  const category = categories.find((cat) => cat.key === partner.categoryKey);
+  const c = getColor(category?.color ?? '');
   const promoAlt =
     locale === 'es'
       ? `Promoción ${partner.name}, comunidad NWL`
@@ -295,7 +241,7 @@ function PartnerCard({
         <span
           className={`self-start text-xs font-semibold px-3 py-1 rounded-full mb-3 ${c.pill}`}
         >
-          {category.label[locale]}
+          {category ? tr(category.label, locale) : partner.categoryKey}
         </span>
         <h3 className="font-display text-xl font-bold text-navy mb-3">
           {partner.name}

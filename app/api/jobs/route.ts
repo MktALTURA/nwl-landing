@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getActiveJobs, getAllJobs, createJob } from '@/lib/db/jobs';
-import { getSession } from '@/lib/auth';
+import { getSession, isAdmin } from '@/lib/auth';
 import { jobListingSchema } from '@/lib/validations/jobs';
 
 export async function GET(request: NextRequest) {
@@ -8,8 +8,8 @@ export async function GET(request: NextRequest) {
 
   // Only allow fetching all (including inactive) if authenticated
   if (showAll) {
-    const authenticated = await getSession();
-    if (!authenticated) {
+    const session = await getSession();
+    if (!isAdmin(session)) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
     const jobs = await getAllJobs();
@@ -25,8 +25,8 @@ export async function GET(request: NextRequest) {
 }
 
 export async function POST(request: NextRequest) {
-  const authenticated = await getSession();
-  if (!authenticated) {
+  const session = await getSession();
+  if (!isAdmin(session)) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   }
 

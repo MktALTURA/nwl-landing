@@ -3,10 +3,14 @@
 import { motion } from 'framer-motion';
 import { FiArrowDown } from 'react-icons/fi';
 import { useLanguage } from '@/lib/i18n/LanguageContext';
-import { benefitPartners, benefitCategories } from '@/lib/beneficios-data';
 import SouthernCross from '@/components/ui/SouthernCross';
 
-export default function BeneficiosHero() {
+interface BeneficiosHeroProps {
+  partnerCount: number;
+  categoryCount: number;
+}
+
+export default function BeneficiosHero({ partnerCount, categoryCount }: BeneficiosHeroProps) {
   const { t } = useLanguage();
 
   return (
@@ -76,7 +80,7 @@ export default function BeneficiosHero() {
         >
           <div className="text-center">
             <div className="font-display text-4xl md:text-5xl font-bold text-gold">
-              {benefitPartners.length}
+              {partnerCount}
             </div>
             <div className="font-mono text-xs uppercase tracking-[0.18em] text-paper/70 mt-1">
               {t.beneficios.statPartners}
@@ -85,7 +89,7 @@ export default function BeneficiosHero() {
           <div className="w-px h-12 bg-paper/25" />
           <div className="text-center">
             <div className="font-display text-4xl md:text-5xl font-bold text-gold">
-              {benefitCategories.length}
+              {categoryCount}
             </div>
             <div className="font-mono text-xs uppercase tracking-[0.18em] text-paper/70 mt-1">
               {t.beneficios.statCategories}

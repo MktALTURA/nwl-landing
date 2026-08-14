@@ -1,6 +1,15 @@
 import type { Locale } from './i18n/types';
 
 /**
+ * ⚠️  SEED + FALLBACK ONLY — editing this file no longer changes the live site.
+ *
+ * The catalog now lives in Redis and is edited from /admin/beneficios. This
+ * module is used for exactly two things (see lib/db/beneficios.ts):
+ *   1. the one-time seed that populates Redis, and
+ *   2. the fallback rendered if Redis is empty or unreachable.
+ * It will drift from production over time — that's expected. It's a floor,
+ * not a mirror. To change what parents see, use the admin panel.
+ *
  * Commercial benefits catalog for the NWL community ("Catálogo de Beneficios").
  *
  * This is DISTINCT from the academic/institutional partners shown in
