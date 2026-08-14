@@ -239,14 +239,15 @@ export const benefitPartners: BenefitPartner[] = [
     categoryKey: 'musica',
     logo: '/images/logos/benefits/mvs-music-center.png',
     url: 'https://mvsmusiccenter.com/',
+    promoImages: ['/images/benefits/mvs-music-center-promo.jpg'],
     discount: { es: '50% de descuento en inscripción', en: '50% off enrollment' },
     detail: {
-      es: 'Escuela y tienda de música: 50% de descuento en inscripción · 15% en colegiaturas · 10% en tienda.',
-      en: 'Music school and store: 50% off enrollment · 15% off tuition · 10% off in-store purchases.',
+      es: 'Escuela y tienda de música: 50% de descuento en inscripción · 10% en mensualidades · 5% en tienda. Clases de batería, guitarra, canto, piano, ukulele, saxofón, violín e iniciación musical. Agenda tu clase muestra gratis.',
+      en: 'Music school and store: 50% off enrollment · 10% off monthly tuition · 5% off in-store. Classes in drums, guitar, voice, piano, ukulele, saxophone, violin and musical initiation. Book a free trial class.',
     },
     restrictions: {
-      es: 'Válido presentando tu credencial NWL. Válido para la comunidad de todos los campus NWL.',
-      en: 'Valid when you present your NWL credential. Valid for the community of all NWL campuses.',
+      es: 'Presenta tu credencial del Colegio Newland al inscribirte. Clubes: Juriquilla, Milenio y El Refugio.',
+      en: 'Present your Colegio Newland credential when you enroll. Clubs: Juriquilla, Milenio and El Refugio.',
     },
   },
   {
@@ -303,15 +304,36 @@ export const benefitPartners: BenefitPartner[] = [
     name: 'Vann Sport Center',
     categoryKey: 'deporte',
     logo: '/images/logos/benefits/vann-sport-center.png',
-    promoImages: ['/images/benefits/vann-sport-promo.jpg'],
+    promoImages: ['/images/benefits/vann-sport-promo-sucursales.jpg'],
     discount: { es: 'Inscripción 100% de descuento', en: '100% off enrollment' },
     detail: {
       es: 'Natación para tus hijos: inscripción 100% de descuento (antes $550), primer pago preferencial $950 y renovación $890. Más que clases, formamos personas para toda la vida.',
       en: 'Swimming for your kids: 100% off enrollment (was $550), $950 preferential first payment and $890 on renewal. More than classes — building people for life.',
     },
     restrictions: {
-      es: 'Precio especial para la comunidad NWL.',
-      en: 'Special price for the NWL community.',
+      es: 'Precio especial para la comunidad NWL. Cuatro sucursales a tu servicio: El Pueblito, Amsterdam, Satélite y Pie de la Cuesta.',
+      en: 'Special price for the NWL community. Four locations at your service: El Pueblito, Amsterdam, Satélite and Pie de la Cuesta.',
+    },
+  },
+  {
+    slug: 'la-santa-vid',
+    name: 'La Santa Vid',
+    categoryKey: 'entretenimiento',
+    logo: '/images/logos/benefits/la-santa-vid.png',
+    logoStyle: 'badge',
+    url: 'https://lasantavid.com.mx/',
+    promoImages: [
+      '/images/benefits/santa-vid-descuento.jpg',
+      '/images/benefits/santa-vid-fullness.jpg',
+    ],
+    discount: { es: '5% a 15% de descuento', en: '5%–15% off' },
+    detail: {
+      es: 'Descuento exclusivo para la comunidad Newland en San Miguel de Allende: 5% en Membresía Fullness —acceso a +30 amenidades (lago cable ski, club ecuestre, sport center, granja orgánica, hoteles y wellness)— y 15% en la mensualidad de clases del Club Ecuestre (equitación, salto, dressage y arquería).',
+      en: 'Exclusive discount for the Newland community in San Miguel de Allende: 5% off the Fullness membership —access to 30+ amenities (cable-ski lake, equestrian club, sport center, organic farm, hotels and wellness)— and 15% off Club Ecuestre monthly class fees (riding, jumping, dressage and archery).',
+    },
+    restrictions: {
+      es: 'El 5% en Membresía Fullness aplica durante agosto y septiembre. Informes: 55 1702 2039 (membresía) · 442 226 6453 (Club Ecuestre).',
+      en: 'The 5% Fullness membership discount applies during August and September. Info: 55 1702 2039 (membership) · 442 226 6453 (Club Ecuestre).',
     },
   },
 ];
