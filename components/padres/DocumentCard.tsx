@@ -12,6 +12,17 @@ interface DocumentCardProps {
   index: number;
 }
 
+// `new Date('2026-08-31')` is parsed as UTC midnight, which renders as the
+// previous day in Mexico. Build the date from its parts so it stays local.
+function formatDocumentDate(date: string, locale: Locale) {
+  const [year, month, day] = date.split('-').map(Number);
+  return new Date(year, month - 1, day).toLocaleDateString(locale === 'es' ? 'es-MX' : 'en-US', {
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric',
+  });
+}
+
 export default function DocumentCard({ document, locale, index }: DocumentCardProps) {
   const { t } = useLanguage();
 
@@ -51,11 +62,7 @@ export default function DocumentCard({ document, locale, index }: DocumentCardPr
           )}
           {!isPending && document.date && (
             <p className="text-navy/35 text-xs mt-1.5">
-              {new Date(document.date).toLocaleDateString(locale === 'es' ? 'es-MX' : 'en-US', {
-                year: 'numeric',
-                month: 'short',
-                day: 'numeric',
-              })}
+              {formatDocumentDate(document.date, locale)}
             </p>
           )}
         </div>

@@ -89,7 +89,8 @@ function buildComunicados(campusSlug: string): PortalDocument[] {
         en: `Coexistence Manual ${CURRENT_CYCLE}`,
         es: `Manual de Convivencia ${CURRENT_CYCLE}`,
       },
-      pending: true,
+      pdfUrl: '/padres/shared/Manual-de-convivencia-2026-2027.pdf',
+      date: '2026-08-31',
     },
     {
       id: `${campusSlug}-responsiva-ipad`,
@@ -97,7 +98,17 @@ function buildComunicados(campusSlug: string): PortalDocument[] {
         en: `iPad Responsibility Agreement ${CURRENT_CYCLE}`,
         es: `Responsiva iPad ${CURRENT_CYCLE}`,
       },
-      pending: true,
+      pdfUrl: '/padres/shared/Responsiva-iPad-2026-2027.pdf',
+      date: '2026-08-31',
+    },
+    {
+      id: `${campusSlug}-politicas-ipad`,
+      title: {
+        en: `iPad Acceptable Use Policy ${CURRENT_CYCLE}`,
+        es: `Políticas de Uso Aceptable del iPad ${CURRENT_CYCLE}`,
+      },
+      pdfUrl: '/padres/shared/Politicas-uso-iPad-2026-2027.pdf',
+      date: '2026-08-31',
     },
     {
       id: `${campusSlug}-acuerdo-sep`,
