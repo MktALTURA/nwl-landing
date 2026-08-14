@@ -288,6 +288,7 @@ export const benefitPartners: BenefitPartner[] = [
     categoryKey: 'deporte',
     logo: '/images/logos/benefits/dorado-padel.png',
     logoStyle: 'badge',
+    url: 'https://doradoclub.com.mx/',
     promoImages: ['/images/benefits/dorado-padel-promo.jpg'],
     discount: { es: '$1,200 por 8 clases al mes', en: '$1,200 for 8 classes/month' },
     detail: {
@@ -319,12 +320,11 @@ export const benefitPartners: BenefitPartner[] = [
     slug: 'la-santa-vid',
     name: 'La Santa Vid',
     categoryKey: 'entretenimiento',
-    logo: '/images/logos/benefits/la-santa-vid.png',
-    logoStyle: 'badge',
+    logo: '/images/logos/benefits/la-santa-vid-official.png',
     url: 'https://lasantavid.com.mx/',
     promoImages: [
-      '/images/benefits/santa-vid-descuento.jpg',
       '/images/benefits/santa-vid-fullness.jpg',
+      '/images/benefits/santa-vid-ecuestre.jpg',
     ],
     discount: { es: '5% a 15% de descuento', en: '5%–15% off' },
     detail: {
