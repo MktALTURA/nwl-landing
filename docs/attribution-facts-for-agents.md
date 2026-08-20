@@ -115,6 +115,23 @@ Three WhatsApp populations are now distinguishable:
 - `whatsapp_directo` — messaged the number directly, no digital source exists
 - anything else — keeps its true channel
 
+**`sessionSource` is the cleanest paid/organic splitter and nobody was using it.**
+It lives on both native objects and needs no joins. June–July:
+
+| sessionSource | Count |
+|---|---|
+| CRM UI | 165 |
+| Social media | 112 |
+| Direct traffic | 95 |
+| Organic Search | 88 |
+| Paid Search | 36 |
+| Paid Social | 15 |
+| Trigger Link / Referral | 9 |
+
+Note **`CRM UI` is the largest single bucket** — contacts typed in by advisors,
+larger than every paid bucket combined. Any "leads" count that does not separate
+those is measuring data entry, not acquisition.
+
 **Contacts ≠ leads.** Filter `source = external_form` out of every count. Those
 were parent-portal logins, not prospects (fixed 20 Aug, but historical rows
 remain).
@@ -144,13 +161,36 @@ artifact of the field's age, not of Google's tagging. Read native
 The recovery is still worth doing, for a different reason: **`gclid` and
 `utm_source` find different contacts.**
 
+**Attribution lives in THREE places, not two.** This is the trap that has now
+caught every party in this project at least once:
+
+1. the **custom field** (`utm_source`, `gclid`, …) — created 5 Aug, empty before that
+2. **`attributionSource`** — GHL's *first-touch* native object
+3. **`lastAttributionSource`** — GHL's *last-touch* native object
+
+Reading two of the three still undercounts. Measured over June–July:
+
+| Signal | `attributionSource` | `lastAttributionSource` | **either** | last-only |
+|---|---|---|---|---|
+| `gclid` present | 41 | 36 | **45** | 4 |
+| `utmSource == google` | 55 | 46 | **63** | 8 |
+| `campaign` contains `{` | 42 | 44 | **51** | 9 |
+
+Every reported discrepancy between the two independent analyses of these months
+resolved to this and nothing else — not date windows. One side read
+`attributionSource` only (41 / 55 / 42); the other applied both layers to some
+fields and one layer to others.
+
+**Full union — custom field + both native layers, `gclid` + `utmSource`: 91
+Google contacts.** By the custom `utm_source` alone: 50.
+
 | June + July | Count |
 |---|---|
-| identified as Google by `utm_source` | 52 |
-| carrying a native `gclid` | 45 |
-| both | 17 |
+| custom `utm_source = google` alone | 50 |
+| native `gclid`, either layer | 45 |
+| native `utmSource = google`, either layer | 63 |
+| **full union — real Google contacts** | **91** |
 | **`gclid` only — invisible to a `utm_source` pull** | **28** |
-| **union — real Google contacts** | **80** |
 
 Restating on `utm_source` alone **undercounts Google by 35%**. The 28 invisible
 ones have `utm_source` values of `formulario_web` (20) and `nwl.com.mx` (8) —
