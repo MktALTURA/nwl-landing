@@ -29,8 +29,13 @@ export default function PasswordGate({ campus, campusName, renderContent }: Pass
     setIsChecking(false);
   }, [campus]);
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
+  /**
+   * Deliberately NOT wired to a <form> submit — see the container below.
+   * Nothing is posted anywhere: this compares a string in the browser and
+   * flips local state.
+   */
+  const handleSubmit = () => {
+    if (!password) return;
     setError('');
 
     if (password === campusPasswords[campus]) {
@@ -87,7 +92,25 @@ export default function PasswordGate({ campus, campusName, renderContent }: Pass
                 </p>
               </div>
 
-              <form onSubmit={handleSubmit} className="space-y-4">
+              {/*
+                NOT a <form>, on purpose. GoHighLevel's external-tracking.js
+                (loaded sitewide from the root layout) hooks EVERY <form> on the
+                page — querySelectorAll('form') plus a MutationObserver for ones
+                added later — and posts each submit to GHL as an "external form"
+                submission. That turned every parent portal login into a blank
+                contact: source `external_form`, form "Unidentified Form", no
+                name, no email, no phone. Roughly a third of recent contacts.
+
+                Gating the script by pathname does not fix it: once loaded on any
+                earlier page, its observer catches this form on client-side
+                navigation anyway. Removing the form element is what actually
+                works.
+
+                Nothing is lost — this gate never submitted to a server. Enter is
+                handled on the input, the button calls the handler directly.
+                Do not "restore" the <form> without re-checking GHL contacts.
+              */}
+              <div className="space-y-4">
                 <div>
                   <input
                     type="password"
@@ -96,9 +119,13 @@ export default function PasswordGate({ campus, campusName, renderContent }: Pass
                       setPassword(e.target.value);
                       if (error) setError('');
                     }}
+                    onKeyDown={(e) => {
+                      if (e.key === 'Enter') handleSubmit();
+                    }}
                     placeholder={t.padres.passwordPlaceholder}
+                    aria-label={t.padres.passwordPlaceholder}
+                    autoComplete="current-password"
                     className="w-full px-4 py-3 border border-n-200 bg-white text-navy rounded-xl focus:outline-none focus:ring-2 focus:ring-gold focus:border-gold transition-colors text-center text-lg tracking-wider"
-                    required
                     autoFocus
                   />
                 </div>
@@ -117,12 +144,13 @@ export default function PasswordGate({ campus, campusName, renderContent }: Pass
                 </AnimatePresence>
 
                 <button
-                  type="submit"
+                  type="button"
+                  onClick={handleSubmit}
                   className="btn-primary w-full justify-center"
                 >
                   {t.padres.passwordButton}
                 </button>
-              </form>
+              </div>
             </div>
           </div>
         </motion.div>
