@@ -7,7 +7,7 @@ import {
   type WaAttribution,
 } from '@/lib/db/wa-attribution';
 import { META_MAX_EVENT_AGE_SECONDS, resolveFbc, sendMetaEvent } from '@/lib/meta-capi';
-import { writeAttributionToContact } from '@/lib/ghl';
+import { markDirectWhatsApp, writeAttributionToContact } from '@/lib/ghl';
 
 /* ------------------------------------------------------------------ */
 /*  POST /api/wa-resolve                                               */
@@ -155,6 +155,16 @@ export async function POST(request: NextRequest) {
     extractToken(JSON.stringify(body));
 
   if (!token) {
+    // No reference code: this person never clicked the WhatsApp button on the
+    // site. Name the channel instead of leaving them blank — but only if we
+    // know nothing else about them. markDirectWhatsApp() refuses to touch a
+    // contact that already carries any attribution, so this can never overwrite
+    // a real source and never needs a priority order.
+    const directContactId = pickField(body, 'contact_id');
+    const marked = await markDirectWhatsApp(
+      typeof directContactId === 'string' ? directContactId : '',
+    );
+
     // 200, not 400: this is the normal case for any inbound message that
     // simply has no reference code. It lets the GHL workflow run WITHOUT a
     // message-body filter and branch on a single condition (`found`), instead
@@ -168,6 +178,7 @@ export async function POST(request: NextRequest) {
       {
         found: false,
         reason: 'no_code',
+        ghl: marked,
         _debug: {
           receivedKeys: Object.keys(body).sort(),
           messageSeen: typeof body.message === 'string' ? body.message.slice(0, 200) : null,

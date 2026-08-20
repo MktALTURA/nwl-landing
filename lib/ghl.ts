@@ -177,3 +177,101 @@ export async function writeAttributionToContact(
     return { written: false, reason: 'exception' };
   }
 }
+
+/* ------------------------------------------------------------------ */
+/*  Direct WhatsApp — contacts that never touched the website          */
+/* ------------------------------------------------------------------ */
+
+/**
+ * Label for people who message the WhatsApp number without ever loading the
+ * site: saved contact, WhatsApp Business profile, Google Maps, a flyer, a
+ * referral, or a click-to-WhatsApp ad. Measured 20 Aug 2026: 49 of 54
+ * unattributed contacts behind admissions opportunities had a conversation
+ * with NO reference code anywhere in it.
+ *
+ * They are a real acquisition channel, not a tracking failure — nothing can
+ * recover a source for someone who never loaded a page. Naming them is the
+ * only honest thing left to do. Change this one constant to relabel them
+ * everywhere.
+ */
+export const DIRECT_WHATSAPP = 'whatsapp_directo';
+
+/**
+ * Stamp a contact as direct WhatsApp — but ONLY if it carries no attribution
+ * of any kind.
+ *
+ * Deliberately a single condition, not a fallback chain. The rule is:
+ *
+ *   inbound WhatsApp message with no reference code
+ *   AND the contact has no attribution at all
+ *   -> label it direct WhatsApp. Otherwise do nothing.
+ *
+ * Anything already known wins outright — a UTM, a click ID, GHL's own native
+ * attribution, or an existing `source`. There is no ranking between signals
+ * and no "best guess" if several are present, because a priority order is the
+ * thing that turns into an unreadable waterfall nobody can audit later.
+ */
+export async function markDirectWhatsApp(contactId: string): Promise<GhlWriteResult> {
+  if (!API_KEY) return { written: false, reason: 'GHL_Private_API_Key not set' };
+  if (!contactId) return { written: false, reason: 'no contact_id in payload' };
+
+  try {
+    const res = await fetch(`${GHL_BASE}/contacts/${contactId}`, { headers: authHeaders() });
+    if (!res.ok) return { written: false, reason: `contact fetch failed: ${res.status}` };
+
+    const contact = ((await res.json()) as { contact?: Record<string, unknown> }).contact ?? {};
+    const fields = (contact.customFields ?? []) as Array<{ id?: string; value?: unknown }>;
+    const filled = new Set(
+      fields
+        .filter((f) => f.value !== undefined && f.value !== null && f.value !== '')
+        .map((f) => f.id),
+    );
+
+    // Any real signal at all means we keep quiet.
+    const KNOWN = [
+      ATTRIBUTION_FIELD_IDS.utm_source,
+      ATTRIBUTION_FIELD_IDS.utm_campaign,
+      ATTRIBUTION_FIELD_IDS.ft_utm_source,
+      ATTRIBUTION_FIELD_IDS.fbclid,
+      ATTRIBUTION_FIELD_IDS.gclid,
+    ];
+    if (KNOWN.some((id) => filled.has(id))) {
+      return { written: false, reason: 'contact already has attribution' };
+    }
+
+    // GHL's own native attribution counts too — it is populated by its form
+    // widget and tracking script, and is invisible to the custom fields above.
+    const native = (contact.attributionSource ?? {}) as Record<string, unknown>;
+    if (native.utmSource || native.fbclid || native.gclid || native.campaign) {
+      return { written: false, reason: 'contact has native attribution' };
+    }
+
+    // An existing source is somebody else's answer — a form name, or
+    // `whatsapp_web` from a resolved code. Never relabel it.
+    const source = typeof contact.source === 'string' ? contact.source.trim() : '';
+    if (source && source !== DIRECT_WHATSAPP) {
+      return { written: false, reason: `source already set: ${source}` };
+    }
+    if (source === DIRECT_WHATSAPP) {
+      return { written: false, reason: 'already marked' };
+    }
+
+    const put = await fetch(`${GHL_BASE}/contacts/${contactId}`, {
+      method: 'PUT',
+      headers: authHeaders(),
+      body: JSON.stringify({
+        source: DIRECT_WHATSAPP,
+        customFields: [
+          { id: ATTRIBUTION_FIELD_IDS.utm_source, value: DIRECT_WHATSAPP },
+          { id: ATTRIBUTION_FIELD_IDS.utm_medium, value: 'directo' },
+        ],
+      }),
+    });
+    if (!put.ok) return { written: false, reason: `update failed: ${put.status}` };
+
+    return { written: true, fields: 3 };
+  } catch (err) {
+    console.error('[ghl] direct-whatsapp mark failed:', err);
+    return { written: false, reason: 'exception' };
+  }
+}
