@@ -132,10 +132,46 @@ remain).
 | 5 | **Report grouping by `source`** | reporting | See §3. Until this changes, nothing above can be measured. |
 | 6 | Meta `fbc` data-quality flag | website | Truncation of click IDs fixed 20 Aug; watching whether the "3% of Lead events" figure falls. |
 
-**💰 June and July are recoverable.** `gclid` was captured correctly the whole
-time. Export a GCLID-level report (Click ID + Campaign + Ad group + Keyword) and
-join it to GHL contacts on `gclid`. The campaign data was never missing — only
-unreadable. Do this before those months get written off.
+**💰 June and July are recoverable — but not the way this doc first claimed.**
+
+Corrected 20 Aug. `gclid` was **not** "captured correctly the whole time": only
+45 of 1,478 June–July contacts carry one, and just 32% of Google-attributed
+contacts have it. The `Google Click ID` custom field did not exist until 5 Aug,
+so any query against *that* field returns ~0 for those months regardless — an
+artifact of the field's age, not of Google's tagging. Read native
+`attributionSource.gclid` instead.
+
+The recovery is still worth doing, for a different reason: **`gclid` and
+`utm_source` find different contacts.**
+
+| June + July | Count |
+|---|---|
+| identified as Google by `utm_source` | 52 |
+| carrying a native `gclid` | 45 |
+| both | 17 |
+| **`gclid` only — invisible to a `utm_source` pull** | **28** |
+| **union — real Google contacts** | **80** |
+
+Restating on `utm_source` alone **undercounts Google by 35%**. The 28 invisible
+ones have `utm_source` values of `formulario_web` (20) and `nwl.com.mx` (8) —
+a hardcoded form value and a self-referral, both overwriting the real channel
+while a definitive Google click ID sits underneath.
+
+Per month:
+
+| Month | `utm_source=google` | union with `gclid` | gain |
+|---|---|---|---|
+| **June** | **9** | **27** | **+18** |
+| July | 43 | 53 | +10 |
+
+**That closes the June shortfall** (9 vs 31.3 expected → 27 vs 31.3) without
+hand-waving.
+
+⚠️ Do not force the union to match platform conversions. A `gclid` proves a
+Google Ads *click*; Google's "41 July conversions" counts *conversions it
+attributed to itself* under its own windows. July's 41/41 reconciliation matched
+two different definitions and landed clean by luck. 53 contacts vs 41 counted
+conversions is coherent, not a contradiction.
 
 ---
 
@@ -176,6 +212,9 @@ Other measured facts:
 | "`POST /contacts/search` returns no attribution" | It returns `customFields` and `attributionSource`. The original scan queried `attributions`, a key only the *list* endpoint uses. |
 | "~33% of contacts are `external_form` junk" | True on 5 Aug; the historical rows were cleaned up. Current total was 5. |
 | "SubmitApplication is not registering as a standard event" | 90 events in Events Manager. See §2. |
+| "`gclid` was captured correctly the whole time" (ours) | 45 of 1,478 Jun–Jul contacts. See §4. |
+| "The `{campaignname}` macro never reached the CRM" | It reached **native** `attributionSource.campaign` on **51** contacts — the most common native campaign value in Jun–Jul. The query checked the `utm_campaign` *custom field*, which is a different field. |
+| "Only 6 contacts carry a gclid, so recovery yields nothing" | 6 is the *custom field*, created 5 Aug. Natively it is 45. The denominator was wrong too: 2,233 **clicks** is not the comparison set — converted **contacts** is. |
 
 ---
 
