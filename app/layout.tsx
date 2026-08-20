@@ -3,6 +3,7 @@ import { Gabarito, Spline_Sans_Mono } from "next/font/google";
 import Script from "next/script";
 import { SITE_URL, SITE_NAME, PAGE_SEO } from "@/lib/seo";
 import { OrganizationJsonLd, WebSiteJsonLd } from "@/components/JsonLd";
+import GHLTracking from "@/components/GHLTracking";
 import MetaTracking from "@/components/MetaTracking";
 import UTMCapture from "@/components/UTMCapture";
 import "./globals.css";
@@ -178,11 +179,9 @@ export default function RootLayout({
             })(window, document, "clarity", "script", "vzk7hjr2xk");
           `}
         </Script>
-        <Script
-          src="https://link.msgsndr.com/js/external-tracking.js"
-          data-tracking-id="tk_f326b262f9234006b24833e8cfb32b39"
-          strategy="lazyOnload"
-        />
+        {/* Skips the admin app — it hooks every <form> and turns staff
+            logins into blank CRM contacts. See components/GHLTracking.tsx. */}
+        <GHLTracking />
       </body>
     </html>
   );
