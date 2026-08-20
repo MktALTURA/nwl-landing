@@ -15,7 +15,7 @@ say which one you mean, because the causes and owners are completely different:
 |---|---|---|---|
 | 1 | GHL contact has no source / `sin identificar` | GHL contact record | website (fixed) |
 | 2 | Meta Ads Manager shows 0 leads for a campaign | Ads Manager / `/insights` | mixed — see §5 |
-| 3 | Monthly report says `google=0 / meta=0` | reporting job | **reporting job — see §6** |
+| 3 | Monthly report says `google=0 / meta=0` | reporting job | **reporting job — see §6 (grouping by the wrong field)** |
 | 4 | Google `utm_campaign` is a literal `{campaignname}` | GHL + GA4 | **Google Ads — see §4** |
 
 Items 1 is fixed and verified. Item 3 is very likely a query bug, not a data problem. Items 2 and 4
@@ -225,22 +225,57 @@ Also worth knowing: Meta claims **+0.7 EMQ** for advertisers adopting their Conv
 
 ---
 
-## 6. ⚠️ CHECK THIS FIRST — the reporting job may be querying the wrong endpoint
+## 6. ⚠️ CHECK THIS FIRST — the report is almost certainly grouping by the wrong FIELD
 
-The three GHL endpoints disagree about what a contact even has:
+**Correction (20 Aug):** an earlier version of this document said `POST /contacts/search` returns no
+attribution fields. **That was wrong** — it was based on a query that inspected `attributions` (the
+plural array key, which only the *list* endpoint uses) rather than `attributionSource`. Retracted.
 
-| Endpoint | Attribution returned |
+What `search` actually returns, measured over 100 contacts:
+
+| Field | Available via `POST /contacts/search`? |
 |---|---|
-| `POST /contacts/search` | **none at all** |
-| `GET /contacts/` (list) | an `attributions` array |
-| `GET /contacts/{id}` | `attributionSource` + `lastAttributionSource` |
+| `customFields` (our `utm_source`, `utm_campaign`, `gclid`, `fbclid`) | ✅ **yes** — 28/100 populated |
+| `attributionSource` (GHL native) | ✅ yes — 29/100 non-empty |
+| `source` | ✅ yes |
 
-`search` is the obvious choice for a bulk report — and it returns **zero attribution fields**, so any
-report built on it shows `google=0 / meta=0` no matter how clean the tagging is.
+So bulk reporting works fine off `search`. **The endpoint was never the problem.**
 
-**Before anyone escalates "paid attribution is missing" again, confirm which endpoint the reporting
-job uses.** We scanned 100 contacts via `search` and got zero attribution keys; the same contacts
-return full attribution via `GET /contacts/{id}`.
+### The actual problem: `source` never contains a channel
+
+Distribution of GHL's `source` field over 100 contacts:
+
+```
+None                              64
+whatsapp_web                      23
+Formulario para pag web  - EN      7
+Formulario trabaja-con-nosotros    3
+Formulario para pag web            3
+```
+
+**Not one value contains "google", "meta" or "facebook", and none ever will.** `source` records *how*
+the contact was created, not *where they came from*. A report that groups leads by `source` — the
+natural thing to do, and exactly what the original findings described as "leads land as
+whatsapp/direct/manual" — cannot produce a paid-channel breakdown no matter how perfect the tagging is.
+
+### The fix
+
+Group by the **custom fields**, not by `source`:
+
+| Want | Read |
+|---|---|
+| channel | `customFields[utm_source]` → `vvtMOtj4oOek17kBlLrE` |
+| campaign | `customFields[utm_campaign]` → `JgvJrwn9fy6cac6hQqcB` |
+| Google click | `customFields[gclid]` → `IYU3tl3tDC3vYNVyObsW` |
+| Meta click | `customFields[fbclid]` → `t5Slrl7gNoQsHw0Sji6W` |
+
+These are populated for **both** paths — forms and WhatsApp — and are returned in bulk by `search`.
+
+Note that `attributionSource` is **empty on every WhatsApp contact** and always will be: GHL's native
+attribution is populated only by its own form widget and tracking script, and is read-only to the API
+(verified — a `PUT` returns `200 succeeded:true` and silently discards it). So a report built on
+native attribution alone will see form leads and miss the entire WhatsApp cohort. **The custom fields
+are the only field set that covers both.**
 
 ---
 
@@ -287,5 +322,5 @@ prospects. Filter out `source = external_form`. (Fix is queued on the website si
 | June/July GCLID recovery | **ads** | 🔴 open — §4 |
 | Meta spend cap | **ads** | 🔴 open — §5 |
 | 13 vs 6 ad sets on `Lead` | **ads** | 🟡 reconcile — §5 |
-| Reporting endpoint | **reporting** | 🟡 check first — §6 |
+| Report groups by `source`, not UTM fields | **reporting** | 🔴 check first — §6 |
 | `external_form` junk contacts | website | 🟡 queued — §8 |

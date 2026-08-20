@@ -127,8 +127,12 @@ Still unverified end to end, and still worth your forward tracer:
 - **Hop 8a** — that a WhatsApp-replayed `Lead` gets credited to a specific ad in Ads Manager
 - **Hop 8c** — that the contact appears under the right channel in the monthly report
 
-That last one still blocks everything, and nobody has answered it: **which GHL endpoint does the
-reporting job call?**
+**Correction to my own §6 in the 5 Aug doc:** I claimed `POST /contacts/search` returns no
+attribution. It does return it — both `customFields` and `attributionSource`. I had queried the wrong
+key. The real reporting defect is that GHL's `source` field never contains a channel name (its values
+are `None`, `whatsapp_web`, and form names), so any report grouping by `source` prints `google=0`
+regardless of tagging. **Group by the `utm_source` / `utm_campaign` custom fields instead** — they
+cover both the form and WhatsApp paths and come back in bulk from `search`.
 
 ---
 
@@ -138,7 +142,7 @@ reporting job call?**
 |---|---|---|
 | A | WhatsApp resolution webhook | ✅ **cleared — working, measured** |
 | B | Google `{campaignname}` + duplicate UTMs | 🔴 open, ads |
-| C | Reporting job on a blind endpoint | 🔴 open, **blocks all measurement** |
+| C | Report groups by `source` (never holds a channel) instead of the UTM custom fields | 🔴 open, **blocks all measurement** |
 | D | `external_form` inflating counts ~33% | 🔴 open, website fix queued |
 | E | **Meta account dark — ad sets past `end_time`** | 🔴 **promoted to prime cause** |
 
