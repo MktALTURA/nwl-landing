@@ -238,7 +238,7 @@ export default function Hero() {
             </div>
 
             {/* Tertiary — brochure download as quiet text link */}
-            <BrochureLevelDropdown className="mt-5 inline-flex items-center text-sm text-paper/70 underline underline-offset-4 decoration-gold/50 hover:text-gold transition-colors">
+            <BrochureLevelDropdown dataCta="hero_brochure" className="mt-5 inline-flex items-center text-sm text-paper/70 underline underline-offset-4 decoration-gold/50 hover:text-gold transition-colors">
               <FiDownload className="mr-2" />
               {t.hero.ctaBrochure}
             </BrochureLevelDropdown>

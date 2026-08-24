@@ -30,6 +30,50 @@ import { usePathname } from 'next/navigation';
 
 const SCROLL_MILESTONES = [25, 50, 75] as const;
 
+/**
+ * Send a GA4 event, queueing until gtag exists.
+ *
+ * `window.gtag?.('event', ...)` looks safe and is not: the gtag script is
+ * `afterInteractive`, so it has NOT loaded when a mount effect runs, and the
+ * optional call silently drops the event. That is how `experiment_impression`
+ * — the denominator for every experiment — recorded zero during the smoke
+ * test while the code read as correct.
+ *
+ * Pushing to dataLayer directly is not a fix either: an event queued ahead of
+ * gtag('config') is never delivered to the measurement ID. So we wait for
+ * gtag itself, which the init script defines in the same breath as its
+ * js/config calls.
+ */
+const pending: Array<[string, Record<string, unknown>]> = [];
+let draining = false;
+
+function sendEvent(name: string, params: Record<string, unknown>) {
+  if (typeof window.gtag === 'function') {
+    window.gtag('event', name, params);
+    return;
+  }
+  pending.push([name, params]);
+  if (draining) return;
+  draining = true;
+
+  const startedAt = Date.now();
+  const timer = setInterval(() => {
+    if (typeof window.gtag === 'function') {
+      clearInterval(timer);
+      draining = false;
+      while (pending.length) {
+        const next = pending.shift();
+        if (next) window.gtag('event', next[0], next[1]);
+      }
+    } else if (Date.now() - startedAt > 15000) {
+      // gtag blocked (ad blocker, consent tooling). Drop rather than leak.
+      clearInterval(timer);
+      draining = false;
+      pending.length = 0;
+    }
+  }, 200);
+}
+
 export default function EngagementTracking() {
   const pathname = usePathname();
 
@@ -43,7 +87,7 @@ export default function EngagementTracking() {
       const ctaId = el.getAttribute('data-cta');
       if (!ctaId) return;
 
-      window.gtag?.('event', 'cta_click', {
+      sendEvent('cta_click', {
         cta_id: ctaId,
         page_path: window.location.pathname,
         // Present only on the page under test — see lib/experiment.ts rule 3.
@@ -59,67 +103,78 @@ export default function EngagementTracking() {
   }, []);
 
   // ── 2. Scroll depth + hero exit — reset per client-side navigation ──
+  //
+  //  MUST go through ScrollTrigger, not `window.addEventListener('scroll')`.
+  //  This site drives the page with GSAP ScrollSmoother, which translates
+  //  #smooth-content with a CSS transform instead of scrolling the window —
+  //  so native scroll events never fire (same note as BubbleAnimation.tsx).
+  //  A window scroll listener here would have logged exactly zero events
+  //  for the whole baseline window while looking perfectly healthy in code
+  //  review. ScrollTrigger reads the smoothed position and works on the
+  //  pages that have no smoother too.
   useEffect(() => {
     if (!pathname) return;
 
-    const fired = new Set<number>();
-    let ticking = false;
+    let disposed = false;
+    let kill = () => {};
 
-    const measure = () => {
-      ticking = false;
-      const doc = document.documentElement;
-      const scrollable = doc.scrollHeight - window.innerHeight;
-      if (scrollable <= 0) return;
+    (async () => {
+      const [{ default: gsap }, { ScrollTrigger }] = await Promise.all([
+        import('gsap'),
+        import('gsap/ScrollTrigger'),
+      ]);
+      if (disposed) return;
+      gsap.registerPlugin(ScrollTrigger);
 
-      const pct = ((window.scrollY / scrollable) * 100);
-      for (const m of SCROLL_MILESTONES) {
-        if (pct >= m && !fired.has(m)) {
-          fired.add(m);
-          window.gtag?.('event', 'scroll_depth', {
-            percent_scrolled: m,
-            page_path: pathname,
-            ...readExperiment(),
-          });
-        }
-      }
-    };
+      const fired = new Set<number>();
+      const triggers: ScrollTrigger[] = [];
 
-    const onScroll = () => {
-      if (ticking) return;
-      ticking = true;
-      requestAnimationFrame(measure);
-    };
+      triggers.push(
+        ScrollTrigger.create({
+          trigger: document.querySelector('#smooth-content') ?? document.body,
+          start: 'top top',
+          end: 'bottom bottom',
+          onUpdate: (self) => {
+            const pct = self.progress * 100;
+            for (const m of SCROLL_MILESTONES) {
+              if (pct >= m && !fired.has(m)) {
+                fired.add(m);
+                sendEvent('scroll_depth', {
+                  percent_scrolled: m,
+                  page_path: pathname,
+                  ...readExperiment(),
+                });
+              }
+            }
+          },
+        })
+      );
 
-    window.addEventListener('scroll', onScroll, { passive: true });
-
-    // hero_exit: the hero section has scrolled fully out of view, i.e. the
-    // visitor read the hero and chose to keep going. Fires at most once.
-    let heroObserver: IntersectionObserver | undefined;
-    const hero = document.getElementById('home');
-    if (hero && 'IntersectionObserver' in window) {
-      let wasVisible = false;
-      heroObserver = new IntersectionObserver(
-        (entries) => {
-          for (const entry of entries) {
-            if (entry.isIntersecting) {
-              wasVisible = true;
-            } else if (wasVisible) {
-              window.gtag?.('event', 'hero_exit', {
+      // hero_exit — the hero has scrolled fully past the top of the
+      // viewport, i.e. the visitor read it and chose to keep going.
+      const hero = document.getElementById('home');
+      if (hero) {
+        triggers.push(
+          ScrollTrigger.create({
+            trigger: hero,
+            start: 'bottom top',
+            once: true,
+            onEnter: () => {
+              sendEvent('hero_exit', {
                 page_path: pathname,
                 ...readExperiment(),
               });
-              heroObserver?.disconnect();
-            }
-          }
-        },
-        { threshold: 0 }
-      );
-      heroObserver.observe(hero);
-    }
+            },
+          })
+        );
+      }
+
+      kill = () => triggers.forEach((t) => t.kill());
+    })();
 
     return () => {
-      window.removeEventListener('scroll', onScroll);
-      heroObserver?.disconnect();
+      disposed = true;
+      kill();
     };
   }, [pathname]);
 
@@ -129,7 +184,7 @@ export default function EngagementTracking() {
   useEffect(() => {
     const exp = readExperiment();
     if (!exp) return;
-    window.gtag?.('event', 'experiment_impression', exp);
+    sendEvent('experiment_impression', exp);
   }, [pathname]);
 
   return null;

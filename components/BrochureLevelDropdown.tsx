@@ -10,11 +10,14 @@ import { useLanguage } from '@/lib/i18n/LanguageContext';
 interface Props {
   children: ReactNode;
   className?: string;
+  /** Tracking id — picked up by the delegated listener in EngagementTracking. */
+  dataCta?: string;
 }
 
 export default function BrochureLevelDropdown({
   children,
   className = '',
+  dataCta,
 }: Props) {
   const [isOpen, setIsOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -63,6 +66,7 @@ export default function BrochureLevelDropdown({
           setIsOpen(!isOpen);
         }}
         className={className}
+        data-cta={dataCta}
       >
         {children}
         <FiChevronDown
