@@ -6,6 +6,8 @@ import { OrganizationJsonLd, WebSiteJsonLd } from "@/components/JsonLd";
 import GHLTracking from "@/components/GHLTracking";
 import MetaTracking from "@/components/MetaTracking";
 import UTMCapture from "@/components/UTMCapture";
+import EngagementTracking from "@/components/EngagementTracking";
+import { ACTIVE_EXPERIMENT, experimentSnippet } from "@/lib/experiment";
 import "./globals.css";
 
 // Gabarito — the official NWL Australian School brand typeface (display → body).
@@ -81,41 +83,20 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    // suppressHydrationWarning: the hero A/B script stamps data-hero-variant pre-hydration
+    // suppressHydrationWarning: the experiment snippet stamps data-exp-* pre-hydration
     <html lang="es" className={`${gabarito.variable} ${splineMono.variable}`} suppressHydrationWarning>
       <body className="font-sans antialiased">
-        {/* Hero image A/B test — sticky per-visitor variant (a = dawn gradient, b = photo).
-            Runs synchronously before first paint so the wrong hero never flashes; tags the
-            session in Clarity (custom tag) and GA4 (user property) for the analysis. */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-(function () {
-  var v;
-  try {
-    v = localStorage.getItem('nwl_hero_variant');
-    if (v !== 'a' && v !== 'b') {
-      v = Math.random() < 0.5 ? 'a' : 'b';
-      localStorage.setItem('nwl_hero_variant', v);
-    }
-  } catch (e) { v = 'a'; }
-  document.documentElement.setAttribute('data-hero-variant', v);
-  if (v === 'b') {
-    var l = document.createElement('link');
-    l.rel = 'preload'; l.as = 'image'; l.fetchPriority = 'high';
-    l.href = window.matchMedia('(min-width: 768px)').matches
-      ? '/images/hero/nwl-alumnos-kinder-circulo-paises-1920.jpg'
-      : '/images/hero/nwl-alumnos-kinder-circulo-paises-movil.jpg';
-    document.head.appendChild(l);
-  }
-  window.clarity = window.clarity || function () { (window.clarity.q = window.clarity.q || []).push(arguments); };
-  window.clarity('set', 'hero_variant', v);
-  window.dataLayer = window.dataLayer || [];
-  function g() { window.dataLayer.push(arguments); }
-  g('set', 'user_properties', { hero_variant: v });
-})();`,
-          }}
-        />
+        {/* A/B assignment — renders only while an experiment is in the field.
+            Inline and render-blocking so the losing variant never flashes.
+            The rules this snippet enforces (unbiased fallback, page-scoped
+            assignment, event-scoped GA4 params, cookie stickiness) are each
+            a fix for a defect found in the Jul–Aug 2026 hero test; see
+            lib/experiment.ts. */}
+        {ACTIVE_EXPERIMENT && (
+          <script
+            dangerouslySetInnerHTML={{ __html: experimentSnippet(ACTIVE_EXPERIMENT) }}
+          />
+        )}
         <OrganizationJsonLd />
         <WebSiteJsonLd />
         {/* Attribution capture lives in the ROOT layout, not (main): the SEO
@@ -124,6 +105,7 @@ export default function RootLayout({
             inbound utm_* / fbclid at all. */}
         <UTMCapture />
         <MetaTracking />
+        <EngagementTracking />
         {children}
         {/* Google Ads + GA4 (shared gtag.js) */}
         <Script
