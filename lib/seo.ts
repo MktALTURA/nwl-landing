@@ -21,7 +21,7 @@ export const PAGE_SEO = {
   home: {
     title: 'The Australian way of learning — NWL Australian School',
     description:
-      'NWL Australian School — bilingual private school in Querétaro & San Miguel de Allende on the Australian school model. Maternal through Senior School, English immersion, project-based learning. 5 campuses.',
+      'NWL Australian School — bilingual private school in Querétaro & San Miguel de Allende on the Australian school model. Maternal through Senior School (high school), English immersion, project-based learning. 5 campuses.',
     ogImage: '/images/og/nwl/home.jpg',
   },
   modelo: {

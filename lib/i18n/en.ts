@@ -36,7 +36,7 @@ export const en: Dictionary = {
     whatsappAriaLabel: 'Chat on WhatsApp',
   },
   hero: {
-    eyebrow: 'Bilingual school in Querétaro · Maternal to High School',
+    eyebrow: 'Bilingual school in Querétaro · Maternal to Senior School',
     headlineLeft: ['We', 'unlock', 'greatness'],
     headlineRight: ['in', 'every', 'child.'],
     subheadline:
@@ -44,7 +44,7 @@ export const en: Dictionary = {
     ctaPrimary: 'Schedule your visit',
     ctaWhatsapp: 'Chat on WhatsApp',
     ctaBrochure: 'Download your level\'s brochure',
-    trustIndicators: ['5 Campuses', 'Maternal - High School', 'Bilingual Education'],
+    trustIndicators: ['5 Campuses', 'Maternal - Senior School', 'Bilingual Education'],
   },
   beSection: {
     be: 'Be',

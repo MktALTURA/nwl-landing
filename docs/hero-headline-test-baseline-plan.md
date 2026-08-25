@@ -1,8 +1,23 @@
 # Baseline plan — hero headline test
 
-**Status:** instrumentation shipped to the repo (`35688b8`, `643af0a`), **not yet deployed**.
+**Status:** instrumentation shipped and **deployed** (`35688b8`, `643af0a`) — verified in production
+2026-08-26: the hero A/B script and photo CSS are gone, variant A serves 100%.
 **Owner:** jp@marketingaltura.com (GA4 access is under ALTURA > Newland — switch authuser in Chrome)
 **Purpose:** measure the rates the headline test will be sized on. No copy changes until this window closes.
+
+> ### ⚠️ Clock restarted 2026-08-26 — discard data collected before this date
+>
+> The English level names were renamed to Australian usage on 2026-08-26 (`0f51d0a` and the follow-up
+> commit), and that included two homepage hero strings — `hero.eyebrow` and `hero.trustIndicators`,
+> which now read "Maternal to Senior School".
+>
+> **Why restart rather than defer:** the freeze protects the *window*, not the calendar. A baseline
+> collected against copy that changes before the test would size the test against a page that no
+> longer exists. Landing every copy change first and resetting the clock costs a few days and buys a
+> baseline that describes the page the test will actually run on.
+>
+> **This is the last copy change before collection.** The freeze below is now in force. Restart the
+> +24h and +72h checkpoints from today.
 
 ---
 
