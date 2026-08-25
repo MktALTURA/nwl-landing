@@ -44,23 +44,23 @@ export const campusPasswords: Record<string, string> = {
 // ── Helper: generate supply list for a campus ──
 
 const preescolar = { en: 'Preschool', es: 'Preescolar' };
-const primaria = { en: 'Elementary', es: 'Primaria' };
-const secundaria = { en: 'Middle School', es: 'Secundaria' };
+const primaria = { en: 'Primary School', es: 'Primaria' };
+const secundaria = { en: 'Secondary School', es: 'Secundaria' };
 
 const utilesGrades: { idSuffix: string; title: { en: string; es: string }; group: { en: string; es: string } }[] = [
   { idSuffix: 'maternal', title: { en: 'Maternal', es: 'Maternal' }, group: preescolar },
   { idSuffix: 'k1', title: { en: 'Kinder 1', es: 'Kinder 1' }, group: preescolar },
   { idSuffix: 'k2', title: { en: 'Kinder 2', es: 'Kinder 2' }, group: preescolar },
   { idSuffix: 'k3', title: { en: 'Kinder 3', es: 'Kinder 3' }, group: preescolar },
-  { idSuffix: '1-pri', title: { en: '1st Grade', es: '1° Primaria' }, group: primaria },
-  { idSuffix: '2-pri', title: { en: '2nd Grade', es: '2° Primaria' }, group: primaria },
-  { idSuffix: '3-pri', title: { en: '3rd Grade', es: '3° Primaria' }, group: primaria },
-  { idSuffix: '4-pri', title: { en: '4th Grade', es: '4° Primaria' }, group: primaria },
-  { idSuffix: '5-pri', title: { en: '5th Grade', es: '5° Primaria' }, group: primaria },
-  { idSuffix: '6-pri', title: { en: '6th Grade', es: '6° Primaria' }, group: primaria },
-  { idSuffix: '7-sec', title: { en: '7th Grade', es: '1° Secundaria' }, group: secundaria },
-  { idSuffix: '8-sec', title: { en: '8th Grade', es: '2° Secundaria' }, group: secundaria },
-  { idSuffix: '9-sec', title: { en: '9th Grade', es: '3° Secundaria' }, group: secundaria },
+  { idSuffix: '1-pri', title: { en: 'Year 1', es: '1° Primaria' }, group: primaria },
+  { idSuffix: '2-pri', title: { en: 'Year 2', es: '2° Primaria' }, group: primaria },
+  { idSuffix: '3-pri', title: { en: 'Year 3', es: '3° Primaria' }, group: primaria },
+  { idSuffix: '4-pri', title: { en: 'Year 4', es: '4° Primaria' }, group: primaria },
+  { idSuffix: '5-pri', title: { en: 'Year 5', es: '5° Primaria' }, group: primaria },
+  { idSuffix: '6-pri', title: { en: 'Year 6', es: '6° Primaria' }, group: primaria },
+  { idSuffix: '7-sec', title: { en: 'Year 7', es: '1° Secundaria' }, group: secundaria },
+  { idSuffix: '8-sec', title: { en: 'Year 8', es: '2° Secundaria' }, group: secundaria },
+  { idSuffix: '9-sec', title: { en: 'Year 9', es: '3° Secundaria' }, group: secundaria },
 ];
 
 function buildUtiles(campusSlug: string): PortalDocument[] {

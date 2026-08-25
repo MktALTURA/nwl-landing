@@ -14,7 +14,7 @@ export const metadata: Metadata = {
         url: PAGE_SEO.middleSchool.ogImage,
         width: 1200,
         height: 630,
-        alt: 'NWL Australian School — Middle School, Ages 12–15',
+        alt: 'NWL Australian School — Secondary School, Years 7–9',
       },
     ],
   },
@@ -39,7 +39,7 @@ export default function MiddleSchoolLayout({
       <BreadcrumbJsonLd
         items={[
           { name: SITE_NAME, url: SITE_URL },
-          { name: 'Middle School', url: `${SITE_URL}/middle-school` },
+          { name: 'Secondary School', url: `${SITE_URL}/middle-school` },
         ]}
       />
       {children}

@@ -6,9 +6,9 @@ const LEVELS: Record<Level, { color: string; label: string }> = {
   brand: { color: 'var(--nwl-navy)', label: 'NWL' },
   gold: { color: 'var(--nwl-gold)', label: 'NWL' },
   kinder: { color: 'var(--nwl-galah)', label: 'Kinder / Maternal' },
-  elementary: { color: 'var(--nwl-bondi)', label: 'Elementary' },
-  middle: { color: 'var(--nwl-coral-sea)', label: 'Middle School' },
-  high: { color: 'var(--nwl-jacaranda)', label: 'High School' },
+  elementary: { color: 'var(--nwl-bondi)', label: 'Primary School' },
+  middle: { color: 'var(--nwl-coral-sea)', label: 'Secondary School' },
+  high: { color: 'var(--nwl-jacaranda)', label: 'Senior School' },
 };
 const DARK_TEXT: Partial<Record<Level, boolean>> = { elementary: true, kinder: true };
 

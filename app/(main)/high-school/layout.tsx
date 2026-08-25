@@ -14,7 +14,7 @@ export const metadata: Metadata = {
         url: PAGE_SEO.highSchool.ogImage,
         width: 1200,
         height: 630,
-        alt: 'NWL Australian School — High School, Prepa NWL',
+        alt: 'NWL Australian School — Senior School, Prepa NWL',
       },
     ],
   },
@@ -39,7 +39,7 @@ export default function HighSchoolLayout({
       <BreadcrumbJsonLd
         items={[
           { name: SITE_NAME, url: SITE_URL },
-          { name: 'High School', url: `${SITE_URL}/high-school` },
+          { name: 'Senior School', url: `${SITE_URL}/high-school` },
         ]}
       />
       {children}

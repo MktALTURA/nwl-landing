@@ -48,19 +48,19 @@ const diffItems = [
 
 /* ── Gallery images ── */
 const elementaryGalleryImages = [
-  { src: '/images/levels/primaria/nwl-sma-primaria-alumnas-arte-recortes-papel.jpg', alt: 'NWL Australian School Elementary art class with paper cutting and creative projects' },
-  { src: '/images/levels/primaria/nwl-primaria-group-classroom-wide.jpg', alt: 'NWL Australian School Elementary students in group classroom activity at Juriquilla campus' },
-  { src: '/images/levels/primaria/nwl-zibata-primaria-dos-amigos-salon.jpg', alt: 'NWL Australian School Elementary students working together in Zibatá classroom' },
-  { src: '/images/levels/primaria/nwl-primaria-steam-lab.jpg', alt: 'NWL Australian School Elementary STEAM maker lab with hands-on experiments' },
-  { src: '/images/levels/primaria/nwl-primaria-teacher-ipad-guidance.jpg', alt: 'NWL Australian School Elementary teacher guiding students with iPad-based learning' },
-  { src: '/images/levels/primaria/nwl-sma-primaria-alumnos-teamwork-manos-circulo.jpg', alt: 'Elementary students building teamwork skills in group circle activity' },
-  { src: '/images/levels/primaria/nwl-primaria-students-tablets-geoboard.jpg', alt: 'NWL Australian School Elementary students collaborating with tablets and Geoboard math app' },
+  { src: '/images/levels/primaria/nwl-sma-primaria-alumnas-arte-recortes-papel.jpg', alt: 'NWL Australian School Primary School art class with paper cutting and creative projects' },
+  { src: '/images/levels/primaria/nwl-primaria-group-classroom-wide.jpg', alt: 'NWL Australian School Primary School students in group classroom activity at Juriquilla campus' },
+  { src: '/images/levels/primaria/nwl-zibata-primaria-dos-amigos-salon.jpg', alt: 'NWL Australian School Primary School students working together in Zibatá classroom' },
+  { src: '/images/levels/primaria/nwl-primaria-steam-lab.jpg', alt: 'NWL Australian School Primary School STEAM maker lab with hands-on experiments' },
+  { src: '/images/levels/primaria/nwl-primaria-teacher-ipad-guidance.jpg', alt: 'NWL Australian School Primary School teacher guiding students with iPad-based learning' },
+  { src: '/images/levels/primaria/nwl-sma-primaria-alumnos-teamwork-manos-circulo.jpg', alt: 'Primary School students building teamwork skills in group circle activity' },
+  { src: '/images/levels/primaria/nwl-primaria-students-tablets-geoboard.jpg', alt: 'NWL Australian School Primary School students collaborating with tablets and Geoboard math app' },
   { src: '/images/levels/primaria/nwl-sma-primaria-recreo-piramide-cuerdas-aerea.jpg', alt: 'Students on rope pyramid climbing structure during recess at NWL Australian School' },
-  { src: '/images/levels/primaria/nwl-zibata-primaria-trabajo-colaborativo-cuaderno.jpg', alt: 'NWL Australian School Elementary collaborative notebook work in bilingual classroom' },
-  { src: '/images/levels/primaria/nwl-primaria-students-closeup.jpg', alt: 'NWL Australian School Elementary students close-up in classroom at Juriquilla' },
-  { src: '/images/levels/primaria/nwl-sma-primaria-classroom.jpg', alt: 'NWL Australian School Elementary classroom at San Miguel de Allende campus' },
-  { src: '/images/levels/primaria/nwl-elementary-classroom-ipads-lockers.jpg', alt: 'NWL Australian School Elementary digital classroom with iPads and student lockers' },
-  { src: '/images/levels/primaria/nwl-zibata-elementary-classroom-notebooks.jpg', alt: 'NWL Australian School Elementary classroom with notebooks and natural light at Zibata campus' },
+  { src: '/images/levels/primaria/nwl-zibata-primaria-trabajo-colaborativo-cuaderno.jpg', alt: 'NWL Australian School Primary School collaborative notebook work in bilingual classroom' },
+  { src: '/images/levels/primaria/nwl-primaria-students-closeup.jpg', alt: 'NWL Australian School Primary School students close-up in classroom at Juriquilla' },
+  { src: '/images/levels/primaria/nwl-sma-primaria-classroom.jpg', alt: 'NWL Australian School Primary School classroom at San Miguel de Allende campus' },
+  { src: '/images/levels/primaria/nwl-elementary-classroom-ipads-lockers.jpg', alt: 'NWL Australian School Primary School digital classroom with iPads and student lockers' },
+  { src: '/images/levels/primaria/nwl-zibata-elementary-classroom-notebooks.jpg', alt: 'NWL Australian School Primary School classroom with notebooks and natural light at Zibata campus' },
 ];
 
 export default function ElementaryPage() {
@@ -108,7 +108,7 @@ export default function ElementaryPage() {
         <section className="relative min-h-[90vh] flex items-end overflow-hidden">
           <Image
             src="/images/levels/primaria/nwl-sma-primaria-alumnos-teamwork-manos-circulo.jpg"
-            alt="NWL Australian School Elementary students building teamwork with hands together in circle"
+            alt="NWL Australian School Primary School students building teamwork with hands together in circle"
             fill
             priority
             sizes="100vw"

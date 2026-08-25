@@ -12,9 +12,9 @@ export const es: Dictionary = {
         children: [
           { name: 'Maternal', href: '/maternal' , sub: 'Early Learning' },
           { name: 'Kinder', href: '/kinder' , sub: 'Kindergarten' },
-          { name: 'Primaria', href: '/elementary' , sub: 'Primary Years' },
+          { name: 'Primaria', href: '/elementary' , sub: 'Years 1–6' },
           { name: 'Secundaria', href: '/middle-school' , sub: 'Years 7–9' },
-          { name: 'Preparatoria', href: '/high-school' , sub: 'Senior Years' },
+          { name: 'Preparatoria', href: '/high-school' , sub: 'Years 10–12' },
         ],
       },
       {
@@ -185,7 +185,7 @@ export const es: Dictionary = {
       },
       {
         name: 'Kínder',
-        ageRange: '4-5 años',
+        ageRange: '3-5 años',
         description: 'La curiosidad crece con juego, proyectos Knotion e inglés todos los días.',
         campuses: ['Los 5 Campus'],
         href: '/kinder',
@@ -199,7 +199,7 @@ export const es: Dictionary = {
       },
       {
         name: 'Secundaria',
-        ageRange: '12-14 años',
+        ageRange: '12-15 años',
         description: 'Liderazgo, emprendimiento y credenciales internacionales: siempre hacia adelante.',
         campuses: ['Los 5 Campus'],
         href: '/middle-school',
@@ -537,7 +537,7 @@ export const es: Dictionary = {
     ],
   },
   elementary: {
-    ageBadge: '6–11 años · Primary Years',
+    ageBadge: '6–11 años · Years 1–6',
     tagline: 'Construyendo el Futuro, Proyecto a Proyecto',
     description:
       'En Primaria, la inmersión en inglés se convierte en el motor del aprendizaje. Los alumnos se adueñan de su formación a través del modelo IMPACT de Knotion, laboratorios STEAM maker y un programa de filosofía que les enseña cómo pensar — no qué pensar. Bienestar y rigor académico en equilibrio. Sin tarea tradicional.',
@@ -806,7 +806,7 @@ export const es: Dictionary = {
     galleryTitleAccent: 'Secundaria',
   },
   highSchool: {
-    ageBadge: 'Edades 15–17 · Senior Years',
+    ageBadge: 'Edades 15–17 · Years 10–12',
     tagline: 'Una Preparación para la Vida',
     description:
       'En la Prepa NWL preparamos a los estudiantes para enfrentar un futuro lleno de retos, con una mentalidad de crecimiento y habilidades que van más allá de lo académico. Con el modelo Life Project, cada semestre construye competencias reales: como el canguro, siempre hacia adelante. Además, pueden obtener el doble diploma de EE. UU. y México con Hokku Academy, institución acreditada por Cognia.',

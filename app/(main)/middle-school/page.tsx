@@ -59,17 +59,17 @@ const activityRotations = [-0.5, 0.3, -0.3, 0.5];
 
 /* ── Gallery images ── */
 const galleryImages = [
-  { src: '/images/levels/secundaria/nwl-sma-secundaria-tres-alumnas-retrato-uniforme.jpg', alt: 'NWL Australian School Middle School students in uniform at San Miguel de Allende campus' },
+  { src: '/images/levels/secundaria/nwl-sma-secundaria-tres-alumnas-retrato-uniforme.jpg', alt: 'NWL Australian School Secondary School students in uniform at San Miguel de Allende campus' },
   { src: '/images/levels/secundaria/nwl-sma-maestra-alumno-pizarron-explicacion.jpg', alt: 'NWL Australian School teacher explaining concept at whiteboard with middle school student' },
-  { src: '/images/levels/secundaria/nwl-sma-secundaria-laboratorio-quimica.jpg', alt: 'NWL Australian School Middle School chemistry lab with hands-on experiments' },
-  { src: '/images/levels/secundaria/nwl-sma-secundaria-alumnos-tablets-discusion.jpg', alt: 'NWL Australian School Middle School students collaborating with tablets in discussion' },
-  { src: '/images/levels/secundaria/nwl-sma-secundaria-alumnas-yoga-bienestar.jpg', alt: 'NWL Australian School Middle School wellness and yoga session for student wellbeing' },
-  { src: '/images/levels/secundaria/nwl-zibata-secundaria-alumno-escuchando-clase.jpg', alt: 'NWL Australian School Middle School student engaged in bilingual class at Zibatá' },
-  { src: '/images/levels/secundaria/nwl-secundaria-lab-experiment.jpg', alt: 'NWL Australian School Middle School students conducting science lab experiment with teacher guidance' },
-  { src: '/images/levels/secundaria/nwl-zibata-secundaria-tres-alumnos-pasillo-retrato.jpg', alt: 'NWL Australian School Middle School students in campus hallway at Zibatá' },
-  { src: '/images/levels/secundaria/milenio-classroom-secondary.jpg', alt: 'NWL Australian School Middle School classroom with collaborative desk layout at Campus Milenio' },
-  { src: '/images/levels/secundaria/nwl-secundaria-classroom-philosophy.jpg', alt: 'NWL Australian School Middle School Philosophy for Children classroom with chalkboard discussion' },
-  { src: '/images/levels/secundaria/nwl-secundaria-classroom-orange-wall.jpg', alt: 'NWL Australian School Middle School modern classroom with round tables and iPads' },
+  { src: '/images/levels/secundaria/nwl-sma-secundaria-laboratorio-quimica.jpg', alt: 'NWL Australian School Secondary School chemistry lab with hands-on experiments' },
+  { src: '/images/levels/secundaria/nwl-sma-secundaria-alumnos-tablets-discusion.jpg', alt: 'NWL Australian School Secondary School students collaborating with tablets in discussion' },
+  { src: '/images/levels/secundaria/nwl-sma-secundaria-alumnas-yoga-bienestar.jpg', alt: 'NWL Australian School Secondary School wellness and yoga session for student wellbeing' },
+  { src: '/images/levels/secundaria/nwl-zibata-secundaria-alumno-escuchando-clase.jpg', alt: 'NWL Australian School Secondary School student engaged in bilingual class at Zibatá' },
+  { src: '/images/levels/secundaria/nwl-secundaria-lab-experiment.jpg', alt: 'NWL Australian School Secondary School students conducting science lab experiment with teacher guidance' },
+  { src: '/images/levels/secundaria/nwl-zibata-secundaria-tres-alumnos-pasillo-retrato.jpg', alt: 'NWL Australian School Secondary School students in campus hallway at Zibatá' },
+  { src: '/images/levels/secundaria/milenio-classroom-secondary.jpg', alt: 'NWL Australian School Secondary School classroom with collaborative desk layout at Campus Milenio' },
+  { src: '/images/levels/secundaria/nwl-secundaria-classroom-philosophy.jpg', alt: 'NWL Australian School Secondary School Philosophy for Children classroom with chalkboard discussion' },
+  { src: '/images/levels/secundaria/nwl-secundaria-classroom-orange-wall.jpg', alt: 'NWL Australian School Secondary School modern classroom with round tables and iPads' },
 ];
 
 /* ── Knotion phase dot colors (gold solid takes dark text per contrast rule) ── */
@@ -125,7 +125,7 @@ export default function MiddleSchoolPage() {
         <section className="relative min-h-[90vh] flex items-end overflow-hidden">
           <Image
             src="/images/levels/secundaria/nwl-secundaria-lab-team-fist-bump.jpg"
-            alt="NWL Australian School Middle School students fist bumping in science lab teamwork activity"
+            alt="NWL Australian School Secondary School students fist bumping in science lab teamwork activity"
             fill
             priority
             sizes="100vw"

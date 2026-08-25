@@ -10,9 +10,9 @@ import { use } from 'react';
 // Display names per locale
 const levelLabels: Record<BrochureLevel, Record<string, string>> = {
   'maternal-kinder': { en: 'Maternal & Kinder', es: 'Maternal y Kínder' },
-  elementary: { en: 'Elementary', es: 'Primaria' },
-  'middle-school': { en: 'Middle School', es: 'Secundaria' },
-  'high-school': { en: 'High School', es: 'Preparatoria' },
+  elementary: { en: 'Primary School', es: 'Primaria' },
+  'middle-school': { en: 'Secondary School', es: 'Secundaria' },
+  'high-school': { en: 'Senior School', es: 'Preparatoria' },
 };
 
 function BrochureContent({ level }: { level: string }) {

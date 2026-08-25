@@ -29,7 +29,7 @@ export function OrganizationJsonLd() {
     },
     image: `${SITE_URL}/images/og/nwl/home.jpg`,
     description:
-      'Bilingual private school in Querétaro & San Miguel de Allende. Maternal through High School. English immersion, project-based learning, 5 campuses.',
+      'Bilingual private school in Querétaro & San Miguel de Allende. Maternal through Senior School. English immersion, project-based learning, 5 campuses.',
     foundingDate: '2009',
     telephone: '+52-442-454-1010',
     contactPoint: {

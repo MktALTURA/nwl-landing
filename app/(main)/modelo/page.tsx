@@ -99,8 +99,8 @@ const UI = {
     es: 'UNA EDUCACIÓN DE INSPIRACIÓN AUSTRALIANA, LISTA PARA EL FUTURO, PARA ALUMNOS SEGUROS Y CIUDADANOS GLOBALES.',
   },
   heroSub: {
-    en: 'Seven components. Twenty-one capabilities. One student at the center. This is how the Australian way of learning comes to life at NWL, every day, from Maternal to High School.',
-    es: 'Siete componentes. Veintiún capacidades. Un alumno al centro. Así cobra vida el modelo australiano de aprendizaje en NWL, todos los días, de Maternal a High School.',
+    en: 'Seven components. Twenty-one capabilities. One student at the center. This is how the Australian way of learning comes to life at NWL, every day, from Maternal to Senior School.',
+    es: 'Siete componentes. Veintiún capacidades. Un alumno al centro. Así cobra vida el modelo australiano de aprendizaje en NWL, todos los días, de Maternal a Senior School.',
   },
   statComponents: { en: 'Components', es: 'Componentes' },
   statCapabilities: { en: 'Capabilities', es: 'Capacidades' },

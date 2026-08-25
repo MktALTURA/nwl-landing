@@ -21,7 +21,7 @@ export const PAGE_SEO = {
   home: {
     title: 'The Australian way of learning — NWL Australian School',
     description:
-      'NWL Australian School — bilingual private school in Querétaro & San Miguel de Allende on the Australian school model. Maternal through High School, English immersion, project-based learning. 5 campuses.',
+      'NWL Australian School — bilingual private school in Querétaro & San Miguel de Allende on the Australian school model. Maternal through Senior School, English immersion, project-based learning. 5 campuses.',
     ogImage: '/images/og/nwl/home.jpg',
   },
   modelo: {
@@ -43,21 +43,21 @@ export const PAGE_SEO = {
     ogImage: '/images/og/nwl/kinder.jpg',
   },
   elementary: {
-    title: 'Elementary School (Ages 6–11)',
+    title: 'Primary School (Years 1–6)',
     description:
-      'Bilingual elementary where English immersion is the engine: STEAM maker labs, Philosophy for Children, and no homework. International certifications. Querétaro & San Miguel de Allende.',
+      'Bilingual primary school (elementary, Years 1–6) where English immersion is the engine: STEAM maker labs, Philosophy for Children, and no homework. International certifications. Querétaro & San Miguel de Allende.',
     ogImage: '/images/og/nwl/elementary.jpg',
   },
   middleSchool: {
-    title: 'Middle School (Ages 12–15)',
+    title: 'Secondary School (Years 7–9)',
     description:
-      'Bilingual middle school balancing wellbeing with academic rigor: dual international certifications, entrepreneurship, and critical thinking at the core. Querétaro & San Miguel de Allende.',
+      'Bilingual secondary school (middle school, Years 7–9) balancing wellbeing with academic rigor: dual international certifications, entrepreneurship, and critical thinking at the core. Querétaro & San Miguel de Allende.',
     ogImage: '/images/og/nwl/middle-school.jpg',
   },
   highSchool: {
-    title: 'High School — Prepa NWL (Ages 15–17)',
+    title: 'Senior School — Prepa NWL (Years 10–12)',
     description:
-      'Life Project high school, always forward: Hokku double diploma, Cognia accreditation, financial intelligence, and real-world certifications. Corregidora & Zibatá campuses, Querétaro.',
+      'Senior school (Years 10–12) with a Life Project focus, always forward: US-accredited high school diploma, Hokku double diploma, Cognia accreditation, financial intelligence, and real-world certifications. Corregidora & Zibatá campuses, Querétaro.',
     ogImage: '/images/og/nwl/high-school.jpg',
   },
   careers: {

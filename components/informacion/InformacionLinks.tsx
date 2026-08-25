@@ -10,12 +10,15 @@ interface InformacionLinksProps {
   page: InformacionPage;
 }
 
-const levelLabels: Record<string, { en: string; es: string; image: string; chip: string }> = {
+/** Display names per level route. Exported so the /informacion index renders the
+ *  same labels instead of deriving them from the URL slug — the slug still says
+ *  "elementary"/"middle-school" and would silently show the retired names. */
+export const levelLabels: Record<string, { en: string; es: string; image: string; chip: string }> = {
   '/maternal': { en: 'Maternal Program', es: 'Programa Maternal', image: '/images/levels/maternal.jpg', chip: 'bg-eucalyptus/15 text-navy' },
   '/kinder': { en: 'Kinder Program', es: 'Programa Kinder', image: '/images/levels/kinder.jpg', chip: 'bg-eucalyptus/15 text-navy' },
-  '/elementary': { en: 'Elementary School', es: 'Primaria', image: '/images/levels/primaria.jpg', chip: 'bg-wattle/15 text-navy' },
-  '/middle-school': { en: 'Middle School', es: 'Secundaria', image: '/images/levels/secundaria.jpg', chip: 'bg-coral-sea/10 text-coral-sea' },
-  '/high-school': { en: 'High School', es: 'Preparatoria', image: '/images/levels/preparatoria.jpg', chip: 'bg-jacaranda/10 text-jacaranda' },
+  '/elementary': { en: 'Primary School', es: 'Primaria', image: '/images/levels/primaria.jpg', chip: 'bg-wattle/15 text-navy' },
+  '/middle-school': { en: 'Secondary School', es: 'Secundaria', image: '/images/levels/secundaria.jpg', chip: 'bg-coral-sea/10 text-coral-sea' },
+  '/high-school': { en: 'Senior School', es: 'Preparatoria', image: '/images/levels/preparatoria.jpg', chip: 'bg-jacaranda/10 text-jacaranda' },
 };
 
 export default function InformacionLinks({ page }: InformacionLinksProps) {

@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { useLanguage } from '@/lib/i18n/LanguageContext';
 import { informacionPages } from '@/lib/informacion-data';
 import type { InformacionPage } from '@/lib/informacion-data';
+import { levelLabels } from '@/components/informacion/InformacionLinks';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { LanguageProvider } from '@/lib/i18n/LanguageContext';
@@ -122,7 +123,8 @@ function InformacionIndexContent() {
                       </p>
                       <p className="text-sm text-navy/50 mt-1">
                         {page.targetLevel
-                          ? page.targetLevel.replace('/', '').replace('-', ' ')
+                          ? levelLabels[page.targetLevel]?.[locale === 'es' ? 'es' : 'en'] ??
+                            page.targetLevel.replace('/', '').replace(/-/g, ' ')
                           : locale === 'es'
                             ? 'Todos los niveles'
                             : 'All levels'}

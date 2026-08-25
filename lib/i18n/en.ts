@@ -12,9 +12,9 @@ export const en: Dictionary = {
         children: [
           { name: 'Maternal', href: '/maternal' , sub: 'Early Learning' },
           { name: 'Kinder', href: '/kinder' , sub: 'Kindergarten' },
-          { name: 'Elementary', href: '/elementary' , sub: 'Primary Years' },
-          { name: 'Middle School', href: '/middle-school' , sub: 'Years 7–9' },
-          { name: 'High School', href: '/high-school' , sub: 'Senior Years' },
+          { name: 'Primary School', href: '/elementary' , sub: 'Years 1–6' },
+          { name: 'Secondary School', href: '/middle-school' , sub: 'Years 7–9' },
+          { name: 'Senior School', href: '/high-school' , sub: 'Years 10–12' },
         ],
       },
       {
@@ -174,7 +174,7 @@ export const en: Dictionary = {
     sectionTitle: 'Educational',
     sectionTitleAccent: 'Programs',
     sectionSubtitle:
-      'From early childhood through high school, we guide your child\'s complete educational journey',
+      'From early childhood through senior school, we guide your child\'s complete educational journey',
     items: [
       {
         name: 'Maternal',
@@ -185,27 +185,27 @@ export const en: Dictionary = {
       },
       {
         name: 'Kinder',
-        ageRange: '4-5 years',
+        ageRange: '3-5 years',
         description: 'Curiosity grows through play, Knotion projects, and English every day.',
         campuses: ['All 5 Campuses'],
         href: '/kinder',
       },
       {
-        name: 'Elementary',
+        name: 'Primary School',
         ageRange: '6-11 years',
         description: 'English immersion powers real projects, maker labs, and critical thinking.',
         campuses: ['All 5 Campuses'],
         href: '/elementary',
       },
       {
-        name: 'Middle School',
-        ageRange: '12-14 years',
+        name: 'Secondary School',
+        ageRange: '12-15 years',
         description: 'Leadership, entrepreneurship, and international credentials — always forward.',
         campuses: ['All 5 Campuses'],
         href: '/middle-school',
       },
       {
-        name: 'High School',
+        name: 'Senior School',
         ageRange: '15-17 years',
         description: 'A preparation for life: US dual diploma and university readiness.',
         campuses: ['Corregidora', 'Zibatá'],
@@ -222,27 +222,27 @@ export const en: Dictionary = {
     sectionSubtitle: '5 amazing locations · Infinite possibilities',
     items: [
       {
-        levels: 'Maternal - Middle School',
+        levels: 'Maternal - Secondary School',
         description: 'Our flagship campus with a tradition of excellence.',
         href: '/campus/juriquilla',
       },
       {
-        levels: 'Maternal - Middle School',
+        levels: 'Maternal - Secondary School',
         description: 'A safe, nurturing space with great facilities for expanded growth.',
         href: '/campus/milenio',
       },
       {
-        levels: 'Maternal - Middle School',
+        levels: 'Maternal - Secondary School',
         description: 'Cultural richness meets academic excellence.',
         href: '/campus/san-miguel',
       },
       {
-        levels: 'Maternal - High School',
+        levels: 'Maternal - Senior School',
         description: 'A warm, community-centered campus in the heart of Corregidora.',
         href: '/campus/corregidora',
       },
       {
-        levels: 'Maternal - High School',
+        levels: 'Maternal - Senior School',
         description: 'Modern facilities in a growing community.',
         href: '/campus/zibata',
       },
@@ -269,12 +269,12 @@ export const en: Dictionary = {
       {
         quote:
           'The bilingual program is excellent. My son switched from another school and his English improved dramatically in just one year.',
-        role: 'Parent - Primaria, Zibatá',
+        role: 'Parent - Primary School, Zibatá',
       },
       {
         quote:
           'What impressed us most was the sense of community. Parents, teachers, and students all feel like one big family.',
-        role: 'Parent - Secundaria, SMA',
+        role: 'Parent - Secondary School, SMA',
       },
     ],
     stats: [
@@ -320,10 +320,10 @@ export const en: Dictionary = {
     programsHeading: 'Programs',
     programLinks: [
       { name: 'Maternal', href: '#levels' },
-      { name: 'Kindergarten', href: '#levels' },
-      { name: 'Elementary', href: '#levels' },
-      { name: 'Middle School', href: '#levels' },
-      { name: 'High School', href: '#levels' },
+      { name: 'Kinder', href: '#levels' },
+      { name: 'Primary School', href: '#levels' },
+      { name: 'Secondary School', href: '#levels' },
+      { name: 'Senior School', href: '#levels' },
     ],
     contactHeading: 'Contact',
     contactLabel: 'Admissions',
@@ -341,9 +341,9 @@ export const en: Dictionary = {
     closeAriaLabel: 'Close brochure',
     levels: {
       maternalKinder: 'Maternal & Kinder',
-      primaria: 'Elementary',
-      secundaria: 'Middle School',
-      preparatoria: 'High School',
+      primaria: 'Primary School',
+      secundaria: 'Secondary School',
+      preparatoria: 'Senior School',
     },
   },
   maternal: {
@@ -536,10 +536,10 @@ export const en: Dictionary = {
     ],
   },
   elementary: {
-    ageBadge: 'Ages 6–11 · Primary Years',
+    ageBadge: 'Ages 6–11 · Years 1–6',
     tagline: 'Building the Future, One Project at a Time',
     description:
-      'In Elementary, English immersion becomes the engine of learning. Students take ownership through the Knotion IMPACT model, STEAM maker labs, and a philosophy program that teaches them how to think — not what to think. Wellbeing and academic rigor in balance. No traditional homework.',
+      'In Primary School, English immersion becomes the engine of learning. Students take ownership through the Knotion IMPACT model, STEAM maker labs, and a philosophy program that teaches them how to think — not what to think. Wellbeing and academic rigor in balance. No traditional homework.',
     statBilingual: 'Bilingual Model',
     statCampuses: 'Campuses',
     statNoHomework: 'No Homework',
@@ -547,7 +547,7 @@ export const en: Dictionary = {
     statSchedule: 'Schedule',
     testimonial:
       'She used to hate going to school. Now she tells me about her projects at dinner. Something changed, and I\'m grateful.',
-    testimonialAuthor: 'NWL Parent, Elementary',
+    testimonialAuthor: 'NWL Parent, Primary School',
     cta: 'Schedule a Visit',
     ctaSecondary: 'Download Brochure',
   },
@@ -557,7 +557,7 @@ export const en: Dictionary = {
       'Design thinkers who solve real challenges, lead with purpose, and live English every day — the engine of the Australian way of learning. Maker labs, no homework, and Cognia international certification.',
     backToHome: 'Back to Home',
     overviewTitle: 'Discover',
-    overviewTitleAccent: 'Elementary NWL',
+    overviewTitleAccent: 'Primary NWL',
     pillarsTitle: 'The NWL',
     pillarsTitleAccent: 'Model',
     pillarsSubtitle: 'Three pillars that define how we develop critical thinkers and leaders.',
@@ -645,14 +645,14 @@ export const en: Dictionary = {
     ],
     activitiesNote: 'Activities vary by campus — ask about offerings at your preferred location.',
     galleryTitle: 'Life in',
-    galleryTitleAccent: 'Elementary',
+    galleryTitleAccent: 'Primary School',
     galleryComingSoon: 'Gallery coming soon. Visit a campus to see our spaces firsthand.',
   },
   middleSchool: {
     ageBadge: 'Ages 12–15 · Years 7–9',
     tagline: 'From Ideas to Impact',
     description:
-      'In Middle School, critical thinking takes the lead. Students become entrepreneurs, earn US-Mexico dual certification with Hokku Academy, and grow as leaders through I\'m NWL Leader by Tec de Monterrey. Real projects, not textbook exercises. Global credentials, not just grades.',
+      'In Secondary School, critical thinking takes the lead. Students become entrepreneurs, earn US-Mexico dual certification with Hokku Academy, and grow as leaders through I\'m NWL Leader by Tec de Monterrey. Real projects, not textbook exercises. Global credentials, not just grades.',
     statBilingual: 'English Immersion',
     statCampuses: 'Campuses',
     statCertifications: 'International Certifications',
@@ -660,7 +660,7 @@ export const en: Dictionary = {
     statSchedule: 'Schedule',
     testimonial:
       "My son is quieter by nature, but lately he's been speaking up more. His teacher noticed before I did. That kind of attention matters to me.",
-    testimonialAuthor: 'NWL Parent, Middle School',
+    testimonialAuthor: 'NWL Parent, Secondary School',
     cta: 'Schedule a Visit',
     ctaSecondary: 'Download Brochure',
   },
@@ -670,7 +670,7 @@ export const en: Dictionary = {
       'Where critical thinkers become young entrepreneurs: earning international credentials, leading through I\'m NWL Leader by Tec de Monterrey, and always moving forward.',
     backToHome: 'Back to Home',
     // Transformation
-    transformationTitle: 'The Middle School',
+    transformationTitle: 'The Secondary School',
     transformationTitleAccent: 'Transformation',
     transformationBefore: 'They arrive as...',
     transformationBeforeItems: [
@@ -717,7 +717,7 @@ export const en: Dictionary = {
     exclusiveTitle: 'Exclusive',
     exclusiveTitleAccent: 'Programs',
     exclusiveSubtitle:
-      'Two programs that set NWL Middle School apart from any other school in the region.',
+      'Two programs that set NWL Secondary School apart from any other school in the region.',
     exclusivePrograms: [
       {
         title: 'Entrepreneurship Program',
@@ -802,10 +802,10 @@ export const en: Dictionary = {
     activitiesNote: 'Activities vary by campus. Ask about offerings at your preferred location.',
     // Gallery
     galleryTitle: 'Life in',
-    galleryTitleAccent: 'Middle School',
+    galleryTitleAccent: 'Secondary School',
   },
   highSchool: {
-    ageBadge: 'Ages 15–17 · Senior Years',
+    ageBadge: 'Ages 15–17 · Years 10–12',
     tagline: 'A Preparation for Life',
     description:
       'Prepa NWL prepares students for a future full of challenges, with a growth mindset and skills that go far beyond academics. Through the Life Project model, every semester builds real-world abilities — like the kangaroo, always forward, never backward. Students can also earn a US + Mexican dual diploma with Cognia-accredited Hokku Academy.',

@@ -89,7 +89,7 @@ export const campuses: Record<string, CampusData> = {
       es: 'Nuestro campus insignia, donde el modelo australiano de aprendizaje cobra vida',
     },
     levels: {
-      en: 'Maternal — Middle School',
+      en: 'Maternal — Secondary School',
       es: 'Maternal — Secundaria',
     },
     heroImage: '/images/campus/juriquilla/juriquilla-building.jpg',
@@ -97,7 +97,7 @@ export const campuses: Record<string, CampusData> = {
     phoneLink: '4423846880',
     whatsapp: '5214423846880',
     stats: [
-      { value: { en: 'Maternal – Middle School', es: 'Maternal – Sec' }, label: { en: 'Academic Levels', es: 'Niveles Académicos' } },
+      { value: { en: 'Maternal – Secondary School', es: 'Maternal – Sec' }, label: { en: 'Academic Levels', es: 'Niveles Académicos' } },
       { value: { en: '100%', es: '100%' }, label: { en: 'Certified Teachers', es: 'Docentes Certificados' } },
       { value: { en: '2009', es: '2009' }, label: { en: 'Founded', es: 'Fundado' } },
       { value: { en: '100%', es: '100%' }, label: { en: 'Bilingual', es: 'Bilingüe' } },
@@ -201,7 +201,7 @@ export const campuses: Record<string, CampusData> = {
       es: 'Un campus seguro y acogedor con excelentes instalaciones para crecer hacia adelante',
     },
     levels: {
-      en: 'Maternal — Middle School',
+      en: 'Maternal — Secondary School',
       es: 'Maternal — Secundaria',
     },
     heroImage: '/images/campus/milenio/milenio-soccer-field-hero.jpg',
@@ -209,7 +209,7 @@ export const campuses: Record<string, CampusData> = {
     phoneLink: '4423251413',
     whatsapp: '5214423251413',
     stats: [
-      { value: { en: 'Maternal – Middle School', es: 'Maternal – Sec' }, label: { en: 'Academic Levels', es: 'Niveles Académicos' } },
+      { value: { en: 'Maternal – Secondary School', es: 'Maternal – Sec' }, label: { en: 'Academic Levels', es: 'Niveles Académicos' } },
       { value: { en: '100%', es: '100%' }, label: { en: 'Certified Teachers', es: 'Docentes Certificados' } },
       { value: { en: '2016', es: '2016' }, label: { en: 'Founded', es: 'Fundado' } },
       { value: { en: '100%', es: '100%' }, label: { en: 'Bilingual', es: 'Bilingüe' } },
@@ -280,7 +280,7 @@ export const campuses: Record<string, CampusData> = {
       { src: '/images/campus/milenio/milenio-covered-court.jpg', caption: { en: 'Covered Multi-Sport Court', es: 'Cancha Multiusos Techada' } },
       { src: '/images/campus/milenio/milenio-building-cognia.jpg', caption: { en: 'Campus Building — Cognia Accredited', es: 'Edificio del Campus — Acreditado por Cognia' } },
       { src: '/images/campus/milenio/milenio-lab-dna-models.jpg', caption: { en: 'Science Lab — DNA Models', es: 'Laboratorio — Modelos de ADN' } },
-      { src: '/images/campus/milenio/milenio-classroom-secondary.jpg', caption: { en: 'Middle School Classroom', es: 'Salón de Secundaria' } },
+      { src: '/images/campus/milenio/milenio-classroom-secondary.jpg', caption: { en: 'Secondary School Classroom', es: 'Salón de Secundaria' } },
       { src: '/images/campus/milenio/milenio-student-art-wall.jpg', caption: { en: 'Student Art Display', es: 'Exhibición de Arte Estudiantil' } },
       { src: '/images/campus/milenio/milenio-mural-class-of-2025.jpg', caption: { en: 'Class of 2025 Mural', es: 'Mural Generación 2025' } },
       { src: '/images/campus/milenio/milenio-art-room.jpg', caption: { en: 'Art Room with Student Murals', es: 'Salón de Arte con Murales' } },
@@ -324,7 +324,7 @@ export const campuses: Record<string, CampusData> = {
       es: 'Donde la riqueza cultural se encuentra con la excelencia bilingüe',
     },
     levels: {
-      en: 'Maternal — Middle School',
+      en: 'Maternal — Secondary School',
       es: 'Maternal — Secundaria',
     },
     heroImage: '/images/campus/san-miguel/san-miguel-hero.jpg',
@@ -332,7 +332,7 @@ export const campuses: Record<string, CampusData> = {
     phoneLink: '4156903100',
     whatsapp: '5214156903100',
     stats: [
-      { value: { en: 'Maternal – Middle School', es: 'Maternal – Secundaria' }, label: { en: 'Academic Levels', es: 'Niveles Académicos' } },
+      { value: { en: 'Maternal – Secondary School', es: 'Maternal – Secundaria' }, label: { en: 'Academic Levels', es: 'Niveles Académicos' } },
       { value: { en: '100%', es: '100%' }, label: { en: 'Certified Teachers', es: 'Docentes Certificados' } },
       { value: { en: '2018', es: '2018' }, label: { en: 'Founded', es: 'Fundado' } },
       { value: { en: '100%', es: '100%' }, label: { en: 'Bilingual', es: 'Bilingüe' } },
@@ -400,7 +400,7 @@ export const campuses: Record<string, CampusData> = {
       { src: '/images/campus/san-miguel/san-miguel-hero.jpg', caption: { en: 'Be Proud, Be NWL', es: 'Be Proud, Be NWL' } },
       { src: '/images/campus/san-miguel/san-miguel-art-room.jpg', caption: { en: 'Art Room', es: 'Salón de Arte' } },
       { src: '/images/campus/san-miguel/san-miguel-soccer-gallery.jpg', caption: { en: 'Soccer Field', es: 'Cancha de Fútbol' } },
-      { src: '/images/campus/san-miguel/san-miguel-prepa-classroom.jpg', caption: { en: 'Middle School Classroom', es: 'Salón de Secundaria' } },
+      { src: '/images/campus/san-miguel/san-miguel-prepa-classroom.jpg', caption: { en: 'Secondary School Classroom', es: 'Salón de Secundaria' } },
       { src: '/images/campus/san-miguel/san-miguel-cafeteria-gallery.jpg', caption: { en: 'Cafetorium', es: 'Cafetorium' } },
       { src: '/images/campus/san-miguel/san-miguel-kinder-courtyard.jpg', caption: { en: 'Kinder Courtyard', es: 'Patio de Kínder' } },
       { src: '/images/campus/san-miguel/san-miguel-reception.jpg', caption: { en: 'Reception', es: 'Recepción' } },
@@ -410,7 +410,7 @@ export const campuses: Record<string, CampusData> = {
       { src: '/images/campus/san-miguel/san-miguel-prepa-lounge.jpg', caption: { en: 'Common Area', es: 'Área Común' } },
       { src: '/images/campus/san-miguel/san-miguel-nwl-crest.jpg', caption: { en: 'NWL School Crest', es: 'Escudo NWL' } },
       { src: '/images/campus/san-miguel/san-miguel-outdoor-area.jpg', caption: { en: 'Outdoor Area', es: 'Área al Aire Libre' } },
-      { src: '/images/campus/san-miguel/san-miguel-elementary-classroom.jpg', caption: { en: 'Elementary Classroom', es: 'Salón de Primaria' } },
+      { src: '/images/campus/san-miguel/san-miguel-elementary-classroom.jpg', caption: { en: 'Primary School Classroom', es: 'Salón de Primaria' } },
       { src: '/images/campus/san-miguel/san-miguel-podcast-studio.jpg', caption: { en: 'Podcast Studio', es: 'Estudio de Podcast' } },
     ],
     testimonials: [
@@ -443,7 +443,7 @@ export const campuses: Record<string, CampusData> = {
       es: 'Una comunidad cálida y unida en el corazón de Corregidora',
     },
     levels: {
-      en: 'Maternal — High School',
+      en: 'Maternal — Senior School',
       es: 'Maternal — Preparatoria',
     },
     heroImage: '/images/campus/corregidora/corregidora-campus-wide.jpg',
@@ -451,7 +451,7 @@ export const campuses: Record<string, CampusData> = {
     phoneLink: '4426717645',
     whatsapp: '5214426717645',
     stats: [
-      { value: { en: 'Maternal – High School', es: 'Maternal – Prepa' }, label: { en: 'Academic Levels', es: 'Niveles Académicos' } },
+      { value: { en: 'Maternal – Senior School', es: 'Maternal – Prepa' }, label: { en: 'Academic Levels', es: 'Niveles Académicos' } },
       { value: { en: '100%', es: '100%' }, label: { en: 'Certified Teachers', es: 'Docentes Certificados' } },
       { value: { en: '2019', es: '2019' }, label: { en: 'Founded', es: 'Fundado' } },
       { value: { en: '100%', es: '100%' }, label: { en: 'Bilingual', es: 'Bilingüe' } },
@@ -565,7 +565,7 @@ export const campuses: Record<string, CampusData> = {
       es: 'Un campus moderno para una comunidad que siempre avanza',
     },
     levels: {
-      en: 'Maternal — High School',
+      en: 'Maternal — Senior School',
       es: 'Maternal — Preparatoria',
     },
     heroImage: '/images/campus/zibata/zibata-hero.jpg',
@@ -573,7 +573,7 @@ export const campuses: Record<string, CampusData> = {
     phoneLink: '4421612211',
     whatsapp: '5214421612211',
     stats: [
-      { value: { en: 'Maternal – High School', es: 'Maternal – Prepa' }, label: { en: 'Academic Levels', es: 'Niveles Académicos' } },
+      { value: { en: 'Maternal – Senior School', es: 'Maternal – Prepa' }, label: { en: 'Academic Levels', es: 'Niveles Académicos' } },
       { value: { en: '100%', es: '100%' }, label: { en: 'Certified Teachers', es: 'Docentes Certificados' } },
       { value: { en: '2025', es: '2025' }, label: { en: 'Founded', es: 'Fundado' } },
       { value: { en: '100%', es: '100%' }, label: { en: 'Bilingual', es: 'Bilingüe' } },
