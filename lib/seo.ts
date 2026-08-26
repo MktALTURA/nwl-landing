@@ -55,7 +55,14 @@ export const PAGE_SEO = {
     ogImage: '/images/og/nwl/middle-school.jpg',
   },
   highSchool: {
-    title: 'Senior School — Prepa NWL (Years 10–12)',
+    // "High School" is retained in this title alone, against the Australian
+    // rename applied everywhere else. GA4 (90 days to 2026-08-25): English-locale
+    // organic on /high-school produced 6 of the page's 8 key events — a 18.8% CVR
+    // vs 3.2% for Spanish-locale. And unlike /elementary and /middle-school, there
+    // is no /informacion English page ranking for this level to absorb the term,
+    // so this page owns that traffic outright. The visible label is still
+    // "Senior School"; only the title keeps the searched term.
+    title: 'Senior School (High School) — Prepa NWL, Years 10–12',
     description:
       'Senior school (Years 10–12) with a Life Project focus, always forward: US-accredited high school diploma, Hokku double diploma, Cognia accreditation, financial intelligence, and real-world certifications. Corregidora & Zibatá campuses, Querétaro.',
     ogImage: '/images/og/nwl/high-school.jpg',
