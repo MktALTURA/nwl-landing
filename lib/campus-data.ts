@@ -257,15 +257,18 @@ export const campuses: Record<string, CampusData> = {
       },
     ],
     director: {
-      name: 'Mtra. Ximena Arellano Atristain',
-      title: { en: 'Campus Director', es: 'Directora de Campus' },
+      name: 'Dr. Benjamín Madrigal Cruz',
+      title: { en: 'Campus Director', es: 'Director de Campus' },
       message: {
-        en: 'At NWL Milenio, we create a warm, secure environment where children feel at home. Our dedicated team focuses on both academic achievement and emotional development, helping each student grow into a confident, well-rounded individual.',
-        es: 'En NWL Milenio, creamos un ambiente cálido y seguro donde los niños se sienten como en casa. Nuestro equipo dedicado se enfoca tanto en el logro académico como en el desarrollo emocional, ayudando a cada alumno a crecer como un individuo seguro e integral.',
+        // PLACEHOLDER — his message is still pending from the campus. Drop
+        // `hideDirector` below once the real quote replaces these two lines.
+        en: '[Director message pending]',
+        es: '[Mensaje del director pendiente]',
       },
-      image: '/images/campus/milenio/milenio-director.jpg',
+      image: '/images/campus/milenio/milenio-director-benjamin-madrigal.jpg',
     },
-    // Director section hidden by request — remove this flag to show it again.
+    // Hidden only because the message above is a placeholder — the name and
+    // photo are final.
     hideDirector: true,
     address: 'Cerrada Panorámica, Distrito Piamonte, Querétaro',
     city: 'Querétaro',
