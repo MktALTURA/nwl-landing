@@ -459,7 +459,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  description:
  'Escuela privada cerca de Milenio III con todos los niveles, programa bilingüe y formación integral. Descubre NWL Australian School campus Milenio en Querétaro.',
  uniqueIntro:
- 'NWL Australian School Milenio es una escuela privada bilingüe en la zona sur de Querétaro, cerca de Milenio III, que ofrece maternal, kinder, primaria y secundaria. Fundado en 2016 y acreditado por Cognia, es el único campus de la red con esa acreditación y se distingue por su terraza rooftop, el letrero LÍDER y talleres de cocina, yoga y dance team. Lo dirige la Mtra. Ximena Arellano con el modelo Knotion, Filosofía para Niños y Yo Soy Líder NWL.',
+ 'NWL Australian School Milenio es una escuela privada bilingüe en la zona sur de Querétaro, cerca de Milenio III, que ofrece maternal, kinder, primaria y secundaria. Fundado en 2016 y acreditado por Cognia, es el único campus de la red con esa acreditación y se distingue por su terraza rooftop, el letrero LÍDER y talleres de cocina, yoga y dance team. Trabaja con el modelo Knotion, Filosofía para Niños y Yo Soy Líder NWL.',
  sections: [
  {
  heading: 'Talleres de cocina, yoga y dance team',
@@ -478,7 +478,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  {
  question: '¿Qué niveles ofrece NWL Australian School cerca de Milenio?',
  answer:
- 'NWL Milenio ofrece maternal, kinder, primaria y secundaria (no preparatoria). Fundado en 2016, es el campus con acreditación Cognia. Directora: Mtra. Ximena Arellano.',
+ 'NWL Milenio ofrece maternal, kinder, primaria y secundaria (no preparatoria). Fundado en 2016, es el campus con acreditación Cognia.',
  },
  {
  question: '¿Qué diferencia a NWL Milenio de otros campus?',
@@ -583,7 +583,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  {
  question: '¿Hasta qué nivel puede continuar mi hijo después de la primaria en Milenio?',
  answer:
- 'Tras la primaria, el alumno continúa en la secundaria del mismo campus Milenio. Juriquilla y Milenio ofrecen hasta secundaria; para preparatoria se continúa en un campus NWL con prepa. Directora: Mtra. Ximena Arellano.',
+ 'Tras la primaria, el alumno continúa en la secundaria del mismo campus Milenio. Juriquilla y Milenio ofrecen hasta secundaria; para preparatoria se continúa en un campus NWL con prepa.',
  },
  {
  question: '¿Cómo es el proceso de admisión a la primaria en Milenio?',
@@ -620,7 +620,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  description:
  'Kinder particular cerca de Milenio con programa bilingüe, Filosofía para Niños y espacios diseñados para primera infancia. Inscripciones abiertas en NWL Australian School.',
  uniqueIntro:
- 'El kinder de NWL Australian School en Milenio es un preescolar bilingüe privado para niños de 3 a 5 años cerca de Milenio III, Querétaro, en un campus acreditado por Cognia y dirigido por la Mtra. Ximena Arellano. Trabaja con Knotion (sin tarea tradicional), Filosofía para Niños y Yo Soy Líder NWL by Tec de Monterrey, con áreas de juego para preescolar, terraza rooftop y horario de 8:20 a 1:50 pm.',
+ 'El kinder de NWL Australian School en Milenio es un preescolar bilingüe privado para niños de 3 a 5 años cerca de Milenio III, Querétaro, en un campus acreditado por Cognia. Trabaja con Knotion (sin tarea tradicional), Filosofía para Niños y Yo Soy Líder NWL by Tec de Monterrey, con áreas de juego para preescolar, terraza rooftop y horario de 8:20 a 1:50 pm.',
  sections: [
  {
  heading: 'Knotion: Proyectos en vez de tarea',
@@ -639,7 +639,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  {
  question: '¿El kinder en Milenio tiene áreas de juego seguras?',
  answer:
- 'Sí. El campus cuenta con áreas de juego con piso amortiguante, terraza rooftop y espacios diseñados para preescolar. NWL Milenio es Bullying Free School y tiene acreditación Cognia. Directora: Mtra. Ximena Arellano.',
+ 'Sí. El campus cuenta con áreas de juego con piso amortiguante, terraza rooftop y espacios diseñados para preescolar. NWL Milenio es Bullying Free School y tiene acreditación Cognia.',
  },
  {
  question: '¿Cuál es el horario del kinder en Milenio?',
@@ -701,7 +701,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  description:
  'Secundaria particular cerca de Milenio con formación bilingüe, laboratorios y programa de Filosofía para Niños. Forma parte de NWL Australian School campus Milenio.',
  uniqueIntro:
- 'La secundaria de NWL Australian School en Milenio es una secundaria bilingüe privada para adolescentes de 12 a 15 años cerca de Milenio III, Querétaro, en el único campus de la red acreditado por Cognia, fundado en 2016 y dirigido por la Mtra. Ximena Arellano. Combina Emprendizaje con Universidad Mondragón, Doble Certificación Internacional (diploma EUA + México) y Cambridge PET/FCE, con talleres de cocina, yoga y dance team. Horario: 7:30 a 2:30 pm.',
+ 'La secundaria de NWL Australian School en Milenio es una secundaria bilingüe privada para adolescentes de 12 a 15 años cerca de Milenio III, Querétaro, en el único campus de la red acreditado por Cognia, fundado en 2016. Combina Emprendizaje con Universidad Mondragón, Doble Certificación Internacional (diploma EUA + México) y Cambridge PET/FCE, con talleres de cocina, yoga y dance team. Horario: 7:30 a 2:30 pm.',
  sections: [
  {
  heading: 'Emprendizaje y Doble Certificación en Milenio',
@@ -725,7 +725,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  {
  question: '¿La secundaria de Milenio tiene acreditación Cognia?',
  answer:
- 'Sí. NWL Milenio es el campus con acreditación Cognia, lo que respalda la Doble Certificación Internacional. El campus fue fundado en 2016 y es dirigido por la Mtra. Ximena Arellano.',
+ 'Sí. NWL Milenio es el campus con acreditación Cognia, lo que respalda la Doble Certificación Internacional. El campus fue fundado en 2016.',
  },
  {
  question: '¿Qué nivel de inglés alcanzan los alumnos al egresar de secundaria en Milenio?',
@@ -782,7 +782,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  description:
  'Colegio privado cerca de El Mirador Querétaro con programa bilingüe y todos los niveles. Descubre NWL Australian School campus Milenio, la opción más cercana.',
  uniqueIntro:
- 'Para las familias de El Mirador, Querétaro, NWL Australian School campus Milenio es la escuela bilingüe más cercana, a solo 10-15 minutos en auto. Es un colegio privado fundado en 2016 y acreditado por Cognia que ofrece maternal a secundaria, con el modelo Knotion (sin tarea tradicional), Filosofía para Niños y Yo Soy Líder NWL, además de talleres de cocina, yoga y dance team. Lo dirige la Mtra. Ximena Arellano.',
+ 'Para las familias de El Mirador, Querétaro, NWL Australian School campus Milenio es la escuela bilingüe más cercana, a solo 10-15 minutos en auto. Es un colegio privado fundado en 2016 y acreditado por Cognia que ofrece maternal a secundaria, con el modelo Knotion (sin tarea tradicional), Filosofía para Niños y Yo Soy Líder NWL, además de talleres de cocina, yoga y dance team.',
  sections: [
  {
  heading: 'Campus Milenio: A 10 minutos de El Mirador',
@@ -806,7 +806,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  {
  question: '¿Qué actividades ofrece NWL para las familias de El Mirador?',
  answer:
- 'Campus Milenio ofrece talleres de cocina, yoga, dance team, tochito, voleibol, basquetbol, fútbol, robótica STEAM y música. Es Bullying Free School con más de 90 cámaras de seguridad. Directora: Mtra. Ximena Arellano.',
+ 'Campus Milenio ofrece talleres de cocina, yoga, dance team, tochito, voleibol, basquetbol, fútbol, robótica STEAM y música. Es Bullying Free School con más de 90 cámaras de seguridad.',
  },
  {
  question: '¿Qué niveles educativos ofrece el campus más cercano a El Mirador?',
@@ -1430,7 +1430,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  description:
  'Secundaria privada cerca de Loma Dorada Querétaro con programa bilingüe, laboratorios y Filosofía para Niños. Descubre NWL Australian School campus Milenio.',
  uniqueIntro:
- 'Para las familias de Loma Dorada, Querétaro, la secundaria de NWL Australian School campus Milenio es la secundaria bilingüe más cercana, a solo 10 minutos en auto. Es una secundaria privada para adolescentes de 12 a 15 años, en un campus acreditado por Cognia fundado en 2016, con Emprendizaje (Universidad Mondragón), Doble Certificación Internacional y Cambridge PET/FCE. Directora: Mtra. Ximena Arellano.',
+ 'Para las familias de Loma Dorada, Querétaro, la secundaria de NWL Australian School campus Milenio es la secundaria bilingüe más cercana, a solo 10 minutos en auto. Es una secundaria privada para adolescentes de 12 a 15 años, en un campus acreditado por Cognia fundado en 2016, con Emprendizaje (Universidad Mondragón), Doble Certificación Internacional y Cambridge PET/FCE.',
  sections: [
  {
  heading: 'Emprendizaje con Universidad Mondragón',
@@ -1442,7 +1442,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  },
  {
  heading: 'Transporte, seguridad y actividades para Loma Dorada',
- body: 'NWL Milenio ofrece rutas de transporte escolar que cubren Loma Dorada, con unidades monitoreadas por GPS. El campus cuenta con 90+ cámaras de seguridad 24/7, cancha de fútbol, cancha techada y laboratorio STEAM.\n\nLas actividades incluyen voleibol, tochito, basquetbol, fútbol, dance team, talleres de cocina, yoga, robótica STEAM y música. El horario de secundaria es de 7:30 a 2:30 pm. Directora: Mtra. Ximena Arellano.',
+ body: 'NWL Milenio ofrece rutas de transporte escolar que cubren Loma Dorada, con unidades monitoreadas por GPS. El campus cuenta con 90+ cámaras de seguridad 24/7, cancha de fútbol, cancha techada y laboratorio STEAM.\n\nLas actividades incluyen voleibol, tochito, basquetbol, fútbol, dance team, talleres de cocina, yoga, robótica STEAM y música. El horario de secundaria es de 7:30 a 2:30 pm.',
  },
  ],
  faqs: [
@@ -1474,7 +1474,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  {
  question: '¿Hasta qué nivel puede continuar mi hijo en el campus Milenio?',
  answer:
- 'Milenio ofrece hasta secundaria. Para preparatoria, las familias continúan en un campus NWL con prepa, manteniendo el mismo modelo educativo. Directora: Mtra. Ximena Arellano.',
+ 'Milenio ofrece hasta secundaria. Para preparatoria, las familias continúan en un campus NWL con prepa, manteniendo el mismo modelo educativo.',
  },
  {
  question: '¿Cómo es el proceso de admisión a la secundaria cerca de Loma Dorada?',
@@ -1512,7 +1512,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  description:
  'Escuela particular cerca de Loma Dorada con todos los niveles, programa bilingüe y Filosofía para Niños. NWL Australian School campus Milenio, a minutos de tu hogar.',
  uniqueIntro:
- 'Para las familias de Loma Dorada, Querétaro, NWL Australian School campus Milenio es la escuela bilingüe más cercana, a 10 minutos en auto. Es un colegio privado fundado en 2016 y acreditado por Cognia que ofrece maternal a secundaria, con el modelo completo NWL: Knotion (sin tarea tradicional), Filosofía para Niños y talleres exclusivos de cocina, yoga y dance team. Directora: Mtra. Ximena Arellano.',
+ 'Para las familias de Loma Dorada, Querétaro, NWL Australian School campus Milenio es la escuela bilingüe más cercana, a 10 minutos en auto. Es un colegio privado fundado en 2016 y acreditado por Cognia que ofrece maternal a secundaria, con el modelo completo NWL: Knotion (sin tarea tradicional), Filosofía para Niños y talleres exclusivos de cocina, yoga y dance team.',
  sections: [
  {
  heading: 'De Brain Up a Emprendizaje: Trayectoria en Milenio',
@@ -1524,7 +1524,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  },
  {
  heading: 'Transporte y seguridad para familias de Loma Dorada',
- body: 'Ofrecemos rutas de transporte escolar que cubren Loma Dorada, con unidades monitoreadas por GPS. El campus cuenta con 90+ cámaras de seguridad 24/7, programa BFS (Bullying Free School) y protocolo de Desapego Seguro para los más pequeños.\n\nLa acreditación Cognia del campus Milenio certifica que los estándares académicos cumplen con las más altas exigencias internacionales. Directora: Mtra. Ximena Arellano.',
+ body: 'Ofrecemos rutas de transporte escolar que cubren Loma Dorada, con unidades monitoreadas por GPS. El campus cuenta con 90+ cámaras de seguridad 24/7, programa BFS (Bullying Free School) y protocolo de Desapego Seguro para los más pequeños.\n\nLa acreditación Cognia del campus Milenio certifica que los estándares académicos cumplen con las más altas exigencias internacionales.',
  },
  ],
  faqs: [
@@ -1536,7 +1536,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  {
  question: '¿Hay transporte escolar desde Loma Dorada?',
  answer:
- 'Sí. Rutas con unidades monitoreadas por GPS cubren Loma Dorada y colonias aledañas. El campus ofrece talleres de cocina, yoga, dance team, deportes, robótica STEAM y música. Directora: Mtra. Ximena Arellano.',
+ 'Sí. Rutas con unidades monitoreadas por GPS cubren Loma Dorada y colonias aledañas. El campus ofrece talleres de cocina, yoga, dance team, deportes, robótica STEAM y música.',
  },
  {
  question: '¿Cómo es la trayectoria de un alumno de maternal a secundaria en Milenio?',
@@ -1593,7 +1593,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  description:
  'Kinder bilingüe cerca de Loma Dorada con Filosofía para Niños, programa STEAM y espacios seguros. Inscribe a tu hijo en NWL Australian School campus Milenio.',
  uniqueIntro:
- 'Para las familias de Loma Dorada, Querétaro, el kinder de NWL Australian School campus Milenio es un preescolar bilingüe a solo 10 minutos de distancia, para niños de 3 a 5 años. Trabaja con Knotion (sin tarea tradicional), Filosofía para Niños, Yo Soy Líder NWL by Tec de Monterrey y actividades exclusivas como dance team, cocina y yoga, en un campus acreditado por Cognia. Horario: 8:20 a 1:50 pm. Directora: Mtra. Ximena Arellano.',
+ 'Para las familias de Loma Dorada, Querétaro, el kinder de NWL Australian School campus Milenio es un preescolar bilingüe a solo 10 minutos de distancia, para niños de 3 a 5 años. Trabaja con Knotion (sin tarea tradicional), Filosofía para Niños, Yo Soy Líder NWL by Tec de Monterrey y actividades exclusivas como dance team, cocina y yoga, en un campus acreditado por Cognia. Horario: 8:20 a 1:50 pm.',
  sections: [
  {
  heading: 'Knotion: Sin tarea, con proyectos reales',
@@ -1605,7 +1605,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  },
  {
  heading: 'Transporte y Bullying Free School',
- body: 'NWL ofrece transporte escolar con ruta que cubre Loma Dorada, con unidades monitoreadas por GPS y personal capacitado para el traslado de los más pequeños.\n\nEl campus es Bullying Free School (BFS) desde preescolar, con protocolo de Desapego Seguro para la transición hogar-escuela. La acreditación Cognia respalda los estándares de calidad. Directora: Mtra. Ximena Arellano.',
+ body: 'NWL ofrece transporte escolar con ruta que cubre Loma Dorada, con unidades monitoreadas por GPS y personal capacitado para el traslado de los más pequeños.\n\nEl campus es Bullying Free School (BFS) desde preescolar, con protocolo de Desapego Seguro para la transición hogar-escuela. La acreditación Cognia respalda los estándares de calidad.',
  },
  ],
  faqs: [
@@ -1642,7 +1642,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  {
  question: '¿Hasta qué nivel puede continuar mi hijo en el campus Milenio?',
  answer:
- 'Después del kinder, el niño continúa en primaria y secundaria del mismo campus Milenio. Para preparatoria, las familias continúan en un campus NWL con prepa. Directora: Mtra. Ximena Arellano.',
+ 'Después del kinder, el niño continúa en primaria y secundaria del mismo campus Milenio. Para preparatoria, las familias continúan en un campus NWL con prepa.',
  },
  ],
  images: {
@@ -1757,7 +1757,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  description:
  'Escuela privada cerca de Centro Sur Querétaro con programa bilingüe, todos los niveles y Filosofía para Niños. Descubre NWL Australian School campus Milenio.',
  uniqueIntro:
- 'Para las familias de Centro Sur, Querétaro, NWL Australian School campus Milenio es la escuela bilingüe más accesible, a 10-15 minutos por las vialidades principales. Es un colegio privado fundado en 2016 y acreditado por Cognia que ofrece maternal a secundaria, con Knotion (sin tarea tradicional), Filosofía para Niños y talleres exclusivos de cocina, yoga y dance team. Directora: Mtra. Ximena Arellano.',
+ 'Para las familias de Centro Sur, Querétaro, NWL Australian School campus Milenio es la escuela bilingüe más accesible, a 10-15 minutos por las vialidades principales. Es un colegio privado fundado en 2016 y acreditado por Cognia que ofrece maternal a secundaria, con Knotion (sin tarea tradicional), Filosofía para Niños y talleres exclusivos de cocina, yoga y dance team.',
  sections: [
  {
  heading: 'Campus Milenio: Acreditado por Cognia',
@@ -1769,7 +1769,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  },
  {
  heading: 'Transporte, cocina, yoga y terraza rooftop',
- body: 'Ofrecemos rutas de transporte escolar que cubren Centro Sur con unidades monitoreadas por GPS. El campus se distingue por su terraza rooftop, talleres de cocina, yoga, dance team, tochito, voleibol, basquetbol, fútbol, robótica STEAM y música.\n\nMás de 90 cámaras de seguridad 24/7, programa BFS (Bullying Free School) y Yo Soy Líder NWL by Tec de Monterrey garantizan un ambiente seguro y formativo. Directora: Mtra. Ximena Arellano.',
+ body: 'Ofrecemos rutas de transporte escolar que cubren Centro Sur con unidades monitoreadas por GPS. El campus se distingue por su terraza rooftop, talleres de cocina, yoga, dance team, tochito, voleibol, basquetbol, fútbol, robótica STEAM y música.\n\nMás de 90 cámaras de seguridad 24/7, programa BFS (Bullying Free School) y Yo Soy Líder NWL by Tec de Monterrey garantizan un ambiente seguro y formativo.',
  },
  ],
  faqs: [
@@ -1850,7 +1850,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  },
  {
  heading: 'Dance team, cocina y transporte desde Centro Sur',
- body: 'El kinder de Milenio ofrece actividades que lo distinguen: dance team, talleres de cocina y yoga, además de basquetbol, fútbol, robótica STEAM y música. Los espacios incluyen terraza rooftop y áreas de juego con piso amortiguante.\n\nTransporte escolar con rutas por Centro Sur y unidades con GPS. Campus acreditado por Cognia, BFS (Bullying Free School) y 90+ cámaras 24/7. Directora: Mtra. Ximena Arellano.',
+ body: 'El kinder de Milenio ofrece actividades que lo distinguen: dance team, talleres de cocina y yoga, además de basquetbol, fútbol, robótica STEAM y música. Los espacios incluyen terraza rooftop y áreas de juego con piso amortiguante.\n\nTransporte escolar con rutas por Centro Sur y unidades con GPS. Campus acreditado por Cognia, BFS (Bullying Free School) y 90+ cámaras 24/7.',
  },
  ],
  faqs: [
@@ -1862,7 +1862,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  {
  question: '¿Ofrecen transporte escolar desde Centro Sur al kinder?',
  answer:
- 'Sí. Rutas con unidades monitoreadas por GPS cubren Centro Sur. NWL campus Milenio tiene acreditación Cognia y usa Knotion (sin tarea tradicional). Directora: Mtra. Ximena Arellano.',
+ 'Sí. Rutas con unidades monitoreadas por GPS cubren Centro Sur. NWL campus Milenio tiene acreditación Cognia y usa Knotion (sin tarea tradicional).',
  },
  {
  question: '¿Por qué el kinder de Milenio no deja tarea tradicional?',
@@ -1887,7 +1887,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  {
  question: '¿Hasta qué nivel puede continuar mi hijo en el campus Milenio?',
  answer:
- 'Después del kinder, el niño continúa en primaria y secundaria del mismo campus Milenio. Para preparatoria, las familias continúan en un campus NWL con prepa. Directora: Mtra. Ximena Arellano.',
+ 'Después del kinder, el niño continúa en primaria y secundaria del mismo campus Milenio. Para preparatoria, las familias continúan en un campus NWL con prepa.',
  },
  ],
  images: {
@@ -1932,7 +1932,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  },
  {
  heading: 'Talleres exclusivos y transporte desde Centro Sur',
- body: 'La primaria de Milenio ofrece talleres de cocina, yoga y dance team que la distinguen. También voleibol, tochito, basquetbol, fútbol, robótica STEAM y música en instalaciones con cancha de fútbol, cancha techada y terraza rooftop.\n\nTransporte escolar con rutas por Centro Sur y GPS. Programa BFS (Bullying Free School) y 90+ cámaras de seguridad 24/7. Directora: Mtra. Ximena Arellano.',
+ body: 'La primaria de Milenio ofrece talleres de cocina, yoga y dance team que la distinguen. También voleibol, tochito, basquetbol, fútbol, robótica STEAM y música en instalaciones con cancha de fútbol, cancha techada y terraza rooftop.\n\nTransporte escolar con rutas por Centro Sur y GPS. Programa BFS (Bullying Free School) y 90+ cámaras de seguridad 24/7.',
  },
  ],
  faqs: [
@@ -1964,7 +1964,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  {
  question: '¿Hasta qué nivel puede continuar mi hijo después de la primaria en Milenio?',
  answer:
- 'Tras la primaria, el alumno continúa en la secundaria del mismo campus Milenio. Para preparatoria se continúa en un campus NWL con prepa, conservando el mismo modelo. Directora: Mtra. Ximena Arellano.',
+ 'Tras la primaria, el alumno continúa en la secundaria del mismo campus Milenio. Para preparatoria se continúa en un campus NWL con prepa, conservando el mismo modelo.',
  },
  {
  question: '¿Cómo es el proceso de admisión a la primaria cerca de Centro Sur?',
@@ -2014,7 +2014,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  },
  {
  heading: 'Actividades exclusivas y transporte',
- body: 'La secundaria de Milenio ofrece talleres de cocina, yoga y dance team junto con voleibol, tochito, basquetbol, fútbol, robótica STEAM y música. Instalaciones con cancha de fútbol, cancha techada, laboratorio STEAM y terraza rooftop.\n\nTransporte escolar con rutas por Centro Sur y GPS. Programa BFS, Yo Soy Líder NWL by Tec de Monterrey y 90+ cámaras 24/7. Directora: Mtra. Ximena Arellano.',
+ body: 'La secundaria de Milenio ofrece talleres de cocina, yoga y dance team junto con voleibol, tochito, basquetbol, fútbol, robótica STEAM y música. Instalaciones con cancha de fútbol, cancha techada, laboratorio STEAM y terraza rooftop.\n\nTransporte escolar con rutas por Centro Sur y GPS. Programa BFS, Yo Soy Líder NWL by Tec de Monterrey y 90+ cámaras 24/7.',
  },
  ],
  faqs: [
@@ -2046,7 +2046,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  {
  question: '¿Hasta qué nivel puede continuar mi hijo en el campus Milenio?',
  answer:
- 'Milenio ofrece hasta secundaria. Para preparatoria, las familias continúan en un campus NWL con prepa, manteniendo el mismo modelo educativo. Directora: Mtra. Ximena Arellano.',
+ 'Milenio ofrece hasta secundaria. Para preparatoria, las familias continúan en un campus NWL con prepa, manteniendo el mismo modelo educativo.',
  },
  {
  question: '¿Cómo es el proceso de admisión a la secundaria cerca de Centro Sur?',
@@ -2741,7 +2741,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  },
  {
  heading: 'Dance team, cocina, yoga y transporte',
- body: 'Las actividades exclusivas de campus Milenio incluyen talleres de cocina, yoga y dance team competitivo, además de voleibol, tochito, basquetbol, fútbol, robótica STEAM y música.\n\nTransporte escolar cubre El Mirador con unidades monitoreadas por GPS. El campus cuenta con 90+ cámaras 24/7, cancha de fútbol, cancha techada, terraza rooftop y laboratorio STEAM. Directora: Mtra. Ximena Arellano.',
+ body: 'Las actividades exclusivas de campus Milenio incluyen talleres de cocina, yoga y dance team competitivo, además de voleibol, tochito, basquetbol, fútbol, robótica STEAM y música.\n\nTransporte escolar cubre El Mirador con unidades monitoreadas por GPS. El campus cuenta con 90+ cámaras 24/7, cancha de fútbol, cancha techada, terraza rooftop y laboratorio STEAM.',
  },
  ],
  faqs: [
@@ -2773,7 +2773,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  {
  question: '¿Hasta qué nivel puede continuar mi hijo en el campus Milenio?',
  answer:
- 'Milenio ofrece hasta secundaria. Para preparatoria, las familias continúan en un campus NWL con prepa, manteniendo el mismo modelo educativo. Directora: Mtra. Ximena Arellano.',
+ 'Milenio ofrece hasta secundaria. Para preparatoria, las familias continúan en un campus NWL con prepa, manteniendo el mismo modelo educativo.',
  },
  {
  question: '¿Cómo es el proceso de admisión a la secundaria cerca de El Mirador?',
@@ -3896,7 +3896,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  {
  question: '¿En qué campus de NWL Australian School hay secundaria?',
  answer:
- 'En los 5: Juriquilla, Milenio (directora Ximena Arellano), San Miguel de Allende (director Ramón Godínez), Corregidora (director José Gustavo Flores) y Zibatá (directora Dayana Rose Gómez).',
+ 'En los 5: Juriquilla (director Fernando Lizardi Álvarez), Milenio, San Miguel de Allende (director Ramón Godínez), Corregidora (director José Gustavo Flores) y Zibatá (directora Dayana Rose Gómez).',
  },
  {
  question: '¿En qué consiste el programa de Emprendizaje?',
