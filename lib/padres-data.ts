@@ -6,6 +6,8 @@ export interface PortalDocument {
   description?: { en: string; es: string };
   /** Absent while the document is pending publication. */
   pdfUrl?: string;
+  /** Calendar file (.ics) — rendered as a single download + how-to instead of view/download. */
+  icsUrl?: string;
   date?: string;
   group?: { en: string; es: string };
   /** Cycle document not published yet — shown as a placeholder, no view/download. */
@@ -132,13 +134,27 @@ function buildComunicados(campusSlug: string): PortalDocument[] {
 }
 
 function buildCalendario(campusSlug: string): PortalDocument[] {
-  // 2026–2027 calendar pending. Add `pdfUrl` and drop `pending` once published.
+  // The .ics is the same school-wide calendar for every campus; the printable
+  // PDF is still pending — add `pdfUrl` and drop `pending` once it is published.
   return [
+    {
+      id: `${campusSlug}-cal-ics`,
+      title: {
+        en: `School Calendar ${CURRENT_CYCLE} — for your phone`,
+        es: `Calendario Escolar ${CURRENT_CYCLE} — para tu celular`,
+      },
+      description: {
+        en: 'Every date of the cycle. Add it once and it shows up in your own calendar.',
+        es: 'Todas las fechas del ciclo. Agrégalo una vez y aparece en tu propio calendario.',
+      },
+      icsUrl: '/padres/shared/NWL-Calendario-2026-2027.ics',
+      date: '2026-08-31',
+    },
     {
       id: `${campusSlug}-cal`,
       title: {
-        en: `School Calendar ${CURRENT_CYCLE}`,
-        es: `Calendario Escolar ${CURRENT_CYCLE}`,
+        en: `School Calendar ${CURRENT_CYCLE} (printable)`,
+        es: `Calendario Escolar ${CURRENT_CYCLE} (imprimible)`,
       },
       pending: true,
     },

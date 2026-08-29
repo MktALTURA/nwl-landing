@@ -1172,6 +1172,16 @@ export const en: Dictionary = {
     tabUtiles: 'Supplies, Fees & Uniforms',
     viewDocument: 'View',
     downloadDocument: 'Download',
+    downloadCalendar: 'Download calendar (.ics)',
+    calendarHowToTitle: 'How to add it to your phone calendar',
+    calendarHowToIphone:
+      'iPhone or iPad: download the file, open it and tap "Add All" to save it to your Calendar app.',
+    calendarHowToAndroid:
+      'Android: download the file and open it with Google Calendar, or go to calendar.google.com → Settings → Import & export → Import.',
+    calendarHowToOutlook:
+      'Outlook or computer: File → Open & Export → Import/Export → Import an iCalendar (.ics) file.',
+    calendarHowToNote:
+      'This saves a copy to your calendar. If the school publishes changes, download the file again.',
     noDocuments: 'No documents',
     noDocumentsDescription: 'No documents are available in this section yet.',
     pendingDocument: 'Coming soon',

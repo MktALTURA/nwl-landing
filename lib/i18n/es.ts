@@ -1173,6 +1173,16 @@ export const es: Dictionary = {
     tabUtiles: 'Útiles, Cuotas y Uniformes',
     viewDocument: 'Ver',
     downloadDocument: 'Descargar',
+    downloadCalendar: 'Descargar calendario (.ics)',
+    calendarHowToTitle: 'Cómo agregarlo al calendario de tu celular',
+    calendarHowToIphone:
+      'iPhone o iPad: descarga el archivo, ábrelo y toca «Agregar todos» para guardarlo en la app Calendario.',
+    calendarHowToAndroid:
+      'Android: descarga el archivo y ábrelo con Google Calendar, o entra a calendar.google.com → Configuración → Importar y exportar → Importar.',
+    calendarHowToOutlook:
+      'Outlook o computadora: Archivo → Abrir y exportar → Importar o exportar → Importar un archivo iCalendar (.ics).',
+    calendarHowToNote:
+      'Se guarda una copia en tu calendario. Si el colegio publica cambios, vuelve a descargar el archivo.',
     noDocuments: 'Sin documentos',
     noDocumentsDescription: 'Aún no hay documentos disponibles en esta sección.',
     pendingDocument: 'Próximamente',

@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { FiInbox, FiEye, FiDownload, FiClock } from 'react-icons/fi';
+import { FiInbox, FiEye, FiDownload, FiClock, FiCalendar } from 'react-icons/fi';
 import { useLanguage } from '@/lib/i18n/LanguageContext';
 import { CURRENT_CYCLE, type PortalDocument } from '@/lib/padres-data';
 import type { Locale } from '@/lib/i18n/types';
@@ -155,6 +155,8 @@ export default function PortalSection({ documents, locale }: PortalSectionProps)
   }
 
   // Default flat grid (calendario, comunicados, cafeteria)
+  const hasCalendarFile = documents.some((doc) => doc.icsUrl);
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -162,6 +164,28 @@ export default function PortalSection({ documents, locale }: PortalSectionProps)
       transition={{ duration: 0.3 }}
       className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5"
     >
+      {/* How-to for the .ics download — the file is useless to a parent who
+          doesn't know what to do with it, so the steps sit above the cards. */}
+      {hasCalendarFile && (
+        <div className="sm:col-span-2 lg:col-span-3 bg-white border border-n-200 rounded-2xl p-5">
+          <div className="flex items-center gap-2.5 mb-3">
+            <div className="w-8 h-8 rounded-lg bg-gold/10 flex items-center justify-center flex-shrink-0">
+              <FiCalendar className="w-4 h-4 text-gold" />
+            </div>
+            <h3 className="font-display font-bold text-navy text-base">
+              {t.padres.calendarHowToTitle}
+            </h3>
+          </div>
+          <ol className="space-y-2 text-sm text-navy/70 list-decimal pl-5 marker:text-gold marker:font-semibold">
+            <li>{t.padres.calendarHowToIphone}</li>
+            <li>{t.padres.calendarHowToAndroid}</li>
+            <li>{t.padres.calendarHowToOutlook}</li>
+          </ol>
+          <p className="text-xs text-navy/45 mt-3 pt-3 border-t border-n-100">
+            {t.padres.calendarHowToNote}
+          </p>
+        </div>
+      )}
       {documents.map((doc, index) => (
         <DocumentCard key={doc.id} document={doc} locale={locale} index={index} />
       ))}

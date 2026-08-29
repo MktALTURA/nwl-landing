@@ -526,6 +526,13 @@ export interface Dictionary {
     // Documents
     viewDocument: string;
     downloadDocument: string;
+    // Calendar (.ics) card + how-to panel
+    downloadCalendar: string;
+    calendarHowToTitle: string;
+    calendarHowToIphone: string;
+    calendarHowToAndroid: string;
+    calendarHowToOutlook: string;
+    calendarHowToNote: string;
     noDocuments: string;
     noDocumentsDescription: string;
     pendingDocument: string;
