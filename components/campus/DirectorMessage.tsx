@@ -13,6 +13,11 @@ interface DirectorMessageProps {
 export default function DirectorMessage({ director, campusName }: DirectorMessageProps) {
   const { locale, t } = useLanguage();
   const photoAlt = `${director.name} — ${localized(director.title, locale)}, NWL Australian School Campus ${campusName}`;
+  const message = localized(director.message, locale);
+  // Messages run from ~250 to ~750 characters. At the display size the short
+  // ones want, a long one turns into a wall of large italic type — so step the
+  // size down, open up the leading and lift the contrast past that point.
+  const isLongMessage = message.length > 600;
 
   return (
     <section className="py-12 md:py-16 nwl-bg-dawn-deep text-white relative overflow-hidden">
@@ -75,8 +80,14 @@ export default function DirectorMessage({ director, campusName }: DirectorMessag
             className="lg:col-span-3"
           >
             <div className="border-l-4 border-gold pl-6">
-              <p className="font-display text-xl md:text-2xl text-white/90 italic leading-relaxed mb-6">
-                &ldquo;{localized(director.message, locale)}&rdquo;
+              <p
+                className={`font-display italic mb-6 ${
+                  isLongMessage
+                    ? 'text-base leading-[1.8] md:text-lg md:leading-[1.8] text-white'
+                    : 'text-xl md:text-2xl leading-relaxed text-white/90'
+                }`}
+              >
+                &ldquo;{message}&rdquo;
               </p>
               <div>
                 <p className="font-bold text-white text-lg">{director.name}</p>
