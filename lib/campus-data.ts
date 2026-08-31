@@ -258,18 +258,13 @@ export const campuses: Record<string, CampusData> = {
     ],
     director: {
       name: 'Dr. Benjamín Madrigal Cruz',
-      title: { en: 'Campus Director', es: 'Director de Campus' },
+      title: { en: 'Campus Director', es: 'Director General de Campus' },
       message: {
-        // PLACEHOLDER — his message is still pending from the campus. Drop
-        // `hideDirector` below once the real quote replaces these two lines.
-        en: '[Director message pending]',
-        es: '[Mensaje del director pendiente]',
+        en: 'It is a pleasure to greet you. Holding the General Directorship of NWL Australian School, Campus Milenio, is a challenge full of meaningful moments that calls for a true vocation of service. It has been an honor for me to be part of a team so diverse and so committed to academic excellence, always at the forefront of world-class educational models such as the Australian one. I am confident that the NWL system will continue its process of continuous improvement for the benefit of its students, its teachers and all of its administrative and operational support staff. Mexico deserves more educational institutions that allow children and adolescents to develop fully, so they can reach their potential as people of integrity, professionalism and respect.',
+        es: 'Qué gusto saludarles. Ocupar la Dirección General del NWL Australian School, Campus Milenio, es un reto lleno de momentos significativos que exige una vocación de servicio. Para mí ha sido un honor ser parte de un equipo tan diverso y comprometido con la excelencia académica y siempre a la vanguardia de nuevos modelos educativos de clase mundial, como lo es el australiano. Estoy seguro que el sistema NWL continuará sus procesos de mejora continua a beneficio de su alumnado, sus docentes, y todo su personal de soporte administrativo y operativo. México merece más instituciones de enseñanza que permitan el desarrollo completo de infancias y adolescencias para que puedan alcanzar su potencial como personas íntegras, profesionales, y respetuosas.',
       },
       image: '/images/campus/milenio/milenio-director-benjamin-madrigal.jpg',
     },
-    // Hidden only because the message above is a placeholder — the name and
-    // photo are final.
-    hideDirector: true,
     address: 'Cerrada Panorámica, Distrito Piamonte, Querétaro',
     city: 'Querétaro',
     state: 'Querétaro',
