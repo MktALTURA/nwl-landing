@@ -374,7 +374,7 @@ export const es: Dictionary = {
         title: 'Filosofía para Niños NWL (FpN)',
         description:
           'Enseñamos a los niños a pensar, no qué pensar. Desarrollo del pensamiento crítico adaptado para los más pequeños a través del diálogo.',
-        logo: '/images/logos/partners/CFPN-es.png',
+        logo: '/images/logos/partners/nwl-p4c-es.png',
       },
       {
         title: 'Yo Soy Líder NWL by Tec de Monterrey',
@@ -510,7 +510,7 @@ export const es: Dictionary = {
         subtitle: 'FpN',
         description:
           'Enseñamos cómo pensar, no qué pensar. Desde Kinder, aprenden a cuestionar, dialogar y formar su propio criterio.',
-        logo: '/images/logos/partners/CFPN-es.png',
+        logo: '/images/logos/partners/nwl-p4c-es.png',
       },
       {
         title: 'Yo Soy Líder NWL',
@@ -575,7 +575,7 @@ export const es: Dictionary = {
         subtitle: 'FpN + Diploma para Padres',
         description:
           'Enseñamos cómo pensar, no qué pensar. Diálogo filosófico que construye razonamiento crítico, argumentación y empatía. Incluye Diploma para Padres.',
-        logo: '/images/logos/partners/CFPN-es.png',
+        logo: '/images/logos/partners/nwl-p4c-es.png',
       },
       {
         title: 'Yo Soy Líder NWL',
@@ -703,7 +703,7 @@ export const es: Dictionary = {
         subtitle: 'Formando Sus Propios Criterios',
         description:
           'Pensamiento crítico adolescente: formar un juicio personal, no seguir tendencias. Incluye el Diplomado para Padres de Filosofía FpN.',
-        logo: '/images/logos/partners/CFPN-es.png',
+        logo: '/images/logos/partners/nwl-p4c-es.png',
       },
       {
         title: 'Yo Soy Líder NWL',
