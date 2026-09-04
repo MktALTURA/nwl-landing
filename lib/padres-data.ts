@@ -134,8 +134,7 @@ function buildComunicados(campusSlug: string): PortalDocument[] {
 }
 
 function buildCalendario(campusSlug: string): PortalDocument[] {
-  // The .ics is the same school-wide calendar for every campus; the printable
-  // PDF is still pending — add `pdfUrl` and drop `pending` once it is published.
+  // Both files are the same school-wide calendar for every campus.
   return [
     {
       id: `${campusSlug}-cal-ics`,
@@ -156,7 +155,12 @@ function buildCalendario(campusSlug: string): PortalDocument[] {
         en: `School Calendar ${CURRENT_CYCLE} (printable)`,
         es: `Calendario Escolar ${CURRENT_CYCLE} (imprimible)`,
       },
-      pending: true,
+      description: {
+        en: 'Month-by-month calendar with every event of the cycle, ready to print.',
+        es: 'Calendario mes por mes con todos los eventos del ciclo, listo para imprimir.',
+      },
+      pdfUrl: '/padres/shared/NWL-Calendario-2026-2027.pdf',
+      date: '2026-09-04',
     },
   ];
 }
