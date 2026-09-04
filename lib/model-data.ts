@@ -396,6 +396,6 @@ export const MODEL_RECOGNITIONS: { name: string; image: string | Localized }[] =
   { name: 'Tecnológico de Monterrey', image: '/images/logos/partners/tecnologico-de-monterrey.png' },
   {
     name: 'Philosophy for Children',
-    image: { en: '/images/logos/partners/CFPN-en.png', es: '/images/logos/partners/CFPN-es.png' },
+    image: { en: '/images/logos/partners/nwl-p4c-en.png', es: '/images/logos/partners/nwl-p4c-es.png' },
   },
 ];

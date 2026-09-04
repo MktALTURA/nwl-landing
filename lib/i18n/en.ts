@@ -373,7 +373,7 @@ export const en: Dictionary = {
         title: 'Philosophy for Children (P4C)',
         description:
           'We teach children how to think, not what to think. Critical thinking development adapted for toddlers through guided dialogue.',
-        logo: '/images/logos/partners/CFPN-en.png',
+        logo: '/images/logos/partners/nwl-p4c-en.png',
       },
       {
         title: "I'm NWL Leader by Tec de Monterrey",
@@ -509,7 +509,7 @@ export const en: Dictionary = {
         subtitle: 'P4C',
         description:
           'We teach how to think, not what to think. From Kinder, they learn to question, dialogue, and form their own criteria.',
-        logo: '/images/logos/partners/CFPN-en.png',
+        logo: '/images/logos/partners/nwl-p4c-en.png',
       },
       {
         title: "I'm NWL Leader",
@@ -574,7 +574,7 @@ export const en: Dictionary = {
         subtitle: 'P4C + Parent Diploma',
         description:
           'We teach how to think, not what to think. Philosophical dialogue that builds critical reasoning, argumentation, and empathy. Includes a Parent Diploma.',
-        logo: '/images/logos/partners/CFPN-en.png',
+        logo: '/images/logos/partners/nwl-p4c-en.png',
       },
       {
         title: "I'm NWL Leader",
@@ -702,7 +702,7 @@ export const en: Dictionary = {
         subtitle: 'P4C / Critical Thinking',
         description:
           'We teach how to think, not what to think. Guided dialogue develops autonomous judgment, ethical reasoning, and the confidence to defend their ideas. Includes a Parent Diploma.',
-        logo: '/images/logos/partners/CFPN-en.png',
+        logo: '/images/logos/partners/nwl-p4c-en.png',
       },
       {
         title: "I'm NWL Leader",
