@@ -107,7 +107,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  hero: '/images/campus/juriquilla/juriquilla-street-wall-sign.jpg',
  content: [
  '/images/levels/kinder/kinder-classroom.jpg',
- '/images/campus/juriquilla/juriquilla-circular-wing-playground.jpg',
+ '/images/campus/juriquilla/juriquilla-playground-drone.jpg',
  ],
  },
  targetCampus: 'juriquilla',
