@@ -165,7 +165,7 @@ export const campuses: Record<string, CampusData> = {
     mapUrl: 'https://maps.google.com/?q=Colegio+Newland+Juriquilla',
     galleryImages: [
       { src: '/images/campus/juriquilla/juriquilla-campus-facade-drone.jpg', caption: { en: 'Welcome to Campus Juriquilla', es: 'Bienvenidos a Campus Juriquilla' } },
-      { src: '/images/campus/juriquilla/juriquilla-street-wall-sign.jpg', caption: { en: 'Campus Entrance', es: 'Entrada del Campus' } },
+      { src: '/images/campus/juriquilla/juriquilla-street-wall-flags.jpg', caption: { en: 'Campus Entrance', es: 'Entrada del Campus' } },
       { src: '/images/campus/juriquilla/juriquilla-street-wall-sign-drone.jpg', caption: { en: 'Street Frontage', es: 'Fachada Principal' } },
       { src: '/images/campus/juriquilla/juriquilla-main-gate.jpg', caption: { en: 'Main Gate', es: 'Acceso Principal' } },
       { src: '/images/campus/juriquilla/juriquilla-monument.jpg', caption: { en: 'Drop-off Roundabout', es: 'Glorieta de Acceso' } },

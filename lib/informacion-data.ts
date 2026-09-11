@@ -104,7 +104,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  },
  ],
  images: {
- hero: '/images/campus/juriquilla/juriquilla-street-wall-sign.jpg',
+ hero: '/images/campus/juriquilla/juriquilla-street-wall-flags.jpg',
  content: [
  '/images/levels/kinder/kinder-classroom.jpg',
  '/images/campus/juriquilla/juriquilla-playground-drone.jpg',
@@ -185,7 +185,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  },
  ],
  images: {
- hero: '/images/campus/juriquilla/juriquilla-street-wall-sign.jpg',
+ hero: '/images/campus/juriquilla/juriquilla-street-wall-flags.jpg',
  content: [
  '/images/levels/secundaria/nwl-secundaria-lab-experiment.jpg',
  '/images/campus/juriquilla/juriquilla-soccer-covered-court-drone.jpg',
@@ -266,7 +266,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  },
  ],
  images: {
- hero: '/images/campus/juriquilla/juriquilla-street-wall-sign.jpg',
+ hero: '/images/campus/juriquilla/juriquilla-street-wall-flags.jpg',
  content: [
  '/images/levels/maternal/maternal-playtime.jpg',
  '/images/campus/juriquilla/juriquilla-cafeteria.jpg',
@@ -352,7 +352,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  },
  ],
  images: {
- hero: '/images/campus/juriquilla/juriquilla-street-wall-sign.jpg',
+ hero: '/images/campus/juriquilla/juriquilla-street-wall-flags.jpg',
  content: [
  '/images/levels/primaria/nwl-primaria-group-classroom-wide.jpg',
  '/images/campus/juriquilla/juriquilla-commons.jpg',
@@ -2218,7 +2218,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  },
  ],
  images: {
- hero: '/images/campus/juriquilla/juriquilla-street-wall-sign.jpg',
+ hero: '/images/campus/juriquilla/juriquilla-street-wall-flags.jpg',
  content: [
  '/images/campus/zibata/zibata-classrooms.jpg',
  '/images/campus/corregidora/corregidora-hero.jpg',
@@ -2298,7 +2298,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  },
  ],
  images: {
- hero: '/images/campus/juriquilla/juriquilla-street-wall-sign.jpg',
+ hero: '/images/campus/juriquilla/juriquilla-street-wall-flags.jpg',
  content: [
  '/images/campus/milenio/milenio-kinder-playground-wide.jpg',
  '/images/campus/zibata/zibata-playground.jpg',
@@ -2541,7 +2541,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  },
  ],
  images: {
- hero: '/images/campus/juriquilla/juriquilla-street-wall-sign.jpg',
+ hero: '/images/campus/juriquilla/juriquilla-street-wall-flags.jpg',
  content: [
  '/images/campus/corregidora/corregidora-hero.jpg',
  '/images/campus/milenio/milenio-soccer-field-hero.jpg',
@@ -3602,7 +3602,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  },
  ],
  images: {
- hero: '/images/campus/juriquilla/juriquilla-street-wall-sign.jpg',
+ hero: '/images/campus/juriquilla/juriquilla-street-wall-flags.jpg',
  content: [
  '/images/levels/primaria/nwl-primaria-group-classroom-wide.jpg',
  '/images/campus/zibata/zibata-building.jpg',
@@ -3682,7 +3682,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  },
  ],
  images: {
- hero: '/images/campus/juriquilla/juriquilla-street-wall-sign.jpg',
+ hero: '/images/campus/juriquilla/juriquilla-street-wall-flags.jpg',
  content: [
  '/images/levels/kinder/kinder-classroom.jpg',
  '/images/campus/juriquilla/juriquilla-classrooms.jpg',
@@ -4086,7 +4086,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  },
  ],
  images: {
- hero: '/images/campus/juriquilla/juriquilla-street-wall-sign.jpg',
+ hero: '/images/campus/juriquilla/juriquilla-street-wall-flags.jpg',
  content: [
  '/images/levels/primaria/nwl-primaria-steam-lab.jpg',
  '/images/campus/zibata/zibata-playground.jpg',
@@ -4166,7 +4166,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  },
  ],
  images: {
- hero: '/images/campus/juriquilla/juriquilla-street-wall-sign.jpg',
+ hero: '/images/campus/juriquilla/juriquilla-street-wall-flags.jpg',
  content: [
  '/images/levels/primaria/nwl-primaria-steam-lab.jpg',
  '/images/campus/zibata/zibata-playground.jpg',
@@ -4394,7 +4394,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  },
  ],
  images: {
- hero: '/images/campus/juriquilla/juriquilla-street-wall-sign.jpg',
+ hero: '/images/campus/juriquilla/juriquilla-street-wall-flags.jpg',
  content: [
  '/images/campus/juriquilla/juriquilla-classrooms.jpg',
  '/images/levels/primaria/nwl-primaria-steam-lab.jpg',
@@ -4471,7 +4471,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  hero: '/images/campus/zibata/zibata-playground.jpg',
  content: [
  '/images/levels/primaria/nwl-primaria-steam-lab.jpg',
- '/images/campus/juriquilla/juriquilla-street-wall-sign.jpg',
+ '/images/campus/juriquilla/juriquilla-street-wall-flags.jpg',
  ],
  },
  category: 'general',
