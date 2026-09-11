@@ -51,6 +51,10 @@ export interface CampusData {
   // between directors so the old photo/message doesn't show. Remove (or set
   // false) once the new director's photo and message are in place.
   hideDirector?: boolean;
+  // Link-preview/schema image. Defaults to /images/og/nwl/campus-<slug>.jpg;
+  // set it when a campus gets a new preview so scrapers see a fresh URL
+  // (/images is cached immutable, so overwriting the old file won't propagate).
+  ogImage?: string;
   address: string;
   city: string;         // For schema addressLocality
   state: string;        // For schema addressRegion
@@ -92,7 +96,8 @@ export const campuses: Record<string, CampusData> = {
       en: 'Maternal — Secondary School',
       es: 'Maternal — Secundaria',
     },
-    heroImage: '/images/campus/juriquilla/juriquilla-building.jpg',
+    heroImage: '/images/campus/juriquilla/juriquilla-campus-facade-drone.jpg',
+    ogImage: '/images/og/nwl/campus-juriquilla-as.jpg',
     phone: '442-384-6880/81',
     phoneLink: '4423846880',
     whatsapp: '5214423846880',
@@ -103,10 +108,10 @@ export const campuses: Record<string, CampusData> = {
       { value: { en: '100%', es: '100%' }, label: { en: 'Bilingual', es: 'Bilingüe' } },
     ],
     facilities: [
-      { name: { en: 'Sports Fields', es: 'Canchas Deportivas' }, image: '/images/campus/juriquilla/juriquilla-sports.jpg' },
-      { name: { en: 'Soccer Field', es: 'Cancha de Fútbol' }, image: '/images/campus/juriquilla/juriquilla-soccer.jpg' },
+      { name: { en: 'Sports Fields', es: 'Canchas Deportivas' }, image: '/images/campus/juriquilla/juriquilla-soccer-covered-court-drone.jpg' },
+      { name: { en: 'Soccer Field', es: 'Cancha de Fútbol' }, image: '/images/campus/juriquilla/juriquilla-soccer-field-ground.jpg' },
       { name: { en: 'Classrooms', es: 'Salones de Clase' }, image: '/images/campus/juriquilla/juriquilla-classrooms.jpg' },
-      { name: { en: 'Playground', es: 'Área de Juegos' }, image: '/images/campus/juriquilla/juriquilla-playground.jpg' },
+      { name: { en: 'Playground', es: 'Área de Juegos' }, image: '/images/campus/juriquilla/juriquilla-circular-wing-playground.jpg' },
       { name: { en: 'Cafetorium', es: 'Cafetorium' }, image: '/images/campus/juriquilla/juriquilla-cafeteria.jpg' },
       { name: { en: 'Student Commons', es: 'Zona de Convivencia' }, image: '/images/campus/juriquilla/juriquilla-commons.jpg' },
     ],
@@ -159,17 +164,18 @@ export const campuses: Record<string, CampusData> = {
     geo: { lat: 20.673776092246715, lng: -100.41597892208858 },
     mapUrl: 'https://maps.google.com/?q=Colegio+Newland+Juriquilla',
     galleryImages: [
-      { src: '/images/campus/juriquilla/juriquilla-building.jpg', caption: { en: 'Welcome to Campus Juriquilla', es: 'Bienvenidos a Campus Juriquilla' } },
-      { src: '/images/campus/juriquilla/juriquilla-hero.jpg', caption: { en: 'Campus Entrance', es: 'Entrada del Campus' } },
-      { src: '/images/campus/juriquilla/juriquilla-sports.jpg', caption: { en: 'Sports & Active Play', es: 'Deporte y Juego Activo' } },
+      { src: '/images/campus/juriquilla/juriquilla-campus-facade-drone.jpg', caption: { en: 'Welcome to Campus Juriquilla', es: 'Bienvenidos a Campus Juriquilla' } },
+      { src: '/images/campus/juriquilla/juriquilla-street-wall-sign.jpg', caption: { en: 'Campus Entrance', es: 'Entrada del Campus' } },
+      { src: '/images/campus/juriquilla/juriquilla-main-gate.jpg', caption: { en: 'Main Gate', es: 'Acceso Principal' } },
+      { src: '/images/campus/juriquilla/juriquilla-monument.jpg', caption: { en: 'Drop-off Roundabout', es: 'Glorieta de Acceso' } },
+      { src: '/images/campus/juriquilla/juriquilla-soccer-covered-court-drone.jpg', caption: { en: 'Soccer Field', es: 'Cancha de Fútbol' } },
+      { src: '/images/campus/juriquilla/juriquilla-covered-court.jpg', caption: { en: 'Covered Multisport Court', es: 'Cancha Multideportiva Techada' } },
       { src: '/images/campus/juriquilla/juriquilla-classrooms.jpg', caption: { en: 'Bright Learning Spaces', es: 'Espacios de Aprendizaje Luminosos' } },
-      { src: '/images/campus/juriquilla/juriquilla-playground.jpg', caption: { en: 'Play, Explore & Grow', es: 'Jugar, Explorar y Crecer' } },
+      { src: '/images/campus/juriquilla/juriquilla-covered-patio.jpg', caption: { en: 'Covered Patio', es: 'Patio Techado' } },
+      { src: '/images/campus/juriquilla/juriquilla-circular-wing-playground.jpg', caption: { en: 'Play, Explore & Grow', es: 'Jugar, Explorar y Crecer' } },
       { src: '/images/campus/juriquilla/juriquilla-cafeteria.jpg', caption: { en: 'Our Cafetorium', es: 'Nuestro Cafetorium' } },
       { src: '/images/campus/juriquilla/juriquilla-commons.jpg', caption: { en: 'Student Commons', es: 'Zona de Convivencia' } },
-      { src: '/images/campus/juriquilla/juriquilla-sports-overview.jpg', caption: { en: 'Campus Sports Overview', es: 'Vista General Deportiva' } },
-
-      { src: '/images/campus/juriquilla/juriquilla-soccer.jpg', caption: { en: 'Soccer Field', es: 'Cancha de Fútbol' } },
-      { src: '/images/campus/juriquilla/juriquilla-campus-fields.jpg', caption: { en: 'Campus & Fields', es: 'Campus y Canchas' } },
+      { src: '/images/campus/juriquilla/juriquilla-street-frontage-drone.jpg', caption: { en: 'Campus & Fields', es: 'Campus y Canchas' } },
     ],
     testimonials: [
       {
