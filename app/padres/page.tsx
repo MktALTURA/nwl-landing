@@ -9,7 +9,7 @@ import SouthernCross from '@/components/ui/SouthernCross';
 import { motion } from 'framer-motion';
 
 const heroImages = [
-  { src: '/images/campus/juriquilla/juriquilla-building.jpg', alt: 'Campus Juriquilla' },
+  { src: '/images/campus/juriquilla/juriquilla-campus-facade-drone.jpg', alt: 'Campus Juriquilla' },
   { src: '/images/campus/milenio/milenio-soccer-field-hero.jpg', alt: 'Campus Milenio' },
   { src: '/images/campus/san-miguel/san-miguel-hero.jpg', alt: 'Campus San Miguel' },
   { src: '/images/campus/corregidora/corregidora-campus-wide.jpg', alt: 'Campus Corregidora' },

@@ -12,7 +12,7 @@ const campusesData = [
     name: 'Juriquilla',
     location: 'Anillo Vial Fray Junípero Serra, Juriquilla',
     mapUrl: 'https://www.google.com/maps/search/Colegio+Newland+Juriquilla+Queretaro',
-    image: '/images/campus/juriquilla.jpg',
+    image: '/images/campus/juriquilla-drone.jpg',
   },
   {
     name: 'Milenio',

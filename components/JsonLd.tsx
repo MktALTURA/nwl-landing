@@ -136,7 +136,7 @@ export function CampusJsonLd({ campus }: { campus: CampusData }) {
     '@id': `${SITE_URL}/#campus-${campus.slug}`,
     name: `NWL Australian School — Campus ${campus.name}`,
     url: `${SITE_URL}/campus/${campus.slug}`,
-    image: `${SITE_URL}/images/og/nwl/campus-${campus.slug}.jpg`,
+    image: `${SITE_URL}${campus.ogImage ?? `/images/og/nwl/campus-${campus.slug}.jpg`}`,
     description: `${campus.tagline.en}. ${campus.levels.en}.`,
     telephone: `+52${campus.phoneLink}`,
     address: {
