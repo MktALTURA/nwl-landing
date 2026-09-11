@@ -171,7 +171,7 @@ export const campuses: Record<string, CampusData> = {
       { src: '/images/campus/juriquilla/juriquilla-soccer-covered-court-drone.jpg', caption: { en: 'Soccer Field', es: 'Cancha de Fútbol' } },
       { src: '/images/campus/juriquilla/juriquilla-covered-court.jpg', caption: { en: 'Covered Multisport Court', es: 'Cancha Multideportiva Techada' } },
       { src: '/images/campus/juriquilla/juriquilla-classrooms.jpg', caption: { en: 'Bright Learning Spaces', es: 'Espacios de Aprendizaje Luminosos' } },
-      { src: '/images/campus/juriquilla/juriquilla-covered-patio.jpg', caption: { en: 'Covered Patio', es: 'Patio Techado' } },
+      { src: '/images/campus/juriquilla/juriquilla-building.jpg', caption: { en: 'Campus Architecture', es: 'Arquitectura del Campus' } },
       { src: '/images/campus/juriquilla/juriquilla-circular-wing-playground.jpg', caption: { en: 'Play, Explore & Grow', es: 'Jugar, Explorar y Crecer' } },
       { src: '/images/campus/juriquilla/juriquilla-cafeteria.jpg', caption: { en: 'Our Cafetorium', es: 'Nuestro Cafetorium' } },
       { src: '/images/campus/juriquilla/juriquilla-commons.jpg', caption: { en: 'Student Commons', es: 'Zona de Convivencia' } },
