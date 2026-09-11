@@ -176,7 +176,6 @@ export const campuses: Record<string, CampusData> = {
       { src: '/images/campus/juriquilla/juriquilla-building-drone.jpg', caption: { en: 'Main Building', es: 'Edificio Principal' } },
       { src: '/images/campus/juriquilla/juriquilla-cafeteria.jpg', caption: { en: 'Our Cafetorium', es: 'Nuestro Cafetorium' } },
       { src: '/images/campus/juriquilla/juriquilla-monument.jpg', caption: { en: 'Drop-off Roundabout', es: 'Glorieta de Acceso' } },
-      { src: '/images/campus/juriquilla/juriquilla-building-lawn.jpg', caption: { en: 'Green Spaces', es: 'Áreas Verdes' } },
       { src: '/images/campus/juriquilla/juriquilla-soccer-covered-court-drone.jpg', caption: { en: 'Sports Fields', es: 'Canchas Deportivas' } },
     ],
     testimonials: [
