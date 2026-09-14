@@ -6,13 +6,15 @@ import { useLanguage } from '@/lib/i18n/LanguageContext';
 import Eyebrow from '@/components/ui/Eyebrow';
 import SouthernCross from '@/components/ui/SouthernCross';
 
-// Same five-campus collage as the parents portal hero — one strip per campus.
+// Five-campus collage, one strip per campus. Pre-cropped 560×1120 strips
+// (~70KB each): images are served unoptimized and sit under an 80% navy
+// overlay, so the full-size campus photos only cost LCP here.
 const heroImages = [
-  { src: '/images/campus/juriquilla/juriquilla-building.jpg', alt: 'Campus Juriquilla' },
-  { src: '/images/campus/milenio/milenio-soccer-field-hero.jpg', alt: 'Campus Milenio' },
-  { src: '/images/campus/san-miguel/san-miguel-hero.jpg', alt: 'Campus San Miguel' },
-  { src: '/images/campus/corregidora/corregidora-campus-wide.jpg', alt: 'Campus Corregidora' },
-  { src: '/images/campus/zibata/zibata-hero.jpg', alt: 'Campus Zibatá' },
+  { src: '/images/rectoria/hero-juriquilla.jpg', alt: 'Campus Juriquilla' },
+  { src: '/images/rectoria/hero-milenio.jpg', alt: 'Campus Milenio' },
+  { src: '/images/rectoria/hero-san-miguel.jpg', alt: 'Campus San Miguel' },
+  { src: '/images/rectoria/hero-corregidora.jpg', alt: 'Campus Corregidora' },
+  { src: '/images/rectoria/hero-zibata.jpg', alt: 'Campus Zibatá' },
 ];
 
 export default function RectoriaHero() {
@@ -48,12 +50,17 @@ export default function RectoriaHero() {
             {t.rectoria.backHome}
           </a>
 
-          <div className="mb-5">
-            <Eyebrow className="justify-center">{t.rectoria.heroEyebrow}</Eyebrow>
-          </div>
-
+          {/* The eyebrow lives inside the h1 so the heading names the page
+              ("NWL Australian School · Rectoría …") without changing the look. */}
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-paper max-w-4xl mx-auto leading-tight">
-            {t.rectoria.heroTitle} <span className="italic text-gold">{t.rectoria.heroTitleAccent}</span>
+            <span className="block mb-5 leading-normal">
+              <Eyebrow className="justify-center" style={{ fontWeight: 400 }}>
+                {t.rectoria.heroEyebrow}
+              </Eyebrow>
+            </span>
+            <span className="block">
+              {t.rectoria.heroTitle} <span className="italic text-gold">{t.rectoria.heroTitleAccent}</span>
+            </span>
           </h1>
           <p className="mt-6 text-lg md:text-xl text-paper/70 max-w-2xl mx-auto leading-relaxed">
             {t.rectoria.heroSubtitle}

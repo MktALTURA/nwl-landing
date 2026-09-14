@@ -4,7 +4,14 @@ export const es: Dictionary = {
   nav: {
     links: [
       { name: 'Inicio', href: '#home' },
-      { name: 'Conócenos', href: '#about' },
+      {
+        name: 'Conócenos',
+        href: '#about',
+        children: [
+          { name: 'Conócenos', href: '#about', sub: 'Sobre NWL' },
+          { name: 'Rectoría', href: '/rectoria', sub: 'Equipo directivo' },
+        ],
+      },
       { name: 'El Modelo', href: '/modelo' },
       {
         name: 'Oferta Académica',

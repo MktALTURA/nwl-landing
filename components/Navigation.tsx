@@ -82,6 +82,8 @@ const campusDecorations: DropdownDecoration[] = [
   goldNavyDecoration,
   goldNavyDecoration,
 ];
+// Our School dropdown (the section itself + Rectoría) — same gold/navy register.
+const ourSchoolDecorations: DropdownDecoration[] = [goldNavyDecoration, goldNavyDecoration];
 
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -215,7 +217,9 @@ export default function Navigation() {
                           ? academicLevelDecorations
                           : link.href === '#campus'
                             ? campusDecorations
-                            : null;
+                            : link.href === '#about'
+                              ? ourSchoolDecorations
+                              : null;
                       return (
                         <motion.div
                           initial={{ opacity: 0, y: -8 }}
@@ -380,7 +384,8 @@ export default function Navigation() {
                           >
                             {link.name}
                           </a>
-                          {link.children.map((child) => (
+                          {/* Skip a child that repeats the parent link above (Our School lists itself) */}
+                          {link.children.filter((child) => child.href !== link.href).map((child) => (
                             <a
                               key={child.href}
                               href={resolveHref(child.href)}

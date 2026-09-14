@@ -13,9 +13,9 @@
 // Open on Vercel preview deployments (the `test` branch alias) so the team can
 // share that link as-is; production stays gated until the launch flag is set.
 // Local dev has no VERCEL_ENV, so the gate can still be exercised locally.
-const vercelEnv = process.env.NEXT_PUBLIC_VERCEL_ENV;
-export const RECTORIA_PUBLIC =
-  process.env.NEXT_PUBLIC_RECTORIA_PUBLIC === 'true' || (vercelEnv !== undefined && vercelEnv !== 'production');
+// LAUNCHED 2026-09-15: the page is public everywhere. To re-gate production,
+// restore the env/VERCEL_ENV check this constant used before launch.
+export const RECTORIA_PUBLIC = true;
 
 export const RECTORIA_PREVIEW_COOKIE = 'nwl_rectoria_preview';
 export const RECTORIA_PREVIEW_PARAM = 'preview';

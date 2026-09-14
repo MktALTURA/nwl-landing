@@ -285,8 +285,11 @@ export function RectoriaJsonLd() {
     .filter((p) => !p.hidden)
     .map((p) => ({
       '@type': 'Person',
+      '@id': `${url}/#${p.id}`,
       name: p.name,
       jobTitle: p.title.en,
+      // Only sourced bios go into the markup; role-based placeholder copy stays on the page.
+      ...(p.needsReview ? {} : { description: p.bio.en }),
       ...(p.image ? { image: `${SITE_URL}${p.image}` } : {}),
       worksFor: orgRef,
     }));
@@ -306,7 +309,8 @@ export function RectoriaJsonLd() {
     url,
     name: 'Rectoría — Leadership Team | NWL Australian School',
     description:
-      'The leadership team behind NWL Australian School: the Executive Director, the Rectoría areas that run all five campuses as one school, and the campus directors.',
+      'Meet Rectoría, the leadership team of NWL Australian School: the Executive Director, the areas that run five campuses as one school, and each campus director.',
+    primaryImageOfPage: `${SITE_URL}/images/og/nwl/rectoria.jpg`,
     inLanguage: ['en', 'es-MX'],
     isPartOf: { '@id': `${SITE_URL}/#website` },
     about: orgRef,
