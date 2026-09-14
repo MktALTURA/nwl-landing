@@ -41,7 +41,7 @@ function PersonCard({ person, tier }: { person: RectoriaPerson; tier: 'lead' | '
         <p className={`mt-3 text-navy/70 leading-relaxed ${lead ? 'text-sm md:text-base' : 'text-sm'}`}>
           {localized(person.bio, locale)}
         </p>
-        {lead && person.facts && person.facts.length > 0 && (
+        {person.facts && person.facts.length > 0 && (
           <div className="mt-4 flex flex-wrap gap-1.5">
             {person.facts.map((f) => (
               <Tag key={f.en} tone="navy" style={{ fontSize: '0.5625rem' }}>

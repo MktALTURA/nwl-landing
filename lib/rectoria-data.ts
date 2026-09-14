@@ -178,17 +178,21 @@ export const areas: RectoriaArea[] = [
       },
     ],
     team: [
-      // REVIEW: role-based copy, no sourced bio
       {
         id: 'david-petroski',
         name: 'David Gideon Petroski',
         title: { en: 'Dean of English', es: 'Dean of English' },
-        image: img('david-petroski'),
+        // Portrait sent by the school, Sep 2026. New filename: /images is cached immutable.
+        image: '/images/rectoria/david-petroski-2026.jpg',
         reportsTo: ['robert-van-der-eyken'],
-        needsReview: true,
+        facts: [
+          { en: 'Retired · U.S. Military and Law Enforcement', es: 'Retirado · Fuerzas Armadas y policía de EE. UU.' },
+          { en: 'Certified Paramedic · 47+ years', es: 'Paramédico certificado · Más de 47 años' },
+          { en: 'Bachelor of Arts in Criminal Justice', es: 'Licenciatura en Justicia Penal' },
+        ],
         bio: {
-          en: 'David is Dean of English. He is responsible for the English programme from Maternal to Senior School: curriculum, teacher support, and the consistency of methods and levels between campuses.',
-          es: 'David es Dean of English. Es responsable del programa de inglés de Maternal a Preparatoria: currículo, acompañamiento a docentes y consistencia de métodos y niveles entre campus.',
+          en: 'David is Dean of English: he runs the English department for the five campuses, from Maternal to Senior School, covering curriculum, teacher support, and the consistency of methods and levels between them. He also works on the school\'s security protocols, and trains and certifies the faculty in first aid and CPR. He is retired from the United States military and from law enforcement, and is a certified paramedic with more than 47 years of experience. He holds a Bachelor of Arts in Criminal Justice.',
+          es: 'David es Dean of English: dirige el departamento de inglés de los cinco campus, de Maternal a Preparatoria, con el currículo, el acompañamiento a docentes y la consistencia de métodos y niveles entre ellos. También trabaja en los protocolos de seguridad de la escuela, y capacita y certifica al personal docente en primeros auxilios y RCP. Es militar retirado de Estados Unidos y ex oficial de policía, y paramédico certificado con más de 47 años de experiencia. Tiene una licenciatura en Justicia Penal.',
         },
       },
     ],
