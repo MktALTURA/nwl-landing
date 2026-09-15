@@ -23,7 +23,7 @@ export interface RectoriaPerson {
   title: LocalizedText;
   /** Plain register: role, responsibilities, verified background. No adjectives. */
   bio: LocalizedText;
-  /** 0–3 sourced credential chips. Only facts we can point to. */
+  /** 0–4 sourced credential chips. Only facts we can point to. */
   facts?: LocalizedText[];
   /** '/images/rectoria/<id>.jpg'. Undefined renders an initials monogram. */
   image?: string;
@@ -164,16 +164,19 @@ export const areas: RectoriaArea[] = [
       {
         id: 'robert-van-der-eyken',
         name: 'Robert van der Eyken',
-        title: { en: 'International Academics', es: 'Académico Internacional' },
-        image: img('robert-van-der-eyken'),
+        // Official title per Robert, Sep 2026 (the area keeps the name "International Academics").
+        title: { en: 'International Academic Director', es: 'Director Académico Internacional' },
+        // Portrait sent Sep 2026. New filename: /images is cached immutable.
+        image: '/images/rectoria/robert-van-der-eyken-2026.jpg',
         facts: [
           { en: 'Former Head of School · Hangzhou International School', es: 'Ex Head of School · Hangzhou International School' },
           { en: 'Former Director · Casablanca American School', es: 'Ex Director · Casablanca American School' },
+          { en: 'Former Director · American International School of Quito', es: 'Ex Director · American International School of Quito' },
           { en: 'Master of Education', es: 'Maestría en Educación' },
         ],
         bio: {
-          en: 'Robert is responsible for International Academics: the implementation of the Australian curriculum model and the English programme across the five campuses. He was Head of School at Hangzhou International School in China and Director of Casablanca American School in Morocco, and has held school leadership and teaching roles in Mexico, Canada and Namibia. He holds a Master of Education.',
-          es: 'Robert es responsable de Académico Internacional: la implementación del modelo curricular australiano y del programa de inglés en los cinco campus. Fue Head of School de Hangzhou International School, en China, y Director de Casablanca American School, en Marruecos, y ha ocupado cargos directivos y docentes en escuelas de México, Canadá y Namibia. Tiene una Maestría en Educación.',
+          en: 'Robert is International Academic Director: he leads the implementation of the Australian curriculum model and the English programme across the five campuses. He was Head of School at Hangzhou International School in China, Director of Casablanca American School in Morocco and Director of the American International School of Quito in Ecuador, and has held school leadership and teaching roles in Mexico, Canada, Namibia and North Macedonia. He holds a Master of Education.',
+          es: 'Robert es Director Académico Internacional: dirige la implementación del modelo curricular australiano y del programa de inglés en los cinco campus. Fue Head of School de Hangzhou International School, en China, Director de Casablanca American School, en Marruecos, y Director de American International School of Quito, en Ecuador, y ha ocupado cargos directivos y docentes en escuelas de México, Canadá, Namibia y Macedonia del Norte. Tiene una Maestría en Educación.',
         },
       },
     ],
