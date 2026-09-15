@@ -29,7 +29,11 @@ function PersonCard({ person, tier }: { person: RectoriaPerson; tier: 'lead' | '
         alt={altFor(person, locale)}
         shape="fill"
         sizes={lead ? '(max-width: 640px) 132px, 200px' : '(max-width: 640px) 112px, 150px'}
-        className={lead ? 'min-h-[176px] sm:min-h-[240px]' : 'min-h-[150px] sm:min-h-[190px]'}
+        // Phones: a fixed 3:4 photo at the top of the card. Stretching it to the
+        // height of a long bio in a 112–132px column cropped faces to a sliver.
+        className={`self-start !h-auto aspect-[3/4] sm:self-stretch sm:!h-full sm:aspect-auto ${
+          lead ? 'sm:min-h-[240px]' : 'sm:min-h-[190px]'
+        }`}
       />
       <div className={`${lead ? 'p-5 md:p-6 border-l-[3px] border-gold' : 'p-4 md:p-5'} self-center`}>
         <h4 className={`font-bold text-navy leading-snug ${lead ? 'text-lg md:text-xl' : 'text-base md:text-lg'}`}>
