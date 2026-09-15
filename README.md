@@ -67,6 +67,7 @@ app/
       nwl-australian-school/  # rebrand announcement
       newland-knotion/        # Knotion methodology update
   campus/[slug]/            # individual campus pages (5 campuses)
+  rectoria/                 # Rectoría leadership page (executive, areas, campus directors)
   informacion/              # SEO información hub + 56 landing pages
   brochures/[level]/        # dynamic brochure pages (en/es)
   padres/                   # parents portal (landing + password-gated campus pages)
@@ -91,10 +92,12 @@ components/
   UTMCapture, MetaTracking, GHLTracking, EngagementTracking
   Bubble/Grid/Sparkle/ConstellationAnimation.tsx  # ambient background effects
   ui/                       # Button, Card, Crest, Eyebrow, Logo, SouthernCross, Stat, Tag
-  campus/ informacion/ careers/ padres/ beneficios/ admin/
+  campus/ rectoria/ informacion/ careers/ padres/ beneficios/ admin/
 lib/
   seo.ts                    # SITE_URL, site names, per-page metadata
-  campus-data.ts            # campus content (facilities, extracurriculars, directors)
+  campus-data.ts            # campus content (facilities, gallery, directors, optional ogImage)
+  rectoria-data.ts          # Rectoría people, areas and credential chips
+  rectoria-preview.ts       # Rectoría launch gate (RECTORIA_PUBLIC, now true)
   informacion-data.ts       # 56 información pages
   model-data.ts             # educational model components + capabilities
   padres-data.ts            # parents portal documents per campus + cycle
@@ -107,13 +110,13 @@ lib/
   db/                       # Redis: jobs, beneficios, leaderboard, wa-attribution
   i18n/                     # ES/EN translations + LanguageContext
   hooks/ validations/ beneficios/
-middleware.ts               # brochure QR UTM tagging + admin route protection
+middleware.ts               # brochure QR UTM tagging, Rectoría preview gate (inactive), admin route protection
 public/
   images/ brochures/ padres/  # static assets and PDFs
   llms.txt                    # AI-crawler summary of the school
   be_nwl.html                 # static BE campaign page
   golden_ticket.html / golden_ticket_cap.html
-  survey-post-enrollment-experience.html
+  survey-post-enrollment-experience.html  # post-enrollment survey (GHL iframe in the brand wrapper)
 docs/                       # attribution, tracking and experiment handoff notes
 archive/                    # retired content (e.g. 2025–2026 portal documents)
 ```
@@ -126,6 +129,7 @@ archive/                    # retired content (e.g. 2025–2026 portal documents
 | `/modelo` | The NWL educational model |
 | `/maternal`, `/kinder`, `/elementary`, `/middle-school`, `/high-school` | Level pages |
 | `/campus/:slug` | Campus pages (`juriquilla`, `milenio`, `san-miguel`, `corregidora`, `zibata`) |
+| `/rectoria` | Rectoría: the central leadership team (linked from the "Our School" nav dropdown and the footer) |
 | `/beneficios` | Community benefits catalog + partner application form |
 | `/noticias` | News index |
 | `/noticias/nwl-australian-school` | Rebrand announcement |
@@ -141,6 +145,7 @@ archive/                    # retired content (e.g. 2025–2026 portal documents
 | `/admin/beneficios` | Partner catalog management (`admin` + `beneficios` roles) |
 | `/coming-soon` | Pre-launch placeholder |
 | `/be_nwl`, `/golden_ticket`, `/golden_ticket_cap` | Campaign pages (static HTML rewrites) |
+| `/survey-post-enrollment-experience.html` | Post-enrollment survey sent from GHL (`?contact_id=…&autofill=…&cohort=…`) |
 
 Legacy URLs from the old nwl.com.mx site (level pages, campus pages, `/docs/*` SEO pages) 301-redirect to their new equivalents in `next.config.mjs`.
 
@@ -151,6 +156,12 @@ Per-campus document hub for enrolled families, covering four sections: **calenda
 ## Beneficios (`/beneficios`)
 
 Catalog of partner discounts for the NWL community. The page is a server component (partner copy ships in the initial HTML for SEO) reading the catalog from Redis, so `/admin/beneficios` can add, edit, reorder and categorize partners without a redeploy. Writes call `revalidateBeneficios()`; the 1-hour `revalidate` is the self-heal floor if that ever fails. `lib/beneficios-data.ts` is the seed used to populate an empty store via `/api/beneficios/seed`. The page also carries a form for businesses applying to become partners.
+
+## Rectoría (`/rectoria`)
+
+The central leadership team that runs the five campuses as one school: the Executive Director, the Rectoría areas (leads and team members) and the five campus directors. People and bios live in `lib/rectoria-data.ts`; campus directors are read from `campus-data.ts` so the two pages never disagree. `needsReview: true` marks role-based placeholder copy (left out of the JSON-LD) until the school sends a real bio; `facts` render as credential chips and `hidden` drops a person from the page and the schema. Portraits are 3:4 files under `public/images/rectoria/`. When a photo changes, add it under a **new filename** (the old one stays cached for a year).
+
+The page launched on 2026-09-15. `RECTORIA_PUBLIC` in `lib/rectoria-preview.ts` is now `true`, so the middleware gate, noindex and the sitemap/footer exclusions are all inactive; the preview-token code is kept only so the page can be re-gated.
 
 ## Careers & Admin
 
@@ -175,15 +186,18 @@ An 8-bit, Chrome-dino-style runner hidden in the KangarooSpirit section of the h
 
 - **56 información landing pages** — migrated from the old NWL site to preserve rankings, spanning campus, level, neighborhood and general intent in Spanish and English
 - **301 redirects** — old URL paths redirect to new pages (`next.config.mjs`)
-- **JSON-LD structured data** — Organization and WebSite site-wide, FAQPage on every información page
+- **JSON-LD structured data** — Organization and WebSite site-wide, School/LocalBusiness per campus, FAQPage on every información page, AboutPage with Person entries on `/rectoria`
 - **Hreflang** — `es-MX` / `en-MX` alternates; `hreflangPair` links translated información pages
 - **XML sitemap** at `/sitemap.xml` and **robots.txt** at `/robots.txt`, both generated
 - **llms.txt** — `public/llms.txt` summarizes the school for AI crawlers
-- **Per-page metadata** — title, description and Open Graph tags centralized in `lib/seo.ts`
+- **Per-page metadata** — title, description and Open Graph tags centralized in `lib/seo.ts`; `SITE_LAST_UPDATED` feeds every JSON-LD `dateModified` and is bumped by hand
+- **Share images** — 1200×630 previews under `public/images/og/nwl/`. Campus pages default to `campus-<slug>.jpg`; set `ogImage` in `campus-data.ts` to point a campus at a new file (Juriquilla uses `campus-juriquilla-as.jpg`)
 
 ## Static Campaign Pages
 
 BE campaign pages (`be_nwl`, `golden_ticket`, `golden_ticket_cap`) live as static HTML in `/public` and are served via Next.js rewrites in `next.config.mjs`. They are standalone and don't use the React component tree.
+
+`survey-post-enrollment-experience.html` is the same kind of standalone page, styled with the Australian School tokens: navy + gold, Gabarito, the white lockup from `/images/brand/`. The survey itself is a GoHighLevel iframe; the page script only forwards `contact_id`, `autofill` and `cohort` from the email link into it, so keep the iframe id when restyling.
 
 ## Brand (tailwind.config.ts)
 
@@ -209,7 +223,13 @@ Note: `images.unoptimized` is on — the Vercel image optimizer quota is exhaust
 
 ## Deployment
 
-Deployed on **Vercel** — pushes to `main` trigger automatic production deploys. The `test` branch is used for staging previews.
+Deployed on **Vercel** — pushes to `main` trigger automatic production deploys. The `test` branch is used for staging previews; keep `main` and `test` in sync once a change ships.
+
+Releases are tagged on `main` (`v1.7.0`, …). Scheduled cloud deploy routines can push but have no outbound network access, so verify a deploy from a local machine.
+
+## Campus Photos
+
+Campus photos come from the Google Drive "Repositorio NWL Australian School" folders, using the **edited** (`Editadas`) photos only. Juriquilla's exterior shots show the repainted navy + gold campus. Its interiors (classrooms, cafetorium, commons) still use pre-rebrand photos until new ones are taken.
 
 ## Campus Locations
 

@@ -26,8 +26,8 @@ export async function middleware(request: NextRequest) {
   }
 
   // ── Rectoría private preview ──
-  // Until the page is launched (NEXT_PUBLIC_RECTORIA_PUBLIC=true), only
-  // browsers that came through the preview link can see it. The link sets a
+  // Inactive since the 2026-09-15 launch (RECTORIA_PUBLIC is true). Kept so the
+  // page can be re-gated: only browsers that came through the preview link can see it. The link sets a
   // cookie and redirects to the clean URL; anyone else gets the 404 page, so
   // the route is invisible rather than "coming soon".
   if (!RECTORIA_PUBLIC && (pathname === '/rectoria' || pathname.startsWith('/rectoria/'))) {
