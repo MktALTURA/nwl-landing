@@ -105,7 +105,7 @@ export const areas: RectoriaArea[] = [
       // REVIEW: role-based copy, no sourced bio
       {
         id: 'pilar-diaz',
-        name: 'Pilar Marlloly Díaz Soto',
+        name: 'Marlloly Pilar Díaz Soto',
         title: { en: 'Administration', es: 'Administración' },
         image: img('pilar-diaz'),
         needsReview: true,
