@@ -69,7 +69,9 @@ export default function SubmitCV() {
     return cleanup;
   }, [locale, formId, t.careers.applicationFormName, t.careers.applicationFormTitle, buildIframe]);
 
-  useGHLFormTracking(formContainerRef, 'careers_cv_form');
+  // A job application, not an admissions lead — keeps it out of Google Ads
+  // conversions and GA4 generate_lead.
+  useGHLFormTracking(formContainerRef, 'careers_cv_form', { kind: 'application' });
 
   return (
     <section id="cv" className="section-padding nwl-bg-dawn text-paper relative overflow-hidden">

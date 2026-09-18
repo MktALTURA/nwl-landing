@@ -68,7 +68,7 @@ export default function FinalCTA() {
   }, [locale, t.finalCta.formId, t.finalCta.formName, t.finalCta.formTitle, buildIframe]);
 
   // Track GHL form submissions via postMessage + height-change fallback (no URL changes)
-  useGHLFormTracking(formContainerRef, 'home_form', eventId);
+  useGHLFormTracking(formContainerRef, 'home_form', { eventId });
 
   // Scroll the form into view (works with GSAP ScrollSmoother)
   const scrollToForm = () => {

@@ -83,6 +83,41 @@ That measures **Meta delivery**, not the pipeline. Over the same windows
 Facebook-sourced contacts went 8 → 1 → 1 because the website-destination ad sets
 hit their `end_time` on 1 Aug (§4).
 
+### Form conversions fell ~77% on 29 Jul 2026 and stayed there
+
+**Correct — that was false positives leaving, not leads.** Until 29 Jul the site
+fired a conversion on GHL iframe lifecycle messages that arrive without any
+submission. An interaction gate shipped that day. Measured against GHL's own
+submission log (`GET /forms/submissions`, every real submit):
+
+| Window | GA4 `generate_lead` | Real form submits (site forms) |
+|---|---|---|
+| Jul 1–28 | ~610 | 115 (70 admissions + 45 careers) |
+| Aug 1–31 | 144 | 96 (67 admissions + 29 careers) |
+| Sep 1–17 | ~68 | 37 |
+
+Admissions submits were flat (70 → 67). **Any Google Ads or GA4 conversion count
+from before 29 Jul is ~5x inflated** — do not trend CPA or CVR across that date.
+Do **not** size this against GHL *opportunities*: most of those are WhatsApp
+(356 WhatsApp-origin contacts in August) and never touch a form.
+
+Step two, shipped Sep 2026: careers CVs and partner applications no longer
+count as leads. They had been firing the Ads `SUBMIT_LEAD_FORM` conversion and
+`generate_lead` (~30% of August's "leads"). Expect a further ~30% step down in
+form conversions from that date; it is not a demand change.
+
+| Form kind | Forms | Fires |
+|---|---|---|
+| `lead` | home / campus / informacion admissions forms | Ads conversion, GA4 `form_submit` + `generate_lead`, Meta `Lead` |
+| `application` | careers CV, beneficios partner | GA4 `application_submit` only |
+
+Every one of these events now carries `detect_signal` (`sticky` / `modify_url` /
+`height` / `explicit`) and `secs_since_interact`. A residual ~1.5x gap between
+fired events and GHL submits is still unexplained; reconcile GA4 by
+`detect_signal` against `forms/submissions` to find which signal carries it
+before tightening anything. Register `detect_signal` as an event-scoped custom
+dimension in GA4 to read it.
+
 ### `attributionSource` is empty on every WhatsApp contact
 
 It always will be. GHL populates native attribution **only** from its own form
