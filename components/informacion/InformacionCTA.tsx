@@ -67,7 +67,7 @@ export default function InformacionCTA({ page }: InformacionCTAProps) {
     return cleanup;
   }, [locale, t.finalCta.formId, t.finalCta.formName, t.finalCta.formTitle, buildIframe]);
 
-  useGHLFormTracking(formContainerRef, `informacion_${page.slug}`, eventId);
+  useGHLFormTracking(formContainerRef, `informacion_${page.slug}`, { eventId });
 
   return (
     <section id="informacion-form" className="py-16 md:py-24 nwl-bg-dawn text-paper relative overflow-hidden">

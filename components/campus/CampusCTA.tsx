@@ -72,7 +72,7 @@ export default function CampusCTA({ campusName, phone, phoneLink }: CampusCTAPro
   useGHLFormTracking(
     formContainerRef,
     `campus_${campusName?.toLowerCase().replace(/\s+/g, '_') || 'unknown'}_form`,
-    eventId,
+    { eventId },
   );
 
   return (

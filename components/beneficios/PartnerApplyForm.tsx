@@ -75,7 +75,9 @@ export default function PartnerApplyForm() {
     return cleanup;
   }, [locale, formId, t.beneficios.applyFormName, t.beneficios.applyFormTitle, buildIframe]);
 
-  useGHLFormTracking(formContainerRef, 'beneficios_partner_form');
+  // A partner application, not an admissions lead — keeps it out of Google
+  // Ads conversions and GA4 generate_lead.
+  useGHLFormTracking(formContainerRef, 'beneficios_partner_form', { kind: 'application' });
 
   return (
     <section
