@@ -574,6 +574,7 @@ export const campuses: Record<string, CampusData> = {
       es: 'Maternal — Preparatoria',
     },
     heroImage: '/images/campus/zibata/zibata-hero.jpg',
+    ogImage: '/images/og/nwl/campus-zibata-as.jpg',
     phone: '442-161-2211/12',
     phoneLink: '4421612211',
     whatsapp: '5214421612211',
@@ -640,6 +641,7 @@ export const campuses: Record<string, CampusData> = {
     geo: { lat: 20.681857880179148, lng: -100.34012899325315 },
     mapUrl: 'https://maps.google.com/?q=Colegio+Newland+Zibata',
     galleryImages: [
+      { src: '/images/campus/zibata/zibata-entrance-sign-flags.jpg', caption: { en: 'Welcome to Campus Zibatá', es: 'Bienvenidos a Campus Zibatá' } },
       { src: '/images/campus/zibata/zibata-building.jpg', caption: { en: 'Campus Building', es: 'Edificio del Campus' } },
       { src: '/images/campus/zibata/zibata-sports.jpg', caption: { en: 'Sports & Active Play', es: 'Deporte y Juego Activo' } },
       { src: '/images/campus/zibata/zibata-soccer.jpg', caption: { en: 'Soccer Field', es: 'Cancha de Fútbol' } },
