@@ -4804,8 +4804,8 @@ export const informacionPages: Record<string, InformacionPage> = {
  'La primaria de NWL Australian School Juriquilla es una primaria privada y bilingüe para niños de 6 a 12 años, en el campus con la trayectoria más larga de la red, con historia desde 2009. Juriquilla creció hasta 39,244 habitantes en el Censo 2020 del INEGI, y muchas familias de la zona buscan una primaria cerca de casa que no las obligue a elegir entre inglés real, exigencia académica y bienestar. Aquí te contamos cómo trabaja la primaria, qué edad necesita tu hijo para entrar y cómo es la admisión.',
  sections: [
  {
- heading: 'Una primaria donde el inglés es la lengua de trabajo',
- body: 'En la primaria de Juriquilla el inglés no es una materia aislada de una hora al día: es la lengua con la que los niños trabajan proyectos, presentan y conversan en clase. Esa inmersión diaria, sostenida durante seis años, es la que convierte el inglés en una herramienta natural y no en un examen.\n\nLas certificaciones Cambridge English permiten medir ese avance con estándares internacionales, y el español se trabaja con el programa oficial de la SEP para que tu hijo domine ambas lenguas.',
+ heading: 'Primaria bilingüe: inglés y español todos los días',
+ body: 'En la primaria de Juriquilla los niños usan el inglés a diario, en proyectos, presentaciones y conversaciones con sus maestros, además de sus clases de lengua. Con seis años de práctica constante, llegan a usarlo con naturalidad.\n\nEl español se trabaja con el programa oficial de la SEP, así que tu hijo avanza en las dos lenguas. Las certificaciones Cambridge English miden su nivel de inglés con estándares internacionales.',
  },
  {
  heading: 'Knotion, iPad y STEAM: aprender resolviendo retos',
@@ -4860,8 +4860,8 @@ export const informacionPages: Record<string, InformacionPage> = {
  images: {
  hero: '/images/campus/juriquilla/juriquilla-campus-facade-drone.jpg',
  content: [
+ '/images/levels/primaria/nwl-primaria-teacher-ipad-guidance.jpg',
  '/images/levels/primaria/nwl-primaria-knotion-geoboard.jpg',
- '/images/levels/primaria/nwl-primaria-steam-lab-1600.jpg',
  ],
  },
  targetCampus: 'juriquilla',
