@@ -13,6 +13,11 @@ export interface InformacionSection {
  body: string;
 }
 
+export interface InformacionSource {
+ label: string;
+ url: string;
+}
+
 export interface InformacionPage {
  slug: string;
  lang: 'es' | 'en';
@@ -32,6 +37,10 @@ export interface InformacionPage {
  category: 'campus' | 'neighborhood' | 'level' | 'general';
  hreflangPair?: string;
  keywords: string[];
+ /** Public sources for the facts cited in the copy; rendered as a list and emitted as schema.org citation. */
+ sources?: InformacionSource[];
+ /** Slugs of other /informacion pages to link from the "Learn more" section. */
+ related?: string[];
 }
 
 // ---------------------------------------------------------------------------
@@ -4559,6 +4568,539 @@ export const informacionPages: Record<string, InformacionPage> = {
  'colegio australiano queretaro',
  'escuela con modelo australiano',
  'nwl australian school modelo',
+ ],
+ },
+
+ // =========================================================================
+ // PAGE 57 — Cuánto cuesta una preparatoria privada en Querétaro
+ // GSC gap (90d to 2026-09-20): prepa precio/económicas/de paga ≈1.8k impr, pos ~17
+ // =========================================================================
+ 'cuanto-cuesta-una-preparatoria-privada-en-queretaro': {
+ slug: 'cuanto-cuesta-una-preparatoria-privada-en-queretaro',
+ lang: 'es',
+ title: 'Cuánto cuesta una preparatoria privada en Querétaro (2026)',
+ h1: '¿Cuánto cuesta una preparatoria privada en Querétaro?',
+ description:
+ 'Rangos de colegiatura e inscripción de prepas privadas en Querétaro para 2026–2027, qué debe incluir el precio y qué derechos te da Profeco antes de inscribir.',
+ uniqueIntro:
+ 'Para el ciclo 2026–2027, las colegiaturas publicadas de preparatorias privadas en Querétaro van de alrededor de $7,500 a $12,000 pesos al mes, con inscripciones de $10,000 a $15,000. El número que importa, sin embargo, es el costo total del ciclo: inscripción, mensualidades, materiales, uniformes y certificaciones. Esta guía explica cómo se arma ese costo, qué te tiene que informar la escuela por escrito según Profeco y qué preguntar antes de comparar opciones.',
+ sections: [
+ {
+ heading: 'Cuánto cuestan las prepas privadas en Querétaro en 2026–2027',
+ body: 'Con base en las tarifas que algunas preparatorias privadas de Querétaro publicaron para 2026–2027, la colegiatura mensual se ubica entre $7,500 y $12,000 pesos y la inscripción entre $10,000 y $15,000. Hay opciones por debajo de ese rango y programas por encima, sobre todo los que incluyen doble diploma, certificaciones internacionales o intercambio.\n\nPara comparar de forma justa, calcula el costo anual: inscripción más colegiatura multiplicada por el número de mensualidades del ciclo. Pregunta si son 10, 11 o 12 pagos, porque esa diferencia puede equivaler a uno o dos meses de colegiatura. Suma también lo que se cobra aparte y verás que dos escuelas con la misma mensualidad pueden terminar costando cantidades muy distintas al año.',
+ },
+ {
+ heading: 'Qué debe incluir el precio y qué suele cobrarse aparte',
+ body: 'Además de la inscripción y la colegiatura, revisa cuotas de materiales o plataformas digitales, libros, uniformes (diario y deportivo), exámenes de certificación de inglés, actividades extracurriculares, viajes, seguro escolar, transporte y el trámite de certificado al egresar.\n\nEl acuerdo que establece las bases mínimas de información para la comercialización de servicios educativos obliga a las escuelas particulares a informar por escrito, antes de inscribir, el costo total de inscripción y reinscripción, el monto de las colegiaturas con su periodicidad y condiciones de pago, y el costo de exámenes, cursos, servicios adicionales y duplicados de certificados. Si una escuela no puede darte ese desglose, es una señal de alerta.',
+ },
+ {
+ heading: 'Tus derechos como familia según Profeco',
+ body: 'Profeco señala que la escuela no puede aplicar cobros sorpresa ni modificar de forma unilateral la colegiatura durante el ciclo escolar. Cualquier ajuste de cuotas debe presentarse a los padres, a través de la asociación de padres de familia, al menos 60 días antes del periodo de reinscripción.\n\nTambién tienes derecho a pagar la colegiatura sin recargos dentro de los primeros 10 días naturales de cada mes. Y la escuela debe informarte el número y la fecha del acuerdo de la SEP que le otorga validez oficial; si no lo tiene, está obligada a decirte que sus estudios no cuentan con reconocimiento. Antes de pagar la inscripción, pide ese número y verifícalo.',
+ },
+ {
+ heading: 'Más allá del precio: qué compara una familia informada',
+ body: 'El precio solo tiene sentido junto a lo que incluye. Pregunta por el diploma con el que egresa tu hijo, las certificaciones que obtiene durante la prepa, el acompañamiento individual y los resultados de admisión universitaria. Una colegiatura más baja con certificaciones que se pagan aparte puede acabar costando más.\n\nEn NWL Australian School, la preparatoria dura seis semestres en los campus Zibatá y Corregidora. Los alumnos egresan con Doble Diploma: el certificado SEP y un diploma estadounidense acreditado por Cognia. Cada alumno trabaja con un Life Mentor durante toda la prepa y obtiene certificaciones Kn U High y Coursera desde el primer semestre. NWL comparte su colegiatura vigente y opciones de pago directamente con cada familia; puedes solicitarlas por WhatsApp al +52 442 122 7791.',
+ },
+ ],
+ faqs: [
+ {
+ question: '¿Cuánto cuesta una prepa privada en Querétaro?',
+ answer:
+ 'Para el ciclo 2026–2027, las colegiaturas publicadas se ubican aproximadamente entre $7,500 y $12,000 pesos mensuales, con inscripciones de $10,000 a $15,000. Para comparar, calcula el costo anual completo: inscripción, número real de mensualidades y cuotas adicionales.',
+ },
+ {
+ question: '¿Hay preparatorias privadas económicas en Querétaro?',
+ answer:
+ 'Sí, existen opciones por debajo del rango típico. Antes de decidir por precio, verifica que el plan tenga validez oficial (RVOE o incorporación), qué diploma obtiene tu hijo y qué cuotas se cobran aparte, porque una mensualidad baja no siempre significa un costo anual bajo.',
+ },
+ {
+ question: '¿Qué incluye normalmente la inscripción a una prepa privada?',
+ answer:
+ 'Depende de cada escuela. Por eso el acuerdo de bases mínimas de información obliga a la escuela a entregarte por escrito el costo de inscripción y reinscripción, las colegiaturas y su periodicidad, y el costo de exámenes, cursos y servicios adicionales antes de que inscribas a tu hijo.',
+ },
+ {
+ question: '¿Pueden subir la colegiatura a mitad del ciclo escolar?',
+ answer:
+ 'No de forma unilateral. Profeco indica que las escuelas particulares no pueden modificar la colegiatura durante el ciclo, y que los ajustes deben presentarse a los padres, a través de la asociación de padres de familia, al menos 60 días antes de la reinscripción.',
+ },
+ {
+ question: '¿Me pueden cobrar recargo si pago la colegiatura a principios de mes?',
+ answer:
+ 'No. Las escuelas deben aceptar el pago de la colegiatura sin recargos dentro de los primeros 10 días naturales de cada mes.',
+ },
+ {
+ question: '¿Cuánto cuesta la preparatoria en NWL Australian School?',
+ answer:
+ 'NWL comparte la colegiatura vigente y las opciones de pago directamente con cada familia, junto con el desglose completo del ciclo. Puedes pedirla por WhatsApp al +52 442 122 7791 o agendar una visita a los campus Zibatá o Corregidora, que son los que ofrecen preparatoria.',
+ },
+ {
+ question: '¿Qué obtiene un alumno de prepa NWL por su colegiatura?',
+ answer:
+ 'Seis semestres con Doble Diploma (certificado SEP y diploma estadounidense acreditado por Cognia), un Life Mentor personal durante toda la prepa, certificaciones Kn U High y Coursera desde el primer semestre, Inteligencia Financiera y opciones de intercambio internacional en 5.° y 6.° semestre.',
+ },
+ ],
+ images: {
+ hero: '/images/levels/prepa/prepa-nwl-modern-classroom-1600.jpg',
+ content: [
+ '/images/levels/prepa/nwl-zibata-prepa-classroom-jackets.jpg',
+ '/images/levels/prepa/prepa-nwl-nova-hub-workspace-1600.jpg',
+ ],
+ },
+ targetLevel: '/high-school',
+ category: 'general',
+ keywords: [
+ 'cuanto cuesta una preparatoria privada en queretaro',
+ 'preparatorias privadas en queretaro precios',
+ 'preparatorias privadas en queretaro economicas',
+ 'prepas de paga en queretaro',
+ 'colegiatura preparatoria queretaro 2026',
+ ],
+ related: [
+ 'prepa-de-2-anos-o-3-anos-validez-oficial-queretaro',
+ 'preparatoria-bilingue-privada-en-zibata-queretaro',
+ 'preparatoria-bilingue-privada-en-corregidora-queretaro',
+ ],
+ sources: [
+ {
+ label: 'Acuerdo que establece las bases mínimas de información para la comercialización de los servicios educativos que prestan los particulares (SEP/DGB)',
+ url: 'https://dgb.sep.gob.mx/storage/recursos/2024/07/bN3GRIUPMr-ACUERDO%20que%20establece%20las%20bases%20m%C3%ADnimas%20de%20informaci%C3%B3n%20para%20la%20comercializaci%C3%B3n%20de%20los%20servicios%20educativos%20que%20prestan%20los%20particulares.pdf',
+ },
+ {
+ label: 'Profeco: Escuelas particulares, derechos de las y los usuarios',
+ url: 'https://www.gob.mx/profeco/prensa/escuelas-particulares-profeco-explica-cuales-son-los-derechos-de-las-y-los-usuarios?idiom=es',
+ },
+ {
+ label: 'Profeco: Guía de regreso a clases 2026',
+ url: 'https://www.profeco.gob.mx/feria_regreso/assets/doc/V8%20Guia%20de%20regreso%20a%20clases%202026.pdf',
+ },
+ {
+ label: 'Telediario: colegiaturas de preparatoria en Querétaro 2026',
+ url: 'https://www.telediario.mx/comunidad/colegiatura-anahuac-de-queretaro-2026-cuanto-cuesta',
+ },
+ ],
+ },
+
+ // =========================================================================
+ // PAGE 58 — Prepa de 2 años vs 3 años: validez oficial
+ // GSC gap: prepa 2 años / semestral / abierta ≈650 impr, pos ~32
+ // =========================================================================
+ 'prepa-de-2-anos-o-3-anos-validez-oficial-queretaro': {
+ slug: 'prepa-de-2-anos-o-3-anos-validez-oficial-queretaro',
+ lang: 'es',
+ title: 'Prepa de 2 o 3 años en Querétaro: validez oficial y RVOE',
+ h1: 'Prepa de 2 años, semestral o de 3 años: cómo saber si tiene validez oficial',
+ description:
+ 'Prepa de 2 años, semestral de 3 años o abierta: qué es el RVOE y cómo verificarlo en la SEP antes de inscribir a tu hijo en una prepa de Querétaro.',
+ uniqueIntro:
+ 'En Querétaro puedes encontrar preparatorias de 2 años, de 3 años organizadas en seis semestres y modalidades abiertas o en línea. Las tres pueden tener validez oficial; lo que cambia es el ritmo, la carga de trabajo y la experiencia del alumno. Lo que no es negociable es el RVOE o la incorporación: sin él, el certificado no sirve para entrar a la universidad. Aquí te explicamos las diferencias y cómo verificar cualquier prepa en minutos.',
+ sections: [
+ {
+ heading: 'Prepa de 3 años, de 2 años y abierta: en qué se diferencian',
+ body: 'El bachillerato escolarizado más común se cursa en tres años, organizados en seis semestres. Es el ritmo que la mayoría de las preparatorias privadas y públicas siguen, y deja espacio para materias optativas, actividades, certificaciones y orientación vocacional.\n\nLas prepas de 2 años comprimen el mismo contenido en menos tiempo, normalmente con periodos cuatrimestrales y una carga semanal mayor. La prepa abierta o en línea es una modalidad no escolarizada pensada para quien estudia a su propio ritmo, a menudo mientras trabaja. Ninguna es automáticamente mejor: la pregunta correcta es cuál se ajusta a tu hijo y si el plan tiene validez oficial.',
+ },
+ {
+ heading: 'Qué es el RVOE y por qué es lo primero que debes revisar',
+ body: 'El Reconocimiento de Validez Oficial de Estudios (RVOE) es el acuerdo con el que la autoridad educativa reconoce un plan de estudios específico, impartido en un plantel específico. Sin RVOE, una escuela no puede emitir certificados con validez oficial. Y que una escuela tenga RVOE no significa que todos sus programas lo tengan.\n\nAlgunas preparatorias están incorporadas a una universidad autónoma en lugar de a la SEP. En ese caso, pide el número de incorporación y verifícalo con esa institución. Por ley de protección al consumidor, además, la escuela debe informarte el número y la fecha del acuerdo que le otorga validez oficial; si no lo tiene, está obligada a decirte que sus estudios no están reconocidos.',
+ },
+ {
+ heading: 'Cómo verificar una prepa en la SEP paso a paso',
+ body: 'Pide a la escuela tres datos: el número de RVOE o de incorporación, la autoridad que lo otorgó y el plantel exacto al que corresponde. Después, consulta el micrositio de RVOE de la Dirección General del Bachillerato (DGB) o el sistema de consulta de la SEP para educación media superior y compara que el plan, el nombre de la escuela y la dirección coincidan.\n\nDesde el ciclo 2023–2024, además, las preparatorias con RVOE de la SEP trabajan con el Marco Curricular Común de la Educación Media Superior (Acuerdo 09/08/23), que integra un currículum fundamental con áreas como lengua y comunicación, pensamiento matemático, ciencias naturales y sociales, humanidades, cultura digital e inglés. Pregunta cómo lo aplica la escuela.',
+ },
+ {
+ heading: 'La prepa NWL: seis semestres con Doble Diploma',
+ body: 'La preparatoria de NWL Australian School se cursa en seis semestres en los campus Zibatá y Corregidora. Elegimos el ritmo de tres años porque da tiempo para lo que una prepa acelerada no alcanza a cubrir: un Life Mentor personal durante toda la prepa, un Portafolio de 6 Proyectos Personales, certificaciones Kn U High y Coursera desde el primer semestre e intercambio internacional en 5.° y 6.° semestre.\n\nLos alumnos egresan con Doble Diploma: el certificado SEP y un diploma estadounidense acreditado por Cognia. Durante tu visita, pide el número de validez oficial del plan de tu campus y verifícalo tú mismo. Es exactamente lo que recomendamos hacer con cualquier escuela.',
+ },
+ ],
+ faqs: [
+ {
+ question: '¿La prepa de 2 años tiene validez oficial?',
+ answer:
+ 'Puede tenerla. Una prepa de 2 años tiene validez oficial si cuenta con RVOE o incorporación para ese plan y ese plantel. Verifica el número con la SEP o con la institución que la incorpora antes de inscribir a tu hijo.',
+ },
+ {
+ question: '¿Cuál es la diferencia entre prepa semestral y prepa de 3 años?',
+ answer:
+ 'Normalmente son lo mismo: la prepa de 3 años se organiza en seis semestres. Algunas escuelas usan periodos cuatrimestrales para terminar en 2 años, con más carga por periodo.',
+ },
+ {
+ question: '¿Qué es el RVOE de una preparatoria?',
+ answer:
+ 'Es el Reconocimiento de Validez Oficial de Estudios: el acuerdo con el que la autoridad educativa reconoce un plan de estudios específico en un plantel específico. Sin RVOE, la escuela no puede emitir certificados oficiales.',
+ },
+ {
+ question: '¿Cómo verifico el RVOE de una prepa en Querétaro?',
+ answer:
+ 'Pide a la escuela el número de RVOE o de incorporación, la autoridad que lo otorgó y el plantel al que corresponde. Luego compáralo en el micrositio de RVOE de la Dirección General del Bachillerato o en el sistema de consulta de la SEP. El trámite es gratuito y público.',
+ },
+ {
+ question: '¿Una prepa de 2 años sirve para entrar a la universidad?',
+ answer:
+ 'Si tiene validez oficial, el certificado permite continuar a la universidad. Considera también la preparación: un ritmo acelerado deja menos tiempo para optativas, certificaciones y orientación vocacional, que pesan en los procesos de admisión.',
+ },
+ {
+ question: '¿Cuántos semestres dura la preparatoria en NWL?',
+ answer:
+ 'Seis semestres (tres años) en los campus Zibatá y Corregidora, con Doble Diploma: certificado SEP y diploma estadounidense acreditado por Cognia.',
+ },
+ {
+ question: '¿Las prepas privadas deben seguir el nuevo Marco Curricular Común?',
+ answer:
+ 'Sí, las que tienen RVOE de la SEP. El Acuerdo 09/08/23 establece el Marco Curricular Común de la Educación Media Superior, aplicable desde el ciclo 2023–2024.',
+ },
+ ],
+ images: {
+ hero: '/images/levels/prepa/prepa-nwl-teacher-collaborative-workspace-1600.jpg',
+ content: [
+ '/images/levels/prepa/prepa-nwl-students-podcast-studio.jpg',
+ '/images/levels/prepa/prepa-nwl-student-lounge-gradas.jpg',
+ ],
+ },
+ targetLevel: '/high-school',
+ category: 'general',
+ keywords: [
+ 'prepa de 2 años en queretaro',
+ 'prepa semestral en queretaro',
+ 'preparatoria en 2 años validez oficial',
+ 'rvoe preparatoria queretaro',
+ 'prepa de 3 años o 2 años',
+ ],
+ related: [
+ 'cuanto-cuesta-una-preparatoria-privada-en-queretaro',
+ 'mejores-preparatorias-privadas-en-queretaro',
+ 'preparatoria-bilingue-privada-en-zibata-queretaro',
+ ],
+ sources: [
+ {
+ label: 'SEP: Reconocimiento de Validez Oficial de Estudios (RVOE)',
+ url: 'https://www.gob.mx/sep/acciones-y-programas/reconocimiento-de-validez-oficial-de-estudios-rvoe',
+ },
+ {
+ label: 'Dirección General del Bachillerato: micrositio RVOE',
+ url: 'https://dgb.sep.gob.mx/micrositiorvoe',
+ },
+ {
+ label: 'SEMS: Publica SEP nuevo Marco Curricular Común de la Educación Media Superior',
+ url: 'https://educacionmediasuperior.sep.gob.mx/es_mx/sems/Publica_SEP_nuevo_Marco_Curricular_Comun_de_la_Educacion_Media_Superior',
+ },
+ {
+ label: 'Acuerdo de bases mínimas de información para servicios educativos particulares (SEP/DGB)',
+ url: 'https://dgb.sep.gob.mx/storage/recursos/2024/07/bN3GRIUPMr-ACUERDO%20que%20establece%20las%20bases%20m%C3%ADnimas%20de%20informaci%C3%B3n%20para%20la%20comercializaci%C3%B3n%20de%20los%20servicios%20educativos%20que%20prestan%20los%20particulares.pdf',
+ },
+ ],
+ },
+
+ // =========================================================================
+ // PAGE 59 — Primaria privada bilingüe en Juriquilla
+ // GSC gap: primaria + juriquilla ≈1.2k impr, pos ~38 (no primaria page existed)
+ // =========================================================================
+ 'primaria-privada-bilingue-en-juriquilla': {
+ slug: 'primaria-privada-bilingue-en-juriquilla',
+ lang: 'es',
+ title: 'Primaria privada y bilingüe en Juriquilla, Querétaro',
+ h1: 'Primaria privada bilingüe en Juriquilla',
+ description:
+ 'Primaria privada bilingüe en Juriquilla con Knotion, inglés de inmersión y Filosofía para Niños. Edad de ingreso 2026–2027 y admisiones en NWL Juriquilla.',
+ uniqueIntro:
+ 'La primaria de NWL Australian School Juriquilla es una primaria privada y bilingüe para niños de 6 a 12 años, en el campus con la trayectoria más larga de la red, con historia desde 2009. Juriquilla creció hasta 39,244 habitantes en el Censo 2020 del INEGI, y muchas familias de la zona buscan una primaria cerca de casa que no las obligue a elegir entre inglés real, exigencia académica y bienestar. Aquí te contamos cómo trabaja la primaria, qué edad necesita tu hijo para entrar y cómo es la admisión.',
+ sections: [
+ {
+ heading: 'Una primaria donde el inglés es la lengua de trabajo',
+ body: 'En la primaria de Juriquilla el inglés no es una materia aislada de una hora al día: es la lengua con la que los niños trabajan proyectos, presentan y conversan en clase. Esa inmersión diaria, sostenida durante seis años, es la que convierte el inglés en una herramienta natural y no en un examen.\n\nLas certificaciones Cambridge English permiten medir ese avance con estándares internacionales, y el español se trabaja con el programa oficial de la SEP para que tu hijo domine ambas lenguas.',
+ },
+ {
+ heading: 'Knotion, iPad y STEAM: aprender resolviendo retos',
+ body: 'La primaria trabaja con Knotion, una metodología por proyectos que sustituye la tarea tradicional por retos que integran ciencias, matemáticas, lenguaje y habilidades socioemocionales. El iPad es una herramienta de aprendizaje dentro de ese diseño: los alumnos investigan, crean y presentan, y construyen ciudadanía digital a medida que su atención y autorregulación maduran.\n\nEl TecniKids STEAM Lab lleva la ciencia y la tecnología a la práctica, y Filosofía para Niños desarrolla el pensamiento crítico con diálogos en comunidad de indagación. El programa Yo Soy Líder NWL, diseñado para NWL por el Tec de Monterrey, forma liderazgo e inteligencia emocional.',
+ },
+ {
+ heading: 'Edad de ingreso a primaria en Querétaro',
+ body: 'Para primero de primaria, la regla de la USEBEQ para el ciclo 2026–2027 es tener 6 años cumplidos al 31 de diciembre de 2026. Las preinscripciones a escuelas públicas se hicieron en línea del 3 al 13 de febrero de 2026; las primarias privadas tienen su propio calendario de admisión, y en campus con alta demanda conviene iniciar el proceso con meses de anticipación.\n\nSi tu hijo viene de otra escuela a mitad de la primaria, se revisan sus boletas y documentos oficiales para ubicarlo en el grado correcto.',
+ },
+ {
+ heading: 'Campus Juriquilla: de maternal a secundaria',
+ body: 'NWL Juriquilla ofrece desde maternal hasta secundaria, así que tu hijo puede cursar toda su educación básica en el mismo campus y con el mismo modelo educativo. El campus cuenta con áreas verdes, cancha de fútbol, cancha techada, área de juegos y cafetorium.\n\nEl proceso de admisión empieza con una visita guiada para conocer las instalaciones y la metodología, seguida de la entrega de documentos y una valoración acorde a la edad. Director General de Campus: Mtro. Fernando Lizardi Álvarez.',
+ },
+ ],
+ faqs: [
+ {
+ question: '¿Hay primaria privada bilingüe en Juriquilla?',
+ answer:
+ 'Sí. NWL Australian School Juriquilla ofrece primaria bilingüe con inglés de inmersión, metodología Knotion, Filosofía para Niños y certificaciones Cambridge English. El campus tiene historia desde 2009 y cubre de maternal a secundaria.',
+ },
+ {
+ question: '¿Qué edad necesita mi hijo para entrar a primero de primaria?',
+ answer:
+ 'Según la USEBEQ, para el ciclo 2026–2027 se requieren 6 años cumplidos al 31 de diciembre de 2026 para ingresar a primer grado de primaria.',
+ },
+ {
+ question: '¿La primaria de Juriquilla deja tarea?',
+ answer:
+ 'La metodología Knotion sustituye la tarea tradicional por proyectos y retos que se trabajan en clase. El aprendizaje ocurre en el aula, con el acompañamiento del docente.',
+ },
+ {
+ question: '¿Usan iPad en la primaria?',
+ answer:
+ 'Sí, como herramienta de aprendizaje integrada a Knotion. Los alumnos investigan, crean y presentan con el iPad, y desarrollan ciudadanía digital de forma gradual conforme avanzan de grado.',
+ },
+ {
+ question: '¿Mi hijo puede cambiarse a la primaria de Juriquilla a mitad de ciclo?',
+ answer:
+ 'Sí, sujeto a disponibilidad de lugares. Se revisan sus boletas y documentos oficiales para ubicarlo en el grado correcto. Agenda una visita para conocer el proceso.',
+ },
+ {
+ question: '¿Qué niveles ofrece el campus Juriquilla?',
+ answer:
+ 'De maternal a secundaria. La preparatoria NWL está disponible en los campus Zibatá y Corregidora.',
+ },
+ {
+ question: '¿Cómo agendo una visita a la primaria de Juriquilla?',
+ answer:
+ 'Escríbenos por WhatsApp al +52 442 122 7791 o usa el formulario de esta página. La visita incluye recorrido por el campus y una explicación de la metodología. Director General de Campus: Mtro. Fernando Lizardi Álvarez.',
+ },
+ ],
+ images: {
+ hero: '/images/campus/juriquilla/juriquilla-campus-facade-drone.jpg',
+ content: [
+ '/images/levels/primaria/nwl-primaria-knotion-geoboard.jpg',
+ '/images/levels/primaria/nwl-primaria-steam-lab-1600.jpg',
+ ],
+ },
+ targetCampus: 'juriquilla',
+ targetLevel: '/elementary',
+ category: 'campus',
+ keywords: [
+ 'primaria privada en juriquilla',
+ 'primaria bilingue en juriquilla',
+ 'primarias en juriquilla queretaro',
+ 'escuela primaria juriquilla',
+ ],
+ related: [
+ 'colegio-privado-con-kinder-en-juriquilla',
+ 'colegio-privado-con-secundaria-en-juriquilla',
+ 'metodologia-knotion-sin-tarea',
+ ],
+ sources: [
+ {
+ label: 'INEGI: Censo de Población y Vivienda 2020, Juriquilla',
+ url: 'https://www.inegi.org.mx/app/cpv/2020/resultadosrapidos/default.html?texto=Juriquilla',
+ },
+ {
+ label: 'N+: Preinscripciones en Querétaro para el ciclo 2026–2027 (USEBEQ)',
+ url: 'https://www.nmas.com.mx/queretaro/inician-preinscripciones-queretaro-2026-2027-fechas-como-apuntar-hijo-escuela/',
+ },
+ ],
+ },
+
+ // =========================================================================
+ // PAGE 60 — Kinder y primaria en Zibatá
+ // GSC gap: kinder/maternal + primaria + zibata ≈900 impr, pos 34–45
+ // =========================================================================
+ 'kinder-y-primaria-en-zibata-queretaro': {
+ slug: 'kinder-y-primaria-en-zibata-queretaro',
+ lang: 'es',
+ title: 'Kinder y primaria bilingüe en Zibatá, Querétaro',
+ h1: 'Kinder y primaria bilingüe en Zibatá',
+ description:
+ 'Maternal, kinder y primaria bilingüe en Zibatá, El Marqués. Edades de ingreso 2026–2027, metodología Knotion e inglés de inmersión en el campus NWL más nuevo.',
+ uniqueIntro:
+ 'NWL Australian School Zibatá ofrece maternal, kinder y primaria bilingüe dentro de Zibatá, en el campus más nuevo de la red, inaugurado en 2025. El fraccionamiento tenía 11,540 habitantes en el Censo 2020 del INEGI, y con ese crecimiento aumentó la necesidad de escuelas a pocos minutos de casa. Esta guía reúne lo que las familias de Zibatá preguntan con más frecuencia: edades de ingreso, cómo se vive cada etapa y cómo continuar hasta la preparatoria sin cambiar de campus.',
+ sections: [
+ {
+ heading: 'Maternal y kinder en Zibatá: las primeras etapas',
+ body: 'En México, la etapa de 0 a 3 años se llama educación inicial y, desde la reforma de 2019 al artículo 3.º constitucional, forma parte de la educación básica. En NWL Zibatá, maternal es una etapa sensorial y basada en el juego, con inmersión en inglés desde los 2 años y sin iPad.\n\nEn kinder empieza Knotion, la metodología por proyectos que sustituye la tarea tradicional por retos adecuados a la edad. Los niños desarrollan lenguaje, pensamiento lógico y habilidades socioemocionales en inglés y en español, con Filosofía para Niños y el programa Yo Soy Líder NWL by Tec de Monterrey.',
+ },
+ {
+ heading: 'Primaria bilingüe en Zibatá',
+ body: 'La primaria continúa con Knotion, ahora con el iPad como herramienta para investigar, crear y presentar, e incorpora el TecniKids STEAM Lab y certificaciones Cambridge English para medir el avance del inglés con estándares internacionales.\n\nEl campus fue diseñado desde cero en 2025, con salones amplios, laboratorios, área de juegos, canchas deportivas y cafetorium. Para las familias que viven dentro del fraccionamiento o en El Refugio y sus alrededores, eso significa trayectos cortos y un día escolar sin cruzar la ciudad.',
+ },
+ {
+ heading: 'Edades de ingreso para el ciclo 2026–2027',
+ body: 'Las edades se cuentan al 31 de diciembre de 2026, según la regla de la USEBEQ: 4 años cumplidos para segundo de preescolar, 5 años para tercero de preescolar y 6 años para primero de primaria. Maternal recibe niños desde los 2 años.\n\nLas preinscripciones a escuelas públicas se hicieron del 3 al 13 de febrero de 2026. Las escuelas privadas tienen su propio calendario; si buscas lugar en kinder o primaria, conviene agendar la visita con anticipación porque los grupos son reducidos.',
+ },
+ {
+ heading: 'De maternal a preparatoria en el mismo campus',
+ body: 'Zibatá es uno de los dos campus NWL con preparatoria, así que un alumno puede recorrer toda su trayectoria, desde los 2 hasta los 17 años, sin cambiar de escuela. La preparatoria suma Life Project con mentores y Doble Diploma: certificado SEP y diploma estadounidense acreditado por Cognia.\n\nDirectora: Mtra. Dayana Rose Gómez. Puedes agendar tu visita por WhatsApp al +52 442 122 7791.',
+ },
+ ],
+ faqs: [
+ {
+ question: '¿Hay kinder y primaria dentro de Zibatá?',
+ answer:
+ 'Sí. NWL Australian School Zibatá ofrece maternal, kinder y primaria bilingüe, además de secundaria y preparatoria, en el campus más nuevo de la red, inaugurado en 2025.',
+ },
+ {
+ question: '¿Qué edad necesita mi hijo para entrar a kinder en Zibatá?',
+ answer:
+ 'Para el ciclo 2026–2027, la USEBEQ pide 4 años cumplidos al 31 de diciembre de 2026 para segundo de preescolar y 5 años para tercero. Maternal en NWL Zibatá recibe niños desde los 2 años.',
+ },
+ {
+ question: '¿Qué edad se necesita para primero de primaria?',
+ answer:
+ '6 años cumplidos al 31 de diciembre de 2026, según la regla de la USEBEQ para el ciclo 2026–2027.',
+ },
+ {
+ question: '¿El maternal de Zibatá usa iPad o Knotion?',
+ answer:
+ 'No. Maternal es una etapa sensorial y basada en el juego, con inmersión en inglés. Knotion y el iPad se incorporan a partir de kinder y primaria.',
+ },
+ {
+ question: '¿La educación inicial es parte de la educación básica en México?',
+ answer:
+ 'Sí. Desde la reforma de 2019 al artículo 3.º constitucional, la educación inicial forma parte de la educación básica junto con preescolar, primaria y secundaria, y es reconocida como un derecho de la niñez.',
+ },
+ {
+ question: '¿Mi hijo puede seguir en Zibatá hasta la preparatoria?',
+ answer:
+ 'Sí. Zibatá ofrece de maternal a preparatoria, con Doble Diploma (SEP y diploma estadounidense acreditado por Cognia) al egresar.',
+ },
+ {
+ question: '¿Quién dirige el campus Zibatá?',
+ answer:
+ 'La Mtra. Dayana Rose Gómez. Puedes agendar una visita guiada por WhatsApp al +52 442 122 7791.',
+ },
+ ],
+ images: {
+ hero: '/images/campus/zibata/zibata-entrance-sign-flags.jpg',
+ content: [
+ '/images/levels/kinder/kinder-tunnel-play.jpg',
+ '/images/levels/primaria/nwl-zibata-primaria-dos-amigos-salon.jpg',
+ ],
+ },
+ targetCampus: 'zibata',
+ targetLevel: '/elementary',
+ category: 'campus',
+ keywords: [
+ 'primaria en zibata queretaro',
+ 'kinder en zibata queretaro',
+ 'maternal en zibata',
+ 'escuela en zibata',
+ 'kinder bilingue zibata',
+ ],
+ related: [
+ 'escuela-privada-cerca-de-zibata-queretaro',
+ 'preparatoria-bilingue-privada-en-zibata-queretaro',
+ 'metodologia-knotion-sin-tarea',
+ ],
+ sources: [
+ {
+ label: 'City Population / INEGI: Fraccionamiento Zibatá, Censo 2020',
+ url: 'https://www.citypopulation.de/en/mexico/queretaro/el_marqu%C3%A9s/220110450__fraccionamiento_zibat%C3%A1/',
+ },
+ {
+ label: 'DOF: Reforma constitucional en materia educativa, 15 de mayo de 2019',
+ url: 'https://dof.gob.mx/nota_detalle.php?codigo=5560457&fecha=15%2F05%2F2019',
+ },
+ {
+ label: 'N+: Preinscripciones en Querétaro para el ciclo 2026–2027 (USEBEQ)',
+ url: 'https://www.nmas.com.mx/queretaro/inician-preinscripciones-queretaro-2026-2027-fechas-como-apuntar-hijo-escuela/',
+ },
+ ],
+ },
+
+ // =========================================================================
+ // PAGE 61 — Schools in San Miguel de Allende (EN guide)
+ // GSC gap: English SMA school queries, the only EN cluster earning clicks
+ // =========================================================================
+ 'schools-in-san-miguel-de-allende-guide-for-international-families': {
+ slug: 'schools-in-san-miguel-de-allende-guide-for-international-families',
+ lang: 'en',
+ title: 'Schools in San Miguel de Allende: Guide for Expat Families',
+ h1: 'Schools in San Miguel de Allende: a guide for families moving to Mexico',
+ description:
+ 'How school works in San Miguel de Allende for families moving to Mexico: Mexican vs US grades, enrolling with foreign report cards, tuition and timing.',
+ uniqueIntro:
+ 'Moving to San Miguel de Allende with children raises the same questions for almost every family: which grade will my child be in, what paperwork does Mexico ask for, and how early should we start looking? This guide answers those questions with official sources. It is written by NWL Australian School, which runs a bilingual campus in San Miguel from Maternal (age 2) through Secondary School (age 14).',
+ sections: [
+ {
+ heading: 'How Mexican school levels map to US grades',
+ body: 'Mexico\'s basic education runs in clear blocks. Preescolar (kindergarten) covers ages 3 to 5. Primaria, which we call Primary School, lasts six years and matches US grades 1 to 6. Secundaria, our Secondary School, lasts three years and matches grades 7 to 9. Preparatoria, or high school, adds three more years for grades 10 to 12.\n\nThe cutoff date for age is December 31: a child starts first grade of Primaria if they turn 6 by December 31 of that school year. The SEP school year runs from late August or early September to July, so families arriving in January join mid-year rather than at the start.',
+ },
+ {
+ heading: 'Enrolling with report cards from another country',
+ body: 'Children who studied abroad can continue their education in Mexico without an apostille. For Primaria and Secundaria, documents issued abroad, including birth certificates and report cards, do not need to be apostilled or legalized, and documents in another language only need a simple Spanish translation, which the family can do themselves.\n\nIf your child has not finished a level, you go directly to the school where they will study, and the school places them in the right grade using the SEP\'s official correspondence tables. Bring their most recent report cards, birth certificate and passport or immigration document.',
+ },
+ {
+ heading: 'Costs and timing',
+ body: 'Relocation guides put annual tuition at private bilingual schools in San Miguel de Allende at roughly 60,000 to 180,000 Mexican pesos in 2026, depending on the school and the grade. Ask every school for the full yearly cost in writing, including enrollment, monthly tuition, materials and uniforms. Mexican consumer law requires private schools to disclose it before you enroll.\n\nThe most requested schools fill entry grades early, so plan six to twelve months ahead where you can. If you are moving mid-year, contact schools as soon as your dates are firm.',
+ },
+ {
+ heading: 'NWL Australian School in San Miguel de Allende',
+ body: 'San Miguel\'s historic center has been a UNESCO World Heritage Site since 2008, and the town draws families from Mexico, the United States, Canada and Europe. NWL San Miguel de Allende, founded in 2018, serves that mix with full bilingual immersion from Maternal (age 2) through Secondary School (age 14), Cambridge English at every level and Knotion project-based learning.\n\nFamilies who stay through Senior School (Preparatoria) can continue at NWL\'s Zibatá or Corregidora campuses in Querétaro, where students graduate with a SEP certificate and a US-accredited high school diploma (Cognia). Campus Director: Lic. Ramón Godínez Ceja.',
+ },
+ ],
+ faqs: [
+ {
+ question: 'What grade will my child be in at a Mexican school?',
+ answer:
+ 'Primaria (Primary School) covers US grades 1 to 6, Secundaria (Secondary School) grades 7 to 9 and Preparatoria grades 10 to 12. Placement uses the child\'s age at December 31 and their previous report cards.',
+ },
+ {
+ question: 'Do I need to apostille my child\'s school records to enroll in Mexico?',
+ answer:
+ 'No. For Primaria and Secundaria, documents issued abroad do not need an apostille or legalization, and a simple Spanish translation is enough.',
+ },
+ {
+ question: 'Can my child join a school in San Miguel de Allende mid-year?',
+ answer:
+ 'Yes, subject to available places. The school places your child in the right grade using the SEP correspondence tables. Contact schools as soon as your moving dates are firm.',
+ },
+ {
+ question: 'How much do private bilingual schools in San Miguel de Allende cost?',
+ answer:
+ 'Relocation guides estimate roughly 60,000 to 180,000 MXN per year in 2026, depending on the school and grade. Ask each school for the full yearly cost in writing before you enroll.',
+ },
+ {
+ question: 'When does the school year start in Mexico?',
+ answer:
+ 'The SEP school year runs from late August or early September to July. Private schools follow the official calendar with their own admissions timeline.',
+ },
+ {
+ question: 'Does NWL San Miguel de Allende offer high school?',
+ answer:
+ 'The San Miguel campus runs from Maternal through Secondary School (up to age 14). Senior School (high school) is offered at NWL\'s Zibatá and Corregidora campuses in Querétaro, with a SEP certificate and a US-accredited diploma.',
+ },
+ {
+ question: 'How do I schedule a visit to NWL San Miguel de Allende?',
+ answer:
+ 'Message us on WhatsApp at +52 442 122 7791 or use the form on this page.',
+ },
+ ],
+ images: {
+ hero: '/images/campus/san-miguel/san-miguel-main-facade-mountains.jpg',
+ content: [
+ '/images/campus/san-miguel/san-miguel-facade-lawn-playground.jpg',
+ '/images/levels/primaria/nwl-sma-primaria-classroom.jpg',
+ ],
+ },
+ targetCampus: 'san-miguel',
+ category: 'general',
+ keywords: [
+ 'schools in san miguel de allende',
+ 'san miguel de allende schools for expats',
+ 'international school san miguel de allende',
+ 'bilingual school san miguel de allende',
+ 'moving to san miguel de allende with kids',
+ ],
+ related: [
+ 'international-school-in-san-miguel-de-allende',
+ 'private-bilingual-school-in-queretaro',
+ ],
+ sources: [
+ {
+ label: 'Embassy of Mexico in Canada: Revalidation of foreign studies in Mexico (SRE)',
+ url: 'https://embamex.sre.gob.mx/canada/index.php/es/sconsulares2/11811-artrevestextmex25',
+ },
+ {
+ label: 'UNESCO World Heritage Centre: Protective town of San Miguel and the Sanctuary of Jesús Nazareno de Atotonilco',
+ url: 'https://whc.unesco.org/en/list/1274',
+ },
+ {
+ label: 'Expat Exchange: International and bilingual schools in San Miguel de Allende',
+ url: 'https://www.expatexchange.com/ctryguide/29496/77/Mexico/Schools-in-San-Miguel-de-Allende-Best-International-Schools-and-Bilingual-Schools-in-San-Miguel-de-Allende',
+ },
+ {
+ label: 'N+: USEBEQ age rules for the 2026–2027 school year',
+ url: 'https://www.nmas.com.mx/queretaro/inician-preinscripciones-queretaro-2026-2027-fechas-como-apuntar-hijo-escuela/',
+ },
  ],
  },
 };

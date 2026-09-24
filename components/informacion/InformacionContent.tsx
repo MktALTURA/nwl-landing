@@ -57,6 +57,28 @@ export default function InformacionContent({ page }: InformacionContentProps) {
             )}
           </div>
         ))}
+
+        {page.sources && page.sources.length > 0 && (
+          <div className="border-t border-navy/10 pt-8">
+            <h2 className="font-display text-xl font-bold text-navy mb-4">
+              {page.lang === 'es' ? 'Fuentes' : 'Sources'}
+            </h2>
+            <ul className="space-y-2 text-sm text-navy/60">
+              {page.sources.map((src) => (
+                <li key={src.url}>
+                  <a
+                    href={src.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="underline underline-offset-2 hover:text-navy"
+                  >
+                    {src.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
       </div>
     </section>
   );
