@@ -5012,11 +5012,11 @@ export const informacionPages: Record<string, InformacionPage> = {
  sections: [
  {
  heading: 'How Mexican school levels map to US grades',
- body: 'Mexico\'s basic education runs in clear blocks. Preescolar (kindergarten) covers ages 3 to 5. Primaria, which we call Primary School, lasts six years and matches US grades 1 to 6. Secundaria, our Secondary School, lasts three years and matches grades 7 to 9. Preparatoria, or high school, adds three more years for grades 10 to 12.\n\nThe cutoff date for age is December 31: a child starts first grade of Primaria if they turn 6 by December 31 of that school year. The SEP school year runs from late August or early September to July, so families arriving in January join mid-year rather than at the start.',
+ body: 'Mexico\'s basic education runs in clear blocks. It starts with educación inicial, the early years before preschool, which has been part of basic education since 2019. At NWL this stage is called Maternal and begins at age 2. Preescolar (kindergarten) covers ages 3 to 5. Primaria, which we call Primary School, lasts six years and matches US grades 1 to 6. Secundaria, our Secondary School, lasts three years and matches grades 7 to 9. Preparatoria, or high school, adds three more years for grades 10 to 12.\n\nThe cutoff date for age is December 31: a child starts first grade of Primaria if they turn 6 by December 31 of that school year. The SEP school year runs from late August or early September to July, so families arriving in January join mid-year rather than at the start.',
  },
  {
  heading: 'Enrolling with report cards from another country',
- body: 'Children who studied abroad can continue their education in Mexico without an apostille. For Primaria and Secundaria, documents issued abroad, including birth certificates and report cards, do not need to be apostilled or legalized, and documents in another language only need a simple Spanish translation, which the family can do themselves.\n\nIf your child has not finished a level, you go directly to the school where they will study, and the school places them in the right grade using the SEP\'s official correspondence tables. Bring their most recent report cards, birth certificate and passport or immigration document.',
+ body: 'Children who studied abroad can continue their education in Mexico without an apostille. For Primaria and Secundaria, documents issued abroad, including birth certificates and report cards, do not need to be apostilled or legalized, and documents in another language only need a simple Spanish translation, which the family can do themselves.\n\nIf your child has not finished a level, you go directly to the school where they will study, and the school places them in the right grade using the SEP\'s official correspondence tables. Bring their most recent report cards, birth certificate and passport or immigration document.\n\nIn San Miguel de Allende, the state education authority, the Secretaría de Educación de Guanajuato (SEG), has to validate the report cards from your child\'s previous school. If SEG does not accept them, the child cannot be enrolled. We have seen SEG turn down report cards it could not verify, so bring originals on the school\'s letterhead, signed and stamped, with the school\'s contact details, and start early in case SEG asks for more.\n\nIt also helps to choose a school with international accreditation, so your child\'s records are recognized in Mexico and abroad if you move again. NWL is accredited by Cognia, and its Secondary School students earn the HÖKKU Dual International Certification.',
  },
  {
  heading: 'Costs and timing',
@@ -5036,7 +5036,12 @@ export const informacionPages: Record<string, InformacionPage> = {
  {
  question: 'Do I need to apostille my child\'s school records to enroll in Mexico?',
  answer:
- 'No. For Primaria and Secundaria, documents issued abroad do not need an apostille or legalization, and a simple Spanish translation is enough.',
+ 'No. For Primaria and Secundaria, documents issued abroad do not need an apostille or legalization, and a simple Spanish translation is enough. In San Miguel de Allende, the Guanajuato education authority (SEG) still has to validate the report cards, so bring signed and stamped originals.',
+ },
+ {
+ question: 'What happens if the state education authority does not validate my child\'s report cards?',
+ answer:
+ 'The child cannot be enrolled until SEG accepts them. SEG can reject report cards it cannot verify, so bring originals on the previous school\'s letterhead, signed and stamped, with that school\'s contact details, and start the process early.',
  },
  {
  question: 'Can my child join a school in San Miguel de Allende mid-year?',
