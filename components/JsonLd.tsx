@@ -30,7 +30,7 @@ export function OrganizationJsonLd() {
     },
     image: `${SITE_URL}/images/og/nwl/home.jpg`,
     description:
-      'Bilingual private school in Querétaro & San Miguel de Allende. Maternal through Senior School. English immersion, project-based learning, 5 campuses.',
+      'Bilingual private school in Querétaro & San Miguel de Allende. Maternal through Senior School in Querétaro, Maternal through Secondary School in San Miguel de Allende. English immersion, project-based learning, 5 campuses.',
     foundingDate: '2009',
     telephone: '+52-442-454-1010',
     contactPoint: {
@@ -204,6 +204,9 @@ export function InformacionJsonLd({ page }: { page: InformacionPage }) {
     isPartOf: { '@id': `${SITE_URL}/#website` },
     about: { '@id': `${SITE_URL}/#organization` },
     image: `${SITE_URL}${page.images.hero}`,
+    ...(page.sources?.length && {
+      citation: page.sources.map((src) => ({ '@type': 'CreativeWork', name: src.label, url: src.url })),
+    }),
   };
 
   return <JsonLdScript data={data} />;

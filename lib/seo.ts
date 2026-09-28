@@ -11,7 +11,7 @@ export const SITE_LEGAL_NAME = 'Colegio NWL';
  * is meaningfully revised — do not derive from filesystem mtimes (Vercel
  * resets them on every build, which would falsely reset the signal).
  */
-export const SITE_LAST_UPDATED = '2026-09-15';
+export const SITE_LAST_UPDATED = '2026-09-23';
 
 /** Default OG image used as fallback when a page-specific image isn't set */
 export const DEFAULT_OG_IMAGE = `${SITE_URL}/images/og/nwl/home.jpg`;
@@ -21,7 +21,7 @@ export const PAGE_SEO = {
   home: {
     title: 'The Australian way of learning — NWL Australian School',
     description:
-      'NWL Australian School — bilingual private school in Querétaro & San Miguel de Allende on the Australian school model. Maternal through Senior School (high school), English immersion, project-based learning. 5 campuses.',
+      'NWL Australian School — bilingual private school on the Australian school model. Maternal through Senior School (high school) in Querétaro, Maternal through Secondary School in San Miguel de Allende. English immersion, 5 campuses.',
     ogImage: '/images/og/nwl/home.jpg',
   },
   modelo: {

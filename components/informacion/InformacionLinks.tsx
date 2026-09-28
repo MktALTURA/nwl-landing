@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { useLanguage } from '@/lib/i18n/LanguageContext';
 import { campuses } from '@/lib/campus-data';
-import type { InformacionPage } from '@/lib/informacion-data';
+import { getInformacionBySlug, type InformacionPage } from '@/lib/informacion-data';
 
 interface InformacionLinksProps {
   page: InformacionPage;
@@ -25,8 +25,11 @@ export default function InformacionLinks({ page }: InformacionLinksProps) {
   const { locale } = useLanguage();
   const campus = page.targetCampus ? campuses[page.targetCampus] : null;
   const level = page.targetLevel ? levelLabels[page.targetLevel] : null;
+  const related = (page.related ?? [])
+    .map((slug) => getInformacionBySlug(slug))
+    .filter((p): p is InformacionPage => Boolean(p));
 
-  if (!campus && !level) return null;
+  if (!campus && !level && related.length === 0) return null;
 
   return (
     <section className="py-16">
@@ -110,6 +113,26 @@ export default function InformacionLinks({ page }: InformacionLinksProps) {
             </motion.a>
           )}
         </div>
+
+        {related.length > 0 && (
+          <div className="mt-10">
+            <p className="font-display text-lg font-bold text-navy mb-4">
+              {page.lang === 'es' ? 'Artículos relacionados' : 'Related articles'}
+            </p>
+            <ul className="grid md:grid-cols-2 gap-3">
+              {related.map((r) => (
+                <li key={r.slug}>
+                  <a
+                    href={`/informacion/${r.slug}`}
+                    className="block rounded-xl border border-n-200 bg-white px-5 py-4 text-navy hover:border-gold hover:text-gold transition-colors"
+                  >
+                    {r.h1}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
       </div>
     </section>
   );
