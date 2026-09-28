@@ -5012,7 +5012,7 @@ export const informacionPages: Record<string, InformacionPage> = {
  sections: [
  {
  heading: 'How Mexican school levels map to US grades',
- body: 'Mexico\'s basic education runs in clear blocks. It starts with educación inicial, the early years before preschool, which has been part of basic education since 2019. At NWL this stage is called Maternal and begins at age 2. Preescolar (kindergarten) covers ages 3 to 5. Primaria, which we call Primary School, lasts six years and matches US grades 1 to 6. Secundaria, our Secondary School, lasts three years and matches grades 7 to 9. Preparatoria, or high school, adds three more years for grades 10 to 12.\n\nThe cutoff date for age is December 31: a child starts first grade of Primaria if they turn 6 by December 31 of that school year. The SEP school year runs from late August or early September to July, so families arriving in January join mid-year rather than at the start.',
+ body: 'Mexico\'s basic education runs in clear blocks. It starts with educación inicial, the early years before preschool, which has been part of basic education since 2019. At NWL this stage is called Maternal and begins at age 2. Preescolar (kindergarten) covers ages 3 to 5. Primaria, which we call Primary School, lasts six years and matches US grades 1 to 6. Secundaria, our Secondary School, lasts three years and matches grades 7 to 9. Preparatoria, or high school, adds three more years for grades 10 to 12.\n\nThe cutoff date for age is December 31: a child starts first grade of Primaria if they turn 6 by December 31 of that school year. The SEP school year runs from late August or early September to July, so families arriving in January join mid-year rather than at the start.\n\nAge limits matter for teenagers. Under the SEP\'s school-records rules, a student must be under 15 on December 31 to start first grade of general or technical Secundaria. Young people aged 15 or older who have not finished Primaria or Secundaria are directed to adult education, which in Guanajuato is run by INAEBA, the state institute for adult literacy and basic education. If your child is 14 or older, confirm their placement with the school before you move.',
  },
  {
  heading: 'Enrolling with report cards from another country',
@@ -5042,6 +5042,11 @@ export const informacionPages: Record<string, InformacionPage> = {
  question: 'What happens if the state education authority does not validate my child\'s report cards?',
  answer:
  'The child cannot be enrolled until SEG accepts them. SEG can reject report cards it cannot verify, so bring originals on the previous school\'s letterhead, signed and stamped, with that school\'s contact details, and start the process early.',
+ },
+ {
+ question: 'Is there an age limit to enroll in Secundaria in Mexico?',
+ answer:
+ 'Yes. Under the SEP\'s school-records rules, a student must be under 15 on December 31 to start first grade of general or technical Secundaria. Students aged 15 or older who have not finished Primaria or Secundaria are directed to adult education, run in Guanajuato by INAEBA.',
  },
  {
  question: 'Can my child join a school in San Miguel de Allende mid-year?',
@@ -5090,6 +5095,14 @@ export const informacionPages: Record<string, InformacionPage> = {
  'private-bilingual-school-in-queretaro',
  ],
  sources: [
+ {
+ label: 'SEP (DGAIR): Normas Específicas de Control Escolar para la Educación Básica',
+ url: 'https://dgair.sep.gob.mx/storage/recursos/CE/normas_29042019.pdf',
+ },
+ {
+ label: 'INAEBA Guanajuato: primaria and secundaria certification for people aged 15 and older',
+ url: 'https://inaeba.guanajuato.gob.mx/noticias/noticia/1',
+ },
  {
  label: 'Embassy of Mexico in Canada: Revalidation of foreign studies in Mexico (SRE)',
  url: 'https://embamex.sre.gob.mx/canada/index.php/es/sconsulares2/11811-artrevestextmex25',
