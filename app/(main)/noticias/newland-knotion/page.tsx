@@ -553,6 +553,13 @@ export default function NewlandKnotionNews() {
             acumulables con otros programas de apoyo. Consulta con tu CAP para los
             detalles de aplicación por campus.
           </p>
+          <p className="mt-3 text-xs text-navy/50 leading-relaxed">
+            Familias de nuevo ingreso: el programa vigente es el{' '}
+            <a href="/becas" className="underline text-gold-600 hover:text-navy">
+              Programa de Becas NWL Australian School
+            </a>
+            .
+          </p>
 
         </motion.section>
 
