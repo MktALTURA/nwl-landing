@@ -17,11 +17,13 @@ const PHONE = z
   .transform((v) => normalizePhoneMX(v))
   .refine((v): v is string => v !== null, { message: 'phone' });
 
-const guardFields = {
+export const guardFields = {
   ft: z.string().min(10),
   website: z.string().max(0).optional(),
 };
 
+// Best effort: an oversized or odd attribution value must never block the
+// application itself, so the whole block falls back to undefined.
 export const attributionSchema = z
   .object({
     utm: z.record(z.string(), z.string().max(200).optional()).optional(),
@@ -33,7 +35,8 @@ export const attributionSchema = z
     fbclidTs: z.number().optional(),
     source_path: z.string().max(300).optional(),
   })
-  .optional();
+  .optional()
+  .catch(undefined);
 
 export const startSchema = z.object({
   ...guardFields,
@@ -102,6 +105,5 @@ export const submitSchema = z.object({
   declarado: declaradoSchema,
   consent: z.object({ version: z.string().min(1).max(20), aceptado: z.literal(true) }),
   referido: z.object({ por: z.string().trim().max(120).optional(), codigo: z.string().trim().max(24).optional() }).optional(),
-  documentIds: z.array(z.string().max(64)).max(6).default([]),
 });
 export type SubmitInput = z.infer<typeof submitSchema>;

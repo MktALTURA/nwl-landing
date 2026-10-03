@@ -56,10 +56,14 @@ export function verifyFormToken(token: unknown): boolean {
   return age >= TOKEN_MIN_AGE_MS && age <= TOKEN_MAX_AGE_MS;
 }
 
-export function clientIp(req: NextRequest): string {
-  const xff = req.headers.get('x-forwarded-for');
+export function clientIpFromHeaders(h: Headers): string {
+  const xff = h.get('x-forwarded-for');
   if (xff) return xff.split(',')[0].trim();
-  return req.headers.get('x-real-ip') || '0.0.0.0';
+  return h.get('x-real-ip') || '0.0.0.0';
+}
+
+export function clientIp(req: NextRequest): string {
+  return clientIpFromHeaders(req.headers);
 }
 
 export function userAgent(req: NextRequest): string {
@@ -92,8 +96,9 @@ export async function rateLimit(bucket: string, ip: string, max: number, windowS
   if (!redis) return;
   try {
     const key = `rl:becas:${bucket}:${ip}`;
-    const n = await redis.incr(key);
-    if (n === 1) await redis.expire(key, windowSeconds);
+    // incr + expire in one pipeline, expire on every hit: a lost expire can
+    // never leave a key (and an IP) locked forever.
+    const [n] = (await redis.multi().incr(key).expire(key, windowSeconds).exec()) as [number, unknown];
     if (n > max) throw new GuardError(429, 'rate_limited');
   } catch (err) {
     if (err instanceof GuardError) throw err;

@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { headers } from 'next/headers';
 import BecasVerifyView from '@/components/becas/BecasVerifyView';
-import { rateLimit } from '@/lib/becas/guard';
+import { clientIpFromHeaders, rateLimit } from '@/lib/becas/guard';
 import { fetchVerify } from '@/lib/becas/worker-client';
 
 export const metadata: Metadata = {
@@ -25,8 +25,7 @@ export default async function VerificarPage({
 }) {
   const { folio } = await params;
   const { c } = await searchParams;
-  const h = await headers();
-  const ip = (h.get('x-forwarded-for') || '').split(',')[0].trim() || h.get('x-real-ip') || '0.0.0.0';
+  const ip = clientIpFromHeaders(await headers());
 
   let limited = false;
   try {

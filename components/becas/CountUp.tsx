@@ -23,6 +23,11 @@ export default function CountUp({
   const ref = useRef<HTMLSpanElement>(null);
   const [shown, setShown] = useState(value);
   const started = useRef(false);
+  const raf = useRef<number | null>(null);
+  // Always animate toward the LATEST value: the live counter can arrive
+  // mid-animation and must win over the ISR figure the animation started with.
+  const target = useRef(value);
+  target.current = value;
 
   useEffect(() => {
     if (reduce || started.current || !ref.current) return;
@@ -33,25 +38,28 @@ export default function CountUp({
         started.current = true;
         io.disconnect();
         const t0 = performance.now();
-        const from = 0;
         const tick = (now: number) => {
           const p = Math.min(1, (now - t0) / duration);
           const eased = 1 - Math.pow(1 - p, 3);
-          setShown(Math.round(from + (value - from) * eased));
-          if (p < 1) requestAnimationFrame(tick);
+          setShown(Math.round(target.current * eased));
+          raf.current = p < 1 ? requestAnimationFrame(tick) : null;
         };
         setShown(0);
-        requestAnimationFrame(tick);
+        raf.current = requestAnimationFrame(tick);
       },
       { threshold: 0.4 },
     );
     io.observe(el);
-    return () => io.disconnect();
-  }, [value, duration, reduce]);
+    return () => {
+      io.disconnect();
+      if (raf.current !== null) cancelAnimationFrame(raf.current);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [duration, reduce]);
 
-  // Keep in sync if the live value changes after the count-up ran.
+  // Once the animation is over (or never ran), mirror the value directly.
   useEffect(() => {
-    if (started.current || reduce) setShown(value);
+    if (reduce || (started.current && raf.current === null)) setShown(value);
   }, [value, reduce]);
 
   return (

@@ -151,8 +151,11 @@ export async function deleteDocument(token: string, docId: string): Promise<void
 
 export async function submitApplication(token: string, req: BecasSubmitRequest): Promise<BecasSubmitResponse> {
   if (isMockMode()) {
+    // The status fixtures only know the mock-* tokens; hand one back so the
+    // success card's link resolves in demos.
+    void token;
     return {
-      token,
+      token: 'mock-pending',
       folio: 'BECA-JUR-27-000042',
       status: 'en_revision',
       statusUrl: `/becas/solicitud/mock-pending`,

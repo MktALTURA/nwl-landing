@@ -9,6 +9,7 @@ import { useBecas } from './BecasProvider';
 import PillGroup from './PillGroup';
 import SectionHeading from './SectionHeading';
 import AnimatedAmount from './AnimatedAmount';
+import { BECAS_WHATSAPP } from './BecasFinalCTA';
 
 /* ------------------------------------------------------------------ */
 /*  Calculator. Two variants decided by the catalog:                   */
@@ -234,7 +235,8 @@ function ResultPrices() {
   const { catalog, copy, calc, selection } = useBecas();
   const c = copy.calculator;
   if (!catalog) return null;
-  const row = selection?.grado.quote?.beca[Math.min(calc.referrals, (selection.grado.quote?.beca.length ?? 1) - 1)];
+  const rowsQ = selection?.grado.quote?.beca ?? [];
+  const row = rowsQ.find((b) => b.referidos === calc.referrals) ?? rowsQ[rowsQ.length - 1];
   const lista = selection?.grado.quote?.lista;
 
   if (!row || !lista) {
@@ -358,7 +360,7 @@ function ClosedNotice() {
       <h3 className="font-display font-bold text-2xl text-navy">{copy.closed.title}</h3>
       <p className="mt-3 text-n-600 leading-relaxed">{copy.closed.body}</p>
       <a
-        href={`https://wa.me/5214421227791?text=${encodeURIComponent(copy.finalCta.whatsappText)}`}
+        href={`https://wa.me/${BECAS_WHATSAPP}?text=${encodeURIComponent(copy.finalCta.whatsappText)}`}
         target="_blank"
         rel="noopener noreferrer"
         data-cta="becas_closed_whatsapp"

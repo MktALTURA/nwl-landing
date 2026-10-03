@@ -1,4 +1,4 @@
-import { NextResponse, type NextRequest } from 'next/server';
+import { NextResponse, after, type NextRequest } from 'next/server';
 import { errorResponse, guardErrorResponse, guardJson } from '@/lib/becas/guard';
 import { startSchema } from '@/lib/becas/schemas';
 import { BecasApiError, startApplication } from '@/lib/becas/worker-client';
@@ -14,7 +14,9 @@ import { writeAttributionToContact } from '@/lib/ghl';
 export async function POST(req: NextRequest) {
   let body;
   try {
-    body = await guardJson(req, startSchema, { bucket: 'start', max: 10 });
+    // 40/h per IP: a campus open house puts a dozen families behind one NAT,
+    // and resumed drafts re-call start through ensureToken.
+    body = await guardJson(req, startSchema, { bucket: 'start', max: 40 });
   } catch (err) {
     return guardErrorResponse(err) ?? errorResponse(500, 'upstream');
   }
@@ -41,9 +43,11 @@ export async function POST(req: NextRequest) {
       const a = data.attribution;
       const clickIds: Record<string, string> = {};
       for (const [k, v] of Object.entries(a.clickIds ?? {})) if (v) clickIds[k] = v;
-      // Awaited: Vercel freezes the function once the response is sent, so a
-      // fire-and-forget fetch here would never run.
-      await writeAttributionToContact(res.contactId, {
+      // after(): runs once the response is sent but keeps the function alive,
+      // so the family never waits on two GHL round-trips.
+      const contactId = res.contactId;
+      after(() =>
+        writeAttributionToContact(contactId, {
         token: `beca-${res.token}`,
         clickedAt: Date.now(),
         landing_page: a.landing_page,
@@ -54,7 +58,8 @@ export async function POST(req: NextRequest) {
         utm: a.utm,
         ft_utm: a.ft_utm,
         source_path: a.source_path,
-      }).catch((e) => console.error('[becas] attribution write-back failed:', e));
+        }).catch((e) => console.error('[becas] attribution write-back failed:', e)),
+      );
     }
 
     return NextResponse.json({ ok: true, token: res.token, contactRecognized: res.contactRecognized, prefill: res.prefill ?? null });

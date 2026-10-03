@@ -273,9 +273,13 @@ export default function BecasApplication() {
     const item = state.uploads.find((u) => u.localId === localId);
     dispatch({ type: 'upload.remove', localId });
     pendingFiles.current.delete(localId);
-    // Tell the worker too, so a replaced boleta doesn't stay attached.
-    if (item?.docId && state.token) {
-      void becasApi.deleteDocument({ website: honeypot.current, token: state.token, docId: item.docId }).catch(() => {});
+    // Tell the worker too, so a replaced boleta doesn't stay attached. A
+    // restored draft has no token yet; ensureToken re-obtains it.
+    if (item?.docId) {
+      const docId = item.docId;
+      void ensureToken()
+        .then((token) => becasApi.deleteDocument({ website: honeypot.current, token, docId }))
+        .catch(() => {});
     }
   };
   const onRetry = (localId: string) => {
@@ -345,7 +349,6 @@ export default function BecasApplication() {
         declarado,
         consent: { version: catalog?.consentVersion ?? '2026-10-a', aceptado: true },
         referido: c.referidoPor.trim() || c.referidoCodigo.trim() || refCode ? { por: c.referidoPor.trim() || undefined, codigo: (c.referidoCodigo.trim() || refCode || undefined)?.toUpperCase() } : undefined,
-        documentIds: state.uploads.filter((u) => u.status === 'done' && u.docId).map((u) => u.docId),
       });
       dispatch({ type: 'submitted', folio: res.folio, statusUrl: res.statusUrl, token: res.token });
       track('becas_application_submit', {
@@ -474,7 +477,7 @@ export default function BecasApplication() {
                         ))}
                       </ul>
                     )}
-                    {(state.request.code === 'network' || state.request.code === 'upstream' || state.request.code === 'timeout') && (
+                    {(state.request.code === 'network' || state.request.code === 'upstream' || state.request.code === 'timeout' || state.request.code === 'rate_limited') && (
                       <a
                         href={`https://wa.me/${BECAS_WHATSAPP}?text=${encodeURIComponent(copy.finalCta.whatsappText)}`}
                         target="_blank"

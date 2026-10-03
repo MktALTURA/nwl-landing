@@ -1,11 +1,11 @@
 import { NextResponse, type NextRequest } from 'next/server';
 import { z } from 'zod';
 import { errorResponse, guardErrorResponse, guardJson } from '@/lib/becas/guard';
+import { guardFields } from '@/lib/becas/schemas';
 import { BecasApiError, deleteDocument } from '@/lib/becas/worker-client';
 
 const schema = z.object({
-  ft: z.string().min(10),
-  website: z.string().max(0).optional(),
+  ...guardFields,
   token: z.string().min(8).max(64),
   docId: z.string().min(4).max(64),
 });

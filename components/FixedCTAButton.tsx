@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { usePathname } from 'next/navigation';
 import { FaWhatsapp } from 'react-icons/fa';
 import { useLanguage } from '@/lib/i18n/LanguageContext';
-import { BECAS_COPY } from '@/lib/becas/copy';
+import { BECAS_CTA_LABEL } from '@/lib/becas/labels';
 
 /**
  * Persistent CTAs — pinned to the viewport.
@@ -37,8 +37,8 @@ export default function FixedCTAButton() {
 
   // #admissions only exists on the homepage — from subpages, navigate there.
   const admissionsHref = onBecas ? '#solicitud' : pathname === '/' ? '#admissions' : '/#admissions';
-  const primaryLabel = onBecas ? BECAS_COPY[locale].hero.ctaApply : t.hero.ctaPrimary;
-  const fixedLabel = onBecas ? BECAS_COPY[locale].hero.ctaApply : t.footer.scheduleVisitFixed;
+  const primaryLabel = onBecas ? BECAS_CTA_LABEL[locale] : t.hero.ctaPrimary;
+  const fixedLabel = onBecas ? BECAS_CTA_LABEL[locale] : t.footer.scheduleVisitFixed;
 
   useEffect(() => {
     const onScroll = () => {
