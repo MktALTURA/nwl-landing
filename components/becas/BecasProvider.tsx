@@ -1,6 +1,6 @@
 'use client';
 
-import { createContext, useCallback, useContext, useEffect, useMemo, useReducer, useRef, type ReactNode } from 'react';
+import { createContext, useCallback, useContext, useEffect, useMemo, useReducer, useState, type ReactNode } from 'react';
 import type { PublicCatalog, PublicCampus, PublicGrado } from '@/lib/becas/catalog';
 import type { BecaCategoria, SiteCampusSlug } from '@/lib/becas/contract';
 import { BECAS_COPY, type BecasCopy, type Locale } from '@/lib/becas/copy';
@@ -123,15 +123,16 @@ export function BecasProvider({
   }, [refreshLive]);
 
   /* ── ?ref= capture (referral code, phase 1 stores it with the application) ── */
-  const refRef = useRef<string | null>(null);
+  const [refCode, setRefCode] = useState<string | null>(null);
   useEffect(() => {
     try {
       const fromUrl = new URLSearchParams(window.location.search).get('ref');
       if (fromUrl && /^[A-Za-z0-9-]{3,24}$/.test(fromUrl)) {
-        refRef.current = fromUrl.toUpperCase();
-        localStorage.setItem('nwl_becas_ref', refRef.current);
+        const code = fromUrl.toUpperCase();
+        localStorage.setItem('nwl_becas_ref', code);
+        setRefCode(code);
       } else {
-        refRef.current = localStorage.getItem('nwl_becas_ref');
+        setRefCode(localStorage.getItem('nwl_becas_ref'));
       }
     } catch {
       /* storage unavailable */
@@ -184,9 +185,9 @@ export function BecasProvider({
       refreshLive,
       scrollTo,
       track,
-      ref: refRef.current,
+      ref: refCode,
     }),
-    [catalog, copy, locale, demo, calc, selection, live, refreshLive, scrollTo, track],
+    [catalog, copy, locale, demo, calc, selection, live, refreshLive, scrollTo, track, refCode],
   );
 
   return <BecasContext.Provider value={value}>{children}</BecasContext.Provider>;
