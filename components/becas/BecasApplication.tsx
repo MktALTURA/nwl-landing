@@ -382,7 +382,7 @@ export default function BecasApplication() {
 
         <div className="mt-10 max-w-3xl">
           {state.submitted ? (
-            <SuccessCard folio={state.submitted.folio} statusUrl={state.submitted.statusUrl} onAnother={() => {
+            <SuccessCard folio={state.submitted.folio} statusUrl={`/becas/solicitud/${encodeURIComponent(state.submitted.token)}`} onAnother={() => {
               clearDraft();
               dispatch({ type: 'reset', idempotencyKey: uuid(), leadEventId: newEventId() });
               dispatch({ type: 'prefill', contact: { campus: calc.campus, ciclo: calc.ciclo }, student: { grado: calc.grado }, categoria: calc.categoria });

@@ -70,12 +70,15 @@ function sign(method: string, pathWithSearch: string, body: string): { ts: strin
 
 async function call<T>(method: 'GET' | 'POST' | 'DELETE', path: string, payload?: unknown): Promise<T> {
   const body = payload === undefined ? '' : JSON.stringify(payload);
-  const { ts, sig } = sign(method, path, body);
+  // The canonical string carries the FULL pathname (+search) as the worker
+  // sees it, not the path relative to BASE_URL.
+  const target = new URL(`${BASE_URL}${path}`);
+  const { ts, sig } = sign(method, `${target.pathname}${target.search}`, body);
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), TIMEOUT_MS);
   let res: Response;
   try {
-    res = await fetch(`${BASE_URL}${path}`, {
+    res = await fetch(target.toString(), {
       method,
       headers: {
         'Content-Type': 'application/json',
