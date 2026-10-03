@@ -581,7 +581,7 @@ function StepContact({ state, dispatch, err, onNext, onHoneypot }: StepProps & {
 
       <Checkbox checked={c.consent} onChange={(v) => set({ consent: v })} error={err('consent')}>
         {a.consent}{' '}
-        <a href="/privacy" target="_blank" rel="noopener noreferrer" className="text-gold-600 underline">
+        <a href="/becas/aviso-de-privacidad" target="_blank" rel="noopener noreferrer" className="text-gold-600 underline">
           {a.consentLink}
         </a>
       </Checkbox>

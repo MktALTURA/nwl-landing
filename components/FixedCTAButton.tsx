@@ -32,7 +32,7 @@ export default function FixedCTAButton() {
   // The becas page has its own application; its status and verify pages have
   // no form to point at, so the bar stays away there.
   const onBecas = pathname === '/becas' || pathname.startsWith('/becas/demo/');
-  const becasSubpage = pathname.startsWith('/becas/solicitud') || pathname.startsWith('/becas/verificar');
+  const becasSubpage = pathname.startsWith('/becas/solicitud') || pathname.startsWith('/becas/verificar') || pathname.startsWith('/becas/aviso');
   const targetId = onBecas ? 'solicitud' : 'admissions';
 
   // #admissions only exists on the homepage — from subpages, navigate there.

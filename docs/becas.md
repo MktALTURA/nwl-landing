@@ -74,7 +74,7 @@ both repos at once. HMAC: headers `X-Becas-Timestamp` (epoch ms) and
 1. Worker on prod with migration 0012 applied, secrets set, catalog row "BE BECA NWL 30%" and cupos configured, program enabled.
 2. Vercel Production: `BECAS_API_URL`, `BECAS_API_SECRET`, `BECAS_PREVIEW_TOKEN`. Deploy. Open `/becas?preview=<token>` and run one application end to end; confirm it in the command center.
 3. GA4 custom dimensions registered; `NEXT_PUBLIC_META_BROWSER_LEAD=true` confirmed in Production.
-4. Aviso de privacidad updated (minors' documents, automated rules, hashed contact data sent to Meta).
+4. Aviso de privacidad: the program's simplified notice lives at `/becas/aviso-de-privacidad` (version in `lib/becas/consent.ts`, must equal the worker's `consentVersion`). Have the school's legal reviewer sign it off before launch; the consent checkbox links to it.
 5. Set `NEXT_PUBLIC_BECAS_PUBLIC=true`, redeploy. In the same commit delete `public/be_nwl.html`, `public/golden_ticket.html`, `public/golden_ticket_cap.html`, add the "Scholarships" section to `public/llms.txt` (static file, cannot be gated), and bump `SITE_LAST_UPDATED`. The FAQ answer in `lib/informacion-data.ts` and the Knotion article note switch on with the flag by themselves.
 6. One real application on production (then delete it from the worker side). Events Manager: one `Lead`, one `CompleteRegistration`, deduped.
 7. Log the launch date in `docs/hero-headline-test-baseline-plan.md`. Top-nav link and paid campaigns wait for the baseline window to close.

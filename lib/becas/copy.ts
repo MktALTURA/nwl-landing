@@ -435,7 +435,7 @@ const es: BecasCopy = {
       { id: 'zibata', q: '¿Y el campus Zibatá?', a: 'Por ahora Zibatá no participa en el programa. Si te interesa ese campus, escríbenos y te atendemos con las opciones disponibles.' },
       { id: 'renovar', q: '¿La beca es para siempre?', a: 'Se renueva cada ciclo escolar mientras la familia esté al corriente y el alumno siga inscrito en el mismo campus.' },
       { id: 'inscripcion', q: '¿Incluye inscripción?', a: 'No. La beca aplica a la colegiatura mensual. La inscripción, la cuota única y los materiales se pagan según la hoja de inversión de tu campus.' },
-      { id: 'privacidad', q: '¿Qué pasa con mis documentos?', a: 'Se guardan en un almacén privado al que solo accede el personal de admisiones de tu campus, únicamente para evaluar la solicitud, conforme a nuestro aviso de privacidad.' },
+      { id: 'privacidad', q: '¿Qué pasa con mis documentos?', a: 'Se guardan en un almacén privado al que solo accede el personal de admisiones de tu campus, únicamente para evaluar la solicitud. Los documentos de solicitudes que no terminan en inscripción se eliminan a los 12 meses. El detalle está en el aviso de privacidad del programa, en nwl.com.mx/becas/aviso-de-privacidad.' },
     ],
   },
   finalCta: {
