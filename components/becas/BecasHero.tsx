@@ -86,12 +86,9 @@ export default function BecasHero() {
             )}
           </div>
 
-          <motion.div
-            initial={reduce ? false : { opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, delay: 0.3 }}
-            className="lg:col-span-5"
-          >
+          {/* Visible in the server HTML (no opacity-0 initial): the counter is
+              part of the first impression and must not wait for hydration. */}
+          <motion.div initial={reduce ? false : { y: 18 }} animate={{ y: 0 }} transition={{ duration: 0.9, delay: 0.2 }} className="lg:col-span-5">
             <BecasCounter />
           </motion.div>
         </div>

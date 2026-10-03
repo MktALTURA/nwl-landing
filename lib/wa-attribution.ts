@@ -85,13 +85,19 @@ export function buildWhatsAppHref(href: string, token: string): string {
 
 /** Everything worth recovering later, read from the live page. */
 function collectPayload(token: string) {
+  return { token, clickedAt: Date.now(), ...collectAttribution() };
+}
+
+/**
+ * The attribution snapshot on its own (no token), for native forms such as
+ * the becas application that send it to their own backend.
+ */
+export function collectAttribution() {
   const click = getFbclid();
   const lastTouch = getLastTouchUTMs();
   const firstTouch = getFirstTouchUTMs();
 
   return {
-    token,
-    clickedAt: Date.now(),
     href: window.location.href,
     source_path: window.location.pathname,
     landing_page: lastTouch?.landing_page,

@@ -6,6 +6,7 @@ import type { BecaCategoria, SiteCampusSlug } from '@/lib/becas/contract';
 import { BECAS_COPY, type BecasCopy, type Locale } from '@/lib/becas/copy';
 import { useLanguage } from '@/lib/i18n/LanguageContext';
 import { sendGA4Event } from '@/lib/analytics';
+import { setFormToken } from '@/lib/becas/client';
 
 /* ------------------------------------------------------------------ */
 /*  Page-wide state for /becas: the catalog (server-provided), the     */
@@ -110,7 +111,10 @@ export function BecasProvider({
     fetch('/api/becas/live', { cache: 'no-store' })
       .then((r) => (r.ok ? r.json() : null))
       .then((data: LiveCupos | null) => {
-        if (data && typeof data === 'object') setLive(data);
+        if (data && typeof data === 'object') {
+          setLive(data);
+          if (data.ft) setFormToken(data.ft);
+        }
       })
       .catch(() => {});
   }, [catalog]);
@@ -139,16 +143,16 @@ export function BecasProvider({
     if (!target) return;
     // ScrollSmoother moves #smooth-content with a transform, so scrollIntoView
     // alone would land in the wrong place while it is active.
-    Promise.all([import('gsap/ScrollSmoother'), import('gsap/ScrollTrigger')])
-      .then(([{ ScrollSmoother }, { ScrollTrigger }]) => {
+    import('gsap/ScrollSmoother')
+      .then(({ ScrollSmoother }) => {
         const smoother = ScrollSmoother.get();
         if (smoother) {
+          // scrollTo inherits the page's 2.5 s smoothing lag, which turns a
+          // jump into a slow glide. Drop the lag for this one move.
+          const prev = smoother.smooth();
+          smoother.smooth(0.5);
           smoother.scrollTo(target, true, 'top 88px');
-          // The reveal tweens are driven by ScrollTrigger, which only hears
-          // real scroll updates. Nudge it once the smoother has settled so a
-          // section we jumped to doesn't sit half-faded until the next wheel.
-          window.setTimeout(() => ScrollTrigger.update(), 400);
-          window.setTimeout(() => ScrollTrigger.refresh(), 1400);
+          window.setTimeout(() => smoother.smooth(prev), 900);
         } else {
           target.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
