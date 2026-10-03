@@ -20,6 +20,8 @@ export default function BecasRules() {
     catalog?.campuses.map((c) => {
       const grados = actual ? c.ciclos[actual]?.grados ?? [] : Object.values(c.ciclos)[0]?.grados ?? [];
       const niveles = Array.from(new Set(grados.map((g) => g.nivel)));
+      // The worker groups Maternal under Kinder; show "Maternal" when the campus offers it.
+      if (grados[0]?.key === 'Maternal' && niveles[0] !== 'Maternal') niveles.unshift('Maternal');
       return { slug: c.slug, label: c.label, niveles };
     }) ?? [];
 
