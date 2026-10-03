@@ -197,6 +197,7 @@ export function validateStep1(s: AppState['contact']): Errors {
 export function validateStep2(s: AppState['student']): Errors {
   const e: Errors = {};
   if (s.newFamily === null) e.newFamily = 'newFamily';
+  else if (s.newFamily === 'no') e.newFamily = 'newFamilyNo';
   if (s.nombres.trim().length < 2) e.alumnoNombres = 'required';
   if (s.apPaterno.trim().length < 2) e.alumnoApPaterno = 'required';
   if (!/^\d{4}-\d{2}-\d{2}$/.test(s.nacimiento) || Number.isNaN(Date.parse(s.nacimiento))) e.nacimiento = 'date';

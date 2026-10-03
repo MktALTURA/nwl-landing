@@ -57,6 +57,8 @@ export default function BecasApplication() {
   const interactedAt = useRef<number | null>(null);
   const formStarted = useRef(false);
   const stepSeen = useRef<Set<number>>(new Set());
+  // Honeypot value. Real browsers leave it empty; the guard rejects anything else.
+  const honeypot = useRef('');
 
   /* ── hydrate draft once ── */
   useEffect(() => {
@@ -76,7 +78,9 @@ export default function BecasApplication() {
   useEffect(() => {
     if (!hydrated) return;
     const t = setTimeout(() => {
-      const { request: _r, ...rest } = state;
+      // The token stays out of storage: start is idempotent on the key, so a
+      // resumed draft re-obtains it (ensureToken) instead of keeping it readable.
+      const { request: _r, token: _t, ...rest } = state;
       if (state.submitted) {
         saveDraft({ submitted: state.submitted, idempotencyKey: state.idempotencyKey, leadEventId: state.leadEventId, leadFired: state.leadFired });
       } else {
@@ -135,29 +139,43 @@ export default function BecasApplication() {
   );
 
   /* ── step 1 → start ── */
+  const startPayload = useCallback(
+    () => ({
+      website: honeypot.current,
+      idempotencyKey: state.idempotencyKey,
+      campus: state.contact.campus,
+      ciclo: state.contact.ciclo,
+      grado: state.student.grado,
+      padre: {
+        nombre: state.contact.nombre.trim(),
+        apellidos: state.contact.apellidos.trim(),
+        email: state.contact.email.trim(),
+        telefono: state.contact.telefono,
+      },
+      consent: { version: catalog?.consentVersion ?? '2026-10-a', aceptado: true },
+      referido: refCode ? { codigo: refCode } : undefined,
+      attribution: collectAttribution(),
+      fromToken: state.token,
+      eventId: state.leadEventId,
+    }),
+    [state, catalog?.consentVersion, refCode],
+  );
+
+  /** The worker token for this draft; re-obtained from the idempotent start call when a restored draft lacks it. */
+  const ensureToken = useCallback(async (): Promise<string> => {
+    if (state.token) return state.token;
+    const res = await becasApi.start(startPayload());
+    dispatch({ type: 'started', token: res.token });
+    return res.token;
+  }, [state.token, startPayload]);
+
   const submitStep1 = useCallback(async () => {
     const e = validateStep1(state.contact);
     setErrors(e);
     if (Object.keys(e).length) return;
     dispatch({ type: 'request', request: { status: 'pending', stage: 'start' } });
     try {
-      const res = await becasApi.start({
-        idempotencyKey: state.idempotencyKey,
-        campus: state.contact.campus,
-        ciclo: state.contact.ciclo,
-        grado: state.student.grado,
-        padre: {
-          nombre: state.contact.nombre.trim(),
-          apellidos: state.contact.apellidos.trim(),
-          email: state.contact.email.trim(),
-          telefono: state.contact.telefono,
-        },
-        consent: { version: catalog?.consentVersion ?? '2026-10-a', aceptado: true },
-        referido: refCode ? { codigo: refCode } : undefined,
-        attribution: collectAttribution(),
-        fromToken: state.token,
-        eventId: state.leadEventId,
-      });
+      const res = await becasApi.start(startPayload());
       dispatch({ type: 'started', token: res.token });
 
       // The ONE Lead for this application. Persisted before firing so a reload
@@ -179,7 +197,7 @@ export default function BecasApplication() {
       dispatch({ type: 'request', request: { status: 'error', stage: 'start', code, fields } });
       track('becas_error', { stage: 'start', code });
     }
-  }, [state, catalog?.consentVersion, refCode, track, goTo]);
+  }, [state, startPayload, track, goTo]);
 
   /* ── step 2 ── */
   const submitStep2 = () => {
@@ -202,7 +220,6 @@ export default function BecasApplication() {
   /* ── uploads ── */
   const runUpload = useCallback(
     async (localId: string, file: File, kind: 'boleta' | 'evidencia') => {
-      if (!state.token) return;
       dispatch({ type: 'upload.update', localId, patch: { status: 'compressing', progress: 0.1, error: undefined } });
       const prepared = await prepareFile(file);
       if ('error' in prepared) {
@@ -212,8 +229,10 @@ export default function BecasApplication() {
       }
       try {
         dispatch({ type: 'upload.update', localId, patch: { status: 'uploading', progress: 0.15, sizeKb: Math.round(prepared.blob.size / 1024) } });
+        const token = await ensureToken();
         const ticket = await becasApi.documentTicket({
-          token: state.token,
+          website: honeypot.current,
+          token,
           kind,
           filename: prepared.filename,
           contentType: prepared.contentType,
@@ -230,21 +249,34 @@ export default function BecasApplication() {
         track('becas_upload', { result: 'error', kind, code });
       }
     },
-    [state.token, track],
+    [ensureToken, track],
   );
 
   const pendingFiles = useRef<Map<string, File>>(new Map());
   const onPick = (kind: 'boleta' | 'evidencia') => (files: FileList) => {
     markInteract();
-    Array.from(files).forEach((file) => {
+    const max = catalog?.uploads.maxPorTipo ?? 3;
+    const room = Math.max(0, max - state.uploads.filter((u) => u.kind === kind && u.status !== 'error').length);
+    Array.from(files)
+      .slice(0, room)
+      .forEach((file) => {
       const localId = uuid();
       pendingFiles.current.set(localId, file);
       dispatch({
         type: 'upload.add',
         item: { localId, kind, name: file.name, sizeKb: Math.round(file.size / 1024), status: 'compressing', progress: 0 },
       });
-      void runUpload(localId, file, kind);
-    });
+        void runUpload(localId, file, kind);
+      });
+  };
+  const onRemoveUpload = (localId: string) => {
+    const item = state.uploads.find((u) => u.localId === localId);
+    dispatch({ type: 'upload.remove', localId });
+    pendingFiles.current.delete(localId);
+    // Tell the worker too, so a replaced boleta doesn't stay attached.
+    if (item?.docId && state.token) {
+      void becasApi.deleteDocument({ website: honeypot.current, token: state.token, docId: item.docId }).catch(() => {});
+    }
   };
   const onRetry = (localId: string) => {
     const file = pendingFiles.current.get(localId);
@@ -255,14 +287,13 @@ export default function BecasApplication() {
 
   /* ── submit ── */
   const submitAll = useCallback(async () => {
-    if (!state.token) {
-      goTo(1);
-      return;
-    }
-    const e = { ...validateStep2(state.student), ...validateStep3(state.category, state.uploads, catalog) };
+    const e1 = validateStep1(state.contact);
+    const e2 = validateStep2(state.student);
+    const e3 = validateStep3(state.category, state.uploads, catalog);
+    const e = { ...e1, ...e2, ...e3 };
     if (Object.keys(e).length) {
       setErrors(e);
-      goTo(errors.grado || e.alumnoNombres ? 2 : 3);
+      goTo(Object.keys(e1).length ? 1 : Object.keys(e2).length ? 2 : 3);
       return;
     }
     dispatch({ type: 'request', request: { status: 'pending', stage: 'submit' } });
@@ -283,8 +314,10 @@ export default function BecasApplication() {
     if (c.evidenciaUrl.trim()) declarado.evidenciaUrl = c.evidenciaUrl.trim();
 
     try {
+      const token = await ensureToken();
       const res = await becasApi.submit({
-        token: state.token,
+        website: honeypot.current,
+        token,
         campus: state.contact.campus,
         ciclo: state.contact.ciclo,
         grado: state.student.grado,
@@ -333,10 +366,10 @@ export default function BecasApplication() {
       dispatch({ type: 'request', request: { status: 'error', stage: 'submit', code } });
       track('becas_error', { stage: 'submit', code });
     }
-  }, [state, catalog, refCode, track, goTo, errors.grado, gradoData?.nivel, calc.grado, refreshLive, scrollTo]);
+  }, [state, catalog, refCode, track, goTo, gradoData?.nivel, calc.grado, refreshLive, scrollTo, ensureToken]);
 
   /* ── closed program ── */
-  if (!catalog) return null;
+  if (!catalog || !catalog.open) return null;
 
   const pending = state.request.status === 'pending';
   const requestError = state.request.status === 'error' ? a.errors[state.request.code ?? 'upstream'] ?? a.errors.upstream : null;
@@ -352,6 +385,7 @@ export default function BecasApplication() {
             <SuccessCard folio={state.submitted.folio} statusUrl={state.submitted.statusUrl} onAnother={() => {
               clearDraft();
               dispatch({ type: 'reset', idempotencyKey: uuid(), leadEventId: newEventId() });
+              dispatch({ type: 'prefill', contact: { campus: calc.campus, ciclo: calc.ciclo }, student: { grado: calc.grado }, categoria: calc.categoria });
               setErrors({});
             }} />
           ) : (
@@ -405,7 +439,7 @@ export default function BecasApplication() {
                     onFocusCapture={markInteract}
                   >
                     {state.step === 1 && (
-                      <StepContact state={state} dispatch={dispatch} err={err} onNext={submitStep1} grados={grados} />
+                      <StepContact state={state} dispatch={dispatch} err={err} onNext={submitStep1} grados={grados} onHoneypot={(v) => (honeypot.current = v)} />
                     )}
                     {state.step === 2 && (
                       <StepStudent state={state} dispatch={dispatch} err={err} onNext={submitStep2} grados={grados} />
@@ -420,7 +454,7 @@ export default function BecasApplication() {
                         categories={availableCategories}
                         onPick={onPick}
                         onRetry={onRetry}
-                        onRemove={(id) => dispatch({ type: 'upload.remove', localId: id })}
+                        onRemove={onRemoveUpload}
                         setErrors={setErrors}
                       />
                     )}
@@ -431,6 +465,15 @@ export default function BecasApplication() {
                 {requestError && (
                   <div role="alert" className="mt-6 rounded-xl border border-[#77011B]/30 bg-[#77011B]/[0.04] px-4 py-3 text-sm text-[#77011B]">
                     {requestError}
+                    {state.request.fields && Object.keys(state.request.fields).length > 0 && (
+                      <ul className="mt-2 space-y-0.5 font-mono text-xs">
+                        {Object.entries(state.request.fields).map(([k, v]) => (
+                          <li key={k}>
+                            {k}: {v}
+                          </li>
+                        ))}
+                      </ul>
+                    )}
                     {(state.request.code === 'network' || state.request.code === 'upstream' || state.request.code === 'timeout') && (
                       <a
                         href={`https://wa.me/${BECAS_WHATSAPP}?text=${encodeURIComponent(copy.finalCta.whatsappText)}`}
@@ -487,7 +530,7 @@ type StepProps = {
   grados: { key: string; label: string }[];
 };
 
-function StepContact({ state, dispatch, err, onNext }: StepProps) {
+function StepContact({ state, dispatch, err, onNext, onHoneypot }: StepProps & { onHoneypot: (v: string) => void }) {
   const { catalog, copy, calc } = useBecas();
   const a = copy.apply;
   const c = state.contact;
@@ -530,7 +573,7 @@ function StepContact({ state, dispatch, err, onNext }: StepProps) {
 
       {/* honeypot — real browsers never fill it */}
       <div aria-hidden="true" className="absolute -left-[9999px] top-auto w-px h-px overflow-hidden">
-        <input type="text" name="website" tabIndex={-1} autoComplete="off" defaultValue="" />
+        <input type="text" name="website" tabIndex={-1} autoComplete="off" defaultValue="" onChange={(e) => onHoneypot(e.target.value)} />
       </div>
 
       <Checkbox checked={c.consent} onChange={(v) => set({ consent: v })} error={err('consent')}>

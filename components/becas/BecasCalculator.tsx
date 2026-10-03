@@ -42,7 +42,7 @@ export default function BecasCalculator() {
     }
   }, [selection, calc.referrals, track]);
 
-  if (!catalog) {
+  if (!catalog || !catalog.open) {
     return (
       <section id="calculadora" className="section-padding bg-n-50 animate-section">
         <div className="container-custom">

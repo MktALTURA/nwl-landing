@@ -41,7 +41,9 @@ export async function POST(req: NextRequest) {
       const a = data.attribution;
       const clickIds: Record<string, string> = {};
       for (const [k, v] of Object.entries(a.clickIds ?? {})) if (v) clickIds[k] = v;
-      void writeAttributionToContact(res.contactId, {
+      // Awaited: Vercel freezes the function once the response is sent, so a
+      // fire-and-forget fetch here would never run.
+      await writeAttributionToContact(res.contactId, {
         token: `beca-${res.token}`,
         clickedAt: Date.now(),
         landing_page: a.landing_page,

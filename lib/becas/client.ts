@@ -79,7 +79,7 @@ async function post<T>(path: string, body: Record<string, unknown>, retries = 1)
     res = await fetch(path, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ ...body, ft, website: '' }),
+      body: JSON.stringify({ website: '', ...body, ft }),
     });
   } catch {
     if (retries > 0) return post<T>(path, body, retries - 1);
@@ -109,6 +109,7 @@ export const becasApi = {
   documentTicket: (body: Record<string, unknown>) =>
     post<{ docId: string; uploadUrl: string; method: 'PUT'; headers: Record<string, string>; maxBytes: number }>('/api/becas/documents', body),
   submit: (body: Record<string, unknown>) => post<{ folio: string; token: string; statusUrl: string }>('/api/becas/submit', body),
+  deleteDocument: (body: Record<string, unknown>) => post<{ ok: true }>('/api/becas/documents/delete', body),
 };
 
 /** PUT the bytes to the worker ticket URL with progress. */

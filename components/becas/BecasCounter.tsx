@@ -11,16 +11,17 @@ import { formatCiclo } from '@/lib/becas/format';
  */
 export default function BecasCounter() {
   const { catalog, copy, live } = useBecas();
-  if (!catalog) return null;
+  if (!catalog || !catalog.open) return null;
 
   const actual = catalog.ciclos.find((c) => c.tipo === 'actual')?.key;
-  const total = live?.cuposTotal ?? catalog.cuposTotal;
+  // Once the live call answered, it is the truth even when it says null
+  // (a campus hid its cupo): never fall back to the stale ISR figure.
+  const total = live ? live.cuposTotal : catalog.cuposTotal;
   if (total === null || total === undefined) return null;
 
   const perCampus = catalog.campuses.map((c) => {
-    const liveValue = live?.cupos?.[c.slug];
     const fromCatalog = actual ? c.ciclos[actual]?.cupo : undefined;
-    const value = liveValue !== undefined ? liveValue : fromCatalog?.visible ? fromCatalog.restante : null;
+    const value = live ? live.cupos?.[c.slug] ?? null : fromCatalog?.visible ? fromCatalog.restante : null;
     return { slug: c.slug, label: c.label, value };
   });
 

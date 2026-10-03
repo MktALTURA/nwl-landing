@@ -1,6 +1,6 @@
 import { unstable_cache } from 'next/cache';
 import type { BecasCampus, BecasCatalog, BecasCupo, BecasGrado, BecasVariant, SiteCampusSlug } from './contract';
-import { fetchCatalog } from './worker-client';
+import { fetchCatalog, isMockMode } from './worker-client';
 import { fixtureCatalog } from './fixtures';
 
 export const BECAS_CACHE_TAG = 'becas';
@@ -152,7 +152,12 @@ const loadRaw = unstable_cache(async () => fetchCatalog(), ['becas-catalog'], {
 export async function getCatalogSafe(variantOverride?: BecasVariant): Promise<PublicCatalog | null> {
   try {
     const raw = await loadRaw();
-    const mock = !process.env.BECAS_API_URL || process.env.BECAS_MOCK === '1';
+    let mock = false;
+    try {
+      mock = isMockMode();
+    } catch {
+      mock = false;
+    }
     return toPublicCatalog(raw, variantOverride, mock);
   } catch (err) {
     console.error('[becas] catalog unavailable:', err);
