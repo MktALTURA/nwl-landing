@@ -173,7 +173,7 @@ export interface BecasStartResponse {
 
 /* ────────────────── POST /applications/{token}/documents ────────────────── */
 
-export type BecaDocKind = 'boleta' | 'evidencia';
+export type BecaDocKind = 'boleta' | 'constancia' | 'evidencia';
 
 export interface BecasDocumentRequest {
   kind: BecaDocKind;
@@ -197,6 +197,10 @@ export type NivelCompetencia = 'estatal' | 'regional' | 'nacional' | 'internacio
 
 export interface BecasDeclarado {
   promedio?: number;
+  /** Académica: ciclo escolar de la boleta ("2025-2026"). */
+  boletaCiclo?: string;
+  /** Académica: the family authorises NWL to verify the boleta with the school. */
+  autorizaVerificacion?: boolean;
   nivelCompetencia?: NivelCompetencia;
   anioCompetencia?: number;
   deporte?: string;

@@ -186,7 +186,7 @@ export function fixtureCatalog(variant: BecasVariant): BecasCatalog {
       { key: 'deportiva', enabled: true, evidencia: 'archivo_o_liga' },
       { key: 'academica', enabled: true, evidencia: 'boleta', niveles: ['Primaria', 'Secundaria', 'Prepa'], promedioMinimo: 8.5 },
       { key: 'cultural', enabled: true, evidencia: 'archivo_o_liga' },
-      { key: 'espiritu', enabled: true, evidencia: 'carta', cartaMinChars: 400, cartaMaxChars: 3000 },
+      { key: 'espiritu', enabled: true, evidencia: 'carta', cartaMinChars: 900, cartaMaxChars: 3000 },
     ],
     uploads: {
       maxBytes: 10 * 1024 * 1024,

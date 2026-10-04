@@ -1,4 +1,4 @@
-import type { BecaCategoria, NivelCompetencia, SiteCampusSlug } from '@/lib/becas/contract';
+import type { BecaCategoria, BecaDocKind, NivelCompetencia, SiteCampusSlug } from '@/lib/becas/contract';
 import type { PublicCatalog } from '@/lib/becas/catalog';
 import { normalizePhoneMX } from '@/lib/phone';
 
@@ -10,7 +10,7 @@ export type Step = 1 | 2 | 3 | 4;
 
 export interface UploadItem {
   localId: string;
-  kind: 'boleta' | 'evidencia';
+  kind: BecaDocKind;
   name: string;
   sizeKb: number;
   status: 'compressing' | 'uploading' | 'done' | 'error';
@@ -47,6 +47,8 @@ export interface AppState {
   category: {
     id?: BecaCategoria;
     promedio: string;
+    boletaCiclo: string;
+    autorizaVerificacion: boolean;
     deporte: string;
     nivelCompetencia?: NivelCompetencia;
     anioCompetencia: string;
@@ -54,7 +56,10 @@ export interface AppState {
     anosFormacion: string;
     presentacionPublica: boolean | null;
     evidenciaUrl: string;
-    cartaMotivos: string;
+    /** Espíritu NWL: three guided sections, joined by buildCarta() on submit. */
+    cartaAlumno: string;
+    cartaPorQue: string;
+    cartaComunidad: string;
     referidoPor: string;
     referidoCodigo: string;
   };
@@ -88,13 +93,17 @@ export function initialState(idempotencyKey: string, leadEventId: string): AppSt
     },
     category: {
       promedio: '',
+      boletaCiclo: '',
+      autorizaVerificacion: false,
       deporte: '',
       anioCompetencia: '',
       disciplina: '',
       anosFormacion: '',
       presentacionPublica: null,
       evidenciaUrl: '',
-      cartaMotivos: '',
+      cartaAlumno: '',
+      cartaPorQue: '',
+      cartaComunidad: '',
       referidoPor: '',
       referidoCodigo: '',
     },
@@ -125,8 +134,17 @@ export type Action =
 
 export function reducer(state: AppState, action: Action): AppState {
   switch (action.type) {
-    case 'hydrate':
-      return { ...state, ...action.state, request: { status: 'idle' } };
+    case 'hydrate': {
+      const h = action.state;
+      return {
+        ...state,
+        ...h,
+        contact: { ...state.contact, ...(h.contact ?? {}) },
+        student: { ...state.student, ...(h.student ?? {}) },
+        category: { ...state.category, ...(h.category ?? {}) },
+        request: { status: 'idle' },
+      };
+    }
     case 'contact':
       return {
         ...state,
@@ -225,7 +243,7 @@ export function validateStep3(
     return e;
   }
   const cfg = catalog?.categorias.find((x) => x.key === c.id);
-  const doneOf = (kind: 'boleta' | 'evidencia') => uploads.some((u) => u.kind === kind && u.status === 'done');
+  const doneOf = (kind: BecaDocKind) => uploads.some((u) => u.kind === kind && u.status === 'done');
   const hasLink = /^https:\/\/\S+$/.test(c.evidenciaUrl.trim());
   if (c.evidenciaUrl.trim() && !hasLink) e.evidenciaUrl = 'url';
   const thisYear = new Date().getFullYear();
@@ -235,7 +253,10 @@ export function validateStep3(
       const p = Number(c.promedio.replace(',', '.'));
       if (!c.promedio.trim() || Number.isNaN(p) || p < 5 || p > 10) e.promedio = 'promedio';
       else if (p < (cfg?.promedioMinimo ?? 8.5)) e.promedio = 'promedioLow';
+      if (!/^\d{4}-\d{4}$/.test(c.boletaCiclo)) e.boletaCiclo = 'required';
       if (!doneOf('boleta')) e.boleta = 'boleta';
+      if (!doneOf('constancia')) e.constancia = 'constancia';
+      if (!c.autorizaVerificacion) e.autorizaVerificacion = 'autoriza';
       break;
     }
     case 'deportiva': {
@@ -255,20 +276,70 @@ export function validateStep3(
       break;
     }
     case 'espiritu': {
-      const min = cfg?.cartaMinChars ?? 400;
-      const max = cfg?.cartaMaxChars ?? 3000;
-      const len = c.cartaMotivos.trim().length;
-      if (len < min) e.cartaMotivos = 'carta';
-      else if (len > max) e.cartaMotivos = 'cartaLong';
+      const { sectionMin, max } = cartaLimits(catalog);
+      for (const key of CARTA_SECTIONS) {
+        if (c[key].trim().length < sectionMin) e[key] = 'cartaSection';
+      }
+      if (buildCarta(c).length > max) e.cartaComunidad = 'cartaLong';
       break;
     }
   }
   return e;
 }
 
-/** Which evidence block the category needs. */
-export function evidenceKind(id?: BecaCategoria): 'boleta' | 'evidencia' | null {
-  if (id === 'academica') return 'boleta';
-  if (id === 'deportiva' || id === 'cultural') return 'evidencia';
-  return null;
+/* ───────────────────────── per-category shape ───────────────────────── */
+
+export interface DocSlot {
+  kind: BecaDocKind;
+  required: boolean;
+  /** Accepts an https link instead of a file (deportiva / cultural evidence). */
+  orLink: boolean;
+}
+
+/** Which upload blocks the category shows, in order. */
+export function docSlots(id?: BecaCategoria): DocSlot[] {
+  switch (id) {
+    case 'academica':
+      return [
+        { kind: 'boleta', required: true, orLink: false },
+        { kind: 'constancia', required: true, orLink: false },
+      ];
+    case 'deportiva':
+    case 'cultural':
+      return [{ kind: 'evidencia', required: true, orLink: true }];
+    case 'espiritu':
+      return [{ kind: 'evidencia', required: false, orLink: true }];
+    default:
+      return [];
+  }
+}
+
+export const CARTA_SECTIONS = ['cartaAlumno', 'cartaPorQue', 'cartaComunidad'] as const;
+export type CartaSection = (typeof CARTA_SECTIONS)[number];
+
+const CARTA_HEADINGS: Record<CartaSection, string> = {
+  cartaAlumno: '## Quién es',
+  cartaPorQue: '## Por qué NWL',
+  cartaComunidad: '## Aporte a la comunidad',
+};
+
+/** Limits from the catalog: the worker's total minimum split across the three sections. */
+export function cartaLimits(catalog: PublicCatalog | null): { sectionMin: number; max: number; totalMin: number } {
+  const cfg = catalog?.categorias.find((x) => x.key === 'espiritu');
+  const totalMin = cfg?.cartaMinChars ?? 900;
+  const max = cfg?.cartaMaxChars ?? 3000;
+  return { sectionMin: Math.ceil(totalMin / CARTA_SECTIONS.length), max, totalMin };
+}
+
+/** The carta de motivos the worker stores: three sections with Spanish headings. */
+export function buildCarta(c: Pick<AppState['category'], CartaSection>): string {
+  return CARTA_SECTIONS.map((k) => `${CARTA_HEADINGS[k]}\n${c[k].trim()}`).join('\n\n');
+}
+
+/** Ciclo escolar options for the boleta: the one in progress and the one before. */
+export function boletaCiclos(now = new Date()): string[] {
+  const y = now.getFullYear();
+  const current = now.getMonth() >= 7 ? `${y}-${y + 1}` : `${y - 1}-${y}`;
+  const [a] = current.split('-').map(Number);
+  return [current, `${a - 1}-${a}`];
 }

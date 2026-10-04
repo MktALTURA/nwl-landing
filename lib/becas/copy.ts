@@ -1,4 +1,4 @@
-import type { BecaCategoria, BecaPublicStatus } from './contract';
+import type { BecaCategoria, BecaDocKind, BecaPublicStatus } from './contract';
 
 /* ------------------------------------------------------------------ */
 /*  Copy for the becas page, status and verify pages. ES is the        */
@@ -89,13 +89,23 @@ export interface BecasCopy {
     yesNo: { yes: string; no: string };
     fromCalc: string;
     change: string;
-    uploadTitle: Record<'boleta' | 'evidencia', string>;
+    uploadTitle: Record<BecaDocKind, string>;
+    uploadSub: Record<BecaDocKind, string>;
     uploadHint: string;
     uploadOrLink: string;
     uploadBtn: string;
     uploadRemove: string;
     uploadRetry: string;
     uploadStates: Record<'compressing' | 'uploading' | 'done' | 'error', string>;
+    requirements: { title: string; met: (n: number, total: number) => string; verifyLabel: string; verifyHint: string; verifyShort: string; presentacionShort: string };
+    carta: {
+      intro: string;
+      sections: Record<'cartaAlumno' | 'cartaPorQue' | 'cartaComunidad', { label: string; hint: string; placeholder: string }>;
+      minHint: (min: number) => string;
+      recommendation: string;
+      recommendationHint: string;
+      committee: string;
+    };
     reviewTitle: string;
     reviewEdit: string;
     next: string;
@@ -192,8 +202,8 @@ const es: BecasCopy = {
         key: 'academica',
         name: 'Beca Académica',
         tagline: 'Para quien ya destaca.',
-        requirement: 'Promedio de 8.5 o más en la última boleta oficial SEP.',
-        needs: ['Foto o PDF de la última boleta', 'Promedio general declarado'],
+        requirement: 'Promedio de 8.5 o más en la última boleta oficial SEP, verificable con la escuela de procedencia.',
+        needs: ['Última boleta oficial SEP, completa', 'Constancia de estudios vigente con sello', 'Autorización para verificar con su escuela'],
         forWhom: 'De 2º de Primaria en adelante.',
       },
       {
@@ -208,8 +218,8 @@ const es: BecasCopy = {
         key: 'espiritu',
         name: 'Beca Espíritu NWL',
         tagline: 'Para quien quiere pertenecer.',
-        requirement: 'Una carta breve: por qué su familia y NWL se entienden.',
-        needs: ['Solo la carta, escrita en el formulario', 'Sin documentos'],
+        requirement: 'Una carta de motivos en tres partes: quién es, por qué NWL y qué aporta su familia.',
+        needs: ['Carta guiada de 900 caracteres o más', 'Carta de recomendación opcional', 'La lee completa el Comité de Becas'],
         forWhom: 'Todos los grados, incluidos Maternal y Kinder.',
       },
     ],
@@ -285,6 +295,7 @@ const es: BecasCopy = {
       gradoActual: 'Grado actual',
       categoria: 'Categoría de beca',
       promedio: 'Promedio general de la última boleta',
+      boletaCiclo: 'Ciclo escolar de la boleta',
       deporte: 'Deporte',
       nivelCompetencia: 'Nivel más alto en el que ha competido',
       anioCompetencia: 'Año de esa competencia',
@@ -293,6 +304,7 @@ const es: BecasCopy = {
       presentacionPublica: '¿Ha participado en una presentación, exposición o concurso público?',
       evidenciaUrl: 'Liga a video, resultados o constancia (opcional)',
       cartaMotivos: 'Carta de motivos',
+      cartaRecomendacionUrl: 'Liga a la carta de recomendación (opcional)',
       referidoPor: '¿Quién te recomendó NWL? (opcional)',
       referidoCodigo: 'Código de referido (opcional)',
     },
@@ -319,8 +331,8 @@ const es: BecasCopy = {
     },
     hints: {
       telefono: 'A 10 dígitos. Te escribimos aquí.',
-      promedio: 'Escala 5 a 10. La boleta la subes en el siguiente paso.',
-      cartaMotivos: 'Entre 400 y 3,000 caracteres.',
+      promedio: 'Escala 5 a 10, tal como aparece en la boleta. Lo cotejamos con el documento.',
+      boletaCiclo: 'El ciclo que cubre la boleta que vas a subir.',
       nacimiento: 'Nos ayuda a ubicar al alumno si ya tenemos una solicitud.',
     },
     consent: 'He leído el aviso de privacidad y acepto que NWL Australian School use estos datos para evaluar la solicitud de beca.',
@@ -339,13 +351,50 @@ const es: BecasCopy = {
     yesNo: { yes: 'Sí', no: 'No' },
     fromCalc: 'Tomado de tu cálculo',
     change: 'Cambiar',
-    uploadTitle: { boleta: 'Última boleta oficial', evidencia: 'Constancia o evidencia' },
+    uploadTitle: { boleta: 'Última boleta oficial SEP', constancia: 'Constancia de estudios vigente', evidencia: 'Constancia o evidencia' },
+    uploadSub: {
+      boleta: 'Todas las páginas, con el promedio general visible.',
+      constancia: 'Emitida por la escuela actual, con sello y firma. No mayor a 3 meses.',
+      evidencia: 'Constancia, credencial, programa, resultados o reconocimiento.',
+    },
     uploadHint: 'Foto o PDF. Hasta 10 MB. Las fotos se comprimen solas.',
     uploadOrLink: 'O pega una liga abajo.',
     uploadBtn: 'Subir archivo',
     uploadRemove: 'Quitar',
     uploadRetry: 'Reintentar',
     uploadStates: { compressing: 'Preparando…', uploading: 'Subiendo…', done: 'Listo', error: 'No se pudo subir' },
+    requirements: {
+      title: 'Requisitos de esta beca',
+      met: (n, total) => `${n} de ${total} listos`,
+      verifyLabel: 'Declaro que la boleta es auténtica y autorizo a NWL Australian School a verificarla con la escuela de procedencia.',
+      verifyHint: 'Sin esta autorización la solicitud no se puede evaluar.',
+      verifyShort: 'Autorización para verificar la boleta',
+      presentacionShort: 'Presentación o concurso público',
+    },
+    carta: {
+      intro: 'Esta beca no pide documentos: pide una carta que el Comité de Becas lee completa. Responde las tres preguntas con ejemplos concretos, en sus palabras.',
+      sections: {
+        cartaAlumno: {
+          label: '1. ¿Quién es tu hijo o hija?',
+          hint: 'Cómo es, qué le apasiona, qué lo hace distinto. Un ejemplo vale más que un adjetivo.',
+          placeholder: 'Sofía tiene ocho años y…',
+        },
+        cartaPorQue: {
+          label: '2. ¿Por qué NWL?',
+          hint: 'Qué conocen del colegio y qué esperan que cambie para su familia.',
+          placeholder: 'Conocimos NWL por…',
+        },
+        cartaComunidad: {
+          label: '3. ¿Cómo aportará su familia a la comunidad NWL?',
+          hint: 'Tiempo, oficio, talento, red. Lo que puedan sumar de verdad.',
+          placeholder: 'Podemos participar con…',
+        },
+      },
+      minHint: (min) => `Mínimo ${min} caracteres por respuesta.`,
+      recommendation: 'Carta de recomendación (opcional)',
+      recommendationHint: 'De un maestro, entrenador o director de su escuela actual. Suma, pero no es obligatoria.',
+      committee: 'La carta se evalúa tal como se envía. No se puede editar después.',
+    },
     reviewTitle: 'Revisa antes de enviar',
     reviewEdit: 'Editar',
     next: 'Continuar',
@@ -362,10 +411,12 @@ const es: BecasCopy = {
       promedioLow: 'Con menos de 8.5 la Beca Académica no aplica. Puedes elegir Espíritu NWL con un clic.',
       switchEspiritu: 'Cambiar a Espíritu NWL',
       url: 'Revisa la liga (debe empezar con https://).',
-      carta: 'Cuéntanos un poco más: mínimo 400 caracteres.',
-      cartaLong: 'Máximo 3,000 caracteres.',
+      cartaSection: 'Cuéntanos un poco más en esta respuesta.',
+      cartaLong: 'La carta completa supera el máximo de 3,000 caracteres.',
       evidence: 'Sube un archivo o pega una liga.',
       boleta: 'Sube la boleta para continuar.',
+      constancia: 'Sube la constancia de estudios para continuar.',
+      autoriza: 'Necesitamos tu autorización para verificar la boleta.',
       consent: 'Necesitamos tu consentimiento para continuar.',
       newFamily: 'Elige una opción.',
       newFamilyNo: 'Este programa es para familias de nuevo ingreso. Escríbenos por WhatsApp y te contamos del programa de referidos.',
@@ -506,9 +557,9 @@ const en: BecasCopy = {
     choose: 'Apply with this one',
     items: [
       { key: 'deportiva', name: 'Sports Scholarship', tagline: 'For those who already compete.', requirement: 'State-level competition or above in the last two years.', needs: ['Certificate, league or federation credential, or a results link', 'The student stays on their team and represents NWL'], forWhom: 'Any sport, any grade.' },
-      { key: 'academica', name: 'Academic Scholarship', tagline: 'For those who already stand out.', requirement: 'Grade average of 8.5 or higher on the latest official SEP report card.', needs: ['Photo or PDF of the latest report card', 'Declared overall average'], forWhom: 'From 2nd grade of Primary School onward.' },
+      { key: 'academica', name: 'Academic Scholarship', tagline: 'For those who already stand out.', requirement: 'Grade average of 8.5 or higher on the latest official SEP report card, verifiable with the current school.', needs: ['Latest official SEP report card, all pages', 'Current enrollment certificate with school seal', 'Authorization to verify with the school'], forWhom: 'From 2nd grade of Primary School onward.' },
       { key: 'cultural', name: 'Arts Scholarship', tagline: 'For those who already create.', requirement: 'One year or more of training, or a public performance, exhibition or contest.', needs: ['Academy certificate, event programme or video link', 'Music, dance, theatre or visual arts'], forWhom: 'Any grade.' },
-      { key: 'espiritu', name: 'NWL Spirit Scholarship', tagline: 'For those who want to belong.', requirement: 'A short letter: why your family and NWL fit.', needs: ['Just the letter, written in the form', 'No documents'], forWhom: 'All grades, including Maternal and Kinder.' },
+      { key: 'espiritu', name: 'NWL Spirit Scholarship', tagline: 'For those who want to belong.', requirement: 'A letter of motivation in three parts: who they are, why NWL, and what your family brings.', needs: ['Guided letter of 900 characters or more', 'Optional recommendation letter', 'Read in full by the Scholarship Committee'], forWhom: 'All grades, including Maternal and Kinder.' },
     ],
   },
   calculator: {
@@ -582,6 +633,7 @@ const en: BecasCopy = {
       gradoActual: 'Current grade',
       categoria: 'Scholarship category',
       promedio: 'Overall average on the latest report card',
+      boletaCiclo: 'School year of the report card',
       deporte: 'Sport',
       nivelCompetencia: 'Highest level competed at',
       anioCompetencia: 'Year of that competition',
@@ -590,14 +642,15 @@ const en: BecasCopy = {
       presentacionPublica: 'Has the student taken part in a public performance, exhibition or contest?',
       evidenciaUrl: 'Link to video, results or certificate (optional)',
       cartaMotivos: 'Letter of motivation',
+      cartaRecomendacionUrl: 'Link to the recommendation letter (optional)',
       referidoPor: 'Who referred you to NWL? (optional)',
       referidoCodigo: 'Referral code (optional)',
     },
     placeholders: es.apply.placeholders,
     hints: {
       telefono: '10 digits. We will write to you here.',
-      promedio: 'Scale 5 to 10. You upload the report card in the next step.',
-      cartaMotivos: 'Between 400 and 3,000 characters.',
+      promedio: 'Scale 5 to 10, exactly as printed on the report card. We check it against the document.',
+      boletaCiclo: 'The school year the report card you will upload covers.',
       nacimiento: 'Helps us find the student if we already have an application.',
     },
     consent: 'I have read the privacy notice and agree that NWL Australian School may use these details to evaluate the scholarship application.',
@@ -616,13 +669,38 @@ const en: BecasCopy = {
     yesNo: { yes: 'Yes', no: 'No' },
     fromCalc: 'From your calculation',
     change: 'Change',
-    uploadTitle: { boleta: 'Latest official report card', evidencia: 'Certificate or evidence' },
+    uploadTitle: { boleta: 'Latest official SEP report card', constancia: 'Current enrollment certificate', evidencia: 'Certificate or evidence' },
+    uploadSub: {
+      boleta: 'All pages, with the overall average visible.',
+      constancia: 'Issued by the current school, with seal and signature. No older than 3 months.',
+      evidencia: 'Certificate, credential, programme, results or award.',
+    },
     uploadHint: 'Photo or PDF. Up to 10 MB. Photos are compressed automatically.',
     uploadOrLink: 'Or paste a link below.',
     uploadBtn: 'Upload file',
     uploadRemove: 'Remove',
     uploadRetry: 'Retry',
     uploadStates: { compressing: 'Preparing…', uploading: 'Uploading…', done: 'Done', error: 'Upload failed' },
+    requirements: {
+      title: 'Requirements for this scholarship',
+      met: (n, total) => `${n} of ${total} ready`,
+      verifyLabel: 'I declare the report card is authentic and authorize NWL Australian School to verify it with the current school.',
+      verifyHint: 'Without this authorization the application cannot be evaluated.',
+      verifyShort: 'Authorization to verify the report card',
+      presentacionShort: 'Public performance or contest',
+    },
+    carta: {
+      intro: 'This scholarship asks for no documents. It asks for a letter the Scholarship Committee reads in full. Answer the three questions with concrete examples, in your own words.',
+      sections: {
+        cartaAlumno: { label: '1. Who is your child?', hint: 'What they are like, what they love, what makes them different. One example beats an adjective.', placeholder: 'Sofía is eight and…' },
+        cartaPorQue: { label: '2. Why NWL?', hint: 'What you know about the school and what you hope changes for your family.', placeholder: 'We heard about NWL through…' },
+        cartaComunidad: { label: '3. How will your family contribute to the NWL community?', hint: 'Time, trade, talent, network. Whatever you can truly add.', placeholder: 'We can take part by…' },
+      },
+      minHint: (min) => `At least ${min} characters per answer.`,
+      recommendation: 'Recommendation letter (optional)',
+      recommendationHint: 'From a teacher, coach or principal at the current school. It helps, but it is not required.',
+      committee: 'The letter is evaluated as sent. It cannot be edited afterwards.',
+    },
     reviewTitle: 'Review before sending',
     reviewEdit: 'Edit',
     next: 'Continue',
@@ -639,10 +717,12 @@ const en: BecasCopy = {
       promedioLow: 'Below 8.5 the Academic Scholarship does not apply. You can switch to NWL Spirit in one click.',
       switchEspiritu: 'Switch to NWL Spirit',
       url: 'Check the link (it must start with https://).',
-      carta: 'Tell us a bit more: at least 400 characters.',
-      cartaLong: 'At most 3,000 characters.',
+      cartaSection: 'Tell us a bit more in this answer.',
+      cartaLong: 'The full letter is over the 3,000-character limit.',
       evidence: 'Upload a file or paste a link.',
       boleta: 'Upload the report card to continue.',
+      constancia: 'Upload the enrollment certificate to continue.',
+      autoriza: 'We need your authorization to verify the report card.',
       consent: 'We need your consent to continue.',
       newFamily: 'Choose an option.',
       newFamilyNo: 'This program is for new families. Write to us on WhatsApp and we will tell you about the referral program.',

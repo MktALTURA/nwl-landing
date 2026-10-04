@@ -5,7 +5,7 @@ import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import { FiArrowLeft, FiArrowRight, FiCheck, FiEdit2 } from 'react-icons/fi';
 import { FaWhatsapp } from 'react-icons/fa';
 import Crest from '@/components/ui/Crest';
-import type { BecaCategoria, NivelCompetencia, SiteCampusSlug } from '@/lib/becas/contract';
+import type { BecaCategoria, BecaDocKind, NivelCompetencia, SiteCampusSlug } from '@/lib/becas/contract';
 import { becasApi, ApiError, uploadToTicket } from '@/lib/becas/client';
 import { prepareFile } from '@/lib/becas/compress';
 import { clearDraft, loadDraft, saveDraft } from '@/lib/becas/draft';
@@ -16,12 +16,17 @@ import { fireMetaEvent, isMetaTrackingHost, newEventId } from '@/lib/meta-pixel'
 import { normalizePhoneMX } from '@/lib/phone';
 import { collectAttribution } from '@/lib/wa-attribution';
 import { useBecas } from './BecasProvider';
+import { CATEGORY_THEME } from './categoryTheme';
 import SectionHeading from './SectionHeading';
 import PillGroup from './PillGroup';
 import { Checkbox, Choice, SelectField, TextField, TextareaField } from './application/Field';
 import FileDrop from './application/FileDrop';
 import {
-  evidenceKind,
+  CARTA_SECTIONS,
+  boletaCiclos,
+  buildCarta,
+  cartaLimits,
+  docSlots,
   initialState,
   reducer,
   validateStep1,
@@ -219,7 +224,7 @@ export default function BecasApplication() {
 
   /* ── uploads ── */
   const runUpload = useCallback(
-    async (localId: string, file: File, kind: 'boleta' | 'evidencia') => {
+    async (localId: string, file: File, kind: BecaDocKind) => {
       dispatch({ type: 'upload.update', localId, patch: { status: 'compressing', progress: 0.1, error: undefined } });
       const prepared = await prepareFile(file);
       if ('error' in prepared) {
@@ -253,7 +258,7 @@ export default function BecasApplication() {
   );
 
   const pendingFiles = useRef<Map<string, File>>(new Map());
-  const onPick = (kind: 'boleta' | 'evidencia') => (files: FileList) => {
+  const onPick = (kind: BecaDocKind) => (files: FileList) => {
     markInteract();
     const max = catalog?.uploads.maxPorTipo ?? 3;
     const room = Math.max(0, max - state.uploads.filter((u) => u.kind === kind && u.status !== 'error').length);
@@ -303,7 +308,11 @@ export default function BecasApplication() {
     dispatch({ type: 'request', request: { status: 'pending', stage: 'submit' } });
     const c = state.category;
     const declarado: Record<string, unknown> = {};
-    if (c.id === 'academica') declarado.promedio = Number(c.promedio.replace(',', '.'));
+    if (c.id === 'academica') {
+      declarado.promedio = Number(c.promedio.replace(',', '.'));
+      declarado.boletaCiclo = c.boletaCiclo;
+      declarado.autorizaVerificacion = c.autorizaVerificacion === true;
+    }
     if (c.id === 'deportiva') {
       declarado.deporte = c.deporte.trim();
       declarado.nivelCompetencia = c.nivelCompetencia;
@@ -314,8 +323,8 @@ export default function BecasApplication() {
       declarado.anosFormacion = Number(c.anosFormacion);
       declarado.presentacionPublica = c.presentacionPublica === true;
     }
-    if (c.id === 'espiritu') declarado.cartaMotivos = c.cartaMotivos.trim();
-    if (c.evidenciaUrl.trim()) declarado.evidenciaUrl = c.evidenciaUrl.trim();
+    if (c.id === 'espiritu') declarado.cartaMotivos = buildCarta(c);
+    if (c.id !== 'academica' && c.evidenciaUrl.trim()) declarado.evidenciaUrl = c.evidenciaUrl.trim();
 
     try {
       const token = await ensureToken();
@@ -664,20 +673,68 @@ function StepCategory({
   setErrors,
 }: StepProps & {
   categories: { key: BecaCategoria; name: string; tagline: string }[];
-  onPick: (kind: 'boleta' | 'evidencia') => (files: FileList) => void;
+  onPick: (kind: BecaDocKind) => (files: FileList) => void;
   onRetry: (localId: string) => void;
   onRemove: (localId: string) => void;
   setErrors: (e: Errors) => void;
 }) {
-  const { copy, catalog } = useBecas();
+  const { copy, catalog, track } = useBecas();
   const a = copy.apply;
   const c = state.category;
   const set = (patch: Partial<AppState['category']>) => dispatch({ type: 'category', patch });
-  const kind = evidenceKind(c.id);
   const cfg = catalog?.categorias.find((x) => x.key === c.id);
-  const cartaMin = cfg?.cartaMinChars ?? 400;
-  const cartaMax = cfg?.cartaMaxChars ?? 3000;
-  const uploadsOf = (k: 'boleta' | 'evidencia') => state.uploads.filter((u) => u.kind === k);
+  const theme = c.id ? CATEGORY_THEME[c.id] : null;
+  const slots = docSlots(c.id);
+  const { sectionMin, max: cartaMax } = cartaLimits(catalog);
+  const uploadsOf = (k: BecaDocKind) => state.uploads.filter((u) => u.kind === k);
+  const doneOf = (k: BecaDocKind) => state.uploads.some((u) => u.kind === k && u.status === 'done');
+  const hasLink = /^https:\/\/\S+$/.test(c.evidenciaUrl.trim());
+  const pick = (key: BecaCategoria) => {
+    dispatch({ type: 'category', patch: { id: key }, touched: 'categoria' });
+    setErrors({});
+    track('becas_category_select', { category: key, source: 'form' });
+  };
+
+  /* Live checklist: what this category needs and what is already in place. */
+  const checklist: { label: string; ok: boolean }[] = (() => {
+    const thisYear = new Date().getFullYear();
+    switch (c.id) {
+      case 'academica': {
+        const p = Number(c.promedio.replace(',', '.'));
+        return [
+          { label: a.fields.promedio, ok: c.promedio.trim() !== '' && !Number.isNaN(p) && p >= (cfg?.promedioMinimo ?? 8.5) && p <= 10 },
+          { label: a.fields.boletaCiclo, ok: /^\d{4}-\d{4}$/.test(c.boletaCiclo) },
+          { label: a.uploadTitle.boleta, ok: doneOf('boleta') },
+          { label: a.uploadTitle.constancia, ok: doneOf('constancia') },
+          { label: a.requirements.verifyShort, ok: c.autorizaVerificacion },
+        ];
+      }
+      case 'deportiva': {
+        const y = Number(c.anioCompetencia);
+        return [
+          { label: a.fields.deporte, ok: c.deporte.trim() !== '' },
+          { label: a.fields.nivelCompetencia, ok: Boolean(c.nivelCompetencia) },
+          { label: a.fields.anioCompetencia, ok: !Number.isNaN(y) && y >= thisYear - 2 && y <= thisYear && c.anioCompetencia.length === 4 },
+          { label: a.uploadTitle.evidencia, ok: doneOf('evidencia') || hasLink },
+        ];
+      }
+      case 'cultural':
+        return [
+          { label: a.fields.disciplina, ok: c.disciplina.trim() !== '' },
+          { label: a.fields.anosFormacion, ok: c.anosFormacion.trim() !== '' && !Number.isNaN(Number(c.anosFormacion)) },
+          { label: a.requirements.presentacionShort, ok: c.presentacionPublica !== null },
+          { label: a.uploadTitle.evidencia, ok: doneOf('evidencia') || hasLink },
+        ];
+      case 'espiritu':
+        return CARTA_SECTIONS.map((k) => ({ label: a.carta.sections[k].label, ok: c[k].trim().length >= sectionMin }));
+      default:
+        return [];
+    }
+  })();
+  const met = checklist.filter((x) => x.ok).length;
+  const accent = theme ? (theme.dark ? 'var(--nwl-navy)' : theme.color) : 'var(--nwl-gold)';
+  const tint = (pct: number) => `color-mix(in srgb, ${accent} ${pct}%, white)`;
+  const cartaTotal = buildCarta(c).length;
 
   return (
     <div role="group" aria-label={a.steps.category} className="space-y-6">
@@ -685,23 +742,32 @@ function StepCategory({
         <div className="block text-sm font-semibold text-navy mb-2">{a.fields.categoria}</div>
         <div role="radiogroup" className="grid sm:grid-cols-2 gap-3">
           {categories.map((cat) => {
+            const t = CATEGORY_THEME[cat.key];
+            const Icon = t.icon;
             const selected = c.id === cat.key;
+            const color = t.dark ? 'var(--nwl-navy)' : t.color;
             return (
               <button
                 key={cat.key}
                 type="button"
                 role="radio"
                 aria-checked={selected}
-                onClick={() => {
-                  dispatch({ type: 'category', patch: { id: cat.key }, touched: 'categoria' });
-                  setErrors({});
-                }}
-                className={`text-left rounded-2xl border px-4 py-3.5 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold/60 ${
-                  selected ? 'border-gold bg-gold/10 shadow-gold' : 'border-n-300 bg-white hover:border-gold'
-                }`}
+                onClick={() => pick(cat.key)}
+                style={selected ? { borderColor: color, boxShadow: `0 0 0 1px ${color}`, background: `color-mix(in srgb, ${color} 8%, white)` } : undefined}
+                className="relative text-left rounded-2xl border border-n-300 bg-white px-4 py-3.5 flex items-start gap-3 transition-colors hover:border-gold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold/60"
               >
-                <span className="block font-display font-bold text-navy">{cat.name}</span>
-                <span className="block text-sm text-n-600 italic">{cat.tagline}</span>
+                <span className="mt-0.5 inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full" style={{ background: `color-mix(in srgb, ${color} 14%, white)`, color }}>
+                  <Icon size={17} />
+                </span>
+                <span className="min-w-0 flex-1">
+                  <span className="block font-display font-bold text-navy leading-tight">{cat.name}</span>
+                  <span className="block text-sm text-n-600 italic mt-0.5">{cat.tagline}</span>
+                </span>
+                {selected && (
+                  <span className="absolute top-3 right-3 inline-flex h-5 w-5 items-center justify-center rounded-full text-white" style={{ background: color }}>
+                    <FiCheck size={12} strokeWidth={3} />
+                  </span>
+                )}
               </button>
             );
           })}
@@ -709,86 +775,161 @@ function StepCategory({
         {err('categoria') && <p className="mt-1.5 text-sm text-[#77011B]" role="alert">{err('categoria')}</p>}
       </div>
 
-      {c.id === 'academica' && (
-        <div className="space-y-4">
-          <TextField label={a.fields.promedio} hint={a.hints.promedio} placeholder={a.placeholders.promedio} value={c.promedio} onChange={(e) => set({ promedio: e.target.value })} error={err('promedio')} inputMode="decimal" enterKeyHint="done" onEnter={onNext} />
-          {err('promedio') === a.errors.promedioLow && (
-            <button type="button" onClick={() => { dispatch({ type: 'category', patch: { id: 'espiritu' }, touched: 'categoria' }); setErrors({}); }} className="btn-secondary text-sm">
-              {a.errors.switchEspiritu}
-            </button>
-          )}
-        </div>
-      )}
-
-      {c.id === 'deportiva' && (
-        <div className="grid sm:grid-cols-2 gap-4">
-          <TextField label={a.fields.deporte} placeholder={a.placeholders.deporte} value={c.deporte} onChange={(e) => set({ deporte: e.target.value })} error={err('deporte')} autoCapitalize="words" enterKeyHint="next" onEnter={onNext} />
-          <SelectField label={a.fields.nivelCompetencia} value={c.nivelCompetencia ?? ''} onChange={(e) => set({ nivelCompetencia: e.target.value as NivelCompetencia })} error={err('nivelCompetencia')}>
-            <option value="" disabled>
-              —
-            </option>
-            {a.nivelOptions.map((o) => (
-              <option key={o.value} value={o.value}>
-                {o.label}
-              </option>
-            ))}
-          </SelectField>
-          <TextField label={a.fields.anioCompetencia} value={c.anioCompetencia} onChange={(e) => set({ anioCompetencia: e.target.value.replace(/\D/g, '').slice(0, 4) })} error={err('anioCompetencia')} inputMode="numeric" maxLength={4} placeholder={String(new Date().getFullYear())} enterKeyHint="next" onEnter={onNext} />
-        </div>
-      )}
-
-      {c.id === 'cultural' && (
-        <div className="grid sm:grid-cols-2 gap-4">
-          <TextField label={a.fields.disciplina} placeholder={a.placeholders.disciplina} value={c.disciplina} onChange={(e) => set({ disciplina: e.target.value })} error={err('disciplina')} autoCapitalize="words" enterKeyHint="next" onEnter={onNext} />
-          <TextField label={a.fields.anosFormacion} value={c.anosFormacion} onChange={(e) => set({ anosFormacion: e.target.value.replace(/\D/g, '').slice(0, 2) })} error={err('anosFormacion')} inputMode="numeric" maxLength={2} enterKeyHint="next" onEnter={onNext} />
-          <div className="sm:col-span-2">
-            <Choice
-              label={a.fields.presentacionPublica}
-              options={[
-                { value: 'yes', label: a.yesNo.yes },
-                { value: 'no', label: a.yesNo.no },
-              ]}
-              value={c.presentacionPublica === null ? null : c.presentacionPublica ? 'yes' : 'no'}
-              onChange={(v) => set({ presentacionPublica: v === 'yes' })}
-              error={err('presentacionPublica')}
-            />
+      {c.id && theme && (
+        <div className="rounded-2xl border overflow-hidden" style={{ borderColor: tint(45) }}>
+          {/* header: icon, name, progress */}
+          <div className="px-5 py-4 flex items-center gap-3 border-b" style={{ background: tint(9), borderColor: tint(30) }}>
+            <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white" style={{ color: accent }}>
+              <theme.icon size={18} />
+            </span>
+            <div className="min-w-0 flex-1">
+              <div className="font-mono text-[10px] uppercase tracking-[0.2em] text-n-600">{a.requirements.title}</div>
+              <div className="font-display font-bold text-navy leading-tight">{categories.find((x) => x.key === c.id)?.name}</div>
+            </div>
+            <span className="shrink-0 rounded-full bg-white px-3 py-1 font-mono text-[11px] tabular-nums" style={{ color: accent, boxShadow: `inset 0 0 0 1px ${tint(40)}` }}>
+              {a.requirements.met(met, checklist.length)}
+            </span>
           </div>
-        </div>
-      )}
 
-      {c.id === 'espiritu' && (
-        <TextareaField
-          label={a.fields.cartaMotivos}
-          hint={a.hints.cartaMotivos}
-          placeholder={a.placeholders.cartaMotivos}
-          value={c.cartaMotivos}
-          onChange={(e) => set({ cartaMotivos: e.target.value.slice(0, cartaMax + 200) })}
-          error={err('cartaMotivos')}
-          counter={`${c.cartaMotivos.trim().length} / ${cartaMin}–${cartaMax}`}
-          rows={7}
-        />
-      )}
+          {/* checklist */}
+          <ul className="px-5 py-4 grid sm:grid-cols-2 gap-x-6 gap-y-2 text-sm" aria-live="polite">
+            {checklist.map((item) => (
+              <li key={item.label} className="flex items-start gap-2.5">
+                <span
+                  aria-hidden="true"
+                  className={`mt-[3px] inline-flex h-4 w-4 shrink-0 items-center justify-center rounded-full transition-colors ${item.ok ? 'text-white' : 'ring-1 ring-inset ring-n-300 bg-white'}`}
+                  style={item.ok ? { background: accent } : undefined}
+                >
+                  {item.ok && <FiCheck size={10} strokeWidth={3} />}
+                </span>
+                <span className={item.ok ? 'text-navy' : 'text-n-600'}>{item.label}</span>
+              </li>
+            ))}
+          </ul>
 
-      {kind && (
-        <div className="space-y-3">
-          <FileDrop
-            kind={kind}
-            title={a.uploadTitle[kind]}
-            hint={kind === 'evidencia' ? `${a.uploadHint} ${a.uploadOrLink}` : a.uploadHint}
-            buttonLabel={a.uploadBtn}
-            items={uploadsOf(kind)}
-            max={catalog?.uploads.maxPorTipo ?? 3}
-            onPick={onPick(kind)}
-            onRemove={onRemove}
-            onRetry={onRetry}
-            stateLabels={a.uploadStates}
-            removeLabel={a.uploadRemove}
-            retryLabel={a.uploadRetry}
-            error={err('boleta') ?? err('evidencia')}
-          />
-          {kind === 'evidencia' && (
-            <TextField label={a.fields.evidenciaUrl} placeholder={a.placeholders.evidenciaUrl} value={c.evidenciaUrl} onChange={(e) => set({ evidenciaUrl: e.target.value })} error={err('evidenciaUrl')} type="url" inputMode="url" autoCapitalize="none" spellCheck={false} enterKeyHint="done" onEnter={onNext} />
-          )}
+          <div className="px-5 pb-6 pt-3 space-y-5 border-t" style={{ borderColor: tint(25) }}>
+            {c.id === 'academica' && (
+              <>
+                <div className="grid sm:grid-cols-2 gap-4">
+                  <TextField label={a.fields.promedio} hint={a.hints.promedio} placeholder={a.placeholders.promedio} value={c.promedio} onChange={(e) => set({ promedio: e.target.value })} error={err('promedio')} inputMode="decimal" enterKeyHint="next" />
+                  <SelectField label={a.fields.boletaCiclo} hint={a.hints.boletaCiclo} value={c.boletaCiclo} onChange={(e) => set({ boletaCiclo: e.target.value })} error={err('boletaCiclo')}>
+                    <option value="" disabled>
+                      —
+                    </option>
+                    {boletaCiclos().map((ciclo) => (
+                      <option key={ciclo} value={ciclo}>
+                        {formatCiclo(ciclo)}
+                      </option>
+                    ))}
+                  </SelectField>
+                </div>
+                {err('promedio') === a.errors.promedioLow && (
+                  <button type="button" onClick={() => pick('espiritu')} className="btn-secondary text-sm">
+                    {a.errors.switchEspiritu}
+                  </button>
+                )}
+              </>
+            )}
+
+            {c.id === 'deportiva' && (
+              <div className="grid sm:grid-cols-2 gap-4">
+                <TextField label={a.fields.deporte} placeholder={a.placeholders.deporte} value={c.deporte} onChange={(e) => set({ deporte: e.target.value })} error={err('deporte')} autoCapitalize="words" enterKeyHint="next" />
+                <SelectField label={a.fields.nivelCompetencia} value={c.nivelCompetencia ?? ''} onChange={(e) => set({ nivelCompetencia: e.target.value as NivelCompetencia })} error={err('nivelCompetencia')}>
+                  <option value="" disabled>
+                    —
+                  </option>
+                  {a.nivelOptions.map((o) => (
+                    <option key={o.value} value={o.value}>
+                      {o.label}
+                    </option>
+                  ))}
+                </SelectField>
+                <TextField label={a.fields.anioCompetencia} value={c.anioCompetencia} onChange={(e) => set({ anioCompetencia: e.target.value.replace(/\D/g, '').slice(0, 4) })} error={err('anioCompetencia')} inputMode="numeric" maxLength={4} placeholder={String(new Date().getFullYear())} enterKeyHint="next" />
+              </div>
+            )}
+
+            {c.id === 'cultural' && (
+              <div className="grid sm:grid-cols-2 gap-4">
+                <TextField label={a.fields.disciplina} placeholder={a.placeholders.disciplina} value={c.disciplina} onChange={(e) => set({ disciplina: e.target.value })} error={err('disciplina')} autoCapitalize="words" enterKeyHint="next" />
+                <TextField label={a.fields.anosFormacion} value={c.anosFormacion} onChange={(e) => set({ anosFormacion: e.target.value.replace(/\D/g, '').slice(0, 2) })} error={err('anosFormacion')} inputMode="numeric" maxLength={2} enterKeyHint="next" />
+                <div className="sm:col-span-2">
+                  <Choice
+                    label={a.fields.presentacionPublica}
+                    options={[
+                      { value: 'yes', label: a.yesNo.yes },
+                      { value: 'no', label: a.yesNo.no },
+                    ]}
+                    value={c.presentacionPublica === null ? null : c.presentacionPublica ? 'yes' : 'no'}
+                    onChange={(v) => set({ presentacionPublica: v === 'yes' })}
+                    error={err('presentacionPublica')}
+                  />
+                </div>
+              </div>
+            )}
+
+            {c.id === 'espiritu' && (
+              <div className="space-y-5">
+                <p className="text-sm text-n-700 leading-relaxed rounded-xl bg-n-50 border border-n-200 px-4 py-3">{a.carta.intro}</p>
+                {CARTA_SECTIONS.map((k, i) => {
+                  const sec = a.carta.sections[k];
+                  const len = c[k].trim().length;
+                  return (
+                    <TextareaField
+                      key={k}
+                      label={sec.label}
+                      hint={sec.hint}
+                      placeholder={sec.placeholder}
+                      value={c[k]}
+                      onChange={(e) => set({ [k]: e.target.value.slice(0, cartaMax) } as Partial<AppState['category']>)}
+                      error={err(k)}
+                      counter={`${len} / ${sectionMin}${len >= sectionMin ? ' ✓' : ''}`}
+                      rows={i === 0 ? 6 : 5}
+                    />
+                  );
+                })}
+                <div className="flex flex-wrap items-center justify-between gap-2 text-xs text-n-600">
+                  <span>{a.carta.minHint(sectionMin)}</span>
+                  <span className="font-mono tabular-nums">{cartaTotal} / {cartaMax}</span>
+                </div>
+                <p className="text-xs text-n-500 italic">{a.carta.committee}</p>
+              </div>
+            )}
+
+            {slots.map((slot) => {
+              const title = c.id === 'espiritu' ? a.carta.recommendation : a.uploadTitle[slot.kind];
+              const sub = c.id === 'espiritu' ? a.carta.recommendationHint : a.uploadSub[slot.kind];
+              const linkLabel = c.id === 'espiritu' ? a.fields.cartaRecomendacionUrl : a.fields.evidenciaUrl;
+              return (
+                <div key={slot.kind} className="space-y-3">
+                  <FileDrop
+                    kind={slot.kind}
+                    title={title}
+                    hint={`${sub} ${a.uploadHint}${slot.orLink ? ` ${a.uploadOrLink}` : ''}`}
+                    buttonLabel={a.uploadBtn}
+                    items={uploadsOf(slot.kind)}
+                    max={catalog?.uploads.maxPorTipo ?? 3}
+                    onPick={onPick(slot.kind)}
+                    onRemove={onRemove}
+                    onRetry={onRetry}
+                    stateLabels={a.uploadStates}
+                    removeLabel={a.uploadRemove}
+                    retryLabel={a.uploadRetry}
+                    error={err(slot.kind)}
+                  />
+                  {slot.orLink && (
+                    <TextField label={linkLabel} placeholder={a.placeholders.evidenciaUrl} value={c.evidenciaUrl} onChange={(e) => set({ evidenciaUrl: e.target.value })} error={err('evidenciaUrl')} type="url" inputMode="url" autoCapitalize="none" spellCheck={false} enterKeyHint="done" onEnter={onNext} />
+                  )}
+                </div>
+              );
+            })}
+
+            {c.id === 'academica' && (
+              <Checkbox checked={c.autorizaVerificacion} onChange={(v) => set({ autorizaVerificacion: v })} error={err('autorizaVerificacion')}>
+                {a.requirements.verifyLabel}
+                <span className="block mt-1 text-xs text-n-500">{a.requirements.verifyHint}</span>
+              </Checkbox>
+            )}
+          </div>
         </div>
       )}
 
@@ -827,10 +968,10 @@ function StepReview({ state, goTo, grados }: { state: AppState; goTo: (s: Step) 
       title: a.steps.category,
       lines: [
         c.id ? categoryName(c.id, locale) : '',
-        c.id === 'academica' ? `${a.fields.promedio}: ${c.promedio}` : '',
+        c.id === 'academica' ? `${a.fields.promedio}: ${c.promedio} · ${formatCiclo(c.boletaCiclo)}` : '',
         c.id === 'deportiva' ? `${c.deporte} · ${a.nivelOptions.find((o) => o.value === c.nivelCompetencia)?.label ?? ''} · ${c.anioCompetencia}` : '',
         c.id === 'cultural' ? `${c.disciplina} · ${c.anosFormacion} ${a.fields.anosFormacion.toLowerCase()}` : '',
-        c.id === 'espiritu' ? `${a.fields.cartaMotivos}: ${c.cartaMotivos.trim().slice(0, 120)}…` : '',
+        c.id === 'espiritu' ? `${a.fields.cartaMotivos}: ${c.cartaAlumno.trim().slice(0, 120)}…` : '',
         ...state.uploads.filter((u) => u.status === 'done').map((u) => `📎 ${u.name}`),
         c.evidenciaUrl ? c.evidenciaUrl : '',
         c.referidoPor || c.referidoCodigo ? `${a.fields.referidoPor.replace(' (opcional)', '').replace(' (optional)', '')}: ${[c.referidoPor, c.referidoCodigo].filter(Boolean).join(' · ')}` : '',

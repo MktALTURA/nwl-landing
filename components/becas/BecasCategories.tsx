@@ -1,19 +1,15 @@
 'use client';
 
-import { FiActivity, FiAward, FiFeather, FiHeart, FiArrowRight } from 'react-icons/fi';
-import type { BecaCategoria } from '@/lib/becas/contract';
+import { FiArrowRight, FiCheck } from 'react-icons/fi';
 import { useBecas } from './BecasProvider';
+import { CATEGORY_THEME } from './categoryTheme';
 import SectionHeading from './SectionHeading';
 
-/* Level colours are avoided on purpose: on this site they mean school levels.
-   Categories get the brand accents instead. */
-const ACCENT: Record<BecaCategoria, { color: string; icon: React.ComponentType<{ size?: number; className?: string }>; dark?: boolean }> = {
-  deportiva: { color: 'var(--nwl-eucalyptus)', icon: FiActivity },
-  academica: { color: 'var(--nwl-gold)', icon: FiAward },
-  cultural: { color: 'var(--nwl-wattle)', icon: FiFeather },
-  espiritu: { color: 'var(--nwl-navy)', icon: FiHeart, dark: true },
-};
-
+/**
+ * The four category cards. Every card shares one grid skeleton (icon row,
+ * title block, requirement, needs list, CTA) with fixed minimum heights so
+ * the dividers and the CTA line up across the row at every breakpoint.
+ */
 export default function BecasCategories() {
   const { copy, catalog, prefill, scrollTo, track } = useBecas();
   const enabled = new Set(catalog?.categorias.filter((c) => c.enabled).map((c) => c.key) ?? copy.categories.items.map((c) => c.key));
@@ -28,45 +24,57 @@ export default function BecasCategories() {
           {copy.categories.items
             .filter((c) => enabled.has(c.key))
             .map((c) => {
-              const a = ACCENT[c.key];
-              const Icon = a.icon;
-              const requirement =
-                c.key === 'academica' && minimo ? c.requirement.replace('8.5', String(minimo)) : c.requirement;
+              const t = CATEGORY_THEME[c.key];
+              const Icon = t.icon;
+              const requirement = c.key === 'academica' && minimo ? c.requirement.replace('8.5', String(minimo)) : c.requirement;
+              const muted = t.dark ? 'text-paper/60' : 'text-n-500';
+              const body = t.dark ? 'text-paper/85' : 'text-n-700';
+              const accent = t.dark ? 'var(--nwl-gold)' : t.color;
               return (
                 <li key={c.key} className="group">
                   <article
-                    className={`relative h-full flex flex-col rounded-2xl border p-6 md:p-7 transition-transform duration-300 group-hover:-translate-y-1 ${
-                      a.dark ? 'bg-navy text-paper border-navy shadow-navy-lg' : 'bg-white border-n-200 shadow-navy-sm group-hover:shadow-navy-lg'
+                    className={`relative h-full grid grid-rows-[auto_auto_auto_1fr_auto] rounded-2xl border p-6 md:p-7 transition-[transform,box-shadow] duration-300 group-hover:-translate-y-1 ${
+                      t.dark ? 'bg-navy text-paper border-navy shadow-navy-lg' : 'bg-white border-n-200 shadow-navy-sm group-hover:shadow-navy-lg'
                     }`}
                   >
-                    <span aria-hidden="true" className="absolute inset-x-0 top-0 h-[3px] rounded-t-2xl" style={{ background: a.dark ? 'var(--nwl-gold)' : a.color }} />
+                    <span aria-hidden="true" className="absolute inset-x-0 top-0 h-[3px] rounded-t-2xl" style={{ background: accent }} />
 
-                    <div className="flex items-center justify-between">
-                      <span
-                        className="inline-flex h-11 w-11 items-center justify-center rounded-full"
-                        style={{ background: a.dark ? 'rgba(244,238,226,0.08)' : `color-mix(in srgb, ${a.color} 16%, white)`, color: a.dark ? 'var(--nwl-gold)' : a.color }}
-                      >
-                        <Icon size={20} />
-                      </span>
-                      <span className={`font-mono text-[10px] uppercase tracking-[0.2em] ${a.dark ? 'text-paper/55' : 'text-n-500'}`}>{c.forWhom}</span>
+                    {/* row 1: icon */}
+                    <span
+                      className="inline-flex h-12 w-12 items-center justify-center rounded-full"
+                      style={{ background: t.dark ? 'rgba(244,238,226,0.08)' : `color-mix(in srgb, ${t.color} 16%, white)`, color: accent }}
+                    >
+                      <Icon size={22} />
+                    </span>
+
+                    {/* row 2: title block, fixed height so row 3 starts level */}
+                    <div className="mt-5 min-h-[7.5rem]">
+                      <h3 className="font-display font-bold text-2xl leading-tight">{c.name}</h3>
+                      <p className={`mt-1 italic ${t.dark ? 'text-gold' : 'text-gold-600'}`}>{c.tagline}</p>
+                      <p className={`mt-3 inline-flex rounded-full border px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.16em] ${t.dark ? 'border-paper/20 text-paper/70' : 'border-n-200 text-n-600'}`}>
+                        {c.forWhom}
+                      </p>
                     </div>
 
-                    <h3 className="font-display font-bold text-2xl mt-5 leading-tight">{c.name}</h3>
-                    <p className={`mt-1 italic ${a.dark ? 'text-gold' : 'text-gold-600'}`}>{c.tagline}</p>
-                    <p className={`mt-4 leading-relaxed ${a.dark ? 'text-paper/85' : 'text-n-700'}`}>{requirement}</p>
+                    {/* row 3: requirement, fixed height */}
+                    <p className={`mt-2 leading-relaxed sm:min-h-[6.5rem] ${body}`}>{requirement}</p>
 
-                    <div className={`mt-5 pt-5 border-t ${a.dark ? 'border-paper/15' : 'border-n-200'}`}>
-                      <div className={`font-mono text-[10px] uppercase tracking-[0.2em] ${a.dark ? 'text-paper/55' : 'text-n-500'}`}>{copy.categories.needsLabel}</div>
-                      <ul className="mt-2 space-y-1.5 text-sm">
+                    {/* row 4: needs list, stretches */}
+                    <div className={`mt-4 pt-5 border-t ${t.dark ? 'border-paper/15' : 'border-n-200'}`}>
+                      <div className={`font-mono text-[10px] uppercase tracking-[0.2em] ${muted}`}>{copy.categories.needsLabel}</div>
+                      <ul className="mt-2.5 space-y-2 text-sm">
                         {c.needs.map((n) => (
-                          <li key={n} className="flex gap-2">
-                            <span aria-hidden="true" className="mt-[7px] h-1.5 w-1.5 rounded-full shrink-0" style={{ background: a.dark ? 'var(--nwl-gold)' : a.color }} />
-                            <span className={a.dark ? 'text-paper/85' : 'text-n-700'}>{n}</span>
+                          <li key={n} className="flex gap-2.5">
+                            <span aria-hidden="true" className="mt-[3px] inline-flex h-4 w-4 shrink-0 items-center justify-center rounded-full" style={{ background: `color-mix(in srgb, ${accent} ${t.dark ? '28%' : '18%'}, transparent)`, color: accent }}>
+                              <FiCheck size={10} strokeWidth={3} />
+                            </span>
+                            <span className={body}>{n}</span>
                           </li>
                         ))}
                       </ul>
                     </div>
 
+                    {/* row 5: CTA */}
                     <button
                       type="button"
                       data-cta={`becas_cat_${c.key}`}
@@ -75,7 +83,9 @@ export default function BecasCategories() {
                         track('becas_category_select', { category: c.key, source: 'card' });
                         scrollTo('solicitud');
                       }}
-                      className={`mt-auto pt-6 inline-flex items-center gap-2 font-semibold transition-colors ${a.dark ? 'text-gold hover:text-gold-400' : 'text-navy hover:text-gold-600'}`}
+                      className={`mt-6 min-h-[44px] inline-flex items-center justify-between rounded-full border px-4 font-semibold transition-colors ${
+                        t.dark ? 'border-gold/60 text-gold hover:bg-gold hover:text-navy' : 'border-n-200 text-navy hover:border-gold hover:bg-gold/10'
+                      }`}
                     >
                       {copy.categories.choose}
                       <FiArrowRight className="transition-transform group-hover:translate-x-1" />

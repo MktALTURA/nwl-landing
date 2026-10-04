@@ -56,7 +56,7 @@ export type StartInput = z.infer<typeof startSchema>;
 export const documentSchema = z.object({
   ...guardFields,
   token: z.string().min(8).max(64),
-  kind: z.enum(['boleta', 'evidencia']),
+  kind: z.enum(['boleta', 'constancia', 'evidencia']),
   filename: z.string().trim().min(1).max(200),
   contentType: z.enum(['application/pdf', 'image/jpeg', 'image/png', 'image/webp', 'image/heic']),
   size: z.number().int().positive().max(10 * 1024 * 1024, 'too_large'),
@@ -65,6 +65,8 @@ export type DocumentInput = z.infer<typeof documentSchema>;
 
 const declaradoSchema = z.object({
   promedio: z.number().min(5).max(10).optional(),
+  boletaCiclo: z.string().regex(/^\d{4}-\d{4}$/).optional(),
+  autorizaVerificacion: z.boolean().optional(),
   nivelCompetencia: z.enum(['estatal', 'regional', 'nacional', 'internacional']).optional(),
   anioCompetencia: z.number().int().min(2000).max(2100).optional(),
   deporte: z.string().trim().max(80).optional(),
@@ -72,7 +74,7 @@ const declaradoSchema = z.object({
   anosFormacion: z.number().int().min(0).max(30).optional(),
   presentacionPublica: z.boolean().optional(),
   evidenciaUrl: z.string().trim().url('url').startsWith('https://', 'url').max(500).optional(),
-  cartaMotivos: z.string().trim().max(3000).optional(),
+  cartaMotivos: z.string().trim().max(4000).optional(),
 });
 
 export const submitSchema = z.object({

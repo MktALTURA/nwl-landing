@@ -2,6 +2,7 @@
 
 import { useRef } from 'react';
 import { FiUploadCloud, FiFileText, FiX, FiRefreshCw, FiCheck } from 'react-icons/fi';
+import type { BecaDocKind } from '@/lib/becas/contract';
 import type { UploadItem } from './state';
 
 /**
@@ -25,7 +26,7 @@ export default function FileDrop({
   retryLabel,
   error,
 }: {
-  kind: 'boleta' | 'evidencia';
+  kind: BecaDocKind;
   title: string;
   hint: string;
   buttonLabel: string;

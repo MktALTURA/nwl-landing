@@ -47,6 +47,18 @@ and three status tokens: `/becas/solicitud/mock-pending`, `mock-approved`,
 `mock-expired`. Verify works for `BECA-JUR-27-000042`. A wattle ribbon reads
 "Demo · precios ilustrativos" whenever fixtures are in use.
 
+## Category requirements (step 3)
+
+- **Académica**: promedio + ciclo escolar de la boleta, two uploads (`boleta`,
+  `constancia` de estudios con sello) and the verification authorization
+  checkbox (`declarado.autorizaVerificacion`). The worker rejects without all of them.
+- **Deportiva / Cultural**: declared data + one `evidencia` upload or an https link.
+- **Espíritu NWL**: three guided answers joined by `buildCarta()` into one
+  `cartaMotivos` with Spanish headings; each answer needs ⅓ of the catalog's
+  `cartaMinChars` (900 by default). Optional recommendation letter (`evidencia`).
+- Step 3 is themed per category (`components/becas/categoryTheme.ts`) and shows
+  a live requirements checklist. The public cards prefill the choice.
+
 ## Contract
 
 `lib/becas/contract.ts` is a verbatim copy of the worker's file. Change it in
