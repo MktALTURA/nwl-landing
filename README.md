@@ -163,6 +163,10 @@ The central leadership team that runs the five campuses as one school: the Execu
 
 The page launched on 2026-09-15. `RECTORIA_PUBLIC` in `lib/rectoria-preview.ts` is now `true`, so the middleware gate, noindex and the sitemap/footer exclusions are all inactive; the preview-token code is kept only so the page can be re-gated.
 
+## Programa de Becas (`/becas`)
+
+The scholarship program's public face: calculator (two variants, `precios` and `ahorro`, chosen by the worker config), a native four-step application (no `<form>` element, see below), a family status page and a QR verification page. The brain is the ALTURA worker (`altura-landing`, D1 `altura-hojas`): applications, rules, approval scheduler, GHL email/SMS, the carta PDF and the CAP command center. The two talk over an HMAC-signed API; `lib/becas/contract.ts` is a verbatim copy of the worker's contract. With `BECAS_API_URL` unset the page runs on fixtures (demo ribbon). The route lives outside `(main)` so it can server-render Spanish. Full runbook, env vars and launch checklist: `docs/becas.md`.
+
 ## Careers & Admin
 
 `/trabaja-con-nosotros` lists open positions stored in Redis with an application modal and a general CV drop. `/admin` is JWT-protected with two roles: `admin` (full access, lands on `/admin/jobs`) and `beneficios` (scoped to `/admin/beneficios`). `middleware.ts` guards the admin *pages*; every API route additionally checks its own session — that check is the real security boundary. Image uploads go to Vercel Blob.
@@ -195,7 +199,7 @@ An 8-bit, Chrome-dino-style runner hidden in the KangarooSpirit section of the h
 
 ## Static Campaign Pages
 
-BE campaign pages (`be_nwl`, `golden_ticket`, `golden_ticket_cap`) live as static HTML in `/public` and are served via Next.js rewrites in `next.config.mjs`. They are standalone and don't use the React component tree.
+BE campaign pages (`be_nwl`, `golden_ticket`, `golden_ticket_cap`) live as static HTML in `/public` and are served via Next.js rewrites in `next.config.mjs`. They are standalone and don't use the React component tree. The becas program replaces them: once `NEXT_PUBLIC_BECAS_PUBLIC=true`, these URLs redirect to `/becas` and the HTML files are to be deleted (see `docs/becas.md`).
 
 `survey-post-enrollment-experience.html` is the same kind of standalone page, styled with the Australian School tokens: navy + gold, Gabarito, the white lockup from `/images/brand/`. The survey itself is a GoHighLevel iframe; the page script only forwards `contact_id`, `autofill` and `cohort` from the email link into it, so keep the iframe id when restyling.
 

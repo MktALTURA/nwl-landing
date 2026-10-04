@@ -7,6 +7,15 @@ import {
   RECTORIA_PREVIEW_PARAM,
   rectoriaPreviewToken,
 } from '@/lib/rectoria-preview';
+import {
+  BECAS_GATE_DISABLED,
+  BECAS_PUBLIC,
+  BECAS_PREVIEW_COOKIE,
+  BECAS_PREVIEW_PARAM,
+  becasPreviewToken,
+  isBecasDemoPath,
+  isBecasGatedPath,
+} from '@/lib/becas/preview';
 
 export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
@@ -49,6 +58,41 @@ export async function middleware(request: NextRequest) {
 
     if (request.cookies.get(RECTORIA_PREVIEW_COOKIE)?.value !== token) {
       return NextResponse.rewrite(new URL('/rectoria/not-found', request.url), { status: 404 });
+    }
+
+    const response = NextResponse.next();
+    response.headers.set('X-Robots-Tag', 'noindex, nofollow');
+    return response;
+  }
+
+  // ── Becas private preview ──
+  // Same mechanism as Rectoría's gate. Until NEXT_PUBLIC_BECAS_PUBLIC=true the
+  // page, its API routes and the demo variants only answer to browsers that
+  // came through `/becas?preview=<token>` once; everyone else gets a 404 so
+  // the route is invisible. The demo variant routes stay gated after launch.
+  if (!BECAS_GATE_DISABLED && isBecasGatedPath(pathname) && (!BECAS_PUBLIC || isBecasDemoPath(pathname))) {
+    const token = becasPreviewToken();
+    const isApi = pathname.startsWith('/api/');
+
+    if (token && request.nextUrl.searchParams.get(BECAS_PREVIEW_PARAM) === token) {
+      const url = request.nextUrl.clone();
+      url.searchParams.delete(BECAS_PREVIEW_PARAM);
+      const response = NextResponse.redirect(url);
+      response.cookies.set(BECAS_PREVIEW_COOKIE, token, {
+        httpOnly: true,
+        sameSite: 'lax',
+        secure: process.env.NODE_ENV === 'production',
+        path: '/',
+        maxAge: 60 * 60 * 24 * 30,
+      });
+      return response;
+    }
+
+    if (!token || request.cookies.get(BECAS_PREVIEW_COOKIE)?.value !== token) {
+      if (isApi) {
+        return NextResponse.json({ error: 'no_encontrada', detail: 'Not found' }, { status: 404 });
+      }
+      return NextResponse.rewrite(new URL('/becas/not-found', request.url), { status: 404 });
     }
 
     const response = NextResponse.next();

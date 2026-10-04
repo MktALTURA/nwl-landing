@@ -51,6 +51,12 @@ export interface FireMetaEventOptions {
   eventId?: string;
   /** Fire the browser pixel only; do not POST to our own CAPI route. */
   browserOnly?: boolean;
+  /**
+   * Match keys for the server-side copy only (hashed in /api/meta-capi).
+   * Never passed to `fbq`: the browser pixel already has its cookies, and we
+   * don't want plaintext PII in the pixel call.
+   */
+  userData?: { email?: string; phone?: string };
 }
 
 /** Fires the event and returns the event_id used, for logging/dedup. */
@@ -92,6 +98,8 @@ export function fireMetaEvent(
         fbclid: click?.fbclid,
         fbclidTs: click?.ts,
         customData,
+        ...(options?.userData?.email && { email: options.userData.email }),
+        ...(options?.userData?.phone && { phone: options.userData.phone }),
       }),
     }).catch(() => {});
   } catch {

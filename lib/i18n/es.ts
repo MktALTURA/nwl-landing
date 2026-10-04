@@ -323,6 +323,7 @@ export const es: Dictionary = {
       { name: 'Información', href: '/informacion' },
       { name: 'Noticias', href: '/noticias' },
       { name: 'Beneficios y Convenios', href: '/beneficios' },
+      { name: 'Programa de Becas', href: '/becas' },
       { name: 'Portal de Padres', href: '/padres' },
     ],
     programsHeading: 'Programas',
