@@ -251,6 +251,7 @@ export const areas: RectoriaArea[] = [
         name: 'Martha Aide Lobato Artega',
         title: { en: 'Senior School · Prepa NWL', es: 'Preparatoria' },
         image: img('martha-lobato'),
+        hidden: true,
         needsReview: true,
         bio: {
           en: 'Martha is responsible for Senior School (Prepa NWL) at the campuses that offer it. Her area runs the Years 10–12 programme: the Life Project model and its mentors, the dual diploma and university guidance.',
