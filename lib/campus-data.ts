@@ -272,6 +272,7 @@ export const campuses: Record<string, CampusData> = {
       },
       image: '/images/campus/milenio/milenio-director-dr-benjamin-madrigal.jpg',
     },
+    hideDirector: true,
     address: 'Cerrada Panorámica, Distrito Piamonte, Querétaro',
     city: 'Querétaro',
     state: 'Querétaro',
