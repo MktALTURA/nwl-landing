@@ -264,8 +264,10 @@ export const campuses: Record<string, CampusData> = {
       },
     ],
     director: {
-      name: 'Dr. Benjamín Madrigal Cruz',
-      title: { en: 'Campus Director', es: 'Director General de Campus' },
+      // Hidden (hideDirector below): message and photo are still the previous
+      // director's. Replace both before unhiding.
+      name: 'Mtra. Martha Aide Lobato Artega',
+      title: { en: 'Campus Director', es: 'Directora General de Campus' },
       message: {
         en: 'It\'s a pleasure to welcome you. Serving as General Director of NWL Australian School, Campus Milenio, is a challenge full of meaningful moments, and one that asks for a genuine spirit of service. It has been an honor to be part of a team so diverse and so committed to academic excellence, always at the forefront of world-class educational models like the Australian one. I am confident that the NWL system will keep improving for the benefit of its students, its teachers and every member of its administrative and operational support staff. Mexico deserves more schools that let children and young people grow fully, so they can reach their potential as people of integrity, professionalism and respect.',
         es: 'Qué gusto saludarles. Ocupar la Dirección General del NWL Australian School, Campus Milenio, es un reto lleno de momentos significativos que exige una vocación de servicio. Para mí ha sido un honor ser parte de un equipo tan diverso y comprometido con la excelencia académica y siempre a la vanguardia de nuevos modelos educativos de clase mundial, como lo es el australiano. Estoy seguro que el sistema NWL continuará sus procesos de mejora continua a beneficio de su alumnado, sus docentes, y todo su personal de soporte administrativo y operativo. México merece más instituciones de enseñanza que permitan el desarrollo completo de infancias y adolescencias para que puedan alcanzar su potencial como personas íntegras, profesionales, y respetuosas.',
