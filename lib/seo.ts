@@ -97,6 +97,12 @@ export const PAGE_SEO = {
       'Beneficios y descuentos exclusivos para la comunidad NWL: salud, estudios clínicos, dental y más. Aliados que reconocen a las familias y colaboradores de Colegio NWL.',
     ogImage: '/images/og/nwl/home.jpg',
   },
+  becas: {
+    title: 'Programa de Becas: 30% en colegiatura',
+    description:
+      'Beca del 30% en colegiatura para familias nuevas en NWL Australian School. Deportiva, Académica, Cultural o Espíritu NWL. Calcula tu ahorro, aplica en línea y recibe respuesta al siguiente día hábil. Milenio, Corregidora, San Miguel de Allende y Juriquilla.',
+    ogImage: '/images/og/nwl/becas.jpg',
+  },
   nwlAustralianSchool: {
     title: 'Newland es ahora NWL Australian School',
     description:

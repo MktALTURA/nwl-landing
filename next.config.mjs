@@ -1,3 +1,11 @@
+// Becas launch flag (mirror of lib/becas/preview.ts, which can't be imported
+// from this CommonJS-free config). Once public, the retired B.E. Newland and
+// Golden Ticket pages redirect to /becas; until then they keep serving so the
+// old links don't break during the preview period.
+const BECAS_PUBLIC =
+  process.env.NEXT_PUBLIC_BECAS_PUBLIC === 'true' ||
+  (process.env.VERCEL_ENV !== undefined && process.env.VERCEL_ENV !== 'production');
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
@@ -158,11 +166,24 @@ const nextConfig = {
       // Catch-all for remaining /docs/* and /pdf/*
       { source: '/docs/:path*', destination: '/', permanent: true },
       { source: '/pdf/:path*', destination: '/', permanent: true },
-      { source: '/cap_golden_ticket', destination: '/golden_ticket_cap', permanent: true },
+      ...(BECAS_PUBLIC
+        ? [
+            // Becas replaces B.E. Newland and the Golden Ticket. Temporary for
+            // the first week so a mistake is reversible, then flip to permanent.
+            { source: '/be_nwl', destination: '/becas', permanent: false },
+            { source: '/be_nwl.html', destination: '/becas', permanent: false },
+            { source: '/golden_ticket', destination: '/becas', permanent: false },
+            { source: '/golden_ticket.html', destination: '/becas', permanent: false },
+            { source: '/golden_ticket_cap', destination: '/becas', permanent: false },
+            { source: '/golden_ticket_cap.html', destination: '/becas', permanent: false },
+            { source: '/cap_golden_ticket', destination: '/becas', permanent: false },
+          ]
+        : [{ source: '/cap_golden_ticket', destination: '/golden_ticket_cap', permanent: true }]),
     ];
   },
 
   async rewrites() {
+    if (BECAS_PUBLIC) return [];
     return [
       { source: '/be_nwl', destination: '/be_nwl.html' },
       { source: '/golden_ticket', destination: '/golden_ticket.html' },

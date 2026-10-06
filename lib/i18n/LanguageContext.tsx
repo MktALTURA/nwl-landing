@@ -21,9 +21,21 @@ const LanguageContext = createContext<LanguageContextType>({
   isReady: false,
 });
 
-export function LanguageProvider({ children }: { children: ReactNode }) {
-  // Always start with 'en' to match server-rendered HTML
-  const [locale, setLocaleState] = useState<Locale>('en');
+export function LanguageProvider({
+  children,
+  initialLocale = 'en',
+}: {
+  children: ReactNode;
+  /**
+   * Locale the server renders with. Defaults to 'en' (site-wide behaviour).
+   * Routes aimed at Spanish-speaking ad traffic (e.g. /becas) pass 'es' so
+   * the first paint is already Spanish; a saved preference still wins after
+   * mount, exactly as everywhere else.
+   */
+  initialLocale?: Locale;
+}) {
+  // Start with the server locale to match the server-rendered HTML
+  const [locale, setLocaleState] = useState<Locale>(initialLocale);
   const [isReady, setIsReady] = useState(false);
 
   // Hydrate saved preference after mount (avoids hydration mismatch)

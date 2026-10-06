@@ -1,0 +1,1040 @@
+'use client';
+
+import { useCallback, useEffect, useMemo, useReducer, useRef, useState } from 'react';
+import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
+import { FiArrowLeft, FiArrowRight, FiCheck, FiEdit2 } from 'react-icons/fi';
+import { FaWhatsapp } from 'react-icons/fa';
+import Crest from '@/components/ui/Crest';
+import type { BecaCategoria, BecaDocKind, NivelCompetencia, SiteCampusSlug } from '@/lib/becas/contract';
+import { becasApi, ApiError, uploadToTicket } from '@/lib/becas/client';
+import { prepareFile } from '@/lib/becas/compress';
+import { clearDraft, loadDraft, saveDraft } from '@/lib/becas/draft';
+import { formatCiclo } from '@/lib/becas/format';
+import { categoryName } from '@/lib/becas/copy';
+import { fireLeadConversion, toDetection } from '@/lib/conversions';
+import { fireMetaEvent, isMetaTrackingHost, newEventId } from '@/lib/meta-pixel';
+import { normalizePhoneMX } from '@/lib/phone';
+import { collectAttribution } from '@/lib/wa-attribution';
+import { useBecas } from './BecasProvider';
+import { CATEGORY_THEME } from './categoryTheme';
+import SectionHeading from './SectionHeading';
+import PillGroup from './PillGroup';
+import { Checkbox, Choice, SelectField, TextField, TextareaField } from './application/Field';
+import FileDrop from './application/FileDrop';
+import {
+  CARTA_SECTIONS,
+  boletaCiclos,
+  buildCarta,
+  cartaLimits,
+  docSlots,
+  initialState,
+  reducer,
+  validateStep1,
+  validateStep2,
+  validateStep3,
+  type AppState,
+  type Errors,
+  type Step,
+  type UploadItem,
+} from './application/state';
+import { BECAS_WHATSAPP } from './BecasFinalCTA';
+
+const TOTAL_STEPS = 4;
+const FORM_LABEL = 'becas_application';
+
+function uuid(): string {
+  return typeof crypto !== 'undefined' && 'randomUUID' in crypto ? crypto.randomUUID() : `${Date.now()}-${Math.random().toString(36).slice(2)}`;
+}
+
+/* ------------------------------------------------------------------ */
+/*  The application. Four steps, no <form>, draft persisted, one Lead.  */
+/* ------------------------------------------------------------------ */
+
+export default function BecasApplication() {
+  const { catalog, copy, calc, locale, track, refreshLive, ref: refCode, scrollTo } = useBecas();
+  const a = copy.apply;
+  const reduce = useReducedMotion();
+  const [state, dispatch] = useReducer(reducer, undefined, () => initialState(uuid(), newEventId()));
+  const [errors, setErrors] = useState<Errors>({});
+  const [hydrated, setHydrated] = useState(false);
+  const [draftRestored, setDraftRestored] = useState(false);
+  const headingRef = useRef<HTMLHeadingElement>(null);
+  const interactedAt = useRef<number | null>(null);
+  const formStarted = useRef(false);
+  const stepSeen = useRef<Set<number>>(new Set());
+  // Honeypot value. Real browsers leave it empty; the guard rejects anything else.
+  const honeypot = useRef('');
+
+  /* ── hydrate draft once ── */
+  useEffect(() => {
+    const draft = loadDraft<Partial<AppState>>();
+    if (draft) {
+      // Uploads that never finished can't resume without the bytes.
+      const uploads = (draft.uploads ?? []).filter((u) => u.status === 'done');
+      dispatch({ type: 'hydrate', state: { ...draft, uploads } });
+      if (!draft.submitted) setDraftRestored(true);
+      track('becas_draft_restored', { step: draft.step });
+    }
+    setHydrated(true);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  /* ── persist draft (debounced) ── */
+  useEffect(() => {
+    if (!hydrated) return;
+    const t = setTimeout(() => {
+      // The token stays out of storage: start is idempotent on the key, so a
+      // resumed draft re-obtains it (ensureToken) instead of keeping it readable.
+      const { request: _r, token: _t, ...rest } = state;
+      if (state.submitted) {
+        saveDraft({ submitted: state.submitted, idempotencyKey: state.idempotencyKey, leadEventId: state.leadEventId, leadFired: state.leadFired });
+      } else {
+        saveDraft(rest);
+      }
+    }, 400);
+    return () => clearTimeout(t);
+  }, [state, hydrated]);
+
+  /* ── prefill from the calculator and the category cards ── */
+  useEffect(() => {
+    dispatch({
+      type: 'prefill',
+      contact: { campus: calc.campus, ciclo: calc.ciclo },
+      student: { grado: calc.grado },
+      categoria: calc.categoria,
+    });
+  }, [calc.campus, calc.ciclo, calc.grado, calc.categoria]);
+
+  /* ── step change: focus heading, announce, track ── */
+  useEffect(() => {
+    if (!hydrated) return;
+    if (!stepSeen.current.has(state.step)) {
+      stepSeen.current.add(state.step);
+      track('becas_step_view', { step: state.step });
+    }
+    if (stepSeen.current.size > 1) headingRef.current?.focus({ preventScroll: true });
+  }, [state.step, hydrated, track]);
+
+  const campusData = useMemo(() => catalog?.campuses.find((c) => c.slug === state.contact.campus), [catalog, state.contact.campus]);
+  const cicloData = campusData && state.contact.ciclo ? campusData.ciclos[state.contact.ciclo] : undefined;
+  const grados = cicloData?.grados ?? [];
+  const gradoData = grados.find((g) => g.key === state.student.grado);
+  const availableCategories = useMemo(() => {
+    const enabled = new Set(catalog?.categorias.filter((c) => c.enabled).map((c) => c.key) ?? []);
+    const byGrado = gradoData ? new Set(gradoData.categorias) : null;
+    return copy.categories.items.filter((c) => enabled.has(c.key) && (!byGrado || byGrado.has(c.key)));
+  }, [catalog, gradoData, copy.categories.items]);
+
+  const err = (key: string) => (errors[key] ? a.errors[errors[key]] ?? errors[key] : undefined);
+  const markInteract = () => {
+    if (interactedAt.current === null) interactedAt.current = Date.now();
+    if (!formStarted.current) {
+      formStarted.current = true;
+      track('becas_form_start');
+    }
+  };
+
+  const goTo = useCallback(
+    (step: Step) => {
+      dispatch({ type: 'step', step });
+      setErrors({});
+      scrollTo('solicitud');
+    },
+    [scrollTo],
+  );
+
+  /* ── step 1 → start ── */
+  const startPayload = useCallback(
+    () => ({
+      website: honeypot.current,
+      idempotencyKey: state.idempotencyKey,
+      campus: state.contact.campus,
+      ciclo: state.contact.ciclo,
+      grado: state.student.grado,
+      padre: {
+        nombre: state.contact.nombre.trim(),
+        apellidos: state.contact.apellidos.trim(),
+        email: state.contact.email.trim(),
+        telefono: state.contact.telefono,
+      },
+      consent: { version: catalog?.consentVersion ?? '2026-10-a', aceptado: true },
+      referido: refCode ? { codigo: refCode } : undefined,
+      attribution: collectAttribution(),
+      fromToken: state.token,
+      eventId: state.leadEventId,
+    }),
+    [state, catalog?.consentVersion, refCode],
+  );
+
+  /** The worker token for this draft; re-obtained from the idempotent start call when a restored draft lacks it. */
+  const ensureToken = useCallback(async (): Promise<string> => {
+    if (state.token) return state.token;
+    const res = await becasApi.start(startPayload());
+    dispatch({ type: 'started', token: res.token });
+    return res.token;
+  }, [state.token, startPayload]);
+
+  const submitStep1 = useCallback(async () => {
+    const e = validateStep1(state.contact);
+    setErrors(e);
+    if (Object.keys(e).length) return;
+    dispatch({ type: 'request', request: { status: 'pending', stage: 'start' } });
+    try {
+      const res = await becasApi.start(startPayload());
+      dispatch({ type: 'started', token: res.token });
+
+      // The ONE Lead for this application. Persisted before firing so a reload
+      // between the response and the flag can't double it.
+      if (!state.leadFired && isMetaTrackingHost()) {
+        dispatch({ type: 'leadFired' });
+        fireLeadConversion(FORM_LABEL, 'lead', toDetection('native', interactedAt.current), state.leadEventId, {
+          email: state.contact.email.trim(),
+          phone: normalizePhoneMX(state.contact.telefono) ?? undefined,
+        });
+      } else if (!state.leadFired) {
+        dispatch({ type: 'leadFired' });
+      }
+      track('becas_step_complete', { step: 1 });
+      goTo(2);
+    } catch (e2) {
+      const code = e2 instanceof ApiError ? e2.code : 'upstream';
+      const fields = e2 instanceof ApiError ? e2.fields : undefined;
+      dispatch({ type: 'request', request: { status: 'error', stage: 'start', code, fields } });
+      track('becas_error', { stage: 'start', code });
+    }
+  }, [state, startPayload, track, goTo]);
+
+  /* ── step 2 ── */
+  const submitStep2 = () => {
+    const e = validateStep2(state.student);
+    setErrors(e);
+    if (Object.keys(e).length) return;
+    track('becas_step_complete', { step: 2 });
+    goTo(3);
+  };
+
+  /* ── step 3 ── */
+  const submitStep3 = () => {
+    const e = validateStep3(state.category, state.uploads, catalog);
+    setErrors(e);
+    if (Object.keys(e).length) return;
+    track('becas_step_complete', { step: 3, category: state.category.id });
+    goTo(4);
+  };
+
+  /* ── uploads ── */
+  const runUpload = useCallback(
+    async (localId: string, file: File, kind: BecaDocKind) => {
+      dispatch({ type: 'upload.update', localId, patch: { status: 'compressing', progress: 0.1, error: undefined } });
+      const prepared = await prepareFile(file);
+      if ('error' in prepared) {
+        dispatch({ type: 'upload.update', localId, patch: { status: 'error', error: prepared.error } });
+        track('becas_upload', { result: 'error', kind, code: prepared.error });
+        return;
+      }
+      try {
+        dispatch({ type: 'upload.update', localId, patch: { status: 'uploading', progress: 0.15, sizeKb: Math.round(prepared.blob.size / 1024) } });
+        const token = await ensureToken();
+        const ticket = await becasApi.documentTicket({
+          website: honeypot.current,
+          token,
+          kind,
+          filename: prepared.filename,
+          contentType: prepared.contentType,
+          size: prepared.blob.size,
+        });
+        await uploadToTicket(ticket.uploadUrl, ticket.headers, prepared.blob, (f) =>
+          dispatch({ type: 'upload.update', localId, patch: { progress: 0.15 + f * 0.85 } }),
+        );
+        dispatch({ type: 'upload.update', localId, patch: { status: 'done', progress: 1, docId: ticket.docId } });
+        track('becas_upload', { result: 'ok', kind, size_bucket: prepared.blob.size > 2_000_000 ? 'large' : prepared.blob.size > 500_000 ? 'medium' : 'small' });
+      } catch (e) {
+        const code = e instanceof ApiError ? e.code : 'upstream';
+        dispatch({ type: 'upload.update', localId, patch: { status: 'error', error: code } });
+        track('becas_upload', { result: 'error', kind, code });
+      }
+    },
+    [ensureToken, track],
+  );
+
+  const pendingFiles = useRef<Map<string, File>>(new Map());
+  const onPick = (kind: BecaDocKind) => (files: FileList) => {
+    markInteract();
+    const max = catalog?.uploads.maxPorTipo ?? 3;
+    const room = Math.max(0, max - state.uploads.filter((u) => u.kind === kind && u.status !== 'error').length);
+    Array.from(files)
+      .slice(0, room)
+      .forEach((file) => {
+      const localId = uuid();
+      pendingFiles.current.set(localId, file);
+      dispatch({
+        type: 'upload.add',
+        item: { localId, kind, name: file.name, sizeKb: Math.round(file.size / 1024), status: 'compressing', progress: 0 },
+      });
+        void runUpload(localId, file, kind);
+      });
+  };
+  const onRemoveUpload = (localId: string) => {
+    const item = state.uploads.find((u) => u.localId === localId);
+    dispatch({ type: 'upload.remove', localId });
+    pendingFiles.current.delete(localId);
+    // Tell the worker too, so a replaced boleta doesn't stay attached. A
+    // restored draft has no token yet; ensureToken re-obtains it.
+    if (item?.docId) {
+      const docId = item.docId;
+      void ensureToken()
+        .then((token) => becasApi.deleteDocument({ website: honeypot.current, token, docId }))
+        .catch(() => {});
+    }
+  };
+  const onRetry = (localId: string) => {
+    const file = pendingFiles.current.get(localId);
+    const item = state.uploads.find((u) => u.localId === localId);
+    if (file && item) void runUpload(localId, file, item.kind);
+    else dispatch({ type: 'upload.remove', localId });
+  };
+
+  /* ── submit ── */
+  const submitAll = useCallback(async () => {
+    const e1 = validateStep1(state.contact);
+    const e2 = validateStep2(state.student);
+    const e3 = validateStep3(state.category, state.uploads, catalog);
+    const e = { ...e1, ...e2, ...e3 };
+    if (Object.keys(e).length) {
+      setErrors(e);
+      goTo(Object.keys(e1).length ? 1 : Object.keys(e2).length ? 2 : 3);
+      return;
+    }
+    dispatch({ type: 'request', request: { status: 'pending', stage: 'submit' } });
+    const c = state.category;
+    const declarado: Record<string, unknown> = {};
+    if (c.id === 'academica') {
+      declarado.promedio = Number(c.promedio.replace(',', '.'));
+      declarado.boletaCiclo = c.boletaCiclo;
+      declarado.autorizaVerificacion = c.autorizaVerificacion === true;
+    }
+    if (c.id === 'deportiva') {
+      declarado.deporte = c.deporte.trim();
+      declarado.nivelCompetencia = c.nivelCompetencia;
+      declarado.anioCompetencia = Number(c.anioCompetencia);
+    }
+    if (c.id === 'cultural') {
+      declarado.disciplina = c.disciplina.trim();
+      declarado.anosFormacion = Number(c.anosFormacion);
+      declarado.presentacionPublica = c.presentacionPublica === true;
+    }
+    if (c.id === 'espiritu') declarado.cartaMotivos = buildCarta(c);
+    if (c.id !== 'academica' && c.evidenciaUrl.trim()) declarado.evidenciaUrl = c.evidenciaUrl.trim();
+
+    try {
+      const token = await ensureToken();
+      const res = await becasApi.submit({
+        website: honeypot.current,
+        token,
+        campus: state.contact.campus,
+        ciclo: state.contact.ciclo,
+        grado: state.student.grado,
+        categoria: c.id,
+        alumno: {
+          nombres: state.student.nombres.trim(),
+          apPaterno: state.student.apPaterno.trim(),
+          apMaterno: state.student.apMaterno.trim() || undefined,
+          nacimiento: state.student.nacimiento,
+          gradoActual: state.student.gradoActual.trim() || undefined,
+          escuelaProcedencia: state.student.escuela.trim() || undefined,
+        },
+        padre: {
+          nombre: state.contact.nombre.trim(),
+          apellidos: state.contact.apellidos.trim(),
+          email: state.contact.email.trim(),
+          telefono: state.contact.telefono,
+          domicilio: {
+            calle: state.student.calle.trim(),
+            colonia: state.student.colonia.trim(),
+            ciudad: state.student.ciudad.trim(),
+            cp: state.student.cp.trim(),
+          },
+        },
+        declarado,
+        consent: { version: catalog?.consentVersion ?? '2026-10-a', aceptado: true },
+        referido: c.referidoPor.trim() || c.referidoCodigo.trim() || refCode ? { por: c.referidoPor.trim() || undefined, codigo: (c.referidoCodigo.trim() || refCode || undefined)?.toUpperCase() } : undefined,
+      });
+      dispatch({ type: 'submitted', folio: res.folio, statusUrl: res.statusUrl, token: res.token });
+      track('becas_application_submit', {
+        category: c.id,
+        campus: state.contact.campus,
+        ciclo: state.contact.ciclo,
+        level: gradoData?.nivel,
+        has_file: state.uploads.some((u) => u.status === 'done'),
+        has_link: Boolean(c.evidenciaUrl.trim()),
+        has_referrer: Boolean(c.referidoPor.trim() || c.referidoCodigo.trim() || refCode),
+        calc_used: Boolean(calc.grado),
+      });
+      fireMetaEvent('CompleteRegistration', { content_name: 'beca', status: 'submitted' }, { eventId: `${state.leadEventId}-cr` });
+      refreshLive();
+      scrollTo('solicitud');
+    } catch (e2) {
+      const code = e2 instanceof ApiError ? e2.code : 'upstream';
+      dispatch({ type: 'request', request: { status: 'error', stage: 'submit', code } });
+      track('becas_error', { stage: 'submit', code });
+    }
+  }, [state, catalog, refCode, track, goTo, gradoData?.nivel, calc.grado, refreshLive, scrollTo, ensureToken]);
+
+  /* ── closed program ── */
+  if (!catalog || !catalog.open) return null;
+
+  const pending = state.request.status === 'pending';
+  const requestError = state.request.status === 'error' ? a.errors[state.request.code ?? 'upstream'] ?? a.errors.upstream : null;
+  const stepTitles = [a.steps.contact, a.steps.student, a.steps.category, a.steps.review];
+
+  return (
+    <section id="solicitud" className="section-padding bg-paper animate-section">
+      <div className="container-custom">
+        <SectionHeading eyebrow={a.eyebrow} title={a.title} accent={a.titleAccent} intro={a.intro} />
+
+        <div className="mt-10 max-w-3xl">
+          {state.submitted ? (
+            <SuccessCard folio={state.submitted.folio} statusUrl={`/becas/solicitud/${encodeURIComponent(state.submitted.token)}`} onAnother={() => {
+              clearDraft();
+              dispatch({ type: 'reset', idempotencyKey: uuid(), leadEventId: newEventId() });
+              dispatch({ type: 'prefill', contact: { campus: calc.campus, ciclo: calc.ciclo }, student: { grado: calc.grado }, categoria: calc.categoria });
+              setErrors({});
+            }} />
+          ) : (
+            <div className="rounded-3xl bg-white border border-n-200 shadow-navy-md overflow-hidden" data-clarity-mask="true">
+              {/* progress rail */}
+              <ol className="grid grid-cols-4 border-b border-n-200" aria-label={a.eyebrow}>
+                {stepTitles.map((title, i) => {
+                  const n = (i + 1) as Step;
+                  const active = state.step === n;
+                  const done = state.step > n;
+                  return (
+                    <li key={title} aria-current={active ? 'step' : undefined} className="relative px-3 py-3 text-center">
+                      <span aria-hidden="true" className={`absolute inset-x-0 bottom-0 h-[3px] ${done || active ? 'bg-gold' : 'bg-transparent'}`} />
+                      <button
+                        type="button"
+                        disabled={!done}
+                        onClick={() => goTo(n)}
+                        className={`font-mono text-[10px] uppercase tracking-[0.18em] ${active ? 'text-navy' : done ? 'text-gold-600 hover:text-navy' : 'text-n-400'}`}
+                      >
+                        <span className="block tabular-nums">{String(n).padStart(2, '0')}</span>
+                        <span className="hidden sm:block mt-0.5 normal-case tracking-normal font-sans text-xs font-semibold">{title}</span>
+                      </button>
+                    </li>
+                  );
+                })}
+              </ol>
+
+              <div className="p-6 md:p-10">
+                <div aria-live="polite" className="sr-only">
+                  {a.stepLabel(state.step, TOTAL_STEPS)}
+                </div>
+                <h3 ref={headingRef} tabIndex={-1} className="font-display font-bold text-2xl md:text-3xl text-navy outline-none">
+                  <span className="block font-mono text-[11px] uppercase tracking-[0.2em] text-gold mb-1">{a.stepLabel(state.step, TOTAL_STEPS)}</span>
+                  {stepTitles[state.step - 1]}
+                </h3>
+
+                {draftRestored && state.step > 1 && (
+                  <p className="mt-3 inline-flex items-center gap-2 rounded-full bg-n-50 border border-n-200 px-3 py-1 text-xs text-n-600">
+                    <FiCheck className="text-[#2E7D52]" /> {a.draftRestored}
+                  </p>
+                )}
+
+                <AnimatePresence mode="wait" initial={false}>
+                  <motion.div
+                    key={state.step}
+                    initial={reduce ? false : { opacity: 0, x: 16 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={reduce ? undefined : { opacity: 0, x: -16 }}
+                    transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
+                    className="mt-8"
+                    onFocusCapture={markInteract}
+                  >
+                    {state.step === 1 && (
+                      <StepContact state={state} dispatch={dispatch} err={err} onNext={submitStep1} grados={grados} onHoneypot={(v) => (honeypot.current = v)} />
+                    )}
+                    {state.step === 2 && (
+                      <StepStudent state={state} dispatch={dispatch} err={err} onNext={submitStep2} grados={grados} />
+                    )}
+                    {state.step === 3 && (
+                      <StepCategory
+                        state={state}
+                        dispatch={dispatch}
+                        err={err}
+                        onNext={submitStep3}
+                        grados={grados}
+                        categories={availableCategories}
+                        onPick={onPick}
+                        onRetry={onRetry}
+                        onRemove={onRemoveUpload}
+                        setErrors={setErrors}
+                      />
+                    )}
+                    {state.step === 4 && <StepReview state={state} goTo={goTo} grados={grados} />}
+                  </motion.div>
+                </AnimatePresence>
+
+                {requestError && (
+                  <div role="alert" className="mt-6 rounded-xl border border-[#77011B]/30 bg-[#77011B]/[0.04] px-4 py-3 text-sm text-[#77011B]">
+                    {requestError}
+                    {state.request.fields && Object.keys(state.request.fields).length > 0 && (
+                      <ul className="mt-2 space-y-0.5 font-mono text-xs">
+                        {Object.entries(state.request.fields).map(([k, v]) => (
+                          <li key={k}>
+                            {k}: {v}
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                    {(state.request.code === 'network' || state.request.code === 'upstream' || state.request.code === 'timeout' || state.request.code === 'rate_limited') && (
+                      <a
+                        href={`https://wa.me/${BECAS_WHATSAPP}?text=${encodeURIComponent(copy.finalCta.whatsappText)}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="ml-2 underline"
+                      >
+                        {a.whatsappFallback}
+                      </a>
+                    )}
+                  </div>
+                )}
+
+                <div className="mt-8 flex flex-col-reverse sm:flex-row sm:items-center sm:justify-between gap-3">
+                  {state.step > 1 ? (
+                    <button type="button" onClick={() => goTo((state.step - 1) as Step)} className="inline-flex items-center gap-2 text-navy hover:text-gold-600 font-semibold py-3">
+                      <FiArrowLeft /> {a.back}
+                    </button>
+                  ) : (
+                    <span />
+                  )}
+                  {state.step < 4 ? (
+                    <button
+                      type="button"
+                      data-cta={`becas_step_${state.step}_next`}
+                      disabled={pending}
+                      onClick={state.step === 1 ? submitStep1 : state.step === 2 ? submitStep2 : submitStep3}
+                      className="btn-primary inline-flex items-center justify-center gap-2 disabled:opacity-60"
+                    >
+                      {pending ? a.submitting : a.next} <FiArrowRight />
+                    </button>
+                  ) : (
+                    <button type="button" data-cta="becas_submit" disabled={pending} onClick={submitAll} className="btn-primary inline-flex items-center justify-center gap-2 disabled:opacity-60">
+                      {pending ? a.submitting : a.submit} <FiCheck />
+                    </button>
+                  )}
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ═══════════════════════════════ steps ═══════════════════════════════ */
+
+type StepProps = {
+  state: AppState;
+  dispatch: React.Dispatch<import('./application/state').Action>;
+  err: (key: string) => string | undefined;
+  onNext: () => void;
+  grados: { key: string; label: string }[];
+};
+
+function StepContact({ state, dispatch, err, onNext, onHoneypot }: StepProps & { onHoneypot: (v: string) => void }) {
+  const { catalog, copy, calc } = useBecas();
+  const a = copy.apply;
+  const c = state.contact;
+  const set = (patch: Partial<AppState['contact']>) => dispatch({ type: 'contact', patch });
+  const fromCalc = (k: 'campus' | 'ciclo') => calc[k] && !state.touched[k] && c[k] === calc[k];
+
+  return (
+    <div role="group" aria-label={a.steps.contact} className="space-y-6">
+      <div className="grid sm:grid-cols-2 gap-4">
+        <TextField label={a.fields.nombre} placeholder={a.placeholders.nombre} value={c.nombre} onChange={(e) => set({ nombre: e.target.value })} error={err('nombre')} autoComplete="given-name" autoCapitalize="words" enterKeyHint="next" onEnter={onNext} />
+        <TextField label={a.fields.apellidos} placeholder={a.placeholders.apellidos} value={c.apellidos} onChange={(e) => set({ apellidos: e.target.value })} error={err('apellidos')} autoComplete="family-name" autoCapitalize="words" enterKeyHint="next" onEnter={onNext} />
+        <TextField label={a.fields.email} placeholder={a.placeholders.email} value={c.email} onChange={(e) => set({ email: e.target.value })} error={err('email')} type="email" inputMode="email" autoComplete="email" autoCapitalize="none" spellCheck={false} enterKeyHint="next" onEnter={onNext} />
+        <TextField label={a.fields.telefono} placeholder={a.placeholders.telefono} hint={a.hints.telefono} value={c.telefono} onChange={(e) => set({ telefono: e.target.value })} error={err('telefono')} type="tel" inputMode="tel" autoComplete="tel-national" prefix="+52" enterKeyHint="done" onEnter={onNext} />
+      </div>
+
+      <div className="grid sm:grid-cols-2 gap-6">
+        <div>
+          <PillGroup<SiteCampusSlug>
+            label={a.fields.campus}
+            options={(catalog?.campuses ?? []).map((cp) => ({ value: cp.slug, label: cp.label }))}
+            value={c.campus}
+            onChange={(v) => dispatch({ type: 'contact', patch: { campus: v }, touched: 'campus' })}
+            columns={2}
+          />
+          {fromCalc('campus') && <FromCalc />}
+          {err('campus') && <p className="mt-1.5 text-sm text-[#77011B]" role="alert">{err('campus')}</p>}
+        </div>
+        <div>
+          <PillGroup
+            label={a.fields.ciclo}
+            options={(catalog?.ciclos ?? []).map((ci) => ({ value: ci.key, label: ci.tipo === 'actual' ? copy.calculator.cicloActual : copy.calculator.cicloSiguiente, hint: formatCiclo(ci.key) }))}
+            value={c.ciclo}
+            onChange={(v) => dispatch({ type: 'contact', patch: { ciclo: v }, touched: 'ciclo' })}
+            columns={2}
+          />
+          {fromCalc('ciclo') && <FromCalc />}
+          {err('ciclo') && <p className="mt-1.5 text-sm text-[#77011B]" role="alert">{err('ciclo')}</p>}
+        </div>
+      </div>
+
+      {/* honeypot — real browsers never fill it */}
+      <div aria-hidden="true" className="absolute -left-[9999px] top-auto w-px h-px overflow-hidden">
+        <input type="text" name="website" tabIndex={-1} autoComplete="off" defaultValue="" onChange={(e) => onHoneypot(e.target.value)} />
+      </div>
+
+      <Checkbox checked={c.consent} onChange={(v) => set({ consent: v })} error={err('consent')}>
+        {a.consent}{' '}
+        <a href="/becas/aviso-de-privacidad" target="_blank" rel="noopener noreferrer" className="text-gold-600 underline">
+          {a.consentLink}
+        </a>
+      </Checkbox>
+    </div>
+  );
+}
+
+function StepStudent({ state, dispatch, err, onNext, grados }: StepProps) {
+  const { copy, calc } = useBecas();
+  const a = copy.apply;
+  const s = state.student;
+  const set = (patch: Partial<AppState['student']>) => dispatch({ type: 'student', patch });
+  const blocked = s.newFamily === 'no';
+
+  return (
+    <div role="group" aria-label={a.steps.student} className="space-y-6">
+      <Choice
+        label={a.newFamilyQ}
+        options={[
+          { value: 'yes', label: a.newFamilyYes },
+          { value: 'no', label: a.newFamilyNo },
+        ]}
+        value={s.newFamily}
+        onChange={(v) => set({ newFamily: v as 'yes' | 'no' })}
+        error={err('newFamily')}
+      />
+      {blocked && (
+        <div className="rounded-2xl bg-navy text-paper p-5">
+          <p className="leading-relaxed">{a.newFamilyBlock}</p>
+          <a href={`https://wa.me/${BECAS_WHATSAPP}?text=${encodeURIComponent(copy.finalCta.whatsappText)}`} target="_blank" rel="noopener noreferrer" className="btn-primary mt-4 inline-flex items-center gap-2 text-sm">
+            <FaWhatsapp /> {copy.finalCta.whatsapp}
+          </a>
+        </div>
+      )}
+
+      <div className={`grid sm:grid-cols-3 gap-4 ${blocked ? 'opacity-40 pointer-events-none' : ''}`}>
+        <TextField label={a.fields.alumnoNombres} placeholder={a.placeholders.alumnoNombres} value={s.nombres} onChange={(e) => set({ nombres: e.target.value })} error={err('alumnoNombres')} autoCapitalize="words" enterKeyHint="next" onEnter={onNext} />
+        <TextField label={a.fields.alumnoApPaterno} placeholder={a.placeholders.alumnoApPaterno} value={s.apPaterno} onChange={(e) => set({ apPaterno: e.target.value })} error={err('alumnoApPaterno')} autoCapitalize="words" enterKeyHint="next" onEnter={onNext} />
+        <TextField label={a.fields.alumnoApMaterno} placeholder={a.placeholders.alumnoApMaterno} value={s.apMaterno} onChange={(e) => set({ apMaterno: e.target.value })} autoCapitalize="words" enterKeyHint="next" onEnter={onNext} />
+      </div>
+
+      <div className={`grid sm:grid-cols-2 gap-4 ${blocked ? 'opacity-40 pointer-events-none' : ''}`}>
+        <TextField label={a.fields.nacimiento} hint={a.hints.nacimiento} value={s.nacimiento} onChange={(e) => set({ nacimiento: e.target.value })} error={err('nacimiento')} type="date" max={new Date().toISOString().slice(0, 10)} enterKeyHint="next" onEnter={onNext} />
+        <div>
+          <SelectField label={a.fields.grado} value={s.grado ?? ''} onChange={(e) => dispatch({ type: 'student', patch: { grado: e.target.value }, touched: 'grado' })} error={err('grado')}>
+            <option value="" disabled>
+              {copy.calculator.gradoPlaceholder}
+            </option>
+            {grados.map((g) => (
+              <option key={g.key} value={g.key}>
+                {g.label}
+              </option>
+            ))}
+          </SelectField>
+          {calc.grado && !state.touched.grado && s.grado === calc.grado && <FromCalc />}
+        </div>
+        <TextField label={a.fields.escuela} placeholder={a.placeholders.escuela} value={s.escuela} onChange={(e) => set({ escuela: e.target.value })} autoCapitalize="words" enterKeyHint="next" onEnter={onNext} />
+        <TextField label={a.fields.gradoActual} value={s.gradoActual} onChange={(e) => set({ gradoActual: e.target.value })} enterKeyHint="next" onEnter={onNext} />
+      </div>
+
+      <div className={`grid sm:grid-cols-6 gap-4 ${blocked ? 'opacity-40 pointer-events-none' : ''}`}>
+        <TextField className="sm:col-span-3" label={a.fields.calle} placeholder={a.placeholders.calle} value={s.calle} onChange={(e) => set({ calle: e.target.value })} error={err('calle')} autoComplete="street-address" enterKeyHint="next" onEnter={onNext} />
+        <TextField className="sm:col-span-3" label={a.fields.colonia} placeholder={a.placeholders.colonia} value={s.colonia} onChange={(e) => set({ colonia: e.target.value })} error={err('colonia')} autoComplete="address-level3" enterKeyHint="next" onEnter={onNext} />
+        <TextField className="sm:col-span-4" label={a.fields.ciudad} placeholder={a.placeholders.ciudad} value={s.ciudad} onChange={(e) => set({ ciudad: e.target.value })} error={err('ciudad')} autoComplete="address-level2" enterKeyHint="next" onEnter={onNext} />
+        <TextField className="sm:col-span-2" label={a.fields.cp} placeholder={a.placeholders.cp} value={s.cp} onChange={(e) => set({ cp: e.target.value.replace(/\D/g, '').slice(0, 5) })} error={err('cp')} inputMode="numeric" autoComplete="postal-code" maxLength={5} enterKeyHint="done" onEnter={onNext} />
+      </div>
+    </div>
+  );
+}
+
+function StepCategory({
+  state,
+  dispatch,
+  err,
+  onNext,
+  categories,
+  onPick,
+  onRetry,
+  onRemove,
+  setErrors,
+}: StepProps & {
+  categories: { key: BecaCategoria; name: string; tagline: string }[];
+  onPick: (kind: BecaDocKind) => (files: FileList) => void;
+  onRetry: (localId: string) => void;
+  onRemove: (localId: string) => void;
+  setErrors: (e: Errors) => void;
+}) {
+  const { copy, catalog, track } = useBecas();
+  const a = copy.apply;
+  const c = state.category;
+  const set = (patch: Partial<AppState['category']>) => dispatch({ type: 'category', patch });
+  const cfg = catalog?.categorias.find((x) => x.key === c.id);
+  const theme = c.id ? CATEGORY_THEME[c.id] : null;
+  const slots = docSlots(c.id);
+  const { sectionMin, max: cartaMax } = cartaLimits(catalog);
+  const uploadsOf = (k: BecaDocKind) => state.uploads.filter((u) => u.kind === k);
+  const doneOf = (k: BecaDocKind) => state.uploads.some((u) => u.kind === k && u.status === 'done');
+  const hasLink = /^https:\/\/\S+$/.test(c.evidenciaUrl.trim());
+  const pick = (key: BecaCategoria) => {
+    dispatch({ type: 'category', patch: { id: key }, touched: 'categoria' });
+    setErrors({});
+    track('becas_category_select', { category: key, source: 'form' });
+  };
+
+  /* Live checklist: what this category needs and what is already in place. */
+  const checklist: { label: string; ok: boolean }[] = (() => {
+    const thisYear = new Date().getFullYear();
+    switch (c.id) {
+      case 'academica': {
+        const p = Number(c.promedio.replace(',', '.'));
+        return [
+          { label: a.fields.promedio, ok: c.promedio.trim() !== '' && !Number.isNaN(p) && p >= (cfg?.promedioMinimo ?? 8.5) && p <= 10 },
+          { label: a.fields.boletaCiclo, ok: /^\d{4}-\d{4}$/.test(c.boletaCiclo) },
+          { label: a.uploadTitle.boleta, ok: doneOf('boleta') },
+          { label: a.uploadTitle.constancia, ok: doneOf('constancia') },
+          { label: a.requirements.verifyShort, ok: c.autorizaVerificacion },
+        ];
+      }
+      case 'deportiva': {
+        const y = Number(c.anioCompetencia);
+        return [
+          { label: a.fields.deporte, ok: c.deporte.trim() !== '' },
+          { label: a.fields.nivelCompetencia, ok: Boolean(c.nivelCompetencia) },
+          { label: a.fields.anioCompetencia, ok: !Number.isNaN(y) && y >= thisYear - 2 && y <= thisYear && c.anioCompetencia.length === 4 },
+          { label: a.uploadTitle.evidencia, ok: doneOf('evidencia') || hasLink },
+        ];
+      }
+      case 'cultural':
+        return [
+          { label: a.fields.disciplina, ok: c.disciplina.trim() !== '' },
+          { label: a.fields.anosFormacion, ok: c.anosFormacion.trim() !== '' && !Number.isNaN(Number(c.anosFormacion)) },
+          { label: a.requirements.presentacionShort, ok: c.presentacionPublica !== null },
+          { label: a.uploadTitle.evidencia, ok: doneOf('evidencia') || hasLink },
+        ];
+      case 'espiritu':
+        return CARTA_SECTIONS.map((k) => ({ label: a.carta.sections[k].label, ok: c[k].trim().length >= sectionMin }));
+      default:
+        return [];
+    }
+  })();
+  const met = checklist.filter((x) => x.ok).length;
+  const accent = theme ? (theme.dark ? 'var(--nwl-navy)' : theme.color) : 'var(--nwl-gold)';
+  const tint = (pct: number) => `color-mix(in srgb, ${accent} ${pct}%, white)`;
+  const cartaTotal = buildCarta(c).length;
+
+  return (
+    <div role="group" aria-label={a.steps.category} className="space-y-6">
+      <div>
+        <div className="block text-sm font-semibold text-navy mb-2">{a.fields.categoria}</div>
+        <div role="radiogroup" className="grid sm:grid-cols-2 gap-3">
+          {categories.map((cat) => {
+            const t = CATEGORY_THEME[cat.key];
+            const Icon = t.icon;
+            const selected = c.id === cat.key;
+            const color = t.dark ? 'var(--nwl-navy)' : t.color;
+            return (
+              <button
+                key={cat.key}
+                type="button"
+                role="radio"
+                aria-checked={selected}
+                onClick={() => pick(cat.key)}
+                style={selected ? { borderColor: color, boxShadow: `0 0 0 1px ${color}`, background: `color-mix(in srgb, ${color} 8%, white)` } : undefined}
+                className="relative text-left rounded-2xl border border-n-300 bg-white px-4 py-3.5 flex items-start gap-3 transition-colors hover:border-gold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold/60"
+              >
+                <span className="mt-0.5 inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full" style={{ background: `color-mix(in srgb, ${color} 14%, white)`, color }}>
+                  <Icon size={17} />
+                </span>
+                <span className="min-w-0 flex-1">
+                  <span className="block font-display font-bold text-navy leading-tight">{cat.name}</span>
+                  <span className="block text-sm text-n-600 italic mt-0.5">{cat.tagline}</span>
+                </span>
+                {selected && (
+                  <span className="absolute top-3 right-3 inline-flex h-5 w-5 items-center justify-center rounded-full text-white" style={{ background: color }}>
+                    <FiCheck size={12} strokeWidth={3} />
+                  </span>
+                )}
+              </button>
+            );
+          })}
+        </div>
+        {err('categoria') && <p className="mt-1.5 text-sm text-[#77011B]" role="alert">{err('categoria')}</p>}
+      </div>
+
+      {c.id && theme && (
+        <div className="rounded-2xl border overflow-hidden" style={{ borderColor: tint(45) }}>
+          {/* header: icon, name, progress */}
+          <div className="px-5 py-4 flex items-center gap-3 border-b" style={{ background: tint(9), borderColor: tint(30) }}>
+            <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white" style={{ color: accent }}>
+              <theme.icon size={18} />
+            </span>
+            <div className="min-w-0 flex-1">
+              <div className="font-mono text-[10px] uppercase tracking-[0.2em] text-n-600">{a.requirements.title}</div>
+              <div className="font-display font-bold text-navy leading-tight">{categories.find((x) => x.key === c.id)?.name}</div>
+            </div>
+            <span className="shrink-0 rounded-full bg-white px-3 py-1 font-mono text-[11px] tabular-nums" style={{ color: accent, boxShadow: `inset 0 0 0 1px ${tint(40)}` }}>
+              {a.requirements.met(met, checklist.length)}
+            </span>
+          </div>
+
+          {/* checklist */}
+          <ul className="px-5 py-4 grid sm:grid-cols-2 gap-x-6 gap-y-2 text-sm" aria-live="polite">
+            {checklist.map((item) => (
+              <li key={item.label} className="flex items-start gap-2.5">
+                <span
+                  aria-hidden="true"
+                  className={`mt-[3px] inline-flex h-4 w-4 shrink-0 items-center justify-center rounded-full transition-colors ${item.ok ? 'text-white' : 'ring-1 ring-inset ring-n-300 bg-white'}`}
+                  style={item.ok ? { background: accent } : undefined}
+                >
+                  {item.ok && <FiCheck size={10} strokeWidth={3} />}
+                </span>
+                <span className={item.ok ? 'text-navy' : 'text-n-600'}>{item.label}</span>
+              </li>
+            ))}
+          </ul>
+
+          <div className="px-5 pb-6 pt-3 space-y-5 border-t" style={{ borderColor: tint(25) }}>
+            {c.id === 'academica' && (
+              <>
+                <div className="grid sm:grid-cols-2 gap-4">
+                  <TextField label={a.fields.promedio} hint={a.hints.promedio} placeholder={a.placeholders.promedio} value={c.promedio} onChange={(e) => set({ promedio: e.target.value })} error={err('promedio')} inputMode="decimal" enterKeyHint="next" />
+                  <SelectField label={a.fields.boletaCiclo} hint={a.hints.boletaCiclo} value={c.boletaCiclo} onChange={(e) => set({ boletaCiclo: e.target.value })} error={err('boletaCiclo')}>
+                    <option value="" disabled>
+                      —
+                    </option>
+                    {boletaCiclos().map((ciclo) => (
+                      <option key={ciclo} value={ciclo}>
+                        {formatCiclo(ciclo)}
+                      </option>
+                    ))}
+                  </SelectField>
+                </div>
+                {err('promedio') === a.errors.promedioLow && (
+                  <button type="button" onClick={() => pick('espiritu')} className="btn-secondary text-sm">
+                    {a.errors.switchEspiritu}
+                  </button>
+                )}
+              </>
+            )}
+
+            {c.id === 'deportiva' && (
+              <div className="grid sm:grid-cols-2 gap-4">
+                <TextField label={a.fields.deporte} placeholder={a.placeholders.deporte} value={c.deporte} onChange={(e) => set({ deporte: e.target.value })} error={err('deporte')} autoCapitalize="words" enterKeyHint="next" />
+                <SelectField label={a.fields.nivelCompetencia} value={c.nivelCompetencia ?? ''} onChange={(e) => set({ nivelCompetencia: e.target.value as NivelCompetencia })} error={err('nivelCompetencia')}>
+                  <option value="" disabled>
+                    —
+                  </option>
+                  {a.nivelOptions.map((o) => (
+                    <option key={o.value} value={o.value}>
+                      {o.label}
+                    </option>
+                  ))}
+                </SelectField>
+                <TextField label={a.fields.anioCompetencia} value={c.anioCompetencia} onChange={(e) => set({ anioCompetencia: e.target.value.replace(/\D/g, '').slice(0, 4) })} error={err('anioCompetencia')} inputMode="numeric" maxLength={4} placeholder={String(new Date().getFullYear())} enterKeyHint="next" />
+              </div>
+            )}
+
+            {c.id === 'cultural' && (
+              <div className="grid sm:grid-cols-2 gap-4">
+                <TextField label={a.fields.disciplina} placeholder={a.placeholders.disciplina} value={c.disciplina} onChange={(e) => set({ disciplina: e.target.value })} error={err('disciplina')} autoCapitalize="words" enterKeyHint="next" />
+                <TextField label={a.fields.anosFormacion} value={c.anosFormacion} onChange={(e) => set({ anosFormacion: e.target.value.replace(/\D/g, '').slice(0, 2) })} error={err('anosFormacion')} inputMode="numeric" maxLength={2} enterKeyHint="next" />
+                <div className="sm:col-span-2">
+                  <Choice
+                    label={a.fields.presentacionPublica}
+                    options={[
+                      { value: 'yes', label: a.yesNo.yes },
+                      { value: 'no', label: a.yesNo.no },
+                    ]}
+                    value={c.presentacionPublica === null ? null : c.presentacionPublica ? 'yes' : 'no'}
+                    onChange={(v) => set({ presentacionPublica: v === 'yes' })}
+                    error={err('presentacionPublica')}
+                  />
+                </div>
+              </div>
+            )}
+
+            {c.id === 'espiritu' && (
+              <div className="space-y-5">
+                <p className="text-sm text-n-700 leading-relaxed rounded-xl bg-n-50 border border-n-200 px-4 py-3">{a.carta.intro}</p>
+                {CARTA_SECTIONS.map((k, i) => {
+                  const sec = a.carta.sections[k];
+                  const len = c[k].trim().length;
+                  return (
+                    <TextareaField
+                      key={k}
+                      label={sec.label}
+                      hint={sec.hint}
+                      placeholder={sec.placeholder}
+                      value={c[k]}
+                      onChange={(e) => set({ [k]: e.target.value.slice(0, cartaMax) } as Partial<AppState['category']>)}
+                      error={err(k)}
+                      counter={`${len} / ${sectionMin}${len >= sectionMin ? ' ✓' : ''}`}
+                      rows={i === 0 ? 6 : 5}
+                    />
+                  );
+                })}
+                <div className="flex flex-wrap items-center justify-between gap-2 text-xs text-n-600">
+                  <span>{a.carta.minHint(sectionMin)}</span>
+                  <span className="font-mono tabular-nums">{cartaTotal} / {cartaMax}</span>
+                </div>
+                <p className="text-xs text-n-500 italic">{a.carta.committee}</p>
+              </div>
+            )}
+
+            {slots.map((slot) => {
+              const title = c.id === 'espiritu' ? a.carta.recommendation : a.uploadTitle[slot.kind];
+              const sub = c.id === 'espiritu' ? a.carta.recommendationHint : a.uploadSub[slot.kind];
+              const linkLabel = c.id === 'espiritu' ? a.fields.cartaRecomendacionUrl : a.fields.evidenciaUrl;
+              return (
+                <div key={slot.kind} className="space-y-3">
+                  <FileDrop
+                    kind={slot.kind}
+                    title={title}
+                    hint={`${sub} ${a.uploadHint}${slot.orLink ? ` ${a.uploadOrLink}` : ''}`}
+                    buttonLabel={a.uploadBtn}
+                    items={uploadsOf(slot.kind)}
+                    max={catalog?.uploads.maxPorTipo ?? 3}
+                    onPick={onPick(slot.kind)}
+                    onRemove={onRemove}
+                    onRetry={onRetry}
+                    stateLabels={a.uploadStates}
+                    removeLabel={a.uploadRemove}
+                    retryLabel={a.uploadRetry}
+                    error={err(slot.kind)}
+                  />
+                  {slot.orLink && (
+                    <TextField label={linkLabel} placeholder={a.placeholders.evidenciaUrl} value={c.evidenciaUrl} onChange={(e) => set({ evidenciaUrl: e.target.value })} error={err('evidenciaUrl')} type="url" inputMode="url" autoCapitalize="none" spellCheck={false} enterKeyHint="done" onEnter={onNext} />
+                  )}
+                </div>
+              );
+            })}
+
+            {c.id === 'academica' && (
+              <Checkbox checked={c.autorizaVerificacion} onChange={(v) => set({ autorizaVerificacion: v })} error={err('autorizaVerificacion')}>
+                {a.requirements.verifyLabel}
+                <span className="block mt-1 text-xs text-n-500">{a.requirements.verifyHint}</span>
+              </Checkbox>
+            )}
+          </div>
+        </div>
+      )}
+
+      <div className="grid sm:grid-cols-2 gap-4 pt-2 border-t border-n-200">
+        <TextField label={a.fields.referidoPor} placeholder={a.placeholders.referidoPor} value={c.referidoPor} onChange={(e) => set({ referidoPor: e.target.value })} autoCapitalize="words" enterKeyHint="next" onEnter={onNext} />
+        <TextField label={a.fields.referidoCodigo} placeholder={a.placeholders.referidoCodigo} value={c.referidoCodigo} onChange={(e) => set({ referidoCodigo: e.target.value.toUpperCase() })} autoCapitalize="characters" spellCheck={false} enterKeyHint="done" onEnter={onNext} />
+      </div>
+    </div>
+  );
+}
+
+function StepReview({ state, goTo, grados }: { state: AppState; goTo: (s: Step) => void; grados: { key: string; label: string }[] }) {
+  const { copy, catalog, locale } = useBecas();
+  const a = copy.apply;
+  const campus = catalog?.campuses.find((c) => c.slug === state.contact.campus)?.label ?? state.contact.campus;
+  const grado = grados.find((g) => g.key === state.student.grado)?.label ?? state.student.grado;
+  const c = state.category;
+  const rows: { step: Step; title: string; lines: string[] }[] = [
+    {
+      step: 1,
+      title: a.steps.contact,
+      lines: [`${state.contact.nombre} ${state.contact.apellidos}`, state.contact.email, `+52 ${state.contact.telefono}`, `${campus} · ${formatCiclo(state.contact.ciclo ?? '')}`],
+    },
+    {
+      step: 2,
+      title: a.steps.student,
+      lines: [
+        `${state.student.nombres} ${state.student.apPaterno} ${state.student.apMaterno}`.trim(),
+        `${grado}`,
+        state.student.escuela ? `${a.fields.escuela}: ${state.student.escuela}` : '',
+        `${state.student.calle}, ${state.student.colonia}, ${state.student.ciudad} ${state.student.cp}`,
+      ].filter(Boolean),
+    },
+    {
+      step: 3,
+      title: a.steps.category,
+      lines: [
+        c.id ? categoryName(c.id, locale) : '',
+        c.id === 'academica' ? `${a.fields.promedio}: ${c.promedio} · ${formatCiclo(c.boletaCiclo)}` : '',
+        c.id === 'deportiva' ? `${c.deporte} · ${a.nivelOptions.find((o) => o.value === c.nivelCompetencia)?.label ?? ''} · ${c.anioCompetencia}` : '',
+        c.id === 'cultural' ? `${c.disciplina} · ${c.anosFormacion} ${a.fields.anosFormacion.toLowerCase()}` : '',
+        c.id === 'espiritu' ? `${a.fields.cartaMotivos}: ${c.cartaAlumno.trim().slice(0, 120)}…` : '',
+        ...state.uploads.filter((u) => u.status === 'done').map((u) => `📎 ${u.name}`),
+        c.evidenciaUrl ? c.evidenciaUrl : '',
+        c.referidoPor || c.referidoCodigo ? `${a.fields.referidoPor.replace(' (opcional)', '').replace(' (optional)', '')}: ${[c.referidoPor, c.referidoCodigo].filter(Boolean).join(' · ')}` : '',
+      ].filter(Boolean),
+    },
+  ];
+
+  return (
+    <div role="group" aria-label={a.steps.review} className="space-y-4">
+      <p className="text-n-600">{a.reviewTitle}</p>
+      {rows.map((r) => (
+        <div key={r.step} className="rounded-2xl border border-n-200 bg-n-50 p-5 flex gap-4">
+          <div className="flex-1 min-w-0">
+            <div className="font-mono text-[10px] uppercase tracking-[0.2em] text-gold-600">{r.title}</div>
+            <ul className="mt-2 space-y-0.5 text-navy">
+              {r.lines.map((l, i) => (
+                <li key={i} className="truncate">
+                  {l}
+                </li>
+              ))}
+            </ul>
+          </div>
+          <button type="button" onClick={() => goTo(r.step)} className="self-start inline-flex items-center gap-1 text-sm text-gold-600 hover:text-navy">
+            <FiEdit2 size={14} /> {a.reviewEdit}
+          </button>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function SuccessCard({ folio, statusUrl, onAnother }: { folio: string; statusUrl: string; onAnother: () => void }) {
+  const { copy } = useBecas();
+  const s = copy.apply.success;
+  return (
+    <div className="rounded-3xl nwl-bg-dawn p-8 md:p-12 text-paper shadow-navy-xl">
+      <div className="flex flex-col md:flex-row md:items-center gap-8">
+        <Crest level="gold" size={96} showBanner={false} />
+        <div className="flex-1">
+          <div className="font-mono text-[11px] uppercase tracking-[0.22em] text-gold">{s.eyebrow}</div>
+          <h3 className="font-display font-bold text-5xl mt-2">{s.title}</h3>
+          <p className="mt-3 text-paper/80 leading-relaxed max-w-lg">{s.body}</p>
+          <div className="mt-5 inline-flex items-center gap-3 rounded-full bg-paper/10 border border-paper/20 px-4 py-2 font-mono text-sm">
+            <span className="text-paper/60 uppercase tracking-[0.18em] text-[10px]">{s.folio}</span>
+            <span className="text-gold">{folio}</span>
+          </div>
+          <div className="mt-7 flex flex-col sm:flex-row gap-3">
+            <a href={statusUrl} data-cta="becas_success_status" className="btn-primary inline-flex items-center justify-center gap-2">
+              {s.cta} <FiArrowRight />
+            </a>
+            <button type="button" onClick={onAnother} className="inline-flex items-center justify-center px-7 py-3 rounded-full font-semibold border border-paper/35 text-paper hover:border-gold hover:text-gold transition-colors">
+              {s.secondary}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function FromCalc() {
+  const { copy } = useBecas();
+  return <span className="mt-1.5 inline-block font-mono text-[10px] uppercase tracking-[0.18em] text-gold-600">{copy.apply.fromCalc}</span>;
+}
+
+export type { UploadItem };

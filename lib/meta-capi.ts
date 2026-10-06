@@ -1,4 +1,5 @@
 import { createHash } from 'crypto';
+import { normalizePhoneMX } from '@/lib/phone';
 
 /* ------------------------------------------------------------------ */
 /*  Meta Conversions API — shared server-side sender                   */
@@ -150,7 +151,7 @@ export async function sendMetaEvent(input: MetaEventInput): Promise<MetaSendResu
     ...(u.fbp && { fbp: u.fbp }),
     ...(u.fbc && { fbc: u.fbc }),
     ...(u.email && { em: [sha256(u.email)] }),
-    ...(u.phone && { ph: [sha256(u.phone.replace(/\D/g, ''))] }),
+    ...(u.phone && { ph: [sha256(normalizePhoneMX(u.phone) ?? u.phone.replace(/\D/g, ''))] }),
   };
 
   const payload = {

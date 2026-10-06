@@ -16,6 +16,7 @@ import {
 import { FaWhatsapp } from 'react-icons/fa';
 import Footer from '@/components/Footer';
 import SouthernCross from '@/components/ui/SouthernCross';
+import { BECAS_PUBLIC } from '@/lib/becas/preview';
 
 /* ──────────────────────────────────────────────────────────
    Newland × Knotion · News / methodology update
@@ -553,6 +554,15 @@ export default function NewlandKnotionNews() {
             acumulables con otros programas de apoyo. Consulta con tu CAP para los
             detalles de aplicación por campus.
           </p>
+          {BECAS_PUBLIC && (
+            <p className="mt-3 text-xs text-navy/50 leading-relaxed">
+              Familias de nuevo ingreso: el programa vigente es el{' '}
+              <a href="/becas" className="underline text-gold-600 hover:text-navy">
+                Programa de Becas NWL Australian School
+              </a>
+              .
+            </p>
+          )}
 
         </motion.section>
 

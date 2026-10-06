@@ -3,6 +3,7 @@ import { campuses } from '@/lib/campus-data';
 import { getAllInformacionSlugs } from '@/lib/informacion-data';
 import { SITE_URL } from '@/lib/seo';
 import { RECTORIA_PUBLIC } from '@/lib/rectoria-preview';
+import { BECAS_PUBLIC } from '@/lib/becas/preview';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date().toISOString();
@@ -37,6 +38,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Rectoría joins the sitemap only once the launch flag is on
   if (RECTORIA_PUBLIC) {
     staticPages.push({ url: `${SITE_URL}/rectoria`, lastModified: now });
+  }
+
+  // Becas joins the sitemap only once its launch flag is on (lib/becas/preview.ts).
+  // Its status, verify and demo routes are noindex and never listed.
+  if (BECAS_PUBLIC) {
+    staticPages.push({ url: `${SITE_URL}/becas`, lastModified: now, changeFrequency: 'weekly' as const, priority: 0.9 });
   }
 
   // Dynamic campus pages

@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { usePathname } from 'next/navigation';
 import { FaWhatsapp } from 'react-icons/fa';
 import { useLanguage } from '@/lib/i18n/LanguageContext';
+import { BECAS_CTA_LABEL } from '@/lib/becas/labels';
 
 /**
  * Persistent CTAs — pinned to the viewport.
@@ -23,13 +24,21 @@ import { useLanguage } from '@/lib/i18n/LanguageContext';
  * smoothly on the home page.
  */
 export default function FixedCTAButton() {
-  const { t } = useLanguage();
+  const { t, locale } = useLanguage();
   const pathname = usePathname();
   const [scrolledPastHero, setScrolledPastHero] = useState(false);
   const [formOnScreen, setFormOnScreen] = useState(false);
 
+  // The becas page has its own application; its status and verify pages have
+  // no form to point at, so the bar stays away there.
+  const onBecas = pathname === '/becas' || pathname.startsWith('/becas/demo/');
+  const becasSubpage = pathname.startsWith('/becas/solicitud') || pathname.startsWith('/becas/verificar') || pathname.startsWith('/becas/aviso');
+  const targetId = onBecas ? 'solicitud' : 'admissions';
+
   // #admissions only exists on the homepage — from subpages, navigate there.
-  const admissionsHref = pathname === '/' ? '#admissions' : '/#admissions';
+  const admissionsHref = onBecas ? '#solicitud' : pathname === '/' ? '#admissions' : '/#admissions';
+  const primaryLabel = onBecas ? BECAS_CTA_LABEL[locale] : t.hero.ctaPrimary;
+  const fixedLabel = onBecas ? BECAS_CTA_LABEL[locale] : t.footer.scheduleVisitFixed;
 
   useEffect(() => {
     const onScroll = () => {
@@ -41,7 +50,7 @@ export default function FixedCTAButton() {
   }, []);
 
   useEffect(() => {
-    const form = document.getElementById('admissions');
+    const form = document.getElementById(targetId);
     if (!form) return;
     const observer = new IntersectionObserver(
       ([entry]) => setFormOnScreen(entry.isIntersecting),
@@ -49,21 +58,23 @@ export default function FixedCTAButton() {
     );
     observer.observe(form);
     return () => observer.disconnect();
-  }, []);
+  }, [targetId]);
 
   const visible = scrolledPastHero && !formOnScreen;
+
+  if (becasSubpage) return null;
 
   return (
     <>
       {/* Desktop floating pill */}
       <a
         href={admissionsHref}
-        data-cta="fixed_schedule_visit"
+        data-cta={onBecas ? 'fixed_becas_apply' : 'fixed_schedule_visit'}
         className={`fixed bottom-8 right-8 bg-gold text-[#1C0F00] px-6 py-3 rounded-full shadow-gold hover:bg-gold-400 transition-all duration-300 font-bold z-40 hidden md:block ${
           visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 pointer-events-none'
         }`}
       >
-        {t.footer.scheduleVisitFixed}
+        {fixedLabel}
       </a>
 
       {/* Mobile sticky bottom bar */}
@@ -86,10 +97,10 @@ export default function FixedCTAButton() {
             </a>
             <a
               href={admissionsHref}
-              data-cta="sticky_schedule_visit"
+              data-cta={onBecas ? 'sticky_becas_apply' : 'sticky_schedule_visit'}
               className="inline-flex items-center justify-center py-3 rounded-full font-bold text-[#1C0F00] bg-gold shadow-gold"
             >
-              {t.hero.ctaPrimary}
+              {primaryLabel}
             </a>
           </div>
         </div>

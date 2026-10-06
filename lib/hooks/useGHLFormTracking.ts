@@ -1,8 +1,7 @@
 'use client';
 
 import { useEffect, useRef, type RefObject } from 'react';
-import { getFirstTouchUTMs, getLastTouchUTMs } from '@/lib/utm';
-import { fireMetaEvent } from '@/lib/meta-pixel';
+import { fireLeadConversion, toDetection, type DetectSignal, type FormKind } from '@/lib/conversions';
 
 /* ------------------------------------------------------------------ */
 /*  GHL Form Submission Tracking Hook                                  */
@@ -24,26 +23,7 @@ import { fireMetaEvent } from '@/lib/meta-pixel';
 /*                   them as one was ~30% of reported "leads".         */
 /* ------------------------------------------------------------------ */
 
-export type GHLFormKind = 'lead' | 'application';
-
-/** Which signal decided "this was a submission". Sent with every event so an
- *  over- or under-count can be pinned on one signal by reconciling GA4 against
- *  GHL's own submission log, instead of guessing. */
-type DetectSignal = 'explicit' | 'sticky' | 'modify_url' | 'height';
-
-interface Detection {
-  signal: DetectSignal;
-  /** Whole seconds between first focus inside the form and the fire. */
-  secsSinceInteract: number | null;
-}
-
-function toDetection(signal: DetectSignal, interactedAt: number | null): Detection {
-  return {
-    signal,
-    secsSinceInteract:
-      interactedAt === null ? null : Math.round((Date.now() - interactedAt) / 1000),
-  };
-}
+export type GHLFormKind = FormKind;
 
 export interface GHLFormTrackingOptions {
   /** Dedup id already handed to GHL via the iframe `event_id` param. */
@@ -61,101 +41,10 @@ const GHL_TRUSTED_ORIGINS = [
   'https://api.nwl.com.mx',
 ];
 
-// Browser-side Meta `Lead`. Off unless explicitly enabled, because it only
-// deduplicates correctly once GHL echoes our `event_id` back on its own
-// server-side Lead. Flip the env var off to fall back to server-only in one
-// redeploy if Events Manager shows Lead volume doubling.
-const BROWSER_LEAD_ENABLED = process.env.NEXT_PUBLIC_META_BROWSER_LEAD === 'true';
-
-function fireConversion(
-  formLabel: string,
-  kind: GHLFormKind,
-  detection: Detection,
-  eventId?: string,
-) {
-  console.log(`[NWL] Form submission detected — ${formLabel} (${kind}, ${detection.signal})`);
-
-  const firstTouch = getFirstTouchUTMs();
-  const lastTouch = getLastTouchUTMs();
-
-  const detectParams = {
-    detect_signal: detection.signal,
-    ...(detection.secsSinceInteract !== null && {
-      secs_since_interact: detection.secsSinceInteract,
-    }),
-  };
-
-  // 1. dataLayer for GTM / gtag — include full UTM attribution
-  window.dataLayer = window.dataLayer || [];
-  window.dataLayer.push({
-    event: kind === 'lead' ? 'nwl_form_submission' : 'nwl_application_submission',
-    form_label: formLabel,
-    ...detectParams,
-    // Last-touch attribution
-    ...(lastTouch && {
-      utm_source: lastTouch.utm_source,
-      utm_medium: lastTouch.utm_medium,
-      utm_campaign: lastTouch.utm_campaign,
-      utm_term: lastTouch.utm_term,
-      utm_content: lastTouch.utm_content,
-    }),
-    // First-touch attribution (prefixed to avoid collision)
-    ...(firstTouch && {
-      ft_utm_source: firstTouch.utm_source,
-      ft_utm_medium: firstTouch.utm_medium,
-      ft_utm_campaign: firstTouch.utm_campaign,
-    }),
-  });
-
-  const ga4Params = {
-    form_label: formLabel,
-    ...detectParams,
-    ...(lastTouch && {
-      utm_source: lastTouch.utm_source,
-      utm_medium: lastTouch.utm_medium,
-      utm_campaign: lastTouch.utm_campaign,
-    }),
-  };
-
-  // Careers / partner applications stop here: visible in GA4 under their own
-  // event name, invisible to Google Ads bidding, generate_lead and Meta Lead.
-  if (kind === 'application') {
-    if (typeof window.gtag === 'function') {
-      window.gtag('event', 'application_submit', ga4Params);
-    }
-    return;
-  }
-
-  // 2. Google Ads conversion (when gtag is installed)
-  if (typeof window.gtag === 'function') {
-    window.gtag('event', 'conversion', {
-      send_to: 'AW-17936345870/H9S4CJelm40cEI7W2-hC',
-    });
-
-    // 3. GA4 conversion events (G-0D697PBCB2 shares the same gtag).
-    // GA4's enhanced-measurement form_submit can't see inside the GHL
-    // iframe, so we fire it manually. generate_lead is GA4's recommended
-    // lead event — mark it as a Key Event in GA4 admin.
-    window.gtag('event', 'form_submit', ga4Params);
-    window.gtag('event', 'generate_lead', ga4Params);
-  }
-
-  // 4. Meta `Lead` — browser pixel AND our own server-side CAPI, sharing
-  //    `eventId` so Meta collapses them into one event.
-  //
-  // GHL's Conversions API action cannot send `event_id` (its custom mapping
-  // exposes FBCLID only), so it cannot deduplicate against us — its event is
-  // therefore renamed to `SubmitApplication` and we own `Lead` outright.
-  //
-  // Owning both halves is what makes the server copy safe: the dedup key is
-  // literally the same variable on both sides. It also buys back the visitors
-  // the browser pixel loses — an ad blocker that kills connect.facebook.net
-  // does not touch a same-origin POST to /api/meta-capi, and that route
-  // rebuilds `fbc` from the stored fbclid when the cookie is missing.
-  if (BROWSER_LEAD_ENABLED && eventId) {
-    fireMetaEvent('Lead', { form_label: formLabel }, { eventId });
-  }
-}
+// The conversion bundle itself (dataLayer, Ads, GA4, Meta Lead) lives in
+// lib/conversions.ts so the native becas application fires the exact same
+// events. This file only decides WHEN an iframe submission happened.
+const fireConversion = fireLeadConversion;
 
 export function useGHLFormTracking(
   formContainerRef: RefObject<HTMLDivElement | null>,

@@ -2278,7 +2278,9 @@ export const informacionPages: Record<string, InformacionPage> = {
  {
  question: '¿NWL Australian School ofrece becas o apoyos económicos?',
  answer:
- 'Sí. NWL cuenta con programas de apoyo económico y descuentos por hermanos. Agenda una visita para conocer las opciones en el campus de tu interés: Juriquilla, Milenio, San Miguel, Corregidora o Zibatá.',
+ process.env.NEXT_PUBLIC_BECAS_PUBLIC === 'true'
+ ? 'Sí. El Programa de Becas NWL Australian School ofrece 30% en colegiatura a familias de nuevo ingreso en Milenio, Corregidora, San Miguel de Allende y Juriquilla, en cuatro categorías: Deportiva, Académica, Cultural y Espíritu NWL. Se aplica en línea en nwl.com.mx/becas y la respuesta llega al siguiente día hábil. Además, todos los campus cuentan con descuento por hermanos.'
+ : 'Sí. NWL cuenta con programas de apoyo económico y descuentos por hermanos. Agenda una visita para conocer las opciones en el campus de tu interés: Juriquilla, Milenio, San Miguel, Corregidora o Zibatá.',
  },
  {
  question: '¿Qué es el programa Yo Soy Líder NWL?',

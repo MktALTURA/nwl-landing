@@ -322,6 +322,7 @@ export const en: Dictionary = {
       { name: 'Information', href: '/informacion' },
       { name: 'News', href: '/noticias' },
       { name: 'Benefits & Partnerships', href: '/beneficios' },
+      { name: 'Scholarship Program', href: '/becas' },
       { name: 'Parents Portal', href: '/padres' },
     ],
     programsHeading: 'Programs',
