@@ -18,19 +18,19 @@ const campusesData = [
     name: 'Milenio',
     location: 'Cerrada Panorámica, Distrito Piamonte',
     mapUrl: 'https://www.google.com/maps/search/Colegio+Newland+Milenio+Queretaro',
-    image: '/images/campus/milenio.jpg',
+    image: '/images/campus/milenio-campus-card.webp',
   },
   {
     name: 'San Miguel de Allende',
     location: 'Carr. SMA – Querétaro, San José de la Posta',
     mapUrl: 'https://www.google.com/maps/search/Colegio+Newland+San+Miguel+de+Allende',
-    image: '/images/campus/sma.jpg',
+    image: '/images/campus/san-miguel-campus-card.webp',
   },
   {
     name: 'Corregidora',
     location: 'Libramiento Sur Poniente, El Pueblito',
     mapUrl: 'https://www.google.com/maps/search/Colegio+Newland+Corregidora+Queretaro',
-    image: '/images/campus/corregidora.jpg',
+    image: '/images/campus/corregidora-campus-card.webp',
   },
   {
     name: 'Zibatá',
