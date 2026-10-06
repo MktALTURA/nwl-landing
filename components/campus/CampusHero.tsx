@@ -1,5 +1,6 @@
 'use client';
 
+import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { useLanguage } from '@/lib/i18n/LanguageContext';
@@ -11,6 +12,19 @@ interface CampusHeroProps {
 
 export default function CampusHero({ campus }: CampusHeroProps) {
   const { locale, t } = useLanguage();
+  // The clip mounts after hydration so the still image stays the LCP element.
+  // Skipped for reduced-motion and data-saver visitors, who keep the still.
+  const [videoSrc, setVideoSrc] = useState<string | null>(null);
+  const [videoReady, setVideoReady] = useState(false);
+
+  useEffect(() => {
+    const video = campus.heroVideo;
+    if (!video) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const connection = (navigator as Navigator & { connection?: { saveData?: boolean } }).connection;
+    if (connection?.saveData) return;
+    setVideoSrc(window.matchMedia('(max-width: 768px)').matches ? video.srcMobile : video.src);
+  }, [campus.heroVideo]);
 
   return (
     <section className="relative min-h-[85vh] flex items-center overflow-hidden">
@@ -29,6 +43,20 @@ export default function CampusHero({ campus }: CampusHeroProps) {
         ) : (
           <div className="absolute inset-0 bg-gradient-to-br from-navy-800 via-navy-900 to-navy-900" />
         )}
+        {videoSrc && (
+          <video
+            src={videoSrc}
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
+            aria-hidden="true"
+            tabIndex={-1}
+            onCanPlay={() => setVideoReady(true)}
+            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${videoReady ? 'opacity-100' : 'opacity-0'}`}
+          />
+        )}
         <div className="absolute inset-0 bg-gradient-to-r from-navy-900/70 via-navy-900/40 to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-t from-navy-900/50 via-transparent to-transparent" />
         {/* Subtle top strip so navbar text is readable over bright hero images */}
@@ -46,13 +74,13 @@ export default function CampusHero({ campus }: CampusHeroProps) {
           {/* Back link */}
           <a
             href="/"
-            className="inline-flex items-center text-sm text-white/70 hover:text-white transition-colors mb-8"
+            className="flex w-fit items-center text-sm text-white/70 hover:text-white transition-colors mb-8"
           >
             {t.campusDetail.backToHome}
           </a>
 
           {/* Eyebrow */}
-          <div className="inline-flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.22em] text-gold-400 mb-4">
+          <div className="flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.22em] text-gold-400 mb-4">
             <span className="w-9 h-px bg-gold-400" />
             NWL Australian School
           </div>
