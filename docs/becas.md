@@ -91,3 +91,20 @@ both repos at once. HMAC: headers `X-Becas-Timestamp` (epoch ms) and
 6. One real application on production (then delete it from the worker side). Events Manager: one `Lead`, one `CompleteRegistration`, deduped.
 7. Log the launch date in `docs/hero-headline-test-baseline-plan.md`. Top-nav link and paid campaigns wait for the baseline window to close.
 8. After a week: flip the old-URL redirects to `permanent: true`, hard-code `BECAS_PUBLIC = true`, delete `app/becas/demo`.
+
+## llms.txt section to add at launch
+
+Paste this into `public/llms.txt` above "Educational Methodology" in the launch commit (step 5). It was pulled out before the code reached production because the file is static and cannot be gated.
+
+```
+## Scholarships (Programa de Becas)
+- 30% off monthly tuition for new families at Milenio, Corregidora, San Miguel
+  de Allende and Juriquilla, in four categories: Sports, Academic (average
+  8.5+ on the latest SEP report card, from 2nd grade of Primary), Arts, and
+  NWL Spirit (a short letter of motivation; open to all grades)
+- Applies to tuition paid between the 1st and 10th of the month; not on
+  enrollment or the one-time fee; renews each school year; not transferable
+  between campuses; grows 10% per referred family that enrolls, up to 100%
+- Online application with an answer the next business day and a 14-day
+  enrollment window: https://www.nwl.com.mx/becas
+```
