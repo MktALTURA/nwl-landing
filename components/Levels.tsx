@@ -45,12 +45,13 @@ export default function Levels() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
+              whileHover={{ y: -4, transition: { duration: 0.2 } }}
               onClick={(e) => {
                 // Whole card navigates, but the inner Learn More link keeps its own behavior
                 if ((e.target as HTMLElement).closest('a')) return;
                 router.push(level.href);
               }}
-              className="group cursor-pointer bg-white rounded-2xl overflow-hidden border border-navy/10 shadow-navy-sm hover:shadow-navy-lg hover:-translate-y-1 transition-all duration-300"
+              className="group cursor-pointer bg-white rounded-2xl overflow-hidden border border-navy/10 shadow-navy-sm hover:shadow-navy-lg transition-shadow duration-300"
             >
               {/* Level color accent edge */}
               <span aria-hidden="true" className="block h-[3px] w-full" style={{ background: level.color }} />
