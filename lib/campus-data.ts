@@ -267,17 +267,14 @@ export const campuses: Record<string, CampusData> = {
       },
     ],
     director: {
-      // Hidden (hideDirector below): message and photo are still the previous
-      // director's. Replace both before unhiding.
       name: 'Mtra. Martha Aide Lobato Artega',
       title: { en: 'Campus Director', es: 'Directora General de Campus' },
       message: {
-        en: 'It\'s a pleasure to welcome you. Serving as General Director of NWL Australian School, Campus Milenio, is a challenge full of meaningful moments, and one that asks for a genuine spirit of service. It has been an honor to be part of a team so diverse and so committed to academic excellence, always at the forefront of world-class educational models like the Australian one. I am confident that the NWL system will keep improving for the benefit of its students, its teachers and every member of its administrative and operational support staff. Mexico deserves more schools that let children and young people grow fully, so they can reach their potential as people of integrity, professionalism and respect.',
-        es: 'Qué gusto saludarles. Ocupar la Dirección General del NWL Australian School, Campus Milenio, es un reto lleno de momentos significativos que exige una vocación de servicio. Para mí ha sido un honor ser parte de un equipo tan diverso y comprometido con la excelencia académica y siempre a la vanguardia de nuevos modelos educativos de clase mundial, como lo es el australiano. Estoy seguro que el sistema NWL continuará sus procesos de mejora continua a beneficio de su alumnado, sus docentes, y todo su personal de soporte administrativo y operativo. México merece más instituciones de enseñanza que permitan el desarrollo completo de infancias y adolescencias para que puedan alcanzar su potencial como personas íntegras, profesionales, y respetuosas.',
+        en: 'Hello! As the new General Director of NWL Australian School Campus Milenio, I am committed to leading a community built on excellence, transparency, and trust. Together, we are strengthening our academic model, celebrating every student\'s talent, and creating an environment where children grow with confidence and stand out in a global world. I would love to meet your family in person and share our vision. Come visit us and be part of the next chapter of Campus Milenio!',
+        es: '¡Hola! Como nueva directora general del NWL Australian School campus Milenio, me comprometo a liderar una comunidad construida sobre la excelencia, la transparencia y la confianza. Juntos estamos fortaleciendo nuestro modelo académico, celebrando el talento de cada estudiante y creando un entorno donde los niños crecen seguros de sí mismos y destacan en un mundo global. Me encantaría conocer a tu familia en persona y compartirles nuestra visión. ¡Ven a visitarnos y sé parte del nuevo capítulo de campus Milenio!',
       },
-      image: '/images/campus/milenio/milenio-director-dr-benjamin-madrigal.jpg',
+      image: '/images/campus/milenio/milenio-director-martha-lobato.jpg',
     },
-    hideDirector: true,
     address: 'Cerrada Panorámica, Distrito Piamonte, Querétaro',
     city: 'Querétaro',
     state: 'Querétaro',
