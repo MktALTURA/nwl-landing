@@ -267,7 +267,7 @@ export const campuses: Record<string, CampusData> = {
       },
     ],
     director: {
-      name: 'Mtra. Martha Aide Lobato Artega',
+      name: 'Mtra. Martha Aide Lobato Arteaga',
       title: { en: 'Campus Director', es: 'Directora General de Campus' },
       message: {
         en: 'Hello! As the new General Director of NWL Australian School Campus Milenio, I am committed to leading a community built on excellence, transparency, and trust. Together, we are strengthening our academic model, celebrating every student\'s talent, and creating an environment where children grow with confidence and stand out in a global world. I would love to meet your family in person and share our vision. Come visit us and be part of the next chapter of Campus Milenio!',
