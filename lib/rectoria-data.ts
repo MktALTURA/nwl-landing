@@ -248,7 +248,7 @@ export const areas: RectoriaArea[] = [
       // REVIEW: role-based copy, no sourced bio
       {
         id: 'martha-lobato',
-        name: 'Martha Aide Lobato Artega',
+        name: 'Martha Aide Lobato Arteaga',
         title: { en: 'Senior School · Prepa NWL', es: 'Preparatoria' },
         image: img('martha-lobato'),
         hidden: true,
