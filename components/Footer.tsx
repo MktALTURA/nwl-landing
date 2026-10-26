@@ -173,7 +173,7 @@ export default function Footer() {
               QRO 20.59° N <span className="text-gold">↔</span> SYD 33.87° S
             </p>
             <div className="flex gap-6">
-              <a href="/images/Aviso de privacidad/AVISO-PRIVACIDAD-NWL.pdf" target="_blank" rel="noopener noreferrer" className="hover:text-paper">
+              <a href="/aviso-de-privacidad" className="hover:text-paper">
                 {t.footer.privacyPolicy}
               </a>
             </div>
