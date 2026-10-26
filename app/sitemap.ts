@@ -20,6 +20,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE_URL}/trabaja-con-nosotros`, lastModified: now },
     { url: `${SITE_URL}/informacion`, lastModified: now },
     { url: `${SITE_URL}/beneficios`, lastModified: now },
+    { url: `${SITE_URL}/aviso-de-privacidad`, lastModified: now },
     { url: `${SITE_URL}/noticias`, lastModified: now },
     {
       url: `${SITE_URL}/noticias/nwl-australian-school`,
