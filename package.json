@@ -31,5 +31,13 @@
     "postcss": "^8.4.35",
     "tailwindcss": "^3.4.1",
     "typescript": "^5"
+  },
+  "overrides": {
+    "next": {
+      "postcss": "$postcss"
+    },
+    "@vercel/cli-config": {
+      "zod": "$zod"
+    }
   }
 }
